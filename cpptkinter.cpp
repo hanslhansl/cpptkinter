@@ -1,20 +1,73 @@
-// cpptkinter.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
 
-#include <iostream>
+#include "__init__.hpp"
+#include "vld.h"
 
-int main()
+using namespace hhh;
+namespace tk = cpptkinter;
+namespace _tk = tk::_cpptkinter;
+
+int main(int argc, char* argv[])
 {
-    std::cout << "Hello World!\n";
+    //tk::detail::_debug = true;
+
+    /*
+    to-do
+    - widget container 2 options
+        - shared_ptr to widget
+            - pro:
+                - nullable
+            - con:
+                - obj->func() and obj->member
+                - non-owning not possible
+                - weak reference with weak_ptr
+        - wrapper class containing shared_ptr to impl
+            - pro:
+                - obj.func() and potentially obj.member (as reference to impl)
+                - obj[idx]
+                - non-owning possible with custom dtor
+                - weak reference with custom class
+            - con:
+                - not nullable, master will be std::optional or special "empty" value
+    - watch out for ref cycles (scan all functions in __init__)
+    - allow all callables not just std::function and deduce arguments to create_command
+    - make intellisense run in msvc mode even when using clang
+    - temporarily make first arg to Tk not optional: the only errors should be in _get_default_root (and in this file obviously)
+    - _ImageSpec
+    - _FontDescription
+    */
+
+
+    try {
+
+        tk::init(argc, argv);
+
+        auto root = tk::Tk();
+
+        auto toplvl = tk::Toplevel({ root });
+
+        tk::StringVar var({}, "Hello, World!");
+
+        auto b1 = tk::Button({
+            .master = root,
+            .command = [&var]() { var.set("foo"); },
+            .textvariable = var });
+        //b1.pack();
+        b1.grid({ .column = 0, .row = 0 });
+
+        auto b2 = tk::Button({
+            .master = root,
+            .text = "other b" });
+        b2["command"] = [&]() { b2["text"] = "bar"; };
+        //b2.pack();
+        b2.grid({ .column = 1, .row = 1 });
+
+        misc::printl(tk::utility::aggregate_to_string(root.grid_columnconfigure(0)));
+        misc::printl(tk::utility::aggregate_to_string(root.grid_rowconfigure(0)));
+        root.grid_propagate();
+
+        //tk::mainloop();
+    }
+    catch (const std::exception& ex) { misc::printl(ex.what()); }
+
+    return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
