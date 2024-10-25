@@ -1,7 +1,8 @@
 #pragma once
 #include "_tkinter.hpp"
 
-
+/// @file __init__.hpp
+/// @brief Implements __init__.py.
 
 namespace cpptkinter
 {
@@ -488,7 +489,6 @@ namespace cpptkinter
     protected:
         cnfs::grid_column_row_configure_return _grid_configure(const std::string& command, const std::variant<long long, std::string>& index);
     public:
-
         /// @brief Configure column INDEX of a grid.
         cnfs::grid_column_row_configure_return grid_columnconfigure(const std::variant<long long, std::string>& index);
         /// @brief Configure column INDEX of a grid.

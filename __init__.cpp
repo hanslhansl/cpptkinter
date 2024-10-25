@@ -1,5 +1,9 @@
 #include "__init__.hpp"
 
+/// @file __init__.cpp
+/// @brief Implements __init__.py.
+
+
 void cpptkinter::detail::_print_command(std::vector<std::string> cmd)
 {
     for (auto& c : cmd)
