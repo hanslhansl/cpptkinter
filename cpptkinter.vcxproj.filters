@@ -13,5 +13,42 @@
     <ClCompile Include="cpptkinter.cpp">
       <Filter>files</Filter>
     </ClCompile>
+    <ClCompile Include="__init__.cpp">
+      <Filter>files</Filter>
+    </ClCompile>
+    <ClCompile Include="_tkinter.cpp">
+      <Filter>files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\tktcl\build\v143\dynamic\bin\zlib1.dll">
+      <Filter>dlls</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\tktcl\build\v143\dynamic\bin\libtommath.dll">
+      <Filter>dlls</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\tktcl\build\v143\dynamic\bin\tcl9tk90.dll">
+      <Filter>dlls</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="..\tktcl\build\v143\dynamic\bin\tcl90.dll">
+      <Filter>dlls</Filter>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="__init__.hpp">
+      <Filter>files</Filter>
+    </ClInclude>
+    <ClInclude Include="_tkinter.hpp">
+      <Filter>files</Filter>
+    </ClInclude>
+    <ClInclude Include="constants.hpp">
+      <Filter>files</Filter>
+    </ClInclude>
+    <ClInclude Include="global.hpp">
+      <Filter>files</Filter>
+    </ClInclude>
+    <ClInclude Include="utility.hpp">
+      <Filter>files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
