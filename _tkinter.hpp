@@ -662,6 +662,7 @@ namespace cpptkinter::_cpptkinter
 	{
 		Tcl_Interp* interp;
 		//int wantobjects; deprecated, always true
+
 		/// true if tcl_platform[threaded]
 		int threaded;
 		Tcl_ThreadId thread_id;
@@ -814,38 +815,38 @@ namespace cpptkinter::_cpptkinter
 			TRACE(self, ("((ss()O))", "proc", name, func));
 
 			auto data = new decltype(PythonCmd_ClientData{ std::function(std::forward<Func>(func)) }){ std::forward<Func>(func), self };
-			DEVIATING_IMPLEMENTATION_WARNING("in the original data 'holds a reference' to self keeping it from being destructed. i doubt that this is actually necessary")
+			DEVIATING_IMPLEMENTATION_WARNING("in the original data 'holds a reference' to self keeping it from being destructed. i doubt that this is actually necessary");
 
-				if (self->threaded && self->thread_id != Tcl_GetCurrentThread())
-				{
-					auto buffer = (CommandEvent*)attemptckalloc(sizeof(CommandEvent));
-					if (buffer == nullptr)
-						throw detail::construct_exception<TclError>("attemptckalloc failed to allocate memory");
+			if (self->threaded && self->thread_id != Tcl_GetCurrentThread())
+			{
+				auto buffer = (CommandEvent*)attemptckalloc(sizeof(CommandEvent));
+				if (buffer == nullptr)
+					throw detail::construct_exception<TclError>("attemptckalloc failed to allocate memory");
 
-					int err = 0;
-					Tcl_Condition cond = NULL;
-					auto&& ev = *std::construct_at(static_cast<CommandEvent*>(buffer));
+				int err = 0;
+				Tcl_Condition cond = NULL;
+				auto&& ev = *std::construct_at(static_cast<CommandEvent*>(buffer));
 
-					ev.proc = data->Tkapp_CommandProc;
-					ev.interp = self->interp;
-					ev.create = 1;
-					ev.name = name;
-					ev.data = data;
-					ev.status = &err;
-					ev.done = &cond;
-					Tkapp_ThreadSend(self, &ev, &cond, &command_mutex);
-					Tcl_ConditionFinalize(&cond);
+				ev.proc = data->Tkapp_CommandProc;
+				ev.interp = self->interp;
+				ev.create = 1;
+				ev.name = name;
+				ev.data = data;
+				ev.status = &err;
+				ev.done = &cond;
+				Tkapp_ThreadSend(self, &ev, &cond, &command_mutex);
+				Tcl_ConditionFinalize(&cond);
 
-					if (err)
-						throw detail::construct_exception<TclError>("can't create Tcl command");
-				}
-				else
-				{
-					ENTER_TCL;
-					if (Tcl_CreateObjCommand(Tkapp_Interp(self), name.data(), data->PythonCmd, data, data->PythonCmdDelete) == nullptr)
-						throw detail::construct_exception<TclError>("can't create Tcl command");
-					LEAVE_TCL;
-				}
+				if (err)
+					throw detail::construct_exception<TclError>("can't create Tcl command");
+			}
+			else
+			{
+				ENTER_TCL;
+				if (Tcl_CreateObjCommand(Tkapp_Interp(self), name.data(), data->PythonCmd, data, data->PythonCmdDelete) == nullptr)
+					throw detail::construct_exception<TclError>("can't create Tcl command");
+				LEAVE_TCL;
+			}
 		}
 		void deletecommand(const std::string& name);
 		void createfilehandler();
