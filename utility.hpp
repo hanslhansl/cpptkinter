@@ -153,11 +153,14 @@ namespace cpptkinter::utility
         detail::container_or_tuple_to_string_visitor visitor{};
 
         visitor.oss << "{ ";
-        reflect::for_each<T>([&visitor, &val](auto I) { visitor.oss << reflect::member_name<I, T>() << " : "; visitor(reflect::get<I>(val)); });
+        reflect::for_each<T>([&visitor, &val](auto I) { visitor.oss << rfl::fields<T>()[I].name()/*reflect::member_name<I, T>()*/ << " : "; visitor(reflect::get<I>(val)); });
         visitor.oss << "}";
         return visitor.oss.str();
     }
 
+	/// @brief A weak reference to a widget.
+    ///
+	/// Holds a weak reference to a widget of type T (e.g. Tk, Button, etc.). Basically works like std::weak_ptr.
     template<typename T>
     class weak
     {
@@ -169,6 +172,9 @@ namespace cpptkinter::utility
 
         }
 
+		/// @brief Creates a strong reference to the widget.
+        /// 
+		/// Eequivalent to std::weak_ptr::lock except that this function throws if the widget has already been destroyed.
         T lock() const
         {
             return std::shared_ptr(pimpl);

@@ -16,6 +16,7 @@
 #include "tk.h"
 
 #include <reflect/reflect.hpp>
+#include <rfl.hpp>
 
 #include "hhh/meta.hpp"
 #include "hhh/misc.hpp"

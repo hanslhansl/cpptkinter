@@ -520,6 +520,23 @@ void cpptkinter::_cpptkinter::TkappObject::globalunsetvar(const std::string& arg
 	var_invoke([&]() { UnsetVar(this, arg1, arg2, TCL_LEAVE_ERR_MSG | TCL_GLOBAL_ONLY); }, this);
 }
 
+std::vector<std::string> cpptkinter::_cpptkinter::TkappObject::splitlist(const std::string& s)
+{
+	auto self = this;
+	Tcl_Size argc{};
+	const char** argv{};
+
+	auto del = [](const char*** argv) { ckfree(*argv); };
+	std::unique_ptr<const char**, decltype(del)> ptr{ nullptr, del };
+
+	if (Tcl_SplitList(Tkapp_Interp(self), s.c_str(), &argc, &argv) == TCL_ERROR)
+		throw Tkinter_Error(self);
+
+	ptr.reset(&argv);
+
+	return std::vector<std::string>(argv, argv + argc);
+}
+
 void cpptkinter::_cpptkinter::TkappObject::deletecommand(const std::string& name)
 {
 	auto self = this;

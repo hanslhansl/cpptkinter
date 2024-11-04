@@ -52,6 +52,11 @@ void cpptkinter::mainloop(int n)
     detail::_get_default_root("call mainloop").tk->mainloop(n);
 }
 
+std::ostream& cpptkinter::operator<<(std::ostream& os, const Misc& self)
+{
+    return os << self._w;
+}
+
 void cpptkinter::Misc::impl::destroy()
 {
     // keeps this from being destroyed before this function returns
@@ -89,9 +94,8 @@ void cpptkinter::Misc::mainloop(int n)
     this->tk->mainloop(n);
 }
 
-cpptkinter::Misc cpptkinter::Misc::nametowidget(_cpptkinter::tk_window_type window)
+cpptkinter::Misc cpptkinter::Misc::nametowidget(std::string_view name)
 {
-    std::string_view name = Tcl_GetString(window.get());
     auto index = name.find('.');
     std::shared_ptr<impl> w;
 
@@ -102,7 +106,7 @@ cpptkinter::Misc cpptkinter::Misc::nametowidget(_cpptkinter::tk_window_type wind
         index = name.find('.');
     }
     else
-		w = this->pimpl;
+        w = this->pimpl;
 
     do {
         auto current_name = name.substr(0, index);
@@ -114,6 +118,11 @@ cpptkinter::Misc cpptkinter::Misc::nametowidget(_cpptkinter::tk_window_type wind
     } while ((index = name.find('.')) != std::string_view::npos);
 
     return w;
+}
+
+cpptkinter::Misc cpptkinter::Misc::nametowidget(_cpptkinter::tk_window_type window)
+{
+    return this->nametowidget(Tcl_GetString(window.get()));
 }
 
 cpptkinter::Tk cpptkinter::Misc::_root()
@@ -180,7 +189,7 @@ std::vector<std::string> cpptkinter::Misc::keys()
     return res;
 }
 
-cpptkinter::Misc::operator std::string()
+cpptkinter::Misc::operator std::string() const
 {
     return this->_w;
 }

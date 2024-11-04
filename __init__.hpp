@@ -105,7 +105,7 @@ namespace cpptkinter
         A _splitdict_to_aggregate(std::map<std::string, V>&& v, bool cut_minus = true, Conv&& conv = std::nullopt)
         {
             if (v.size() != reflect::size<A>())
-				throw detail::construct_exception<std::invalid_argument>("size mismatch");
+                throw detail::construct_exception<std::invalid_argument>(std::format("map has {} elements but '{}' has {} members", v.size(), reflect::type_name<A>(), reflect::size<A>()));
 
             if (cut_minus)
             {
@@ -124,10 +124,10 @@ namespace cpptkinter
             }
 
             auto inner_visitor = [&v, &conv]<size_t I>()->reflect::member_type<I, A> {
-				auto&& key = reflect::member_name<I, A>();
+                auto key = rfl::fields<A>()[I].name()/*reflect::member_name<I, A>()*/;
                 auto&& node = v.extract(std::string(key));
 				if (node.empty())
-					throw detail::construct_exception<std::invalid_argument>(std::format("key {} not found", key));
+                    throw detail::construct_exception<std::invalid_argument>(std::format("key '{}' not found", key));
 				auto&& mapped = node.mapped();
 
                 if constexpr (std::same_as<Conv, const std::nullopt_t&>)
@@ -147,7 +147,7 @@ namespace cpptkinter
                 return A{ inner_visitor.template operator()<I>()... };
             };
 
-            return visitor(std::make_index_sequence<reflect::size<A>()>{});
+            return visitor(std::make_index_sequence<reflect::size<A>()>{});/**/
         }
 
         /// @brief set to true to print executed Tcl / Tk commands
@@ -355,6 +355,8 @@ namespace cpptkinter
         }
     public:
         /// @brief Return the Tkinter instance of a widget identified by its Tcl name NAME.
+        Misc nametowidget(std::string_view name);
+        /// @brief Return the Tkinter instance of a widget.
         Misc nametowidget(_cpptkinter::tk_window_type window);
 
     protected:
@@ -404,7 +406,7 @@ namespace cpptkinter
         /// @param cnf A string or cnf struct.
         template<typename T>
         auto configure(T&& v)
-			requires requires { this->_configure({ "configure" }, std::declval<T>()); }
+			requires requires { this->_configure({ }, std::declval<T>()); }
         {
             return this->_configure({ "configure" }, std::forward<T>(v));
         }
@@ -448,7 +450,9 @@ namespace cpptkinter
         std::vector<std::string> keys();
 
         /// @brief Return the window path name of this widget.
-        operator std::string();
+        operator std::string() const;
+		/// @brief Outputs the window path name of this widget to an output stream.
+        friend std::ostream& operator<<(std::ostream& os, const Misc& self);
 
         /// @brief Get the status for propagation of geometry information.
         ///
@@ -645,7 +649,7 @@ namespace cpptkinter
         /// @brief Return type of Pack::pack_info().
         ///
         /// @see cnfs::pack_configure
-        struct pack_info
+        struct _PackInfo
         {
             std::string anchor;
             bool expand;
@@ -656,6 +660,47 @@ namespace cpptkinter
             long long padx;
             long long pady;
             std::string side;
+        };
+
+		/// @brief Argument for Place::place_configure().
+        struct place_configure
+        {
+            /// NSEW (or subset) - position anchor according to given direction
+            opt<detail::_Anchor> anchor;
+            /// "inside", "outside" or "ignore" - whether to take border width of master widget into account
+            opt_string bordermode;
+            /// master relative to which the widget is placed
+            opt_master in;
+            /// locate anchor of this widget at position x of master
+            opt_screenunits x;
+            /// locate anchor of this widget at position y of master
+            opt_screenunits y;
+            /// locate anchor of this widget between 0.0 and 1.0 relative to width of master (1.0 is right edge)
+            opt<int> relx;
+            /// locate anchor of this widget between 0.0 and 1.0 relative to height of master (1.0 is bottom edge)
+            opt<int> rely;
+            /// height of this widget in pixel
+            opt_screenunits height;
+            /// width of this widget in pixel
+            opt_screenunits width;
+            /// height of this widget between 0.0 and 1.0 relative to height of master (1.0 is the same height as the master)
+            opt<int> relheight;
+            /// width of this widget between 0.0 and 1.0 relative to width of master (1.0 is the same width as the master)
+            opt<int> relwidth;
+        };
+        struct _PlaceInfo
+        {
+            Misc in;
+            std::string x;
+            std::string relx;
+            std::string y;
+            std::string rely;
+            std::string width;
+            std::string relwidth;
+            std::string height;
+            std::string relheight;
+            std::string anchor;
+            std::string bordermode;
         };
 
         /// @brief Argument for Grid::grid_configure().
@@ -685,7 +730,7 @@ namespace cpptkinter
         /// @brief Return type of Grid::grid_info().
         ///
         /// @see cnfs::grid_configure
-        struct grid_info
+        struct _GridInfo
         {
             Misc in;
             long long column;
@@ -848,7 +893,10 @@ namespace cpptkinter
             using V = std::variant<long long, std::string, _cpptkinter::tk_window_type>;
             auto map = self.tk->template call<std::map<std::string, V>>(a1, a2, a3);
 
-            auto converter = [&self]<typename T2>(V && v)->T2
+            if (map.size() != reflect::size<T>())
+                throw detail::construct_exception<TclError>(std::format("got {} values but '{}' has {} members", map.size(), reflect::type_name<T>(), reflect::size<T>()));
+
+            auto converter = [&self]<typename T2>(V&& v)->T2
             {
                 if constexpr (std::same_as<T2, Misc>)
                     return self.nametowidget(std::get<_cpptkinter::tk_window_type>(std::move(v)));
@@ -1040,8 +1088,6 @@ namespace cpptkinter
     struct Pack
     {
         /// @brief %Pack a widget in the parent widget.
-        /// 
-        /// @param cnf a cnfs::pack_configure struct.
         template<cnfs::is_cnf CNF = cnfs::pack_configure>
         void pack_configure(this auto&& self, CNF&& cnf = {})
         {
@@ -1061,9 +1107,9 @@ namespace cpptkinter
         }
 
         /// Return information about the packing options for this widget.
-        cnfs::pack_info pack_info(this auto&& self)
+        cnfs::_PackInfo pack_info(this auto&& self)
         {
-            return detail::pack_grid_info<cnfs::pack_info>(self, "pack", "info", self._w);
+            return detail::pack_grid_info<cnfs::_PackInfo>(self, "pack", "info", self._w);
         }
     };
 
@@ -1072,12 +1118,44 @@ namespace cpptkinter
     /// Base class to use the methods place_* in every widget.
     struct Place
     {
-        void place_configure();
-        void place();
+        /// @brief %Place a widget in the parent widget.
+        template<cnfs::is_cnf CNF = cnfs::place_configure>
+        void place_configure(this auto&& self, CNF&& cnf = {})
+        {
+            self.tk->call("place", "configure", self._w, self._options(std::forward<CNF>(cnf)));
+        }
+        /// @copydoc place_configure
+        template<cnfs::is_cnf CNF = cnfs::place_configure>
+        void place(this auto&& self, CNF&& cnf = {})
+        {
+			self.place_configure(std::forward<CNF>(cnf));
+        }
 
-        void place_forget();
+        // @brief Unmap this widget.
+        void place_forget(this auto&& self)
+        {
+			self.tk->call("place", "forget", self._w);
+        }
 
-        void place_info();
+        cnfs::_PlaceInfo place_info(this auto&& self)
+        {
+            auto str = self.tk->template call<std::string>("place", "info", self._w);
+            std::vector<std::string> vec = self.tk->splitlist(str);
+            std::map<std::string, std::string> map(std::from_range, std::views::zip(
+                vec | std::views::stride(2),
+                vec | std::views::drop(1) | std::views::stride(2)
+            ));
+
+            auto converter = [&self]<typename T2>(std::string&& v)->T2
+            {
+                if constexpr (std::same_as<T2, Misc>)
+                    return self.Misc::nametowidget(std::move(v));
+                else
+                    return std::move(v);
+            };
+
+            return detail::_splitdict_to_aggregate<cnfs::_PlaceInfo>(std::move(map), true, converter);
+        }
     };
 
     /// @brief Geometry manager Grid.
@@ -1086,8 +1164,6 @@ namespace cpptkinter
     struct Grid
     {
         /// @brief Position a widget in the parent widget in a grid.
-        /// 
-        /// @param cnf a cnfs::grid_configure struct.
         template<cnfs::is_cnf CNF = cnfs::grid_configure>
         void grid_configure(this auto&& self, CNF&& cnf = {})
         {
@@ -1113,9 +1189,9 @@ namespace cpptkinter
         }
 
         /// @brief Return information about the options for positioning this widget in a grid.
-        cnfs::grid_info grid_info(this auto&& self)
+        cnfs::_GridInfo grid_info(this auto&& self)
         {
-            return detail::pack_grid_info<cnfs::grid_info>(self, "grid", "info", self._w);
+            return detail::pack_grid_info<cnfs::_GridInfo>(self, "grid", "info", self._w);
         }
     };
 

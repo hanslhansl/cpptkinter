@@ -28,20 +28,17 @@ int main(int argc, char* argv[])
                 - weak reference with custom class
             - con:
                 - not nullable, master will be std::optional or special "empty" value
-    - watch out for ref cycles (scan all functions in __init__)
-    - allow all callables not just std::function and deduce arguments to create_command
     - make intellisense run in msvc mode even when using clang
-    - temporarily make first arg to Tk not optional: the only errors should be in _get_default_root (and in this file obviously)
-    - _ImageSpec
-    - _FontDescription
     */
 
+	tk::utility::weak<tk::Tk> wroot;
 
     try {
 
         tk::init(argc, argv);
 
         auto root = tk::Tk();
+		wroot = root;
 
         auto toplvl = tk::Toplevel({ root });
 
@@ -51,23 +48,20 @@ int main(int argc, char* argv[])
             .master = root,
             .command = [&var]() { var.set("foo"); },
             .textvariable = var });
-        //b1.pack();
         b1.grid({ .column = 0, .row = 0 });
 
         auto b2 = tk::Button({
             .master = root,
             .text = "other b" });
         b2["command"] = [&]() { b2["text"] = "bar"; };
-        //b2.pack();
         b2.grid({ .column = 1, .row = 1 });
+        b2.grid_info();
 
-        misc::printl(tk::utility::aggregate_to_string(root.grid_columnconfigure(0)));
-        misc::printl(tk::utility::aggregate_to_string(root.grid_rowconfigure(0)));
-        root.grid_propagate();
 
-        //tk::mainloop();
-    }
-    catch (const std::exception& ex) { misc::printl(ex.what()); }
+        tk::mainloop();
+
+    } catch (const std::exception& ex) { misc::printl(typeid(ex).name()); misc::printl(ex.what()); }
+
 
     return 0;
 }

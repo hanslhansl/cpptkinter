@@ -149,7 +149,7 @@ namespace cpptkinter::_cpptkinter::detail
 	template<typename T>
 	T construct_exception(const std::string& str, const std::stacktrace& tr = std::stacktrace::current())
 	{
-		return T(str + " at:\n" + std::to_string(tr));
+		return T("'" + str + "' at:\n" + std::to_string(tr));
 	}
 #endif // NDEBUG
 
@@ -800,7 +800,7 @@ namespace cpptkinter::_cpptkinter
 		void exprlong();
 		void exprdouble();
 		void exprboolean();
-		void splitlist();
+		std::vector<std::string> splitlist(const std::string& s);
 		template<detail::createcommand_concept Func>
 		void createcommand(const std::string& name, Func&& func)
 		{
