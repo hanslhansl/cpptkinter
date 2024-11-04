@@ -14,7 +14,7 @@ It does **not** apply to the naming of code entities. E.g. `tkinter.Tk` and `cpp
 The goal is to provide a library which mirrors _tkinter_ as closely as possible. This requires a plethora of meta programming shenanigans which makes this project a rather academic approach to gui programming.
 
 Nevertheless, it is definitely usable in real life code. See [examples](#examples) and [more elaborate examples](examples).
-## synopsis
+## design decisions
 Python provides syntax and language features which can't easily be translated to c++. This section explains how _cpptkinter_ tries to implement them.
 ### keyword arguments
 _Tkinter_ makes heavy usage of python's keyword argument syntax
@@ -44,6 +44,15 @@ func({ 2, "bla" }); // some arguments without keywords
 ```
 _Cpptkinter_ makes use of this technique for widget constructors and many widget methods. The _cnf_ structs have the same name as the function they are meant for and are located in namespace `cpptkinter::cnfs`.
 ### reference counting
+Python objects are reference counted: They get destroyed once no reference remains. Reference cycles are (in theory) broken by the garbage collector.
+
+In c++ reference counting is usually implemented using [std::shared_ptr](https://en.cppreference.com/w/cpp/memory/shared_ptr). This solution has three major drawbacks:
+- shared_ptr doesn't provide an algorithm for breaking reference cycles. If e.g. a master has a reference to its slave and vice versa these two objects will never be destructed because their reference count never reaches 0.
+- A shared_ptr can point to null. Dereferencing such an empty shared_ptr invokes undefined behaviour.
+- The contained object is accessed using the pointer syntax `ptr->member` instead of `obj.member`.
+
+_Cpptkinter_ solves problem 2 and 3 with wrapper classes. These classes are essentially a combination of the [pimpl idiom](https://en.cppreference.com/w/cpp/language/pimpl) and `std::shared_ptr`. They hold an owning reference to an implementation struct which contains the member objects (and potentially virtual functions). Member functions are implemented inside the wrapper class instead of inside the implementation class (solving problem )
 ### converting objects from c++ to tcl
 ### converting objects from tcl to c++
+## thread safety
 ## examples
