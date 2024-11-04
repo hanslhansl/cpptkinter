@@ -192,6 +192,7 @@ namespace cpptkinter
         template<typename T>
         using opt = std::optional<T>;
         using opt_string = opt<std::string>;
+		using opt_bool = opt<bool>;
         using opt_screenunits = opt<detail::_ScreenUnits>;
         using opt_pad_type = opt<pad_type>;
 
@@ -676,17 +677,17 @@ namespace cpptkinter
             /// locate anchor of this widget at position y of master
             opt_screenunits y;
             /// locate anchor of this widget between 0.0 and 1.0 relative to width of master (1.0 is right edge)
-            opt<int> relx;
+            opt<std::variant<std::string, double>> relx;
             /// locate anchor of this widget between 0.0 and 1.0 relative to height of master (1.0 is bottom edge)
-            opt<int> rely;
+            opt<std::variant<std::string, double>> rely;
             /// height of this widget in pixel
             opt_screenunits height;
             /// width of this widget in pixel
             opt_screenunits width;
             /// height of this widget between 0.0 and 1.0 relative to height of master (1.0 is the same height as the master)
-            opt<int> relheight;
+            opt<std::variant<std::string, double>> relheight;
             /// width of this widget between 0.0 and 1.0 relative to width of master (1.0 is the same width as the master)
-            opt<int> relwidth;
+            opt<std::variant<std::string, double>> relwidth;
         };
         struct _PlaceInfo
         {
@@ -755,7 +756,7 @@ namespace cpptkinter
             opt_screenunits borderwidth;
             opt_string class_;
             opt<std::variant<std::string, Misc>> colormap;
-            opt<bool> container;
+            opt_bool container;
             opt<detail::_Cursor> cursor;
             opt_screenunits height;
             opt_string highlightbackground;
@@ -810,11 +811,37 @@ namespace cpptkinter
             opt<size_t> repeatinterval;
             opt_string state;
             opt<detail::_TakeFocusValue> takefocus;
-            opt<std::variant<float, std::string>> text;
+            opt<std::variant<double, std::string>> text;
             opt_string textvariable;
             opt<size_t> underline;
             opt_screenunits width;
             opt_screenunits wraplength;
+        };
+
+		/// @brief Argument for cpptkinter::Frame().
+        struct Frame
+        {
+            opt_master master;
+            opt_string background;
+            opt_screenunits bd;
+            opt_string bg;
+            opt_screenunits border;
+            opt_screenunits borderwidth;
+            opt_string class_;
+            opt<std::variant<std::string, Misc>> colormap;
+            opt_bool container;
+            opt<detail::_Cursor> cursor;
+            opt_screenunits height;
+            opt_string highlightbackground;
+            opt_string highlightcolor;
+            opt_screenunits highlightthickness;
+            opt_string name;
+            opt_screenunits padx;
+            opt_screenunits pady;
+            opt<detail::_Relief> relief;
+            opt<detail::_TakeFocusValue> takefocus;
+            opt<std::variant<std::string, std::tuple<std::string, long long>>> visual;
+            opt_screenunits width;
         };
     }
 
@@ -1297,8 +1324,8 @@ namespace cpptkinter
         template<cnfs::is_cnf CNF>
         static std::pair<detail::Tcl_Obj_vector_raii, std::set<std::string>> make_extra_and_ignore_fields(CNF&& cnf)
         {
-            detail::Tcl_Obj_vector_raii extra{};
-            std::set<std::string> ignore_fields{};
+            std::pair<detail::Tcl_Obj_vector_raii, std::set<std::string>> ret{};
+            auto& [extra, ignore_fields] = ret;
 
             reflect::for_each<CNF>([&extra, &ignore_fields, &cnf](auto I) {
                 constexpr std::string_view wmkey = reflect::member_name<I, CNF>();
@@ -1325,7 +1352,7 @@ namespace cpptkinter
                 }
                 });
 
-			return { std::move(extra), std::move(ignore_fields) };
+			return ret;
         }
 
         template<cnfs::is_cnf CNF>
@@ -1406,4 +1433,98 @@ namespace cpptkinter
             return this->Button::template invoke<T>();
         }
     };
+
+    /// @brief %Canvas widget to display graphical elements like lines or text.
+    struct Canvas;
+
+    /// @brief %Checkbutton widget which is either in on- or off-state.
+    struct Checkbutton;
+
+    /// @brief %Entry widget which allows displaying simple text.
+    struct Entry;
+
+	/// @brief %Frame widget which may contain other widgets and can have a 3D border.
+    class Frame : public Widget
+    {
+        template<cnfs::is_cnf CNF>
+        static std::pair<detail::Tcl_Obj_vector_raii, std::set<std::string>> make_extra_and_ignore_fields(CNF&& cnf)
+        {
+            std::pair<detail::Tcl_Obj_vector_raii, std::set<std::string>> ret{};
+			auto& [extra, ignore_fields] = ret;
+
+            if constexpr (requires { cnf.class_; })
+            {
+                utility::invoke_or_and_then([&extra , &ignore_fields]<typename T>(T && v) {
+                    extra.emplace_back(_cpptkinter::AsObj("-class"));
+                    extra.emplace_back(_cpptkinter::AsObj(std::forward<T>(v)));
+                    ignore_fields.insert("class_");
+                }, cnf.class_);
+            }
+
+            return ret;
+        }
+
+        template<cnfs::is_cnf CNF>
+        Frame(CNF&& cnf, std::pair<detail::Tcl_Obj_vector_raii, std::set<std::string>>&& extra_and_ignore_fields) :
+            Widget("frame", std::forward<CNF>(cnf), std::move(extra_and_ignore_fields.first), std::move(extra_and_ignore_fields.second))
+        {
+            
+        }
+
+    public:
+        /// @brief Construct a frame widget.
+        template<cnfs::is_cnf CNF = cnfs::Frame>
+		Frame(CNF&& cnf = {}) : Frame(std::forward<CNF>(cnf), make_extra_and_ignore_fields(std::forward<CNF>(cnf)))
+		{
+
+		}
+    };
+
+    /// @brief %Label widget which can display text and bitmaps.
+    struct Label;
+
+    /// @brief %Listbox widget which can display a list of strings.
+    struct Listbox;
+
+    /// @brief %Menu widget which allows displaying menu bars, pull-down menus and pop-up menus.
+    struct Menu;
+
+    /// @brief %Menubutton widget, obsolete since Tk8.0.
+    struct Menubutton;
+
+    /// @brief %Message widget to display multiline text. Obsolete since Label does it too.
+    struct Message;
+
+    /// @brief %Radiobutton widget which shows only one of several buttons in on-state.
+    struct Radiobutton;
+
+    /// @brief %Scale widget which can display a numerical scale.
+    struct Scale;
+
+    /// @brief %Scrollbar widget which displays a slider at a certain position.
+    struct Scrollbar;
+
+    /// @brief %Text widget which can display text in various forms.
+    struct Text;
+
+    /// @brief %OptionMenu which allows the user to select a value from a menu.
+    struct OptionMenu;
+
+    /// @brief %Base class for images.
+    struct Image;
+
+    /// @brief %Widget which can display images in PGM, PPM, GIF, PNG format.
+    struct PhotoImage;
+
+    /// @brief %Widget which can display images in XBM format.
+    struct BitmapImage;
+
+    /// @brief %Spinbox widget.
+    struct Spinbox;
+
+    /// @brief %Labelframe widget.
+    struct LabelFrame;
+
+    /// @brief %Panedwindow widget.
+    struct PanedWindow;
 }

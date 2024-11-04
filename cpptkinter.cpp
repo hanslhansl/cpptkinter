@@ -50,11 +50,12 @@ int main(int argc, char* argv[])
             .textvariable = var });
         b1.grid({ .column = 0, .row = 0 });
 
-        auto b2 = tk::Button({
-            .master = root,
-            .text = "other b" });
+		auto frame = tk::Frame({ .master = root, .bg = "red", .padx = 5, });
+		frame.grid({ .column = 1, .row = 1 });
+
+        auto b2 = tk::Button({ .master = frame, .text = "other b" });
         b2["command"] = [&]() { b2["text"] = "bar"; };
-        b2.grid({ .column = 1, .row = 1 });
+        b2.grid();
         b2.grid_info();
 
 
