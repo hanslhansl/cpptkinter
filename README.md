@@ -17,6 +17,7 @@ Nevertheless, it is definitely usable in real life code. See [examples](#example
 ## synopsis
 Python provides syntax and language features which can't easily be translated to C++. This section explains how _Cpptkinter_ tries to implement them.
 ### default and keyword arguments
+_Tkinter_ makes heavy usage of `def func(**kwargs):`
 ### reference counting
 ### dynamic typing
 ## examples
