@@ -1,5 +1,5 @@
 # cpptkinter
-Have you ever wanted to use python's tkinter in c++? No? Well, here you go anyways.
+Have you ever wanted to use _python's_ tkinter in _c++_? No? Well, here you go anyways.
 ## terminology
 To prevent misunderstandings the following terms are defined as
 - _Tcl_: the [scripting language](https://en.wikipedia.org/wiki/Tcl)
@@ -9,15 +9,15 @@ To prevent misunderstandings the following terms are defined as
 
 The terminology applies to this file, the documentation and source code annotations.
 
-It does **not** apply to the naming of code entities. E.g. `tkinter.Tk` and `cpptkinter::Tk` are classes that represent a root window in python and c++ respectively. They don't refer to the gui toolkit _tk_ itself.
+It does **not** apply to the naming of code entities. E.g. `tkinter.Tk` and `cpptkinter::Tk` are classes that represent a root window in _python_ and _c++_ respectively. They don't refer to the gui toolkit _tk_ itself.
 ## philosophy
 The goal is to provide a library which mirrors _tkinter_ as closely as possible. This requires a plethora of meta programming shenanigans which makes this project a rather academic approach to gui programming.
 
 Nevertheless, it is definitely usable in real life code. See [examples](#examples) and [more elaborate examples](examples).
 ## design decisions
-Python provides syntax and language features which can't easily be translated to c++. This section explains how _cpptkinter_ tries to implement them.
+_Python_ provides syntax and language features which can't easily be translated to _c++_. This section explains how _cpptkinter_ tries to implement them.
 ### keyword arguments
-_Tkinter_ makes heavy usage of python's keyword argument syntax
+_Tkinter_ makes heavy usage of _python's_ keyword argument syntax
 ```Python
 def func(**kwargs):
     pass
@@ -28,7 +28,7 @@ This feature has two possible effects:
 - Reordering of arguments in arbitrary order: `func(bar = 3.14, foo = 2, baz = "bla")`.
 - Omitting arguments: `func(foo = 2, baz = "bla")`.
 
-Both are useful when working with _tkinter_. The first effect isn't (feasibly) reproducible in c++. The second effect is implementable using c++20 [designated initializers](https://en.cppreference.com/w/cpp/language/aggregate_initialization#Designated_initializers):
+Both are useful when working with _tkinter_. The first effect isn't (feasibly) reproducible in _c++_. The second effect is implementable using _c++20_ [designated initializers](https://en.cppreference.com/w/cpp/language/aggregate_initialization#Designated_initializers):
 ```C++
 struct func_struct { // cnf struct
     std::optional<int> foo;
@@ -44,17 +44,19 @@ func({ 2, "bla" }); // some arguments without keywords
 ```
 _Cpptkinter_ makes use of this technique for widget constructors and many widget methods. The _cnf_ structs have the same name as the function they are meant for and are located in namespace `cpptkinter::cnfs`.
 ### reference counting
-Python objects are reference counted: They get destroyed once no reference remains. Reference cycles are (in theory) broken by the garbage collector.
+_Python_ objects are reference counted: They get destroyed once no reference remains. Reference cycles are (in theory) broken by the garbage collector.
 
-In c++ reference counting is usually done using [std::shared_ptr](https://en.cppreference.com/w/cpp/memory/shared_ptr). This solution has three major drawbacks:
+In _c++_ reference counting is usually done using [std::shared_ptr](https://en.cppreference.com/w/cpp/memory/shared_ptr). This solution has three major drawbacks:
 - The contained object is accessed using the pointer syntax `ptr->member` instead of `obj.member`.
 - A shared_ptr can point to null. Dereferencing such an empty shared_ptr invokes undefined behaviour.
 - shared_ptr doesn't provide an algorithm for breaking reference cycles. If e.g. a master has a reference to its slave and vice versa these two objects will never be destructed because their reference count never reaches 0.
 
 _Cpptkinter_ solves problem 1 and 2 with wrapper classes. These classes are essentially a combination of the [pimpl idiom](https://en.cppreference.com/w/cpp/language/pimpl) and `std::shared_ptr`. They hold an owning reference to an implementation struct which contains the members (and potentially virtual member functions). The member functions are implemented inside the wrapper class instead of inside the implementation struct (solving problem 1). Because the shared_ptr isn't exposed to the outside the library can guarantee that no reference ever points to null (solving problem 2).
 
-Problem 3 isn't solved as of yet. See [this issue](/../../issues/1) for further information. `cpptkinter::utility::weak` provides a weak reference mechanism which can be used to break reference cycles.
-### converting objects from c++ to tcl
-### converting objects from tcl to c++
+Problem 3 isn't solved as of yet. See [this issue](/../../issues/1) for further information. `cpptkinter::utility::weak` provides a weak reference mechanism much like `std::weak_ptr` which can be used to break reference cycles.
+### converting objects from and to _tcl_
+Some _cpptkinter_ functions take arguments which are passed on to _tcl_ and some return values from _tcl_ back to _c++_. The conversion from and to _tcl_ is done by `cpptkinter::_cpptkinter::FromObj()` and `cpptkinter::_cpptkinter::AsObj()` respectively. To allow for maximum flexibility these functions are heavily templated and guarded by concepts.
+
+`cpptkinter::_cpptkinter::detail::FromObjImpl()` and `cpptkinter::_cpptkinter::detail::AsObjImpl()` can be overloaded to add support for additional types. However, if added overloads change the outcome of argument-dependent lookup at existing call sites the library might break.
 ## thread safety
 ## examples
