@@ -188,6 +188,7 @@ namespace cpptkinter
         concept is_cnf = is_cnf_trait<T>::value;
 
         using pad_type = utility::extend_variants<detail::_ScreenUnits, std::array<detail::_ScreenUnits, 2>>::type;
+        using visual_type = std::variant<std::string, std::tuple<std::string, long long>>;
 
         template<typename T>
         using opt = std::optional<T>;
@@ -195,6 +196,7 @@ namespace cpptkinter
 		using opt_bool = opt<bool>;
         using opt_screenunits = opt<detail::_ScreenUnits>;
         using opt_pad_type = opt<pad_type>;
+        using opt_visual_type = opt<visual_type>;
 
         /// @brief Argument for Misc::grid_columnconfigure() and Misc::grid_rowconfigure().
         struct grid_column_row_configure
@@ -770,7 +772,7 @@ namespace cpptkinter
             opt_string screen;
             opt<detail::_TakeFocusValue> takefocus;
             opt<size_t> use;
-            opt<std::variant<std::string, std::tuple<std::string, long long>>> visual;
+            opt_visual_type visual;
             opt_screenunits width;
         };
 
@@ -840,7 +842,77 @@ namespace cpptkinter
             opt_screenunits pady;
             opt<detail::_Relief> relief;
             opt<detail::_TakeFocusValue> takefocus;
-            opt<std::variant<std::string, std::tuple<std::string, long long>>> visual;
+            opt_visual_type visual;
+            opt_screenunits width;
+        };
+
+		/// @brief Argument for cpptkinter::Label().
+        struct Label
+        {
+            opt_master master;
+            opt_string activebackground;
+            opt_string activeforeground;
+            opt<detail::_Anchor> anchor;
+            opt_string background;
+            opt_screenunits bd;
+            opt_string bg;
+            opt_string bitmap;
+            opt_screenunits border;
+            opt_screenunits borderwidth;
+            opt<detail::_Compound> compound;
+            opt<detail::_Cursor> cursor;
+            opt_string disabledforeground;
+            opt_string fg;
+            opt<detail::_FontDescription> font;
+            opt_string foreground;
+            opt_screenunits height;
+            opt_string highlightbackground;
+            opt_string highlightcolor;
+            opt_screenunits highlightthickness;
+            opt<detail::_ImageSpec> image;
+            opt_string justify;
+            opt_string name;
+            opt_screenunits padx;
+            opt_screenunits pady;
+            opt<detail::_Relief> relief;
+            opt_string state;
+            opt<detail::_TakeFocusValue> takefocus;
+            opt<std::variant<double, std::string>> text;
+            opt_string textvariable;
+            opt<size_t> underline;
+            opt_screenunits width;
+            opt_screenunits wraplength;
+        };
+
+		/// @brief Argument for cpptkinter::LabelFrame().
+        struct LabelFrame
+        {
+            opt_master master;
+            opt_string background;
+            opt_screenunits bd;
+            opt_string bg;
+            opt_screenunits border;
+            opt_screenunits borderwidth;
+            opt_string class_;
+            opt<std::variant<std::string, Misc>> colormap;
+            opt_bool container;
+            opt<detail::_Cursor> cursor;
+            opt_string fg;
+            opt<detail::_FontDescription> font;
+            opt_string foreground;
+            opt_screenunits height;
+            opt_string highlightbackground;
+            opt_string highlightcolor;
+            opt_screenunits highlightthickness;
+            opt_string labelanchor;
+            opt_master labelwidget;
+            opt_string name;
+            opt_screenunits padx;
+            opt_screenunits pady;
+            opt<detail::_Relief> relief;
+            opt<detail::_TakeFocusValue> takefocus;
+            opt<std::variant<double, std::string>> text;
+            opt_visual_type visual;
             opt_screenunits width;
         };
     }
@@ -1481,7 +1553,15 @@ namespace cpptkinter
     };
 
     /// @brief %Label widget which can display text and bitmaps.
-    struct Label;
+    struct Label : Widget
+    {
+        /// @brief Construct a label widget.
+        template<cnfs::is_cnf CNF = cnfs::Label>
+        Label(CNF&& cnf = {}) : Widget("label", std::forward<CNF>(cnf))
+        {
+
+        }
+    };
 
     /// @brief %Listbox widget which can display a list of strings.
     struct Listbox;
@@ -1493,7 +1573,7 @@ namespace cpptkinter
     struct Menubutton;
 
     /// @brief %Message widget to display multiline text. Obsolete since Label does it too.
-    struct Message;
+    struct [[deprecated("according to tkinter")]] Message;
 
     /// @brief %Radiobutton widget which shows only one of several buttons in on-state.
     struct Radiobutton;
@@ -1523,7 +1603,15 @@ namespace cpptkinter
     struct Spinbox;
 
     /// @brief %Labelframe widget.
-    struct LabelFrame;
+    struct LabelFrame : Widget
+    {
+        /// @brief Construct a labelframe widget
+        template<cnfs::is_cnf CNF = cnfs::LabelFrame>
+        LabelFrame(CNF&& cnf = {}) : Widget("labelframe", std::forward<CNF>(cnf))
+        {
+
+        }
+    };
 
     /// @brief %Panedwindow widget.
     struct PanedWindow;
