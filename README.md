@@ -61,9 +61,9 @@ Some _cpptkinter_ functions take arguments which are passed on to _tcl_ and some
 ## thread safety
 In _tcl_ execution revolves around _interpreters_. _Tkinter_ adheres to this this structure and so does _cpptkinter_. In _cpptkinter_ a _tcl_ interpreter is represented by an instance of `cpptkinter::Tk`. Every instance has its own _tcl_ interpreter.
 
-If _tcl_ was compiled with threads disabled _cpptkinter_ isn't thread-safe. Only the thread that created a _tcl_ interpreter can use that interpreter. Only the thread that created a `cpptkinter::Tk` can use it or any of its children.
+If _tcl_ was compiled with threads disabled _cpptkinter_ isn't thread-safe. Only the thread that created a _tcl_ interpreter can use that interpreter. Only the thread that created a particular instance of `cpptkinter::Tk` can use it or any of its children.
 
-If the _tcl_ interpreter was compiled with threads enabled _cpptkinter_ is somewhat thread-safe. Instances of `cpptkinter::Tk` and its children can be used across threads. This isn't actual multithreading though as calls into _tcl_ are serialized and executed on the thread which created the _tcl_ interpreter. They are not executed in parallel. The thread safety only applies to _tcl_. Data races inside the _c++_ part of the library may still occur if e.g. two threads modify a widget's member variable simultaniously.
+If the _tcl_ interpreter was compiled with threads enabled _cpptkinter_ is somewhat thread-safe. An instance of `cpptkinter::Tk` and its children can be used across multiple threads. This isn't actual multithreading though as calls into _tcl_ are serialized and executed on the thread which created the _tcl_ interpreter. They are not executed in parallel. The thread safety only applies to _tcl_. Data races inside the _c++_ part of the library may still occur if e.g. two threads modify a widget's member variable simultaniously.
 ## examples
 
 
