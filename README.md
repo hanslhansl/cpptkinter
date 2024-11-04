@@ -7,7 +7,7 @@ To prevent misunderstandings the following terms are defined as
 - _Tkinter_: the [Python binding](https://en.wikipedia.org/wiki/Tkinter) for _Tk_
 - _Cpptkinter_: [this library](https://github.com/hanslhansl/cpptkinter)
 
-The terminology applies to the documentation and source code annotations.
+The terminology applies to this file, the documentation and source code annotations.
 
 It does **not** apply to the naming of code entities. E.g. `tkinter.Tk` and `cpptkinter::Tk` are classes that represent a root window in Python and C++ respectively. They don't refer to the gui toolkit _Tk_ itself.
 ## philosophy
