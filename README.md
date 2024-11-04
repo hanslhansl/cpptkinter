@@ -16,8 +16,11 @@ The goal is to provide a library which mirrors _Tkinter_ as closely as possible.
 Nevertheless, it is definitely usable in real life code. See [examples](#examples) and [more elaborate examples](examples).
 ## synopsis
 Python provides syntax and language features which can't easily be translated to C++. This section explains how _Cpptkinter_ tries to implement them.
-### default and keyword arguments
-_Tkinter_ makes heavy usage of `def func(**kwargs):`
+### keyword arguments
+_Tkinter_ makes heavy usage of Python's keyword argument syntax
+```Python
+def func(**kwargs):
+```
 ### reference counting
 ### dynamic typing
 ## examples
