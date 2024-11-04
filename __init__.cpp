@@ -529,3 +529,28 @@ void cpptkinter::Button::flash()
 {
     this->tk->call(this->_w, "flash");
 }
+
+double cpptkinter::Scale::get()
+{
+    return this->tk->call<double>(this->_w, "get");
+}
+
+double cpptkinter::Scale::set(double value)
+{
+    return this->tk->call<double>(this->_w, "set", value);
+}
+
+std::array<long long, 2> cpptkinter::Scale::coords()
+{
+	return this->tk->call<std::array<long long, 2>>(this->_w, "coords");
+}
+
+std::array<long long, 2> cpptkinter::Scale::coords(double value)
+{
+    return this->tk->call<std::array<long long, 2>>(this->_w, "coords", value);
+}
+
+std::string cpptkinter::Scale::identify(detail::_ScreenUnits x, detail::_ScreenUnits y)
+{
+    return this->tk->call<std::string>(this->_w, "identify", x, y);
+}

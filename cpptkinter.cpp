@@ -56,7 +56,9 @@ int main(int argc, char* argv[])
         auto b2 = tk::Button({ .master = frame, .text = "other b" });
         b2["command"] = [&]() { b2["text"] = "bar"; };
         b2.grid();
-        b2.grid_info();
+
+        auto scale = tk::Scale({ .master = frame});
+        scale.grid();
 
 
         tk::mainloop();
