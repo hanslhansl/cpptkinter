@@ -1,5 +1,5 @@
 # cpptkinter
-Have you ever wanted something like Python's Tkinter in C++? No? Well, here you go anyways.
+Have you ever wanted to use Python's Tkinter in C++? No? Well, here you go anyways.
 ## terminology
 To prevent misunderstandings the following terms are defined as
 - _Tcl_: the [scripting language](https://en.wikipedia.org/wiki/Tcl)
