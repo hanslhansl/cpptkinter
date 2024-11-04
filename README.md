@@ -46,12 +46,14 @@ _Cpptkinter_ makes use of this technique for widget constructors and many widget
 ### reference counting
 Python objects are reference counted: They get destroyed once no reference remains. Reference cycles are (in theory) broken by the garbage collector.
 
-In c++ reference counting is usually implemented using [std::shared_ptr](https://en.cppreference.com/w/cpp/memory/shared_ptr). This solution has three major drawbacks:
+In c++ reference counting is usually done using [std::shared_ptr](https://en.cppreference.com/w/cpp/memory/shared_ptr). This solution has three major drawbacks:
 - shared_ptr doesn't provide an algorithm for breaking reference cycles. If e.g. a master has a reference to its slave and vice versa these two objects will never be destructed because their reference count never reaches 0.
 - A shared_ptr can point to null. Dereferencing such an empty shared_ptr invokes undefined behaviour.
 - The contained object is accessed using the pointer syntax `ptr->member` instead of `obj.member`.
 
-_Cpptkinter_ solves problem 2 and 3 with wrapper classes. These classes are essentially a combination of the [pimpl idiom](https://en.cppreference.com/w/cpp/language/pimpl) and `std::shared_ptr`. They hold an owning reference to an implementation struct which contains the member objects (and potentially virtual functions). Member functions are implemented inside the wrapper class instead of inside the implementation class (solving problem )
+_Cpptkinter_ solves problem 2 and 3 with wrapper classes. These classes are essentially a combination of the [pimpl idiom](https://en.cppreference.com/w/cpp/language/pimpl) and `std::shared_ptr`. They hold an owning reference to an implementation struct which contains the members (and potentially virtual member functions). The member functions are implemented inside the wrapper class instead of inside the implementation struct (solving problem 3). Because the shared_ptr isn't exposed to the outside the library can guarantee that no reference ever points to null (solving problem 2).
+
+Problem 1 isn't solved as of yet. See [this issue](/../../issues/1) for further information.
 ### converting objects from c++ to tcl
 ### converting objects from tcl to c++
 ## thread safety
