@@ -231,6 +231,7 @@ namespace cpptkinter
 
     void mainloop(int n = 0);
 
+    /// @brief Provides functions for the communication with the window manager.
     class Wm
     {
     public:
