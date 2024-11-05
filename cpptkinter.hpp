@@ -1,7 +1,7 @@
 #pragma once
-#include "_tkinter.hpp"
+#include "_cpptkinter.hpp"
 
-/// @file __init__.hpp
+/// @file cpptkinter.hpp
 /// @brief Implements __init__.py.
 
 namespace cpptkinter

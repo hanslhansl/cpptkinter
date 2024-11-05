@@ -4,7 +4,7 @@
 #include "constants.hpp"
 
 
-/// @file _tkinter.hpp
+/// @file _cpptkinter.hpp
 /// @brief Implements _tkinter.c, _tkinter.c.h and tkappinit.c.
 
 
@@ -14,7 +14,7 @@
 #ifdef MS_WINDOWS
 #define USE_TCL_UNICODE 1
 #include <windows.h>
-   //#include <conio.h>
+//#include <conio.h>
 #define WAIT_FOR_STDIN
 #else
 #define USE_TCL_UNICODE 0

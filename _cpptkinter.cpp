@@ -1,6 +1,6 @@
-#include "_tkinter.hpp"
+#include "_cpptkinter.hpp"
 
-/// @file _tkinter.cpp
+/// @file _cpptkinter.cpp
 /// @brief Implements _tkinter.c, _tkinter.c.h and tkappinit.c.
 
 std::string cpptkinter::_cpptkinter::detail::_get_tcl_lib_path()
