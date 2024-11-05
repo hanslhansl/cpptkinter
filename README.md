@@ -11,7 +11,7 @@ The terminology applies to this file, the documentation and source code annotati
 
 It does **not** apply to the naming of code entities. E.g. `tkinter.Tk` and `cpptkinter::Tk` are classes that represent a root window in _python_ and _c++_ respectively. They don't refer to the gui toolkit _tk_ itself.
 ## philosophy
-The goal is to provide a library which mirrors _tkinter_ as closely as possible. This requires a plethora of meta programming shenanigans which makes this project a rather academic approach to gui programming.
+The goal is to provide a library which mirrors _tkinter_ as closely as possible. This requires a plethora of meta programming and other shenanigans which makes this project a rather academic approach to gui programming.
 
 Nevertheless, it is definitely usable in real life code. See [examples](#examples) and [more elaborate examples](examples).
 ## design decisions
