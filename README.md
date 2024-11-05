@@ -75,7 +75,7 @@ If _tcl_ was compiled with threads disabled _cpptkinter_ isn't thread-safe. Only
 
 If the _tcl_ interpreter was compiled with threads enabled _cpptkinter_ is somewhat thread-safe. An instance of `cpptkinter::Tk` and its children can be used across multiple threads. This isn't actual multithreading though as calls into _tcl_ are serialized and executed on the thread which created the _tcl_ interpreter. They are not executed in parallel. The thread safety only applies to _tcl_. Data races inside the _c++_ part of the library may still occur if e.g. two threads modify a widget's member variable simultaniously.
 ## current state of the project
-- The three geometry managers, `pack`, `place` and `grid`, are fully implemented and available for all available widget classes.
+- The three geometry managers, `pack`, `place` and `grid`, are fully implemented for all available widget classes.
 - `Variable`, `StringVar`, `IntVar`, `DoubleVar` and `BooleanVar` are fully implemtented.
 - The window manager class `Wm`, which is base for some widget classes, is partially implemeted.
 - `Misc`, which is base for all widget classes, is partially implemtented.
