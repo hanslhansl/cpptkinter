@@ -1,5 +1,11 @@
 # cpptkinter
 Have you ever wanted to use _python's_ tkinter in _c++_? No? Well, here you go anyways.
+- [terminology](#terminology)
+- [philosophy](#philosophy)
+- [design decisions](#design-decisions)
+- [thread safety](#thread-safety)
+- [current state of the project](#current-state-of-the-project)
+- [examples](#examples)
 ## terminology
 To prevent misunderstandings the following terms are defined as
 - _tcl_: the [scripting language](https://en.wikipedia.org/wiki/Tcl)
