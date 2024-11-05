@@ -1,8 +1,10 @@
-# cpptkinter
 Have you ever wanted to use _python's_ tkinter in _c++_? No? Well, here you go anyways.
 - [terminology](#terminology)
 - [philosophy](#philosophy)
 - [design decisions](#design-decisions)
+  - [keyword arguments](#keyword-arguments)
+  - [reference counting](#reference-counting)
+  - [converting objects from and to _tcl_](#converting-objects-from-and-to-tcl)
 - [thread safety](#thread-safety)
 - [current state of the project](#current-state-of-the-project)
 - [examples](#examples)
