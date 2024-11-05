@@ -34,11 +34,11 @@ def func(**kwargs):
 
 func(foo = 2, bar = 3.14, baz = "bla")
 ```
-This feature has two possible effects:
-- Reordering of arguments in arbitrary order: `func(bar = 3.14, foo = 2, baz = "bla")`.
-- Omitting arguments: `func(foo = 2, baz = "bla")`.
+which allows for
+- reordering of arguments in arbitrary order: `func(bar = 3.14, foo = 2, baz = "bla")`.
+- omitting of arguments: `func(foo = 2, baz = "bla")`.
 
-Both are useful when working with _tkinter_. The first effect isn't (feasibly) reproducible in _c++_. The second effect is implementable using _c++20_ [designated initializers](https://en.cppreference.com/w/cpp/language/aggregate_initialization#Designated_initializers):
+The first feature isn't (feasibly) reproducible in _c++_. The second feature is implementable using _c++20_ [designated initializers](https://en.cppreference.com/w/cpp/language/aggregate_initialization#Designated_initializers):
 ```C++
 struct func_struct { // cnf struct
     std::optional<int> foo;
