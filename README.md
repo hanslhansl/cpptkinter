@@ -2,10 +2,12 @@
 Have you ever wanted to use _python's_ tkinter in _c++_? No? Well, here you go anyways.
 ## terminology
 To prevent misunderstandings the following terms are defined as
-- _Tcl_: the [scripting language](https://en.wikipedia.org/wiki/Tcl)
-- _Tk_: the [gui toolkit](https://en.wikipedia.org/wiki/Tk_(software)) available in _tcl_
-- _Tkinter_: the [Python binding](https://en.wikipedia.org/wiki/Tkinter) for _tk_
-- _Cpptkinter_: [this library](https://github.com/hanslhansl/cpptkinter)
+- _tcl_: the [scripting language](https://en.wikipedia.org/wiki/Tcl)
+- _tk_: the [gui toolkit](https://en.wikipedia.org/wiki/Tk_(software)) available in _tcl_
+- _tkinter_: the [Python binding](https://en.wikipedia.org/wiki/Tkinter) for _tk_
+- __tkinter_: _tkinter's_ backend written in _c_
+- _cpptkinter_: [this library](https://github.com/hanslhansl/cpptkinter)
+- __cpptkinter_: the implementation of __tkinter_ in modern day _c++_ which is also part of this project
 
 The terminology applies to this file, the documentation and source code annotations.
 
@@ -42,7 +44,7 @@ func({ 2, 3.14, "bla" }); // all arguments without keywords
 func({ .foo = 2, .baz = "bla" }); // some arguments with keywords
 func({ 2, "bla" }); // some arguments without keywords
 ```
-_Cpptkinter_ makes use of this technique for widget constructors and many widget methods. The _cnf_ structs have the same name as the function they are meant for and are located in namespace `cpptkinter::cnfs`.
+_Cpptkinter_ makes use of this technique for widget constructors and many widget methods. The _cnf_ structs have the same name as the function they are meant for and are located in `namespace cpptkinter::cnfs`.
 ### reference counting
 _Python_ objects are reference counted: They get destroyed once no reference remains. Reference cycles are (in theory) broken by the garbage collector.
 
@@ -64,6 +66,14 @@ In _tcl_ execution revolves around _interpreters_. _Tkinter_ adheres to this thi
 If _tcl_ was compiled with threads disabled _cpptkinter_ isn't thread-safe. Only the thread that created a _tcl_ interpreter can use that interpreter. Only the thread that created a particular instance of `cpptkinter::Tk` can use it or any of its children.
 
 If the _tcl_ interpreter was compiled with threads enabled _cpptkinter_ is somewhat thread-safe. An instance of `cpptkinter::Tk` and its children can be used across multiple threads. This isn't actual multithreading though as calls into _tcl_ are serialized and executed on the thread which created the _tcl_ interpreter. They are not executed in parallel. The thread safety only applies to _tcl_. Data races inside the _c++_ part of the library may still occur if e.g. two threads modify a widget's member variable simultaniously.
+## current state of the project
+- The three geometry managers, `pack`, `place` and `grid`, are fully implemented and available for all available widget classes.
+- `Variable`, `StringVar`, `IntVar`, `DoubleVar` and `BooleanVar` are fully implemtented.
+- The window manager class `Wm` is partially implemeted.
+- `Misc`, which is base for all widget classes, is partially implemtented.
+- `BaseWidget` and `Widget`, which are base for many widget classes, are fully implemtented.
+- `Tk`, `Toplevel`, `Button`, `Frame`, `Label`, `Scale` and `LabelFrame` are fully implemented. However, a lot of their functionality is inherited from `Misc` and therefor not implemented as of yet.
+- `_tkinter`is implemented for the most part and available in `namespace cpptkinter::_cpptkinter`
 ## examples
 
 
