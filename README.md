@@ -7,7 +7,7 @@ Have you ever wanted to use _python's_ tkinter in _c++_? No? Well, here you go a
   - [converting objects from and to _tcl_](#converting-objects-from-and-to-tcl)
 - [thread safety](#thread-safety)
 - [current state of the project](#current-state-of-the-project)
-- [examples](#examples)
+- [example](#example)
 - [building](#building)
 ## terminology
 To prevent misunderstandings the following terms are defined as
@@ -24,7 +24,7 @@ It does **not** apply to the naming of code entities. E.g. `tkinter.Tk` and `cpp
 ## philosophy
 The goal is to provide a library which mirrors _tkinter_ as closely as possible. This requires a plethora of meta programming and other shenanigans which makes this project a rather academic approach to gui programming.
 
-Nevertheless, it is definitely usable in real life code. See [examples](#examples) and [more elaborate examples](examples).
+Nevertheless, it is definitely usable in real life code. See [example](#example) and [more elaborate examples](examples).
 ## design decisions
 _Python_ provides syntax and language features which can't easily be translated to _c++_. This section explains how _cpptkinter_ tries to implement them.
 ### keyword arguments
@@ -83,7 +83,7 @@ If the _tcl_ interpreter was compiled with threads enabled _cpptkinter_ is somew
 - `BaseWidget` and `Widget`, which are base for many widget classes, are fully implemtented.
 - `Tk`, `Toplevel`, `Button`, `Frame`, `Label`, `Scale` and `LabelFrame` are fully implemented. However, a lot of their functionality is inherited from `Misc` and therefor not implemented as of yet.
 - `_tkinter`is implemented for the most part and available in `namespace cpptkinter::_cpptkinter`
-## examples
+## example
 See [examples](examples) for more elaborate examples.
 ## building
 _Cpptkinter_ requires _c++23_. It is tested with _msvc_ and _clang_ on _windows_.
