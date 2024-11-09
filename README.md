@@ -76,6 +76,22 @@ If _tcl_ was compiled with threads disabled _cpptkinter_ isn't thread-safe. Only
 
 If the _tcl_ interpreter was compiled with threads enabled _cpptkinter_ is somewhat thread-safe. An instance of `cpptkinter::Tk` and its children can be used across multiple threads. This isn't actual multithreading though as calls into _tcl_ are serialized and executed on the thread which created the _tcl_ interpreter. They are not executed in parallel. The thread safety only applies to _tcl_. Data races inside the _c++_ part of the library may still occur if e.g. two threads modify a widget's member variable simultaniously.
 ## simple example
+```Python
+import tkinter as tk
+
+root = tk.Tk()
+root.mainloop()
+```
+translates to
+```C++
+#include "cpptkinter.hpp"
+namespace tk = cpptkinter;
+
+int main() {
+    auto root = tk::Tk();
+    root.mainloop();
+}
+```
 See [examples](examples) for more elaborate examples.
 ## building
 _Cpptkinter_ requires _c++23_. It is tested with _msvc_ and _clang_ on _windows_.
