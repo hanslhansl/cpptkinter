@@ -84,6 +84,7 @@ If the _tcl_ interpreter was compiled with threads enabled _cpptkinter_ is somew
 - `Tk`, `Toplevel`, `Button`, `Frame`, `Label`, `Scale` and `LabelFrame` are fully implemented. However, a lot of their functionality is inherited from `Misc` and therefor not implemented as of yet.
 - `_tkinter`is implemented for the most part and available in `namespace cpptkinter::_cpptkinter`
 ## examples
+See [examples](examples) for more elaborate examples.
 ## building
 _Cpptkinter_ requires _c++23_. It is tested with _msvc_ and _clang_ on _windows_.
 
