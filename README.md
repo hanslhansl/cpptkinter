@@ -6,9 +6,9 @@ Have you ever wanted to use _python's_ tkinter in _c++_? No? Well, here you go a
   - [reference counting](#reference-counting)
   - [converting objects from and to _tcl_](#converting-objects-from-and-to-tcl)
 - [thread safety](#thread-safety)
-- [current state of the project](#current-state-of-the-project)
 - [simple example](#simple-example)
 - [building](#building)
+- [current state of the project](#current-state-of-the-project)
 ## terminology
 To prevent misunderstandings the following terms are defined as
 - _tcl_: the [scripting language](https://en.wikipedia.org/wiki/Tcl)
@@ -75,14 +75,6 @@ In _tcl_ execution revolves around _interpreters_. _Tkinter_ adheres to this thi
 If _tcl_ was compiled with threads disabled _cpptkinter_ isn't thread-safe. Only the thread that created a _tcl_ interpreter can use that interpreter. Only the thread that created a particular instance of `cpptkinter::Tk` can use it or any of its children.
 
 If the _tcl_ interpreter was compiled with threads enabled _cpptkinter_ is somewhat thread-safe. An instance of `cpptkinter::Tk` and its children can be used across multiple threads. This isn't actual multithreading though as calls into _tcl_ are serialized and executed on the thread which created the _tcl_ interpreter. They are not executed in parallel. The thread safety only applies to _tcl_. Data races inside the _c++_ part of the library may still occur if e.g. two threads modify a widget's member variable simultaniously.
-## current state of the project
-- The three geometry managers, `pack`, `place` and `grid`, are fully implemented for all available widget classes.
-- `Variable`, `StringVar`, `IntVar`, `DoubleVar` and `BooleanVar` are fully implemtented.
-- The window manager class `Wm`, which is base for some widget classes, is partially implemeted.
-- `Misc`, which is base for all widget classes, is partially implemtented.
-- `BaseWidget` and `Widget`, which are base for many widget classes, are fully implemtented.
-- `Tk`, `Toplevel`, `Button`, `Frame`, `Label`, `Scale` and `LabelFrame` are fully implemented. However, a lot of their functionality is inherited from `Misc` and therefor not implemented as of yet.
-- `_tkinter`is implemented for the most part and available in `namespace cpptkinter::_cpptkinter`
 ## simple example
 See [examples](examples) for more elaborate examples.
 ## building
@@ -99,7 +91,14 @@ _Tcl/tk_ can be built from source but third-party binaries exist as well. Make s
 The other dependencies and _cpptkinter_ itself need to be compiled as part of your project. Most of the functionality is templated so precompiling these wouldn't be useful anyways.
 
 Add `#include cpptkinter.hpp` to your source files to use the library.
-
+## current state of the project
+- The three geometry managers, `pack`, `place` and `grid`, are fully implemented for all available widget classes.
+- `Variable`, `StringVar`, `IntVar`, `DoubleVar` and `BooleanVar` are fully implemtented.
+- The window manager class `Wm`, which is base for some widget classes, is partially implemeted.
+- `Misc`, which is base for all widget classes, is partially implemtented.
+- `BaseWidget` and `Widget`, which are base for many widget classes, are fully implemtented.
+- `Tk`, `Toplevel`, `Button`, `Frame`, `Label`, `Scale` and `LabelFrame` are fully implemented. However, a lot of their functionality is inherited from `Misc` and therefor not implemented as of yet.
+- `_tkinter`is implemented for the most part and available in `namespace cpptkinter::_cpptkinter`
 
 
 
