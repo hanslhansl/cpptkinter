@@ -8,6 +8,7 @@ Have you ever wanted to use _python's_ tkinter in _c++_? No? Well, here you go a
 - [thread safety](#thread-safety)
 - [current state of the project](#current-state-of-the-project)
 - [examples](#examples)
+- [building](#building)
 ## terminology
 To prevent misunderstandings the following terms are defined as
 - _tcl_: the [scripting language](https://en.wikipedia.org/wiki/Tcl)
@@ -83,7 +84,20 @@ If the _tcl_ interpreter was compiled with threads enabled _cpptkinter_ is somew
 - `Tk`, `Toplevel`, `Button`, `Frame`, `Label`, `Scale` and `LabelFrame` are fully implemented. However, a lot of their functionality is inherited from `Misc` and therefor not implemented as of yet.
 - `_tkinter`is implemented for the most part and available in `namespace cpptkinter::_cpptkinter`
 ## examples
+## building
+_Cpptkinter_ requires _c++23_. It is tested with _msvc_ and _clang_ on _windows_.
 
+The dependencies are
+- [tcl](https://github.com/tcltk/tcl)
+- [tk](https://github.com/tcltk/tk)
+- [qlibs/reflect](https://github.com/qlibs/reflect) (until _c++26_ reflection)
+- [getml/reflect-cpp](https://github.com/getml/reflect-cpp) (because _qlibs/reflect_ is missing features)
+
+_Tcl/tk_ can be built from source but third-party binaries exist as well. Make sure that you get the _tcl/tk_ library binaries (e.g. .dll, .lib, .so, .a). The _tcl_ executable isn't required. Both static as well as dynamic linking can be used (though I haven't gotten static linking to work on my machine yet).
+
+The other dependencies and _cpptkinter_ itself need to be compiled as part of your project. Most of the functionality is templated so precompiling these wouldn't be useful anyways.
+
+Add `#include cpptkinter.hpp` to your source files to use the library.
 
 
 
