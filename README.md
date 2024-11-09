@@ -16,7 +16,7 @@ To prevent misunderstandings the following terms are defined as
 - _tkinter_: the [Python binding](https://en.wikipedia.org/wiki/Tkinter) for _tk_
 - __tkinter_: _tkinter's_ backend written in _c_
 - _cpptkinter_: [this library](https://github.com/hanslhansl/cpptkinter)
-- __cpptkinter_: the implementation of __tkinter_ in modern day _c++_ which is also part of this project
+- __cpptkinter_: the implementation of __tkinter_ in modern day _c++_ (also part of this project)
 
 The terminology applies to this file, the documentation and source code annotations.
 
