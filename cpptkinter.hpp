@@ -309,19 +309,32 @@ namespace cpptkinter
 			return self.wm_client();
 		}
 
-        /// Store list of window names (WLIST) into WM_COLORMAPWINDOWS property of this widget.
+        /// @brief Store list of window names (WLIST) into WM_COLORMAPWINDOWS property of this widget.
         /// 
         /// This list contains windows whose colormaps differ from their parents. Return current list of widgets if WLIST is empty.
-        void wm_colormapwindows();
-        void colormapwindows();
+        void wm_colormapwindows(this auto&& self);
+		/// @copydoc wm_colormapwindows
+        void colormapwindows(this auto&& self);
 
+        /// @brief Store VALUE in WM_COMMAND property.
         /// 
+        /// It is the command which shall be used to invoke the application.Return current command if VALUE is None.
         void wm_command();
+        /// @copydoc wm_command
         void command();
 
+        /// @brief Deiconify this widget.
         /// 
-        void wm_deiconify();
-        void deiconify();
+        /// If it was never mapped it will not be mapped. On Windows it will raise this widget and give it the focus.
+        void wm_deiconify(this auto&& self)
+		{
+			self.tk->call("wm", "deiconify", self._w);
+		}
+		/// @copydoc wm_deiconify
+        void deiconify(this auto&& self)
+        {
+			self.wm_deiconify();
+        }
 
         /// @brief Set focus model.
         /// 
@@ -392,13 +405,64 @@ namespace cpptkinter
 			return self.wm_geometry();
 		}
 
+        /// @brief Manage window as a gridded window.
         /// 
-        void wm_grid();
-        void grid();
+        /// WIDTHINC and HEIGHTINC are the width and height of a grid unit in pixels. BASEWIDTH and BASEHEIGHT are the number of grid units requested in Tk_GeometryRequest.
+        void wm_grid(this auto&& self, long long baseWidth, long long baseHeight, long long widthInc, long long heightInc)
+        {
+			self.tk->call("wm", "grid", self._w, baseWidth, baseHeight, widthInc, heightInc);
+        }
+        /// @brief Window will no longer be managed as a gridded window
+        ///
+        /// Should only be called with 4 empty strings.
+        void wm_grid(this auto&& self, const std::string& baseWidth, const std::string& baseHeight, const std::string& widthInc, const std::string& heightInc)
+		{
+			self.tk->call("wm", "grid", self._w, baseWidth, baseHeight, widthInc, heightInc);
+		}
+		/// @brief Return grid information for this widget.
+        std::optional<std::array<long long, 4>> wm_grid(this auto&& self)
+        {
+			auto res = self.tk->template call<std::variant<std::array<long long, 4>, std::string>>("wm", "grid", self._w);
+			if (std::holds_alternative<std::string>(res))
+				return {};
+			return std::get<std::array<long long, 4>>(res);
+		}
+		/// @copydoc wm_grid(this auto&&, long long, long long, long long, long long)
+        void grid(this auto&& self, long long baseWidth, long long baseHeight, long long widthInc, long long heightInc)
+        {
+			self.wm_grid(baseWidth, baseHeight, widthInc, heightInc);
+        }
+		/// @copydoc wm_grid(this auto&&, const std::string&, const std::string&, const std::string&, const std::string&)
+		void grid(this auto&& self, const std::string& baseWidth, const std::string& baseHeight, const std::string& widthInc, const std::string& heightInc)
+		{
+			self.wm_grid(baseWidth, baseHeight, widthInc, heightInc);
+		}
+		/// @copydoc wm_grid(this auto&&)
+		std::optional<std::array<long long, 4>> grid(this auto&& self)
+		{
+			return self.wm_grid();
+		}
 
-        /// 
-        void wm_group();
-        void group();
+        /// @brief Set the group leader widgets for related widgets to PATHNAME.
+        void wm_group(this auto&& self, const std::string& pathName)
+		{
+			self.tk->call("wm", "group", self._w, pathName);
+		}
+        /// @brief Get the current group leader.
+        std::string wm_group(this auto&& self)
+		{
+			return self.tk->template call<std::string>("wm", "group", self._w);
+		}
+		/// @copydoc wm_group(this auto&&, const std::string&)
+        void group(this auto&& self, const std::string& pathName)
+		{
+			self.wm_group(pathName);
+		}
+		/// @copydoc wm_group(this auto&&)
+		std::string group(this auto&& self)
+		{
+			return self.wm_group();
+		}
 
         /// 
         void wm_iconbitmap();
