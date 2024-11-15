@@ -464,17 +464,64 @@ namespace cpptkinter
 			return self.wm_group();
 		}
 
-        /// 
-        void wm_iconbitmap();
-        void iconbitmap();
+        /// @brief Set bitmap for the iconified widget to BITMAP.
+        ///
+        /// Under Windows, the DEFAULT parameter can be used to set the icon for the widget and any descendants that don't have an icon set explicitly.
+        /// See Tk documentation for more information.
+        void wm_iconbitmap(this auto&& self, const std::string& bitmap, bool default_)
+        {
+            if (default_)
+                self.tk->call("wm", "iconmask", self._w, "-default", bitmap);
+            else
+                self.tk->call("wm", "iconmask", self._w, bitmap);
+        }
+        /// @brief Get name of the current icon bitmap associated with window
+        std::string wm_iconbitmap(this auto&& self)
+        {
+            return self.tk->template call<std::string>("wm", "iconmask", self._w);
+        }
+		/// @copydoc wm_iconbitmap(this auto&&, const std::string&, bool)
+        void iconbitmap(this auto&& self, const std::string& bitmap, bool default_)
+        {
+			self.wm_iconbitmap(bitmap, default_);
+        }
+		/// @copydoc wm_iconbitmap(this auto&&)
+		std::string iconbitmap(this auto&& self)
+		{
+			return self.wm_iconbitmap();
+		}
 
-        /// 
-        void wm_iconify();
-        void iconify();
+        /// @brief Display widget as icon.
+        void wm_iconify(this auto&& self)
+        {
+			self.tk->call("wm", "iconify", self._w);
+        }
+		/// @copydoc wm_iconify
+        void iconify(this auto&& self)
+        {
+			self.wm_iconify();
+        }
 
-        /// 
-        void wm_iconmask();
-        void iconmask();
+        /// Set mask for the icon bitmap of this widget.
+        void wm_iconmask(this auto&& self, const std::string& bitmap)
+		{
+			self.tk->call("wm", "iconmask", self._w, bitmap);
+		}
+        /// Get the current mask for the icon bitmap.
+        std::string wm_iconmask(this auto&& self)
+        {
+            return self.tk->template call<std::string>("wm", "iconmask", self._w);
+        }
+		/// @copydoc wm_iconmask(this auto&&, const std::string&)
+        void iconmask(this auto&& self, const std::string& bitmap)
+        {
+			return self.wm_iconmask(bitmap);
+        }
+		/// @copydoc wm_iconmask(this auto&&)
+		std::string iconmask(this auto&& self)
+		{
+			return self.wm_iconmask();
+		}
 
         /// @brief Set the name of the icon for this widget.
         void wm_iconname(this auto&& self, const std::string& newName)
