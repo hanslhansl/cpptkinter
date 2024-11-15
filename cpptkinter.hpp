@@ -235,27 +235,235 @@ namespace cpptkinter
     class Wm
     {
     public:
-        /// @brief Set the name of the icon for this widget. Return the name if None is given.
-        std::string wm_iconname(this auto&& self, const std::string& newName = {})
+        /// @brief Instruct the window manager to set the aspect ratio (width/height) of this widget to be between MINNUMER / MINDENOM and MAXNUMER / MAXDENOM.
+        void wm_aspect(this auto&& self, long long minNumer, long long minDenom, long long maxNumer, long long maxDenom)
         {
-            return self.tk->template call<std::string>("wm", "iconname", self._w, newName);
+            self.tk->call("wm", "aspect", self._w, minNumer, minDenom, maxNumer, maxDenom);
         }
-        /// @see wm_iconname
-        std::string iconname(this auto&& self, const std::string& newName = {})
+		/// @brief Removes any aspect ratio restrictions.
+        ///
+        /// Should only be called with 4 empty strings.
+        void wm_aspect(this auto&& self, const std::string& minNumer, const std::string& minDenom, const std::string& maxNumer, const std::string& maxDenom)
+        {
+            self.tk->call("wm", "aspect", self._w, minNumer, minDenom, maxNumer, maxDenom);
+        }
+        /// @brief Returns the current aspect ratio restriction (if any).
+        std::optional<std::array<long long, 4>> wm_aspect(this auto&& self)
+        {
+            auto res = self.tk->call<std::variant<std::array<long long, 4>, std::string>>("wm", "aspect", self._w);
+			if (std::holds_alternative<std::string>(res))
+				return {};
+			return std::get<std::array<long long, 4>>(res);
+        }
+		/// @copydoc wm_aspect(this auto&&, long long, long long, long long, long long)
+		void aspect(this auto&& self, long long minNumer, long long minDenom, long long maxNumer, long long maxDenom)
+		{
+			self.wm_aspect(minNumer, minDenom, maxNumer, maxDenom);
+		}
+		/// @copydoc wm_aspect(this auto&&, const std::string&, const std::string&, const std::string&, const std::string&)
+		void aspect(this auto&& self, const std::string& minNumer, const std::string& minDenom, const std::string& maxNumer, const std::string& maxDenom)
+		{
+			self.wm_aspect(minNumer, minDenom, maxNumer, maxDenom);
+		}
+		/// @copydoc wm_aspect(this auto&&)
+		std::optional<std::array<long long, 4>> aspect(this auto&& self)
+		{
+			return self.wm_aspect();
+		}
+
+        /// @brief This subcommand returns or sets platform specific attributes
+        ///
+        /// The first form returns a list of the platform specific flags and their values.
+        /// The second form returns the value for the specific option.
+        /// The third form sets one or more of the values. The values are as follows: 
+        /// 
+        /// On Windows,
+        /// - disabled gets or sets whether the window is in a disabled state.
+        /// - toolwindow gets or sets the style of the window to toolwindow (as defined in the MSDN).
+        /// - topmost gets or sets whether this is a topmost window (displays above all other windows).
+        ///
+        /// On Macintosh, XXXXX
+        ///
+        /// On Unix, there are currently no special attribute values.
+        void wm_attributes();
+        void attributes();
+
+        /// Store NAME in WM_CLIENT_MACHINE property of this widget. Return current value.
+        void wm_client(this auto&& self, const std::string& name)
+        {
+			self.tk->call("wm", "client", self._w, name);
+        }
+        /// Get the last name set in a wm client command
+        std::string wm_client(this auto&& self)
+        {
+            return self.tk->call<std::string>("wm", "client", self._w);
+        }
+		/// @copydoc wm_client(this auto&&, const std::string&)
+		void client(this auto&& self, const std::string& name)
+		{
+			self.wm_client(name);
+		}
+		/// @copydoc wm_client(this auto&&)
+		std::string client(this auto&& self)
+		{
+			return self.wm_client();
+		}
+
+        /// Store list of window names (WLIST) into WM_COLORMAPWINDOWS property of this widget.
+        /// 
+        /// This list contains windows whose colormaps differ from their parents. Return current list of widgets if WLIST is empty.
+        void wm_colormapwindows();
+        void colormapwindows();
+
+        /// 
+        void wm_command();
+        void command();
+
+        /// 
+        void wm_deiconify();
+        void deiconify();
+
+        /// @brief Set focus model.
+        /// 
+        /// "active" means that this widget will claim the focus itself, "passive" means that the window manager shall give the focus.
+        void wm_focusmodel(this auto&& self, const std::string& model)
+        {
+            self.tk->call("wm", "focusmodel", self._w, model);
+        }
+        /// @brief Return current focus model.
+        std::string wm_focusmodel(this auto&& self)
+        {
+            return self.tk->call<std::string>("wm", "focusmodel", self._w);
+        }
+		/// @copydoc wm_focusmodel(this auto&&, const std::string&)
+        void focusmodel(this auto&& self, const std::string& model)
+		{
+            return self.wm_focusmodel(model);
+		}
+		/// @copydoc wm_focusmodel(this auto&&)
+		std::string focusmodel(this auto&& self)
+		{
+			return self.wm_focusmodel();
+		}
+
+        /// @brief The window will be unmapped from the screen and will no longer be managed by wm.
+        /// 
+        /// Toplevel windows will be treated like frame windows once they are no longer managed by wm, however,
+        /// the menu option configuration will be remembered and the menus will return once the widget is managed again.
+        void wm_forget(this auto&& self, std::derived_from<Misc> auto& window)
+        {
+            self.tk->call("wm", "forget", window);
+        }
+		/// @copydoc wm_forget
+        void forget(this auto&& self, std::derived_from<Misc> auto& window)
+        {
+			self.wm_forget(window);
+        }
+
+        /// Return identifier for decorative frame of this widget if present.
+        void wm_frame(this auto&& self)
+        {
+			self.tk->call("wm", "frame", self._w);
+        }
+		/// @copydoc wm_frame
+        void frame(this auto&& self)
+        {
+            self.wm_frame();
+        }
+
+        /// @brief Set geometry to NEWGEOMETRY of the form =widthxheight+x+y.
+        void wm_geometry(this auto&& self, const std::string& newGeometry)
+        {
+			self.tk->call("wm", "geometry", self._w, newGeometry);
+        }
+        /// @brief Get current geometry.
+        std::string wm_geometry(this auto&& self)
+        {
+			return self.tk->template call<std::string>("wm", "geometry", self._w);
+        }
+		/// @copydoc wm_geometry(this auto&&, const std::string&)
+        void geometry(this auto&& self, const std::string& newGeometry)
+        {
+			return self.wm_geometry(newGeometry);
+        }
+		/// @copydoc wm_geometry(this auto&&)
+		std::string geometry(this auto&& self)
+		{
+			return self.wm_geometry();
+		}
+
+        /// 
+        void wm_grid();
+        void grid();
+
+        /// 
+        void wm_group();
+        void group();
+
+        /// 
+        void wm_iconbitmap();
+        void iconbitmap();
+
+        /// 
+        void wm_iconify();
+        void iconify();
+
+        /// 
+        void wm_iconmask();
+        void iconmask();
+
+        /// @brief Set the name of the icon for this widget.
+        void wm_iconname(this auto&& self, const std::string& newName)
+        {
+            self.tk->call("wm", "iconname", self._w, newName);
+        }
+        /// @brief Return the name of the icon for this widget.
+        std::string wm_iconname(this auto&& self)
+        {
+            return self.tk->template call<std::string>("wm", "iconname", self._w);
+        }
+        /// @copydoc wm_iconname(this auto&&, const std::string&)
+        void iconname(this auto&& self, const std::string& newName)
         {
             return self.wm_iconname(newName);
         }
+        /// @copydoc wm_iconname(this auto&&)
+        std::string iconname(this auto&& self)
+        {
+            return self.wm_iconname();
+        }
 
-        /// @brief Set the title of this widget.
-        std::string wm_title(this auto&& self, const std::string& string = {})
-        {
-            return self.tk->template call<std::string>("wm", "title", self._w, string);
-        }
-        /// @see wm_title
-        std::string title(this auto&& self, const std::string& string = {})
-        {
-            return self.wm_title(string);
-        }
+        /// 
+        void wm_iconphoto();
+        void iconphoto();
+
+        /// 
+        void wm_iconposition();
+        void iconposition();
+
+        /// 
+        void wm_iconwindow();
+        void iconwindow();
+
+        /// 
+        void wm_manage();
+        void manage();
+
+        /// 
+        void wm_maxsize();
+        void maxsize();
+
+        /// 
+        void wm_minsize();
+        void minsize();
+
+        /// 
+        void wm_overrideredirect();
+        void overrideredirect();
+
+        /// 
+        void wm_positionfrom();
+        void positionfrom();
 
         /// Bind function FUNC to command NAME for this widget.
         /// 
@@ -269,13 +477,54 @@ namespace cpptkinter
             else
                 return self.tk->template call<R>("wm", "protocol", self._w, name, std::forward<Func>(func));
         }
-        /// @see wm_protocol
+        /// @copydoc wm_protocol
         template<detail::FromObjConcept R = void, typename Func>
             requires detail::createcommand_concept<Func> || detail::AsObjConcept<std::remove_cvref_t<Func>>
         R protocol(this auto && self, const std::string & name, Func && func)
         {
             return self.template wm_protocol<R>(name, std::forward<Func>(func));
         }
+
+        /// 
+        void wm_resizable();
+        void resizable();
+
+        /// 
+        void wm_sizefrom();
+        void sizefrom();
+
+        /// 
+        void wm_state();
+        void state();
+
+        /// @brief Set the title of this widget.
+        void wm_title(this auto&& self, const std::string& string)
+        {
+            return self.tk->call("wm", "title", self._w, string);
+        }
+        /// @brief Get the title of this widget.
+        std::string wm_title(this auto&& self)
+        {
+            return self.tk->template call<std::string>("wm", "title", self._w);
+        }
+        /// @copydoc wm_title(this auto&&, const std::string&)
+        void title(this auto&& self, const std::string& string)
+        {
+            return self.wm_title(string);
+        }
+        /// @copydoc wm_title(this auto&&)
+        std::string title(this auto&& self)
+        {
+            return self.wm_title();
+        }
+
+        /// 
+        void wm_transient();
+        void transient();
+
+        /// 
+        void wm_withdraw();
+        void withdraw();
     };
 
     /// @brief Internal class.
@@ -656,8 +905,6 @@ namespace cpptkinter
         /// @param className is the name of the widget class.
         /// @return A shared pointer to the newly created detail::Tk object.
         Tk(const std::string& screenName = {}, std::string baseName = {}, const std::string& className = "Tk", bool useTk = true, bool sync = false, const std::string& use = {});
-
-        static std::shared_ptr<Tk> create(const std::string&, std::string, const std::string&, bool, bool, const std::string&);
 
         void loadtk();
     private:

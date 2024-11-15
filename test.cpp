@@ -12,22 +12,7 @@ int main(int argc, char* argv[])
 
     /*
     to-do
-    - widget container 2 options
-        - shared_ptr to widget
-            - pro:
-                - nullable
-            - con:
-                - obj->func() and obj->member
-                - non-owning not possible
-                - weak reference with weak_ptr
-        - wrapper class containing shared_ptr to impl
-            - pro:
-                - obj.func() and potentially obj.member (as reference to impl)
-                - obj[idx]
-                - non-owning possible with custom dtor
-                - weak reference with custom class
-            - con:
-                - not nullable, master will be std::optional or special "empty" value
+
     - make intellisense run in msvc mode even when using clang
     */
 
@@ -39,6 +24,10 @@ int main(int argc, char* argv[])
 
         auto root = tk::Tk();
 		wroot = root;
+
+        root.wm_attributes();
+
+        root.forget(root);
 
         auto toplvl = tk::Toplevel({ root });
 

@@ -150,12 +150,12 @@ namespace cpptkinter::utility
         requires std::is_aggregate_v<T>
     std::string aggregate_to_string(const T & val)
     {
-        detail::container_or_tuple_to_string_visitor visitor{};
+        detail::container_or_tuple_to_string_visitor vis{};
 
-        visitor.oss << "{ ";
-        reflect::for_each<T>([&visitor, &val](auto I) { visitor.oss << rfl::fields<T>()[I].name()/*reflect::member_name<I, T>()*/ << " : "; visitor(reflect::get<I>(val)); });
-        visitor.oss << "}";
-        return visitor.oss.str();
+        vis.oss << "{ ";
+        reflect::for_each<T>([&vis, &val](auto I) { vis.oss << rfl::fields<T>()[I].name()/*reflect::member_name<I, T>()*/ << " : "; vis(reflect::get<I>(val)); });
+        vis.oss << "}";
+        return vis.oss.str();
     }
 
 	/// @brief A weak reference to a widget.
