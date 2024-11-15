@@ -6,8 +6,9 @@ Have you ever wanted to use _python's_ tkinter in _c++_? No? Well, here you go a
   - [reference counting](#reference-counting)
   - [converting objects from and to _tcl_](#converting-objects-from-and-to-tcl)
 - [thread safety](#thread-safety)
+- [simple example](#simple-example)
+- [building](#building)
 - [current state of the project](#current-state-of-the-project)
-- [examples](#examples)
 ## terminology
 To prevent misunderstandings the following terms are defined as
 - _tcl_: the [scripting language](https://en.wikipedia.org/wiki/Tcl)
@@ -15,7 +16,7 @@ To prevent misunderstandings the following terms are defined as
 - _tkinter_: the [Python binding](https://en.wikipedia.org/wiki/Tkinter) for _tk_
 - __tkinter_: _tkinter's_ backend written in _c_
 - _cpptkinter_: [this library](https://github.com/hanslhansl/cpptkinter)
-- __cpptkinter_: the implementation of __tkinter_ in modern day _c++_ which is also part of this project
+- __cpptkinter_: the implementation of __tkinter_ in modern day _c++_ (also part of this project)
 
 The terminology applies to this file, the documentation and source code annotations.
 
@@ -23,7 +24,7 @@ It does **not** apply to the naming of code entities. E.g. `tkinter.Tk` and `cpp
 ## philosophy
 The goal is to provide a library which mirrors _tkinter_ as closely as possible. This requires a plethora of meta programming and other shenanigans which makes this project a rather academic approach to gui programming.
 
-Nevertheless, it is definitely usable in real life code. See [examples](#examples) and [more elaborate examples](examples).
+Nevertheless, it is definitely usable in real life code. See [simple example](#simple-example) and [more elaborate examples](examples).
 ## design decisions
 _Python_ provides syntax and language features which can't easily be translated to _c++_. This section explains how _cpptkinter_ tries to implement them.
 ### keyword arguments
@@ -74,6 +75,38 @@ In _tcl_ execution revolves around _interpreters_. _Tkinter_ adheres to this thi
 If _tcl_ was compiled with threads disabled _cpptkinter_ isn't thread-safe. Only the thread that created a _tcl_ interpreter can use that interpreter. Only the thread that created a particular instance of `cpptkinter::Tk` can use it or any of its children.
 
 If the _tcl_ interpreter was compiled with threads enabled _cpptkinter_ is somewhat thread-safe. An instance of `cpptkinter::Tk` and its children can be used across multiple threads. This isn't actual multithreading though as calls into _tcl_ are serialized and executed on the thread which created the _tcl_ interpreter. They are not executed in parallel. The thread safety only applies to _tcl_. Data races inside the _c++_ part of the library may still occur if e.g. two threads modify a widget's member variable simultaniously.
+## simple example
+```Python
+import tkinter as tk
+
+root = tk.Tk()
+root.mainloop()
+```
+translates to
+```C++
+#include "cpptkinter.hpp"
+namespace tk = cpptkinter;
+
+int main() {
+    auto root = tk::Tk();
+    root.mainloop();
+}
+```
+See [examples](examples) for more elaborate examples.
+## building
+_Cpptkinter_ requires _c++23_. It is tested with _msvc_ and _clang_ on _windows_.
+
+The dependencies are
+- [tcl](https://github.com/tcltk/tcl)
+- [tk](https://github.com/tcltk/tk)
+- [qlibs/reflect](https://github.com/qlibs/reflect) (until _c++26_ reflection)
+- [getml/reflect-cpp](https://github.com/getml/reflect-cpp) (because _qlibs/reflect_ is missing features)
+
+_Tcl/tk_ can be built from source but third-party binaries exist as well. Make sure that you get the _tcl/tk_ library binaries (e.g. .dll, .lib, .so, .a). The _tcl_ executable isn't required. Both static as well as dynamic linking can be used (though I haven't gotten static linking to work on my machine yet).
+
+The other dependencies and _cpptkinter_ itself need to be compiled as part of your project. Most of the functionality is templated so precompiling these wouldn't be useful anyways.
+
+Add `#include cpptkinter.hpp` to your source files to use the library.
 ## current state of the project
 - The three geometry managers, `pack`, `place` and `grid`, are fully implemented for all available widget classes.
 - `Variable`, `StringVar`, `IntVar`, `DoubleVar` and `BooleanVar` are fully implemtented.
@@ -82,9 +115,6 @@ If the _tcl_ interpreter was compiled with threads enabled _cpptkinter_ is somew
 - `BaseWidget` and `Widget`, which are base for many widget classes, are fully implemtented.
 - `Tk`, `Toplevel`, `Button`, `Frame`, `Label`, `Scale` and `LabelFrame` are fully implemented. However, a lot of their functionality is inherited from `Misc` and therefor not implemented as of yet.
 - `_tkinter`is implemented for the most part and available in `namespace cpptkinter::_cpptkinter`
-## examples
-
-
 
 
 
