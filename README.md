@@ -110,7 +110,7 @@ Add `#include cpptkinter.hpp` to your source files to use the library.
 ## current state of the project
 - The three geometry managers, `pack`, `place` and `grid`, are fully implemented for all available widget classes.
 - `Variable`, `StringVar`, `IntVar`, `DoubleVar` and `BooleanVar` are fully implemtented.
-- The window manager class `Wm`, which is base for some widget classes, is partially implemeted.
+- The window manager class `Wm`, which is base for some widget classes, is mostly implemeted.
 - `Misc`, which is base for all widget classes, is partially implemtented.
 - `BaseWidget` and `Widget`, which are base for many widget classes, are fully implemtented.
 - `Tk`, `Toplevel`, `Button`, `Frame`, `Label`, `Scale` and `LabelFrame` are fully implemented. However, a lot of their functionality is inherited from `Misc` and therefor not implemented as of yet.

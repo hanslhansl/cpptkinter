@@ -122,8 +122,10 @@ namespace cpptkinter::utility
 			{
                 if constexpr ((hhh::meta::container<T> && !std::same_as<T, std::string>) || hhh::meta::tuple_like<T>)
                 {
-                    this->oss << "( ";
+                    this->oss << "(";
                     visit_container_or_tuple(*this, val);
+					if (!oss.view().ends_with("(")) // if the container is not empty
+                        this->oss.seekp(-2, std::ios_base::cur);
                     this->oss << ")";
                 }
                 else

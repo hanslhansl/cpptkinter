@@ -25,9 +25,7 @@ int main(int argc, char* argv[])
         auto root = tk::Tk();
 		wroot = root;
 
-        root.wm_attributes();
-
-        root.forget(root);
+        misc::printl(tk::utility::container_or_tuple_to_string(root.wm_attributes()));
 
         auto toplvl = tk::Toplevel({ root });
 

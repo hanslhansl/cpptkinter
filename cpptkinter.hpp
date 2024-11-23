@@ -285,8 +285,28 @@ namespace cpptkinter
         /// On Macintosh, XXXXX
         ///
         /// On Unix, there are currently no special attribute values.
-        void wm_attributes();
-        void attributes();
+        std::map<std::string, std::variant<std::string, double, long long>> wm_attributes(this auto&& self)
+        {
+			using V = std::variant<std::string, double, long long>;
+            auto data = self.tk->template call<std::vector<V>>("wm", "attributes", self._w);
+
+            auto lambda = [](V& var) { 
+                auto&& key = std::get<std::string>(std::move(var));
+                if (key.starts_with('-'))
+                    key = key.substr(1);
+				return key;
+                };
+
+            return std::map<std::string, V>(std::from_range, std::views::zip(
+                data | std::views::stride(2) | std::views::transform(lambda),
+                data | std::views::drop(1) | std::views::stride(2)
+            ));
+        }
+		/// @copydoc wm_attributes(this auto&&)
+        std::map<std::string, std::variant<std::string, double, long long>> attributes(this auto&& self)
+		{
+			return self.wm_attributes();
+		}
 
         /// Store NAME in WM_CLIENT_MACHINE property of this widget. Return current value.
         void wm_client(this auto&& self, const std::string& name)
@@ -544,37 +564,142 @@ namespace cpptkinter
             return self.wm_iconname();
         }
 
-        /// 
+        /// @brief
         void wm_iconphoto();
         void iconphoto();
 
-        /// 
-        void wm_iconposition();
-        void iconposition();
+        /// @brief Set the position of the icon of this widget to X and Y. 
+        void wm_iconposition(this auto&& self, long long x, long long y)
+        {
+            self.tk->call("wm", "iconposition", self._w, x, y);
+        }
+        /// @brief Return the current position of the icon of this widget.
+        std::array<long long, 2> wm_iconposition(this auto&& self)
+        {
+            return self.tk->template call<std::array<long long, 2>>("wm", "iconposition", self._w);
+        }
+		/// @copydoc wm_iconposition(this auto&&, long long, long long)
+        void iconposition(this auto&& self, long long x, long long y)
+        {
+			return self.wm_iconposition(x, y);
+        }
+		/// @copydoc wm_iconposition(this auto&&)
+		std::array<long long, 2> iconposition(this auto&& self)
+		{
+			return self.wm_iconposition();
+		}
 
-        /// 
-        void wm_iconwindow();
-        void iconwindow();
+        /// @brief Set widget PATHNAME to be displayed instead of icon.
+        void wm_iconwindow(this auto&& self, const std::string& pathName)
+        {
+            self.tk->call("wm", "wm_iconwindow", self._w, pathName);
+        }
+		/// @brief Return the current value of the icon window.
+        Misc wm_iconwindow(this auto&& self);
+		/// @copydoc wm_iconwindow(this auto&&, const std::string&)
+		void iconwindow(this auto&& self, const std::string& pathName)
+		{
+			return self.wm_iconwindow(pathName);
+		}
+		/// @copydoc wm_iconwindow(this auto&&)
+        Misc iconwindow(this auto&& self);
 
+        /// @brief The widget specified will become a stand alone top-level window. 
         /// 
-        void wm_manage();
-        void manage();
+        /// The window will be decorated with the window managers title bar, etc.
+        void wm_manage(this auto&& self, std::derived_from<Misc> auto& widget)
+        {
+			self.tk->call("wm", "manage", widget);
+        }
+		/// @copydoc wm_manage
+        void manage(this auto&& self, std::derived_from<Misc> auto& widget)
+		{
+			return self.wm_manage(widget);
+		}
 
-        /// 
-        void wm_maxsize();
-        void maxsize();
+        /// @brief Set max WIDTH and HEIGHT for this widget. If the window is gridded the values are given in grid units.
+        void wm_maxsize(this auto&& self, long long width, long long height)
+        {
+			self.tk->call("wm", "maxsize", self._w, width, height);
+        }
+        /// @brief Return the current max WIDTH and HEIGHT for this widget.
+        std::array<long long, 2> wm_maxsize(this auto&& self)
+        {
+			return self.tk->template call<std::array<long long, 2>>("wm", "maxsize", self._w);
+        }
+		/// @copydoc wm_maxsize(this auto&&, long long, long long)
+        void maxsize(this auto&& self, long long width, long long height)
+		{
+			return self.wm_maxsize(width, height);
+		}
+		/// @copydoc wm_maxsize(this auto&&)
+		std::array<long long, 2> maxsize(this auto&& self)
+		{
+			return self.wm_maxsize();
+		}
 
-        /// 
-        void wm_minsize();
-        void minsize();
+        /// @brief Set min WIDTH and HEIGHT for this widget. If the window is gridded the values are given in grid units.
+        void wm_minsize(this auto&& self, long long width, long long height)
+        {
+			self.tk->call("wm", "minsize", self._w, width, height);
+        }
+		/// @brief Return the current min WIDTH and HEIGHT for this widget.
+		std::array<long long, 2> wm_minsize(this auto&& self)
+		{
+			return self.tk->template call<std::array<long long, 2>>("wm", "minsize", self._w);
+		}
+		/// @copydoc wm_minsize(this auto&&, long long, long long)
+		void minsize(this auto&& self, long long width, long long height)
+		{
+			return self.wm_minsize(width, height);
+		}
+		/// @copydoc wm_minsize(this auto&&)
+		std::array<long long, 2> minsize(this auto&& self)
+		{
+			return self.wm_minsize();
+		}
 
-        /// 
-        void wm_overrideredirect();
-        void overrideredirect();
+        /// @brief Instruct the window manager to ignore this widget if BOOLEAN is true.
+        void wm_overrideredirect(this auto&& self, bool boolean)
+        {
+			self.tk->call("wm", "overrideredirect", self._w, boolean);
+        }
+		/// @brief Return the current value of the overrideredirect flag.
+		bool wm_overrideredirect(this auto&& self)
+		{
+			return self.tk->template call<bool>("wm", "overrideredirect", self._w);
+		}
+		/// @copydoc wm_overrideredirect(this auto&&, bool)
+		void overrideredirect(this auto&& self, bool boolean)
+		{
+			return self.wm_overrideredirect(boolean);
+		}
+		/// @copydoc wm_overrideredirect(this auto&&)
+		bool overrideredirect(this auto&& self)
+		{
+			return self.wm_overrideredirect();
+		}
 
-        /// 
-        void wm_positionfrom();
-        void positionfrom();
+        /// @brief Instruct the window manager that the position of this widget shall be defined by the user if WHO is "user", and by its own policy if WHO is "program".
+        void wm_positionfrom(this auto&& self, const std::string& who)
+        {
+			self.tk->call("wm", "positionfrom", self._w, who);
+        }
+		/// @brief Return the current positionfrom setting.
+		std::string wm_positionfrom(this auto&& self)
+		{
+			return self.tk->template call<std::string>("wm", "positionfrom", self._w);
+		}
+		/// @copydoc wm_positionfrom(this auto&&, const std::string&)
+		void positionfrom(this auto&& self, const std::string& who)
+		{
+			return self.wm_positionfrom(who);
+		}
+		/// @copydoc wm_positionfrom(this auto&&)
+		std::string positionfrom(this auto&& self)
+		{
+			return self.wm_positionfrom();
+		}
 
         /// Bind function FUNC to command NAME for this widget.
         /// 
@@ -596,17 +721,68 @@ namespace cpptkinter
             return self.template wm_protocol<R>(name, std::forward<Func>(func));
         }
 
-        /// 
-        void wm_resizable();
-        void resizable();
+        /// @brief Instruct the window manager whether this width can be resized in WIDTH or HEIGHT.
+        void wm_resizable(this auto&& self, bool width, bool height)
+        {
+			self.tk->call("wm", "resizable", self._w, width, height);
+        }
+		/// @brief Return the current resizable settings.
+		std::array<bool, 2> wm_resizable(this auto&& self)
+		{
+			return self.tk->template call<std::array<bool, 2>>("wm", "resizable", self._w);
+		}
+		/// @copydoc wm_resizable(this auto&&, bool, bool)
+		void resizable(this auto&& self, bool width, bool height)
+		{
+			return self.wm_resizable(width, height);
+		}
+		/// @copydoc wm_resizable(this auto&&)
+		std::array<bool, 2> resizable(this auto&& self)
+		{
+			return self.wm_resizable();
+		}
 
-        /// 
-        void wm_sizefrom();
-        void sizefrom();
+        /// @brief Instruct the window manager that the size of this widget shall be defined by the user if WHO is "user", and by its own policy if WHO is "program".
+        void wm_sizefrom(this auto&& self, const std::string& who)
+        {
+			self.tk->call("wm", "sizefrom", self._w, who);
+        }
+		/// @brief Return the current sizefrom setting.
+		std::string wm_sizefrom(this auto&& self)
+		{
+			return self.tk->template call<std::string>("wm", "sizefrom", self._w);
+		}
+		/// @copydoc wm_sizefrom(this auto&&, const std::string&)
+		void sizefrom(this auto&& self, const std::string& who)
+		{
+			return self.wm_sizefrom(who);
+		}
+		/// @copydoc wm_sizefrom(this auto&&)
+		std::string sizefrom(this auto&& self)
+		{
+			return self.wm_sizefrom();
+		}
 
-        /// 
-        void wm_state();
-        void state();
+        /// @brief Set the state of this widget as one of normal, icon, iconic (see wm_iconwindow), withdrawn, or zoomed (Windows only).
+        void wm_state(this auto&& self, const std::string& newstate)
+        {
+			self.tk->call("wm", "state", self._w, newstate);
+        }
+		/// @brief Return the current state of this widget.
+		std::string wm_state(this auto&& self)
+		{
+			return self.tk->template call<std::string>("wm", "state", self._w);
+		}
+		/// @copydoc wm_state(this auto&&, const std::string&)
+		void state(this auto&& self, const std::string& newstate)
+		{
+			return self.wm_state(newstate);
+		}
+		/// @copydoc wm_state(this auto&&)
+		std::string state(this auto&& self)
+		{
+			return self.wm_state();
+		}
 
         /// @brief Set the title of this widget.
         void wm_title(this auto&& self, const std::string& string)
@@ -629,13 +805,33 @@ namespace cpptkinter
             return self.wm_title();
         }
 
-        /// 
-        void wm_transient();
-        void transient();
+        /// @brief Instruct the window manager that this widget is transient with regard to widget MASTER.
+        void wm_transient(this auto&& self, const std::string& master)
+        {
+			self.tk->call("wm", "transient", self._w, master);
+        }
+		/// @brief Return the current transient master.
+        Misc wm_transient(this auto&& self);
+		/// @copydoc wm_transient(this auto&&, const std::string&)
+		void transient(this auto&& self, const std::string& master)
+		{
+			return self.wm_transient(master);
+		}
+		/// @copydoc wm_transient(this auto&&)
+        Misc transient(this auto&& self);
 
+        /// @brief Withdraw this widget from the screen such that it is unmapped and forgotten by the window manager.
         /// 
-        void wm_withdraw();
-        void withdraw();
+        /// Re - draw it with wm_deiconify.
+        void wm_withdraw(this auto&& self)
+        {
+			self.tk->call("wm", "withdraw", self._w);
+        }
+		/// @copydoc wm_withdraw
+        void withdraw(this auto&& self)
+        {
+            return self.wm_withdraw();
+        }
     };
 
     /// @brief Internal class.
@@ -919,6 +1115,23 @@ namespace cpptkinter
         /// @brief Return a list of all slaves of this widget in its packing order.
         std::vector<Misc> grid_slaves(std::optional<long long> row = {}, std::optional<long long> column = {});
     };
+
+    Misc Wm::wm_iconwindow(this auto&& self)
+    {
+        return self.nametowidget(self.tk->template call<std::string>("wm", "wm_iconwindow", self._w));
+    }
+    Misc Wm::iconwindow(this auto&& self)
+    {
+        return self.wm_iconwindow();
+    }
+    Misc Wm::wm_transient(this auto&& self)
+    {
+        return self.nametowidget(self.tk->template call<std::string >("wm", "transient", self._w));
+    }
+    Misc Wm::transient(this auto&& self)
+    {
+        return self.wm_transient();
+    }
 
     struct Misc::impl : public hhh::misc::extended_enable_shared_from_this
     {
