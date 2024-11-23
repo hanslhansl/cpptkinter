@@ -116,6 +116,6 @@ Add `#include cpptkinter.hpp` to your source files to use the library.
 - `Tk`, `Toplevel`, `Button`, `Frame`, `Label`, `Scale` and `LabelFrame` are fully implemented. However, a lot of their functionality is inherited from `Misc` and therefor not implemented as of yet.
 - `_tkinter`is implemented for the most part and available in `namespace cpptkinter::_cpptkinter`
 
-
+The next step is to fully implement `Wm` and `Misc`.
 
 
