@@ -1,4 +1,4 @@
-#include "cpptkinter.hpp"
+﻿#include "cpptkinter.hpp"
 
 /// @file cpptkinter.cpp
 /// @brief Implements __init__.py.
@@ -92,6 +92,11 @@ void cpptkinter::Misc::destroy()
 void cpptkinter::Misc::mainloop(int n)
 {
     this->tk->mainloop(n);
+}
+
+void cpptkinter::Misc::quit()
+{
+    this->tk->quit();
 }
 
 cpptkinter::Misc cpptkinter::Misc::nametowidget(std::string_view name)
@@ -299,12 +304,12 @@ cpptkinter::cnfs::grid_column_row_configure_return cpptkinter::Misc::columnconfi
     return this->grid_columnconfigure(index);
 }
 
-std::array<long long, 2> cpptkinter::Misc::grid_location(const detail::_ScreenUnits& x, const detail::_ScreenUnits& y)
+std::array<long long, 2> cpptkinter::Misc::grid_location(const detail::ScreenUnits& x, const detail::ScreenUnits& y)
 {
     return this->tk->call<std::array<long long, 2>>("grid", "location", this->_w, x, y);
 }
 
-std::array<long long, 2> cpptkinter::Misc::location(const detail::_ScreenUnits& x, const detail::_ScreenUnits& y)
+std::array<long long, 2> cpptkinter::Misc::location(const detail::ScreenUnits& x, const detail::ScreenUnits& y)
 {
     return this->grid_location(x, y);
 }
@@ -482,7 +487,7 @@ void cpptkinter::Tk::_loadtk()
     this->protocol("WM_DELETE_WINDOW", std::function<void()>(std::bind_front(&Tk::destroy, *this)));
 }
 
-void cpptkinter::Tk::readprofile(std::string_view baseName, std::string_view className)
+void cpptkinter::Tk::readprofile(const std::string& baseName, const std::string& className)
 {
     auto _home = std::getenv("HOME");
     std::string home = _home != nullptr ? _home : ".";
@@ -503,7 +508,7 @@ void cpptkinter::Tk::readprofile(std::string_view baseName, std::string_view cla
     DEVIATING_IMPLEMENTATION_WARNING("original executes class_py and base_py with python's exec()");
 }
 
-void cpptkinter::Tk::_report_callback_exception(Tk& self, const std::exception_ptr& exc_ptr)
+void cpptkinter::Tk::default_report_callback_exception(Tk& self, const std::exception_ptr& exc_ptr)
 {
     DEVIATING_IMPLEMENTATION_WARNING("original catches exceptions and prints them to stderr");
     /*try
@@ -550,7 +555,7 @@ std::array<long long, 2> cpptkinter::Scale::coords(double value)
     return this->tk->call<std::array<long long, 2>>(this->_w, "coords", value);
 }
 
-std::string cpptkinter::Scale::identify(detail::_ScreenUnits x, detail::_ScreenUnits y)
+std::string cpptkinter::Scale::identify(detail::ScreenUnits x, detail::ScreenUnits y)
 {
     return this->tk->call<std::string>(this->_w, "identify", x, y);
 }

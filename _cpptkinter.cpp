@@ -1,4 +1,4 @@
-#include "_cpptkinter.hpp"
+﻿#include "_cpptkinter.hpp"
 
 /// @file _cpptkinter.cpp
 /// @brief Implements _tkinter.c, _tkinter.c.h and tkappinit.c.
@@ -12,7 +12,7 @@ std::string cpptkinter::_cpptkinter::detail::_get_tcl_lib_path()
 		throw construct_exception<std::runtime_error>("tcl_library must be specified with tkinter::init because");
 }
 
-void cpptkinter::_cpptkinter::detail::log_error(const std::string_view message, const std::source_location location)
+void cpptkinter::_cpptkinter::detail::log_error(const std::string& message, const std::source_location location)
 {
 	std::cerr << "file: "
 		<< location.file_name() << '('
@@ -312,9 +312,9 @@ std::optional<cpptkinter::_cpptkinter::tk_window_type> cpptkinter::_cpptkinter::
 }
 
 std::shared_ptr<cpptkinter::_cpptkinter::TkappObject> cpptkinter::_cpptkinter::create(
-	const std::string& screenName, std::string_view baseName, std::string_view className, bool interactive, bool wantTk, bool sync, std::string_view use)
+	const std::string& screenName, const std::string& baseName, const std::string& className, bool interactive, bool wantTk, bool sync, const std::string& use)
 {
-	return std::make_shared<TkappObject>(screenName, std::string(className), interactive, wantTk, sync, use);
+	return std::make_shared<TkappObject>(screenName, className, interactive, wantTk, sync, use);
 }
 
 Tcl_Obj* cpptkinter::_cpptkinter::detail::AsObjImpl(const byte_array& value)
@@ -363,7 +363,7 @@ void cpptkinter::_cpptkinter::UnsetVar(TkappObject* self, const std::string& arg
 	LEAVE_OVERLAP_TCL;
 }
 
-cpptkinter::_cpptkinter::TkappObject::TkappObject(const std::string& screenName, std::string className, int interactive, int wantTk, int sync, std::string_view use)
+cpptkinter::_cpptkinter::TkappObject::TkappObject(const std::string& screenName, std::string className, int interactive, int wantTk, int sync, const std::string& use)
 {
 	this->interp = Tcl_CreateInterp();
 	this->threaded = Tcl_GetVar2Ex(this->interp, "tcl_platform", "threaded", TCL_GLOBAL_ONLY) != nullptr;
@@ -621,4 +621,9 @@ void cpptkinter::_cpptkinter::TkappObject::mainloop(int threshold)
 		excInCmd = nullptr;
 		std::rethrow_exception(intermediate);
 	}
+}
+
+void cpptkinter::_cpptkinter::TkappObject::quit()
+{
+	quitMainLoop = 1;
 }

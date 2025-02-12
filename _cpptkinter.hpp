@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "global.hpp"
 #include "utility.hpp"
 #include "constants.hpp"
@@ -91,7 +91,7 @@ namespace cpptkinter::_cpptkinter::detail
 	/// Set by cpptkinter::init()
 	inline char** argv;
 
-	void log_error(const std::string_view message, const std::source_location location = std::source_location::current());
+	void log_error(const std::string& message, const std::source_location location = std::source_location::current());
 
 	template<typename T>
 	std::string Tkapp_Trace_to_string(const T& t)
@@ -212,23 +212,23 @@ namespace cpptkinter::_cpptkinter::detail
 	/// @brief Try to convert a std::variant to Tcl_Obj*.
 	///
 	/// @see cpptkinter::_cpptkinter::AsObj()
-	template<typename T>
-		requires hhh::meta::is_template_instance<std::remove_cvref_t<T>, std::variant>&& hhh::meta::apply_conjunction<std::remove_cvref_t<T>, AsObjImplTrait>::value
-	Tcl_Obj* AsObjImpl(T&& value);
+	template<typename...Args>
+		requires (AsObjImplTrait<Args>::value && ...)
+	Tcl_Obj* AsObjImpl(const std::variant<Args...>& value);
 	/// @brief Try to convert a tuple-like or a container to Tcl_Obj*.
 	///
 	/// @see cpptkinter::_cpptkinter::AsObj()
 	template<typename T>
-		requires (hhh::meta::tuple_like<std::remove_cvref_t<T>>&& hhh::meta::tuple_elements_satisfy<std::remove_cvref_t<T>, AsObjImplTrait>::value)
-	|| (utility::is_vector<std::remove_cvref_t<T>> && AsObjImplTrait<typename std::remove_cvref_t<T>::value_type>::value)
-		Tcl_Obj * AsObjImpl(T && value);
+		requires (hhh::meta::tuple_like<T> && hhh::meta::tuple_elements_satisfy<T, AsObjImplTrait>::value)
+	|| (utility::is_vector<T> && AsObjImplTrait<typename T::value_type>::value)
+		Tcl_Obj* AsObjImpl(const T& value);
 	/// @brief Try to convert a std::reference_wrapper or cpptkinter::utility::ref_wrapper to Tcl_Obj*.
 	///
 	/// @see cpptkinter::_cpptkinter::AsObj()
 	template<typename T>
-		requires AsObjImplTrait<typename std::remove_cvref_t<T>::type>::value
-	&& (hhh::meta::is_template_instance<std::remove_cvref_t<T>, std::reference_wrapper> || hhh::meta::is_template_instance<std::remove_cvref_t<T>, utility::ref_wrapper>)
-		Tcl_Obj* AsObjImpl(T&& value);
+		requires AsObjImplTrait<typename T::type>::value
+	&& (hhh::meta::is_template_instance<T, std::reference_wrapper> || hhh::meta::is_template_instance<T, utility::ref_wrapper>)
+		Tcl_Obj* AsObjImpl(const T& value);
 
 	template<typename T>
 	struct AsObjImplTrait : std::bool_constant < requires { AsObjImpl(std::declval<T>()); } > { };
@@ -410,8 +410,8 @@ namespace cpptkinter::_cpptkinter
 	void DisableEventHook();
 	int WaitForMainloop(TkappObject* self);
 
-	std::shared_ptr<TkappObject> create(const std::string& screenName = {}, std::string_view baseName = {}, std::string_view className = "Tk",
-		bool interactive = false, bool wantTk = true, bool sync = false, std::string_view use = "");
+	std::shared_ptr<TkappObject> create(const std::string& screenName = {}, const std::string& baseName = {}, const std::string& className = "Tk",
+		bool interactive = false, bool wantTk = true, bool sync = false, const std::string& use = "");
 
 	void Tkapp_Trace(TkappObject* self, const auto&...args);
 
@@ -683,7 +683,7 @@ namespace cpptkinter::_cpptkinter
 		[[deprecated]] const Tcl_ObjType* UTF32StringType;
 
 		//TkappObject() = default;
-		TkappObject(const std::string& screenName, std::string className, int interactive, int wantTk, int sync, std::string_view use);
+		TkappObject(const std::string& screenName, std::string className, int interactive, int wantTk, int sync, const std::string& use);
 
 		void wilddispatch();
 		//void wantobjects();
@@ -1010,26 +1010,26 @@ namespace cpptkinter::_cpptkinter::detail
 	{
 		return AsObjImpl(value->operator std::string());
 	}
-	template<typename T>
-		requires hhh::meta::is_template_instance<std::remove_cvref_t<T>, std::variant>&& hhh::meta::apply_conjunction<std::remove_cvref_t<T>, AsObjImplTrait>::value
-	Tcl_Obj* AsObjImpl(T&& value)
+	template<typename...Args>
+		requires (AsObjImplTrait<Args>::value && ...)
+	Tcl_Obj* AsObjImpl(const std::variant<Args...>& value)
 	{
-		return std::visit([]<typename T2>(T2 && arg) { return AsObjImpl(std::forward<T2>(arg)); }, std::forward<T>(value));
+		return std::visit([]<typename T2>(const T2& arg) { return AsObjImpl(arg); }, value);
 	}
 	template<typename T>
-		requires (hhh::meta::tuple_like<std::remove_cvref_t<T>>&& hhh::meta::tuple_elements_satisfy<std::remove_cvref_t<T>, AsObjImplTrait>::value)
-	|| (utility::is_vector<std::remove_cvref_t<T>> && AsObjImplTrait<typename std::remove_cvref_t<T>::value_type>::value)
-		Tcl_Obj * AsObjImpl(T && value)
+		requires (hhh::meta::tuple_like<T>&& hhh::meta::tuple_elements_satisfy<T, AsObjImplTrait>::value)
+	|| (utility::is_vector<T> && AsObjImplTrait<typename T::value_type>::value)
+		Tcl_Obj* AsObjImpl(const T& value)
 	{
 		detail::Tcl_Obj_vector_raii raii{};
-		utility::visit_container_or_tuple([&raii]<typename T2>(T2 && elem) { raii.emplace_back(AsObj(std::forward<T2>(elem))); }, std::forward<T>(value));
+		utility::visit_container_or_tuple([&raii]<typename T2>(const T2& elem) { raii.emplace_back(AsObj(elem)); }, value);
 		auto res = raii.Tcl_NewListObj();
 		return res;
 	}
 	template<typename T>
-		requires AsObjImplTrait<typename std::remove_cvref_t<T>::type>::value
-	&& (hhh::meta::is_template_instance<std::remove_cvref_t<T>, std::reference_wrapper> || hhh::meta::is_template_instance<std::remove_cvref_t<T>, utility::ref_wrapper>)
-		Tcl_Obj* AsObjImpl(T&& value)
+		requires AsObjImplTrait<typename T::type>::value
+	&& (hhh::meta::is_template_instance<T, std::reference_wrapper> || hhh::meta::is_template_instance<T, utility::ref_wrapper>)
+		Tcl_Obj* AsObjImpl(const T& value)
 	{
 		return AsObjImpl(value.get());
 	}

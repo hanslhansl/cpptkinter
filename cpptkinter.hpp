@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "_cpptkinter.hpp"
 
 /// @file cpptkinter.hpp
@@ -29,23 +29,23 @@ namespace cpptkinter
         struct Tk_impl;
         struct set_get_proxy;
 
-        using _Anchor = std::string;
+        using Anchor = std::string;
         template<typename T> // default is void
-        using _ButtonCommand = std::variant<std::string, std::function<T()>>;
-        using _Compound = std::string;
-        using _Cursor = std::variant<std::string,
+        using ButtonCommand = std::variant<std::string, std::function<T()>>;
+        using Compound = std::string;
+        using Cursor = std::variant<std::string,
             std::tuple<std::string>,
             std::tuple<std::string, std::string>,
             std::tuple<std::string, std::string, std::string>,
             std::tuple<std::string, std::string, std::string, std::string>>;
-        using _EntryValidateCommand = std::variant<std::string, std::vector<std::string>, std::function<bool()>>;
-        using _ImageSpec = std::variant<std::string/*, _Image*/>;
+        using EntryValidateCommand = std::variant<std::string, std::vector<std::string>, std::function<bool()>>;
+        using ImageSpec = std::variant<std::string/*, _Image*/>;
         DEVIATING_IMPLEMENTATION_WARNING("_ImageSpec not done");
-        using _Relief = std::string;
-        using _ScreenUnits = std::variant<long long, double, std::string>;
-        using _XYScrollCommand = std::variant<std::string, std::function<void(double, double)>>;
-        using _TakeFocusValue = std::variant<bool, std::function<bool(std::string)>>;
-        using _FontDescription = std::variant<std::string, /*Font, */
+        using Relief = std::string;
+        using ScreenUnits = std::variant<long long, double, std::string>;
+        using XYScrollCommand = std::variant<std::string, std::function<void(double, double)>>;
+        using TakeFocusValue = std::variant<bool, std::function<bool(const std::string&)>>;
+        using FontDescription = std::variant<std::string, /*Font, */
             std::tuple<std::string>,
             std::tuple<std::string, long long>,
             std::tuple<std::string, long long, std::string>,
@@ -167,36 +167,44 @@ namespace cpptkinter
     {
         template<typename T>
         struct is_cnf_member_trait : std::bool_constant<detail::AsObjConcept<T> || detail::createcommand_concept<T>> { };
+        template<typename...Args>
+            requires (is_cnf_member_trait<Args>::value && ...)
+        struct is_cnf_member_trait<std::variant<Args...>> : std::true_type {};
         template<typename T>
-            requires hhh::meta::is_template_instance<std::remove_cvref_t<T>, std::variant>&& hhh::meta::apply_conjunction<std::remove_cvref_t<T>, is_cnf_member_trait>::value
-        struct is_cnf_member_trait<T> : std::true_type { };
-        template<typename T>
-            requires hhh::meta::is_template_instance<std::remove_cvref_t<T>, std::optional>&& is_cnf_member_trait<decltype(std::declval<T>().value())>::value
-        struct is_cnf_member_trait<T> : std::true_type { };
+            requires is_cnf_member_trait<T>::value
+        struct is_cnf_member_trait<std::optional<T>> : std::true_type {};
+
 		template<typename T>
 		concept is_cnf_member = is_cnf_member_trait<T>::value;
 
         template<typename T, typename IS = std::make_index_sequence<reflect::size<T>()>>
         struct is_cnf_trait : std::false_type { };
         template<typename T, size_t...I>
-            requires (!std::is_array_v<std::remove_cvref_t<T>>) && (is_cnf_member<decltype(reflect::get<I>(std::declval<T>()))> && ...)
+            requires (!std::is_array_v<std::remove_cvref_t<T>>) && (is_cnf_member<std::remove_cvref_t<reflect::member_type<I, T>>> && ...)
         struct is_cnf_trait<T, std::integer_sequence<size_t, I...>> : std::true_type { };
 		/// @brief Satsified if T is a cnf struct.
         /// 
         /// Usually cnf structs are passed to cpptkinter::Misc::_options() internally.
         template<typename T>
-        concept is_cnf = is_cnf_trait<T>::value;
+        concept is_cnf = is_cnf_trait<std::remove_cvref_t<T>>::value;
 
-        using pad_type = utility::extend_variants<detail::_ScreenUnits, std::array<detail::_ScreenUnits, 2>>::type;
+        using pad_type = utility::extend_variants<detail::ScreenUnits, std::array<detail::ScreenUnits, 2>>::type;
         using visual_type = std::variant<std::string, std::tuple<std::string, long long>>;
 
         template<typename T>
         using opt = std::optional<T>;
         using opt_string = opt<std::string>;
 		using opt_bool = opt<bool>;
-        using opt_screenunits = opt<detail::_ScreenUnits>;
+        using opt_screenunits = opt<detail::ScreenUnits>;
         using opt_pad_type = opt<pad_type>;
         using opt_visual_type = opt<visual_type>;
+        using opt_anchor = opt<detail::Anchor>;
+        using opt_font_description = opt<detail::FontDescription>;
+        using opt_cursor = opt<detail::Cursor>;
+        using opt_image_spec = opt<detail::ImageSpec>;
+        using opt_compound = opt<detail::Compound>;
+        using opt_relief = opt<detail::Relief>;
+        using opt_take_focus_value = opt<detail::TakeFocusValue>;
 
         /// @brief Argument for Misc::grid_columnconfigure() and Misc::grid_rowconfigure().
         struct grid_column_row_configure
@@ -872,11 +880,14 @@ namespace cpptkinter
 		/// @brief Calls this->pimpl->destroy().
         void destroy();
 
-        /// Call the mainloop of Tk.
+        /// @brief Call the mainloop of Tk.
         void mainloop(int n = 0);
+
+        /// @brief Quit the Tcl interpreter. All widgets will be destroyed.
+        void quit();
     protected:
         template<typename T>
-            requires (cnfs::is_cnf_member<T> && !hhh::meta::is_template_instance<std::remove_cvref_t<T>, std::optional>)
+            requires (cnfs::is_cnf_member<std::remove_cvref_t<T>> && !hhh::meta::is_template_instance<std::remove_cvref_t<T>, std::optional>)
         Tcl_Obj* _options_inner_visitor(T&& value)
         {
             auto visitor = [this]<typename T2>(T2 && value) {
@@ -1074,9 +1085,9 @@ namespace cpptkinter
         }
 
         /// @brief Return a tuple of column and row which identify the cell at which the pixel at position X and Y inside the master widget is located.
-        std::array<long long, 2> grid_location(const detail::_ScreenUnits& x, const detail::_ScreenUnits& y);
+        std::array<long long, 2> grid_location(const detail::ScreenUnits& x, const detail::ScreenUnits& y);
         /// @copydoc grid_location
-        std::array<long long, 2> location(const detail::_ScreenUnits& x, const detail::_ScreenUnits& y);
+        std::array<long long, 2> location(const detail::ScreenUnits& x, const detail::ScreenUnits& y);
 
         /// @brief Get the status for propagation of geometry information.
         ///
@@ -1233,21 +1244,21 @@ namespace cpptkinter
         void loadtk();
     private:
         void _loadtk();
-
+    public:
         /// @brief This function prints the exception to stderr.
         ///
         /// It is the default callback registered in @ref report_callback_exception.
-        static void _report_callback_exception(Tk&, const std::exception_ptr& exc_ptr);
-    public:
+        static void default_report_callback_exception(Tk&, const std::exception_ptr& exc_ptr);
+
         /// @brief Internal function.
         /// 
         /// It reads .BASENAME.tcl and .CLASSNAME.tcl into the Tcl Interpreter.
-        void readprofile(std::string_view baseName, std::string_view className);
+        void readprofile(const std::string& baseName, const std::string& className);
 
         /// @brief Report callback exception on stderr.
         ///
         /// Applications may want to override this internal function. Default value is @ref _report_callback_exception-
-        std::function<void(Tk&, const std::exception_ptr&)> report_callback_exception = &Tk::_report_callback_exception; // std::bind_front()
+        std::function<void(Tk&, const std::exception_ptr&)> report_callback_exception = &Tk::default_report_callback_exception;
 
         /// @brief Not implementable until c++26 when (hopefully) reflection will allow for code gen.
         void __getattr__() = delete;
@@ -1488,7 +1499,7 @@ namespace cpptkinter
         /// @brief Return type of Pack::pack_info().
         ///
         /// @see cnfs::pack_configure
-        struct _PackInfo
+        struct PackInfo
         {
             std::string anchor;
             bool expand;
@@ -1499,299 +1510,6 @@ namespace cpptkinter
             long long padx;
             long long pady;
             std::string side;
-        };
-
-        /// @brief Argument for Place::place_configure().
-        struct place_configure
-        {
-            /// NSEW (or subset) - position anchor according to given direction
-            opt<detail::_Anchor> anchor;
-            /// "inside", "outside" or "ignore" - whether to take border width of master widget into account
-            opt_string bordermode;
-            /// master relative to which the widget is placed
-            opt_master in;
-            /// locate anchor of this widget at position x of master
-            opt_screenunits x;
-            /// locate anchor of this widget at position y of master
-            opt_screenunits y;
-            /// locate anchor of this widget between 0.0 and 1.0 relative to width of master (1.0 is right edge)
-            opt<std::variant<std::string, double>> relx;
-            /// locate anchor of this widget between 0.0 and 1.0 relative to height of master (1.0 is bottom edge)
-            opt<std::variant<std::string, double>> rely;
-            /// height of this widget in pixel
-            opt_screenunits height;
-            /// width of this widget in pixel
-            opt_screenunits width;
-            /// height of this widget between 0.0 and 1.0 relative to height of master (1.0 is the same height as the master)
-            opt<std::variant<std::string, double>> relheight;
-            /// width of this widget between 0.0 and 1.0 relative to width of master (1.0 is the same width as the master)
-            opt<std::variant<std::string, double>> relwidth;
-        };
-        struct _PlaceInfo
-        {
-            Misc in;
-            std::string x;
-            std::string relx;
-            std::string y;
-            std::string rely;
-            std::string width;
-            std::string relwidth;
-            std::string height;
-            std::string relheight;
-            std::string anchor;
-            std::string bordermode;
-        };
-
-        /// @brief Argument for Grid::grid_configure().
-        struct grid_configure
-        {
-            /// number - use cell identified with given column (starting with 0)
-            opt<size_t> column;
-            /// number - this widget will span several columns
-            opt<size_t> columnspan;
-            /// master - use master to contain this widget
-            opt_master in;
-            /// number - use cell identified with given row (starting with 0)
-            opt<size_t> row;
-            /// number - this widget will span several rows
-            opt<size_t> rowspan;
-            /// amount - add internal padding in x direction
-            opt_screenunits ipadx;
-            /// amount - add internal padding in y direction
-            opt_screenunits ipady;
-            /// amount - add padding in x direction
-            opt_pad_type padx;
-            /// amount - add padding in y direction
-            opt_pad_type pady;
-            /// NSEW - if cell is larger on which sides will this widget stick to the cell boundary
-            opt_string sticky;
-        };
-        /// @brief Return type of Grid::grid_info().
-        ///
-        /// @see cnfs::grid_configure
-        struct _GridInfo
-        {
-            Misc in;
-            long long column;
-            long long row;
-            long long columnspan;
-            long long rowspan;
-            long long ipadx;
-            long long ipady;
-            long long padx;
-            long long pady;
-            std::string sticky;
-        };
-
-        /// @brief Argument for cpptkinter::Toplevel().
-        struct Toplevel
-        {
-            opt_master master;
-            opt_string background;
-            opt_screenunits bd;
-            opt_string bg;
-            opt_screenunits border;
-            opt_screenunits borderwidth;
-            opt_string class_;
-            opt<std::variant<std::string, Misc>> colormap;
-            opt_bool container;
-            opt<detail::_Cursor> cursor;
-            opt_screenunits height;
-            opt_string highlightbackground;
-            opt_string highlightcolor;
-            opt_screenunits highlightthickness;
-            //opt<Menu> menu;
-            opt_string name;
-            opt_screenunits padx;
-            opt_screenunits pady;
-            opt<detail::_Relief> relief;
-            opt_string screen;
-            opt<detail::_TakeFocusValue> takefocus;
-            opt<size_t> use;
-            opt_visual_type visual;
-            opt_screenunits width;
-        };
-
-        /// @brief Argument for cpptkinter::Button() and cpptkinter::TypedButton().
-        template<typename T>
-        struct Button
-        {
-            opt_master master;
-            opt_string activebackground;
-            opt_string activeforeground;
-            opt<detail::_Anchor> anchor;
-            opt_string background;
-            opt_screenunits bd;
-            opt_string bg;
-            opt_string bitmap;
-            opt_screenunits border;
-            opt_screenunits borderwidth;
-            opt<detail::_ButtonCommand<T>> command;
-            opt<detail::_Compound> compound;
-            opt<detail::_Cursor> cursor;
-            opt_string default_;
-            opt_string disabledforeground;
-            opt_string fg;
-            opt<detail::_FontDescription> font;
-            opt_string foreground;
-            opt_screenunits height;
-            opt_string highlightbackground;
-            opt_string highlightcolor;
-            opt_screenunits highlightthickness;
-            opt<detail::_ImageSpec> image;
-            opt_string justify;
-            opt_string name;
-            opt<detail::_Relief> overrelief;
-            opt_screenunits padx;
-            opt_screenunits pady;
-            opt<detail::_Relief> relief;
-            opt<size_t> repeatdelay;
-            opt<size_t> repeatinterval;
-            opt_string state;
-            opt<detail::_TakeFocusValue> takefocus;
-            opt<std::variant<double, std::string>> text;
-            opt<Variable> textvariable;
-            opt<size_t> underline;
-            opt_screenunits width;
-            opt_screenunits wraplength;
-        };
-
-        /// @brief Argument for cpptkinter::Frame().
-        struct Frame
-        {
-            opt_master master;
-            opt_string background;
-            opt_screenunits bd;
-            opt_string bg;
-            opt_screenunits border;
-            opt_screenunits borderwidth;
-            opt_string class_;
-            opt<std::variant<std::string, Misc>> colormap;
-            opt_bool container;
-            opt<detail::_Cursor> cursor;
-            opt_screenunits height;
-            opt_string highlightbackground;
-            opt_string highlightcolor;
-            opt_screenunits highlightthickness;
-            opt_string name;
-            opt_screenunits padx;
-            opt_screenunits pady;
-            opt<detail::_Relief> relief;
-            opt<detail::_TakeFocusValue> takefocus;
-            opt_visual_type visual;
-            opt_screenunits width;
-        };
-
-        /// @brief Argument for cpptkinter::Label().
-        struct Label
-        {
-            opt_master master;
-            opt_string activebackground;
-            opt_string activeforeground;
-            opt<detail::_Anchor> anchor;
-            opt_string background;
-            opt_screenunits bd;
-            opt_string bg;
-            opt_string bitmap;
-            opt_screenunits border;
-            opt_screenunits borderwidth;
-            opt<detail::_Compound> compound;
-            opt<detail::_Cursor> cursor;
-            opt_string disabledforeground;
-            opt_string fg;
-            opt<detail::_FontDescription> font;
-            opt_string foreground;
-            opt_screenunits height;
-            opt_string highlightbackground;
-            opt_string highlightcolor;
-            opt_screenunits highlightthickness;
-            opt<detail::_ImageSpec> image;
-            opt_string justify;
-            opt_string name;
-            opt_screenunits padx;
-            opt_screenunits pady;
-            opt<detail::_Relief> relief;
-            opt_string state;
-            opt<detail::_TakeFocusValue> takefocus;
-            opt<std::variant<double, std::string>> text;
-            opt<Variable> textvariable;
-            opt<size_t> underline;
-            opt_screenunits width;
-            opt_screenunits wraplength;
-        };
-
-        /// @brief Argument for cpptkinter::Scale().
-        template<typename T>
-        struct Scale
-        {
-            opt_master master;
-            opt_string activebackground;
-            opt_string background;
-            opt_screenunits bd;
-            opt_string bg;
-            opt<double> bigincrement;
-            opt_screenunits border;
-            opt_screenunits borderwidth;
-            opt<std::variant<std::string, std::function<T(std::string)>>> command;
-            opt<detail::_Cursor> cursor;
-            opt<long long> digits;
-            opt_string fg;
-            opt<detail::_FontDescription> font;
-            opt_string foreground;
-            opt<double> from;
-            opt_string highlightbackground;
-            opt_string highlightcolor;
-            opt_screenunits highlightthickness;
-            opt_string label;
-            opt_screenunits length;
-            opt_string name;
-            opt_string orient;
-            opt<detail::_Relief> relief;
-            opt<long long> repeatdelay;
-            opt<long long> repeatinterval;
-            opt<double> resolution;
-            opt_bool showvalue;
-            opt_screenunits sliderlength;
-            opt<detail::_Relief> sliderrelief;
-            opt_string state;
-            opt<detail::_TakeFocusValue> takefocus;
-            opt<double> tickinterval;
-            opt<double> to;
-            opt_string troughcolor;
-            opt<std::variant<IntVar, DoubleVar>> variable;
-            opt_screenunits width;
-        };
-
-        /// @brief Argument for cpptkinter::LabelFrame().
-        struct LabelFrame
-        {
-            opt_master master;
-            opt_string background;
-            opt_screenunits bd;
-            opt_string bg;
-            opt_screenunits border;
-            opt_screenunits borderwidth;
-            opt_string class_;
-            opt<std::variant<std::string, Misc>> colormap;
-            opt_bool container;
-            opt<detail::_Cursor> cursor;
-            opt_string fg;
-            opt<detail::_FontDescription> font;
-            opt_string foreground;
-            opt_screenunits height;
-            opt_string highlightbackground;
-            opt_string highlightcolor;
-            opt_screenunits highlightthickness;
-            opt_string labelanchor;
-            opt_master labelwidget;
-            opt_string name;
-            opt_screenunits padx;
-            opt_screenunits pady;
-            opt<detail::_Relief> relief;
-            opt<detail::_TakeFocusValue> takefocus;
-            opt<std::variant<double, std::string>> text;
-            opt_visual_type visual;
-            opt_screenunits width;
         };
     }
 
@@ -1820,11 +1538,58 @@ namespace cpptkinter
         }
 
         /// Return information about the packing options for this widget.
-        cnfs::_PackInfo pack_info(this auto&& self)
+        cnfs::PackInfo pack_info(this auto&& self)
         {
-            return detail::pack_grid_info<cnfs::_PackInfo>(self, "pack", "info", self._w);
+            return detail::pack_grid_info<cnfs::PackInfo>(self, "pack", "info", self._w);
         }
     };
+
+    namespace cnfs
+    {
+        /// @brief Argument for Place::place_configure().
+        struct place_configure
+        {
+            /// NSEW (or subset) - position anchor according to given direction
+            opt_anchor anchor;
+            /// "inside", "outside" or "ignore" - whether to take border width of master widget into account
+            opt_string bordermode;
+            /// master relative to which the widget is placed
+            opt_master in;
+            /// locate anchor of this widget at position x of master
+            opt_screenunits x;
+            /// locate anchor of this widget at position y of master
+            opt_screenunits y;
+            /// locate anchor of this widget between 0.0 and 1.0 relative to width of master (1.0 is right edge)
+            opt<std::variant<std::string, double>> relx;
+            /// locate anchor of this widget between 0.0 and 1.0 relative to height of master (1.0 is bottom edge)
+            opt<std::variant<std::string, double>> rely;
+            /// height of this widget in pixel
+            opt_screenunits height;
+            /// width of this widget in pixel
+            opt_screenunits width;
+            /// height of this widget between 0.0 and 1.0 relative to height of master (1.0 is the same height as the master)
+            opt<std::variant<std::string, double>> relheight;
+            /// width of this widget between 0.0 and 1.0 relative to width of master (1.0 is the same width as the master)
+            opt<std::variant<std::string, double>> relwidth;
+        };
+        /// @brief Return type of Place::place_info().
+        ///
+        /// @see cnfs::place_configure
+        struct PlaceInfo
+        {
+            Misc in;
+            std::string x;
+            std::string relx;
+            std::string y;
+            std::string rely;
+            std::string width;
+            std::string relwidth;
+            std::string height;
+            std::string relheight;
+            std::string anchor;
+            std::string bordermode;
+        };
+    }
 
     /// @brief Geometry manager Place.
     ///
@@ -1850,7 +1615,7 @@ namespace cpptkinter
 			self.tk->call("place", "forget", self._w);
         }
 
-        cnfs::_PlaceInfo place_info(this auto&& self)
+        cnfs::PlaceInfo place_info(this auto&& self)
         {
             auto str = self.tk->template call<std::string>("place", "info", self._w);
             std::vector<std::string> vec = self.tk->splitlist(str);
@@ -1867,9 +1632,53 @@ namespace cpptkinter
                     return std::move(v);
             };
 
-            return detail::_splitdict_to_aggregate<cnfs::_PlaceInfo>(std::move(map), true, converter);
+            return detail::_splitdict_to_aggregate<cnfs::PlaceInfo>(std::move(map), true, converter);
         }
     };
+
+    namespace cnfs
+    {
+        /// @brief Argument for Grid::grid_configure().
+        struct grid_configure
+        {
+            /// number - use cell identified with given column (starting with 0)
+            opt<size_t> column;
+            /// number - this widget will span several columns
+            opt<size_t> columnspan;
+            /// master - use master to contain this widget
+            opt_master in;
+            /// number - use cell identified with given row (starting with 0)
+            opt<size_t> row;
+            /// number - this widget will span several rows
+            opt<size_t> rowspan;
+            /// amount - add internal padding in x direction
+            opt_screenunits ipadx;
+            /// amount - add internal padding in y direction
+            opt_screenunits ipady;
+            /// amount - add padding in x direction
+            opt_pad_type padx;
+            /// amount - add padding in y direction
+            opt_pad_type pady;
+            /// NSEW - if cell is larger on which sides will this widget stick to the cell boundary
+            opt_string sticky;
+        };
+        /// @brief Return type of Grid::grid_info().
+        ///
+        /// @see cnfs::grid_configure
+        struct GridInfo
+        {
+            Misc in;
+            long long column;
+            long long row;
+            long long columnspan;
+            long long rowspan;
+            long long ipadx;
+            long long ipady;
+            long long padx;
+            long long pady;
+            std::string sticky;
+        };
+    }
 
     /// @brief Geometry manager Grid.
     /// 
@@ -1902,9 +1711,9 @@ namespace cpptkinter
         }
 
         /// @brief Return information about the options for positioning this widget in a grid.
-        cnfs::_GridInfo grid_info(this auto&& self)
+        cnfs::GridInfo grid_info(this auto&& self)
         {
-            return detail::pack_grid_info<cnfs::_GridInfo>(self, "grid", "info", self._w);
+            return detail::pack_grid_info<cnfs::GridInfo>(self, "grid", "info", self._w);
         }
     };
 
@@ -2004,6 +1813,227 @@ namespace cpptkinter
 		using BaseWidget::BaseWidget;
     };
 
+    namespace cnfs
+    {
+        /// @brief Argument for Menu::Menu().
+        struct Menu
+        {
+            opt_master master;
+            opt_string activebackground;
+            opt_screenunits activeborderwidth;
+            opt_string activeforeground;
+            opt_string background;
+            opt_screenunits bd;
+            opt_string bg;
+            opt_screenunits border;
+            opt_screenunits borderwidth;
+            opt_cursor cursor;
+            opt_string disabledforeground;
+            opt_string fg;
+            opt_font_description font;
+            opt_string foreground;
+            opt_screenunits height;
+            opt<std::variant<std::string, std::function<void()>>> postcommand;
+            opt_relief relief;
+            opt_string selectcolor;
+            opt_take_focus_value takefocus;
+            opt_bool tearoff;
+            opt<std::variant<std::string, std::function<void(const std::string&, const std::string&)>>> tearoffcommand;
+            opt_string title;
+            opt_string type;
+        };
+
+        /// @brief Argument for Menu::add_command().
+        struct add_cascade;
+
+		/// @brief Argument for Menu::add_radiobutton().
+        template<typename T>
+        struct add_checkbutton
+        {
+            opt_string accelerator;
+            opt_string activebackground;
+            opt_string activeforeground;
+            opt_string background;
+            opt_string bitmap;
+            opt<int> columnbreak;
+            opt<std::variant<std::string, std::function<void()>>> command;
+            opt_compound compound;
+            opt_font_description font;
+            opt_string foreground;
+            opt_bool hidemargin;
+            opt_image_spec image;
+            opt_bool indicatoron;
+            opt_string label;
+            T offvalue;
+            T onvalue;
+            opt_string selectcolor;
+            opt_image_spec selectimage;
+            opt_string state;
+            opt<int> underline;
+            opt<Variable> variable;
+        };
+
+        /// @brief Argument for Menu::add_command().
+        struct add_command
+        {
+            opt_string accelerator;
+            opt_string activebackground;
+            opt_string activeforeground;
+            opt_string background;
+            opt_string bitmap;
+            opt<int> columnbreak;
+            opt<std::variant<std::string, std::function<void()>>> command;
+            opt_compound compound;
+            opt_font_description font;
+            opt_string foreground;
+            opt_bool hidemargin;
+            opt_image_spec image;
+            opt_string label;
+            opt_string state;
+            opt<int> underline;
+        };
+
+		/// @brief Argument for Menu::add_radiobutton().
+        template<typename T>
+        struct add_radiobutton
+        {
+            opt_string accelerator;
+            opt_string activebackground;
+            opt_string activeforeground;
+            opt_string background;
+            opt_string bitmap;
+            opt<int> columnbreak;
+            opt<std::variant<std::string, std::function<void()>>> command;
+            opt_compound compound;
+            opt_font_description font;
+            opt_string foreground;
+            opt_bool hidemargin;
+            opt_image_spec image;
+            opt_bool indicatoron;
+            opt_string label;
+            opt_string selectcolor;
+            opt_image_spec selectimage;
+            opt_string state;
+            opt<int> underline;
+            T value;
+            opt<Variable> variable;
+        };
+
+        /// @brief Argument for Menu::add_separator().
+        struct add_separator
+        {
+            opt_string background;
+        };
+    }
+
+    /// @brief %Menu widget which allows displaying menu bars, pull-down menus and pop-up menus.
+    struct Menu : Widget
+    {
+        /// @brief Construct a menu widget.
+        template<cnfs::is_cnf CNF = cnfs::Menu>
+        Menu(CNF&& cnf = {}) : Widget("menu", std::forward<CNF>(cnf))
+        {
+
+        }
+
+        /// @brief Internal function.
+        template<cnfs::is_cnf CNF>
+        void add(const std::string& itemType, CNF&& cnf)
+        {
+            this->tk->call(this->_w, "add", itemType, this->_options(std::forward<CNF>(cnf)));
+        }
+
+        /// @brief Add hierarchical menu item.
+        template<cnfs::is_cnf CNF = cnfs::add_cascade>
+        void add_cascade(CNF&& cnf = {})
+        {
+            this->add("cascade", std::forward<CNF>(cnf));
+        }
+
+        /// @brief Add checkbutton menu item.
+        template<cnfs::is_cnf CNF = cnfs::add_checkbutton<bool>>
+        void add_checkbutton(CNF&& cnf = {})
+        {
+            this->add("checkbutton", std::forward<CNF>(cnf));
+        }
+
+        /// @brief Add command menu item.
+        template<cnfs::is_cnf CNF = cnfs::add_command>
+        void add_command(CNF&& cnf = {})
+        {
+            this->add("command", std::forward<CNF>(cnf));
+        }
+
+        /// @brief Add radio menu item.
+        template<cnfs::is_cnf CNF = cnfs::add_radiobutton<int>>
+        void add_radiobutton(CNF&& cnf = {})
+        {
+            this->add("radiobutton", std::forward<CNF>(cnf));
+        }
+
+        /// @brief Add separator menu item.
+        template<cnfs::is_cnf CNF = cnfs::add_separator>
+        void add_separator(CNF&& cnf = {})
+        {
+            this->add("separator", std::forward<CNF>(cnf));
+        }
+    };
+
+    namespace cnfs
+    {
+        using opt_menu = opt<cpptkinter::Menu>;
+
+        /// @brief Argument for Menu::add_command().
+        struct add_cascade
+        {
+            opt_string accelerator;
+            opt_string activebackground;
+            opt_string activeforeground;
+            opt_string background;
+            opt_string bitmap;
+            opt<int> columnbreak;
+            opt<std::variant<std::string, std::function<void()>>> command;
+            opt_compound compound;
+            opt_font_description font;
+            opt_string foreground;
+            opt_bool hidemargin;
+            opt_image_spec image;
+            opt_string label;
+            opt_menu menu;
+            opt_string state;
+            opt<int> underline;
+        };
+
+        /// @brief Argument for Toplevel::Toplevel().
+        struct Toplevel
+        {
+            opt_master master;
+            opt_string background;
+            opt_screenunits bd;
+            opt_string bg;
+            opt_screenunits border;
+            opt_screenunits borderwidth;
+            opt_string class_;
+            opt<std::variant<std::string, Misc>> colormap;
+            opt_bool container;
+            opt_cursor cursor;
+            opt_screenunits height;
+            opt_string highlightbackground;
+            opt_string highlightcolor;
+            opt_screenunits highlightthickness;
+            opt_menu menu;
+            opt_string name;
+            opt_screenunits padx;
+            opt_screenunits pady;
+            opt_relief relief;
+            opt_string screen;
+            opt_take_focus_value takefocus;
+            opt<size_t> use;
+            opt_visual_type visual;
+            opt_screenunits width;
+        };
+    }
+
     /// @brief %Toplevel widget, e.g. for dialogs.
     class Toplevel : public BaseWidget, public Wm
     {
@@ -2052,8 +2082,6 @@ namespace cpptkinter
         }
 
     public:
-        using BaseWidget::BaseWidget;
-
         /// @brief Create a new Toplevel widget.
         template<cnfs::is_cnf CNF = cnfs::Toplevel>
 		Toplevel(CNF&& cnf = {}) : Toplevel(std::forward<CNF>(cnf), make_extra_and_ignore_fields(std::forward<CNF>(cnf)))
@@ -2062,6 +2090,53 @@ namespace cpptkinter
 		}
     };
 
+    namespace cnfs
+    {
+        /// @brief Argument for Button::Button() and TypedButton::TypedButton().
+        template<typename T>
+        struct Button
+        {
+            opt_master master;
+            opt_string activebackground;
+            opt_string activeforeground;
+            opt_anchor anchor;
+            opt_string background;
+            opt_screenunits bd;
+            opt_string bg;
+            opt_string bitmap;
+            opt_screenunits border;
+            opt_screenunits borderwidth;
+            opt<detail::ButtonCommand<T>> command;
+            opt_compound compound;
+            opt_cursor cursor;
+            opt_string default_;
+            opt_string disabledforeground;
+            opt_string fg;
+            opt_font_description font;
+            opt_string foreground;
+            opt_screenunits height;
+            opt_string highlightbackground;
+            opt_string highlightcolor;
+            opt_screenunits highlightthickness;
+            opt_image_spec image;
+            opt_string justify;
+            opt_string name;
+            opt_relief overrelief;
+            opt_screenunits padx;
+            opt_screenunits pady;
+            opt_relief relief;
+            opt<size_t> repeatdelay;
+            opt<size_t> repeatinterval;
+            opt_string state;
+            opt_take_focus_value takefocus;
+            opt<std::variant<double, std::string>> text;
+            opt<Variable> textvariable;
+            opt<size_t> underline;
+            opt_screenunits width;
+            opt_screenunits wraplength;
+        };
+    }
+
     /// @brief %Button widget.
     /// 
     /// @see TypedButton, cpptkinter::Button()
@@ -2069,7 +2144,7 @@ namespace cpptkinter
     {
         using Widget::Widget;
 
-        /// @brief Create a new Button widget.
+        /// @brief Construct a new Button widget.
         template<detail::PythonCmd_ClientDataReturnConcept T = void, cnfs::is_cnf CNF = cnfs::Button<T>>
 		Button(CNF&& cnf = {}) : Widget("button", std::forward<CNF>(cnf))
         {
@@ -2106,7 +2181,7 @@ namespace cpptkinter
     {
 		using Button::Button;
 
-        /// @brief Create a new TypedButton widget.
+        /// @brief Construct a new TypedButton widget.
         template<cnfs::is_cnf CNF = cnfs::Button<T>>
         TypedButton(CNF&& cnf = {}) : Button(std::forward<CNF>(cnf))
 		{
@@ -2128,6 +2203,35 @@ namespace cpptkinter
 
     /// @brief %Entry widget which allows displaying simple text.
     struct Entry;
+
+    namespace cnfs
+    {
+        /// @brief Argument for Frame::Frame().
+        struct Frame
+        {
+            opt_master master;
+            opt_string background;
+            opt_screenunits bd;
+            opt_string bg;
+            opt_screenunits border;
+            opt_screenunits borderwidth;
+            opt_string class_;
+            opt<std::variant<std::string, Misc>> colormap;
+            opt_bool container;
+            opt_cursor cursor;
+            opt_screenunits height;
+            opt_string highlightbackground;
+            opt_string highlightcolor;
+            opt_screenunits highlightthickness;
+            opt_string name;
+            opt_screenunits padx;
+            opt_screenunits pady;
+            opt_relief relief;
+            opt_take_focus_value takefocus;
+            opt_visual_type visual;
+            opt_screenunits width;
+        };
+    }
 
 	/// @brief %Frame widget which may contain other widgets and can have a 3D border.
     class Frame : public Widget
@@ -2166,6 +2270,47 @@ namespace cpptkinter
 		}
     };
 
+    namespace cnfs
+    {
+        /// @brief Argument for Label::Label().
+        struct Label
+        {
+            opt_master master;
+            opt_string activebackground;
+            opt_string activeforeground;
+            opt_anchor anchor;
+            opt_string background;
+            opt_screenunits bd;
+            opt_string bg;
+            opt_string bitmap;
+            opt_screenunits border;
+            opt_screenunits borderwidth;
+            opt_compound compound;
+            opt_cursor cursor;
+            opt_string disabledforeground;
+            opt_string fg;
+            opt_font_description font;
+            opt_string foreground;
+            opt_screenunits height;
+            opt_string highlightbackground;
+            opt_string highlightcolor;
+            opt_screenunits highlightthickness;
+            opt_image_spec image;
+            opt_string justify;
+            opt_string name;
+            opt_screenunits padx;
+            opt_screenunits pady;
+            opt_relief relief;
+            opt_string state;
+            opt_take_focus_value takefocus;
+            opt<std::variant<double, std::string>> text;
+            opt<Variable> textvariable;
+            opt<size_t> underline;
+            opt_screenunits width;
+            opt_screenunits wraplength;
+        };
+    }
+
     /// @brief %Label widget which can display text and bitmaps.
     struct Label : Widget
     {
@@ -2180,17 +2325,111 @@ namespace cpptkinter
     /// @brief %Listbox widget which can display a list of strings.
     struct Listbox;
 
-    /// @brief %Menu widget which allows displaying menu bars, pull-down menus and pop-up menus.
-    struct Menu;
+    namespace cnfs
+    {
+        /// @brief Argument for Menubutton::Menubutton().
+        struct Menubutton
+        {
+            opt_master master;
+            opt_string activebackground;
+            opt_string activeforeground;
+            opt_anchor anchor;
+            opt_string background;
+            opt_screenunits bd;
+            opt_string bg;
+            opt_string bitmap;
+            opt_screenunits border;
+            opt_screenunits borderwidth;
+            opt_compound compound;
+            opt_cursor cursor;
+            opt_string direction;
+            opt_string disabledforeground;
+            opt_string fg;
+            opt_font_description font;
+            opt_string foreground;
+            opt_screenunits height;
+            opt_string highlightbackground;
+            opt_string highlightcolor;
+            opt_screenunits highlightthickness;
+            opt_image_spec image;
+            opt_bool indicatoron;
+            opt_string justify;
+            opt_menu menu;
+            opt_string name;
+            opt_screenunits padx;
+            opt_screenunits pady;
+            opt_relief relief;
+            opt_string state;
+            opt_take_focus_value takefocus;
+            opt<std::variant<double, std::string>> text;
+            opt<Variable> textvariable;
+            opt<size_t> underline;
+            opt_screenunits width;
+            opt_screenunits wraplength;
+        };
+    }
 
     /// @brief %Menubutton widget, obsolete since Tk8.0.
-    struct Menubutton;
+    struct Menubutton : Widget
+    {
+        /// @brief Construct a menubutton widget.
+        template<cnfs::is_cnf CNF = cnfs::Menubutton>
+        Menubutton(CNF&& cnf = {}) : Widget("menubutton", std::forward<CNF>(cnf))
+        {
+
+        }
+    };
 
     /// @brief %Message widget to display multiline text. Obsolete since Label does it too.
     struct [[deprecated("according to tkinter")]] Message;
 
     /// @brief %Radiobutton widget which shows only one of several buttons in on-state.
     struct Radiobutton;
+
+    namespace cnfs
+    {
+        /// @brief Argument for Scale::Scale().
+        template<typename T>
+        struct Scale
+        {
+            opt_master master;
+            opt_string activebackground;
+            opt_string background;
+            opt_screenunits bd;
+            opt_string bg;
+            opt<double> bigincrement;
+            opt_screenunits border;
+            opt_screenunits borderwidth;
+            opt<std::variant<std::string, std::function<T(std::string)>>> command;
+            opt_cursor cursor;
+            opt<long long> digits;
+            opt_string fg;
+            opt_font_description font;
+            opt_string foreground;
+            opt<double> from;
+            opt_string highlightbackground;
+            opt_string highlightcolor;
+            opt_screenunits highlightthickness;
+            opt_string label;
+            opt_screenunits length;
+            opt_string name;
+            opt_string orient;
+            opt_relief relief;
+            opt<long long> repeatdelay;
+            opt<long long> repeatinterval;
+            opt<double> resolution;
+            opt_bool showvalue;
+            opt_screenunits sliderlength;
+            opt_relief sliderrelief;
+            opt_string state;
+            opt_take_focus_value takefocus;
+            opt<double> tickinterval;
+            opt<double> to;
+            opt_string troughcolor;
+            opt<std::variant<IntVar, DoubleVar>> variable;
+            opt_screenunits width;
+        };
+    }
 
     /// @brief %Scale widget which can display a numerical scale.
     struct Scale : Widget
@@ -2214,7 +2453,7 @@ namespace cpptkinter
         std::array<long long, 2> coords(double value);
 
         /// @brief Return where the point X,Y lies. Valid return values are "slider", "though1" and "though2".
-        std::string identify(detail::_ScreenUnits x, detail::_ScreenUnits y);
+        std::string identify(detail::ScreenUnits x, detail::ScreenUnits y);
     };
 
     /// @brief %Scrollbar widget which displays a slider at a certain position.
@@ -2237,6 +2476,41 @@ namespace cpptkinter
 
     /// @brief %Spinbox widget.
     struct Spinbox;
+
+    namespace cnfs
+    {
+        /// @brief Argument for LabelFrame::LabelFrame().
+        struct LabelFrame
+        {
+            opt_master master;
+            opt_string background;
+            opt_screenunits bd;
+            opt_string bg;
+            opt_screenunits border;
+            opt_screenunits borderwidth;
+            opt_string class_;
+            opt<std::variant<std::string, Misc>> colormap;
+            opt_bool container;
+            opt_cursor cursor;
+            opt_string fg;
+            opt_font_description font;
+            opt_string foreground;
+            opt_screenunits height;
+            opt_string highlightbackground;
+            opt_string highlightcolor;
+            opt_screenunits highlightthickness;
+            opt_string labelanchor;
+            opt_master labelwidget;
+            opt_string name;
+            opt_screenunits padx;
+            opt_screenunits pady;
+            opt_relief relief;
+            opt_take_focus_value takefocus;
+            opt<std::variant<double, std::string>> text;
+            opt_visual_type visual;
+            opt_screenunits width;
+        };
+    }
 
     /// @brief %Labelframe widget.
     struct LabelFrame : Widget
