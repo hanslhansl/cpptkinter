@@ -57,6 +57,7 @@ std::ostream& cpptkinter::operator<<(std::ostream& os, const Misc& self)
     return os << self._w;
 }
 
+
 void cpptkinter::Misc::impl::destroy()
 {
     // keeps this from being destroyed before this function returns
@@ -87,6 +88,12 @@ cpptkinter::Misc& cpptkinter::Misc::operator=(const Misc& other)
 void cpptkinter::Misc::destroy()
 {
 	this->pimpl->destroy();
+}
+
+void cpptkinter::Misc::deletecommand(const std::string& name)
+{
+	this->tk->deletecommand(name);
+	this->_tclCommands.erase(name);
 }
 
 void cpptkinter::Misc::mainloop(int n)
@@ -147,32 +154,47 @@ void cpptkinter::Misc::_report_exception()
     root.report_callback_exception(root, exc_ptr);
 }
 
-std::vector<std::vector<std::string>> cpptkinter::Misc::_getconfigure(detail::Tcl_Obj_vector_raii&& raii)
+std::map<std::string, std::array<std::variant<long long, std::string>, 5>> cpptkinter::Misc::_getconfigure(std::vector<_cpptkinter::Tcl_Obj>&& raii)
 {
-    NOT_IMPLEMENTED_ERROR;
-    this->tk->call<void>(std::move(raii));
+    using V = std::variant<long long, std::string, _cpptkinter::Tcl_Obj>;
+	using Arr = std::array<V, 5>;
+
+    auto vec = this->tk->call<std::vector<Arr>>(std::move(raii));
+
+    auto key_view = vec | std::views::transform([&](Arr& e) { return std::get<std::string>(std::move(e.at(0))).substr(1); });
+
+    auto v_lambda = []<typename T>(T& e)->std::variant<long long, std::string> {
+        if constexpr (std::same_as<T, long long> || std::same_as<T, std::string>)
+            return std::move(e);
+        else
+            return e.to_string();
+    };
+    auto value_view = vec | std::views::transform([&](Arr& arr) {
+        std::array<std::variant<long long, std::string>, 5> new_arr{};
+        std::ranges::move(arr | std::views::transform([&](V& e) { return std::visit(v_lambda, e); }), new_arr.begin());
+        return new_arr; });
+
+    return std::views::zip(key_view, value_view) | std::ranges::to<std::map>();
 }
 
-std::vector<std::string> cpptkinter::Misc::_getconfigure1(detail::Tcl_Obj_vector_raii&& raii)
+std::vector<std::string> cpptkinter::Misc::_getconfigure1(std::vector<_cpptkinter::Tcl_Obj>&& raii)
 {
     NOT_IMPLEMENTED_ERROR;
-    this->tk->call<void>(std::move(raii));
+    this->tk->call<long long>(std::move(raii));
 }
 
-std::vector<std::vector<std::string>> cpptkinter::Misc::_configure(const std::vector<std::string>& cmd)
+auto cpptkinter::Misc::_configure(const std::vector<std::string>& cmd) -> decltype(_getconfigure({}))
 {
-    detail::Tcl_Obj_vector_raii raii{ };
-    raii.emplace_back(_cpptkinter::AsObj(this->_w));
+    std::vector<_cpptkinter::Tcl_Obj> raii{ _cpptkinter::AsObj(this->_w) };
     for (auto& c : cmd)
         raii.emplace_back(_cpptkinter::AsObj(c));
 
     return this->_getconfigure(std::move(raii));
 }
 
-std::vector<std::string> cpptkinter::Misc::_configure(const std::vector<std::string>& cmd, const std::string& cnf)
+auto cpptkinter::Misc::_configure(const std::vector<std::string>& cmd, const std::string& cnf) -> decltype(_getconfigure1({}))
 {
-    detail::Tcl_Obj_vector_raii raii{ };
-    raii.emplace_back(_cpptkinter::AsObj(this->_w));
+    std::vector<_cpptkinter::Tcl_Obj> raii{ _cpptkinter::AsObj(this->_w) };
     for (auto& c : cmd)
         raii.emplace_back(_cpptkinter::AsObj(c));
     raii.emplace_back(_cpptkinter::AsObj("-" + cnf));
@@ -257,7 +279,7 @@ void cpptkinter::Misc::anchor(const std::string& anchor)
 
 std::array<long long, 4> cpptkinter::Misc::grid_bbox(const cnfs::grid_bbox& cnf)
 {
-    detail::Tcl_Obj_vector_raii args{ };
+    std::vector<_cpptkinter::Tcl_Obj> args{ };
     args.emplace_back(_cpptkinter::AsObj("grid"));
     args.emplace_back(_cpptkinter::AsObj("bbox"));
     args.emplace_back(_cpptkinter::AsObj(this->_w));
@@ -346,7 +368,7 @@ std::array<long long, 2> cpptkinter::Misc::size()
 
 std::vector<cpptkinter::Misc> cpptkinter::Misc::grid_slaves(std::optional<long long> row, std::optional<long long> column)
 {
-    detail::Tcl_Obj_vector_raii args{ };
+    std::vector<_cpptkinter::Tcl_Obj> args{ };
     if (row.has_value())
     {
         args.emplace_back(_cpptkinter::AsObj("-row"));
@@ -365,31 +387,6 @@ std::vector<cpptkinter::Misc> cpptkinter::Misc::grid_slaves(std::optional<long l
     return result;
 }
 
-cpptkinter::Variable::Variable(std::optional<Misc> master) : Variable(master, "", {}, true)
-{
-
-}
-
-cpptkinter::Variable::operator std::string()
-{
-    return this->_name;
-}
-
-std::vector<std::tuple<std::vector<std::string>, std::string>> cpptkinter::Variable::trace_info()
-{
-    return this->_tk->call<std::vector<std::tuple<std::vector<std::string>, std::string>>>("trace", "info", "variable", this->_name);
-}
-
-cpptkinter::Variable::~Variable()
-{
-    if (this->_tk == nullptr)
-        return;
-    DEVIATING_IMPLEMENTATION_WARNING("original uses self.tk.getboolean to convert to bool");
-    if (this->_tk->call<long long>("info", "exists", this->_name))
-        this->_tk->globalunsetvar(this->_name);
-    for (auto&& name : this->_tclCommands)
-        this->_tk->deletecommand(name);
-}
 
 void cpptkinter::detail::Tk_impl::destroy()
 {
@@ -402,26 +399,6 @@ void cpptkinter::detail::Tk_impl::destroy()
     this->Misc::impl::destroy();
     if (detail::_support_default_root && detail::_default_root.get() == this)
         detail::_default_root.reset();
-}
-
-void cpptkinter::BaseWidget::impl::destroy()
-{
-    // keeps this from being destroyed before this function returns
-    auto temp = this->shared_from_this();
-
-    for (auto&& child : std::vector(std::from_range, std::views::values(this->children)))
-        child.destroy();
-    this->tk->call("destroy", this->_w);
-    this->master.value().children.erase(this->_name);
-    this->Misc::impl::destroy();
-}
-
-cpptkinter::BaseWidget::BaseWidget(const std::shared_ptr<impl>& pimpl) :
-    Misc(std::move(pimpl)),
-	widgetName(pimpl->widgetName),
-	_name(pimpl->_name)
-{
-
 }
 
 cpptkinter::Tk::Tk(const std::shared_ptr<impl>& pimpl) :
@@ -530,10 +507,143 @@ cpptkinter::Tk cpptkinter::Tcl(const std::string& screenName, const std::string&
     return Tk(screenName, baseName, className, useTk);
 }
 
+
+cpptkinter::Variable::Variable(std::optional<Misc> master) : Variable(master, "", {}, true)
+{
+
+}
+
+cpptkinter::Variable::operator std::string() const
+{
+    return this->_name;
+}
+
+std::vector<std::tuple<std::vector<std::string>, std::string>> cpptkinter::Variable::trace_info()
+{
+    return this->_tk->call<std::vector<std::tuple<std::vector<std::string>, std::string>>>("trace", "info", "variable", this->_name);
+}
+
+cpptkinter::Variable::~Variable()
+{
+    if (this->_tk == nullptr)
+        return;
+    DEVIATING_IMPLEMENTATION_WARNING("original uses self.tk.getboolean to convert to bool");
+    if (this->_tk->call<long long>("info", "exists", this->_name))
+        this->_tk->globalunsetvar(this->_name);
+    for (auto&& name : this->_tclCommands)
+        this->_tk->deletecommand(name);
+}
+
+
+void cpptkinter::BaseWidget::impl::destroy()
+{
+    // keeps this from being destroyed before this function returns
+    auto temp = this->shared_from_this();
+
+    for (auto&& child : std::vector(std::from_range, std::views::values(this->children)))
+        child.destroy();
+    this->tk->call("destroy", this->_w);
+    this->master.value().children.erase(this->_name);
+    this->Misc::impl::destroy();
+}
+
+cpptkinter::BaseWidget::BaseWidget(const std::shared_ptr<impl>& pimpl) :
+    Misc(std::move(pimpl)),
+	widgetName(pimpl->widgetName),
+	_name(pimpl->_name)
+{
+
+}
+
+
+void cpptkinter::Menu::tk_popup(long long x, long long y)
+{
+    this->tk->call("tk_popup", this->_w, x, y);
+}
+
+void cpptkinter::Menu::tk_popup(long long x, long long y, long long entry)
+{
+    this->tk->call("tk_popup", this->_w, x, y, entry);
+}
+
+void cpptkinter::Menu::activate(const std::variant<long long, std::string>& index)
+{
+    this->tk->call(this->_w, "activate", index);
+}
+
+void cpptkinter::Menu::delete_(long long index)
+{
+    this->delete_(index, index);
+}
+
+void cpptkinter::Menu::delete_(long long index1, long long index2)
+{
+    auto num_index1 = this->index(index1);
+    auto num_index2 = this->index(index2);
+
+    //if (num_index1 is None) or (num_index2 is None) :
+    //    num_index1, num_index2 = 0, -1
+
+    for (long long i = num_index1; i < num_index2 + 1; i++)
+    {
+        auto ec = this->entryconfig(i);
+        if (ec.contains("command"))
+        {
+            auto c = this->entrycget<std::string>(i, "command");
+			if (!c.empty())
+                this->deletecommand(c);
+        }
+    }
+    this->tk->call(this->_w, "delete", index1, index2);
+}
+
+auto cpptkinter::Menu::entryconfigure(long long index) -> decltype(this->_configure({}))
+{
+    return this->_configure({ "entryconfigure", std::to_string(index) });
+}
+
+auto cpptkinter::Menu::entryconfig(long long index) -> decltype(this->entryconfigure(index))
+{
+    return this->entryconfigure(index);
+}
+
+long long cpptkinter::Menu::index(long long index)
+{
+    return this->tk->call<long long>(this->_w, "index", index);
+}
+
+void cpptkinter::Menu::post(long long x, long long y)
+{
+    this->tk->call(this->_w, "post", x, y);
+}
+
+std::string cpptkinter::Menu::type(long long index)
+{
+    return this->tk->call<std::string>(this->_w, "type", index);
+}
+
+void cpptkinter::Menu::unpost()
+{
+    this->tk->call(this->_w, "unpost");
+}
+
+long long cpptkinter::Menu::xposition(long long index)
+{
+    return this->tk->call<long long>(this->_w, "xposition", index);
+}
+
+long long cpptkinter::Menu::yposition(long long index)
+{
+    return this->tk->call<long long>(this->_w, "yposition", index);
+}
+
+
+
 void cpptkinter::Button::flash()
 {
     this->tk->call(this->_w, "flash");
 }
+
 
 double cpptkinter::Scale::get()
 {

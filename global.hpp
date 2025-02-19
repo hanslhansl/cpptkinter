@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #define NOMINMAX
 
@@ -12,6 +12,7 @@
 #include <stacktrace>
 #include <print>
 #include <variant>
+#include <algorithm>
 
 #include "tk.h"
 

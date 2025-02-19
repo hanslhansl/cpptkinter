@@ -6,6 +6,7 @@ using namespace hhh;
 namespace tk = cpptkinter;
 namespace _tk = tk::_cpptkinter;
 
+
 void donothing()
 {
     misc::printl("donothing was called");
@@ -13,6 +14,7 @@ void donothing()
 
 int main(int argc, char* argv[])
 {
+    tk::init(argc, argv);
     //tk::detail::_debug = true;
 
     /*
@@ -26,8 +28,6 @@ int main(int argc, char* argv[])
 
     try {
 
-        tk::init(argc, argv);
-
         auto root = tk::Tk();
 		wroot = root;
 
@@ -35,6 +35,9 @@ int main(int argc, char* argv[])
 
         auto menubar = tk::Menu({ root });
         auto filemenu = tk::Menu({ .master = menubar, .tearoff = 0 });
+        filemenu.add_checkbutton({ .label = "1"});
+        filemenu.add_checkbutton({ .label = "cb" });
+        filemenu.add_checkbutton({ .label = "3" });
         filemenu.add_command({ .command = donothing, .label = "New" });
         filemenu.add_command({ .command = donothing, .label = "Open" });
         filemenu.add_command({ .command = donothing, .label = "Save" });
@@ -60,6 +63,8 @@ int main(int argc, char* argv[])
         menubar.add_cascade({ .label = "Help", .menu = helpmenu });
 
         root.config("menu", menubar);
+
+        filemenu.delete_(1);
 
         auto toplvl = tk::Toplevel({ root });
 

@@ -78,29 +78,6 @@ namespace cpptkinter
 
         Tk _get_default_root(const std::string& what = {});
 
-        template<typename V, typename Conv = const std::nullopt_t&>
-        auto _splitdict(std::map<std::string, V>&& v, bool cut_minus = true, Conv&& conv = std::nullopt)
-        {
-            std::map<std::string, std::conditional_t<std::same_as<Conv, bool>, V, std::invoke_result_t<Conv, std::string, V&&>>> result{};
-            while (!v.empty())
-            {
-				auto&& node = v.extract(v.begin());
-				auto&& key = node.key();
-				auto&& mapped = node.mapped();
-
-				if (cut_minus && key.starts_with('-'))
-					key = key.substr(1);
-
-				if constexpr (!std::same_as<Conv, const std::nullopt_t&>)
-                {
-					auto&& value = conv(key, std::move(mapped));
-                    result.emplace(std::move(key), std::move(value));
-                }
-                else
-                    result.insert(std::move(node));
-            }
-            return result;
-        }
         template<typename A, typename V, typename Conv = const std::nullopt_t&>
         A _splitdict_to_aggregate(std::map<std::string, V>&& v, bool cut_minus = true, Conv&& conv = std::nullopt)
         {
@@ -258,7 +235,7 @@ namespace cpptkinter
         /// @brief Returns the current aspect ratio restriction (if any).
         std::optional<std::array<long long, 4>> wm_aspect(this auto&& self)
         {
-            auto res = self.tk->call<std::variant<std::array<long long, 4>, std::string>>("wm", "aspect", self._w);
+            auto res = self.tk->template call<std::variant<std::array<long long, 4>, std::string>>("wm", "aspect", self._w);
 			if (std::holds_alternative<std::string>(res))
 				return {};
 			return std::get<std::array<long long, 4>>(res);
@@ -324,7 +301,7 @@ namespace cpptkinter
         /// Get the last name set in a wm client command
         std::string wm_client(this auto&& self)
         {
-            return self.tk->call<std::string>("wm", "client", self._w);
+            return self.tk->template call<std::string>("wm", "client", self._w);
         }
 		/// @copydoc wm_client(this auto&&, const std::string&)
 		void client(this auto&& self, const std::string& name)
@@ -374,7 +351,7 @@ namespace cpptkinter
         /// @brief Return current focus model.
         std::string wm_focusmodel(this auto&& self)
         {
-            return self.tk->call<std::string>("wm", "focusmodel", self._w);
+            return self.tk->template call<std::string>("wm", "focusmodel", self._w);
         }
 		/// @copydoc wm_focusmodel(this auto&&, const std::string&)
         void focusmodel(this auto&& self, const std::string& model)
@@ -880,6 +857,11 @@ namespace cpptkinter
 		/// @brief Calls this->pimpl->destroy().
         void destroy();
 
+        /// @brief Internal function.
+        /// 
+        /// Delete the Tcl command provided in NAME.
+        void deletecommand(const std::string& name);
+
         /// @brief Call the mainloop of Tk.
         void mainloop(int n = 0);
 
@@ -888,7 +870,7 @@ namespace cpptkinter
     protected:
         template<typename T>
             requires (cnfs::is_cnf_member<std::remove_cvref_t<T>> && !hhh::meta::is_template_instance<std::remove_cvref_t<T>, std::optional>)
-        Tcl_Obj* _options_inner_visitor(T&& value)
+        _cpptkinter::Tcl_Obj _options_inner_visitor(T&& value)
         {
             auto visitor = [this]<typename T2>(T2 && value) {
                 if constexpr (detail::createcommand_concept<T2>)
@@ -902,9 +884,9 @@ namespace cpptkinter
 
         /// @brief Converts a cnf struct to a vector of Tcl_Obj* which can be passed to TkappObject::call().
         template<cnfs::is_cnf CNF>
-        detail::Tcl_Obj_vector_raii _options(CNF&& cnf, std::set<std::string> ignore_fields = {})
+        std::vector<_cpptkinter::Tcl_Obj> _options(CNF&& cnf, const std::set<std::string>& ignore_fields = {})
         {
-            detail::Tcl_Obj_vector_raii raii{};
+            std::vector<_cpptkinter::Tcl_Obj> raii{};
 
             auto outer_visitor = [this , &raii, &ignore_fields]<typename T>(T&& value, auto I) {
                 auto&& k = reflect::member_name<I, CNF>();
@@ -956,18 +938,15 @@ namespace cpptkinter
 
         void _report_exception();
 
-        std::vector<std::vector<std::string>> _getconfigure(detail::Tcl_Obj_vector_raii&& raii);
-        std::vector<std::string> _getconfigure1(detail::Tcl_Obj_vector_raii&& raii);
+        std::map<std::string, std::array<std::variant<long long, std::string>, 5>> _getconfigure(std::vector<_cpptkinter::Tcl_Obj>&& raii);
+        std::vector<std::string> _getconfigure1(std::vector<_cpptkinter::Tcl_Obj>&& raii);
 
-        std::vector<std::vector<std::string>> _configure(const std::vector<std::string>& cmd);
-        std::vector<std::string> _configure(const std::vector<std::string>& cmd, const std::string& cnf);
+        auto _configure(const std::vector<std::string>& cmd) -> decltype(_getconfigure({}));
+        auto _configure(const std::vector<std::string>& cmd, const std::string& cnf) -> decltype(_getconfigure1({}));
         template<cnfs::is_cnf CNF>
         void _configure(const std::vector<std::string>& cmd, CNF&& cnf)
         {
-            detail::Tcl_Obj_vector_raii raii{ };
-            for (auto& c : cmd)
-                raii.emplace_back(_cpptkinter::AsObj(c));
-
+            auto raii = cmd | std::views::transform(_cpptkinter::AsObj<std::string>) | std::ranges::to<std::vector>();
             this->tk->call(this->_w, std::move(raii), this->_options(std::forward<CNF>(cnf)));
         }
     public:
@@ -989,9 +968,7 @@ namespace cpptkinter
         void configure(const std::string& key, T&& value)
             requires requires { this->_options_inner_visitor(std::declval<T>()); }
         {
-            detail::Tcl_Obj_vector_raii raii{ };
-			raii.emplace_back(this->_options_inner_visitor(std::forward<T>(value)));
-            this->tk->call(this->_w, "configure", "-" + key, std::move(raii));
+            this->tk->call(this->_w, "configure", "-" + key, this->_options_inner_visitor(std::forward<T>(value)));
         }
 
         /// @copydoc configure(T&&)
@@ -1033,10 +1010,12 @@ namespace cpptkinter
         /// 
         /// @param flag Specifies whether the geometry information of the slaves will determine the size of this widget.
         void pack_propagate(bool flag);
+
         /// @copydoc pack_propagate()
         bool propagate();
         /// @copydoc pack_propagate(bool)
         void propagate(bool flag);
+
         /// @brief Return a list of all slaves of this widget in its packing order.
         std::vector<Misc> pack_slaves();
         /// @copydoc pack_slaves
@@ -1075,6 +1054,7 @@ namespace cpptkinter
         {
             this->tk->call("grid", "columnconfigure", this->_w, index, this->_options(std::forward<CNF>(cnf)));
         }
+
         /// @copydoc grid_columnconfigure(const std::variant<long long, std::string>&)
         cnfs::grid_column_row_configure_return columnconfigure(const std::variant<long long, std::string>& index);
         /// @copydoc grid_columnconfigure()
@@ -1105,15 +1085,16 @@ namespace cpptkinter
         /// Valid resources are minsize (minimum size of the row), weight (how much does additional space propagate to this row),
         /// pad (how much space to let additionally) and uniform.
         template<cnfs::is_cnf CNF = cnfs::grid_column_row_configure>
-        void grid_rowconfigure(std::variant<size_t, std::vector<size_t>, std::string> index, CNF&& cnf)
+        void grid_rowconfigure(const std::variant<size_t, std::vector<size_t>, std::string>& index, CNF&& cnf)
         {
             this->tk->call("grid", "rowconfigure", this->_w, index, this->_options(std::forward<CNF>(cnf)));
         }
+
 		/// @copydoc grid_rowconfigure(const std::variant<long long, std::string>&)
         cnfs::grid_column_row_configure_return rowconfigure(const std::variant<long long, std::string>& index);
         /// @copydoc grid_rowconfigure()
         template<cnfs::is_cnf CNF = cnfs::grid_column_row_configure>
-        void rowconfigure(std::variant<size_t, std::vector<size_t>, std::string> index, CNF&& cnf)
+        void rowconfigure(const std::variant<size_t, std::vector<size_t>, std::string>& index, CNF&& cnf)
         {
             return this->grid_rowconfigure(index, std::forward<CNF>(cnf));
         }
@@ -1347,7 +1328,7 @@ namespace cpptkinter
         ~Variable();
 
         /// @brief Return the name of the variable in Tcl.
-        operator std::string();
+        operator std::string() const;
 
         /// @brief Set the variable to VALUE.
         void set(detail::AsObjConcept auto&& value)
@@ -1425,7 +1406,7 @@ namespace cpptkinter
     namespace detail
     {
         template<typename T>
-            requires detail::AsObjConcept<const T&>&& detail::FromObjConcept<T>
+            requires detail::AsObjConcept<T> && detail::FromObjConcept<T>
         struct TypedVariable : Variable
         {
             /// @copydoc Variable::Variable(const detail::master_t&)
@@ -1786,7 +1767,7 @@ namespace cpptkinter
         ///
 		/// master is passed within cnf instead of as a separate argument.
         template<cnfs::is_cnf CNF>
-		BaseWidget(const std::string& widgetName_, CNF&& cnf, detail::Tcl_Obj_vector_raii extra = {}, std::set<std::string> ignore_fields = {}) :
+		BaseWidget(const std::string& widgetName_, CNF&& cnf, std::vector<_cpptkinter::Tcl_Obj>&& extra = {}, std::set<std::string> ignore_fields = {}) :
             BaseWidget(std::make_shared<impl>())
         {
             std::optional<Misc> master{};
@@ -1800,7 +1781,7 @@ namespace cpptkinter
 
             this->widgetName = widgetName_;
             this->_setup(master, cnf, ignore_fields);
-            this->tk->call(this->widgetName, this->_w, std::move(extra), this->_options(std::forward<CNF>(cnf), std::move(ignore_fields)));
+            this->tk->call(this->widgetName, this->_w, std::move(extra), this->_options(std::forward<CNF>(cnf), ignore_fields));
             DEVIATING_IMPLEMENTATION_WARNING("something with classes in cnf (?)");
         }
     };
@@ -1936,6 +1917,14 @@ namespace cpptkinter
 
         }
 
+        /// @brief Post the menu at position X,Y.
+        void tk_popup(long long x, long long y);
+        /// @brief Post the menu at position X,Y with entry ENTRY.
+        void tk_popup(long long x, long long y, long long entry);
+
+        /// @brief Activate entry at INDEX.
+        void activate(const std::variant<long long, std::string>& index);
+
         /// @brief Internal function.
         template<cnfs::is_cnf CNF>
         void add(const std::string& itemType, CNF&& cnf)
@@ -1977,6 +1966,103 @@ namespace cpptkinter
         {
             this->add("separator", std::forward<CNF>(cnf));
         }
+
+        /// @brief Internal function.
+        template<cnfs::is_cnf CNF>
+        void insert(long long index, const std::string& itemType, CNF&& cnf)
+        {
+            this->tk->call(this->_w, "insert", index, itemType, this->_options(std::forward<CNF>(cnf)));
+        }
+
+        /// @brief Add hierarchical menu item at INDEX.
+        template<cnfs::is_cnf CNF = cnfs::add_cascade>
+        void insert_cascade(long long index, CNF&& cnf = {})
+        {
+			this->insert(index, "cascade", std::forward<CNF>(cnf));
+        }
+
+        /// @brief Add checkbutton menu item at INDEX.
+		template<cnfs::is_cnf CNF = cnfs::add_checkbutton<bool>>
+        void insert_checkbutton(long long index, CNF&& cnf = {})
+        {
+            this->insert(index, "checkbutton", std::forward<CNF>(cnf));
+        }
+
+        /// @brief Add command menu item at INDEX.
+		template<cnfs::is_cnf CNF = cnfs::add_command>
+        void insert_command(long long index, CNF&& cnf = {})
+        {
+            this->insert(index, "command", std::forward<CNF>(cnf));
+        }
+
+        /// @brief Add radio menu item at INDEX.
+		template<cnfs::is_cnf CNF = cnfs::add_radiobutton<int>>
+        void insert_radiobutton(long long index, CNF&& cnf = {})
+        {
+            this->insert(index, "radiobutton", std::forward<CNF>(cnf));
+        }
+
+        /// @brief Add separator at INDEX.
+		template<cnfs::is_cnf CNF = cnfs::add_separator>
+        void insert_separator(long long index, CNF&& cnf = {})
+		{
+            this->insert(index, "separator", std::forward<CNF>(cnf));
+		}
+
+        /// @brief Delete menu items at INDEX.
+        void delete_(long long index);
+        /// @brief Delete menu items between INDEX1 and INDEX2 (included).
+        void delete_(long long index1, long long index2);
+
+        /// @brief Return the resource value of a menu item for OPTION at INDEX.
+        template<detail::FromObjConcept R>
+        R entrycget(long long index, const std::string& option)
+        {
+			return this->tk->call<R>(this->_w, "entrycget", index, "-" + option);
+        }
+
+        /// @brief Configure a menu item at INDEX.
+        template<cnfs::is_cnf CNF>
+        auto entryconfigure(long long index, CNF&& cnf)
+        {
+            return this->_configure({ "entryconfigure", std::to_string(index) }, std::forward<CNF>(cnf));
+        }
+        /// @brief Configure a menu item at INDEX.
+        auto entryconfigure(long long index) -> decltype(this->_configure({}));
+
+		/// @copydoc entryconfigure(long long, CNF&&)
+        template<cnfs::is_cnf CNF>
+        auto entryconfig(long long index, CNF&& cnf)
+        {
+			return this->entryconfigure(index, std::forward<CNF>(cnf));
+        }
+		/// @copydoc entryconfigure(long long)
+        auto entryconfig(long long index) -> decltype(this->entryconfigure(index));
+
+        /// @brief Return the index of a menu item identified by INDEX.
+        long long index(long long index);
+
+        /// @brief Invoke a menu item identified by INDEX and execute the associated command.
+        template<detail::FromObjConcept R = void>
+        R invoke(long long index)
+        {
+			return this->tk->call<R>(this->_w, "invoke", index);
+        }
+
+        /// @brief Display a menu at position X,Y.
+        void post(long long x, long long y);
+
+        /// @brief Return the type of the menu item at INDEX.
+        std::string type(long long index);
+
+        /// @brief Unmap a menu.
+        void unpost();
+
+        /// @brief Return the x-position of the leftmost pixel of the menu item at INDEX.
+        long long xposition(long long index);
+
+        /// @brief "Return the y-position of the topmost pixel of the menu item at INDEX.
+        long long yposition(long long index);
     };
 
     namespace cnfs
@@ -2038,9 +2124,9 @@ namespace cpptkinter
     class Toplevel : public BaseWidget, public Wm
     {
         template<cnfs::is_cnf CNF>
-        static std::pair<detail::Tcl_Obj_vector_raii, std::set<std::string>> make_extra_and_ignore_fields(CNF&& cnf)
+        static std::pair<std::vector<_cpptkinter::Tcl_Obj>, std::set<std::string>> make_extra_and_ignore_fields(CNF&& cnf)
         {
-            std::pair<detail::Tcl_Obj_vector_raii, std::set<std::string>> ret{};
+            std::pair<std::vector<_cpptkinter::Tcl_Obj>, std::set<std::string>> ret{};
             auto& [extra, ignore_fields] = ret;
 
             reflect::for_each<CNF>([&extra, &ignore_fields, &cnf](auto I) {
@@ -2072,7 +2158,7 @@ namespace cpptkinter
         }
 
         template<cnfs::is_cnf CNF>
-        Toplevel(CNF&& cnf, std::pair<detail::Tcl_Obj_vector_raii, std::set<std::string>>&& extra_and_ignore_fields) :
+        Toplevel(CNF&& cnf, std::pair<std::vector<_cpptkinter::Tcl_Obj>, std::set<std::string>>&& extra_and_ignore_fields) :
             BaseWidget("toplevel", std::forward<CNF>(cnf), std::move(extra_and_ignore_fields.first), std::move(extra_and_ignore_fields.second))
         {
             auto root = this->_root();
@@ -2237,9 +2323,9 @@ namespace cpptkinter
     class Frame : public Widget
     {
         template<cnfs::is_cnf CNF>
-        static std::pair<detail::Tcl_Obj_vector_raii, std::set<std::string>> make_extra_and_ignore_fields(CNF&& cnf)
+        static std::pair<std::vector<_cpptkinter::Tcl_Obj>, std::set<std::string>> make_extra_and_ignore_fields(CNF&& cnf)
         {
-            std::pair<detail::Tcl_Obj_vector_raii, std::set<std::string>> ret{};
+            std::pair<std::vector<_cpptkinter::Tcl_Obj>, std::set<std::string>> ret{};
 			auto& [extra, ignore_fields] = ret;
 
             if constexpr (requires { cnf.class_; })
@@ -2255,7 +2341,7 @@ namespace cpptkinter
         }
 
         template<cnfs::is_cnf CNF>
-        Frame(CNF&& cnf, std::pair<detail::Tcl_Obj_vector_raii, std::set<std::string>>&& extra_and_ignore_fields) :
+        Frame(CNF&& cnf, std::pair<std::vector<_cpptkinter::Tcl_Obj>, std::set<std::string>>&& extra_and_ignore_fields) :
             Widget("frame", std::forward<CNF>(cnf), std::move(extra_and_ignore_fields.first), std::move(extra_and_ignore_fields.second))
         {
             
