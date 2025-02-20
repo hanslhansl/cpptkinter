@@ -4,6 +4,21 @@
 /// @file cpptkinter.hpp
 /// @brief Implements __init__.py.
 
+#define INHERIT_CONSTRUCTORS(base) using base::base
+#define DEFINE_ASSIGNMENT_OPERATOR(cl) \
+    cl& operator=(const cl& other) \
+    { \
+        std::destroy_at(this); \
+        return *std::construct_at(this, other); \
+    }
+#define CNF_CONSTRUCTOR(cl, cnf_type, str)   \
+    template<cnfs::is_cnf CNF = cnf_type> \
+    cl(CNF&& cnf = {}) : cl(std::make_shared<impl>()) \
+    { this->_init_(str, std::forward<CNF>(cnf)); }  \
+    cl() : cl(cnf_type{}) { }
+#define CNF_CONSTRUCTOR_AND_ASSIGNMENT(cl, cnf_type, str, base) CNF_CONSTRUCTOR(cl, cnf_type, str) DEFINE_ASSIGNMENT_OPERATOR(cl); INHERIT_CONSTRUCTORS(base)
+#define REF_TO_IMPL(member) decltype(impl::member)& member
+
 namespace cpptkinter
 {
     using _cpptkinter::TclError;
@@ -27,7 +42,8 @@ namespace cpptkinter
         using namespace _cpptkinter::detail;
 
         struct Tk_impl;
-        struct set_get_proxy;
+        template<typename...Args>
+        class set_get_proxy;
 
         using Anchor = std::string;
         template<typename T> // default is void
@@ -82,7 +98,7 @@ namespace cpptkinter
         A _splitdict_to_aggregate(std::map<std::string, V>&& v, bool cut_minus = true, Conv&& conv = std::nullopt)
         {
             if (v.size() != reflect::size<A>())
-                throw detail::construct_exception<std::invalid_argument>(std::format("map has {} elements but '{}' has {} members", v.size(), reflect::type_name<A>(), reflect::size<A>()));
+                throw detail::construct_exception<std::invalid_argument>(std::format("map has {} elements but type {} has {} members", v.size(), reflect::type_name<A>(), reflect::size<A>()));
 
             if (cut_minus)
             {
@@ -128,7 +144,12 @@ namespace cpptkinter
         }
 
         /// @brief set to true to print executed Tcl / Tk commands
-        inline bool _debug = false;
+        inline bool _debug =
+#ifdef NDEBUG
+            false;
+#else
+			true;
+#endif
         inline bool _support_default_root = true;
         inline std::shared_ptr<Tk_impl> _default_root = nullptr;
         inline long long _varnum = 0;
@@ -368,12 +389,12 @@ namespace cpptkinter
         /// 
         /// Toplevel windows will be treated like frame windows once they are no longer managed by wm, however,
         /// the menu option configuration will be remembered and the menus will return once the widget is managed again.
-        void wm_forget(this auto&& self, std::derived_from<Misc> auto& window)
+        void wm_forget(this auto&& self, const std::derived_from<Misc> auto& window)
         {
             self.tk->call("wm", "forget", window);
         }
 		/// @copydoc wm_forget
-        void forget(this auto&& self, std::derived_from<Misc> auto& window)
+        void forget(this auto&& self, const std::derived_from<Misc> auto& window)
         {
 			self.wm_forget(window);
         }
@@ -592,12 +613,12 @@ namespace cpptkinter
         /// @brief The widget specified will become a stand alone top-level window. 
         /// 
         /// The window will be decorated with the window managers title bar, etc.
-        void wm_manage(this auto&& self, std::derived_from<Misc> auto& widget)
+        void wm_manage(this auto&& self, const std::derived_from<Misc> auto& widget)
         {
 			self.tk->call("wm", "manage", widget);
         }
 		/// @copydoc wm_manage
-        void manage(this auto&& self, std::derived_from<Misc> auto& widget)
+        void manage(this auto&& self, const std::derived_from<Misc> auto& widget)
 		{
 			return self.wm_manage(widget);
 		}
@@ -849,10 +870,21 @@ namespace cpptkinter
         std::optional<Misc>& master;
         std::shared_ptr<_cpptkinter::TkappObject>& tk;
         std::map<std::string, Misc>& children;
+    protected:
+        template<std::derived_from<impl> I>
+		Misc(const std::shared_ptr<I>& pimpl) :
+            pimpl(pimpl),
+            _tclCommands(pimpl->_tclCommands),
+            _last_child_ids(pimpl->_last_child_ids),
+            _w(pimpl->_w),
+            master(pimpl->master),
+            tk(pimpl->tk),
+            children(pimpl->children)
+        {
 
-		Misc(const std::shared_ptr<impl>& pimpl);
+        }
     public:
-        Misc& operator=(const Misc& other);
+        DEFINE_ASSIGNMENT_OPERATOR(Misc);
 
 		/// @brief Calls this->pimpl->destroy().
         void destroy();
@@ -934,7 +966,7 @@ namespace cpptkinter
             return name;
         }
 
-        Tk _root();
+        Tk _root() const;
 
         void _report_exception();
 
@@ -992,7 +1024,7 @@ namespace cpptkinter
             return this->tk->call<R>(this->_w, "cget", "-" + key);
         }
 
-        detail::set_get_proxy operator[](const std::string& key);
+        detail::set_get_proxy<> operator[](const std::string& key);
 
         /// @brief Return a list of all resource names of this widget.
         std::vector<std::string> keys();
@@ -1125,7 +1157,7 @@ namespace cpptkinter
         return self.wm_transient();
     }
 
-    struct Misc::impl : public hhh::misc::extended_enable_shared_from_this
+    struct Misc::impl : hhh::misc::extended_enable_shared_from_this
     {
         std::set<std::string> _tclCommands{};
         std::map<std::string, int> _last_child_ids{};
@@ -1162,23 +1194,66 @@ namespace cpptkinter
         }
     };
 
-    struct detail::set_get_proxy
+    template<typename...Args>
+    class detail::set_get_proxy
     {
-        Misc misc;
-        std::string keyword;
+        struct from_tk
+        {
+            Misc misc;
+            std::string keyword;
+        };
+    public:
+        std::variant<from_tk, std::reference_wrapper<Args>...> data;
+
+		set_get_proxy(const Misc& misc, const std::string& keyword) : data(std::in_place_type<from_tk>, misc, keyword)
+        {
+
+        }
+        template<hhh::meta::variant_converting_constructor_constraint<std::variant<Args...>> T>
+        set_get_proxy(T& value) :
+            data(std::in_place_type<std::reference_wrapper<hhh::meta::variant_converting_constructor_result_t<T, std::variant<Args...>>>> , value)
+        {
+
+        }
 
         template<typename T>
-			requires requires (Misc m) { m.configure(std::string(), std::declval<T>()); }
+			requires requires (Misc m) { m.configure(std::string(), std::declval<T>()); } || hhh::meta::variant_converting_constructor_constraint<T, std::variant<Args...>>
         void operator=(T&& value)
         {
-            this->misc.configure(this->keyword, std::forward<T>(value));
+            auto visitor = [&]<typename T2>(T2& e) {
+                if constexpr (std::same_as<T2, from_tk>)
+                    e.misc.configure(e.keyword, std::forward<T>(value));
+                else if constexpr (requires { e.get() = std::forward<T>(value); })
+                    e.get() = std::forward<T>(value);
+				else
+                    throw construct_exception<std::invalid_argument>(std::format("passed type {} but expected {}", typeid(T).name()/*reflect::type_name<T>()*/, reflect::type_name<T2>()));
+            };
+
+            return std::visit(visitor, this->data);
         }
-        template<detail::FromObjConcept R>
+
+        template<typename R>
+         requires detail::FromObjConcept<R> || hhh::meta::contains<R, Args...>
         R get()
         {
-            return this->misc.cget<R>(this->keyword);
+			auto visitor = []<typename T>(T& e) -> R {
+				if constexpr (std::same_as<T, from_tk>)
+                {
+                    if constexpr (detail::FromObjConcept<R>)
+                        return e.misc.cget<R>(e.keyword);
+                }
+                else if constexpr (std::same_as<T, std::reference_wrapper<R>>)
+                {
+                    return e.get();
+                }
+
+                throw construct_exception<std::invalid_argument>(std::format("requested type {} but got {}", reflect::type_name<R>(), /reflect::type_name<T>()));
+            };
+
+            return std::visit(visitor, this->data);
         }
-        template<detail::FromObjConcept R>
+        template<typename R>
+            requires detail::FromObjConcept<R> || hhh::meta::contains<R, Args...>
         operator R()
         {
             return this->get<R>();
@@ -1192,7 +1267,7 @@ namespace cpptkinter
         /// @brief Destroy this and all descendants widgets.
         /// 
         /// This will end the application of this Tcl interpreter.
-        virtual void destroy() override;
+        void destroy() override;
     };
 
     /// @brief %Toplevel widget of %Tk which represents mostly the main window of an application. 
@@ -1208,11 +1283,20 @@ namespace cpptkinter
 
     protected:
         using impl = detail::Tk_impl;
+        REF_TO_IMPL(_tkloaded);
 
-        decltype(impl::_tkloaded)& _tkloaded;
+        void _init_(const std::string& screenName, const std::string& baseName, const std::string& className, bool useTk, bool sync, const std::string& use);
 
+        template<std::derived_from<impl> I>
+        Tk(const std::shared_ptr<I>& pimpl) :
+            Misc(pimpl),
+            _tkloaded(pimpl->_tkloaded)
+        {
+
+        }
     public:
-        Tk(const std::shared_ptr<impl>& pimpl);
+        DEFINE_ASSIGNMENT_OPERATOR(Tk);
+
         /// @brief Create a new Tk object.
         ///
         /// A new Tcl interpreter will be created.
@@ -1220,7 +1304,7 @@ namespace cpptkinter
         /// It is constructed from @ref detail::argv[0] without extensions if none is given.
         /// @param className is the name of the widget class.
         /// @return A shared pointer to the newly created detail::Tk object.
-        Tk(const std::string& screenName = {}, std::string baseName = {}, const std::string& className = "Tk", bool useTk = true, bool sync = false, const std::string& use = {});
+        Tk(const std::string& screenName = {}, const std::string& baseName = {}, const std::string& className = "Tk", bool useTk = true, bool sync = false, const std::string& use = {});
 
         void loadtk();
     private:
@@ -1259,7 +1343,7 @@ namespace cpptkinter
             auto map = self.tk->template call<std::map<std::string, V>>(a1, a2, a3);
 
             if (map.size() != reflect::size<T>())
-                throw detail::construct_exception<TclError>(std::format("got {} values but '{}' has {} members", map.size(), reflect::type_name<T>(), reflect::size<T>()));
+                throw detail::construct_exception<std::invalid_argument>(std::format("map has {} elements but type {} has {} members", map.size(), reflect::type_name<T>(), reflect::size<T>()));
 
             auto converter = [&self]<typename T2>(V&& v)->T2
             {
@@ -1274,71 +1358,102 @@ namespace cpptkinter
         }
     }
 
+    namespace cnfs
+    {
+        using opt_master = opt<Misc>;
+
+		/// @brief Argument for Variable::Variable() and detail::TypedVariable::TypedVariable().
+        template<typename T>
+        struct Variable
+        {
+			opt_master master;
+            opt<T> value;
+            std::string name;
+        };
+    }
+
     /// @brief Class to define value holders for e.g. buttons.
     ///
     /// Subclasses StringVar, IntVar, DoubleVar, BooleanVar are specializations that constrain the type of the value returned from get().
     class Variable
     {
     protected:
-        std::set<std::string> _tclCommands{};
-        Tk _root;
-        std::shared_ptr<_cpptkinter::TkappObject> _tk;
-        std::string _name;
-
-        template<typename T>
-        Variable(std::optional<Misc>& master, T&& value, const std::string& name, bool is_default) :
-            _root(master.has_value() ? master->_root() : detail::_get_default_root("create variable"))
+        struct impl : hhh::misc::extended_enable_shared_from_this
         {
-			if (master.has_value())
-				this->_tk = master->tk;
-			else
+            std::set<std::string> _tclCommands;
+            Tk _root;
+            std::shared_ptr<_cpptkinter::TkappObject> _tk;
+            std::string _name;
+
+            impl(const Tk& root);
+            /// @brief Unset the variable in Tcl.
+            virtual ~impl();
+        };
+
+        std::shared_ptr<impl> pimpl;
+
+		REF_TO_IMPL(_tclCommands);
+        REF_TO_IMPL(_root);
+		REF_TO_IMPL(_tk);
+		REF_TO_IMPL(_name);
+
+    protected:
+        template<typename T>
+            requires detail::AsObjConcept<T> && std::default_initializable<T>
+        void _init_(const cnfs::Variable<T>& cnf)
+        {
+            if (cnf.master.has_value())
+                this->_tk = cnf.master->tk;
+            else
                 this->_tk = this->_root.tk;
 
-            if (!name.empty())
-                this->_name = name;
+            if (!cnf.name.empty())
+                this->_name = cnf.name;
             else
                 this->_name = std::format("PY_VAR{}", detail::_varnum++);
 
-            if (!is_default)
-                this->initialize(std::forward<T>(value));
+            if (cnf.value.has_value())
+                this->initialize(cnf.value.value());
             else if (this->_tk->call<long long>("info", "exists", this->_name))
-                this->initialize(std::forward<T>(value));
+                this->initialize(T{});
             DEVIATING_IMPLEMENTATION_WARNING("original uses self.tk.getboolean to convert to bool");
         }
 
-    public:
-        /// @brief Construct a variable
-        /// 
-        /// The variable's name will be set PY_VARnum.
-        /// @param master The master widget. Can be empty.
-        Variable(std::optional<Misc> master = {});
-        /// @brief Construct a variable
-        /// 
-        /// If name matches an existing variable and value is omitted then the existing value is retained.
-        /// @param master The master widget. Can be empty.
-        /// @param value The initial value of the variable.
-        /// @param name An optional Tcl name (defaults to PY_VARnum).
-        template<detail::AsObjConcept T>
-		Variable(std::optional<Misc> master, T&& value, const std::string& name = {}) : Variable(master, std::forward<T>(value), name, false)
+        template<std::derived_from<impl> I>
+        Variable(const std::shared_ptr<I>& pimpl) :
+            pimpl(pimpl),
+            _tclCommands(pimpl->_tclCommands),
+            _root(pimpl->_root),
+            _tk(pimpl->_tk),
+            _name(pimpl->_name)
         {
 
         }
+    public:
+        /// @brief Construct a variable
+        ///
+        /// If NAME matches an existing variable and VALUE is omitted then the existing value is retained.
+        template<typename T>
+            requires detail::AsObjConcept<T>&& std::default_initializable<T>
+        Variable(const cnfs::Variable<T>& cnf = {}) : Variable(std::make_shared<impl>(cnf.master.has_value() ? cnf.master->_root() : detail::_get_default_root("create variable")))
+        {
+            this->_init_(cnf);
+        }
 
-        /// @brief Unset the variable in Tcl.
-        ~Variable();
+        DEFINE_ASSIGNMENT_OPERATOR(Variable);
 
         /// @brief Return the name of the variable in Tcl.
         operator std::string() const;
 
         /// @brief Set the variable to VALUE.
-        void set(detail::AsObjConcept auto&& value)
+        void set(const detail::AsObjConcept auto& value)
         {
-            this->_tk->globalsetvar(this->_name, std::forward<decltype(value)>(value));
+            this->_tk->globalsetvar(this->_name, value);
         }
         /// @copydoc set
-        void initialize(detail::AsObjConcept auto&& value)
+        void initialize(const detail::AsObjConcept auto& value)
         {
-            this->set(std::forward<decltype(value)>(value));
+            this->set(value);
         }
 
         /// @brief Return value of variable.
@@ -1406,19 +1521,14 @@ namespace cpptkinter
     namespace detail
     {
         template<typename T>
-            requires detail::AsObjConcept<T> && detail::FromObjConcept<T>
+			requires detail::AsObjConcept<T> && detail::FromObjConcept<T> && std::default_initializable<T>
         struct TypedVariable : Variable
         {
-            /// @copydoc Variable::Variable(const detail::master_t&)
-            TypedVariable(std::optional<Misc> master = {}) : Variable(master, T{}, {}, true)
+            /// @copydoc Variable::Variable(const cnfs::Variable<T>&, std::type_identity<T>)
+            TypedVariable(const cnfs::Variable<T>& cnf = {}) : Variable(cnf)
             {
 
             }
-            /// @copydoc Variable::Variable(const detail::master_t&, T&&, const std::string&)
-			TypedVariable(std::optional<Misc> master, const T& value, const std::string& name = {}) : Variable(master, value, name, false)
-			{
-
-			}
 
             /// @copydoc Variable::set
             void set(const T& value)
@@ -1449,7 +1559,7 @@ namespace cpptkinter
 
     namespace cnfs
     {
-        using opt_master = opt<Misc>;
+        using opt_variable = opt<cpptkinter::Variable>;
 
         /// @brief Argument for Pack::pack_configure().
         struct pack_configure
@@ -1715,9 +1825,9 @@ namespace cpptkinter
         };
 
     public:
-        decltype(impl::widgetName)& widgetName;
+        REF_TO_IMPL(widgetName);
     private:
-        decltype(impl::_name)& _name;
+        REF_TO_IMPL(_name);
 
         /// @brief Internal function. Sets up information about children.
         template<typename Self>
@@ -1760,26 +1870,37 @@ namespace cpptkinter
             }
         }
 
-    public:
-        BaseWidget(const std::shared_ptr<impl>& pimpl);
     protected:
-        /// @brief Construct a widget.
+        template<std::derived_from<impl> I>
+        BaseWidget(const std::shared_ptr<I>& pimpl) :
+            Misc(pimpl),
+            widgetName(pimpl->widgetName),
+            _name(pimpl->_name)
+        {
+
+        }
+
+        /// @brief Initialize a widget.
         ///
-		/// master is passed within cnf instead of as a separate argument.
+        /// master is passed within cnf instead of as a separate argument.
+        /// @param widgetName is the name of the widget.
+        /// @param cnf is a cnf structure of options to configure the widget.
+        /// @param extra is an optional std::vector of additional options to configure the widget.
+        /// @param ignore_fields is an optional std::set of fields to ignore in cnf.
+        /// @param pimpl is an optional shared pointer to the implementation. Used by derived classes that extend impl.
         template<cnfs::is_cnf CNF>
-		BaseWidget(const std::string& widgetName_, CNF&& cnf, std::vector<_cpptkinter::Tcl_Obj>&& extra = {}, std::set<std::string> ignore_fields = {}) :
-            BaseWidget(std::make_shared<impl>())
+        void _init_(const std::string& widgetName, CNF&& cnf, std::vector<_cpptkinter::Tcl_Obj>&& extra = {}, std::set<std::string> ignore_fields = {})
         {
             std::optional<Misc> master{};
             if constexpr (requires { cnf.master; })
             {
-                utility::invoke_or_and_then([&master]<typename T>(T&& v) {
+                utility::invoke_or_and_then([&master]<typename T>(T && v) {
                     master = std::forward<T>(v);
                 }, std::forward<CNF>(cnf).master);
                 ignore_fields.insert("master");
             }
 
-            this->widgetName = widgetName_;
+            this->widgetName = widgetName;
             this->_setup(master, cnf, ignore_fields);
             this->tk->call(this->widgetName, this->_w, std::move(extra), this->_options(std::forward<CNF>(cnf), ignore_fields));
             DEVIATING_IMPLEMENTATION_WARNING("something with classes in cnf (?)");
@@ -1813,7 +1934,7 @@ namespace cpptkinter
             opt_string fg;
             opt_font_description font;
             opt_string foreground;
-            opt_screenunits height;
+            opt_string name;
             opt<std::variant<std::string, std::function<void()>>> postcommand;
             opt_relief relief;
             opt_string selectcolor;
@@ -1851,7 +1972,7 @@ namespace cpptkinter
             opt_image_spec selectimage;
             opt_string state;
             opt<int> underline;
-            opt<Variable> variable;
+            opt_variable variable;
         };
 
         /// @brief Argument for Menu::add_command().
@@ -1897,7 +2018,7 @@ namespace cpptkinter
             opt_string state;
             opt<int> underline;
             T value;
-            opt<Variable> variable;
+            opt_variable variable;
         };
 
         /// @brief Argument for Menu::add_separator().
@@ -1910,12 +2031,10 @@ namespace cpptkinter
     /// @brief %Menu widget which allows displaying menu bars, pull-down menus and pop-up menus.
     struct Menu : Widget
     {
-        /// @brief Construct a menu widget.
-        template<cnfs::is_cnf CNF = cnfs::Menu>
-        Menu(CNF&& cnf = {}) : Widget("menu", std::forward<CNF>(cnf))
-        {
+        friend class OptionMenu;
 
-        }
+        /// @brief Construct a menu widget.
+        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Menu, cnfs::Menu, "menu", Widget);
 
         /// @brief Post the menu at position X,Y.
         void tk_popup(long long x, long long y);
@@ -2121,14 +2240,14 @@ namespace cpptkinter
     }
 
     /// @brief %Toplevel widget, e.g. for dialogs.
-    class Toplevel : public BaseWidget, public Wm
+    struct Toplevel : BaseWidget, Wm
     {
+    protected:
         template<cnfs::is_cnf CNF>
-        static std::pair<std::vector<_cpptkinter::Tcl_Obj>, std::set<std::string>> make_extra_and_ignore_fields(CNF&& cnf)
+        void _init_(const std::string& widgetName, CNF&& cnf)
         {
-            std::pair<std::vector<_cpptkinter::Tcl_Obj>, std::set<std::string>> ret{};
-            auto& [extra, ignore_fields] = ret;
-
+            std::vector<_cpptkinter::Tcl_Obj> extra{};
+            std::set<std::string> ignore_fields{};
             reflect::for_each<CNF>([&extra, &ignore_fields, &cnf](auto I) {
                 constexpr std::string_view wmkey = reflect::member_name<I, CNF>();
 
@@ -2154,26 +2273,16 @@ namespace cpptkinter
                 }
                 });
 
-			return ret;
-        }
+            this->BaseWidget::_init_(widgetName, std::forward<CNF>(cnf), std::move(extra), std::move(ignore_fields));
 
-        template<cnfs::is_cnf CNF>
-        Toplevel(CNF&& cnf, std::pair<std::vector<_cpptkinter::Tcl_Obj>, std::set<std::string>>&& extra_and_ignore_fields) :
-            BaseWidget("toplevel", std::forward<CNF>(cnf), std::move(extra_and_ignore_fields.first), std::move(extra_and_ignore_fields.second))
-        {
             auto root = this->_root();
             this->iconname(root.iconname());
             this->title(root.title());
             this->protocol("WM_DELETE_WINDOW", std::function<void()>(std::bind_front(&Toplevel::destroy, *this)));
         }
-
     public:
         /// @brief Create a new Toplevel widget.
-        template<cnfs::is_cnf CNF = cnfs::Toplevel>
-		Toplevel(CNF&& cnf = {}) : Toplevel(std::forward<CNF>(cnf), make_extra_and_ignore_fields(std::forward<CNF>(cnf)))
-		{
-
-		}
+        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Toplevel, cnfs::Toplevel, "toplevel", BaseWidget);
     };
 
     namespace cnfs
@@ -2216,7 +2325,7 @@ namespace cpptkinter
             opt_string state;
             opt_take_focus_value takefocus;
             opt<std::variant<double, std::string>> text;
-            opt<Variable> textvariable;
+            opt_variable textvariable;
             opt<size_t> underline;
             opt_screenunits width;
             opt_screenunits wraplength;
@@ -2228,14 +2337,8 @@ namespace cpptkinter
     /// @see TypedButton, cpptkinter::Button()
     struct Button : Widget
     {
-        using Widget::Widget;
-
         /// @brief Construct a new Button widget.
-        template<detail::PythonCmd_ClientDataReturnConcept T = void, cnfs::is_cnf CNF = cnfs::Button<T>>
-		Button(CNF&& cnf = {}) : Widget("button", std::forward<CNF>(cnf))
-        {
-
-        }
+        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Button, cnfs::Button<void>, "button", Widget);
 
         /// @brief Flash the button.
         /// 
@@ -2265,14 +2368,8 @@ namespace cpptkinter
         requires detail::FromObjConcept<T> && detail::PythonCmd_ClientDataReturnConcept<T>
     struct TypedButton : Button
     {
-		using Button::Button;
-
         /// @brief Construct a new TypedButton widget.
-        template<cnfs::is_cnf CNF = cnfs::Button<T>>
-        TypedButton(CNF&& cnf = {}) : Button(std::forward<CNF>(cnf))
-		{
-
-		}
+        CNF_CONSTRUCTOR_AND_ASSIGNMENT(TypedButton, cnfs::Button<T>, "button", Button);
 
         /// @copydoc Button::invoke
         T invoke()
@@ -2320,40 +2417,29 @@ namespace cpptkinter
     }
 
 	/// @brief %Frame widget which may contain other widgets and can have a 3D border.
-    class Frame : public Widget
+    struct Frame : Widget
     {
+    protected:
         template<cnfs::is_cnf CNF>
-        static std::pair<std::vector<_cpptkinter::Tcl_Obj>, std::set<std::string>> make_extra_and_ignore_fields(CNF&& cnf)
+        void _init_(const std::string& widgetName, CNF&& cnf)
         {
-            std::pair<std::vector<_cpptkinter::Tcl_Obj>, std::set<std::string>> ret{};
-			auto& [extra, ignore_fields] = ret;
-
+            std::vector<_cpptkinter::Tcl_Obj> extra{};
+            std::set<std::string> ignore_fields{};
             if constexpr (requires { cnf.class_; })
             {
-                utility::invoke_or_and_then([&extra , &ignore_fields]<typename T>(T && v) {
+                utility::invoke_or_and_then([&]<typename T>(T && v) {
                     extra.emplace_back(_cpptkinter::AsObj("-class"));
                     extra.emplace_back(_cpptkinter::AsObj(std::forward<T>(v)));
                     ignore_fields.insert("class_");
                 }, cnf.class_);
             }
 
-            return ret;
-        }
-
-        template<cnfs::is_cnf CNF>
-        Frame(CNF&& cnf, std::pair<std::vector<_cpptkinter::Tcl_Obj>, std::set<std::string>>&& extra_and_ignore_fields) :
-            Widget("frame", std::forward<CNF>(cnf), std::move(extra_and_ignore_fields.first), std::move(extra_and_ignore_fields.second))
-        {
-            
+            this->Widget::_init_(widgetName, std::forward<CNF>(cnf), std::move(extra), std::move(ignore_fields));
         }
 
     public:
         /// @brief Construct a frame widget.
-        template<cnfs::is_cnf CNF = cnfs::Frame>
-		Frame(CNF&& cnf = {}) : Frame(std::forward<CNF>(cnf), make_extra_and_ignore_fields(std::forward<CNF>(cnf)))
-		{
-
-		}
+        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Frame, cnfs::Frame, "frame", Widget);
     };
 
     namespace cnfs
@@ -2390,7 +2476,7 @@ namespace cpptkinter
             opt_string state;
             opt_take_focus_value takefocus;
             opt<std::variant<double, std::string>> text;
-            opt<Variable> textvariable;
+            opt_variable textvariable;
             opt<size_t> underline;
             opt_screenunits width;
             opt_screenunits wraplength;
@@ -2401,11 +2487,7 @@ namespace cpptkinter
     struct Label : Widget
     {
         /// @brief Construct a label widget.
-        template<cnfs::is_cnf CNF = cnfs::Label>
-        Label(CNF&& cnf = {}) : Widget("label", std::forward<CNF>(cnf))
-        {
-
-        }
+        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Label, cnfs::Label, "label", Widget);
     };
 
     /// @brief %Listbox widget which can display a list of strings.
@@ -2448,7 +2530,7 @@ namespace cpptkinter
             opt_string state;
             opt_take_focus_value takefocus;
             opt<std::variant<double, std::string>> text;
-            opt<Variable> textvariable;
+            opt_variable textvariable;
             opt<size_t> underline;
             opt_screenunits width;
             opt_screenunits wraplength;
@@ -2459,11 +2541,7 @@ namespace cpptkinter
     struct Menubutton : Widget
     {
         /// @brief Construct a menubutton widget.
-        template<cnfs::is_cnf CNF = cnfs::Menubutton>
-        Menubutton(CNF&& cnf = {}) : Widget("menubutton", std::forward<CNF>(cnf))
-        {
-
-        }
+        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Menubutton, cnfs::Menubutton, "menubutton", Widget);
     };
 
     /// @brief %Message widget to display multiline text. Obsolete since Label does it too.
@@ -2520,12 +2598,8 @@ namespace cpptkinter
     /// @brief %Scale widget which can display a numerical scale.
     struct Scale : Widget
     {
-        /// @brief Construct a label widget.
-        template<cnfs::is_cnf CNF = cnfs::Scale<void>>
-        Scale(CNF&& cnf = {}) : Widget("scale", std::forward<CNF>(cnf))
-        {
-
-        }
+        /// @brief Construct a scale widget.
+        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Scale, cnfs::Scale<void>, "scale", Widget);
 
         /// @brief Get the current value as integer or float.
         double get();
@@ -2548,8 +2622,82 @@ namespace cpptkinter
     /// @brief %Text widget which can display text in various forms.
     struct Text;
 
+    namespace detail
+    {
+		/// @brief Satisfied if R is a range of a type convertible to std::string.
+        template<typename R>
+        concept sized_range_of_string = std::ranges::sized_range<R> && std::convertible_to<std::ranges::range_value_t<R>, std::string>;
+
+        /// @brief Internal class. It wraps the command in the widget OptionMenu.
+        struct _setit
+        {
+            StringVar _var;
+            std::string _value;
+            std::function<void(const StringVar&)> _callback;
+
+            void operator()();
+        };
+    }
+
     /// @brief %OptionMenu which allows the user to select a value from a menu.
-    struct OptionMenu;
+    class OptionMenu : public Menubutton
+    {
+        template<typename T>
+        friend class utility::weak;
+    protected:
+        struct impl : Menubutton::impl
+        {
+            std::optional<Menu> _menu;
+            std::string menuname;
+
+            /// @brief Destroy this widget and the associated menu.
+			void destroy() override;
+        };
+
+    private:
+		REF_TO_IMPL(_menu);
+    public:
+		REF_TO_IMPL(menuname);
+
+    protected:
+        void _init_(const Misc& master, const StringVar& variable, detail::sized_range_of_string auto&& values, std::function<void(const StringVar&)>&& command)
+        {
+            if (values.size() == 0)
+				throw detail::construct_exception<std::invalid_argument>("values must be non-empty");
+
+            this->Menubutton::_init_("menubutton",
+                cnfs::Menubutton{ .master = master, .anchor = "c", .borderwidth = 2, .highlightthickness = 2, .indicatoron = 1, .relief = constants::RAISED, .textvariable = variable });
+
+            this->widgetName = "tk_optionMenu";
+            auto&& menu = this->_menu.emplace(cnfs::Menu{ .master = *this, .name = "menu", .tearoff = 0 });
+            this->menuname = menu._w;
+
+            for (auto&& [i, v] : values | std::views::enumerate)
+                menu.add_command({ .command = detail::_setit(variable, v, std::move(command)), .label = v });
+
+            (*this)["menu"] = menu;
+        }
+
+        template<std::derived_from<impl> I>
+        OptionMenu(const std::shared_ptr<I>& pimpl) :
+            Menubutton(pimpl),
+            _menu(pimpl->_menu),
+			menuname(pimpl->menuname)
+        {
+
+        }
+    public:
+        DEFINE_ASSIGNMENT_OPERATOR(OptionMenu);
+
+        /// @brief Construct an optionmenu widget.
+        OptionMenu(const Misc& master, const StringVar& variable, detail::sized_range_of_string auto&& values, std::function<void(const StringVar&)>&& command = {}) :
+            OptionMenu(std::make_shared<impl>())
+        {
+            this->_init_(master, variable, std::forward<decltype(values)>(values), std::move(command));
+        }
+
+        detail::set_get_proxy<std::optional<cpptkinter::Menu>> operator[](const std::string& name);
+    };
 
     /// @brief %Base class for images.
     struct Image;
@@ -2602,11 +2750,7 @@ namespace cpptkinter
     struct LabelFrame : Widget
     {
         /// @brief Construct a labelframe widget
-        template<cnfs::is_cnf CNF = cnfs::LabelFrame>
-        LabelFrame(CNF&& cnf = {}) : Widget("labelframe", std::forward<CNF>(cnf))
-        {
-
-        }
+        CNF_CONSTRUCTOR_AND_ASSIGNMENT(LabelFrame, cnfs::LabelFrame, "labelframe", Widget);
     };
 
     /// @brief %Panedwindow widget.

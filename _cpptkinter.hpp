@@ -296,6 +296,7 @@ namespace cpptkinter::_cpptkinter::detail
 
 	/// @brief The constraint for the argument type of cpptkinter::_cpptkinter::AsObj().
 	/// 
+	/// T is intended to come from const T& as AsObjImpl doesn't make use of rvalues.
 	/// This concept is satisfied if there exists an overload of cpptkinter::_cpptkinter::detail::AsObjImpl() for type T.
 	template<typename T>
 	concept AsObjConcept = AsObjImplTrait<T>::value;
@@ -450,9 +451,9 @@ namespace cpptkinter::_cpptkinter
 	R GetVar(TkappObject* self, const A1& arg1, const std::string& arg2, int flags);
 
 	/// @brief Modify the value of a tcl variable. If the variable doesn't exist, it will be created.
-	void SetVar(TkappObject* self, const std::string& arg1, detail::AsObjConcept auto&& arg2, int flags);
+	void SetVar(TkappObject* self, const std::string& arg1, const detail::AsObjConcept auto& arg2, int flags);
 	/// @brief Modify the value of a tcl variable. If the variable doesn't exist, it will be created.
-	void SetVar(TkappObject* self, const std::string& arg1, const std::string& arg2, detail::AsObjConcept auto&& arg3, int flags);
+	void SetVar(TkappObject* self, const std::string& arg1, const std::string& arg2, const detail::AsObjConcept auto& arg3, int flags);
 
 	void UnsetVar(TkappObject* self, const std::string& arg1, const std::string& arg2, int flags);
 
@@ -756,21 +757,21 @@ namespace cpptkinter::_cpptkinter
 		void record();
 		void adderrorinfo();
 
-		void setvar(const std::string& arg1, detail::AsObjConcept auto&& arg2)
+		void setvar(const std::string& arg1, const detail::AsObjConcept auto& arg2)
 		{
-			var_invoke([&]() { SetVar(this, arg1, std::forward<decltype(arg2)>(arg2), TCL_LEAVE_ERR_MSG); }, this);
+			var_invoke([&]() { SetVar(this, arg1, arg2, TCL_LEAVE_ERR_MSG); }, this);
 		}
-		void setvar(const std::string& arg1, const std::string& arg2, detail::AsObjConcept auto&& arg3)
+		void setvar(const std::string& arg1, const std::string& arg2, const detail::AsObjConcept auto& arg3)
 		{
-			var_invoke([&]() { SetVar(this, arg1, arg2, std::forward<decltype(arg3)>(arg3), TCL_LEAVE_ERR_MSG); }, this);
+			var_invoke([&]() { SetVar(this, arg1, arg2, arg3, TCL_LEAVE_ERR_MSG); }, this);
 		}
-		void globalsetvar(const std::string& arg1, detail::AsObjConcept auto&& arg2)
+		void globalsetvar(const std::string& arg1, const detail::AsObjConcept auto& arg2)
 		{
-			var_invoke([&]() { SetVar(this, arg1, std::forward<decltype(arg2)>(arg2), TCL_LEAVE_ERR_MSG | TCL_GLOBAL_ONLY); }, this);
+			var_invoke([&]() { SetVar(this, arg1, arg2, TCL_LEAVE_ERR_MSG | TCL_GLOBAL_ONLY); }, this);
 		}
-		void globalsetvar(const std::string& arg1, const std::string& arg2, detail::AsObjConcept auto&& arg3)
+		void globalsetvar(const std::string& arg1, const std::string& arg2, const detail::AsObjConcept auto& arg3)
 		{
-			var_invoke([&]() { SetVar(this, arg1, arg2, std::forward<decltype(arg3)>(arg3), TCL_LEAVE_ERR_MSG | TCL_GLOBAL_ONLY); }, this);
+			var_invoke([&]() { SetVar(this, arg1, arg2, arg3, TCL_LEAVE_ERR_MSG | TCL_GLOBAL_ONLY); }, this);
 		}
 		template<detail::FromObjConcept R>
 		R getvar(const detail::GetVarConcept auto& arg1, const std::string& arg2 = {})
@@ -885,7 +886,7 @@ namespace cpptkinter::_cpptkinter
 		LEAVE_OVERLAP_TCL;
 	}
 
-	void SetVar(TkappObject* self, const std::string& arg1, detail::AsObjConcept auto&& arg2, int flags)
+	void SetVar(TkappObject* self, const std::string& arg1, const detail::AsObjConcept auto& arg2, int flags)
 	{
 		auto name1 = arg1.data();
 
@@ -895,7 +896,7 @@ namespace cpptkinter::_cpptkinter
 			TRACE(self, ("((ssO))", "set", name1, arg2));
 
 		// XXX Acquire tcl lock ? ? ?
-		auto newval = AsObj(std::forward<decltype(arg2)>(arg2));
+		auto newval = AsObj(arg2);
 
 		ENTER_TCL;
 		auto ok = Tcl_SetVar2Ex(Tkapp_Interp(self), name1, nullptr, newval, flags);
@@ -904,7 +905,7 @@ namespace cpptkinter::_cpptkinter
 			throw Tkinter_Error(self);
 		LEAVE_OVERLAP_TCL;
 	}
-	void SetVar(TkappObject* self, const std::string& arg1, const std::string& arg2, detail::AsObjConcept auto&& arg3, int flags)
+	void SetVar(TkappObject* self, const std::string& arg1, const std::string& arg2, const detail::AsObjConcept auto& arg3, int flags)
 	{
 		auto name1 = arg1.data();
 		auto name2 = arg2.data();
@@ -919,7 +920,7 @@ namespace cpptkinter::_cpptkinter
 				TRACE(self, ("((sNO))", "set", fmt_str, arg3));
 		}
 
-		auto newval = AsObj(std::forward<decltype(arg3)>(arg3));
+		auto newval = AsObj(arg3);
 
 		ENTER_TCL;
 		auto ok = Tcl_SetVar2Ex(Tkapp_Interp(self), name1, name2, newval, flags);

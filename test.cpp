@@ -7,31 +7,32 @@ namespace tk = cpptkinter;
 namespace _tk = tk::_cpptkinter;
 
 
-void donothing()
-{
-    misc::printl("donothing was called");
-}
 
 int main(int argc, char* argv[])
 {
     tk::init(argc, argv);
-    //tk::detail::_debug = true;
+    tk::detail::_debug = false;
+
+
 
     /*
     to-do
 
-    - make intellisense run in msvc mode even when using clang
+	- why does cpptkinter::Misc::destroy even exist? why does a function need to be called everytime a reference goes out of scope? shouldnt cpptkinter::Misc::impl::destroy be enough?
     */
 
 
 	tk::utility::weak<tk::Tk> wroot;
 
-    try {
-
+    try
+    {
         auto root = tk::Tk();
+        root.title("Welcome to GeeksForGeeks");
+        root.geometry("700x500");
+
 		wroot = root;
 
-        misc::printl(tk::utility::container_or_tuple_to_string(root.wm_attributes()));
+		auto donothing = [&]() { misc::printl("do_nothing was called"); };
 
         auto menubar = tk::Menu({ root });
         auto filemenu = tk::Menu({ .master = menubar, .tearoff = 0 });
@@ -68,11 +69,11 @@ int main(int argc, char* argv[])
 
         auto toplvl = tk::Toplevel({ root });
 
-        tk::StringVar var({}, "Hello, World!");
+        tk::StringVar var({ .value = "Hello, World!" });
 
         auto b1 = tk::Button({
             .master = root,
-            .command = [&var]() { var.set("foo"); },
+            .command = [&var]() { var.set("foo"); return 1; },
             .textvariable = var });
         b1.grid({ .column = 0, .row = 0 });
 
@@ -86,10 +87,18 @@ int main(int argc, char* argv[])
         auto scale = tk::Scale({ .master = frame});
         scale.grid();
 
+        auto options_list = { "Option 1", "Option 2", "Option 3", "Option 4" };
+        auto value_inside = tk::StringVar();
+        value_inside.set("Select an Option");
+        auto question_menu = tk::OptionMenu(root, value_inside, options_list);
+        question_menu.grid();
+        auto print_answers = [&]() { std::println("Selected Option: {}", value_inside.get()); };
+        auto submit_button = tk::Button({ .master = root, .command = print_answers, .text = "Submit" });
+        submit_button.grid();
 
         tk::mainloop();
 
-    } catch (const std::exception& ex) { misc::printl(typeid(ex).name()); misc::printl(ex.what()); }
+    } catch (const std::exception& ex) { std::println("exception type: {}\n{}", typeid(ex).name(), ex.what()); }
 
     misc::printl("wroot.use_count() ", wroot.use_count());
 

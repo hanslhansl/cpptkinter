@@ -67,24 +67,6 @@ void cpptkinter::Misc::impl::destroy()
         this->tk->deletecommand(name);
 }
 
-cpptkinter::Misc::Misc(const std::shared_ptr<impl>& pimpl) :
-    pimpl(pimpl),
-    _tclCommands(pimpl->_tclCommands),
-    _last_child_ids(pimpl->_last_child_ids),
-	_w(pimpl->_w),
-    master(pimpl->master),
-    tk(pimpl->tk),
-    children(pimpl->children)
-{
-
-}
-
-cpptkinter::Misc& cpptkinter::Misc::operator=(const Misc& other)
-{
-    std::destroy_at(this);
-    return *std::construct_at(this, other);
-}
-
 void cpptkinter::Misc::destroy()
 {
 	this->pimpl->destroy();
@@ -137,7 +119,7 @@ cpptkinter::Misc cpptkinter::Misc::nametowidget(_cpptkinter::tk_window_type wind
     return this->nametowidget(Tcl_GetString(window.get()));
 }
 
-cpptkinter::Tk cpptkinter::Misc::_root()
+cpptkinter::Tk cpptkinter::Misc::_root() const
 {
     std::shared_ptr<impl> w = this->pimpl;
 
@@ -202,7 +184,7 @@ auto cpptkinter::Misc::_configure(const std::vector<std::string>& cmd, const std
     return this->_getconfigure1(std::move(raii));
 }
 
-cpptkinter::detail::set_get_proxy cpptkinter::Misc::operator[](const std::string& key)
+cpptkinter::detail::set_get_proxy<> cpptkinter::Misc::operator[](const std::string& key)
 {
     return { *this, key };
 }
@@ -401,27 +383,11 @@ void cpptkinter::detail::Tk_impl::destroy()
         detail::_default_root.reset();
 }
 
-cpptkinter::Tk::Tk(const std::shared_ptr<impl>& pimpl) :
-    Misc(pimpl),
-    _tkloaded(pimpl->_tkloaded)
-{
-
-}
-
-cpptkinter::Tk::Tk(const std::string& screenName, std::string baseName, const std::string& className, bool useTk, bool sync, const std::string& use) : Tk(std::make_shared<impl>())
+void cpptkinter::Tk::_init_(const std::string& screenName, const std::string& baseName_, const std::string& className, bool useTk, bool sync, const std::string& use)
 {
     this->_w = ".";
 
-    if (baseName.empty())
-    {
-        auto p = std::filesystem::path(_cpptkinter::detail::argv[0]);
-
-        auto ext = p.extension();
-        if (ext != ".py" && ext != ".pyc")
-            baseName = p.string();
-        else
-            baseName = p.stem().string();
-    }
+	auto baseName = baseName_.empty() ? std::filesystem::path(_cpptkinter::detail::argv[0]).string() : baseName_;
     auto interactive = false;
     this->tk = _cpptkinter::create(screenName, baseName, className, interactive, useTk, sync, use);
     if (detail::_debug)
@@ -429,6 +395,11 @@ cpptkinter::Tk::Tk(const std::string& screenName, std::string baseName, const st
     if (useTk)
         this->_loadtk();
     this->readprofile(baseName, className);
+}
+
+cpptkinter::Tk::Tk(const std::string& screenName, const std::string& baseName, const std::string& className, bool useTk, bool sync, const std::string& use) : Tk(std::make_shared<impl>())
+{
+	this->_init_(screenName, baseName, className, useTk, sync, use);
 }
 
 void cpptkinter::Tk::loadtk()
@@ -508,9 +479,20 @@ cpptkinter::Tk cpptkinter::Tcl(const std::string& screenName, const std::string&
 }
 
 
-cpptkinter::Variable::Variable(std::optional<Misc> master) : Variable(master, "", {}, true)
+cpptkinter::Variable::impl::impl(const Tk& root) : _root(root)
 {
 
+}
+
+cpptkinter::Variable::impl::~impl()
+{
+    if (this->_tk == nullptr)
+        return;
+    DEVIATING_IMPLEMENTATION_WARNING("original uses self.tk.getboolean to convert to bool");
+    if (this->_tk->call<long long>("info", "exists", this->_name))
+        this->_tk->globalunsetvar(this->_name);
+    for (auto&& name : this->_tclCommands)
+        this->_tk->deletecommand(name);
 }
 
 cpptkinter::Variable::operator std::string() const
@@ -521,17 +503,6 @@ cpptkinter::Variable::operator std::string() const
 std::vector<std::tuple<std::vector<std::string>, std::string>> cpptkinter::Variable::trace_info()
 {
     return this->_tk->call<std::vector<std::tuple<std::vector<std::string>, std::string>>>("trace", "info", "variable", this->_name);
-}
-
-cpptkinter::Variable::~Variable()
-{
-    if (this->_tk == nullptr)
-        return;
-    DEVIATING_IMPLEMENTATION_WARNING("original uses self.tk.getboolean to convert to bool");
-    if (this->_tk->call<long long>("info", "exists", this->_name))
-        this->_tk->globalunsetvar(this->_name);
-    for (auto&& name : this->_tclCommands)
-        this->_tk->deletecommand(name);
 }
 
 
@@ -545,14 +516,6 @@ void cpptkinter::BaseWidget::impl::destroy()
     this->tk->call("destroy", this->_w);
     this->master.value().children.erase(this->_name);
     this->Misc::impl::destroy();
-}
-
-cpptkinter::BaseWidget::BaseWidget(const std::shared_ptr<impl>& pimpl) :
-    Misc(std::move(pimpl)),
-	widgetName(pimpl->widgetName),
-	_name(pimpl->_name)
-{
-
 }
 
 
@@ -638,7 +601,6 @@ long long cpptkinter::Menu::yposition(long long index)
 }
 
 
-
 void cpptkinter::Button::flash()
 {
     this->tk->call(this->_w, "flash");
@@ -668,4 +630,30 @@ std::array<long long, 2> cpptkinter::Scale::coords(double value)
 std::string cpptkinter::Scale::identify(detail::ScreenUnits x, detail::ScreenUnits y)
 {
     return this->tk->call<std::string>(this->_w, "identify", x, y);
+}
+
+
+void cpptkinter::detail::_setit::operator()()
+{
+    this->_var.set(this->_value);
+    if (this->_callback)
+        this->_callback(this->_var);
+}
+
+
+void cpptkinter::OptionMenu::impl::destroy()
+{
+    // keeps this from being destroyed before this function returns
+    auto temp = this->shared_from_this();
+
+    this->_menu.reset();
+
+    this->BaseWidget::impl::destroy();
+}
+
+cpptkinter::detail::set_get_proxy<std::optional<cpptkinter::Menu>> cpptkinter::OptionMenu::operator[](const std::string& name)
+{
+    if (name == "menu")
+        return { this->_menu };
+    return { *this, name };
 }
