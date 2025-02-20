@@ -2607,7 +2607,7 @@ namespace cpptkinter
 			opt_entry_validate_command validatecommand;
 			opt_entry_validate_command vcmd;
 			opt_screenunits width;
-			opt<detail::XYScrollCommand> xscrollcommand;//38
+			opt<detail::XYScrollCommand> xscrollcommand;
 		};
     }
 
@@ -2617,27 +2617,64 @@ namespace cpptkinter
         /// @brief Construct a new Entry widget.
         CNF_CONSTRUCTOR_AND_ASSIGNMENT(Entry, cnfs::Entry, "entry", Widget);
 
+        /// @brief Delete a character.
+        void delete_(long long first);
+        /// @brief Delete text from FIRST to LAST (not included).
+        void delete_(long long first, long long last);
 
+        /// @brief Return the text.
+        std::string get();
 
+        /// @brief Insert cursor at INDEX.
+        void icursor(long long index);
 
+        /// @brief Return position of cursor.
+        long long index(long long index);
 
+        /// @brief Insert STRING at INDEX.
+        void insert(long long index, const std::string& string);
 
+        /// @brief unknown
+        void scan_mark(long long x);
 
+        /// @brief unknown
+        void scan_dragto(long long x);
 
+        /// @brief Adjust the end of the selection near the cursor to INDEX.
+        void selection_adjust(long long index);
 
+		/// @copydoc selection_adjust
+        void select_adjust(long long index);
 
+        /// @brief Clear the selection if it is in this widget.
+        void selection_clear();
 
+		/// @copydoc selection_clear
+        void select_clear();
 
+        /// @brief Set the fixed end of a selection to INDEX.
+        void selection_from(long long index);
 
+		/// @copydoc selection_from
+        void select_from(long long index);
 
+        /// @brief Return true if there are characters selected in the entry, false otherwise.
+        bool selection_present();
 
+		/// @copydoc selection_present
+        bool select_present();
 
+        /// @brief Set the selection from START to END (not included).
+        void selection_range(long long start, long long end);
 
+		/// @copydoc selection_range
+        void select_range(long long start, long long end);
 
+        /// @brief Set the variable end of a selection to INDEX.
+        void selection_to(long long index);
 
-
-
-
+		/// @copydoc selection_to
+        void select_to(long long index);
     };
 
     namespace cnfs
@@ -2743,8 +2780,120 @@ namespace cpptkinter
         CNF_CONSTRUCTOR_AND_ASSIGNMENT(Label, cnfs::Label, "label", Widget);
     };
 
+    namespace cnfs
+    {
+		/// @brief Argument for Listbox::Listbox().
+        struct Listbox
+        {
+			opt_master master;
+			opt_string activestyle;
+			opt_string background;
+			opt_screenunits bd;
+			opt_string bg;
+			opt_screenunits border;
+			opt_screenunits borderwidth;
+			opt_cursor cursor;
+			opt_string disabledforeground;
+			opt_bool exportselection;
+			opt_string fg;
+			opt_font_description font;
+			opt_string foreground;
+			opt_screenunits height;
+			opt_string highlightbackground;
+			opt_string highlightcolor;
+			opt_screenunits highlightthickness;
+			opt_string justify;
+            opt_variable listvariable;
+			opt_string name;
+			opt_relief relief;
+			opt_string selectbackground;
+            opt_screenunits selectborderwidth;
+			opt_string selectforeground;
+			opt_string selectmode;
+            opt_bool setgrid;
+			opt_string state;
+			opt_take_focus_value takefocus;
+			opt_screenunits width;
+            opt<detail::XYScrollCommand> xscrollincrement;
+            opt<detail::XYScrollCommand> yscrollincrement;
+        };
+    }
+
     /// @brief %Listbox widget which can display a list of strings.
-    struct Listbox;
+    struct Listbox : Widget
+    {
+		/// @brief Construct a listbox widget.
+		CNF_CONSTRUCTOR_AND_ASSIGNMENT(Listbox, cnfs::Listbox, "listbox", Widget);
+
+        /// @brief Activate item identified by INDEX.
+        void activate(long long index);
+
+        /// @brief 
+        void bbox(long long index);
+
+        /// @brief 
+        void curselection();
+
+        /// @brief 
+        void delete_();
+
+        /// @brief 
+        void get();
+
+        /// @brief 
+        void index(long long index);
+
+        /// @brief 
+        void insert(long long index);
+
+        /// @brief 
+        void nearest(long long y);
+
+        /// @brief 
+        void scan_mark(long long x, long long y);
+
+        /// @brief 
+        void scan_dragto(long long x, long long y);
+
+        /// @brief 
+        void see(long long index);
+
+        /// @brief 
+        void selection_anchor(long long index);
+
+		/// @copydoc selection_anchor
+        void select_anchor(long long index);
+
+        /// @brief 
+        void selection_clear();
+
+		/// @copydoc selection_clear
+        void select_clear();
+
+        /// @brief 
+        void selection_includes(long long index);
+
+		/// @copydoc selection_includes
+        void select_includes(long long index);
+
+        /// @brief 
+        void selection_set();
+
+		/// @copydoc selection_set
+        void select_set();
+
+        /// @brief 
+        void size();
+
+        /// @brief 
+        void itemcget();
+
+        /// @brief 
+        void itemconfigure();
+
+        /// @copydoc itemconfigure
+        void itemconfig();
+    };
 
     namespace cnfs
     {
