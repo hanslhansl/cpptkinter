@@ -5,20 +5,30 @@
 /// @brief Implements __init__.py.
 
 #define COMMA ,
-#define INHERIT_CONSTRUCTORS(base) using base::base
+
+#define REF_TO_IMPL(member) decltype(impl::member)& member
+
 #define DEFINE_ASSIGNMENT_OPERATOR(cl) \
     cl& operator=(const cl& other) \
     { \
         std::destroy_at(this); \
         return *std::construct_at(this, other); \
     }
-#define CNF_CONSTRUCTOR(cl, cnf_type, str)   \
+// expanded DEFINE_ASSIGNMENT_OPERATOR(cl) macro to make COMMA macro work
+#define CNF_CONSTRUCTOR_AND_ASSIGNMENT(cl, cnf_type, str, base) \
     template<cnfs::is_cnf CNF = cnf_type> \
     cl(CNF&& cnf = {}) : cl(std::make_shared<impl>()) \
-    { this->_init_(str, std::forward<CNF>(cnf)); }  \
-    cl() : cl(cnf_type{}) { }
-#define CNF_CONSTRUCTOR_AND_ASSIGNMENT(cl, cnf_type, str, base) CNF_CONSTRUCTOR(cl, cnf_type, str) DEFINE_ASSIGNMENT_OPERATOR(cl); INHERIT_CONSTRUCTORS(base)
-#define REF_TO_IMPL(member) decltype(impl::member)& member
+    {   \
+        this->_init_(str, std::forward<CNF>(cnf));  \
+    }   \
+    cl() : cl(cnf_type{}) { }   \
+    cl& operator=(const cl& other) \
+    {   \
+        std::destroy_at(this);  \
+        return *std::construct_at(this, other); \
+    }   \
+    using base::base
+
 
 namespace cpptkinter
 {
