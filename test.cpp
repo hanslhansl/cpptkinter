@@ -18,7 +18,6 @@ int main(int argc, char* argv[])
     /*
     to-do
 
-	- why does cpptkinter::Misc::destroy even exist? why does a function need to be called everytime a reference goes out of scope? shouldnt cpptkinter::Misc::impl::destroy be enough?
     */
 
 
@@ -95,6 +94,9 @@ int main(int argc, char* argv[])
         auto print_answers = [&]() { std::println("Selected Option: {}", value_inside.get()); };
         auto submit_button = tk::Button({ .master = root, .command = print_answers, .text = "Submit" });
         submit_button.grid();
+
+		auto check1 = tk::Checkbutton({ .master = root, .text = "Check 1" });
+        check1.grid();
 
         tk::mainloop();
 

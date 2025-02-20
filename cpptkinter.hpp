@@ -4,6 +4,7 @@
 /// @file cpptkinter.hpp
 /// @brief Implements __init__.py.
 
+#define COMMA ,
 #define INHERIT_CONSTRUCTORS(base) using base::base
 #define DEFINE_ASSIGNMENT_OPERATOR(cl) \
     cl& operator=(const cl& other) \
@@ -153,6 +154,7 @@ namespace cpptkinter
         inline bool _support_default_root = true;
         inline std::shared_ptr<Tk_impl> _default_root = nullptr;
         inline long long _varnum = 0;
+        inline long long _checkbutton_count = 0;
 
         inline size_t tcl_command_name_counter = 0;
         const inline std::set<char> tcl_forbidden_chars{ ' ', '{', '}', '[', ']', '(', ')', '"', '\\', '$', ';', '|', '&', '*', '~', '<', '>', ':' };
@@ -203,6 +205,7 @@ namespace cpptkinter
         using opt_compound = opt<detail::Compound>;
         using opt_relief = opt<detail::Relief>;
         using opt_take_focus_value = opt<detail::TakeFocusValue>;
+		using opt_text = opt<std::variant<double, std::string>>;
 
         /// @brief Argument for Misc::grid_columnconfigure() and Misc::grid_rowconfigure().
         struct grid_column_row_configure
@@ -238,9 +241,8 @@ namespace cpptkinter
     void mainloop(int n = 0);
 
     /// @brief Provides functions for the communication with the window manager.
-    class Wm
+    struct Wm
     {
-    public:
         /// @brief Instruct the window manager to set the aspect ratio (width/height) of this widget to be between MINNUMER / MINDENOM and MAXNUMER / MAXDENOM.
         void wm_aspect(this auto&& self, long long minNumer, long long minDenom, long long maxNumer, long long maxDenom)
         {
@@ -1140,6 +1142,60 @@ namespace cpptkinter
         std::vector<Misc> grid_slaves(std::optional<long long> row = {}, std::optional<long long> column = {});
     };
 
+    /// @brief Mix-in class for querying and changing the horizontal position of a widget's window.
+    struct XView
+    {
+        /// @brief Query the horizontal position of the view.
+        std::array<double, 2> xview(this auto&& self)
+        {
+			return self.tk->template call<std::array<double, 2>>(self._w, "xview");
+        }
+        /// @brief Change the horizontal position of the view.
+        void xview(this auto&& self, double d1, double d2)
+        {
+			self.tk->call(self._w, "xview", d1, d2);
+        }
+
+        /// @brief Adjusts the view in the window so that FRACTION of the total width of the canvas is off - screen to the left.
+        void xview_moveto(this auto&& self, double fraction)
+        {
+			self.tk->call(self._w, "xview", "moveto", fraction);
+        }
+
+        /// @brief Shift the x-view according to NUMBER which is measured in "units" or "pages" (WHAT).
+        void xview_scroll(this auto&& self, const detail::ScreenUnits& number, const std::string& what)
+        {
+			self.tk->call(self._w, "xview", "scroll", number, what);
+        }
+    };
+
+    /// @brief Mix-in class for querying and changing the vertical position of a widget's window.
+    struct YView
+    {
+        /// @brief Query the vertical position of the view.
+        std::array<double, 2> yview(this auto&& self)
+        {
+            return self.tk->template call<std::array<double, 2>>(self._w, "yview");
+        }
+        /// @brief Change the vertical position of the view.
+        void yview(this auto&& self, double d1, double d2)
+        {
+            self.tk->call(self._w, "yview", d1, d2);
+        }
+
+        /// @brief Adjusts the view in the window so that FRACTION of the total height of the canvas is off - screen to the top.
+        void yview_moveto(this auto&& self, double fraction)
+        {
+            self.tk->call(self._w, "yview", "moveto", fraction);
+        }
+
+        /// @brief Shift the y-view according to NUMBER which is measured in "units" or "pages" (WHAT).
+        void yview_scroll(this auto&& self, const detail::ScreenUnits& number, const std::string& what)
+        {
+            self.tk->call(self._w, "yview", "scroll", number, what);
+        }
+    };
+
     Misc Wm::wm_iconwindow(this auto&& self)
     {
         return self.nametowidget(self.tk->template call<std::string>("wm", "wm_iconwindow", self._w));
@@ -1247,7 +1303,7 @@ namespace cpptkinter
                     return e.get();
                 }
 
-                throw construct_exception<std::invalid_argument>(std::format("requested type {} but got {}", reflect::type_name<R>(), /reflect::type_name<T>()));
+                throw construct_exception<std::invalid_argument>(std::format("requested type {} but got {}", reflect::type_name<R>(), reflect::type_name<T>()));
             };
 
             return std::visit(visitor, this->data);
@@ -1826,22 +1882,29 @@ namespace cpptkinter
 
     public:
         REF_TO_IMPL(widgetName);
-    private:
+    protected:
         REF_TO_IMPL(_name);
 
         /// @brief Internal function. Sets up information about children.
+        ///
+        /// @param override_name only used by Checkbutton.
         template<typename Self>
-        void _setup(this Self&& self, const std::optional<Misc>& master_, auto& cnf, std::set<std::string>& ignore_fields)
+        void _setup(this Self&& self, const std::optional<Misc>& master_, auto& cnf, std::set<std::string>& ignore_fields, const std::optional<std::string>& override_name = std::nullopt)
         {
             auto&& master = master_.has_value() ? master_.value() : detail::_get_default_root();
             self.master = master;
             self.tk = master.tk;
 
             std::string name{};
-            if constexpr (requires { cnf.name; })
+            if (override_name.has_value())
             {
-                utility::invoke_or_and_then([&ignore_fields, &name]<typename T>(T && v) {
-                    name = std::forward<T>(v);
+                name = override_name.value();
+                ignore_fields.insert("name");
+            }
+            else if constexpr (requires { cnf.name; })
+            {
+                utility::invoke_or_and_then([&ignore_fields, &name](auto& v) {
+                    name = v;
                     ignore_fields.insert("name");
                 }, cnf.name);
             }
@@ -1870,7 +1933,6 @@ namespace cpptkinter
             }
         }
 
-    protected:
         template<std::derived_from<impl> I>
         BaseWidget(const std::shared_ptr<I>& pimpl) :
             Misc(pimpl),
@@ -1889,7 +1951,7 @@ namespace cpptkinter
         /// @param ignore_fields is an optional std::set of fields to ignore in cnf.
         /// @param pimpl is an optional shared pointer to the implementation. Used by derived classes that extend impl.
         template<cnfs::is_cnf CNF>
-        void _init_(const std::string& widgetName, CNF&& cnf, std::vector<_cpptkinter::Tcl_Obj>&& extra = {}, std::set<std::string> ignore_fields = {})
+        void _init_(this auto&& self, const std::string& widgetName, CNF&& cnf, std::vector<_cpptkinter::Tcl_Obj>&& extra = {}, std::set<std::string> ignore_fields = {})
         {
             std::optional<Misc> master{};
             if constexpr (requires { cnf.master; })
@@ -1900,9 +1962,9 @@ namespace cpptkinter
                 ignore_fields.insert("master");
             }
 
-            this->widgetName = widgetName;
-            this->_setup(master, cnf, ignore_fields);
-            this->tk->call(this->widgetName, this->_w, std::move(extra), this->_options(std::forward<CNF>(cnf), ignore_fields));
+            self.widgetName = widgetName;
+            self._setup(master, cnf, ignore_fields);
+            self.tk->call(self.widgetName, self._w, std::move(extra), self._options(std::forward<CNF>(cnf), ignore_fields));
             DEVIATING_IMPLEMENTATION_WARNING("something with classes in cnf (?)");
         }
     };
@@ -2288,7 +2350,7 @@ namespace cpptkinter
     namespace cnfs
     {
         /// @brief Argument for Button::Button() and TypedButton::TypedButton().
-        template<typename T>
+        template<typename R>
         struct Button
         {
             opt_master master;
@@ -2301,7 +2363,7 @@ namespace cpptkinter
             opt_string bitmap;
             opt_screenunits border;
             opt_screenunits borderwidth;
-            opt<detail::ButtonCommand<T>> command;
+            opt<detail::ButtonCommand<R>> command;
             opt_compound compound;
             opt_cursor cursor;
             opt_string default_;
@@ -2324,7 +2386,7 @@ namespace cpptkinter
             opt<size_t> repeatinterval;
             opt_string state;
             opt_take_focus_value takefocus;
-            opt<std::variant<double, std::string>> text;
+            opt_text text;
             opt_variable textvariable;
             opt<size_t> underline;
             opt_screenunits width;
@@ -2348,9 +2410,6 @@ namespace cpptkinter
         void flash();
 
         /// @brief Invoke the command associated with the button.
-        ///
-        /// The return value is the return value from the command, or an empty string if there is no command associated with the button.
-        /// This command is ignored if the button's state is disabled.
         template<detail::FromObjConcept R = void>
         R invoke()
         {
@@ -2360,32 +2419,226 @@ namespace cpptkinter
 
     /// @brief A button widget with defined callback return type.
     ///
-    /// Button takes a callback with void return type. The original tkinter allows callbacks to have a return type/value.
-    /// To emulate this, use TypedButton with the desired return type.
-    /// @tparam T The return type of the callback.
-    /// @see Button, cpptkinter::TypedButton()
-    template<typename T>
-        requires detail::FromObjConcept<T> && detail::PythonCmd_ClientDataReturnConcept<T>
+	/// Button takes a callback with arbitrary return type. TypedButton restricts the return type to a specific type.
+    /// @tparam R The return type of the callback.
+    /// @see Button
+    template<typename R>
+        requires detail::FromObjConcept<R> && detail::PythonCmd_ClientDataReturnConcept<R>
     struct TypedButton : Button
     {
         /// @brief Construct a new TypedButton widget.
-        CNF_CONSTRUCTOR_AND_ASSIGNMENT(TypedButton, cnfs::Button<T>, "button", Button);
+        CNF_CONSTRUCTOR_AND_ASSIGNMENT(TypedButton, cnfs::Button<R>, "button", Button);
 
         /// @copydoc Button::invoke
-        T invoke()
+        R invoke()
         {
-            return this->Button::template invoke<T>();
+            return this->Button::template invoke<R>();
         }
     };
 
     /// @brief %Canvas widget to display graphical elements like lines or text.
     struct Canvas;
 
+    namespace cnfs
+    {
+        /// @brief Argument for Checkbutton::Checkbutton() and TypedCheckbutton::TypedCheckbutton().
+        template<typename T, typename R>
+        struct Checkbutton
+        {
+			opt_master master;
+			opt_string activebackground;
+			opt_string activeforeground;
+			opt_anchor anchor;
+			opt_string background;
+			opt_screenunits bd;
+			opt_string bg;
+			opt_string bitmap;
+			opt_screenunits border;
+			opt_screenunits borderwidth;
+			opt<detail::ButtonCommand<R>> command;
+			opt_compound compound;
+			opt_cursor cursor;
+			opt_string disabledforeground;
+			opt_string fg;
+			opt_font_description font;
+			opt_string foreground;
+			opt_screenunits height;
+			opt_string highlightbackground;
+			opt_string highlightcolor;
+			opt_screenunits highlightthickness;
+			opt_image_spec image;
+			opt_bool indicatoron;
+			opt_string justify;
+			opt_string name;
+			opt_relief offrelief;
+			opt<T> offvalue;
+			opt<T> onvalue;
+			opt_relief overrelief;
+			opt_screenunits padx;
+			opt_screenunits pady;
+			opt_relief relief;
+			opt_string selectcolor;
+			opt_image_spec selectimage;
+			opt_string state;
+			opt_take_focus_value takefocus;
+            opt_text text;
+			opt_variable textvariable;
+            opt_image_spec tristateimage;
+            opt<T> tristatevalue;
+			opt<size_t> underline;
+			opt_variable variable;
+			opt_screenunits width;
+			opt_screenunits wraplength;
+        };
+    }
+
     /// @brief %Checkbutton widget which is either in on- or off-state.
-    struct Checkbutton;
+    struct Checkbutton : Widget
+    {
+        friend BaseWidget;
+
+    protected:
+        template<typename Self>
+        void _setup(this Self& self, const std::optional<Misc>& master_, auto& cnf, std::set<std::string>& ignore_fields)
+        {
+            //Because Checkbutton defaults to a variable with the same name as the widget, Checkbutton default names must be globally unique, not just unique within the parent widget.
+
+            bool has_name = false;
+            if constexpr (requires{ cnf.name; })
+                utility::invoke_or_and_then([&](auto& val) { has_name = !val.empty(); }, cnf.name);
+
+            if(!has_name)
+            {
+                auto name = hhh::misc::to_lower(reflect::type_name<Self>());
+                detail::_checkbutton_count += 1;
+                // To avoid collisions with ttk.Checkbutton, use the different name template.
+                self.BaseWidget::_setup(master_, cnf, ignore_fields, std::format("!{}-{}", name, detail::_checkbutton_count));
+            }
+            else
+                self.BaseWidget::_setup(master_, cnf, ignore_fields);
+        }
+
+    public:
+        /// @brief Construct a new Button widget.
+        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Checkbutton, cnfs::Checkbutton<long long COMMA void>, "checkbutton", Widget);
+
+        /// @brief Put the button in off-state.
+        void deselect();
+
+        /// @brief Flash the button.
+        void flash();
+
+        /// @brief Toggle the button and invoke a command if given as resource.
+        template<detail::FromObjConcept R = void>
+        R invoke()
+        {
+            return this->tk->call<R>(this->_w, "invoke");
+        }
+
+        /// @brief Put the button in on-state.
+        void select();
+
+        /// @brief Toggle the button.
+        void toggle();
+    };
+
+    /// @brief A checkbutton widget with defined value and callback return types.
+    ///
+    /// Checkbutton has arbitrary value and callback return types. TypedCheckbutton restricts the value and callback type to a specific type.
+    /// @tparam T The value type.
+    /// @tparam R The return type of the callback.
+    /// @see Checkbutton
+    template<detail::AsObjConcept T, typename R>
+        requires detail::FromObjConcept<R>&& detail::PythonCmd_ClientDataReturnConcept<R>
+    struct TypedCheckbutton : Checkbutton
+    {
+        /// @brief Construct a new TypedCheckbutton widget.
+        CNF_CONSTRUCTOR_AND_ASSIGNMENT(TypedCheckbutton, cnfs::Checkbutton<T COMMA R>, "radiobutton", Checkbutton);
+
+        /// @copydoc Checkbutton::invoke
+        R invoke()
+        {
+            return this->Checkbutton::template invoke<R>();
+        }
+    };
+
+    namespace cnfs
+    {
+		using opt_entry_validate_command = opt<detail::EntryValidateCommand>;
+
+		/// @brief Argument for Entry::Entry().
+		struct Entry
+		{
+			opt_master master;
+			opt_string background;
+			opt_screenunits bd;
+			opt_string bg;
+			opt_screenunits border;
+			opt_screenunits borderwidth;
+			opt_cursor cursor;
+			opt_string disabledbackground;
+			opt_string disabledforeground;
+			opt_bool exportselection;
+			opt_string fg;
+			opt_font_description font;
+			opt_string foreground;
+            opt_string highlightbackground;
+            opt_string highlightcolor;
+            opt_screenunits highlightthickness;
+			opt_string insertbackground;
+			opt_screenunits insertborderwidth;
+            opt<size_t> insertofftime;
+            opt<size_t> insertontime;
+			opt_screenunits insertwidth;
+            opt_entry_validate_command invalidcommand;
+            opt_entry_validate_command invcmd;
+			opt_string justify;
+			opt_string name;
+			opt_string readonlybackground;
+			opt_relief relief;
+			opt_string selectbackground;
+            opt_screenunits selectborderwidth;
+			opt_string selectforeground;
+			opt_string show;
+			opt_string state;
+			opt_take_focus_value takefocus;
+			opt_variable textvariable;
+            opt_string validate;
+			opt_entry_validate_command validatecommand;
+			opt_entry_validate_command vcmd;
+			opt_screenunits width;
+			opt<detail::XYScrollCommand> xscrollcommand;//38
+		};
+    }
 
     /// @brief %Entry widget which allows displaying simple text.
-    struct Entry;
+    struct Entry : Widget, XView
+    {
+        /// @brief Construct a new Entry widget.
+        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Entry, cnfs::Entry, "entry", Widget);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    };
 
     namespace cnfs
     {
@@ -2475,7 +2728,7 @@ namespace cpptkinter
             opt_relief relief;
             opt_string state;
             opt_take_focus_value takefocus;
-            opt<std::variant<double, std::string>> text;
+            opt_text text;
             opt_variable textvariable;
             opt<size_t> underline;
             opt_screenunits width;
@@ -2529,7 +2782,7 @@ namespace cpptkinter
             opt_relief relief;
             opt_string state;
             opt_take_focus_value takefocus;
-            opt<std::variant<double, std::string>> text;
+            opt_text text;
             opt_variable textvariable;
             opt<size_t> underline;
             opt_screenunits width;
@@ -2547,8 +2800,100 @@ namespace cpptkinter
     /// @brief %Message widget to display multiline text. Obsolete since Label does it too.
     struct [[deprecated("according to tkinter")]] Message;
 
+    namespace cnfs
+    {
+		/// @brief Argument for Radiobutton::Radiobutton() and TypedRadioButton::TypedRadioButton().
+        template<typename T, typename R>
+        struct Radiobutton
+        {
+			opt_master master;
+            opt_string activebackground;
+            opt_string activeforeground;
+            opt_anchor anchor;
+			opt_string background;
+			opt_screenunits bd;
+			opt_string bg;
+            opt_string bitmap;
+			opt_screenunits border;
+			opt_screenunits borderwidth;
+            opt<detail::ButtonCommand<R>> command;
+            opt_compound compound;
+			opt_cursor cursor;
+			opt_string disabledforeground;
+			opt_string fg;
+			opt_font_description font;
+			opt_string foreground;
+			opt_screenunits height;
+			opt_string highlightbackground;
+			opt_string highlightcolor;
+			opt_screenunits highlightthickness;
+			opt_image_spec image;
+			opt_string indicatoron;
+			opt_string justify;
+			opt_string name;
+			opt_relief offrelief;
+            opt_relief overrelief;
+			opt_screenunits padx;
+			opt_screenunits pady;
+			opt_relief relief;
+			opt_string selectcolor;
+            opt_image_spec selectimage;
+			opt_string state;
+			opt_take_focus_value takefocus;
+            opt_text text;
+			opt_variable textvariable;
+            opt_image_spec tristateimage;
+            opt<T> tristatevalue;
+            opt<size_t> underline;
+            opt<T> value;
+			opt_variable variable;
+			opt_screenunits width;
+			opt_screenunits wraplength;
+        };
+    }
+
     /// @brief %Radiobutton widget which shows only one of several buttons in on-state.
-    struct Radiobutton;
+    struct Radiobutton : Widget
+    {
+		/// @brief Construct a radiobutton widget.
+        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Radiobutton, cnfs::Radiobutton<long long COMMA void>, "radiobutton", Widget);
+
+		/// @brief Put the button in off-state.
+        void deselect();
+
+        /// @brief Flash the button.
+        void flash();
+
+        /// @brief Toggle the button and invoke a command if given as resource.
+        template<detail::FromObjConcept R = void>
+        R invoke()
+        {
+            return this->tk->call<R>(this->_w, "invoke");
+        }
+
+        /// @brief Put the button in on-state.
+        void select();
+    };
+
+    /// @brief A radiobutton widget with defined value and callback return types.
+    ///
+    /// Radiobutton has arbitrary value and callback return types. TypedRadiobutton restricts the value and callback type to a specific type.
+    /// @tparam T The value type.
+    /// @tparam R The return type of the callback.
+    /// @see Radiobutton
+    template<detail::AsObjConcept T, typename R>
+        requires detail::FromObjConcept<R> && detail::PythonCmd_ClientDataReturnConcept<R>
+    struct TypedRadiobutton : Button
+    {
+        /// @brief Construct a new TypedRadiobutton widget.
+        CNF_CONSTRUCTOR_AND_ASSIGNMENT(TypedRadiobutton, cnfs::Radiobutton<T COMMA R>, "radiobutton", Button);
+
+        /// @copydoc Radiobutton::invoke
+        R invoke()
+        {
+            return this->Radiobutton::template invoke<R>();
+        }
+    };
 
     namespace cnfs
     {
@@ -2740,7 +3085,7 @@ namespace cpptkinter
             opt_screenunits pady;
             opt_relief relief;
             opt_take_focus_value takefocus;
-            opt<std::variant<double, std::string>> text;
+            opt_text text;
             opt_visual_type visual;
             opt_screenunits width;
         };

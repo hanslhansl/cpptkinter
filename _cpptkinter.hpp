@@ -303,7 +303,10 @@ namespace cpptkinter::_cpptkinter::detail
 
 	/// @brief The constraint for the return type of cpptkinter::_cpptkinter::FromObj().
 	/// 
-	/// This concept is satisfied if there exists an overload of cpptkinter::_cpptkinter::detail::FromObjImpl() for type R.
+	/// This concept is satisfied if 
+	/// 1. there exists an overload of cpptkinter::_cpptkinter::detail::FromObjImpl() for type R.
+	/// or 
+	/// 2. R is void (trivial case).
 	template<typename R>
 	concept FromObjConcept = std::same_as<R, void> || FromObjImplTrait<R>::value;
 

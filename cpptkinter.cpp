@@ -607,6 +607,43 @@ void cpptkinter::Button::flash()
 }
 
 
+void cpptkinter::Checkbutton::deselect()
+{
+	this->tk->call(this->_w, "deselect");
+}
+
+void cpptkinter::Checkbutton::flash()
+{
+	this->tk->call(this->_w, "flash");
+}
+
+void cpptkinter::Checkbutton::select()
+{
+	this->tk->call(this->_w, "select");
+}
+
+void cpptkinter::Checkbutton::toggle()
+{
+	this->tk->call(this->_w, "toggle");
+}
+
+
+void cpptkinter::Radiobutton::deselect()
+{
+	this->tk->call(this->_w, "deselect");
+}
+
+void cpptkinter::Radiobutton::flash()
+{
+	this->tk->call(this->_w, "flash");
+}
+
+void cpptkinter::Radiobutton::select()
+{
+	this->tk->call(this->_w, "select");
+}
+
+
 double cpptkinter::Scale::get()
 {
     return this->tk->call<double>(this->_w, "get");
