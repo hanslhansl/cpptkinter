@@ -628,34 +628,9 @@ void cpptkinter::Checkbutton::toggle()
 }
 
 
-void cpptkinter::Entry::delete_(long long first)
-{
-	this->tk->call(this->_w, "delete", first);
-}
-
-void cpptkinter::Entry::delete_(long long first, long long last)
-{
-	this->tk->call(this->_w, "delete", first, last);
-}
-
 std::string cpptkinter::Entry::get()
 {
 	return this->tk->call<std::string>(this->_w, "get");
-}
-
-void cpptkinter::Entry::icursor(long long index)
-{
-	this->tk->call(this->_w, "icursor", index);
-}
-
-long long cpptkinter::Entry::index(long long index)
-{
-	return this->tk->call<long long>(this->_w, "index", index);
-}
-
-void cpptkinter::Entry::insert(long long index, const std::string& string)
-{
-	this->tk->call(this->_w, "insert", index, string);
 }
 
 void cpptkinter::Entry::scan_mark(long long x)
@@ -668,16 +643,6 @@ void cpptkinter::Entry::scan_dragto(long long x)
 	this->tk->call(this->_w, "scan", "dragto", x);
 }
 
-void cpptkinter::Entry::selection_adjust(long long index)
-{
-	this->tk->call(this->_w, "selection", "adjust", index);
-}
-
-void cpptkinter::Entry::select_adjust(long long index)
-{
-	this->selection_adjust(index);
-}
-
 void cpptkinter::Entry::selection_clear()
 {
 	this->tk->call(this->_w, "selection", "clear");
@@ -686,16 +651,6 @@ void cpptkinter::Entry::selection_clear()
 void cpptkinter::Entry::select_clear()
 {
 	this->selection_clear();
-}
-
-void cpptkinter::Entry::selection_from(long long index)
-{
-	this->tk->call(this->_w, "selection", "from", index);
-}
-
-void cpptkinter::Entry::select_from(long long index)
-{
-	this->selection_from(index);
 }
 
 bool cpptkinter::Entry::selection_present()
@@ -708,24 +663,30 @@ bool cpptkinter::Entry::select_present()
 	return this->selection_present();
 }
 
-void cpptkinter::Entry::selection_range(long long start, long long end)
+
+std::vector<long long> cpptkinter::Listbox::curselection()
 {
-	this->tk->call(this->_w, "selection", "range", start, end);
+	return this->tk->call<std::vector<long long>>(this->_w, "curselection");
 }
 
-void cpptkinter::Entry::select_range(long long start, long long end)
+long long cpptkinter::Listbox::nearest(long long y)
 {
-	this->selection_range(start, end);
+	return this->tk->call<long long>(this->_w, "nearest", y);
 }
 
-void cpptkinter::Entry::selection_to(long long index)
+void cpptkinter::Listbox::scan_mark(long long x, long long y)
 {
-	this->tk->call(this->_w, "selection", "to", index);
+	this->tk->call(this->_w, "scan", "mark", x, y);
 }
 
-void cpptkinter::Entry::select_to(long long index)
+void cpptkinter::Listbox::scan_dragto(long long x, long long y)
 {
-	this->selection_to(index);
+	this->tk->call(this->_w, "scan", "dragto", x, y);
+}
+
+long long cpptkinter::Listbox::size()
+{
+	return this->tk->call<long long>(this->_w, "size");
 }
 
 

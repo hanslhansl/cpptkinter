@@ -314,7 +314,10 @@ namespace cpptkinter::_cpptkinter::detail
 	concept GetVarConcept = std::convertible_to<T, std::string> || std::convertible_to<T, Tcl_Obj>;
 
 	template<typename T>
-	concept call_argument_concept = std::same_as<T, std::vector<Tcl_Obj>> || AsObjConcept<T>;
+	concept range_of_Tcl_Obj = std::ranges::range<T> && std::same_as<std::ranges::range_value_t<T>, Tcl_Obj>;
+
+	template<typename T>
+	concept call_argument_concept = range_of_Tcl_Obj<T> || AsObjConcept<T>;
 
 	/// @brief The concept for cpptkinter::_cpptkinter::PythonCmd_ClientData type parameter Args.
 	/// 
@@ -474,7 +477,7 @@ namespace cpptkinter::_cpptkinter
 
 		auto lambda = [&raii]<typename T>(T && arg)
 		{
-			if constexpr (std::same_as<T, std::vector<Tcl_Obj>>)
+			if constexpr (detail::range_of_Tcl_Obj<T>)
 				raii.append_range(std::forward<T>(arg));
 			else
 				raii.emplace_back(AsObj(std::forward<T>(arg)));

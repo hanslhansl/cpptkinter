@@ -14,7 +14,6 @@ int main(int argc, char* argv[])
     tk::detail::_debug = false;
 
 
-
     /*
     to-do
 
@@ -97,6 +96,14 @@ int main(int argc, char* argv[])
 
 		auto check1 = tk::Checkbutton({ .master = root, .text = "Check 1" });
         check1.grid();
+
+
+        auto listbox = tk::Listbox();
+        listbox.insert(0, 1, 2, 3, 4);
+        listbox.grid();
+
+        misc::printl(listbox.get<long long>(3));
+        misc::printl(tk::utility::container_or_tuple_to_string(listbox.get<long long>(2, 1)));
 
         tk::mainloop();
 

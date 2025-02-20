@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "global.hpp"
 
 
@@ -120,7 +120,7 @@ namespace cpptkinter::utility
 			template<typename T>
 			void operator()(const T& val)
 			{
-                if constexpr ((hhh::meta::container<T> && !std::same_as<T, std::string>) || hhh::meta::tuple_like<T>)
+                if constexpr ((std::ranges::range<T> && !std::same_as<T, std::string>) || hhh::meta::tuple_like<T>)
                 {
                     this->oss << "(";
                     visit_container_or_tuple(*this, val);
@@ -140,7 +140,7 @@ namespace cpptkinter::utility
     }
 
     template<typename T>
-        requires hhh::meta::container<std::remove_cvref_t<T>> || hhh::meta::tuple_like<std::remove_cvref_t<T>>
+        requires std::ranges::range<T> || hhh::meta::tuple_like<std::remove_cvref_t<T>>
     std::string container_or_tuple_to_string(const T& val)
     {
         detail::container_or_tuple_to_string_visitor vis{};
