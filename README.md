@@ -108,12 +108,12 @@ The other dependencies and _cpptkinter_ itself need to be compiled as part of yo
 
 Add `#include cpptkinter.hpp` to your source files to use the library.
 ## current state of the project
-- The three geometry managers, `pack`, `place` and `grid`, are fully implemented for all available widget classes.
-- `Variable`, `StringVar`, `IntVar`, `DoubleVar` and `BooleanVar` are fully implemtented.
+- The three geometry managers, `pack`, `place` and `grid`, are implemented for all available widget classes.
+- `Variable`, `StringVar`, `IntVar`, `DoubleVar` and `BooleanVar` are implemtented.
 - The window manager class `Wm`, which is base for some widget classes, is mostly implemeted.
 - `Misc`, which is base for all widget classes, is partially implemtented.
-- `BaseWidget` and `Widget`, which are base for many widget classes, are fully implemtented.
-- `Tk`, `Toplevel`, `Button`, `Checkbutton`, `Entry`, `Frame`, `Label`, `Listbox`, `Menu`, `Menubutton`, `Radiobutton`, `Scale`, `OptionMenu` and `LabelFrame` are fully implemented. However, a lot of their functionality is inherited from `Misc` and therefor not implemented as of yet.
+- `BaseWidget` and `Widget`, which are base for many widget classes, are implemtented.
+- `Tk`, `Toplevel`, `Button`, `Checkbutton`, `Entry`, `Frame`, `Label`, `Listbox`, `Menu`, `Menubutton`, `Radiobutton`, `Scale`, `OptionMenu` and `LabelFrame` are implemented. However, a lot of their functionality is inherited from `Misc` and therefor not implemented as of yet.
 - `_tkinter`is implemented for the most part and available in `namespace cpptkinter::_cpptkinter`
 
 The next step is to fully implement `Misc`, `Image`, `PhotoImage` and `BitmapImage` as well as `ttk`.
