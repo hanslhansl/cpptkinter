@@ -606,6 +606,11 @@ void cpptkinter::Button::flash()
     this->tk->call(this->_w, "flash");
 }
 
+void cpptkinter::Button::invoke()
+{
+    this->tk->call(this->_w, "invoke");
+}
+
 
 void cpptkinter::Checkbutton::deselect()
 {
@@ -615,6 +620,11 @@ void cpptkinter::Checkbutton::deselect()
 void cpptkinter::Checkbutton::flash()
 {
 	this->tk->call(this->_w, "flash");
+}
+
+void cpptkinter::Checkbutton::invoke()
+{
+    return this->tk->call(this->_w, "invoke");
 }
 
 void cpptkinter::Checkbutton::select()
@@ -700,6 +710,11 @@ void cpptkinter::Radiobutton::flash()
 	this->tk->call(this->_w, "flash");
 }
 
+void cpptkinter::Radiobutton::invoke()
+{
+    return this->tk->call(this->_w, "invoke");
+}
+
 void cpptkinter::Radiobutton::select()
 {
 	this->tk->call(this->_w, "select");
@@ -756,3 +771,56 @@ cpptkinter::detail::set_get_proxy<std::optional<cpptkinter::Menu>> cpptkinter::O
         return { this->_menu };
     return { *this, name };
 }
+
+
+std::string cpptkinter::Spinbox::get()
+{
+    return this->tk->call<std::string>(this->_w, "get");
+}
+
+std::string cpptkinter::Spinbox::identify(long long x, long long y)
+{
+	return this->tk->call<std::string>(this->_w, "identify", x, y);
+}
+
+void cpptkinter::Spinbox::invoke(const std::string& element)
+{
+	this->tk->call(this->_w, "invoke", element);
+}
+
+void cpptkinter::Spinbox::scan_mark(long long x)
+{
+	this->tk->call(this->_w, "scan", "mark", x);
+}
+
+void cpptkinter::Spinbox::scan_dragto(long long x)
+{
+	this->tk->call(this->_w, "scan", "dragto", x);
+}
+
+void cpptkinter::Spinbox::selection_clear()
+{
+	this->tk->call(this->_w, "selection", "clear");
+}
+
+std::string cpptkinter::Spinbox::selection_element()
+{
+	return this->tk->call<std::string>(this->_w, "selection", "element");
+}
+
+void cpptkinter::Spinbox::selection_element(const std::string& element)
+{
+	this->tk->call(this->_w, "selection", "element", element);
+}
+
+bool cpptkinter::Spinbox::selection_present()
+{
+	return this->tk->call<bool>(this->_w, "selection", "present");
+}
+
+
+
+
+
+
+

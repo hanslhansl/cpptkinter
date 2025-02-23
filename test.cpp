@@ -8,10 +8,16 @@ namespace _tk = tk::_cpptkinter;
 
 
 
+
 int main(int argc, char* argv[])
 {
     tk::init(argc, argv);
     tk::detail::_debug = false;
+
+    tk::detail::to_index("");
+    tk::detail::to_index(1);
+    tk::detail::to_index(1ll);
+    tk::detail::to_index(std::string());
 
 
     /*
@@ -82,7 +88,7 @@ int main(int argc, char* argv[])
         b2["command"] = [&]() { b2["text"] = "bar"; };
         b2.grid();
 
-        auto scale = tk::Scale({ .master = frame});
+        auto scale = tk::Scale({ .master = frame }});
         scale.grid();
 
         auto options_list = { "Option 1", "Option 2", "Option 3", "Option 4" };
@@ -90,7 +96,7 @@ int main(int argc, char* argv[])
         value_inside.set("Select an Option");
         auto question_menu = tk::OptionMenu(root, value_inside, options_list);
         question_menu.grid();
-        auto print_answers = [&]() { std::println("Selected Option: {}", value_inside.get()); };
+        auto print_answers = [&]() { misc::printl("Selected Option: ", value_inside.get()); };
         auto submit_button = tk::Button({ .master = root, .command = print_answers, .text = "Submit" });
         submit_button.grid();
 
@@ -101,9 +107,6 @@ int main(int argc, char* argv[])
         auto listbox = tk::Listbox();
         listbox.insert(0, 1, 2, 3, 4);
         listbox.grid();
-
-        misc::printl(listbox.get<long long>(3));
-        misc::printl(tk::utility::container_or_tuple_to_string(listbox.get<long long>(2, 1)));
 
         tk::mainloop();
 

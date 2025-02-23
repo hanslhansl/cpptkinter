@@ -57,8 +57,7 @@ namespace cpptkinter
         class set_get_proxy;
 
         using Anchor = std::string;
-        template<typename T> // default is void
-        using ButtonCommand = std::variant<std::string, std::function<T()>>;
+        using ButtonCommand = std::variant<std::string, std::function<void()>>;
         using Compound = std::string;
         using Cursor = std::variant<std::string,
             std::tuple<std::string>,
@@ -162,6 +161,20 @@ namespace cpptkinter
         template<typename T>
         concept index = AsObjConcept<T> && (std::convertible_to<T, long long> || std::convertible_to<T, std::string>);
 
+        long long to_index_impl(long long);
+        std::string to_index_impl(std::string);
+
+        template<index T>
+        decltype(auto) to_index(const T& t)
+        {
+			if constexpr (std::same_as<T, long long>)
+				return t;
+            else if constexpr (std::same_as<T, std::string>)
+                return t;
+			else
+				return static_cast<decltype(to_index_impl(t))>(t);
+        }
+
         /// @brief set to true to print executed Tcl / Tk commands
         inline bool _debug =
 #ifdef NDEBUG
@@ -224,6 +237,7 @@ namespace cpptkinter
         using opt_relief = opt<detail::Relief>;
         using opt_take_focus_value = opt<detail::TakeFocusValue>;
 		using opt_text = opt<std::variant<double, std::string>>;
+        using opt_xy_scroll_command = opt<detail::XYScrollCommand>;
 
         /// @brief Argument for Misc::grid_columnconfigure() and Misc::grid_rowconfigure().
         struct grid_column_row_configure
@@ -2368,7 +2382,6 @@ namespace cpptkinter
     namespace cnfs
     {
         /// @brief Argument for Button::Button() and TypedButton::TypedButton().
-        template<typename R>
         struct Button
         {
             opt_master master;
@@ -2381,7 +2394,7 @@ namespace cpptkinter
             opt_string bitmap;
             opt_screenunits border;
             opt_screenunits borderwidth;
-            opt<detail::ButtonCommand<R>> command;
+            opt<detail::ButtonCommand> command;
             opt_compound compound;
             opt_cursor cursor;
             opt_string default_;
@@ -2418,7 +2431,7 @@ namespace cpptkinter
     struct Button : Widget
     {
         /// @brief Construct a new Button widget.
-        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Button, cnfs::Button<void>, "button", Widget);
+        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Button, cnfs::Button, "button", Widget);
 
         /// @brief Flash the button.
         /// 
@@ -2428,30 +2441,7 @@ namespace cpptkinter
         void flash();
 
         /// @brief Invoke the command associated with the button.
-        template<detail::FromObjConcept R = void>
-        R invoke()
-        {
-            return this->tk->call<R>(this->_w, "invoke");
-        }
-    };
-
-    /// @brief A button widget with defined callback return type.
-    ///
-	/// Button takes a callback with arbitrary return type. TypedButton restricts the return type to a specific type.
-    /// @tparam R The return type of the callback.
-    /// @see Button
-    template<typename R>
-        requires detail::FromObjConcept<R> && detail::PythonCmd_ClientDataReturnConcept<R>
-    struct TypedButton : Button
-    {
-        /// @brief Construct a new TypedButton widget.
-        CNF_CONSTRUCTOR_AND_ASSIGNMENT(TypedButton, cnfs::Button<R>, "button", Button);
-
-        /// @copydoc Button::invoke
-        R invoke()
-        {
-            return this->Button::template invoke<R>();
-        }
+        void invoke();
     };
 
     /// @brief %Canvas widget to display graphical elements like lines or text.
@@ -2460,7 +2450,7 @@ namespace cpptkinter
     namespace cnfs
     {
         /// @brief Argument for Checkbutton::Checkbutton() and TypedCheckbutton::TypedCheckbutton().
-        template<typename T, typename R>
+        template<typename T>
         struct Checkbutton
         {
 			opt_master master;
@@ -2473,7 +2463,7 @@ namespace cpptkinter
 			opt_string bitmap;
 			opt_screenunits border;
 			opt_screenunits borderwidth;
-			opt<detail::ButtonCommand<R>> command;
+			opt<detail::ButtonCommand> command;
 			opt_compound compound;
 			opt_cursor cursor;
 			opt_string disabledforeground;
@@ -2538,7 +2528,7 @@ namespace cpptkinter
 
     public:
         /// @brief Construct a new Button widget.
-        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Checkbutton, cnfs::Checkbutton<long long COMMA void>, "checkbutton", Widget);
+        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Checkbutton, cnfs::Checkbutton<long long>, "checkbutton", Widget);
 
         /// @brief Put the button in off-state.
         void deselect();
@@ -2547,11 +2537,7 @@ namespace cpptkinter
         void flash();
 
         /// @brief Toggle the button and invoke a command if given as resource.
-        template<detail::FromObjConcept R = void>
-        R invoke()
-        {
-            return this->tk->call<R>(this->_w, "invoke");
-        }
+        void invoke();
 
         /// @brief Put the button in on-state.
         void select();
@@ -2560,24 +2546,16 @@ namespace cpptkinter
         void toggle();
     };
 
-    /// @brief A checkbutton widget with defined value and callback return types.
+    /// @brief A checkbutton widget with a defined value type.
     ///
-    /// Checkbutton has arbitrary value and callback return types. TypedCheckbutton restricts the value and callback type to a specific type.
+    /// Checkbutton has an arbitrary value type. TypedCheckbutton restricts the value to a specific type.
     /// @tparam T The value type.
-    /// @tparam R The return type of the callback.
     /// @see Checkbutton
-    template<detail::AsObjConcept T, typename R>
-        requires detail::FromObjConcept<R>&& detail::PythonCmd_ClientDataReturnConcept<R>
+    template<detail::AsObjConcept T>
     struct TypedCheckbutton : Checkbutton
     {
         /// @brief Construct a new TypedCheckbutton widget.
-        CNF_CONSTRUCTOR_AND_ASSIGNMENT(TypedCheckbutton, cnfs::Checkbutton<T COMMA R>, "radiobutton", Checkbutton);
-
-        /// @copydoc Checkbutton::invoke
-        R invoke()
-        {
-            return this->Checkbutton::template invoke<R>();
-        }
+        CNF_CONSTRUCTOR_AND_ASSIGNMENT(TypedCheckbutton, cnfs::Checkbutton<T>, "radiobutton", Checkbutton);
     };
 
     namespace cnfs
@@ -2625,7 +2603,7 @@ namespace cpptkinter
 			opt_entry_validate_command validatecommand;
 			opt_entry_validate_command vcmd;
 			opt_screenunits width;
-			opt<detail::XYScrollCommand> xscrollcommand;
+            opt_xy_scroll_command xscrollcommand;
 		};
     }
 
@@ -2638,12 +2616,12 @@ namespace cpptkinter
         /// @brief Delete a character.
         void delete_(const detail::index auto& index)
         {
-            this->tk->call(this->_w, "delete", index);
+            this->tk->call(this->_w, "delete", detail::to_index(index));
         }
         /// @brief Delete text from FIRST to LAST (not included).
         void delete_(const detail::index auto& first, const detail::index auto& last)
         {
-            this->tk->call(this->_w, "delete", first, last);
+            this->tk->call(this->_w, "delete", detail::to_index(first), detail::to_index(last));
         }
 
         /// @brief Return the text.
@@ -2652,19 +2630,19 @@ namespace cpptkinter
         /// @brief Insert cursor at INDEX.
         void icursor(const detail::index auto& index)
         {
-            this->tk->call(this->_w, "icursor", index);
+            this->tk->call(this->_w, "icursor", detail::to_index(index));
         }
 
         /// @brief Return position of cursor.
         long long index(const detail::index auto& index)
         {
-            return this->tk->call<long long>(this->_w, "index", index);
+            return this->tk->call<long long>(this->_w, "index", detail::to_index(index));
         }
 
         /// @brief Insert STRING at INDEX.
         void insert(const detail::index auto& index, const std::string& string)
         {
-            this->tk->call(this->_w, "insert", index, string);
+            this->tk->call(this->_w, "insert", detail::to_index(index), string);
         }
 
         /// @brief unknown
@@ -2676,13 +2654,13 @@ namespace cpptkinter
         /// @brief Adjust the end of the selection near the cursor to INDEX.
         void selection_adjust(const detail::index auto& index)
         {
-            this->tk->call(this->_w, "selection", "adjust", index);
+            this->tk->call(this->_w, "selection", "adjust", detail::to_index(index));
         }
 
 		/// @copydoc selection_adjust
         void select_adjust(const detail::index auto& index)
         {
-            this->selection_adjust(index);
+            this->selection_adjust(detail::to_index(index));
         }
 
         /// @brief Clear the selection if it is in this widget.
@@ -2694,13 +2672,13 @@ namespace cpptkinter
         /// @brief Set the fixed end of a selection to INDEX.
         void selection_from(const detail::index auto& index)
         {
-            this->tk->call(this->_w, "selection", "from", index);
+            this->tk->call(this->_w, "selection", "from", detail::to_index(index));
         }
 
 		/// @copydoc selection_from
         void select_from(const detail::index auto& index)
         {
-            this->selection_from(index);
+            this->selection_from(detail::to_index(index));
         }
 
         /// @brief Return true if there are characters selected in the entry, false otherwise.
@@ -2712,25 +2690,25 @@ namespace cpptkinter
         /// @brief Set the selection from START to END (not included).
         void selection_range(const detail::index auto& start, const detail::index auto& end)
         {
-            this->tk->call(this->_w, "selection", "range", start, end);
+            this->tk->call(this->_w, "selection", "range", detail::to_index(start), detail::to_index(end));
         }
 
 		/// @copydoc selection_range
         void select_range(const detail::index auto& start, const detail::index auto& end)
         {
-            this->selection_range(start, end);
+            this->selection_range(detail::to_index(start), detail::to_index(end));
         }
 
         /// @brief Set the variable end of a selection to INDEX.
         void selection_to(const detail::index auto& index)
         {
-            this->tk->call(this->_w, "selection", "to", index);
+            this->tk->call(this->_w, "selection", "to", detail::to_index(index));
         }
 
 		/// @copydoc selection_to
         void select_to(const detail::index auto& index)
         {
-            this->selection_to(index);
+            this->selection_to(detail::to_index(index));
         }
     };
 
@@ -2871,8 +2849,8 @@ namespace cpptkinter
 			opt_string state;
 			opt_take_focus_value takefocus;
 			opt_screenunits width;
-            opt<detail::XYScrollCommand> xscrollincrement;
-            opt<detail::XYScrollCommand> yscrollincrement;
+            opt_xy_scroll_command xscrollincrement;
+            opt_xy_scroll_command yscrollincrement;
         };
 
 		/// @brief Argument for Listbox::itemconfigure(long long, CNF&&).
@@ -2896,13 +2874,13 @@ namespace cpptkinter
         /// @brief Activate item identified by INDEX.
         void activate(const detail::index auto& index)
         {
-            this->tk->call(this->_w, "activate", index);
+            this->tk->call(this->_w, "activate", detail::to_index(index));
         }
 
         /// @brief Return a tuple of X1,Y1,X2,Y2 coordinates for a rectangle which encloses the item identified by the given index.
         std::array<long long, 4> bbox(const detail::index auto& index)
         {
-            return this->tk->call<std::array<long long, 4>>(this->_w, "bbox", index);
+            return this->tk->call<std::array<long long, 4>>(this->_w, "bbox", detail::to_index(index));
         }
 
         /// @brief Return the indices of currently selected item.
@@ -2911,12 +2889,12 @@ namespace cpptkinter
         /// @brief Delete item at index.
         void delete_(const detail::index auto& index)
         {
-            this->tk->call(this->_w, "delete", index);
+            this->tk->call(this->_w, "delete", detail::to_index(index));
         }
         /// @brief Delete items from FIRST to LAST (included).
         void delete_(const detail::index auto& first, const detail::index auto& last)
         {
-            this->tk->call(this->_w, "delete", first, last);
+            this->tk->call(this->_w, "delete", detail::to_index(first), detail::to_index(last));
         }
 
         /// @brief Get the item at index.
@@ -2924,16 +2902,16 @@ namespace cpptkinter
         R get(const detail::index auto& index)
         {
 			if constexpr (std::same_as<R, std::string>)
-				return this->tk->call<R>(this->_w, "get", index);
+                return this->tk->call<R>(this->_w, "get", detail::to_index(index));
 			else
             {
-                auto res = this->tk->call<std::variant<R, std::string>>(this->_w, "get", index);
+                auto res = this->tk->call<std::variant<R, std::string>>(this->_w, "get", detail::to_index(index));
 				if (std::holds_alternative<R>(res))
 					return std::get<R>(res);
 				else
                 {
                     if (std::get<std::string>(res).empty())
-                        throw detail::construct_exception<std::invalid_argument>(std::format("index {} was out of bounds", index));
+                        throw detail::construct_exception<std::invalid_argument>(std::format("index {} was out of bounds", detail::to_index(index)));
                     else
                         throw detail::construct_exception<std::invalid_argument>(std::format("expected type {} but got std::string", reflect::type_name<R>()));
                 }
@@ -2943,24 +2921,24 @@ namespace cpptkinter
         template<detail::FromObjConcept R>
         std::vector<R> get(const detail::index auto& first, const detail::index auto& last)
         {
-            return this->tk->call<std::vector<R>>(this->_w, "get", first, last);
+            return this->tk->call<std::vector<R>>(this->_w, "get", detail::to_index(first), detail::to_index(last));
         }
 
         /// @brief Return index of item identified with INDEX.
         long long index(const detail::index auto& index)
         {
-            return this->tk->call<long long>(this->_w, "index", index);
+            return this->tk->call<long long>(this->_w, "index", detail::to_index(index));
         }
 
         /// @brief Insert ELEMENTS at INDEX.
         void insert(const detail::index auto& index, const detail::AsObjConcept auto&...elements)
         {
-			this->tk->call(this->_w, "insert", index, elements...);
+            this->tk->call(this->_w, "insert", detail::to_index(index), elements...);
         }
         /// @copydoc insert(const detail::index auto&, const detail::AsObjConcept auto&...)
         void insert(const detail::index auto& index, detail::range_of_AsObj auto&& elements)
         {
-            this->tk->call(this->_w, "insert", index, std::forward<decltype(elements)>(elements) | std::views::transform([](auto& val) { return _cpptkinter::AsObj(val); }));
+            this->tk->call(this->_w, "insert", detail::to_index(index), std::forward<decltype(elements)>(elements) | std::views::transform([](auto& val) { return _cpptkinter::AsObj(val); }));
         }
 
         /// @brief Get index of item which is nearest to y coordinate Y.
@@ -2975,75 +2953,75 @@ namespace cpptkinter
         /// @brief Scroll such that INDEX is visible.
         void see(const detail::index auto& index)
         {
-            this->tk->call(this->_w, "see", index);
+            this->tk->call(this->_w, "see", detail::to_index(index));
         }
 
         /// @brief Set the fixed end oft the selection to INDEX.
         void selection_anchor(const detail::index auto& index)
         {
-            this->tk->call(this->_w, "selection", "anchor", index);
+            this->tk->call(this->_w, "selection", "anchor", detail::to_index(index));
         }
 
 		/// @copydoc selection_anchor
         void select_anchor(const detail::index auto& index)
         {
-            this->selection_anchor(index);
+            this->selection_anchor(detail::to_index(index));
         }
 
         /// @brief Clear the selection at index.
         void selection_clear(const detail::index auto& index)
         {
-            this->tk->call(this->_w, "selection", "clear", index);
+            this->tk->call(this->_w, "selection", "clear", detail::to_index(index));
         }
         /// @brief Clear the selection from FIRST to LAST (included).
         void selection_clear(const detail::index auto& first, const detail::index auto& last)
         {
-            this->tk->call(this->_w, "selection", "clear", first, last);
+            this->tk->call(this->_w, "selection", "clear", detail::to_index(first), detail::to_index(last));
         }
 
 		/// @copydoc selection_clear(const detail::index auto&)
         void select_clear(const detail::index auto& index)
         {
-            this->selection_clear(index);
+            this->selection_clear(detail::to_index(index));
         }
 		/// @copydoc selection_clear(const detail::index auto&, const detail::index auto&)
         void select_clear(const detail::index auto& first, const detail::index auto& last)
         {
-            this->selection_clear(first, last);
+            this->selection_clear(detail::to_index(first), detail::to_index(last));
         }
 
         /// @brief Return True if INDEX is part of the selection.
         bool selection_includes(const detail::index auto& index)
         {
-            return this->tk->call<bool>(this->_w, "selection", "includes", index);
+            return this->tk->call<bool>(this->_w, "selection", "includes", detail::to_index(index));
         }
 
 		/// @copydoc selection_includes
         bool select_includes(const detail::index auto& index)
         {
-            return this->selection_includes(index);
+            return this->selection_includes(detail::to_index(index));
         }
 
         /// @brief Set the selection for index without changing the currently selected elements.
         void selection_set(const detail::index auto& index)
         {
-            this->tk->call(this->_w, "selection", "set", index);
+            this->tk->call(this->_w, "selection", "set", detail::to_index(index));
         }
         /// @brief Set the selection from FIRST to LAST (included) without changing the currently selected elements.
         void selection_set(const detail::index auto& first, const detail::index auto& last)
         {
-            this->tk->call(this->_w, "selection", "set", first, last);
+            this->tk->call(this->_w, "selection", "set", detail::to_index(first), detail::to_index(last));
         }
 
 		/// @copydoc selection_set(const detail::index auto&)
         void select_set(const detail::index auto& index)
         {
-            this->selection_set(index);
+            this->selection_set(detail::to_index(index));
         }
 		/// @copydoc selection_set(const detail::index auto&, const detail::index auto&)
         void select_set(const detail::index auto& first, const detail::index auto& last)
         {
-            this->selection_set(first, last);
+            this->selection_set(detail::to_index(first), detail::to_index(last));
         }
 
         /// @brief Return the number of elements in the listbox.
@@ -3053,13 +3031,18 @@ namespace cpptkinter
         template<detail::FromObjConcept R>
         void itemcget(const detail::index auto& index, const std::string& option)
         {
-			return this->tk->call<R>(this->_w, "itemcget", index, "-" + option);
+            return this->tk->call<R>(this->_w, "itemcget", detail::to_index(index), "-" + option);
         }
 
         /// @brief Get allowed keywords.
         std::map<std::string, std::array<std::string, 5>> itemconfigure(const detail::index auto& index)
         {
-            auto map = this->_configure({ "itemconfigure", std::to_string(index) });
+            std::string index_{};
+            if constexpr (std::same_as<std::remove_cvref_t<decltype(detail::to_index(index))>, std::string>)
+                index_ = detail::to_index(index);
+            else
+                index_ = std::to_string(detail::to_index(index));
+            auto map = this->_configure({ "itemconfigure", index_ });
 
             auto key_view = map | std::views::keys;
             auto value_view = map | std::views::values | std::views::transform([](auto& arr) {
@@ -3074,19 +3057,23 @@ namespace cpptkinter
         template<cnfs::is_cnf CNF = cnfs::Listbox_itemconfigure>
         void itemconfigure(const detail::index auto& index, CNF&& cnf = {})
         {
-            this->_configure({ "itemconfigure", std::to_string(index) }, std::forward<CNF>(cnf));
+            auto&& index_ = detail::to_index(index);
+            if constexpr (std::same_as<std::remove_cvref_t<decltype(index)>, std::string>)
+                this->_configure({ "itemconfigure", index_ }, std::forward<CNF>(cnf));
+            else
+                this->_configure({ "itemconfigure", std::to_string(index_) }, std::forward<CNF>(cnf));
         }
 
         /// @copydoc itemconfigure(const detail::index auto&)
         std::map<std::string, std::array<std::string, 5>> itemconfig(const detail::index auto& index)
         {
-            return this->itemconfigure(index);
+            return this->itemconfigure(detail::to_index(index));
         }
 		/// @copydoc itemconfigure(const detail::index auto&, CNF&&)
 		template<cnfs::is_cnf CNF = cnfs::Listbox_itemconfigure>
         void itemconfig(const detail::index auto& index, CNF&& cnf = {})
         {
-            this->itemconfigure(index, std::forward<CNF>(cnf));
+            this->itemconfigure(detail::to_index(index), std::forward<CNF>(cnf));
         }
     };
 
@@ -3147,7 +3134,7 @@ namespace cpptkinter
     namespace cnfs
     {
 		/// @brief Argument for Radiobutton::Radiobutton() and TypedRadioButton::TypedRadioButton().
-        template<typename T, typename R>
+        template<typename T>
         struct Radiobutton
         {
 			opt_master master;
@@ -3160,7 +3147,7 @@ namespace cpptkinter
             opt_string bitmap;
 			opt_screenunits border;
 			opt_screenunits borderwidth;
-            opt<detail::ButtonCommand<R>> command;
+            opt<detail::ButtonCommand> command;
             opt_compound compound;
 			opt_cursor cursor;
 			opt_string disabledforeground;
@@ -3200,7 +3187,7 @@ namespace cpptkinter
     struct Radiobutton : Widget
     {
 		/// @brief Construct a radiobutton widget.
-        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Radiobutton, cnfs::Radiobutton<long long COMMA void>, "radiobutton", Widget);
+        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Radiobutton, cnfs::Radiobutton<long long>, "radiobutton", Widget);
 
 		/// @brief Put the button in off-state.
         void deselect();
@@ -3209,40 +3196,28 @@ namespace cpptkinter
         void flash();
 
         /// @brief Toggle the button and invoke a command if given as resource.
-        template<detail::FromObjConcept R = void>
-        R invoke()
-        {
-            return this->tk->call<R>(this->_w, "invoke");
-        }
+        void invoke();
 
         /// @brief Put the button in on-state.
         void select();
     };
 
-    /// @brief A radiobutton widget with defined value and callback return types.
+    /// @brief A radiobutton widget with a defined value type.
     ///
-    /// Radiobutton has arbitrary value and callback return types. TypedRadiobutton restricts the value and callback type to a specific type.
+    /// Radiobutton has an arbitrary value type. TypedRadiobutton restricts the value to a specific type.
     /// @tparam T The value type.
     /// @tparam R The return type of the callback.
     /// @see Radiobutton
-    template<detail::AsObjConcept T, typename R>
-        requires detail::FromObjConcept<R> && detail::PythonCmd_ClientDataReturnConcept<R>
+    template<detail::AsObjConcept T>
     struct TypedRadiobutton : Button
     {
         /// @brief Construct a new TypedRadiobutton widget.
-        CNF_CONSTRUCTOR_AND_ASSIGNMENT(TypedRadiobutton, cnfs::Radiobutton<T COMMA R>, "radiobutton", Button);
-
-        /// @copydoc Radiobutton::invoke
-        R invoke()
-        {
-            return this->Radiobutton::template invoke<R>();
-        }
+        CNF_CONSTRUCTOR_AND_ASSIGNMENT(TypedRadiobutton, cnfs::Radiobutton<T>, "radiobutton", Button);
     };
 
     namespace cnfs
     {
         /// @brief Argument for Scale::Scale().
-        template<typename T>
         struct Scale
         {
             opt_master master;
@@ -3253,7 +3228,7 @@ namespace cpptkinter
             opt<double> bigincrement;
             opt_screenunits border;
             opt_screenunits borderwidth;
-            opt<std::variant<std::string, std::function<T(std::string)>>> command;
+            opt<std::variant<std::string, std::function<void(std::string)>>> command;
             opt_cursor cursor;
             opt<long long> digits;
             opt_string fg;
@@ -3288,7 +3263,7 @@ namespace cpptkinter
     struct Scale : Widget
     {
         /// @brief Construct a scale widget.
-        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Scale, cnfs::Scale<void>, "scale", Widget);
+        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Scale, cnfs::Scale, "scale", Widget);
 
         /// @brief Get the current value as integer or float.
         double get();
@@ -3397,8 +3372,189 @@ namespace cpptkinter
     /// @brief %Widget which can display images in XBM format.
     struct BitmapImage;
 
+	namespace cnfs
+	{
+		/// @brief Argument for Spinbox::Spinbox().
+		struct Spinbox
+		{
+			opt_master master;
+			opt_string activebackground;
+			opt_string background;
+			opt_screenunits bd;
+			opt_string bg;
+			opt_screenunits border;
+			opt_screenunits borderwidth;
+            opt_string buttonbackground;
+			opt_cursor buttoncursor;
+			opt_relief buttondownrelief;
+			opt_string buttonuprelief;
+			opt<std::variant<std::string, std::function<void()>>> command;  //
+			opt_cursor cursor;
+			opt_string disabledbackground;
+			opt_string disabledforeground;
+			opt_bool exportselection;
+			opt_string fg;
+			opt_font_description font;
+			opt_string foreground;
+            opt_string format;
+            opt<double> from;
+			opt_string highlightbackground;
+			opt_string highlightcolor;
+			opt_screenunits highlightthickness;
+            opt<double> increment;
+			opt_string insertbackground;
+			opt_screenunits insertborderwidth;
+			opt<size_t> insertofftime;
+			opt<size_t> insertontime;
+			opt_screenunits insertwidth;
+			opt_entry_validate_command invalidcommand;
+			opt_entry_validate_command invcmd;
+			opt_string justify;
+			opt_string name;
+			opt_string readonlybackground;
+			opt_relief relief;
+            opt<size_t> repeatdelay;
+            opt<size_t> repeatinterval;
+			opt_string selectbackground;
+			opt_screenunits selectborderwidth;
+			opt_string selectforeground;
+			opt_string state;
+			opt_take_focus_value takefocus;
+			opt_variable textvariable;
+            opt<double> to;
+            opt_string validate;
+			opt_entry_validate_command validatecommand;
+			opt_entry_validate_command vcmd;
+            opt<std::vector<std::string>> values;
+			opt_screenunits width;
+            opt_bool wrap;
+            opt_xy_scroll_command xscrollcommand;
+		};
+	}
+
     /// @brief %Spinbox widget.
-    struct Spinbox;
+    struct Spinbox : Widget
+    {
+		/// @brief Construct a spinbox widget.
+		CNF_CONSTRUCTOR_AND_ASSIGNMENT(Spinbox, cnfs::Spinbox, "spinbox", Widget);
+
+		/// @brief Return a tuple of X1,Y1,X2,Y2 coordinates for a rectangle which encloses the character given by index.
+        /// 
+        /// The first two elements of the list give the x and y coordinates of the upper - left corner of the screen area covered by the character (in pixels relative to the widget)
+        /// and the last two elements give the width and height of the character, in pixels.
+        /// The bounding box may refer to a region outside the visible area of the window.
+        std::array<long long, 4> bbox(const detail::index auto& index)
+        {
+			return this->tk->call<std::array<long long, 4>>(this->_w, "bbox", detail::to_index(index));
+        }
+
+        /// @brief Delete one element of the spinbox.
+        void delete_(const detail::index auto& index)
+        {
+            this->tk->call(this->_w, "delete", detail::to_index(index));
+        }
+        /// @brief Delete elements of the spinbox.
+        ///
+        /// First is the index of the first character to delete, and last is the index of the character just after the last one to delete.
+        /// If last isn't specified it defaults to first + 1, i.e. a single character is deleted.
+        void delete_(const detail::index auto& first, const detail::index auto& last)
+        {
+            this->tk->call(this->_w, "delete", detail::to_index(first), detail::to_index(last));
+        }
+
+		/// @brief Returns the spinbox's string.
+		std::string get();
+
+        /// @brief Alter the position of the insertion cursor.
+        /// 
+        /// The insertion cursor will be displayed just before the character given by index.
+        void icursor(const detail::index auto& index)
+        {
+			this->tk->call(this->_w, "icursor", detail::to_index(index));
+        }
+
+        /// @brief Returns the name of the widget at position x, y
+        ///
+        /// @returns none, buttondown, buttonup, entry
+        std::string identify(long long x, long long y);
+
+        /// @brief Returns the numerical index corresponding to index.
+        long long index(const detail::index auto& index)
+        {
+			return this->tk->call<long long>(this->_w, "index", detail::to_index(index));
+        }
+
+        /// @brief Insert string s at index.
+        void insert(const detail::index auto& index, const std::string& s)
+        {
+			this->tk->call(this->_w, "insert", detail::to_index(index), s);
+        }
+
+        /// @brief Causes the specified element to be invoked
+        ///
+        /// The element could be buttondown or buttonup triggering the action associated with it.
+        void invoke(const std::string& element);
+
+        /// @brief Internal function.
+        // void scan();
+
+        /// @brief Records x and the current view in the spinbox window.
+        /// 
+        /// Used in conjunction with later scan dragto commands. Typically this command is associated with a mouse button press in the widget.
+        void scan_mark(long long x);
+
+        /// @brief Compute the difference between the given x argument and the x argument to the last scan mark command
+        /// 
+        /// It then adjusts the view left or right by 10 times the difference in x - coordinates.
+        /// This command is typically associated with mouse motion events in the widget, to produce the effect of dragging the spinbox at high speed through the window.
+        void scan_dragto(long long x);
+
+        /// @brief Internal function.
+        // void selection();
+
+        /// @brief Locate the end of the selection nearest to the character given by index, then adjust that end of the selection to be at index (i.e including but not going beyond index).
+        /// 
+        /// The other end of the selection is made the anchor point for future select to commands.
+        /// If the selection isn't currently in the spinbox, then a new selection is created to include the characters between index and the most recent selection anchor point, inclusive.
+        void selection_adjust(const detail::index auto& index)
+        {
+			this->tk->call(this->_w, "selection", "adjust", detail::to_index(index));
+        }
+
+        /// @brief Clear the selection
+        /// 
+        /// If the selection isn't in this widget then the command has no effect.
+        void selection_clear();
+
+        /// @brief Gets the currently selected element.
+        std::string selection_element();
+        /// @brief Sets the currently selected element.
+        /// 
+        /// If a spinbutton element is specified, it will be displayed depressed.
+        void selection_element(const std::string& element);
+
+        /// @brief Set the fixed end of a selection to INDEX.
+        void selection_from(const detail::index auto& index)
+        {
+			this->tk->call(this->_w, "selection", "from", detail::to_index(index));
+        }
+
+        /// @brief Return true if there are characters selected in the spinbox, false otherwise.
+        bool selection_present();
+
+        /// @brief Set the selection from START to END (not included).
+        void selection_range(const detail::index auto& start, const detail::index auto& end)
+        {
+			this->tk->call(this->_w, "selection", "range", detail::to_index(start), detail::to_index(end));
+        }
+
+        /// @brief Set the variable end of a selection to INDEX.
+        void selection_to(const detail::index auto& index)
+        {
+            this->tk->call(this->_w, "selection", "to", detail::to_index(index));
+        }
+
+    };
 
     namespace cnfs
     {
