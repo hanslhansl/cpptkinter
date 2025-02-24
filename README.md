@@ -47,7 +47,8 @@ struct func_struct { // cnf struct
     std::optional<float> bar;
     std::optional<std::string> baz;
 };
-void func(func_struct args) {}
+template<typename CNF = func_struct>
+void func(CNF&& args) {}
 
 func({ .foo = 2, .bar = 3.14, .baz = "bla" }); // all arguments with keywords
 func({ 2, 3.14, "bla" }); // all arguments without keywords
@@ -55,6 +56,7 @@ func({ .foo = 2, .baz = "bla" }); // some arguments with keywords
 func({ 2, "bla" }); // some arguments without keywords
 ```
 _Cpptkinter_ makes use of this technique for widget constructors and many widget methods. Because these functions take the _cnf_ struct by universal reference it is possible to pass any struct as argument (as long as it is an [aggregate](https://en.cppreference.com/w/cpp/language/aggregate_initialization)).
+
 The _cnf_ structs usually have the same name as the function they are meant for and are located in `namespace cpptkinter::cnfs`.
 ### reference counting
 _Python_ objects are reference counted: They get destroyed once no reference remains. Reference cycles are (in theory) broken by the garbage collector.
