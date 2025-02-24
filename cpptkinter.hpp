@@ -954,20 +954,20 @@ namespace cpptkinter
         {
             std::vector<_cpptkinter::Tcl_Obj> raii{};
 
-            auto outer_visitor = [this , &raii, &ignore_fields]<typename T>(T&& value, auto I) {
-                auto&& k = reflect::member_name<I, CNF>();
+            auto visitor = [this , &raii, &ignore_fields]<typename T>(T&& value, auto I) {
+                auto&& k = rfl::fields<CNF>()[I].name()/*reflect::member_name<I, CNF>()*/;
                 if (ignore_fields.contains(std::string(k)))
                     return;
 
-                if (k.ends_with('_'))
+                /*if (k.ends_with('_'))
                     k.remove_suffix(1);
 
                 raii.emplace_back(_cpptkinter::AsObj("-" + std::string(k)));
-                raii.emplace_back(this->_options_inner_visitor(std::forward<T>(value)));
+                raii.emplace_back(this->_options_inner_visitor(std::forward<T>(value)));*/
             };
 
-            reflect::for_each<CNF>([&outer_visitor, &cnf](auto I) {
-                utility::invoke_or_and_then(outer_visitor, reflect::get<I>(std::forward<CNF>(cnf)), I);
+            reflect::for_each<CNF>([&](auto I) {
+                utility::invoke_or_and_then(visitor, reflect::get<I>(std::forward<CNF>(cnf)), I);
                 });
 
             return raii;
@@ -1965,15 +1965,6 @@ namespace cpptkinter
             }
         }
 
-        template<std::derived_from<impl> I>
-        BaseWidget(const std::shared_ptr<I>& pimpl) :
-            Misc(pimpl),
-            widgetName(pimpl->widgetName),
-            _name(pimpl->_name)
-        {
-
-        }
-
         /// @brief Initialize a widget.
         ///
         /// master is passed within cnf instead of as a separate argument.
@@ -1998,6 +1989,15 @@ namespace cpptkinter
             self._setup(master, cnf, ignore_fields);
             self.tk->call(self.widgetName, self._w, std::move(extra), self._options(std::forward<CNF>(cnf), ignore_fields));
             DEVIATING_IMPLEMENTATION_WARNING("something with classes in cnf (?)");
+        }
+
+        template<std::derived_from<impl> I>
+        BaseWidget(const std::shared_ptr<I>& pimpl) :
+            Misc(pimpl),
+            widgetName(pimpl->widgetName),
+            _name(pimpl->_name)
+        {
+
         }
     };
 
@@ -3645,7 +3645,10 @@ namespace cpptkinter
         /// The child argument is the name of the child widget followed by pairs of arguments that specify how to manage the windows.
         /// The possible options and values are the ones accepted by the paneconfigure method.
 		template<cnfs::is_cnf CNF = cnfs::PanedWindow_add>
-        void add(CNF&& cnf);
+        void add(CNF&& cnf)
+        {
+			this->tk->call(this->_w, "add", cnf.child, this->_options(std::forward<CNF>(cnf)));
+        }
 
         /// @brief Remove the pane containing child from the panedwindow
         /// 
@@ -3661,23 +3664,25 @@ namespace cpptkinter
 			this->remove(child);
         }
 
-        /// @brief Identify the panedwindow component at point x, y.
+        /// @brief Not implemented
+        /// 
+        /// Identify the panedwindow component at point x, y.
         /// 
         /// If the point is over a sash or a sash handle, the result is a two element list containing the index of the sash or handle, and a word indicating whether it is over a sash or a handle, such as { 0 sash } or {2 handle}.
         /// If the point is over any other part of the panedwindow, the result is an empty list.
-        void identify();
+        void identify(long long x, long long y);
 
         /// @brief 
         // void proxy();
 
         /// @brief Return the x and y pair of the most recent proxy location.
-        void proxy_coord();
+        std::array<long long, 2> proxy_coord();
 
         /// @brief Remove the proxy from the display.
         void proxy_forget();
 
         /// @brief Place the proxy at the given x and y coordinates.
-        void proxy_place();
+        void proxy_place(long long x, long long y);
 
         /// @brief 
         // void sash();
@@ -3688,20 +3693,29 @@ namespace cpptkinter
         /// The coordinates given are those of the top left corner of the region containing the sash.
         /// pathName sash dragto index x y This command computes the difference between the given coordinates and the coordinates given to the last sash coord command for the given sash.
         /// It then moves that sash the computed difference.
-        void sash_coord();
+        std::array<long long, 2> sash_coord(const detail::index auto& index)
+        {
+			return this->tk->call<std::array<long long, 2>>(this->_w, "sash", "coord", detail::to_index(index));
+        }
 
         /// @brief Records x and y for the sash given by index.
         /// 
         /// Used in conjunction with later dragto commands to move the sash.
-        void sash_mark();
+        void sash_mark(const detail::index auto& index)
+        {
+			this->tk->call(this->_w, "sash", "mark", detail::to_index(index));
+        }
 
         /// @brief Place the sash given by index at the given coordinates.
-        void sash_place();
+        void sash_place(const detail::index auto& index, long long x, long long y)
+        {
+			this->tk->call(this->_w, "sash", "place", detail::to_index(index), x, y);
+        }
 
         /// @brief Query a management option for window.
         /// 
         /// Option may be any value allowed by the paneconfigure subcommand.
-        void panecget();
+        void panecget(const std::derived_from<Widget> auto& child, const std::string& option);
 
         /// @brief Query or modify the management options for window.
         /// 
@@ -3738,7 +3752,10 @@ namespace cpptkinter
         /// - <b>width size</b>: Specify a width for the window.The width will be the outer dimension of the window including its border, if any.
         /// If size is an empty string, or if - width is not specified, then the width requested internally by the window will be used initially;
         /// the width may later be adjusted by the movement of sashes in the panedwindow. Size may be any value accepted by Tk_GetPixels.
-        void paneconfigure(const std::derived_from<Widget> auto& tagOrId);
+        void paneconfigure(const std::derived_from<Widget> auto& tagOrId)
+        {
+			this->tk->call<std::string>(this->_w, "paneconfigure", tagOrId);
+        }
 
 		/// @copydoc paneconfigure
         void paneconfig();

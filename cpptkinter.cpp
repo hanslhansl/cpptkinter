@@ -819,7 +819,27 @@ bool cpptkinter::Spinbox::selection_present()
 }
 
 
+std::array<long long, 2> cpptkinter::PanedWindow::proxy_coord()
+{
+	return this->tk->call<std::array<long long, 2>>(this->_w, "proxy", "coord");
+}
+
+void cpptkinter::PanedWindow::proxy_forget()
+{
+	this->tk->call(this->_w, "proxy", "forget");
+}
+
+void cpptkinter::PanedWindow::proxy_place(long long x, long long y)
+{
+	this->tk->call(this->_w, "proxy", "place", x, y);
+}
+
+void cpptkinter::PanedWindow::panecget(const std::derived_from<Widget> auto& child, const std::string& option)
+{
+	this->tk->call(this->_w, "panecget", child, "-"+option);
+}
+
 std::vector<cpptkinter::_cpptkinter::Tcl_Obj> cpptkinter::PanedWindow::panes()
 {
-	return this->tk->call<std::vector<_cpptkinter::Tcl_Obj>>(this->_w, "panes");
+    return this->tk->call<std::vector<_cpptkinter::Tcl_Obj>>(this->_w, "panes");
 }

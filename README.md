@@ -40,7 +40,7 @@ which allows for
 - reordering of arguments in arbitrary order: `func(bar = 3.14, foo = 2, baz = "bla")`.
 - omitting of arguments: `func(foo = 2, baz = "bla")`.
 
-The first feature isn't (feasibly) reproducible in _c++_. The second feature is implementable using _c++20_ [designated initializers](https://en.cppreference.com/w/cpp/language/aggregate_initialization#Designated_initializers):
+The first feature isn't (feasibly) reproducible in _c++_. The second feature is implementable using _c++20_ [designated initializers](https://en.cppreference.com/w/cpp/language/aggregate_initialization#Designated_initializers). Instead of passing the arguments directly they are passed as part of a _cnf_ struct:
 ```C++
 struct func_struct { // cnf struct
     std::optional<int> foo;
@@ -54,7 +54,8 @@ func({ 2, 3.14, "bla" }); // all arguments without keywords
 func({ .foo = 2, .baz = "bla" }); // some arguments with keywords
 func({ 2, "bla" }); // some arguments without keywords
 ```
-_Cpptkinter_ makes use of this technique for widget constructors and many widget methods. The _cnf_ structs have the same name as the function they are meant for and are located in `namespace cpptkinter::cnfs`.
+_Cpptkinter_ makes use of this technique for widget constructors and many widget methods. Because these these functions are templated on the _cnf_ struct it is possible to pass any struct as argument (as long as it is an (aggregate)[https://en.cppreference.com/w/cpp/language/aggregate_initialization]).
+The _cnf_ structs usually have the same name as the function they are meant for and are located in `namespace cpptkinter::cnfs`.
 ### reference counting
 _Python_ objects are reference counted: They get destroyed once no reference remains. Reference cycles are (in theory) broken by the garbage collector.
 
