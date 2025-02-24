@@ -88,7 +88,7 @@ int main(int argc, char* argv[])
         b2["command"] = [&]() { b2["text"] = "bar"; };
         b2.grid();
 
-        auto scale = tk::Scale({ .master = frame }});
+        auto scale = tk::Scale({ .master = frame });
         scale.grid();
 
         auto options_list = { "Option 1", "Option 2", "Option 3", "Option 4" };
@@ -107,6 +107,8 @@ int main(int argc, char* argv[])
         auto listbox = tk::Listbox();
         listbox.insert(0, 1, 2, 3, 4);
         listbox.grid();
+
+        tk::PanedWindow().add();
 
         tk::mainloop();
 

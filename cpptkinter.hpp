@@ -3553,7 +3553,6 @@ namespace cpptkinter
         {
             this->tk->call(this->_w, "selection", "to", detail::to_index(index));
         }
-
     };
 
     namespace cnfs
@@ -3594,10 +3593,157 @@ namespace cpptkinter
     /// @brief %Labelframe widget.
     struct LabelFrame : Widget
     {
-        /// @brief Construct a labelframe widget
+        /// @brief Construct a labelframe widget.
         CNF_CONSTRUCTOR_AND_ASSIGNMENT(LabelFrame, cnfs::LabelFrame, "labelframe", Widget);
     };
 
+    namespace cnfs
+    {
+		/// @brief Argument for PanedWindow::PanedWindow().
+		struct PanedWindow
+		{
+			opt_master master;
+			opt_string background;
+			opt_screenunits bd;
+			opt_string bg;
+			opt_screenunits border;
+			opt_screenunits borderwidth;
+			opt_cursor cursor;
+			opt_screenunits handlepad;
+			opt_screenunits handlesize;
+            opt_screenunits height;
+			opt_string name;
+			opt_bool opaqueresize;
+            opt_string orient;
+            opt_string proxybackground;
+			opt_screenunits proxyborderwidth;
+			opt_relief proxyrelief;
+			opt_relief relief;
+			opt_cursor sashcursor;
+			opt_screenunits sashpad;
+            opt_relief sashrelief;
+			opt_screenunits sashwidth;
+			opt_bool showhandle;
+			opt_string width;
+		};
+
+		/// @brief Argument for PanedWindow::add().
+        struct PanedWindow_add
+        {
+            Widget child;
+        };
+    }
+
     /// @brief %Panedwindow widget.
-    struct PanedWindow;
+    struct PanedWindow : Widget
+    {
+        /// @brief Construct a panedwindow widget.
+        CNF_CONSTRUCTOR_AND_ASSIGNMENT(PanedWindow, cnfs::PanedWindow, "panedwindow", Widget);
+
+        /// @brief Add a child widget to the panedwindow in a new pane.
+        /// 
+        /// The child argument is the name of the child widget followed by pairs of arguments that specify how to manage the windows.
+        /// The possible options and values are the ones accepted by the paneconfigure method.
+		template<cnfs::is_cnf CNF = cnfs::PanedWindow_add>
+        void add(CNF&& cnf);
+
+        /// @brief Remove the pane containing child from the panedwindow
+        /// 
+        /// All geometry management options for child will be forgotten.
+        void remove(const std::derived_from<Widget> auto& child)
+        {
+			this->tk->call(this->_w, "forget", child);
+        }
+
+		/// @copydoc remove
+        void forget(const std::derived_from<Widget> auto& child)
+        {
+			this->remove(child);
+        }
+
+        /// @brief Identify the panedwindow component at point x, y.
+        /// 
+        /// If the point is over a sash or a sash handle, the result is a two element list containing the index of the sash or handle, and a word indicating whether it is over a sash or a handle, such as { 0 sash } or {2 handle}.
+        /// If the point is over any other part of the panedwindow, the result is an empty list.
+        void identify();
+
+        /// @brief 
+        // void proxy();
+
+        /// @brief Return the x and y pair of the most recent proxy location.
+        void proxy_coord();
+
+        /// @brief Remove the proxy from the display.
+        void proxy_forget();
+
+        /// @brief Place the proxy at the given x and y coordinates.
+        void proxy_place();
+
+        /// @brief 
+        // void sash();
+
+        /// @brief Return the current x and y pair for the sash given by index.
+        /// 
+        /// Index must be an integer between 0 and 1 less than the number of panes in the panedwindow.
+        /// The coordinates given are those of the top left corner of the region containing the sash.
+        /// pathName sash dragto index x y This command computes the difference between the given coordinates and the coordinates given to the last sash coord command for the given sash.
+        /// It then moves that sash the computed difference.
+        void sash_coord();
+
+        /// @brief Records x and y for the sash given by index.
+        /// 
+        /// Used in conjunction with later dragto commands to move the sash.
+        void sash_mark();
+
+        /// @brief Place the sash given by index at the given coordinates.
+        void sash_place();
+
+        /// @brief Query a management option for window.
+        /// 
+        /// Option may be any value allowed by the paneconfigure subcommand.
+        void panecget();
+
+        /// @brief Query or modify the management options for window.
+        /// 
+        /// If no option is specified, returns a list describing all of the available options for pathName.
+        /// If option is specified with no value, then the command returns a list describing the one named option
+        /// (this list will be identical to the corresponding sublist of the value returned if no option is specified).
+        /// If one or more option - value pairs are specified, then the command modifies the given widget option(s) to have the given value(s);
+        /// in this case the command returns an empty string. The following options are supported:
+        /// 
+        /// - <b>after window</b>: Insert the window after the window specified.window should be the name of a window already managed by pathName.
+        /// - <b>before window</b>: Insert the window before the window specified. window should be the name of a window already managed by pathName.
+        /// - <b>height size</b>: Specify a height for the window. The height will be the outer dimension of the window including its border, if any.
+        /// If size is an empty string, or if - height is not specified, then the height requested internally by the window will be used initially;
+        /// the height may later be adjusted by the movement of sashes in the panedwindow. Size may be any value accepted by Tk_GetPixels.
+        /// - <b>minsize n</b>: Specifies that the size of the window cannot be made less than n.
+        /// This constraint only affects the size of the widget in the paned dimension -- the x dimension for horizontal panedwindows, the y dimension for vertical panedwindows.
+        /// May be any value accepted by Tk_GetPixels.
+        /// - <b>padx n</b>: Specifies a non - negative value indicating how much extra space to leave on each side of the window in the X - direction.
+        /// The value may have any of the forms accepted by Tk_GetPixels.
+        /// - <b>pady n</b>: Specifies a non - negative value indicating how much extra space to leave on each side of the window in the Y - direction.
+        /// The value may have any of the forms accepted by Tk_GetPixels.
+        /// - <b>sticky style</b>: If a window's pane is larger than the requested dimensions of the window, this option may be used to position(or stretch) the window within its pane.
+        /// Style is a string that contains zero or more of the characters n, s, e or w. The string can optionally contains spaces or commas, but they are ignored.
+        /// Each letter refers to a side (north, south, east, or west) that the window will "stick" to.
+        /// If both n and s (or e and w) are specified, the window will be stretched to fill the entire height (or width) of its cavity.
+        /// - <b>stretch when</b>: Controls how extra space is allocated to each of the panes. When is one of always, first, last, middle, and never.
+        /// The panedwindow will calculate the required size of all its panes. Any remaining (or deficit) space will be distributed to those panes marked for stretching.
+        /// The space will be distributed based on each panes current ratio of the whole. The when values have the following definition:
+        ///     - <b>always</b>: This pane will always stretch.
+        ///     - <b>first</b>: Only if this pane is the first pane (left-most or top-most) will it stretch.
+        ///     - <b>last</b>: Only if this pane is the last pane (right-most or bottom-most) will it stretch. This is the default value.
+        ///     - <b>middle</b>: Only if this pane is not the first or last pane will it stretch.
+        ///     - <b>never</b>: This pane will never stretch.
+        /// - <b>width size</b>: Specify a width for the window.The width will be the outer dimension of the window including its border, if any.
+        /// If size is an empty string, or if - width is not specified, then the width requested internally by the window will be used initially;
+        /// the width may later be adjusted by the movement of sashes in the panedwindow. Size may be any value accepted by Tk_GetPixels.
+        void paneconfigure(const std::derived_from<Widget> auto& tagOrId);
+
+		/// @copydoc paneconfigure
+        void paneconfig();
+
+        /// @brief Returns an ordered list of the child panes.
+        std::vector<_cpptkinter::Tcl_Obj> panes();
+    };
 }

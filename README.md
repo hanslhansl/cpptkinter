@@ -17,6 +17,7 @@ To prevent misunderstandings the following terms are defined as
 - __tkinter_: _tkinter's_ backend written in _c_
 - _cpptkinter_: [this library](https://github.com/hanslhansl/cpptkinter)
 - __cpptkinter_: the implementation of __tkinter_ in modern day _c++_ (also part of this project)
+- _ttk_: may refer to the [tk themed widget set](https://www.tcl-lang.org/man/tcl/TkCmd/ttk_intro.htm), or tkinter's or cpptkinter's implementation thereof (disambiguation is rarely necessary)
 
 The terminology applies to this file, the documentation and source code annotations.
 
@@ -113,7 +114,7 @@ Add `#include cpptkinter.hpp` to your source files to use the library.
 - The window manager class `Wm`, which is base for some widget classes, is mostly implemeted.
 - `Misc`, which is base for all widget classes, is partially implemtented.
 - `BaseWidget` and `Widget`, which are base for many widget classes, are implemtented.
-- `Tk`, `Toplevel`, `Button`, `Checkbutton`, `Entry`, `Frame`, `Label`, `Listbox`, `Menu`, `Menubutton`, `Radiobutton`, `Scale`, `OptionMenu` and `LabelFrame` are implemented. However, a lot of their functionality is inherited from `Misc` and therefor not implemented as of yet.
+- The only widgets not implemented are `Canvas`, `Scrollbar`, `Text`, `Image`, `PhotoImage`, `BitmapImage` and `PanedWindow`. However, a lot of the functionality of all widgets is inherited from `Misc` and therefor not implemented as of yet.
 - `_tkinter`is implemented for the most part and available in `namespace cpptkinter::_cpptkinter`
 
 The next step is to fully implement `Misc`, `Image`, `PhotoImage` and `BitmapImage` as well as `ttk`.

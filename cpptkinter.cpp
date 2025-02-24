@@ -819,8 +819,7 @@ bool cpptkinter::Spinbox::selection_present()
 }
 
 
-
-
-
-
-
+std::vector<cpptkinter::_cpptkinter::Tcl_Obj> cpptkinter::PanedWindow::panes()
+{
+	return this->tk->call<std::vector<_cpptkinter::Tcl_Obj>>(this->_w, "panes");
+}
