@@ -954,16 +954,16 @@ namespace cpptkinter
         {
             std::vector<_cpptkinter::Tcl_Obj> raii{};
 
-            auto visitor = [this , &raii, &ignore_fields]<typename T>(T&& value, auto I) {
-                auto&& k = rfl::fields<CNF>()[I].name()/*reflect::member_name<I, CNF>()*/;
+            auto visitor = [&]<typename T>(T&& value, auto I) {
+                auto k = rfl::fields<CNF>()[I].name()/*reflect::member_name<I, CNF>()*/;
                 if (ignore_fields.contains(std::string(k)))
                     return;
 
-                /*if (k.ends_with('_'))
-                    k.remove_suffix(1);
+                if (k.ends_with('_'))
+                    k.erase(k.size() - 1)/*k.remove_suffix(1)*/;
 
                 raii.emplace_back(_cpptkinter::AsObj("-" + std::string(k)));
-                raii.emplace_back(this->_options_inner_visitor(std::forward<T>(value)));*/
+                raii.emplace_back(this->_options_inner_visitor(std::forward<T>(value)));
             };
 
             reflect::for_each<CNF>([&](auto I) {
@@ -1005,7 +1005,7 @@ namespace cpptkinter
         void _report_exception();
 
         std::map<std::string, std::array<std::variant<long long, std::string>, 5>> _getconfigure(std::vector<_cpptkinter::Tcl_Obj>&& raii);
-        std::vector<std::string> _getconfigure1(std::vector<_cpptkinter::Tcl_Obj>&& raii);
+        std::array<std::variant<long long, std::string>, 5> _getconfigure1(std::vector<_cpptkinter::Tcl_Obj>&& raii);
 
         auto _configure(const std::vector<std::string>& cmd) -> decltype(_getconfigure({}));
         auto _configure(const std::vector<std::string>& cmd, const std::string& cnf) -> decltype(_getconfigure1({}));
@@ -3631,6 +3631,30 @@ namespace cpptkinter
         struct PanedWindow_add
         {
             Widget child;
+            opt<Widget> after;
+            opt<Widget> before;
+			opt_screenunits height;
+			opt_screenunits minsize;
+			opt_screenunits padx;
+			opt_screenunits pady;
+            opt_string style;
+			opt_string stretch;
+			opt_screenunits width;
+        };
+
+        /// @brief Argument for PanedWindow::paneconfigure().
+        struct paneconfigure
+        {
+            Widget tagOrId;
+            opt<Widget> after;
+            opt<Widget> before;
+            opt_screenunits height;
+            opt_screenunits minsize;
+            opt_screenunits padx;
+            opt_screenunits pady;
+            opt_string style;
+            opt_string stretch;
+            opt_screenunits width;
         };
     }
 
@@ -3643,11 +3667,11 @@ namespace cpptkinter
         /// @brief Add a child widget to the panedwindow in a new pane.
         /// 
         /// The child argument is the name of the child widget followed by pairs of arguments that specify how to manage the windows.
-        /// The possible options and values are the ones accepted by the paneconfigure method.
+        /// The possible options and values are the ones accepted by the paneconfigure() method.
 		template<cnfs::is_cnf CNF = cnfs::PanedWindow_add>
         void add(CNF&& cnf)
         {
-			this->tk->call(this->_w, "add", cnf.child, this->_options(std::forward<CNF>(cnf)));
+            this->tk->call(this->_w, "add", std::forward<CNF>(cnf).child, this->_options(std::forward<CNF>(cnf), { "child" }));
         }
 
         /// @brief Remove the pane containing child from the panedwindow
@@ -3752,13 +3776,38 @@ namespace cpptkinter
         /// - <b>width size</b>: Specify a width for the window.The width will be the outer dimension of the window including its border, if any.
         /// If size is an empty string, or if - width is not specified, then the width requested internally by the window will be used initially;
         /// the width may later be adjusted by the movement of sashes in the panedwindow. Size may be any value accepted by Tk_GetPixels.
-        void paneconfigure(const std::derived_from<Widget> auto& tagOrId)
+        auto paneconfigure(const std::derived_from<Widget> auto& tagOrId) -> decltype(_getconfigure({}))
         {
-			this->tk->call<std::string>(this->_w, "paneconfigure", tagOrId);
+            return this->_getconfigure({ _cpptkinter::AsObj(this->_w), _cpptkinter::AsObj("paneconfigure"), _cpptkinter::AsObj(tagOrId) });
+        }
+		/// @copydoc paneconfigure(const std::derived_from<Widget> auto&)
+        auto paneconfigure(const std::derived_from<Widget> auto& tagOrId, const std::string& cnf) -> decltype(_getconfigure1({}))
+        {
+            return this->_getconfigure1({ _cpptkinter::AsObj(this->_w), _cpptkinter::AsObj("paneconfigure"), _cpptkinter::AsObj(tagOrId), _cpptkinter::AsObj("-"+ cnf)});
+        }
+        /// @copydoc paneconfigure(const std::derived_from<Widget> auto&)
+        template<cnfs::is_cnf CNF = cnfs::paneconfigure>
+        void paneconfigure(CNF&& cnf)
+        {
+			this->tk->call(this->_w, "paneconfigure", std::forward<CNF>(cnf).tagOrId, this->_options(std::forward<CNF>(cnf), { "tagOrId" }));
         }
 
-		/// @copydoc paneconfigure
-        void paneconfig();
+		/// @copydoc paneconfigure(const std::derived_from<Widget> auto&)
+		auto paneconfig(const std::derived_from<Widget> auto& tagOrId) -> decltype(paneconfigure(tagOrId))
+		{
+			return this->paneconfigure(tagOrId);
+		}
+		/// @copydoc paneconfigure(const std::derived_from<Widget> auto&, const std::string&)
+		auto paneconfig(const std::derived_from<Widget> auto& tagOrId, const std::string& cnf) -> decltype(paneconfigure(tagOrId, cnf))
+		{
+			return this->paneconfigure(tagOrId, cnf);
+		}
+		/// @copydoc paneconfigure(CNF&&)
+		template<cnfs::is_cnf CNF = cnfs::paneconfigure>
+		void paneconfig(CNF&& cnf)
+		{
+			this->paneconfigure(std::forward<CNF>(cnf));
+		}
 
         /// @brief Returns an ordered list of the child panes.
         std::vector<_cpptkinter::Tcl_Obj> panes();

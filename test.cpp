@@ -109,12 +109,10 @@ int main(int argc, char* argv[])
         listbox.grid();
 
         auto pw = tk::PanedWindow();
-		auto pwb = tk::Button();
-        pw.add({ .child = pwb });
-        pw.paneconfigure(pwb);
+        pw.grid();
+        auto pwb = tk::Button({ .text = "pwb" });
+        pw.add({ .child = pwb, .minsize = 100 });
 
-
-        std::is_aggregate_v<tk::cnfs::PanedWindow_add>;
 
         tk::mainloop();
 

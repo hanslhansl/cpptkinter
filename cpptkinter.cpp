@@ -159,10 +159,23 @@ std::map<std::string, std::array<std::variant<long long, std::string>, 5>> cpptk
     return std::views::zip(key_view, value_view) | std::ranges::to<std::map>();
 }
 
-std::vector<std::string> cpptkinter::Misc::_getconfigure1(std::vector<_cpptkinter::Tcl_Obj>&& raii)
+std::array<std::variant<long long, std::string>, 5> cpptkinter::Misc::_getconfigure1(std::vector<_cpptkinter::Tcl_Obj>&& raii)
 {
-    NOT_IMPLEMENTED_ERROR;
-    this->tk->call<long long>(std::move(raii));
+    using V = std::variant<long long, std::string, _cpptkinter::Tcl_Obj>;
+    using Arr = std::array<V, 5>;
+
+    auto arr = this->tk->call<Arr>(std::move(raii));
+    std::array<std::variant<long long, std::string>, 5> new_arr{};
+
+    auto v_lambda = []<typename T>(T & e)->std::variant<long long, std::string> {
+        if constexpr (std::same_as<T, long long> || std::same_as<T, std::string>)
+            return std::move(e);
+        else
+            return e.to_string();
+    };
+	std::ranges::move(arr | std::views::transform([&](V& e) { return std::visit(v_lambda, e); }), new_arr.begin());
+
+    return new_arr;
 }
 
 auto cpptkinter::Misc::_configure(const std::vector<std::string>& cmd) -> decltype(_getconfigure({}))
