@@ -78,19 +78,45 @@ namespace cpptkinter
             std::tuple<std::string, long long, std::vector<std::string>>/*, _tkinter.Tcl_Obj*/>;
         DEVIATING_IMPLEMENTATION_WARNING("_FontDescription not done");
 
+        /// @brief set to true to print executed Tcl / Tk commands
+        inline bool _debug =
+#ifdef NDEBUG
+            false;
+#else
+            true;
+#endif
+        constexpr inline bool _support_default_root = true;
+        inline std::shared_ptr<Tk_impl> _default_root = nullptr;
+        inline long long _varnum = 0;
+        inline long long _checkbutton_count = 0;
+
+        inline size_t tcl_command_name_counter = 0;
+        const inline std::set<char> tcl_forbidden_chars{ ' ', '{', '}', '[', ']', '(', ')', '"', '\\', '$', ';', '|', '&', '*', '~', '<', '>', ':' };
+
         /// @brief Internal class.
         /// 
         /// Stores function to call when some user defined Tcl function is called e.g. after an event occurred.
         template<typename R, typename...Args>
         struct CallWrapper;
 
-        void _print_command(std::vector<std::string> cmd);
+        inline void _print_command(std::vector<std::string> cmd)
+        {
+            for (auto& c : cmd)
+                std::cerr << c << " ";
+            std::cerr << std::endl;
+        }
 
         /// Internal function
-        void _tkerror();
+        inline void _tkerror()
+        {
+
+        }
 
         /// Internal function. Calling it will throw std::runtime_error.
-        void _exit();
+        inline void _exit()
+        {
+            throw detail::construct_exception<std::runtime_error>("");
+        }
 
 		/// @brief Check if a weak_ptr is empty.
         /// 
@@ -101,8 +127,6 @@ namespace cpptkinter
         {
             return !weak.owner_before(std::weak_ptr<T>{}) && !std::weak_ptr<T>{}.owner_before(weak);
         }
-
-        Tk _get_default_root(const std::string& what = {});
 
         template<typename A, typename V, typename Conv = const std::nullopt_t&>
         A _splitdict_to_aggregate(std::map<std::string, V>&& v, bool cut_minus = true, Conv&& conv = std::nullopt)
@@ -127,7 +151,7 @@ namespace cpptkinter
             }
 
             auto inner_visitor = [&v, &conv]<size_t I>()->reflect::member_type<I, A> {
-                auto key = rfl::fields<A>()[I].name()/*reflect::member_name<I, A>()*/;
+                auto key = /*rfl::fields<A>()[I].name()*/reflect::member_name<I, A>();
                 auto&& node = v.extract(std::string(key));
 				if (node.empty())
                     throw detail::construct_exception<std::invalid_argument>(std::format("key '{}' not found", key));
@@ -153,6 +177,8 @@ namespace cpptkinter
             return visitor(std::make_index_sequence<reflect::size<A>()>{});/**/
         }
 
+        inline Tk _get_default_root(const std::string& what = {});
+
         /// @brief Concept for ranges of types satisfying AsObjConcept.
         template<typename R>
         concept range_of_AsObj = std::ranges::range<R> && AsObjConcept<std::ranges::range_value_t<R>>;
@@ -174,21 +200,6 @@ namespace cpptkinter
 			else
 				return static_cast<decltype(to_index_impl(t))>(t);
         }
-
-        /// @brief set to true to print executed Tcl / Tk commands
-        inline bool _debug =
-#ifdef NDEBUG
-            false;
-#else
-			true;
-#endif
-        inline bool _support_default_root = true;
-        inline std::shared_ptr<Tk_impl> _default_root = nullptr;
-        inline long long _varnum = 0;
-        inline long long _checkbutton_count = 0;
-
-        inline size_t tcl_command_name_counter = 0;
-        const inline std::set<char> tcl_forbidden_chars{ ' ', '{', '}', '[', ']', '(', ')', '"', '\\', '$', ';', '|', '&', '*', '~', '<', '>', ':' };
     }
 
     /// @brief Contains structs to be passed to many of cpptkinter's functions.
@@ -268,9 +279,13 @@ namespace cpptkinter
     /// @param argc: the first argument of startup function main().
     /// @param argv: the second argument of startup function main().
     /// @param tcl_library: Path to the Tcl library. Only used if TCL_CORE_LIBRARY_IS_EMBEDDED is false.
-    void init(int argc, char* argv[], const std::string& tcl_library = {});
+    inline void init(int argc, char* argv[], const std::string& tcl_library = {})
+    {
+        _cpptkinter::detail::argc = argc;
+        _cpptkinter::detail::argv = argv;
 
-    void mainloop(int n = 0);
+        _cpptkinter::init(tcl_library);
+    }
 
     /// @brief Provides functions for the communication with the window manager.
     struct Wm
@@ -921,18 +936,28 @@ namespace cpptkinter
         DEFINE_ASSIGNMENT_OPERATOR(Misc);
 
 		/// @brief Calls this->pimpl->destroy().
-        void destroy();
+        inline void destroy();
 
         /// @brief Internal function.
         /// 
         /// Delete the Tcl command provided in NAME.
-        void deletecommand(const std::string& name);
+        inline void deletecommand(const std::string& name)
+        {
+            this->tk->deletecommand(name);
+            this->_tclCommands.erase(name);
+        }
 
         /// @brief Call the mainloop of Tk.
-        void mainloop(int n = 0);
+        inline void mainloop(int n = 0)
+        {
+            this->tk->mainloop(n);
+        }
 
         /// @brief Quit the Tcl interpreter. All widgets will be destroyed.
-        void quit();
+        inline void quit()
+        {
+            this->tk->quit();
+        }
     protected:
         template<typename T>
             requires (cnfs::is_cnf_member<std::remove_cvref_t<T>> && !hhh::meta::is_template_instance<std::remove_cvref_t<T>, std::optional>)
@@ -955,12 +980,12 @@ namespace cpptkinter
             std::vector<_cpptkinter::Tcl_Obj> raii{};
 
             auto visitor = [&]<typename T>(T&& value, auto I) {
-                auto k = rfl::fields<CNF>()[I].name()/*reflect::member_name<I, CNF>()*/;
+                auto k = /*rfl::fields<CNF>()[I].name()*/reflect::member_name<I, CNF>();
                 if (ignore_fields.contains(std::string(k)))
                     return;
 
                 if (k.ends_with('_'))
-                    k.erase(k.size() - 1)/*k.remove_suffix(1)*/;
+                    /*k.erase(k.size() - 1)*/k.remove_suffix(1);
 
                 raii.emplace_back(_cpptkinter::AsObj("-" + std::string(k)));
                 raii.emplace_back(this->_options_inner_visitor(std::forward<T>(value)));
@@ -974,9 +999,12 @@ namespace cpptkinter
         }
     public:
         /// @brief Return the Tkinter instance of a widget identified by its Tcl name NAME.
-        Misc nametowidget(std::string_view name);
+        inline Misc nametowidget(std::string_view name);
         /// @brief Return the Tkinter instance of a widget.
-        Misc nametowidget(_cpptkinter::tk_window_type window);
+        inline Misc nametowidget(_cpptkinter::tk_window_type window)
+        {
+            return this->nametowidget(Tcl_GetString(window.get()));
+        }
 
     protected:
         /// @brief Return a newly created Tcl function.
@@ -1000,15 +1028,68 @@ namespace cpptkinter
             return name;
         }
 
-        Tk _root() const;
+        inline Tk _root() const;
 
-        void _report_exception();
+        inline void _report_exception();
 
-        std::map<std::string, std::array<std::variant<long long, std::string>, 5>> _getconfigure(std::vector<_cpptkinter::Tcl_Obj>&& raii);
-        std::array<std::variant<long long, std::string>, 5> _getconfigure1(std::vector<_cpptkinter::Tcl_Obj>&& raii);
+        inline std::map<std::string, std::array<std::variant<long long, std::string>, 5>> _getconfigure(std::vector<_cpptkinter::Tcl_Obj>&& raii)
+        {
+            using V = std::variant<long long, std::string, _cpptkinter::Tcl_Obj>;
+            using Arr = std::array<V, 5>;
 
-        auto _configure(const std::vector<std::string>& cmd) -> decltype(_getconfigure({}));
-        auto _configure(const std::vector<std::string>& cmd, const std::string& cnf) -> decltype(_getconfigure1({}));
+            auto vec = this->tk->call<std::vector<Arr>>(std::move(raii));
+
+            auto key_view = vec | std::views::transform([&](Arr& e) { return std::get<std::string>(std::move(e.at(0))).substr(1); });
+
+            auto v_lambda = []<typename T>(T & e)->std::variant<long long, std::string> {
+                if constexpr (std::same_as<T, long long> || std::same_as<T, std::string>)
+                    return std::move(e);
+                else
+                    return e.to_string();
+            };
+            auto value_view = vec | std::views::transform([&](Arr& arr) {
+                std::array<std::variant<long long, std::string>, 5> new_arr{};
+                std::ranges::move(arr | std::views::transform([&](V& e) { return std::visit(v_lambda, e); }), new_arr.begin());
+                return new_arr; });
+
+            return std::views::zip(key_view, value_view) | std::ranges::to<std::map>();
+        }
+        inline std::array<std::variant<long long, std::string>, 5> _getconfigure1(std::vector<_cpptkinter::Tcl_Obj>&& raii)
+        {
+            using V = std::variant<long long, std::string, _cpptkinter::Tcl_Obj>;
+            using Arr = std::array<V, 5>;
+
+            auto arr = this->tk->call<Arr>(std::move(raii));
+            std::array<std::variant<long long, std::string>, 5> new_arr{};
+
+            auto v_lambda = []<typename T>(T & e)->std::variant<long long, std::string> {
+                if constexpr (std::same_as<T, long long> || std::same_as<T, std::string>)
+                    return std::move(e);
+                else
+                    return e.to_string();
+            };
+            std::ranges::move(arr | std::views::transform([&](V& e) { return std::visit(v_lambda, e); }), new_arr.begin());
+
+            return new_arr;
+        }
+
+        auto _configure(const std::vector<std::string>& cmd) -> decltype(_getconfigure({}))
+        {
+            std::vector<_cpptkinter::Tcl_Obj> raii{ _cpptkinter::AsObj(this->_w) };
+            for (auto& c : cmd)
+                raii.emplace_back(_cpptkinter::AsObj(c));
+
+            return this->_getconfigure(std::move(raii));
+        }
+        auto _configure(const std::vector<std::string>& cmd, const std::string& cnf) -> decltype(_getconfigure1({}))
+        {
+            std::vector<_cpptkinter::Tcl_Obj> raii{ _cpptkinter::AsObj(this->_w) };
+            for (auto& c : cmd)
+                raii.emplace_back(_cpptkinter::AsObj(c));
+            raii.emplace_back(_cpptkinter::AsObj("-" + cnf));
+
+            return this->_getconfigure1(std::move(raii));
+        }
         template<cnfs::is_cnf CNF>
         void _configure(const std::vector<std::string>& cmd, CNF&& cnf)
         {
@@ -1058,59 +1139,146 @@ namespace cpptkinter
             return this->tk->call<R>(this->_w, "cget", "-" + key);
         }
 
-        detail::set_get_proxy<> operator[](const std::string& key);
+        inline detail::set_get_proxy<> operator[](const std::string& key);
 
         /// @brief Return a list of all resource names of this widget.
-        std::vector<std::string> keys();
+        inline std::vector<std::string> keys()
+        {
+            auto vec = this->tk->call<std::vector<std::vector<std::variant<std::string, detail::ignore>>>>(this->_w, "configure");
+            std::vector<std::string> res{};
+            for (auto& outer : vec)
+                res.emplace_back(std::get<std::string>(std::move(outer.at(0))).substr(1));
+            return res;
+        }
 
         /// @brief Return the window path name of this widget.
-        operator std::string() const;
+        inline operator std::string() const
+        {
+            return this->_w;
+        }
 		/// @brief Outputs the window path name of this widget to an output stream.
-        friend std::ostream& operator<<(std::ostream& os, const Misc& self);
+        friend inline std::ostream& operator<<(std::ostream& os, const Misc& self)
+        {
+            return os << self._w;
+        }
 
         /// @brief Get the status for propagation of geometry information.
         ///
         /// @returns The current setting.
-        bool pack_propagate();
+        inline bool pack_propagate()
+        {
+            return this->tk->call<long long>("pack", "propagate", this->_w);
+        }
         /// @brief Set the status for propagation of geometry information.
         /// 
         /// @param flag Specifies whether the geometry information of the slaves will determine the size of this widget.
-        void pack_propagate(bool flag);
+        inline void pack_propagate(bool flag)
+        {
+            this->tk->call("pack", "propagate", this->_w, flag);
+        }
 
         /// @copydoc pack_propagate()
-        bool propagate();
+        inline bool propagate()
+        {
+            return this->pack_propagate();
+        }
         /// @copydoc pack_propagate(bool)
-        void propagate(bool flag);
+        inline void propagate(bool flag)
+        {
+            this->pack_propagate(flag);
+        }
 
         /// @brief Return a list of all slaves of this widget in its packing order.
-        std::vector<Misc> pack_slaves();
+        std::vector<Misc> pack_slaves()
+        {
+            auto temp = this->tk->call<std::vector<_cpptkinter::tk_window_type>>("pack", "slaves", this->_w);
+            std::vector<cpptkinter::Misc> result{};
+            for (auto& t : temp)
+                result.emplace_back(this->nametowidget(std::move(t)));
+            return result;
+        }
         /// @copydoc pack_slaves
-        std::vector<Misc> slaves();
+        std::vector<Misc> slaves()
+        {
+            return this->pack_slaves();
+        }
 
         /// @brief Return a list of all slaves of this widget in its packing order.
-        std::vector<Misc> place_slaves();
+        std::vector<Misc> place_slaves()
+        {
+            auto temp = this->tk->call<std::vector<_cpptkinter::tk_window_type>>("place", "slaves", this->_w);
+            std::vector<Misc> result{};
+            for (auto& t : temp)
+                result.emplace_back(this->nametowidget(std::move(t)));
+            return result;
+        }
 
         /// @brief The anchor value controls how to place the grid within the master when no row / column has any weight.
         ///
         /// The default anchor is nw.
-        void grid_anchor(const std::string& anchor = {});
+        void grid_anchor(const std::string& anchor = {})
+        {
+            if (anchor.empty())
+                this->tk->call("grid", "anchor", this->_w);
+            else
+                this->tk->call("grid", "anchor", this->_w, anchor);
+        }
         /// @copydoc grid_anchor
-        void anchor(const std::string& anchor = {});
+        void anchor(const std::string& anchor = {})
+        {
+            this->grid_anchor(anchor);
+        }
 
         /// @brief Return a tuple of integer coordinates for the bounding box of this widget controlled by the geometry manager grid.
         ///
         /// If COLUMN, ROW is given the bounding box applies from the cell with row and column 0 to the specified cell.
         /// If COL2 and ROW2 are given the bounding box starts at that cell.
         /// The returned integers specify the offset of the upper left corner in the master widget and the width and height.
-        std::array<long long, 4> grid_bbox(const cnfs::grid_bbox& cnf = {});
+        std::array<long long, 4> grid_bbox(const cnfs::grid_bbox& cnf = {})
+        {
+            std::vector<_cpptkinter::Tcl_Obj> args{ };
+            args.emplace_back(_cpptkinter::AsObj("grid"));
+            args.emplace_back(_cpptkinter::AsObj("bbox"));
+            args.emplace_back(_cpptkinter::AsObj(this->_w));
+            if (cnf.column.has_value() && cnf.row.has_value())
+            {
+                args.emplace_back(_cpptkinter::AsObj(cnf.column.value()));
+                args.emplace_back(_cpptkinter::AsObj(cnf.row.value()));
+            }
+            if (cnf.col2.has_value() && cnf.row2.has_value())
+            {
+                args.emplace_back(_cpptkinter::AsObj(cnf.col2.value()));
+                args.emplace_back(_cpptkinter::AsObj(cnf.row2.value()));
+            }
+            return this->tk->call<std::array<long long, 4>>(std::move(args));
+        }
         /// @copydoc grid_bbox
-        std::array<long long, 4> bbox(const cnfs::grid_bbox& cnf = {});
+        std::array<long long, 4> bbox(const cnfs::grid_bbox& cnf = {})
+        {
+            return this->grid_bbox(cnf);
+        }
 
     protected:
-        cnfs::grid_column_row_configure_return _grid_configure(const std::string& command, const std::variant<long long, std::string>& index);
+        cnfs::grid_column_row_configure_return _grid_configure(const std::string& command, const std::variant<long long, std::string>& index)
+        {
+            auto temp = this->tk->call<std::tuple<
+                std::string, long long,
+                std::string, long long,
+                std::string, std::string,
+                std::string, long long>>("grid", command, this->_w, index);
+            if (std::get<0>(temp) != "-minsize"
+                || std::get<2>(temp) != "-pad"
+                || std::get<4>(temp) != "-uniform"
+                || std::get<6>(temp) != "-weight")
+                throw detail::construct_exception<TclError>("unexpected return value " + utility::container_or_tuple_to_string(temp));
+            return { std::get<1>(temp), std::get<3>(temp), std::get<5>(temp), std::get<7>(temp) };
+        }
     public:
         /// @brief Configure column INDEX of a grid.
-        cnfs::grid_column_row_configure_return grid_columnconfigure(const std::variant<long long, std::string>& index);
+        cnfs::grid_column_row_configure_return grid_columnconfigure(const std::variant<long long, std::string>& index)
+        {
+            return this->_grid_configure("columnconfigure", index);
+        }
         /// @brief Configure column INDEX of a grid.
         /// 
         /// Valid resources are minsize (minimum size of the column), weight (how much does additional space propagate to this column),
@@ -1122,7 +1290,10 @@ namespace cpptkinter
         }
 
         /// @copydoc grid_columnconfigure(const std::variant<long long, std::string>&)
-        cnfs::grid_column_row_configure_return columnconfigure(const std::variant<long long, std::string>& index);
+        cnfs::grid_column_row_configure_return columnconfigure(const std::variant<long long, std::string>& index)
+        {
+            return this->grid_columnconfigure(index);
+        }
         /// @copydoc grid_columnconfigure()
         template<cnfs::is_cnf CNF = cnfs::grid_column_row_configure>
         void columnconfigure(std::variant<size_t, std::vector<size_t>, std::string> index, CNF&& cnf)
@@ -1131,21 +1302,36 @@ namespace cpptkinter
         }
 
         /// @brief Return a tuple of column and row which identify the cell at which the pixel at position X and Y inside the master widget is located.
-        std::array<long long, 2> grid_location(const detail::ScreenUnits& x, const detail::ScreenUnits& y);
+        std::array<long long, 2> grid_location(const detail::ScreenUnits& x, const detail::ScreenUnits& y)
+        {
+            return this->tk->call<std::array<long long, 2>>("grid", "location", this->_w, x, y);
+        }
         /// @copydoc grid_location
-        std::array<long long, 2> location(const detail::ScreenUnits& x, const detail::ScreenUnits& y);
+        std::array<long long, 2> location(const detail::ScreenUnits& x, const detail::ScreenUnits& y)
+        {
+            return this->grid_location(x, y);
+        }
 
         /// @brief Get the status for propagation of geometry information.
         ///
         /// A boolean argument specifies whether the geometry information of the slaves will determine the size of this widget.
-        bool grid_propagate();
+        bool grid_propagate()
+        {
+            return this->tk->call<long long>("grid", "propagate", this->_w);
+        }
         /// @brief Set the status for propagation of geometry information.
         ///
         /// A boolean argument specifies whether the geometry information of the slaves will determine the size of this widget.
-        void grid_propagate(bool flag);
+        void grid_propagate(bool flag)
+        {
+            this->tk->call<std::string>("grid", "propagate", this->_w, flag);
+        }
 
         /// @brief Configure row INDEX of a grid.
-        cnfs::grid_column_row_configure_return grid_rowconfigure(const std::variant<long long, std::string>& index);
+        cnfs::grid_column_row_configure_return grid_rowconfigure(const std::variant<long long, std::string>& index)
+        {
+            return this->_grid_configure("rowconfigure", index);
+        }
         /// @brief Configure row INDEX of a grid.
         ///
         /// Valid resources are minsize (minimum size of the row), weight (how much does additional space propagate to this row),
@@ -1157,7 +1343,10 @@ namespace cpptkinter
         }
 
 		/// @copydoc grid_rowconfigure(const std::variant<long long, std::string>&)
-        cnfs::grid_column_row_configure_return rowconfigure(const std::variant<long long, std::string>& index);
+        cnfs::grid_column_row_configure_return rowconfigure(const std::variant<long long, std::string>& index)
+        {
+            return this->grid_rowconfigure(index);
+        }
         /// @copydoc grid_rowconfigure()
         template<cnfs::is_cnf CNF = cnfs::grid_column_row_configure>
         void rowconfigure(const std::variant<size_t, std::vector<size_t>, std::string>& index, CNF&& cnf)
@@ -1166,12 +1355,37 @@ namespace cpptkinter
         }
 
         /// @brief Return a tuple of the number of column and rows in the grid.
-        std::array<long long, 2> grid_size();
+        std::array<long long, 2> grid_size()
+        {
+            return this->tk->call<std::array<long long, 2>>("grid", "size", this->_w);
+        }
 		/// @copydoc grid_size
-        std::array<long long, 2> size();
+        std::array<long long, 2> size()
+        {
+            return this->grid_size();
+        }
 
         /// @brief Return a list of all slaves of this widget in its packing order.
-        std::vector<Misc> grid_slaves(std::optional<long long> row = {}, std::optional<long long> column = {});
+        std::vector<Misc> grid_slaves(std::optional<long long> row = {}, std::optional<long long> column = {})
+        {
+            std::vector<_cpptkinter::Tcl_Obj> args{ };
+            if (row.has_value())
+            {
+                args.emplace_back(_cpptkinter::AsObj("-row"));
+                args.emplace_back(_cpptkinter::AsObj(row.value()));
+            }
+            if (column.has_value())
+            {
+                args.emplace_back(_cpptkinter::AsObj("-column"));
+                args.emplace_back(_cpptkinter::AsObj(column.value()));
+            }
+
+            auto temp = this->tk->call<std::vector<_cpptkinter::tk_window_type>>("grid", "slaves", this->_w, std::move(args));
+            std::vector<Misc> result{};
+            for (auto& t : temp)
+                result.emplace_back(this->nametowidget(std::move(t)));
+            return result;
+        }
     };
 
     /// @brief Mix-in class for querying and changing the horizontal position of a widget's window.
@@ -1257,7 +1471,14 @@ namespace cpptkinter
         /// @brief Internal function.
         /// 
         /// Deletes all Tcl commands created for this widget in the Tcl interpreter.
-        virtual void destroy();
+        inline virtual void destroy()
+        {
+            // keeps this from being destroyed before this function returns
+            auto temp = this->shared_from_this();
+
+            for (auto&& name : this->_tclCommands)
+                this->tk->deletecommand(name);
+        }
     };
 
     template<typename R, typename...Args>
@@ -1355,7 +1576,18 @@ namespace cpptkinter
         /// @brief Destroy this and all descendants widgets.
         /// 
         /// This will end the application of this Tcl interpreter.
-        void destroy() override;
+        void destroy() override
+        {
+            // keeps this from being destroyed before this function returns
+            auto temp = this->shared_from_this();
+
+            for (auto&& child : std::vector(std::from_range, std::views::values(this->children)))
+                child.destroy();
+            this->tk->call("destroy", this->_w);
+            this->Misc::impl::destroy();
+            if (detail::_support_default_root && detail::_default_root.get() == this)
+                detail::_default_root.reset();
+        }
     };
 
     /// @brief %Toplevel widget of %Tk which represents mostly the main window of an application. 
@@ -1373,7 +1605,19 @@ namespace cpptkinter
         using impl = detail::Tk_impl;
         REF_TO_IMPL(_tkloaded);
 
-        void _init_(const std::string& screenName, const std::string& baseName, const std::string& className, bool useTk, bool sync, const std::string& use);
+        void _init_(const std::string& screenName, const std::string& baseName_, const std::string& className, bool useTk, bool sync, const std::string& use)
+        {
+            this->_w = ".";
+
+            auto baseName = baseName_.empty() ? std::filesystem::path(_cpptkinter::detail::argv[0]).string() : baseName_;
+            auto interactive = false;
+            this->tk = _cpptkinter::create(screenName, baseName, className, interactive, useTk, sync, use);
+            if (detail::_debug)
+                this->tk->settrace(detail::_print_command);
+            if (useTk)
+                this->_loadtk();
+            this->readprofile(baseName, className);
+        }
 
         template<std::derived_from<impl> I>
         Tk(const std::shared_ptr<I>& pimpl) :
@@ -1392,21 +1636,88 @@ namespace cpptkinter
         /// It is constructed from @ref detail::argv[0] without extensions if none is given.
         /// @param className is the name of the widget class.
         /// @return A shared pointer to the newly created detail::Tk object.
-        Tk(const std::string& screenName = {}, const std::string& baseName = {}, const std::string& className = "Tk", bool useTk = true, bool sync = false, const std::string& use = {});
+        Tk(const std::string& screenName = {}, const std::string& baseName = {}, const std::string& className = "Tk", bool useTk = true, bool sync = false, const std::string& use = {}) :
+            Tk(std::make_shared<impl>())
+        {
+            this->_init_(screenName, baseName, className, useTk, sync, use);
+        }
 
-        void loadtk();
+        void loadtk()
+        {
+            if (!this->_tkloaded)
+            {
+                this->tk->loadtk();
+                this->loadtk();
+            }
+        }
     private:
-        void _loadtk();
+        void _loadtk()
+        {
+            this->_tkloaded = true;
+
+            // Version sanity checks
+            auto tk_version = this->tk->getvar<std::string>("tk_version");
+            if (tk_version != _cpptkinter::TK_VERSION)
+                throw detail::construct_exception<std::runtime_error>(std::format("tk.h version {} doesn't match libtk.a version {}", _cpptkinter::TK_VERSION, tk_version));
+
+            // Under unknown circumstances, tcl_version gets coerced to float
+            auto tcl_version = this->tk->getvar<std::string>("tcl_version");
+            if (tcl_version != _cpptkinter::TCL_VERSION)
+                throw detail::construct_exception<std::runtime_error>(std::format("tcl.h version {} doesn't match libtcl.a version {}", _cpptkinter::TCL_VERSION, tcl_version));
+
+            // Create and register the tkerror and exit commands. We need to inline parts of _register here, _ register would register differently-named commands.
+            this->tk->createcommand("tkerror", detail::_tkerror);
+            this->tk->createcommand("exit", detail::_exit);
+            this->_tclCommands.insert("tkerror");
+            this->_tclCommands.insert("exit");
+            if (detail::_support_default_root && detail::_default_root.get() == nullptr)
+                detail::_default_root = std::static_pointer_cast<impl>(this->pimpl);
+            this->protocol("WM_DELETE_WINDOW", std::function<void()>(std::bind_front(&Tk::destroy, *this)));
+        }
     public:
         /// @brief This function prints the exception to stderr.
         ///
         /// It is the default callback registered in @ref report_callback_exception.
-        static void default_report_callback_exception(Tk&, const std::exception_ptr& exc_ptr);
+        static void default_report_callback_exception(Tk&, const std::exception_ptr& exc_ptr)
+        {
+            DEVIATING_IMPLEMENTATION_WARNING("original catches exceptions and prints them to stderr");
+            /*try
+            {*/
+            std::rethrow_exception(exc_ptr);
+            /*}
+            catch (const std::exception& ex)
+            {
+                std::cerr << "Exception in Tk callback: " << ex.what() << std::endl;
+            }
+            catch (...)
+            {
+                std::cerr << "Unknown exception in Tk callback" << std::endl;
+            }*/
+        }
 
         /// @brief Internal function.
         /// 
         /// It reads .BASENAME.tcl and .CLASSNAME.tcl into the Tcl Interpreter.
-        void readprofile(const std::string& baseName, const std::string& className);
+        void readprofile(const std::string& baseName, const std::string& className)
+        {
+            auto _home = std::getenv("HOME");
+            std::string home = _home != nullptr ? _home : ".";
+            auto class_tcl = std::filesystem::path(home) / std::format(".{}.tcl", className);
+            auto class_py = std::filesystem::path(home) / std::format(".{}.py", className);
+            auto base_tcl = std::filesystem::path(home) / std::format(".{}.tcl", className);
+            auto base_py = std::filesystem::path(home) / std::format(".{}.py", className);
+
+            if (std::filesystem::is_regular_file(class_tcl))
+                this->tk->call("source", "\"" + class_tcl.string() + "\"");
+            //if os.path.isfile(class_py):
+            //  exec(open(class_py).read(), dir)
+            if (std::filesystem::is_regular_file(base_tcl))
+                this->tk->call("source", "\"" + base_tcl.string() + "\"");
+            //if os.path.isfile(base_py) :
+            //  exec(open(base_py).read(), dir)
+
+            DEVIATING_IMPLEMENTATION_WARNING("original executes class_py and base_py with python's exec()");
+        }
 
         /// @brief Report callback exception on stderr.
         ///
@@ -1417,7 +1728,15 @@ namespace cpptkinter
         void __getattr__() = delete;
     };
 
-    Tk Tcl(const std::string& screenName = {}, const std::string& baseName = {}, const std::string& className = "Tk", bool useTk = true);
+    inline Tk Tcl(const std::string& screenName = {}, const std::string& baseName = {}, const std::string& className = "Tk", bool useTk = true)
+    {
+        return Tk(screenName, baseName, className, useTk);
+    }
+
+    inline void mainloop(int n = 0)
+    {
+        detail::_get_default_root("call mainloop").tk->mainloop(n);
+    }
 
     namespace detail
     {
@@ -1473,9 +1792,21 @@ namespace cpptkinter
             std::shared_ptr<_cpptkinter::TkappObject> _tk;
             std::string _name;
 
-            impl(const Tk& root);
+            impl(const Tk& root) : _root(root)
+            {
+
+            }
             /// @brief Unset the variable in Tcl.
-            virtual ~impl();
+            virtual ~impl()
+            {
+                if (this->_tk == nullptr)
+                    return;
+                DEVIATING_IMPLEMENTATION_WARNING("original uses self.tk.getboolean to convert to bool");
+                if (this->_tk->call<long long>("info", "exists", this->_name))
+                    this->_tk->globalunsetvar(this->_name);
+                for (auto&& name : this->_tclCommands)
+                    this->_tk->deletecommand(name);
+            }
         };
 
         std::shared_ptr<impl> pimpl;
@@ -1531,7 +1862,10 @@ namespace cpptkinter
         DEFINE_ASSIGNMENT_OPERATOR(Variable);
 
         /// @brief Return the name of the variable in Tcl.
-        operator std::string() const;
+        operator std::string() const
+        {
+            return this->_name;
+        }
 
         /// @brief Set the variable to VALUE.
         void set(const detail::AsObjConcept auto& value)
@@ -1598,7 +1932,10 @@ namespace cpptkinter
         }
 
         /// @brief Return all trace callback information.
-        std::vector<std::tuple<std::vector<std::string>, std::string>> trace_info();
+        std::vector<std::tuple<std::vector<std::string>, std::string>> trace_info()
+        {
+            return this->_tk->call<std::vector<std::tuple<std::vector<std::string>, std::string>>>("trace", "info", "variable", this->_name);
+        }
 
         template<typename Self, std::derived_from<Variable> Other>
         bool operator==(this const Self& self, const Other& other)
@@ -1909,7 +2246,17 @@ namespace cpptkinter
             std::string _name;
 
             /// @brief Destroy this widget and all descendants.
-            void destroy() override;
+            void destroy() override
+            {
+                // keeps this from being destroyed before this function returns
+                auto temp = this->shared_from_this();
+
+                for (auto&& child : std::vector(std::from_range, std::views::values(this->children)))
+                    child.destroy();
+                this->tk->call("destroy", this->_w);
+                this->master.value().children.erase(this->_name);
+                this->Misc::impl::destroy();
+            }
         };
 
     public:
@@ -2007,6 +2354,9 @@ namespace cpptkinter
     struct Widget : BaseWidget, Pack, Grid, Place
     {
 		using BaseWidget::BaseWidget;
+
+		/// @brief Exists only to make reflect work.
+        Widget() : BaseWidget(std::make_shared<impl>()) { ANNOTATION_WARNING("Exists only to make reflect work."); }
     };
 
     namespace cnfs
@@ -2131,12 +2481,21 @@ namespace cpptkinter
         CNF_CONSTRUCTOR_AND_ASSIGNMENT(Menu, cnfs::Menu, "menu", Widget);
 
         /// @brief Post the menu at position X,Y.
-        void tk_popup(long long x, long long y);
+        void tk_popup(long long x, long long y)
+        {
+            this->tk->call("tk_popup", this->_w, x, y);
+        }
         /// @brief Post the menu at position X,Y with entry ENTRY.
-        void tk_popup(long long x, long long y, long long entry);
+        void tk_popup(long long x, long long y, long long entry)
+        {
+            this->tk->call("tk_popup", this->_w, x, y, entry);
+        }
 
         /// @brief Activate entry at INDEX.
-        void activate(const std::variant<long long, std::string>& index);
+        void activate(const detail::index auto& index)
+        {
+            this->tk->call(this->_w, "activate", detail::to_index(index));
+        }
 
         /// @brief Internal function.
         template<cnfs::is_cnf CNF>
@@ -2182,100 +2541,157 @@ namespace cpptkinter
 
         /// @brief Internal function.
         template<cnfs::is_cnf CNF>
-        void insert(long long index, const std::string& itemType, CNF&& cnf)
+        void insert(const detail::index auto& index, const std::string& itemType, CNF&& cnf)
         {
-            this->tk->call(this->_w, "insert", index, itemType, this->_options(std::forward<CNF>(cnf)));
+            this->tk->call(this->_w, "insert", detail::to_index(index), itemType, this->_options(std::forward<CNF>(cnf)));
         }
 
         /// @brief Add hierarchical menu item at INDEX.
         template<cnfs::is_cnf CNF = cnfs::add_cascade>
-        void insert_cascade(long long index, CNF&& cnf = {})
+        void insert_cascade(const detail::index auto& index, CNF&& cnf = {})
         {
 			this->insert(index, "cascade", std::forward<CNF>(cnf));
         }
 
         /// @brief Add checkbutton menu item at INDEX.
 		template<cnfs::is_cnf CNF = cnfs::add_checkbutton<bool>>
-        void insert_checkbutton(long long index, CNF&& cnf = {})
+        void insert_checkbutton(const detail::index auto& index, CNF&& cnf = {})
         {
             this->insert(index, "checkbutton", std::forward<CNF>(cnf));
         }
 
         /// @brief Add command menu item at INDEX.
 		template<cnfs::is_cnf CNF = cnfs::add_command>
-        void insert_command(long long index, CNF&& cnf = {})
+        void insert_command(const detail::index auto& index, CNF&& cnf = {})
         {
             this->insert(index, "command", std::forward<CNF>(cnf));
         }
 
         /// @brief Add radio menu item at INDEX.
 		template<cnfs::is_cnf CNF = cnfs::add_radiobutton<int>>
-        void insert_radiobutton(long long index, CNF&& cnf = {})
+        void insert_radiobutton(const detail::index auto& index, CNF&& cnf = {})
         {
             this->insert(index, "radiobutton", std::forward<CNF>(cnf));
         }
 
         /// @brief Add separator at INDEX.
 		template<cnfs::is_cnf CNF = cnfs::add_separator>
-        void insert_separator(long long index, CNF&& cnf = {})
+        void insert_separator(const detail::index auto& index, CNF&& cnf = {})
 		{
             this->insert(index, "separator", std::forward<CNF>(cnf));
 		}
 
         /// @brief Delete menu items at INDEX.
-        void delete_(long long index);
+        void delete_(const detail::index auto& index)
+        {
+            this->delete_(detail::to_index(index), detail::to_index(index));
+        }
         /// @brief Delete menu items between INDEX1 and INDEX2 (included).
-        void delete_(long long index1, long long index2);
+        void delete_(const detail::index auto& index1_, const detail::index auto& index2_)
+        {
+			auto&& index1 = detail::to_index(index1_);
+			auto&& index2 = detail::to_index(index2_);
+
+            auto num_index1 = this->index(index1);
+            auto num_index2 = this->index(index2);
+
+            //if (num_index1 is None) or (num_index2 is None) :
+            //    num_index1, num_index2 = 0, -1
+
+            for (long long i = num_index1; i < num_index2 + 1; i++)
+            {
+                auto ec = this->entryconfig(i);
+                if (ec.contains("command"))
+                {
+                    auto c = this->entrycget<std::string>(i, "command");
+                    if (!c.empty())
+                        this->deletecommand(c);
+                }
+            }
+            this->tk->call(this->_w, "delete", index1, index2);
+        }
 
         /// @brief Return the resource value of a menu item for OPTION at INDEX.
         template<detail::FromObjConcept R>
-        R entrycget(long long index, const std::string& option)
+        R entrycget(const detail::index auto& index, const std::string& option)
         {
-			return this->tk->call<R>(this->_w, "entrycget", index, "-" + option);
+            return this->tk->call<R>(this->_w, "entrycget", detail::to_index(index), "-" + option);
         }
 
         /// @brief Configure a menu item at INDEX.
         template<cnfs::is_cnf CNF>
-        auto entryconfigure(long long index, CNF&& cnf)
+        auto entryconfigure(const detail::index auto& index_, CNF&& cnf)
         {
-            return this->_configure({ "entryconfigure", std::to_string(index) }, std::forward<CNF>(cnf));
+            auto&& index = detail::to_index(index_);
+            if constexpr (std::same_as<std::remove_cvref_t<decltype(index)>, long long>)
+                return this->_configure({ "entryconfigure", std::to_string(index) }, std::forward<CNF>(cnf));
+            else
+                return this->_configure({ "entryconfigure", index }, std::forward<CNF>(cnf));
         }
         /// @brief Configure a menu item at INDEX.
-        auto entryconfigure(long long index) -> decltype(this->_configure({}));
+        auto entryconfigure(const detail::index auto& index_) -> decltype(this->_configure({}))
+        {
+			auto&& index = detail::to_index(index_);
+			if constexpr (std::same_as<std::remove_cvref_t<decltype(index)>, long long>)
+				return this->_configure({ "entryconfigure", std::to_string(index) });
+			else
+                return this->_configure({ "entryconfigure", index });
+        }
 
 		/// @copydoc entryconfigure(long long, CNF&&)
         template<cnfs::is_cnf CNF>
-        auto entryconfig(long long index, CNF&& cnf)
+        auto entryconfig(const detail::index auto& index, CNF&& cnf)
         {
-			return this->entryconfigure(index, std::forward<CNF>(cnf));
+            return this->entryconfigure(detail::to_index(index), std::forward<CNF>(cnf));
         }
 		/// @copydoc entryconfigure(long long)
-        auto entryconfig(long long index) -> decltype(this->entryconfigure(index));
+        auto entryconfig(const detail::index auto& index) -> decltype(this->entryconfigure(index))
+        {
+            return this->entryconfigure(detail::to_index(index));
+        }
 
         /// @brief Return the index of a menu item identified by INDEX.
-        long long index(long long index);
+        long long index(const detail::index auto& index)
+        {
+            return this->tk->call<long long>(this->_w, "index", detail::to_index(index));
+        }
 
         /// @brief Invoke a menu item identified by INDEX and execute the associated command.
         template<detail::FromObjConcept R = void>
-        R invoke(long long index)
+        R invoke(const detail::index auto& index)
         {
-			return this->tk->call<R>(this->_w, "invoke", index);
+            return this->tk->call<R>(this->_w, "invoke", detail::to_index(index));
         }
 
         /// @brief Display a menu at position X,Y.
-        void post(long long x, long long y);
+        void post(long long x, long long y)
+        {
+            this->tk->call(this->_w, "post", x, y);
+        }
 
         /// @brief Return the type of the menu item at INDEX.
-        std::string type(long long index);
+        std::string type(const detail::index auto& index)
+        {
+            return this->tk->call<std::string>(this->_w, "type", detail::to_index(index));
+        }
 
         /// @brief Unmap a menu.
-        void unpost();
+        void unpost()
+        {
+            this->tk->call(this->_w, "unpost");
+        }
 
         /// @brief Return the x-position of the leftmost pixel of the menu item at INDEX.
-        long long xposition(long long index);
+        long long xposition(const detail::index auto& index)
+        {
+            return this->tk->call<long long>(this->_w, "xposition", detail::to_index(index));
+        }
 
         /// @brief "Return the y-position of the topmost pixel of the menu item at INDEX.
-        long long yposition(long long index);
+        long long yposition(const detail::index auto& index)
+        {
+            return this->tk->call<long long>(this->_w, "yposition", detail::to_index(index));
+        }
     };
 
     namespace cnfs
@@ -2438,10 +2854,16 @@ namespace cpptkinter
         /// This is accomplished by redisplaying the button several times, alternating between active and normal colors.
         /// At the end of the flash the button is left in the same normal/active state as when the command was invoked.
         /// This command is ignored if the button's state is disabled.
-        void flash();
+        void flash()
+        {
+            this->tk->call(this->_w, "flash");
+        }
 
         /// @brief Invoke the command associated with the button.
-        void invoke();
+        void invoke()
+        {
+            this->tk->call(this->_w, "invoke");
+        }
     };
 
     /// @brief %Canvas widget to display graphical elements like lines or text.
@@ -2531,19 +2953,34 @@ namespace cpptkinter
         CNF_CONSTRUCTOR_AND_ASSIGNMENT(Checkbutton, cnfs::Checkbutton<long long>, "checkbutton", Widget);
 
         /// @brief Put the button in off-state.
-        void deselect();
+        void deselect()
+        {
+            this->tk->call(this->_w, "deselect");
+        }
 
         /// @brief Flash the button.
-        void flash();
+        void flash()
+        {
+            this->tk->call(this->_w, "flash");
+        }
 
         /// @brief Toggle the button and invoke a command if given as resource.
-        void invoke();
+        void invoke()
+        {
+            return this->tk->call(this->_w, "invoke");
+        }
 
         /// @brief Put the button in on-state.
-        void select();
+        void select()
+        {
+            this->tk->call(this->_w, "select");
+        }
 
         /// @brief Toggle the button.
-        void toggle();
+        void toggle()
+        {
+            this->tk->call(this->_w, "toggle");
+        }
     };
 
     /// @brief A checkbutton widget with a defined value type.
@@ -2625,7 +3062,10 @@ namespace cpptkinter
         }
 
         /// @brief Return the text.
-        std::string get();
+        std::string get()
+        {
+            return this->tk->call<std::string>(this->_w, "get");
+        }
 
         /// @brief Insert cursor at INDEX.
         void icursor(const detail::index auto& index)
@@ -2646,10 +3086,16 @@ namespace cpptkinter
         }
 
         /// @brief unknown
-        void scan_mark(long long x);
+        void scan_mark(long long x)
+        {
+            this->tk->call(this->_w, "scan", "mark", x);
+        }
 
         /// @brief unknown
-        void scan_dragto(long long x);
+        void scan_dragto(long long x)
+        {
+            this->tk->call(this->_w, "scan", "dragto", x);
+        }
 
         /// @brief Adjust the end of the selection near the cursor to INDEX.
         void selection_adjust(const detail::index auto& index)
@@ -2664,10 +3110,16 @@ namespace cpptkinter
         }
 
         /// @brief Clear the selection if it is in this widget.
-        void selection_clear();
+        void selection_clear()
+        {
+            this->tk->call(this->_w, "selection", "clear");
+        }
 
 		/// @copydoc selection_clear
-        void select_clear();
+        void select_clear()
+        {
+            this->selection_clear();
+        }
 
         /// @brief Set the fixed end of a selection to INDEX.
         void selection_from(const detail::index auto& index)
@@ -2682,10 +3134,16 @@ namespace cpptkinter
         }
 
         /// @brief Return true if there are characters selected in the entry, false otherwise.
-        bool selection_present();
+        bool selection_present()
+        {
+            return this->tk->call<bool>(this->_w, "selection", "present");
+        }
 
 		/// @copydoc selection_present
-        bool select_present();
+        bool select_present()
+        {
+            return this->selection_present();
+        }
 
         /// @brief Set the selection from START to END (not included).
         void selection_range(const detail::index auto& start, const detail::index auto& end)
@@ -2884,7 +3342,10 @@ namespace cpptkinter
         }
 
         /// @brief Return the indices of currently selected item.
-        std::vector<long long> curselection();
+        std::vector<long long> curselection()
+        {
+            return this->tk->call<std::vector<long long>>(this->_w, "curselection");
+        }
 
         /// @brief Delete item at index.
         void delete_(const detail::index auto& index)
@@ -2942,13 +3403,22 @@ namespace cpptkinter
         }
 
         /// @brief Get index of item which is nearest to y coordinate Y.
-        long long nearest(long long y);
+        long long nearest(long long y)
+        {
+            return this->tk->call<long long>(this->_w, "nearest", y);
+        }
 
         /// @brief unknown
-        void scan_mark(long long x, long long y);
+        void scan_mark(long long x, long long y)
+        {
+            this->tk->call(this->_w, "scan", "mark", x, y);
+        }
 
         /// @brief unknown
-        void scan_dragto(long long x, long long y);
+        void scan_dragto(long long x, long long y)
+        {
+            this->tk->call(this->_w, "scan", "dragto", x, y);
+        }
 
         /// @brief Scroll such that INDEX is visible.
         void see(const detail::index auto& index)
@@ -3025,7 +3495,10 @@ namespace cpptkinter
         }
 
         /// @brief Return the number of elements in the listbox.
-        long long size();
+        long long size()
+        {
+            return this->tk->call<long long>(this->_w, "size");
+        }
 
         /// @brief Return the resource value for an ITEM and an OPTION.
         template<detail::FromObjConcept R>
@@ -3190,16 +3663,28 @@ namespace cpptkinter
         CNF_CONSTRUCTOR_AND_ASSIGNMENT(Radiobutton, cnfs::Radiobutton<long long>, "radiobutton", Widget);
 
 		/// @brief Put the button in off-state.
-        void deselect();
+        void deselect()
+        {
+            this->tk->call(this->_w, "deselect");
+        }
 
         /// @brief Flash the button.
-        void flash();
+        void flash()
+        {
+            this->tk->call(this->_w, "flash");
+        }
 
         /// @brief Toggle the button and invoke a command if given as resource.
-        void invoke();
+        void invoke()
+        {
+            return this->tk->call(this->_w, "invoke");
+        }
 
         /// @brief Put the button in on-state.
-        void select();
+        void select()
+        {
+            this->tk->call(this->_w, "select");
+        }
     };
 
     /// @brief A radiobutton widget with a defined value type.
@@ -3266,18 +3751,33 @@ namespace cpptkinter
         CNF_CONSTRUCTOR_AND_ASSIGNMENT(Scale, cnfs::Scale, "scale", Widget);
 
         /// @brief Get the current value as integer or float.
-        double get();
+        double get()
+        {
+            return this->tk->call<double>(this->_w, "get");
+        }
 
 		/// @brief Set the current value.
-        double set(double value);
+        double set(double value)
+        {
+            return this->tk->call<double>(this->_w, "set", value);
+        }
 
         /// @brief Return a tuple (X,Y) of the point along the centerline of the trough that corresponds to the current value.
-        std::array<long long, 2> coords();
+        std::array<long long, 2> coords()
+        {
+            return this->tk->call<std::array<long long, 2>>(this->_w, "coords");
+        }
         /// @brief Return a tuple (X,Y) of the point along the centerline of the trough that corresponds to VALUE.
-        std::array<long long, 2> coords(double value);
+        std::array<long long, 2> coords(double value)
+        {
+            return this->tk->call<std::array<long long, 2>>(this->_w, "coords", value);
+        }
 
         /// @brief Return where the point X,Y lies. Valid return values are "slider", "though1" and "though2".
-        std::string identify(detail::ScreenUnits x, detail::ScreenUnits y);
+        std::string identify(detail::ScreenUnits x, detail::ScreenUnits y)
+        {
+            return this->tk->call<std::string>(this->_w, "identify", x, y);
+        }
     };
 
     /// @brief %Scrollbar widget which displays a slider at a certain position.
@@ -3299,7 +3799,12 @@ namespace cpptkinter
             std::string _value;
             std::function<void(const StringVar&)> _callback;
 
-            void operator()();
+            void operator()()
+            {
+                this->_var.set(this->_value);
+                if (this->_callback)
+                    this->_callback(this->_var);
+            }
         };
     }
 
@@ -3315,7 +3820,15 @@ namespace cpptkinter
             std::string menuname;
 
             /// @brief Destroy this widget and the associated menu.
-			void destroy() override;
+			void destroy() override
+            {
+                // keeps this from being destroyed before this function returns
+                auto temp = this->shared_from_this();
+
+                this->_menu.reset();
+
+                this->BaseWidget::impl::destroy();
+            }
         };
 
     private:
@@ -3360,7 +3873,12 @@ namespace cpptkinter
             this->_init_(master, variable, std::forward<decltype(values)>(values), std::move(command));
         }
 
-        detail::set_get_proxy<std::optional<cpptkinter::Menu>> operator[](const std::string& name);
+        detail::set_get_proxy<std::optional<cpptkinter::Menu>> operator[](const std::string& name)
+        {
+            if (name == "menu")
+                return { this->_menu };
+            return { *this, name };
+        }
     };
 
     /// @brief %Base class for images.
@@ -3463,7 +3981,10 @@ namespace cpptkinter
         }
 
 		/// @brief Returns the spinbox's string.
-		std::string get();
+		std::string get()
+        {
+            return this->tk->call<std::string>(this->_w, "get");
+        }
 
         /// @brief Alter the position of the insertion cursor.
         /// 
@@ -3476,7 +3997,10 @@ namespace cpptkinter
         /// @brief Returns the name of the widget at position x, y
         ///
         /// @returns none, buttondown, buttonup, entry
-        std::string identify(long long x, long long y);
+        std::string identify(long long x, long long y)
+        {
+            return this->tk->call<std::string>(this->_w, "identify", x, y);
+        }
 
         /// @brief Returns the numerical index corresponding to index.
         long long index(const detail::index auto& index)
@@ -3493,7 +4017,10 @@ namespace cpptkinter
         /// @brief Causes the specified element to be invoked
         ///
         /// The element could be buttondown or buttonup triggering the action associated with it.
-        void invoke(const std::string& element);
+        void invoke(const std::string& element)
+        {
+            this->tk->call(this->_w, "invoke", element);
+        }
 
         /// @brief Internal function.
         // void scan();
@@ -3501,13 +4028,19 @@ namespace cpptkinter
         /// @brief Records x and the current view in the spinbox window.
         /// 
         /// Used in conjunction with later scan dragto commands. Typically this command is associated with a mouse button press in the widget.
-        void scan_mark(long long x);
+        void scan_mark(long long x)
+        {
+            this->tk->call(this->_w, "scan", "mark", x);
+        }
 
         /// @brief Compute the difference between the given x argument and the x argument to the last scan mark command
         /// 
         /// It then adjusts the view left or right by 10 times the difference in x - coordinates.
         /// This command is typically associated with mouse motion events in the widget, to produce the effect of dragging the spinbox at high speed through the window.
-        void scan_dragto(long long x);
+        void scan_dragto(long long x)
+        {
+            this->tk->call(this->_w, "scan", "dragto", x);
+        }
 
         /// @brief Internal function.
         // void selection();
@@ -3524,14 +4057,23 @@ namespace cpptkinter
         /// @brief Clear the selection
         /// 
         /// If the selection isn't in this widget then the command has no effect.
-        void selection_clear();
+        void selection_clear()
+        {
+            this->tk->call(this->_w, "selection", "clear");
+        }
 
         /// @brief Gets the currently selected element.
-        std::string selection_element();
+        std::string selection_element()
+        {
+            return this->tk->call<std::string>(this->_w, "selection", "element");
+        }
         /// @brief Sets the currently selected element.
         /// 
         /// If a spinbutton element is specified, it will be displayed depressed.
-        void selection_element(const std::string& element);
+        void selection_element(const std::string& element)
+        {
+            this->tk->call(this->_w, "selection", "element", element);
+        }
 
         /// @brief Set the fixed end of a selection to INDEX.
         void selection_from(const detail::index auto& index)
@@ -3540,7 +4082,10 @@ namespace cpptkinter
         }
 
         /// @brief Return true if there are characters selected in the spinbox, false otherwise.
-        bool selection_present();
+        bool selection_present()
+        {
+            return this->tk->call<bool>(this->_w, "selection", "present");
+        }
 
         /// @brief Set the selection from START to END (not included).
         void selection_range(const detail::index auto& start, const detail::index auto& end)
@@ -3700,13 +4245,22 @@ namespace cpptkinter
         // void proxy();
 
         /// @brief Return the x and y pair of the most recent proxy location.
-        std::array<long long, 2> proxy_coord();
+        std::array<long long, 2> proxy_coord()
+        {
+            return this->tk->call<std::array<long long, 2>>(this->_w, "proxy", "coord");
+        }
 
         /// @brief Remove the proxy from the display.
-        void proxy_forget();
+        void proxy_forget()
+        {
+            this->tk->call(this->_w, "proxy", "forget");
+        }
 
         /// @brief Place the proxy at the given x and y coordinates.
-        void proxy_place(long long x, long long y);
+        void proxy_place(long long x, long long y)
+        {
+            this->tk->call(this->_w, "proxy", "place", x, y);
+        }
 
         /// @brief 
         // void sash();
@@ -3739,7 +4293,10 @@ namespace cpptkinter
         /// @brief Query a management option for window.
         /// 
         /// Option may be any value allowed by the paneconfigure subcommand.
-        void panecget(const std::derived_from<Widget> auto& child, const std::string& option);
+        void panecget(const std::derived_from<Widget> auto& child, const std::string& option)
+        {
+            this->tk->call(this->_w, "panecget", child, "-" + option);
+        }
 
         /// @brief Query or modify the management options for window.
         /// 
@@ -3810,6 +4367,81 @@ namespace cpptkinter
 		}
 
         /// @brief Returns an ordered list of the child panes.
-        std::vector<_cpptkinter::Tcl_Obj> panes();
+        std::vector<_cpptkinter::Tcl_Obj> panes()
+        {
+            return this->tk->call<std::vector<_cpptkinter::Tcl_Obj>>(this->_w, "panes");
+        }
     };
 }
+
+cpptkinter::Tk cpptkinter::detail::_get_default_root(const std::string& what)
+{
+    if (!_support_default_root)
+        throw detail::construct_exception<std::runtime_error>("No master specified and tkinter is configured to not support default root");
+
+    if (_default_root.get() == nullptr)
+    {
+        if (!what.empty())
+            throw detail::construct_exception<std::runtime_error>(std::format("Too early to {}: no default root window", what));
+        auto root = cpptkinter::Tk();
+        if (_default_root != root.pimpl)
+            throw detail::construct_exception<std::runtime_error>("?");
+        return root;
+    }
+    else
+        return std::shared_ptr(_default_root);
+}
+
+void cpptkinter::Misc::destroy()
+{
+    this->pimpl->destroy();
+}
+
+cpptkinter::Misc cpptkinter::Misc::nametowidget(std::string_view name)
+{
+    auto index = name.find('.');
+    std::shared_ptr<impl> w;
+
+    if (index == 0)
+    {
+        w = this->_root().pimpl;
+        name.remove_prefix(1);
+        index = name.find('.');
+    }
+    else
+        w = this->pimpl;
+
+    do {
+        auto current_name = name.substr(0, index);
+        if (current_name.empty())
+            break;
+
+        w = w->children.at(std::string(current_name)).pimpl;
+        name.remove_prefix(index + 1);
+    } while ((index = name.find('.')) != std::string_view::npos);
+
+    return w;
+}
+
+cpptkinter::Tk cpptkinter::Misc::_root() const
+{
+    std::shared_ptr<impl> w = this->pimpl;
+
+    while (w->master.has_value())
+        w = w->master.value().pimpl;
+
+    return std::static_pointer_cast<Tk::impl>(w);
+}
+
+cpptkinter::detail::set_get_proxy<> cpptkinter::Misc::operator[](const std::string& key)
+{
+    return { *this, key };
+}
+
+void cpptkinter::Misc::_report_exception()
+{
+    auto exc_ptr = std::current_exception();
+    auto root = this->_root();
+    root.report_callback_exception(root, exc_ptr);
+}
+

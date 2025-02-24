@@ -155,7 +155,7 @@ namespace cpptkinter::utility
         detail::container_or_tuple_to_string_visitor vis{};
 
         vis.oss << "{ ";
-        reflect::for_each<T>([&vis, &val](auto I) { vis.oss << rfl::fields<T>()[I].name()/*reflect::member_name<I, T>()*/ << " : "; vis(reflect::get<I>(val)); });
+        reflect::for_each<T>([&vis, &val](auto I) { vis.oss << /*rfl::fields<T>()[I].name()*/reflect::member_name<I, T>() << " : "; vis(reflect::get<I>(val)); });
         vis.oss << "}";
         return vis.oss.str();
     }

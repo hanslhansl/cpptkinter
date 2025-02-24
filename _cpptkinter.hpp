@@ -42,46 +42,6 @@
     } while (0)
 
 
-
-
-namespace cpptkinter::_cpptkinter
-{
-	using byte_array = std::vector<std::byte>;
-	using ssize_t = std::make_signed<size_t>::type;
-
-	struct TkappObject;
-
-	/// @brief Exception class for Tcl errors.
-	struct TclError : std::runtime_error
-	{
-		using std::runtime_error::runtime_error;
-	};
-
-	/// @brief Represents a Tcl object.
-	class Tcl_Obj
-	{
-		::Tcl_Obj* ptr;
-
-	public:
-		explicit Tcl_Obj(::Tcl_Obj* ptr);
-		Tcl_Obj(const Tcl_Obj& other) noexcept;
-		Tcl_Obj& operator=(const Tcl_Obj& other) noexcept;
-		~Tcl_Obj() noexcept;
-
-		::Tcl_Obj* get() const noexcept;
-		::Tcl_Obj* operator->() const noexcept;
-		operator ::Tcl_Obj*() const noexcept;
-
-		std::string to_string() const;
-	};
-
-	/// @brief Represents a tcl object of type 'window' which is a type introduced by Tk.
-	struct tk_window_type : Tcl_Obj
-	{
-		using Tcl_Obj::Tcl_Obj;
-	};
-}
-
 /// @brief Implementation details of _cpptkinter.
 /// 
 /// This namespace contains implementation details of _cpptkinter as well as the implementation of _tkinter entities prefixed with an underscore (e.g. _tkinter._get_tcl_lib_path()).
@@ -92,15 +52,44 @@ namespace cpptkinter::_cpptkinter::detail
 #undef TK_VERSION
 #undef TCL_VERSION
 
+#ifdef NDEBUG
+	template<typename T>
+	T construct_exception(const std::string& str)
+	{
+		return T(str);
+	}
+#else
+	template<typename T>
+	T construct_exception(const std::string& str, const std::stacktrace& tr = std::stacktrace::current())
+	{
+		return T(str + "\nat:\n" + std::to_string(tr));
+	}
+#endif // NDEBUG
+
 	inline std::optional<std::string> _tcl_lib_path{};
-	std::string _get_tcl_lib_path();
+	inline std::string _get_tcl_lib_path()
+	{
+		DEVIATING_IMPLEMENTATION_WARNING("original tries to find the tcl lib inside the python directory");
+		if (_tcl_lib_path.has_value())
+			return _tcl_lib_path.value();
+		else
+			throw construct_exception<std::runtime_error>("tcl_library must be specified with tkinter::init because");
+	}
 
 	/// Set by cpptkinter::init()
 	inline int argc;
 	/// Set by cpptkinter::init()
 	inline char** argv;
 
-	void log_error(const std::string& message, const std::source_location location = std::source_location::current());
+	inline void log_error(const std::string& message, const std::source_location location = std::source_location::current())
+	{
+		std::cerr << "file: "
+			<< location.file_name() << '('
+			<< location.line() << ':'
+			<< location.column() << ") in "
+			<< location.function_name() << ": "
+			<< message << std::endl;
+	}
 
 	template<typename T>
 	std::string Tkapp_Trace_to_string(const T& t)
@@ -147,24 +136,88 @@ namespace cpptkinter::_cpptkinter::detail
 
 		}
 	};
+}
 
-#ifdef NDEBUG
-	template<typename T>
-	T construct_exception(const std::string& str)
+namespace cpptkinter::_cpptkinter
+{
+	using byte_array = std::vector<std::byte>;
+	using ssize_t = std::make_signed<size_t>::type;
+
+	struct TkappObject;
+
+	/// @brief Exception class for Tcl errors.
+	struct TclError : std::runtime_error
 	{
-		return T(str);
-	}
-#else
-	template<typename T>
-	T construct_exception(const std::string& str, const std::stacktrace& tr = std::stacktrace::current())
+		using std::runtime_error::runtime_error;
+	};
+
+	/// @brief Represents a Tcl object.
+	class Tcl_Obj
 	{
-		return T(str + "\nat:\n" + std::to_string(tr));
+		::Tcl_Obj* ptr;
+
+	public:
+		explicit Tcl_Obj(::Tcl_Obj* ptr) : ptr{ ptr }
+		{
+			if (!this->ptr)
+				throw detail::construct_exception<std::invalid_argument>("nullptr in Tcl_Obj");
+			Tcl_IncrRefCount(this->ptr);
+		}
+		Tcl_Obj(const Tcl_Obj& other) noexcept : ptr{ other.ptr }
+		{
+			Tcl_IncrRefCount(this->ptr);
+		}
+		Tcl_Obj& operator=(const Tcl_Obj& other) noexcept
+		{
+			if (this->ptr != other.ptr)
+			{
+				this->ptr = other.ptr;
+				Tcl_IncrRefCount(this->ptr);
+			}
+
+			return *this;
+		}
+		~Tcl_Obj() noexcept
+		{
+			using ::Tcl_Obj;
+			Tcl_DecrRefCount(this->ptr);
+		}
+
+		::Tcl_Obj* get() const noexcept
+		{
+			return this->ptr;
+		}
+		::Tcl_Obj* operator->() const noexcept
+		{
+			return this->get();
+		}
+		operator ::Tcl_Obj*() const noexcept
+		{
+			return this->get();
+		}
+
+		std::string to_string() const
+		{
+			if (!this->ptr->typePtr->name)
+				throw detail::construct_exception<TclError>(std::format("Tcl_Obj->typePtr->name is nullptr (Tcl_GetString: {})", Tcl_GetString(this->ptr)));
+			return std::format("<{} object: {}>", this->ptr->typePtr->name, Tcl_GetString(this->ptr));
+		}
+	};
+
+	/// @brief Represents a tcl object of type 'window' which is a type introduced by Tk.
+	struct tk_window_type : Tcl_Obj
+	{
+		using Tcl_Obj::Tcl_Obj;
+	};
+}
+
+namespace cpptkinter::_cpptkinter::detail
+{
+	inline std::string Tcl_Obj_to_string_impl(TkappObject* tkapp, ::Tcl_Obj* obj);
+	inline std::string Tcl_Obj_to_string(TkappObject* tkapp, const Tcl_Obj& value)
+	{
+		return Tcl_Obj_to_string_impl(tkapp, value);
 	}
-#endif // NDEBUG
-
-
-	std::string Tcl_Obj_to_string_impl(TkappObject* tkapp, ::Tcl_Obj* obj);
-	std::string Tcl_Obj_to_string(TkappObject* tkapp, const Tcl_Obj& obj);
 
 	template<typename T>
 	struct AsObjImplTrait;
@@ -172,19 +225,31 @@ namespace cpptkinter::_cpptkinter::detail
 	/// @brief Try to convert a Tcl_Obj to Tcl_Obj (i.e. copy it).
 	///
 	/// @see cpptkinter::_cpptkinter::AsObj()
-	Tcl_Obj AsObjImpl(const Tcl_Obj& value);
+	inline Tcl_Obj AsObjImpl(const Tcl_Obj& value)
+	{
+		return value;
+	}
 	/// @brief Try to convert a byte_array to Tcl_Obj.
 	///
 	/// @see cpptkinter::_cpptkinter::AsObj()
-	Tcl_Obj AsObjImpl(const byte_array& value);
+	inline Tcl_Obj AsObjImpl(const byte_array& value)
+	{
+		return Tcl_Obj(Tcl_NewByteArrayObj(reinterpret_cast<const unsigned char*>(value.data()), value.size()));
+	}
 	/// @brief Try to convert a double to Tcl_Obj.
 	///
 	/// @see cpptkinter::_cpptkinter::AsObj()
-	Tcl_Obj AsObjImpl(double value);
+	inline Tcl_Obj AsObjImpl(double value)
+	{
+		return Tcl_Obj(Tcl_NewDoubleObj(value));
+	}
 	/// @brief Try to convert a std::string to Tcl_Obj.
 	///
 	/// @see cpptkinter::_cpptkinter::AsObj()
-	Tcl_Obj AsObjImpl(const std::string& value);
+	inline Tcl_Obj AsObjImpl(const std::string& value)
+	{
+		return Tcl_Obj(Tcl_NewStringObj(value.data(), value.size()));
+	}
 	/// @brief Try to convert an integral type to Tcl_Obj.
 	///
 	/// @see cpptkinter::_cpptkinter::AsObj()
@@ -227,7 +292,6 @@ namespace cpptkinter::_cpptkinter::detail
 	template<typename T>
 	struct AsObjImplTrait : std::bool_constant<requires { AsObjImpl(std::declval<T>()); }>{ };
 
-	
 	struct ignore {};
 
 	template<typename T>
@@ -236,35 +300,38 @@ namespace cpptkinter::_cpptkinter::detail
 	/// @brief Do nothing with Tcl_Obj.
 	///
 	/// @see cpptkinter::_cpptkinter::FromObj()
-	std::optional<ignore> FromObjImpl(TkappObject* tkapp, const Tcl_Obj& value, std::type_identity<ignore>);
+	inline std::optional<ignore> FromObjImpl(TkappObject* tkapp, const Tcl_Obj& value, std::type_identity<ignore>)
+	{
+		return ignore{};
+	}
 	/// @brief Try to convert Tcl_Obj to std::string.
 	///
 	/// @see cpptkinter::_cpptkinter::FromObj()
-	std::optional<std::string> FromObjImpl(TkappObject* tkapp, const Tcl_Obj& value, std::type_identity<std::string>);
+	inline std::optional<std::string> FromObjImpl(TkappObject* tkapp, const Tcl_Obj& value, std::type_identity<std::string>);
 	/// @brief Try to convert Tcl_Obj to bool.
 	///
 	/// @see cpptkinter::_cpptkinter::FromObj()
-	std::optional<bool> FromObjImpl(TkappObject* tkapp, const Tcl_Obj& value, std::type_identity<bool>);
+	inline std::optional<bool> FromObjImpl(TkappObject* tkapp, const Tcl_Obj& value, std::type_identity<bool>);
 	/// @brief Try to convert Tcl_Obj to byte_array.
 	///
 	/// @see cpptkinter::_cpptkinter::FromObj()
-	std::optional<byte_array> FromObjImpl(TkappObject* tkapp, const Tcl_Obj& value, std::type_identity<byte_array>);
+	inline std::optional<byte_array> FromObjImpl(TkappObject* tkapp, const Tcl_Obj& value, std::type_identity<byte_array>);
 	/// @brief Try to convert Tcl_Obj to double.
 	///
 	/// @see cpptkinter::_cpptkinter::FromObj()
-	std::optional<double> FromObjImpl(TkappObject* tkapp, const Tcl_Obj& value, std::type_identity<double>);
+	inline std::optional<double> FromObjImpl(TkappObject* tkapp, const Tcl_Obj& value, std::type_identity<double>);
 	/// @brief Try to convert Tcl_Obj to long long.
 	///
 	/// @see cpptkinter::_cpptkinter::FromObj()
-	std::optional<long long> FromObjImpl(TkappObject* tkapp, const Tcl_Obj& value, std::type_identity<long long>);
+	inline std::optional<long long> FromObjImpl(TkappObject* tkapp, const Tcl_Obj& value, std::type_identity<long long>);
 	/// @brief Try to convert Tcl_Obj to tk_window_type.
 	///
 	/// @see cpptkinter::_cpptkinter::FromObj()
-	std::optional<tk_window_type> FromObjImpl(TkappObject* tkapp, const Tcl_Obj& ptr, std::type_identity<tk_window_type>);
+	inline std::optional<tk_window_type> FromObjImpl(TkappObject* tkapp, const Tcl_Obj& ptr, std::type_identity<tk_window_type>);
 	/// @brief Try to convert Tcl_Obj to Tcl_Obj (i.e. do nothing).
 	///
 	/// @see cpptkinter::_cpptkinter::FromObj()
-	std::optional<Tcl_Obj> FromObjImpl(TkappObject* tkapp, const Tcl_Obj& ptr, std::type_identity<Tcl_Obj>);
+	inline std::optional<Tcl_Obj> FromObjImpl(TkappObject* tkapp, const Tcl_Obj& ptr, std::type_identity<Tcl_Obj>);
 	/// @brief Try to convert Tcl_Obj to std::vector.
 	///
 	/// @see cpptkinter::_cpptkinter::FromObj()
@@ -375,28 +442,78 @@ namespace cpptkinter::_cpptkinter
 	}
 #endif // MS_WINDOWS
 
-	int Tcl_AppInit(Tcl_Interp* interp);
+	inline int Tcl_AppInit(Tcl_Interp* interp)
+	{
+		if (Tcl_Init(interp) == TCL_ERROR)
+		{
+			std::cerr << "Tcl_Init error: " << Tcl_GetStringResult(interp) << std::endl;
+			return TCL_ERROR;
+		}
 
-	void init(const std::string& tcl_library);
+		auto _tkinter_skip_tk_init = Tcl_GetVar(interp, "_tkinter_skip_tk_init", TCL_GLOBAL_ONLY);
+		if (_tkinter_skip_tk_init != nullptr && _tkinter_skip_tk_init == std::string_view("1"))
+			return TCL_OK;
 
-	int Tcl_EvalObjv(Tcl_Interp* interp, const std::vector<Tcl_Obj>& objects, int flags);
+		if (Tk_Init(interp) == TCL_ERROR)
+		{
+			std::cerr << "Tk_Init error: " << Tcl_GetStringResult(interp) << std::endl;
+			return TCL_ERROR;
+		}
 
-	Tcl_Obj Tcl_NewListObj(const std::vector<Tcl_Obj>& objects);
+		DEVIATING_IMPLEMENTATION_WARNING("original calls Tk_MainWindow(interp) if macro WITH_APPINIT is defined. i dont know why tho...");
 
-	/// @brief Convert a Tcl_Obj to a bool.
-	///
-	/// @param value The Tcl_Obj to convert.
-	bool fromBoolean(TkappObject* tkapp, const Tcl_Obj& value);
-	/// @brief Convert a Tcl_Obj to a long long.
-	///
-	/// @param value The Tcl_Obj to convert.
-	long long fromWideIntObj(TkappObject* tkapp, const Tcl_Obj& value);
+		return TCL_OK;
+	}
 
-	/// @brief Convert a Tcl_Obj to a string.
-	///
-	/// @param value The Tcl_Obj to convert.
-	std::string unicodeFromTclObj(TkappObject* tkapp, const Tcl_Obj& value);
-	std::string Tkapp_UnicodeResult(TkappObject* self);
+	inline void init(const std::string& tcl_library)
+	{
+		DEVIATING_IMPLEMENTATION_WARNING("original is called PyInit__tkinter");
+
+		if (!tcl_library.empty())
+			detail::_tcl_lib_path = tcl_library;
+
+		tcl_lock.emplace();
+
+		auto uexe = detail::argv[0];
+		if (uexe)
+		{
+			auto cexe = uexe;
+			if (cexe)
+			{
+#ifdef MS_WINDOWS
+				bool set_var = false;
+#if !TCL_CORE_LIBRARY_IS_EMBEDDED
+				DWORD ret = GetEnvironmentVariableA("TCL_LIBRARY", NULL, 0);
+				if (!ret && GetLastError() == ERROR_ENVVAR_NOT_FOUND) {
+					auto str_path = detail::_get_tcl_lib_path();
+					SetEnvironmentVariableA("TCL_LIBRARY", str_path.data());
+					set_var = true;
+				}
+#endif	// !TCL_CORE_LIBRARY_IS_EMBEDDED
+				Tcl_FindExecutable(cexe);
+
+				if (set_var)
+					SetEnvironmentVariableW(L"TCL_LIBRARY", NULL);
+#else
+				Tcl_FindExecutable(PyBytes_AS_STRING(cexe));
+#endif	// MS_WINDOWS
+			}
+		}
+	}
+
+	inline int Tcl_EvalObjv(Tcl_Interp* interp, const std::vector<Tcl_Obj>& objects, int flags)
+	{
+		auto objs = objects | std::views::transform(&Tcl_Obj::get) | std::ranges::to<std::vector>();
+		return ::Tcl_EvalObjv(interp, objs.size(), objs.data(), flags);
+	}
+
+	inline Tcl_Obj Tcl_NewListObj(const std::vector<Tcl_Obj>& objects)
+	{
+		auto objs = objects | std::views::transform(&Tcl_Obj::get) | std::ranges::to<std::vector>();
+		return Tcl_Obj(::Tcl_NewListObj(objs.size(), objs.data()));
+	}
+
+	inline std::string Tkapp_UnicodeResult(TkappObject* self);
 
 #ifdef NDEBUG
 	inline TclError Tkinter_Error(TkappObject* self)
@@ -410,13 +527,43 @@ namespace cpptkinter::_cpptkinter
 	}
 #endif // NDEBUG
 
-	void Tkapp_ThreadSend(TkappObject* self, Tcl_Event* ev, Tcl_Condition* cond, Tcl_Mutex* mutex) noexcept;
-	void EnableEventHook();
-	void DisableEventHook();
-	int WaitForMainloop(TkappObject* self);
+	/// @brief Convert a Tcl_Obj to a bool.
+	///
+	/// @param value The Tcl_Obj to convert.
+	inline bool fromBoolean(TkappObject* tkapp, const Tcl_Obj& value);
+	/// @brief Convert a Tcl_Obj to a long long.
+	///
+	/// @param value The Tcl_Obj to convert.
+	inline long long fromWideIntObj(TkappObject* tkapp, const Tcl_Obj& value);
 
-	std::shared_ptr<TkappObject> create(const std::string& screenName = {}, const std::string& baseName = {}, const std::string& className = "Tk",
-		bool interactive = false, bool wantTk = true, bool sync = false, const std::string& use = "");
+	/// @brief Convert a Tcl_Obj to a string.
+	///
+	/// @param value The Tcl_Obj to convert.
+	inline std::string unicodeFromTclObj(TkappObject* tkapp, const Tcl_Obj& value)
+	{
+		DEVIATING_IMPLEMENTATION_WARNING("original converts to and returns python unicode string using unicodeFromTclStringAndSize");
+		const char* str = Tcl_GetString(value);
+		if (str == nullptr)
+			throw Tkinter_Error(tkapp);
+		return str;
+	}
+
+	inline void Tkapp_ThreadSend(TkappObject* self, Tcl_Event* ev, Tcl_Condition* cond, Tcl_Mutex* mutex) noexcept;
+	inline void EnableEventHook()
+	{
+		DEVIATING_IMPLEMENTATION_WARNING("original: something with python input hook, not applicable to c++");
+	}
+	inline void DisableEventHook()
+	{
+		DEVIATING_IMPLEMENTATION_WARNING("see EnableEventHook() for explanation");
+	}
+	inline int WaitForMainloop(TkappObject* self);
+
+	inline std::shared_ptr<TkappObject> create(const std::string& screenName = {}, const std::string& baseName = {}, const std::string& className = "Tk",
+		bool interactive = false, bool wantTk = true, bool sync = false, const std::string& use = "")
+	{
+		return std::make_shared<TkappObject>(screenName, className, interactive, wantTk, sync, use);
+	}
 
 	void Tkapp_Trace(TkappObject* self, const auto&...args);
 
@@ -461,7 +608,7 @@ namespace cpptkinter::_cpptkinter
 	/// @brief Modify the value of a tcl variable. If the variable doesn't exist, it will be created.
 	void SetVar(TkappObject* self, const std::string& arg1, const std::string& arg2, const detail::AsObjConcept auto& arg3, int flags);
 
-	void UnsetVar(TkappObject* self, const std::string& arg1, const std::string& arg2, int flags);
+	inline void UnsetVar(TkappObject* self, const std::string& arg1, const std::string& arg2, int flags);
 
 	template<typename Func>
 		requires requires { typename std::packaged_task<Func>; }
@@ -524,8 +671,14 @@ namespace cpptkinter::_cpptkinter
 		requires requires { typename std::packaged_task<Func>; }
 	using VarEvent = detail::TclBaseEvent<Func>;
 
-	const char* varname_converter(const std::string& arg);
-	const char* varname_converter(const Tcl_Obj& arg);
+	inline const char* varname_converter(const std::string& arg)
+	{
+		return arg.data();
+	}
+	inline const char* varname_converter(const Tcl_Obj& arg)
+	{
+		return Tcl_GetString(arg);
+	}
 
 	template<typename T>
 	int var_proc(Tcl_Event* evPtr, int flags) noexcept
@@ -682,7 +835,103 @@ namespace cpptkinter::_cpptkinter
 		[[deprecated]] const Tcl_ObjType* UTF32StringType;
 
 		//TkappObject() = default;
-		TkappObject(const std::string& screenName, std::string className, int interactive, int wantTk, int sync, const std::string& use);
+		TkappObject(const std::string& screenName, std::string className, int interactive, int wantTk, int sync, const std::string& use)
+		{
+			this->interp = Tcl_CreateInterp();
+			this->threaded = Tcl_GetVar2Ex(this->interp, "tcl_platform", "threaded", TCL_GLOBAL_ONLY) != nullptr;
+			this->thread_id = Tcl_GetCurrentThread();
+
+#ifndef TCL_THREADS
+			if (this->threaded)
+				throw detail::construct_exception<TclError>("Tcl is threaded but _tkinter is not");
+#endif
+
+			/* If Tcl is threaded, we don't need the lock. */
+			if (this->threaded && tcl_lock.has_value())
+				tcl_lock.reset();
+
+			// Tcl 8.5 "booleanString" type is not registered and is renamed to "boolean" in Tcl 9.0. Based on approach suggested at https://core.tcl-lang.org/tcl/info/3bb3bcf2da5b
+			auto value = Tcl_NewStringObj("true", -1);
+			int boolValue{};
+			Tcl_GetBooleanFromObj(NULL, value, &boolValue);
+			this->BooleanType = value->typePtr;
+
+			// "bytearray" type is not registered in Tcl 9.0
+			value = Tcl_NewByteArrayObj(NULL, 0);
+			this->ByteArrayType = value->typePtr;
+
+			this->DoubleType = Tcl_GetObjType("double");
+			/* TIP 484 suggests retrieving the "int" type without Tcl_GetObjType("int") since it is no longer registered in Tcl 9.0. But even though Tcl 8.7
+			   only uses the "wideInt" type on platforms with 32-bit long, it still has a registered "int" type, which FromObj() should recognize just in case.*/
+			this->IntType = Tcl_GetObjType("int");
+			if (this->IntType == nullptr)
+			{
+				auto value = Tcl_Obj(Tcl_NewIntObj(0));
+				this->IntType = value->typePtr;
+			}
+			this->DictType = Tcl_GetObjType("dict");
+			this->ListType = Tcl_GetObjType("list");
+			this->StringType = Tcl_GetObjType("string");
+
+			this->OldBooleanType = Tcl_GetObjType("boolean");
+			this->WideIntType = Tcl_GetObjType("wideInt");
+			this->BignumType = Tcl_GetObjType("bignum");
+			this->UTF32StringType = Tcl_GetObjType("utf32string");
+
+
+			Tcl_DeleteCommand(this->interp, "exit");
+
+			if (!screenName.empty())
+				Tcl_SetVar2(this->interp, "env", "DISPLAY", screenName.data(), TCL_GLOBAL_ONLY);
+
+			if (interactive)
+				Tcl_SetVar(this->interp, "tcl_interactive", "1", TCL_GLOBAL_ONLY);
+			else
+				Tcl_SetVar(this->interp, "tcl_interactive", "0", TCL_GLOBAL_ONLY);
+
+			if (std::isupper(className.at(0)))
+				className.at(0) = std::toupper(className.at(0));
+			Tcl_SetVar(this->interp, "argv0", className.c_str(), TCL_GLOBAL_ONLY);
+
+			if (!wantTk)
+				Tcl_SetVar(this->interp, "_tkinter_skip_tk_init", "1", TCL_GLOBAL_ONLY);
+
+			// some initial arguments need to be in argv
+			if (sync || !use.empty())
+			{
+				std::string args{};
+				if (sync)
+					args += "-sync";
+				if (!use.empty())
+				{
+					if (sync)
+						args += " ";
+					args += "-use ";
+					args += use;
+				}
+
+				Tcl_SetVar(this->interp, "argv", args.c_str(), TCL_GLOBAL_ONLY);
+			}
+
+#ifdef MS_WINDOWS
+#if !TCL_CORE_LIBRARY_IS_EMBEDDED
+			DWORD ret = GetEnvironmentVariableA("TCL_LIBRARY", NULL, 0);
+			if (!ret && GetLastError() == ERROR_ENVVAR_NOT_FOUND)
+			{
+				auto str_path = detail::_get_tcl_lib_path();
+				Tcl_SetVar(this->interp, "tcl_library", str_path.c_str(), TCL_GLOBAL_ONLY);
+			}
+#endif	// !TCL_CORE_LIBRARY_IS_EMBEDDED
+#endif	// MS_WINDOWS
+
+			if (Tcl_AppInit(this->interp) != TCL_OK)
+				throw Tkinter_Error(this);
+
+			// get the "window" type ptr
+			this->WindowType = Tcl_GetObjType("window");
+
+			EnableEventHook();
+		}
 
 		void wilddispatch();
 		//void wantobjects();
@@ -693,7 +942,10 @@ namespace cpptkinter::_cpptkinter
 		{
 			this->trace = std::forward<Func>(func);
 		}
-		decltype(trace)& gettrace();
+		decltype(trace)& gettrace()
+		{
+			return this->trace;
+		}
 
 		/// @brief This is the main entry point for calling a Tcl command.
 		/// 
@@ -789,8 +1041,14 @@ namespace cpptkinter::_cpptkinter
 		{
 			return var_invoke([&]()->decltype(auto) { return GetVar<R>(this, arg1, arg2, TCL_LEAVE_ERR_MSG | TCL_GLOBAL_ONLY); }, this);
 		}
-		void unsetvar(const std::string& arg1, const std::string& arg2 = {});
-		void globalunsetvar(const std::string& arg1, const std::string& arg2 = {});
+		void unsetvar(const std::string& arg1, const std::string& arg2 = {})
+		{
+			var_invoke([&]() { UnsetVar(this, arg1, arg2, TCL_LEAVE_ERR_MSG); }, this);
+		}
+		void globalunsetvar(const std::string& arg1, const std::string& arg2 = {})
+		{
+			var_invoke([&]() { UnsetVar(this, arg1, arg2, TCL_LEAVE_ERR_MSG | TCL_GLOBAL_ONLY); }, this);
+		}
 
 		void getint();
 		void getdouble();
@@ -800,7 +1058,22 @@ namespace cpptkinter::_cpptkinter
 		void exprlong();
 		void exprdouble();
 		void exprboolean();
-		std::vector<std::string> splitlist(const std::string& s);
+		std::vector<std::string> splitlist(const std::string& s)
+		{
+			auto self = this;
+			Tcl_Size argc{};
+			const char** argv{};
+
+			auto del = [](const char*** argv) { ckfree(*argv); };
+			std::unique_ptr<const char**, decltype(del)> ptr{ nullptr, del };
+
+			if (Tcl_SplitList(Tkapp_Interp(self), s.c_str(), &argc, &argv) == TCL_ERROR)
+				throw Tkinter_Error(self);
+
+			ptr.reset(&argv);
+
+			return std::vector<std::string>(argv, argv + argc);
+		}
 		template<detail::createcommand_concept Func>
 		void createcommand(const std::string& name, Func&& func)
 		{
@@ -847,15 +1120,122 @@ namespace cpptkinter::_cpptkinter
 				LEAVE_TCL;
 			}
 		}
-		void deletecommand(const std::string& name);
+		void deletecommand(const std::string& name)
+		{
+			auto self = this;
+			int err = 0;
+
+			TRACE(self, ("((sss))", "rename", name, ""));
+
+			if (self->threaded && self->thread_id != Tcl_GetCurrentThread())
+			{
+				auto buffer = (CommandEvent*)attemptckalloc(sizeof(CommandEvent));
+				if (buffer == nullptr)
+					throw detail::construct_exception<TclError>("attemptckalloc failed to allocate memory");
+
+				Tcl_Condition cond = NULL;
+				auto&& ev = *std::construct_at(static_cast<CommandEvent*>(buffer));
+
+				// have to specify PythonCmd_ClientData<...>:: here because of how createcommand works
+				ev.proc = PythonCmd_ClientData<void>::Tkapp_CommandProc;
+				ev.interp = self->interp;
+				ev.create = 0;
+				ev.name = name;
+				ev.status = &err;
+				ev.done = &cond;
+				Tkapp_ThreadSend(self, &ev, &cond, &command_mutex);
+				Tcl_ConditionFinalize(&cond);
+			}
+			else
+			{
+				ENTER_TCL;
+				err = Tcl_DeleteCommand(self->interp, name.data());
+				LEAVE_TCL;
+			}
+
+			if (err == -1)
+				throw detail::construct_exception<TclError>(std::format("can't delete Tcl command '{}'", name));
+		}
 		void createfilehandler();
 		void deletefilehandler();
 		void createtimerhandler();
-		void mainloop(int threshold = 0);
+		void mainloop(int threshold = 0)
+		{
+			auto self = this;
+
+			CHECK_TCL_APPARTMENT;
+			self->dispatching = 1;
+
+			quitMainLoop = 0;
+			while (Tk_GetNumMainWindows() > threshold && !quitMainLoop && !errorInCmd)
+			{
+				int result;
+
+				if (self->threaded)
+				{
+					// Allow other Python threads to run.
+					ENTER_TCL;
+					result = Tcl_DoOneEvent(0);
+					LEAVE_TCL;
+				}
+				else
+				{
+					{
+						auto mutex_adapter = utility::optional_mutex_adaptor(tcl_lock);
+						auto lock = std::scoped_lock(mutex_adapter);
+
+						result = Tcl_DoOneEvent(TCL_DONT_WAIT);
+					}
+
+					if (result == 0)
+						Sleep(Tkinter_busywaitinterval);
+				}
+
+				DEVIATING_IMPLEMENTATION_WARNING("original handles python signals with PyErr_CheckSignals");
+
+				if (result < 0)
+					break;
+			}
+			self->dispatching = 0;
+			quitMainLoop = 0;
+
+			if (errorInCmd)
+			{
+				errorInCmd = 0;
+				auto intermediate = excInCmd;
+				excInCmd = nullptr;
+				std::rethrow_exception(intermediate);
+			}
+		}
 		void dooneevent();
-		void quit();
+		void quit()
+		{
+			quitMainLoop = 1;
+		}
 		void interpaddr();
-		void loadtk();
+		void loadtk()
+		{
+			auto self = this;
+
+			Tcl_Interp* interp = Tkapp_Interp(self);
+			const char* _tk_exists;
+
+			/* We want to guard against calling Tk_Init() multiple times */
+			CHECK_TCL_APPARTMENT;
+			ENTER_TCL;
+			int err = Tcl_Eval(Tkapp_Interp(self), "info exists     tk_version");
+			ENTER_OVERLAP;
+			if (err == TCL_ERROR)
+				throw Tkinter_Error(self);
+			else
+				_tk_exists = Tcl_GetStringResult(Tkapp_Interp(self));
+
+			LEAVE_OVERLAP_TCL;
+
+			if (_tk_exists == nullptr || _tk_exists != std::string_view("1"))
+				if (Tk_Init(interp) == TCL_ERROR)
+					throw Tkinter_Error(self);
+		}
 	};
 
 
@@ -964,39 +1344,39 @@ namespace cpptkinter::_cpptkinter
 
 		DEVIATING_IMPLEMENTATION_WARNING("original calls Tkapp_CallDeallocArgs, raii's dtor handles that for us");
 	}
+}
 
-	template<typename Func>
-	std::invoke_result_t<Func&&> var_invoke(Func&& func, TkappObject* self)
+template<typename Func>
+std::invoke_result_t<Func&&> cpptkinter::_cpptkinter::var_invoke(Func&& func, TkappObject* self)
+{
+	DEVIATING_IMPLEMENTATION_WARNING("major changes");
+
+	if (self->threaded && self->thread_id != Tcl_GetCurrentThread())
 	{
-		DEVIATING_IMPLEMENTATION_WARNING("major changes");
+		using FuncType = std::invoke_result_t<Func&&>();
+		using VarEventType = VarEvent<FuncType>;
 
-		if (self->threaded && self->thread_id != Tcl_GetCurrentThread())
-		{
-			using FuncType = std::invoke_result_t<Func&&>();
-			using VarEventType = VarEvent<FuncType>;
+		// The current thread is not the interpreter thread. Marshal the call to the interpreter thread, then wait for completion.
+		if (!WaitForMainloop(self))
+			throw detail::construct_exception<std::runtime_error>("impossible");
 
-			// The current thread is not the interpreter thread. Marshal the call to the interpreter thread, then wait for completion.
-			if (!WaitForMainloop(self))
-				throw detail::construct_exception<std::runtime_error>("impossible");
+		auto buffer = attemptckalloc(sizeof(VarEventType));
+		if (buffer == NULL)
+			throw detail::construct_exception<TclError>("attemptckalloc failed to allocate memory");
 
-			auto buffer = attemptckalloc(sizeof(VarEventType));
-			if (buffer == NULL)
-				throw detail::construct_exception<TclError>("attemptckalloc failed to allocate memory");
+		Tcl_Condition cond = NULL;
+		auto&& ev = *std::construct_at(static_cast<VarEventType*>(buffer), var_proc<FuncType>, std::packaged_task(std::move(func)), &cond);
+		auto future = ev.task.get_future();
 
-			Tcl_Condition cond = NULL;
-			auto&& ev = *std::construct_at(static_cast<VarEventType*>(buffer), var_proc<FuncType>, std::packaged_task(std::move(func)), &cond);
-			auto future = ev.task.get_future();
+		Tkapp_ThreadSend(self, &ev, ev.cond, &var_mutex);
+		Tcl_ConditionFinalize(ev.cond);
 
-			Tkapp_ThreadSend(self, &ev, ev.cond, &var_mutex);
-			Tcl_ConditionFinalize(ev.cond);
-
-			ANNOTATION_WARNING("maybe the usage of Tcl_Condition and mutex is unnecessary because future.get() waits anyways");
-			return future.get();
-		}
-		else
-		{
-			return func();
-		}
+		ANNOTATION_WARNING("maybe the usage of Tcl_Condition and mutex is unnecessary because future.get() waits anyways");
+		return future.get();
+	}
+	else
+	{
+		return func();
 	}
 }
 
@@ -1142,5 +1522,208 @@ namespace cpptkinter::_cpptkinter::detail
 	}
 }
 
+std::string cpptkinter::_cpptkinter::detail::Tcl_Obj_to_string_impl(TkappObject* tkapp, ::Tcl_Obj* value)
+{
+	if (!value->typePtr)
+		return std::format("(unknown type)'{}'", Tcl_GetString(value));
+	else if (!value->typePtr->name)
+		throw construct_exception<TclError>(std::format("Tcl_Obj->typePtr->name is nullptr (Tcl_GetString: {})", Tcl_GetString(value)));
+	else
+	{
+		std::string result{};
 
+		if (value->typePtr == tkapp->DictType)
+		{
+			Tcl_Interp* interp = Tkapp_Interp(tkapp);
+			Tcl_DictSearch search{};
+			::Tcl_Obj* keyPtr, * valuePtr;
+			int done{};
+			if (Tcl_DictObjFirst(interp, value, &search, &keyPtr, &valuePtr, &done) != TCL_OK)
+				throw Tkinter_Error(tkapp);
+
+			result += value->typePtr->name;
+			result += "{ ";
+
+			while (!done) {
+				result += Tcl_Obj_to_string_impl(tkapp, keyPtr) + " : " + Tcl_Obj_to_string_impl(tkapp, valuePtr) + ", ";
+
+				Tcl_DictObjNext(&search, &keyPtr, &valuePtr, &done);
+			}
+
+			Tcl_DictObjDone(&search);
+
+			result += "}";
+		}
+		else if (value->typePtr == tkapp->ListType)
+		{
+			Tcl_Interp* interp = Tkapp_Interp(tkapp);
+			Tcl_Size size{};
+			if (Tcl_ListObjLength(interp, value, &size) == TCL_ERROR)
+				throw Tkinter_Error(tkapp);
+
+			result += value->typePtr->name;
+			result += "[ ";
+
+			for (Tcl_Size i = 0; i < size; i++)
+			{
+				::Tcl_Obj* tcl_elem{};
+				if (Tcl_ListObjIndex(interp, value, i, &tcl_elem) == TCL_ERROR)
+					throw Tkinter_Error(tkapp);
+				result += Tcl_Obj_to_string_impl(tkapp, tcl_elem);
+				if (i != size - 1)
+					result += ", ";
+			}
+
+			result += "]";
+		}
+		else
+		{
+			result += std::format("({})'{}'", value->typePtr->name, Tcl_GetString(value));
+		}
+		return result;
+	}
+}
+
+bool cpptkinter::_cpptkinter::fromBoolean(TkappObject* tkapp, const Tcl_Obj& value)
+{
+	int boolValue{};
+	if (Tcl_GetBooleanFromObj(Tkapp_Interp(tkapp), value, &boolValue) == TCL_ERROR)
+		throw Tkinter_Error(tkapp);
+
+	return bool(boolValue);
+}
+
+std::string cpptkinter::_cpptkinter::Tkapp_UnicodeResult(TkappObject* self)
+{
+	DEVIATING_IMPLEMENTATION_WARNING("original calls unicodeFromTclObj but we cant do that bc of infinite recursion (Tkapp_UnicodeResult->unicodeFromTclObj->Tkinter_Error->Tkapp_UnicodeResult)");
+
+	const char* str = Tcl_GetString(Tcl_GetObjResult(self->interp));
+	if (str == nullptr)
+		throw detail::construct_exception<TclError>("Tcl_GetString returned nullptr");
+	return str;
+}
+
+void cpptkinter::_cpptkinter::Tkapp_ThreadSend(TkappObject* self, Tcl_Event* ev, Tcl_Condition* cond, Tcl_Mutex* mutex) noexcept
+{
+	Tcl_MutexLock(mutex);
+	Tcl_ThreadQueueEvent(self->thread_id, ev, TCL_QUEUE_TAIL);
+	Tcl_ThreadAlert(self->thread_id);
+	Tcl_ConditionWait(cond, mutex, NULL);
+	Tcl_MutexUnlock(mutex);
+}
+
+long long cpptkinter::_cpptkinter::fromWideIntObj(TkappObject* tkapp, const Tcl_Obj& value)
+{
+	long long wideValue;
+	if (Tcl_GetWideIntFromObj(Tkapp_Interp(tkapp), value, &wideValue) == TCL_OK)
+		return wideValue;
+
+	throw Tkinter_Error(tkapp);
+}
+
+int cpptkinter::_cpptkinter::WaitForMainloop(TkappObject* self)
+{
+	for (int i = 0; i < 10; i++)
+	{
+		if (self->dispatching)
+			return 1;
+
+		Sleep(100);
+	}
+
+	if (self->dispatching)
+		return 1;
+
+	throw detail::construct_exception<std::runtime_error>("main thread is not in main loop");
+}
+
+std::optional<std::string> cpptkinter::_cpptkinter::detail::FromObjImpl(TkappObject* tkapp, const Tcl_Obj& value, std::type_identity<std::string>)
+{
+	if (value->typePtr == nullptr
+		|| (value->typePtr == tkapp->StringType && tkapp->StringType)
+		|| (value->typePtr == tkapp->UTF32StringType && tkapp->UTF32StringType))
+		return unicodeFromTclObj(tkapp, value);
+	return {};
+}
+
+std::optional<bool> cpptkinter::_cpptkinter::detail::FromObjImpl(TkappObject* tkapp, const Tcl_Obj& value, std::type_identity<bool>)
+{
+	if ((value->typePtr == tkapp->BooleanType && tkapp->BooleanType)
+		|| (value->typePtr == tkapp->OldBooleanType && tkapp->OldBooleanType))
+		return fromBoolean(tkapp, value);
+	return {};
+}
+
+std::optional<cpptkinter::_cpptkinter::byte_array> cpptkinter::_cpptkinter::detail::FromObjImpl(TkappObject* tkapp, const Tcl_Obj& value, std::type_identity<byte_array>)
+{
+	if (value->typePtr == tkapp->ByteArrayType && tkapp->ByteArrayType)
+	{
+		Tcl_Size size{};
+		auto data = Tcl_GetByteArrayFromObj(value, &size);
+		return byte_array(reinterpret_cast<std::byte*>(data), reinterpret_cast<std::byte*>(data + size));
+	}
+	return {};
+}
+
+std::optional<double> cpptkinter::_cpptkinter::detail::FromObjImpl(TkappObject* tkapp, const Tcl_Obj& value, std::type_identity<double>)
+{
+	if (value->typePtr == tkapp->DoubleType && tkapp->DoubleType)
+		return value->internalRep.doubleValue;
+	return {};
+}
+
+std::optional<long long> cpptkinter::_cpptkinter::detail::FromObjImpl(TkappObject* tkapp, const Tcl_Obj& value, std::type_identity<long long>)
+{
+	DEVIATING_IMPLEMENTATION_WARNING("original has special handling for tkapp->BignumType");
+
+	if ((value->typePtr == tkapp->IntType && tkapp->IntType)
+		|| (value->typePtr == tkapp->WideIntType && tkapp->WideIntType)
+		|| (value->typePtr == tkapp->BignumType && tkapp->BignumType))
+		return fromWideIntObj(tkapp, value);
+
+	return {};
+}
+
+std::optional<cpptkinter::_cpptkinter::tk_window_type> cpptkinter::_cpptkinter::detail::FromObjImpl(TkappObject* tkapp, const Tcl_Obj& ptr, std::type_identity<tk_window_type>)
+{
+	if (ptr->typePtr == tkapp->WindowType && tkapp->WindowType)
+		return { tk_window_type(ptr) };
+	return {};
+}
+
+std::optional<cpptkinter::_cpptkinter::Tcl_Obj> cpptkinter::_cpptkinter::detail::FromObjImpl(TkappObject* tkapp, const Tcl_Obj& ptr, std::type_identity<Tcl_Obj>)
+{
+	return ptr;
+}
+
+void cpptkinter::_cpptkinter::UnsetVar(TkappObject* self, const std::string& arg1, const std::string& arg2, int flags)
+{
+	auto name1 = arg1.data();
+	const char* name2 = arg2.empty() ? nullptr : arg2.data();
+
+	if (self->trace)
+	{
+		if (flags & TCL_GLOBAL_ONLY)
+		{
+			if (name2)
+				TRACE((TkappObject*)self, ("((sssN))", "uplevel", "#0", "unset", std::format("{}({})", name1, name2)));
+			else
+				TRACE((TkappObject*)self, ("((ssss))", "uplevel", "#0", "unset", name1));
+		}
+		else
+		{
+			if (name2)
+				TRACE((TkappObject*)self, ("((sN))", "unset", std::format("{}({})", name1, name2)));
+			else
+				TRACE((TkappObject*)self, ("((ss))", "unset", name1));
+		}
+	}
+
+	ENTER_TCL;
+	int code = Tcl_UnsetVar2(Tkapp_Interp(self), name1, name2, flags);
+	ENTER_OVERLAP;
+	if (code == TCL_ERROR)
+		throw Tkinter_Error(self);
+	LEAVE_OVERLAP_TCL;
+}
 
