@@ -1,11 +1,14 @@
-#pragma once
-#include "global.hpp"
+﻿module;
+#include "hhh/misc.hpp"
+export module cpptkinter:constants;
+import std;
 
 #define BOOL_CONSTANT(name) constexpr int name = 0
-#define STRING_CONSTANT(name) inline const std::string name = hhh::misc::to_lower(#name)
-#define STRING_CONSTANT2(name, value) inline const std::string name = value
+#define STRING_CONSTANT(name) const std::string name = hhh::misc::to_lower(#name)
+#define STRING_CONSTANT2(name, value) const std::string name = value
 
-namespace cpptkinter::constants
+
+export namespace cpptkinter::constants
 {
 	BOOL_CONSTANT(NO);
 	BOOL_CONSTANT(YES);
@@ -86,6 +89,6 @@ namespace cpptkinter::constants
 	STRING_CONSTANT(PAGES);
 }
 
-#undef BOOL_CONSTANT
-#undef STRING_CONSTANT
-#undef STRING_CONSTANT2
+//#undef BOOL_CONSTANT
+//#undef STRING_CONSTANT
+//#undef STRING_CONSTANT2

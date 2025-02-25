@@ -1,29 +1,14 @@
 ﻿#pragma once
 
-#define NOMINMAX
 
-#include <ranges>
-#include <mutex>
-#include <optional>
-#include <vector>
-#include <map>
-#include <set>
-#include <future>
-#include <stacktrace>
-#include <print>
-#include <variant>
-#include <algorithm>
-#include <print>
+//#include <reflect/reflect.hpp>
+//#include <rfl.hpp>
 
-#include "tk.h"
-
-#include <reflect/reflect.hpp>
-#include <rfl.hpp>
-
-#include "hhh/meta.hpp"
-#include "hhh/misc.hpp"
+//#include "hhh/meta.hpp"
+//#include "hhh/misc.hpp"
 //using namespace hhh;
 
+import std;
 //#pragma comment(lib, "tcl90s.lib")
 //#pragma comment(lib, "tcl9tk90s.lib")
 #pragma comment(lib, "tcl9tk90.lib")
@@ -61,5 +46,3 @@
 #ifdef _WIN32
 #define MS_WINDOWS	// defined in pyconfig.h
 #endif
-
-static_assert(std::same_as<Tcl_WideInt, long long>);

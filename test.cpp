@@ -1,34 +1,33 @@
 ﻿
-#include "cpptkinter.hpp"
+import std;
+//import cpptkinter;
+//import constants;
+//import utility;
+//import _cpptkinter;
+import cpptkinter;
 #include "vld.h"
+#include "hhh/misc.hpp"
 
 using namespace hhh;
 namespace tk = cpptkinter;
-namespace _tk = tk::_cpptkinter;
 
 
+/*
+to-do
 
+*/
 
 int main(int argc, char* argv[])
 {
     tk::init(argc, argv);
     tk::detail::_debug = false;
 
-    tk::detail::to_index("");
-    tk::detail::to_index(1);
-    tk::detail::to_index(1ll);
-    tk::detail::to_index(std::string());
 
-
-    /*
-    to-do
-
-    */
 
 
 	tk::utility::weak<tk::Tk> wroot;
 
-    try
+    /*try
     {
         auto root = tk::Tk();
         root.title("Welcome to GeeksForGeeks");
@@ -118,7 +117,7 @@ int main(int argc, char* argv[])
 
     } catch (const std::exception& ex) { std::println("exception type: {}\n{}", typeid(ex).name(), ex.what()); }
 
-    misc::printl("wroot.use_count() ", wroot.use_count());
+    misc::printl("wroot.use_count() ", wroot.use_count());*/
 
     return 0;
 }

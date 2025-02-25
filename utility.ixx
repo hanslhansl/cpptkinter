@@ -1,15 +1,15 @@
-﻿#pragma once
+﻿module;
 #include "global.hpp"
+#include "hhh/meta.hpp"
+#include "hhh/misc.hpp"
+#include <reflect/reflect.hpp>
+export module cpptkinter:utility;
+import std;
 
 
-/// @brief Implementation of the Python module tkinter in C++.
-namespace cpptkinter
-{
-    class Misc;
-}
 
 /// @brief Utilities that aren't related to Python's tkinter or _tkinter.
-namespace cpptkinter::utility
+export namespace cpptkinter::utility
 {
     namespace detail
     {
@@ -28,6 +28,10 @@ namespace cpptkinter::utility
     /// @brief Checks if T is std::vector.
     template<typename T>
     concept is_vector = hhh::meta::is_template_instance<T, std::vector>;
+
+    /// @brief Concept for ranges of types convertible to T.
+    template<typename R, typename To>
+    concept range_of_convertible_to = std::ranges::range<R> && std::convertible_to<std::ranges::range_value_t<R>, To>;
 
     namespace detail
     {
