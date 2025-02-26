@@ -13,8 +13,6 @@ import std;
 /// @file cpptkinter.hpp
 /// @brief Implements __init__.py.
 
-#define COMMA ,
-
 #define REF_TO_IMPL(member) decltype(impl::member)& member
 
 #define DEFINE_ASSIGNMENT_OPERATOR(cl) \

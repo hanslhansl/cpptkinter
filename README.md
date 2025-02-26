@@ -106,7 +106,7 @@ The dependencies are
 - [qlibs/reflect](https://github.com/qlibs/reflect) (until _c++26_ reflection)
 - [getml/reflect-cpp](https://github.com/getml/reflect-cpp) (because _qlibs/reflect_ is missing features)
 
-_Tcl/tk_ can be built from source but third-party binaries exist as well. Make sure that you get the _tcl/tk_ library binaries (e.g. .dll, .lib, .so, .a). The _tcl_ executable isn't required. Both static as well as dynamic linking can be used (though I haven't gotten static linking to work on my machine yet).
+_Tcl/tk_ can be [built from source](https://www.tcl-lang.org/doc/howto/compile.html) but [third-party binaries](https://www.tcl-lang.org/software/tcltk/bindist.html) exist as well. Make sure that you get the _tcl/tk_ library binaries (e.g. .dll, .lib, .so, .a). The _tcl_ executable isn't required. Both static as well as dynamic linking can be used (though I haven't gotten static linking to work on my machine yet).
 
 The other dependencies and _cpptkinter_ itself need to be compiled as part of your project. Most of the functionality is templated so precompiling these wouldn't be useful anyways.
 
