@@ -10,6 +10,10 @@
 - [simple example](#simple-example)
 - [building](#building)
 - [current state of the project](#current-state-of-the-project)
+## philosophy
+The goal is to provide a library which mirrors _tkinter's_ api as closely as possible. This requires a plethora of meta programming and other shenanigans which makes this project a rather academic approach to gui programming.
+
+Nevertheless, it is definitely usable in real life code. See [simple example](#simple-example) and [more elaborate examples](examples).
 ## terminology
 To prevent misunderstandings the following terms are defined as
 - _tcl_: the [scripting language](https://en.wikipedia.org/wiki/Tcl)
@@ -23,10 +27,6 @@ To prevent misunderstandings the following terms are defined as
 The terminology applies to this file, the documentation and source code annotations.
 
 It does **not** apply to the naming of code entities. E.g. `tkinter.Tk` and `cpptkinter::Tk` are classes that represent a root window in _python_ and _c++_ respectively. They don't refer to the gui toolkit _tk_ itself.
-## philosophy
-The goal is to provide a library which mirrors _tkinter's_ api as closely as possible. This requires a plethora of meta programming and other shenanigans which makes this project a rather academic approach to gui programming.
-
-Nevertheless, it is definitely usable in real life code. See [simple example](#simple-example) and [more elaborate examples](examples).
 ## design decisions
 _Python_ provides syntax and language features which can't easily be translated to _c++_. This section explains how _cpptkinter_ tries to implement them.
 ### keyword arguments
