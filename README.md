@@ -1,4 +1,5 @@
-﻿Have you ever wanted to use _python's_ tkinter in _c++_? No? Well, here you go anyways.
+# cpptkinter
+ Have you ever wanted to use _python's_ tkinter in _c++_? No? Well, here you go anyways.
 - [terminology](#terminology)
 - [philosophy](#philosophy)
 - [design decisions](#design-decisions)
