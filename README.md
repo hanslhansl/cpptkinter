@@ -75,7 +75,7 @@ Some _cpptkinter_ functions take arguments which are passed on to _tcl_ and some
 
 `cpptkinter::_cpptkinter::detail::FromObjImpl()` and `cpptkinter::_cpptkinter::detail::AsObjImpl()` can be overloaded to add support for additional types. However, if added overloads change the outcome of argument-dependent lookup at existing call sites the library might break.
 ### thread safety
-In _tcl_ execution revolves around _interpreters_. _Tkinter_ adheres to this this structure and so does _cpptkinter_. In _cpptkinter_ a _tcl_ interpreter is represented by an instance of `cpptkinter::Tk`. Every instance has its own _tcl_ interpreter.
+In _tcl_ execution revolves around _interpreters_. _Tkinter_ adheres to this structure and so does _cpptkinter_. In _cpptkinter_ a _tcl_ interpreter is represented by an instance of `cpptkinter::Tk`. Every instance has its own _tcl_ interpreter.
 
 If _tcl_ was compiled with threads disabled _cpptkinter_ isn't thread-safe. Only the thread that created a _tcl_ interpreter can use that interpreter. Only the thread that created a particular instance of `cpptkinter::Tk` can use it or any of its children.
 
@@ -99,19 +99,16 @@ int main() {
 ```
 See [examples](examples) for more elaborate examples.
 ## building
-_Cpptkinter_ requires _c++23_. It is tested with _msvc_ and _clang_ on _windows_.
+_Cpptkinter_ is implemented as a _c++ module_ and can be consumed via `import cpptkinter;`. It requires _c++23_.
 
 The dependencies are
 - [tcl](https://github.com/tcltk/tcl)
 - [tk](https://github.com/tcltk/tk)
-- [qlibs/reflect](https://github.com/qlibs/reflect) (until _c++26_ reflection)
-- [getml/reflect-cpp](https://github.com/getml/reflect-cpp) (because _qlibs/reflect_ is missing features)
+- [qlibs/reflect](https://github.com/qlibs/reflect) (header only, will be replaced by _c++26 reflection_)
 
-_Tcl/tk_ can be [built from source](https://www.tcl-lang.org/doc/howto/compile.html) but [third-party binaries](https://www.tcl-lang.org/software/tcltk/bindist.html) exist as well. Make sure that you get the _tcl/tk_ library binaries (e.g. .dll, .lib, .so, .a). The _tcl_ executable isn't required. Both static as well as dynamic linking can be used (though I haven't gotten static linking to work on my machine yet).
+_Tcl/tk_ can be [built from source](https://www.tcl-lang.org/doc/howto/compile.html) but [third-party binaries](https://www.tcl-lang.org/software/tcltk/bindist.html) exist as well. Make sure to get the _tcl/tk_ library binaries (e.g. .dll, .lib, .so, .a). The _tcl_ executable isn't required. Both static as well as dynamic linking can be used (though I haven't gotten static linking to work on my machine yet).
 
-The other dependencies and _cpptkinter_ itself need to be compiled as part of your project. Most of the functionality is templated so precompiling these wouldn't be useful anyways.
-
-Add `#include cpptkinter.hpp` to your source files to use the library.
+_Cpptkinter_ is tested with _msvc_ on _windows_. Once _clang_ supports the necessary _c++23_ library features and _gcc_ supports _import std_ via _cmake_ I will test with these compilers as well.
 ## current state of the project
 - The three geometry managers, `pack`, `place` and `grid`, are implemented for all available widget classes.
 - `Variable`, `StringVar`, `IntVar`, `DoubleVar` and `BooleanVar` are implemtented.
