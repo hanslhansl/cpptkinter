@@ -99,7 +99,7 @@ int main() {
 ```
 See [examples](examples) for more elaborate examples.
 ## building
-_Cpptkinter_ is implemented as a _c++ module_ and can be consumed via `import cpptkinter;`. It requires _c++23_.
+_Cpptkinter_ is implemented as a _c++ module_ and can be consumed via `import cpptkinter`. It requires _c++23_.
 
 The dependencies are
 - [tcl](https://github.com/tcltk/tcl)
@@ -108,7 +108,7 @@ The dependencies are
 
 _Tcl/tk_ can be [built from source](https://www.tcl-lang.org/doc/howto/compile.html) but [third-party binaries](https://www.tcl-lang.org/software/tcltk/bindist.html) exist as well. Make sure to get the _tcl/tk_ library binaries (e.g. .dll, .lib, .so, .a). The _tcl_ executable isn't required. Both static as well as dynamic linking can be used (though I haven't gotten static linking to work on my machine yet).
 
-_Cpptkinter_ is tested with _msvc_ on _windows_. Once _clang_ supports the necessary _c++23_ library features and _gcc_ supports _import std_ via _cmake_ I will test with these compilers as well.
+_Cpptkinter_ is tested with _msvc_ on _windows_. Once _clang_ supports the necessary _c++23_ library features and _gcc_ supports `import std` via _cmake_ I will test with these compilers as well.
 ## current state of the project
 - The three geometry managers, `pack`, `place` and `grid`, are implemented for all available widget classes.
 - `Variable`, `StringVar`, `IntVar`, `DoubleVar` and `BooleanVar` are implemtented.
