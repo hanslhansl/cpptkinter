@@ -1,8 +1,8 @@
 # Adjust this!
 # libc++ Path
-set(LIBXX_DIR "F:/Paul/Computer/Programmieren/C++/llvm-mingw-20250212-ucrt-x86_64/x86_64-w64-mingw32")
+set(LIBXX_DIR "${CMAKE_SOURCE_DIR}/../llvm-mingw-20250212-ucrt-x86_64/x86_64-w64-mingw32")
 # Tcl/Tk Path
-set(TCLTK_DIR "F:/Paul/Computer/Programmieren/C++/tktcl")
+set(TCLTK_DIR "${CMAKE_SOURCE_DIR}/../tktcl")
 
 cmake_minimum_required(VERSION 3.29.5 FATAL_ERROR)
 
@@ -16,9 +16,9 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 Set(FETCHCONTENT_QUIET FALSE)
 
 # dont know why, vs generator complains about this
-#if (NOT (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU"))
+if (NOT (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU"))
     set(CMAKE_CXX_MODULE_STD ON)
-#endif()
+endif()
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     add_compile_options(/bigobj)
@@ -28,7 +28,7 @@ set(TCLTK_FULL_DIR "${TCLTK_DIR}/${CMAKE_CXX_COMPILER_ID}")
 
 # Include and link
 include_directories(${TCLTK_FULL_DIR}/include)
-include_directories(../)
+include_directories(../)    # for reflect
 link_directories(${TCLTK_FULL_DIR}/lib)
 
 include(FetchContent)
