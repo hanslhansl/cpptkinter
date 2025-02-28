@@ -2,7 +2,11 @@
 # libc++ Path
 set(LIBXX_DIR "F:/Paul/Computer/Programmieren/C++/llvm-mingw-20250212-ucrt-x86_64/x86_64-w64-mingw32")
 # Tcl/Tk Path
-set(TCLTK_DIR "F:/Paul/Computer/Programmieren/C++/tktcl/tcltk90-9.0.2.0.Win10.nightly.20250215")
+if (MSVC)
+    set(TCLTK_DIR "F:/Paul/Computer/Programmieren/C++/tktcl/tcltk90-9.0.2.0.Win10.nightly.20250215")
+else()
+    set(TCLTK_DIR "F:/Paul/Computer/Programmieren/C++/tktcl/build/v143/dynamic")
+endif()
 
 cmake_minimum_required(VERSION 3.29.5 FATAL_ERROR)
 
@@ -15,8 +19,13 @@ set(CMAKE_CXX_SCAN_FOR_MODULES ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 Set(FETCHCONTENT_QUIET FALSE)
 
+# dont know why, vs generator complains about this
 if (NOT "${CMAKE_GENERATOR}" MATCHES "Visual Studio")
     set(CMAKE_CXX_MODULE_STD ON)
+endif()
+
+if (MSVC)
+    add_compile_options(/bigobj)
 endif()
 
 # Include and link
@@ -42,7 +51,12 @@ target_link_libraries(cpptkinter hhh)
 target_compile_features(cpptkinter PUBLIC cxx_std_23)
 
 add_executable(test test.cpp)
-target_link_libraries(test cpptkinter hhh) #libtcl90 libtcl9tk90
+if (MSVC)
+    add_compile_options(/bigobj)
+    target_link_libraries(test cpptkinter hhh tcl90 tcl9tk90)
+else()
+    target_link_libraries(test cpptkinter hhh libtcl90 libtcl9tk90)
+endif()
 
 add_custom_command(TARGET test POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
