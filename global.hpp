@@ -39,7 +39,7 @@
 #endif
 
 #define ANNOTATION_WARNING(msg) CPPTKINTER_WARNING(msg)
-#define DEVIATING_IMPLEMENTATION_WARNING(msg) //CPPTKINTER_WARNING(msg)
+#define DEVIATING_IMPLEMENTATION_WARNING(msg) CPPTKINTER_WARNING(msg)
 
 #if !true
 #define NOT_IMPLEMENTED_ERROR static_assert(false, "not implemented")
