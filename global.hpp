@@ -8,11 +8,17 @@
 //#include "hhh/misc.hpp"
 //using namespace hhh;
 
-import std;
-//#pragma comment(lib, "tcl90s.lib")
-//#pragma comment(lib, "tcl9tk90s.lib")
+//import std;
+#if 1	// dynamic
 #pragma comment(lib, "tcl9tk90.lib")
 #pragma comment(lib, "tcl90.lib")
+#pragma comment(lib, "tommath.lib")
+#pragma comment(lib, "zdll.lib")
+#else	// static
+#pragma comment(lib, "tcl90s.lib")
+#pragma comment(lib, "tcl9tk90s.lib")
+#endif
+
 //#pragma comment(lib, "tclstub.lib")
 //#pragma comment(lib, "tkstub.lib")
 
@@ -29,11 +35,11 @@ import std;
 #if defined(_MSC_VER) && !defined(__clang__)
 #define CPPTKINTER_WARNING(msg) __pragma(warning(msg))
 #else
-#define CPPTKINTER_WARNING(msg) _Pragma(STRINGIFY(message msg))
+#define CPPTKINTER_WARNING(msg) _Pragma(msg)
 #endif
 
 #define ANNOTATION_WARNING(msg) CPPTKINTER_WARNING(msg)
-#define DEVIATING_IMPLEMENTATION_WARNING(msg) CPPTKINTER_WARNING(msg)
+#define DEVIATING_IMPLEMENTATION_WARNING(msg) //CPPTKINTER_WARNING(msg)
 
 #if !true
 #define NOT_IMPLEMENTED_ERROR static_assert(false, "not implemented")

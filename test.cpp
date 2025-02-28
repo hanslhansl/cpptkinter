@@ -1,12 +1,9 @@
-﻿
-import std;
-//import cpptkinter;
-//import constants;
-//import utility;
-//import _cpptkinter;
-import cpptkinter;
+﻿#ifndef NDEBUG
 #include "vld.h"
-#include "hhh/misc.hpp"
+#endif
+import std;
+import hhh;
+import cpptkinter;
 
 using namespace hhh;
 namespace tk = cpptkinter;
@@ -23,13 +20,12 @@ int main(int argc, char* argv[])
     tk::detail::_debug = false;
 
 
-
-
 	tk::utility::weak<tk::Tk> wroot;
 
-    /*try
+    try
     {
         auto root = tk::Tk();
+
         root.title("Welcome to GeeksForGeeks");
         root.geometry("700x500");
 
@@ -40,7 +36,7 @@ int main(int argc, char* argv[])
         auto menubar = tk::Menu({ root });
         auto filemenu = tk::Menu({ .master = menubar, .tearoff = 0 });
         filemenu.add_checkbutton({ .label = "1"});
-        filemenu.add_checkbutton({ .label = "cb" });
+        filemenu.add_checkbutton({ .label = "xfgj" });
         filemenu.add_checkbutton({ .label = "3" });
         filemenu.add_command({ .command = donothing, .label = "New" });
         filemenu.add_command({ .command = donothing, .label = "Open" });
@@ -90,7 +86,7 @@ int main(int argc, char* argv[])
         auto scale = tk::Scale({ .master = frame });
         scale.grid();
 
-        auto options_list = { "Option 1", "Option 2", "Option 3", "Option 4" };
+        std::vector options_list = { "Opt 1", "Opt 2", "Opt 3", "Opt 4" };
         auto value_inside = tk::StringVar();
         value_inside.set("Select an Option");
         auto question_menu = tk::OptionMenu(root, value_inside, options_list);
@@ -117,7 +113,7 @@ int main(int argc, char* argv[])
 
     } catch (const std::exception& ex) { std::println("exception type: {}\n{}", typeid(ex).name(), ex.what()); }
 
-    misc::printl("wroot.use_count() ", wroot.use_count());*/
+    misc::printl("wroot.use_count() ", wroot.use_count());
 
     return 0;
 }

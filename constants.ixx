@@ -1,7 +1,6 @@
-﻿module;
-#include "hhh/misc.hpp"
-export module cpptkinter:constants;
+﻿export module cpptkinter:constants;
 import std;
+import hhh;
 
 #define BOOL_CONSTANT(name) constexpr int name = 0
 #define STRING_CONSTANT(name) const std::string name = hhh::misc::to_lower(#name)

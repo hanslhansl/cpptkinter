@@ -1,21 +1,7 @@
 ﻿module;
 #include "global.hpp"
-#include "hhh/meta.hpp"
-#include "hhh/misc.hpp"
 #include <reflect/reflect.hpp>
 #include "tk.h"
-export module cpptkinter:_cpptkinter;
-import :utility;
-import std;
-
-
-/// @file _cpptkinter.hpp
-/// @brief Implements _tkinter.c, _tkinter.c.h and tkappinit.c.
-
-static_assert(std::same_as<Tcl_WideInt, long long>);
-
-/// If Tcl is compiled for threads, we must also define TCL_THREAD. We define it always; if Tcl is not threaded, the thread functions in Tcl are empty.
-#define TCL_THREADS
 
 #ifdef MS_WINDOWS
 #define USE_TCL_UNICODE 1
@@ -25,6 +11,19 @@ static_assert(std::same_as<Tcl_WideInt, long long>);
 #else
 #define USE_TCL_UNICODE 0
 #endif
+export module cpptkinter:_cpptkinter;
+import :utility;
+import std;
+import hhh;
+
+
+/// @file _cpptkinter.hpp
+/// @brief Implements _tkinter.c, _tkinter.c.h and tkappinit.c.
+
+static_assert(std::same_as<Tcl_WideInt, long long>);
+
+/// If Tcl is compiled for threads, we must also define TCL_THREAD. We define it always; if Tcl is not threaded, the thread functions in Tcl are empty.
+#define TCL_THREADS
 
 #define ENTER_TCL				{ auto _opt_mutex_adapter = utility::optional_mutex_adaptor(tcl_lock); auto _temp_tcl_lock = std::scoped_lock(_opt_mutex_adapter)
 #define LEAVE_TCL				}
@@ -132,19 +131,19 @@ export namespace cpptkinter::_cpptkinter::detail
 #undef TK_VERSION
 #undef TCL_VERSION
 
-#ifdef NDEBUG
-	template<typename T>
-	T construct_exception(const std::string& str)
-	{
-		return T(str);
-	}
-#else
+#if !defined(NDEBUG) && defined(__cpp_lib_stacktrace)
 	template<typename T>
 	T construct_exception(const std::string& str, const std::stacktrace& tr = std::stacktrace::current())
 	{
 		return T(str + "\nat:\n" + std::to_string(tr));
 	}
-#endif // NDEBUG
+#else
+	template<typename T>
+	T construct_exception(const std::string& str)
+	{
+		return T(str);
+	}
+#endif
 
 	template<typename Func>
 		requires requires { typename std::packaged_task<Func>; }
@@ -188,11 +187,21 @@ export namespace cpptkinter::_cpptkinter::detail
 	template<typename T>
 	std::string Tkapp_Trace_to_string(const T& t)
 	{
-		// string like
+		// Tcl_Obj
+		if constexpr (std::same_as<T, Tcl_Obj>)
+			return t.to_string();
+
+		// string
 		if constexpr (std::same_as<T, std::string>)
 			return t;
+
+		// string_view
 		else if constexpr (std::same_as<T, std::string_view>)
 			return std::string(t);
+
+		// convertible to string
+		else if constexpr (std::convertible_to<T, std::string>)
+			return t;
 
 		// to_string
 		else if constexpr (requires { std::to_string(t); })
@@ -208,6 +217,10 @@ export namespace cpptkinter::_cpptkinter::detail
 			else
 				return std::string("pointer to ") + typeid(t).name();
 		}
+
+		// range or tuple
+		else if constexpr (requires { utility::range_or_tuple_to_string(t); })
+			return utility::range_or_tuple_to_string(t);
 
 		// stringstream
 		else if constexpr (requires { std::ostringstream() << t; })
@@ -518,17 +531,17 @@ export namespace cpptkinter::_cpptkinter
 
 	std::string Tkapp_UnicodeResult(TkappObject* self);
 
-#ifdef NDEBUG
-	TclError Tkinter_Error(TkappObject* self)
-	{
-		return detail::construct_exception<TclError>(Tkapp_UnicodeResult(self));
-	}
-#else
+#if !defined(NDEBUG) && defined(__cpp_lib_stacktrace)
 	TclError Tkinter_Error(TkappObject* self, const std::stacktrace& tr = std::stacktrace::current())
 	{
 		return detail::construct_exception<TclError>(Tkapp_UnicodeResult(self), tr);
 	}
-#endif // NDEBUG
+#else
+	TclError Tkinter_Error(TkappObject* self)
+	{
+		return detail::construct_exception<TclError>(Tkapp_UnicodeResult(self));
+	}
+#endif
 
 	/// @brief Convert a Tcl_Obj to a bool.
 	///
@@ -1415,7 +1428,7 @@ namespace cpptkinter::_cpptkinter::detail
 		Tcl_Obj AsObjImpl(const T& value)
 	{
 		std::vector<Tcl_Obj> raii{};
-		utility::visit_container_or_tuple([&raii]<typename T2>(const T2& elem) { raii.emplace_back(AsObjImpl(elem)); }, value);
+		utility::visit_range_or_tuple([&raii]<typename T2>(const T2& elem) { raii.emplace_back(AsObjImpl(elem)); }, value);
 		return Tcl_NewListObj(raii);
 	}
 	template<typename T>

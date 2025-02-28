@@ -1,30 +1,47 @@
 ﻿module;
 #include "global.hpp"
-#include "hhh/meta.hpp"
-#include "hhh/misc.hpp"
 #include <reflect/reflect.hpp>
 export module cpptkinter:utility;
 import std;
+import hhh;
 
+namespace detail
+{
+    template<typename T>
+    struct is_std_array : std::false_type
+    {
 
+    };
+    template<typename T, size_t N>
+    struct is_std_array<std::array<T, N>> : std::true_type
+    {
+
+    };
+
+    template<typename Aggr, template<typename...> typename Trait, typename...Args, std::size_t...I>
+        requires std::is_aggregate_v<Aggr>
+    consteval bool check_trait_for_all_aggregate_members(std::index_sequence<I...>) {
+        return (Trait<decltype(reflect::get<I>(std::declval<Aggr>())), Args...>::value && ...);
+    }
+
+    template<typename Visitor, typename Variant, size_t...I>
+    consteval bool invokeable_with_variant_types(std::index_sequence<I...>)
+    {
+        return (std::invocable<Visitor, decltype(std::get<I>(std::declval<Variant>()))> && ...);
+    }
+
+    struct range_or_tuple_to_string_visitor
+    {
+        std::ostringstream oss{};
+
+        template<typename T>
+        void operator()(const T& val);
+    };
+}
 
 /// @brief Utilities that aren't related to Python's tkinter or _tkinter.
 export namespace cpptkinter::utility
 {
-    namespace detail
-    {
-        template<typename T>
-        struct is_std_array : std::false_type
-        {
-
-        };
-        template<typename T, size_t N>
-        struct is_std_array<std::array<T, N>> : std::true_type
-        {
-
-        };
-    }
-
     /// @brief Checks if T is std::vector.
     template<typename T>
     concept is_vector = hhh::meta::is_template_instance<T, std::vector>;
@@ -33,26 +50,8 @@ export namespace cpptkinter::utility
     template<typename R, typename To>
     concept range_of_convertible_to = std::ranges::range<R> && std::convertible_to<std::ranges::range_value_t<R>, To>;
 
-    namespace detail
-    {
-        template<typename Aggr, template<typename...> typename Trait, typename...Args, std::size_t...I>
-			requires std::is_aggregate_v<Aggr>
-        consteval bool check_trait_for_all_aggregate_members(std::index_sequence<I...>) {
-            return (Trait<decltype(reflect::get<I>(std::declval<Aggr>())), Args...>::value && ...);
-        }
-    }
-
     template<typename Aggr, template<typename...> typename Trait, typename...Args>
     concept aggregate_members_satisfy = std::is_aggregate_v<Aggr> && detail::check_trait_for_all_aggregate_members<Aggr, Trait, Args...>(std::make_index_sequence<reflect::size<Aggr>()>{});
-
-    namespace detail
-    {
-        template<typename Visitor, typename Variant, size_t...I>
-        consteval bool invokeable_with_variant_types(std::index_sequence<I...>)
-        {
-			return (std::invocable<Visitor, decltype(std::get<I>(std::declval<Variant>()))> && ...);
-        }
-    }
 
 	/// @brief Invokes a callable with a variant's currently held alternative (equal to std::visit).
 	/// 
@@ -103,51 +102,23 @@ export namespace cpptkinter::utility
     ///
 	/// @tparam T Needs to satisfy @ref container or @ref is_tuple.
     template<typename Visitor, typename T>
-        requires hhh::meta::container<std::remove_cvref_t<T>> || hhh::meta::tuple_like<std::remove_cvref_t<T>>
-    void visit_container_or_tuple(Visitor&& vis, T&& val)
+        requires std::ranges::range<T> || hhh::meta::tuple_like<T>
+    void visit_range_or_tuple(Visitor&& vis, T&& val)
     {
-        if constexpr (hhh::meta::container<std::remove_cvref_t<T>>)
+        if constexpr (std::ranges::range<T>)
         {
             for (auto begin = hhh::misc::forward_begin<T>(val), end = hhh::misc::forward_end<T>(val); begin != end; ++begin)
                 std::invoke(std::forward<Visitor>(vis), *begin);
         }
-        else if constexpr (hhh::meta::tuple_like<std::remove_cvref_t<T>>)
+        else if constexpr (hhh::meta::tuple_like<T>)
             std::apply([&]<typename...Args>(Args&&...elem) { (std::invoke(std::forward<Visitor>(vis), std::forward<Args>(elem)), ...); }, std::forward<T>(val));
     }
 
-    namespace detail
-    {
-        struct container_or_tuple_to_string_visitor
-        {
-            std::ostringstream oss{};
-
-			template<typename T>
-			void operator()(const T& val)
-			{
-                if constexpr ((std::ranges::range<T> && !std::same_as<T, std::string>) || hhh::meta::tuple_like<T>)
-                {
-                    this->oss << "(";
-                    visit_container_or_tuple(*this, val);
-					if (!oss.view().ends_with("(")) // if the container is not empty
-                        this->oss.seekp(-2, std::ios_base::cur);
-                    this->oss << ")";
-                }
-                else
-                {
-                    this->oss << "'";
-                    visit_or_invoke([this](const auto& val) { this->oss << val; }, val);
-                    this->oss << "'";
-                }
-                this->oss << ", ";
-			}
-        };
-    }
-
     template<typename T>
-        requires std::ranges::range<T> || hhh::meta::tuple_like<std::remove_cvref_t<T>>
-    std::string container_or_tuple_to_string(const T& val)
+        requires std::ranges::range<T> || hhh::meta::tuple_like<T>
+    std::string range_or_tuple_to_string(const T& val)
     {
-        detail::container_or_tuple_to_string_visitor vis{};
+        detail::range_or_tuple_to_string_visitor vis{};
         vis(val);
         return vis.oss.str();
     }
@@ -156,7 +127,7 @@ export namespace cpptkinter::utility
         requires std::is_aggregate_v<T>
     std::string aggregate_to_string(const T & val)
     {
-        detail::container_or_tuple_to_string_visitor vis{};
+        detail::range_or_tuple_to_string_visitor vis{};
 
         vis.oss << "{ ";
         reflect::for_each<T>([&vis, &val](auto I) { vis.oss << /*rfl::fields<T>()[I].name()*/reflect::member_name<I, T>() << " : "; vis(reflect::get<I>(val)); });
@@ -314,4 +285,30 @@ export namespace cpptkinter::utility
 	{
 		using type = std::variant<VArgs..., Args...>;
 	};
+}
+
+template<typename T>
+void detail::range_or_tuple_to_string_visitor::operator()(const T& val)
+{
+    if constexpr ((std::ranges::range<T> && !std::same_as<T, std::string>) || hhh::meta::tuple_like<T>)
+    {
+        this->oss << "(";
+        cpptkinter::utility::visit_range_or_tuple(*this, val);
+        if (!oss.view().ends_with("(")) // if the container is not empty
+            this->oss.seekp(-2, std::ios_base::cur);
+        this->oss << ")";
+    }
+    else
+    {
+        this->oss << "'";
+        cpptkinter::utility::visit_or_invoke([this](const auto& val)
+            {
+                if constexpr (requires { val.to_string(); })
+					this->oss << val.to_string();
+				else
+					this->oss << val;
+            }, val);
+        this->oss << "'";
+    }
+    this->oss << ", ";
 }

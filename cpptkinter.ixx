@@ -1,13 +1,12 @@
 ﻿module;
 #include "global.hpp"
-#include "hhh/meta.hpp"
-#include "hhh/misc.hpp"
 #include <reflect/reflect.hpp>
 export module cpptkinter;
 export import :constants;
 export import :utility;
 export import :_cpptkinter;
 import std;
+import hhh;
 
 
 /// @file cpptkinter.hpp
@@ -39,6 +38,7 @@ import std;
 
 export namespace cpptkinter
 {
+
     using namespace constants;
 
     using _cpptkinter::TclError;
@@ -62,8 +62,38 @@ export namespace cpptkinter
         using namespace _cpptkinter::detail;
 
         struct Tk_impl;
-        template<typename...Args>
-        class set_get_proxy;
+        template<std::derived_from<Misc> W>
+        struct set_get_proxy
+        {
+            W widget;
+            std::string key;
+
+            template<typename T>
+                requires requires { widget._setitem_(key, std::declval<T>()); }
+            void set(T&& value)
+            {
+                this->widget._setitem_(this->key, std::forward<T>(value));
+            }
+            template<typename T>
+                requires requires { widget._setitem_(key, std::declval<T>()); }
+            void operator=(T&& value)
+            {
+                this->set(std::forward<T>(value));
+            }
+
+            template<typename R>
+                requires requires { widget._getitem_(key, std::type_identity<R>{}); }
+            R get()
+            {
+                return this->widget._getitem_(this->key, std::type_identity<R>{});
+            }
+            template<typename R>
+                requires requires { widget._getitem_(key, std::type_identity<R>{}); }
+            operator R()
+            {
+                return this->get<R>();
+            }
+        };
 
         using Anchor = std::string;
         using ButtonCommand = std::variant<std::string, std::function<void()>>;
@@ -942,6 +972,7 @@ export namespace cpptkinter
 
         }
     public:
+
         DEFINE_ASSIGNMENT_OPERATOR(Misc);
 
         /// @brief Calls this->pimpl->destroy().
@@ -1148,7 +1179,31 @@ export namespace cpptkinter
             return this->tk->call<R>(this->_w, "cget", "-" + key);
         }
 
-        detail::set_get_proxy<> operator[](const std::string& key);
+		/// @brief Get a resource of a widget.
+        /// 
+        /// Used by detail::set_get_proxy. Can be overloaded by inheriting widgets.
+        template<detail::FromObjConcept R>
+        R _getitem_(const std::string& key, std::type_identity<R>)
+        {
+			return this->cget<R>(key);
+        }
+
+        /// @brief Set a resource of a widget.
+        /// 
+        /// Used by detail::set_get_proxy. Can be overloaded by inheriting widgets.
+        template<typename T>
+        void _setitem_(const std::string& key, T&& value)
+            requires requires { this->configure(std::string{}, std::declval<T>()); }
+        {
+            this->configure(key, std::forward<T>(value));
+        }
+
+		/// @brief Returns a proxy object which can be used to set/get resources of a widget.
+        template<typename Self>
+        detail::set_get_proxy<std::remove_cvref_t<Self>> operator[](this Self&& self, const std::string& key)
+        {
+			return { std::forward<Self>(self), key };
+        }
 
         /// @brief Return a list of all resource names of this widget.
         std::vector<std::string> keys()
@@ -1279,7 +1334,7 @@ export namespace cpptkinter
                 || std::get<2>(temp) != "-pad"
                 || std::get<4>(temp) != "-uniform"
                 || std::get<6>(temp) != "-weight")
-                throw detail::construct_exception<TclError>("unexpected return value " + utility::container_or_tuple_to_string(temp));
+                throw detail::construct_exception<TclError>("unexpected return value " + utility::range_or_tuple_to_string(temp));
             return { std::get<1>(temp), std::get<3>(temp), std::get<5>(temp), std::get<7>(temp) };
         }
     public:
@@ -1397,6 +1452,28 @@ export namespace cpptkinter
         }
     };
 
+    struct Misc::impl : hhh::misc::extended_enable_shared_from_this
+    {
+        std::set<std::string> _tclCommands{};
+        std::map<std::string, int> _last_child_ids{};
+        std::string _w;
+        std::optional<Misc> master;
+        std::shared_ptr<_cpptkinter::TkappObject> tk;
+        std::map<std::string, Misc> children;
+
+        /// @brief Internal function.
+        /// 
+        /// Deletes all Tcl commands created for this widget in the Tcl interpreter.
+        virtual void destroy()
+        {
+            // keeps this from being destroyed before this function returns
+            auto temp = this->shared_from_this();
+
+            for (auto&& name : this->_tclCommands)
+                this->tk->deletecommand(name);
+        }
+    };
+
     /// @brief Mix-in class for querying and changing the horizontal position of a widget's window.
     struct XView
     {
@@ -1451,45 +1528,6 @@ export namespace cpptkinter
         }
     };
 
-    Misc Wm::wm_iconwindow(this auto&& self)
-    {
-        return self.nametowidget(self.tk->template call<std::string>("wm", "wm_iconwindow", self._w));
-    }
-    Misc Wm::iconwindow(this auto&& self)
-    {
-        return self.wm_iconwindow();
-    }
-    Misc Wm::wm_transient(this auto&& self)
-    {
-        return self.nametowidget(self.tk->template call<std::string >("wm", "transient", self._w));
-    }
-    Misc Wm::transient(this auto&& self)
-    {
-        return self.wm_transient();
-    }
-
-    struct Misc::impl : hhh::misc::extended_enable_shared_from_this
-    {
-        std::set<std::string> _tclCommands{};
-        std::map<std::string, int> _last_child_ids{};
-        std::string _w;
-        std::optional<Misc> master;
-        std::shared_ptr<_cpptkinter::TkappObject> tk;
-        std::map<std::string, Misc> children;
-
-        /// @brief Internal function.
-        /// 
-        /// Deletes all Tcl commands created for this widget in the Tcl interpreter.
-        virtual void destroy()
-        {
-            // keeps this from being destroyed before this function returns
-            auto temp = this->shared_from_this();
-
-            for (auto&& name : this->_tclCommands)
-                this->tk->deletecommand(name);
-        }
-    };
-
     template<typename R, typename...Args>
     struct detail::CallWrapper
     {
@@ -1509,72 +1547,6 @@ export namespace cpptkinter
                 this->widget/*.lock()*/._report_exception();
                 throw;
             }
-        }
-    };
-
-    template<typename...Args>
-    class detail::set_get_proxy
-    {
-        struct from_tk
-        {
-            Misc misc;
-            std::string keyword;
-        };
-    public:
-        std::variant<from_tk, std::reference_wrapper<Args>...> data;
-
-        set_get_proxy(const Misc& misc, const std::string& keyword) : data(std::in_place_type<from_tk>, misc, keyword)
-        {
-
-        }
-        template<hhh::meta::variant_converting_constructor_constraint<std::variant<Args...>> T>
-        set_get_proxy(T& value) :
-            data(std::in_place_type<std::reference_wrapper<hhh::meta::variant_converting_constructor_result_t<T, std::variant<Args...>>>> , value)
-        {
-
-        }
-
-        template<typename T>
-            requires requires (Misc m) { m.configure(std::string(), std::declval<T>()); } || hhh::meta::variant_converting_constructor_constraint<T, std::variant<Args...>>
-        void operator=(T&& value)
-        {
-            auto visitor = [&]<typename T2>(T2& e) {
-                if constexpr (std::same_as<T2, from_tk>)
-                    e.misc.configure(e.keyword, std::forward<T>(value));
-                else if constexpr (requires { e.get() = std::forward<T>(value); })
-                    e.get() = std::forward<T>(value);
-                else
-                    throw construct_exception<std::invalid_argument>(std::format("passed type {} but expected {}", typeid(T).name()/*reflect::type_name<T>()*/, reflect::type_name<T2>()));
-            };
-
-            return std::visit(visitor, this->data);
-        }
-
-        template<typename R>
-         requires detail::FromObjConcept<R> || hhh::meta::contains<R, Args...>
-        R get()
-        {
-            auto visitor = []<typename T>(T& e) -> R {
-                if constexpr (std::same_as<T, from_tk>)
-                {
-                    if constexpr (detail::FromObjConcept<R>)
-                        return e.misc.cget<R>(e.keyword);
-                }
-                else if constexpr (std::same_as<T, std::reference_wrapper<R>>)
-                {
-                    return e.get();
-                }
-
-                throw construct_exception<std::invalid_argument>(std::format("requested type {} but got {}", reflect::type_name<R>(), reflect::type_name<T>()));
-            };
-
-            return std::visit(visitor, this->data);
-        }
-        template<typename R>
-            requires detail::FromObjConcept<R> || hhh::meta::contains<R, Args...>
-        operator R()
-        {
-            return this->get<R>();
         }
     };
 
@@ -3886,7 +3858,7 @@ export namespace cpptkinter
         REF_TO_IMPL(menuname);
 
     protected:
-        void _init_(const Misc& master, const StringVar& variable, detail::sized_range_of_string auto&& values, std::function<void(const StringVar&)>&& command)
+        void _init_(const Misc& master, const StringVar& variable, const detail::sized_range_of_string auto& values, const std::function<void(const StringVar&)>& command)
         {
             if (values.size() == 0)
                 throw detail::construct_exception<std::invalid_argument>("values must be non-empty");
@@ -3898,8 +3870,8 @@ export namespace cpptkinter
             auto&& menu = this->_menu.emplace(cnfs::Menu{ .master = *this, .name = "menu", .tearoff = 0 });
             this->menuname = menu._w;
 
-            for (auto&& v : values)
-                menu.add_command({ .command = detail::_setit(variable, v, std::move(command)), .label = v });
+            for (auto& v : values)
+                menu.add_command({ .command = detail::_setit(variable, v, command), .label = v });
 
             (*this)["menu"] = menu;
         }
@@ -3916,17 +3888,30 @@ export namespace cpptkinter
         DEFINE_ASSIGNMENT_OPERATOR(OptionMenu);
 
         /// @brief Construct an optionmenu widget.
-        OptionMenu(const Misc& master, const StringVar& variable, detail::sized_range_of_string auto&& values, std::function<void(const StringVar&)>&& command = {}) :
+        OptionMenu(const Misc& master, const StringVar& variable, const detail::sized_range_of_string auto& values, const std::function<void(const StringVar&)>& command = {}) :
             OptionMenu(std::make_shared<impl>())
         {
-            this->_init_(master, variable, std::forward<decltype(values)>(values), std::move(command));
+            this->_init_(master, variable, values, command);
         }
 
-        detail::set_get_proxy<std::optional<cpptkinter::Menu>> operator[](const std::string& name)
+        template<typename R>
+            requires detail::FromObjConcept<R> || std::same_as<R, Menu> || std::same_as<R, std::optional<Menu>>
+        R _getitem_(const std::string& name, std::type_identity<R>)
         {
             if (name == "menu")
-                return { this->_menu };
-            return { *this, name };
+            {
+                if constexpr (std::same_as<R, Menu>)
+                    return this->_menu.value();
+                else if constexpr (std::same_as<R, std::optional<Menu>>)
+					return this->_menu;
+            }
+            else
+            {
+                if constexpr (detail::FromObjConcept<R>)
+                    return this->Menubutton::_getitem_(name, std::type_identity<R>{});
+            }
+
+            throw detail::construct_exception<std::invalid_argument>(std::format("requested type {} not compatible with provided ressource name {}", reflect::type_name<R>, name));
         }
     };
 
@@ -4482,11 +4467,6 @@ cpptkinter::Tk cpptkinter::Misc::_root() const
     return std::static_pointer_cast<Tk::impl>(w);
 }
 
-cpptkinter::detail::set_get_proxy<> cpptkinter::Misc::operator[](const std::string& key)
-{
-    return { *this, key };
-}
-
 void cpptkinter::Misc::_report_exception()
 {
     auto exc_ptr = std::current_exception();
@@ -4494,3 +4474,22 @@ void cpptkinter::Misc::_report_exception()
     root.report_callback_exception(root, exc_ptr);
 }
 
+cpptkinter::Misc cpptkinter::Wm::wm_iconwindow(this auto&& self)
+{
+    return self.nametowidget(self.tk->template call<std::string>("wm", "wm_iconwindow", self._w));
+}
+
+cpptkinter::Misc cpptkinter::Wm::iconwindow(this auto&& self)
+{
+    return self.wm_iconwindow();
+}
+
+cpptkinter::Misc cpptkinter::Wm::wm_transient(this auto&& self)
+{
+    return self.nametowidget(self.tk->template call<std::string >("wm", "transient", self._w));
+}
+
+cpptkinter::Misc cpptkinter::Wm::transient(this auto&& self)
+{
+    return self.wm_transient();
+}
