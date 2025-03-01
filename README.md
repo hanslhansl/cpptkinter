@@ -8,6 +8,7 @@
   - [converting objects from and to _tcl_](#converting-objects-from-and-to-tcl)
 - [thread safety](#thread-safety)
 - [simple example](#simple-example)
+- [documentation](#documentation)
 - [building](#building)
 - [current state of the project](#current-state-of-the-project)
 ## philosophy
@@ -98,6 +99,8 @@ int main() {
 }
 ```
 See [examples](examples) for more elaborate examples.
+## documentation
+The documentation is generated using [doxygen](https://www.doxygen.nl/index.html). The documentation is available online on [github pages](https://hanslhansl.github.io/cpptkinter/).
 ## building
 _Cpptkinter_ is implemented as a _c++ module_ and can be consumed via `import cpptkinter`. It requires _c++23_.
 
