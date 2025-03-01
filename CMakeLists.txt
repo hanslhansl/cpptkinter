@@ -6,9 +6,14 @@ set(TCLTK_DIR "${CMAKE_SOURCE_DIR}/../tktcl")
 
 cmake_minimum_required(VERSION 3.29.5 FATAL_ERROR)
 
-set(CMAKE_EXPERIMENTAL_CXX_IMPORT_STD "0e5b6991-d74f-4b3d-a41c-cf096e0b2508")
+set(CMAKE_EXPERIMENTAL_CXX_IMPORT_STD "a9e1cf81-9932-4810-974b-6eccaf14e457")
 
 project(test LANGUAGES CXX)
+
+# dont know why, vs generator complains about this
+if (NOT (CMAKE_GENERATOR MATCHES "Visual Studio" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU"))
+    set(CMAKE_CXX_MODULE_STD ON)
+endif()
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_SCAN_FOR_MODULES ON)
@@ -17,11 +22,6 @@ set(FETCHCONTENT_QUIET FALSE)
 set(SRC_DIR "src")
 set(TEST_DIR "tests")
 set(TCLTK_FULL_DIR "${TCLTK_DIR}/${CMAKE_CXX_COMPILER_ID}")
-
-# dont know why, vs generator complains about this
-if (NOT CMAKE_GENERATOR MATCHES "Visual Studio")
-    set(CMAKE_CXX_MODULE_STD ON)
-endif()
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     add_compile_options(/bigobj)
