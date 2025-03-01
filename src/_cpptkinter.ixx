@@ -1,4 +1,7 @@
-﻿module;
+﻿/// @file _cpptkinter.ixx
+/// @brief Implements _tkinter.c, _tkinter.c.h and tkappinit.c.
+
+module;
 #include "global.hpp"
 #include <reflect/reflect.hpp>
 #include "tk.h"
@@ -16,9 +19,6 @@ import :utility;
 import std;
 import hhh;
 
-
-/// @file _cpptkinter.hpp
-/// @brief Implements _tkinter.c, _tkinter.c.h and tkappinit.c.
 
 static_assert(std::same_as<Tcl_WideInt, long long>);
 

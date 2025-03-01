@@ -1,4 +1,7 @@
-﻿module;
+﻿/// @file utility.ixx
+/// @brief Contains utility functions and classes which are not present in tkinter or _tkinter.
+
+module;
 #include "global.hpp"
 #include <reflect/reflect.hpp>
 export module cpptkinter:utility;

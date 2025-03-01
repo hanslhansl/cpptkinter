@@ -4,68 +4,51 @@ set(LIBXX_DIR "${CMAKE_SOURCE_DIR}/../llvm-mingw-20250212-ucrt-x86_64/x86_64-w64
 # Tcl/Tk Path
 set(TCLTK_DIR "${CMAKE_SOURCE_DIR}/../tktcl")
 
-cmake_minimum_required(VERSION 3.29.5 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.29.20240416 FATAL_ERROR)
 
-set(CMAKE_EXPERIMENTAL_CXX_IMPORT_STD "a9e1cf81-9932-4810-974b-6eccaf14e457")
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/..")
+include(my_cmake_commands)
+ENABLE_IMPORT_STD_MACRO()
 
 project(test LANGUAGES CXX)
 
-# dont know why, vs generator complains about this
-if (NOT (CMAKE_GENERATOR MATCHES "Visual Studio" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU"))
-    set(CMAKE_CXX_MODULE_STD ON)
-endif()
-
-set(CMAKE_CXX_STANDARD 23)
-set(CMAKE_CXX_SCAN_FOR_MODULES ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(FETCHCONTENT_QUIET FALSE)
 set(SRC_DIR "src")
 set(TEST_DIR "tests")
 set(TCLTK_FULL_DIR "${TCLTK_DIR}/${CMAKE_CXX_COMPILER_ID}")
 
-if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-    add_compile_options(/bigobj)
-endif()
-
 # Include and link
 include_directories(${TCLTK_FULL_DIR}/include)
 include_directories(../)    # for reflect
 
+#[[ Fetch range-v3
+include(FetchContent)
+FetchContent_Declare(
+    range-v3
+    GIT_REPOSITORY https://github.com/ericniebler/range-v3.git
+    GIT_TAG master  # Use the latest stable release or specify a commit hash
+)
+FetchContent_MakeAvailable(range-v3)]]
+
+# add range-v3
+add_subdirectory("${CMAKE_SOURCE_DIR}/../range-v3" range-v3)
+
 # add hhh
 add_subdirectory("${CMAKE_SOURCE_DIR}/../hhh" hhh)
 
-# add tcl
-add_library(tcl SHARED IMPORTED)
-set_target_properties(tcl PROPERTIES
-    IMPORTED_LOCATION "${TCLTK_FULL_DIR}/bin/tcl90.dll"
-    IMPORTED_IMPLIB "${TCLTK_FULL_DIR}/lib/${CMAKE_STATIC_LIBRARY_PREFIX}tcl90${CMAKE_STATIC_LIBRARY_SUFFIX}"
-)
+# add tcl/tk
+set(IMPORTED_SHARED_LIBRARY_NAMES "tcl90" "tcl9tk90" "libtommath" "zlib1")
+set(IMPORTED_SHARED_LIBRARIES "")
+foreach(lib IN LISTS IMPORTED_SHARED_LIBRARY_NAMES)
+    add_library(${lib} SHARED IMPORTED)
+    set_target_properties(${lib} PROPERTIES
+        IMPORTED_LOCATION "${TCLTK_FULL_DIR}/bin/${lib}.dll"
+        IMPORTED_IMPLIB "${TCLTK_FULL_DIR}/lib/${CMAKE_STATIC_LIBRARY_PREFIX}${lib}${CMAKE_STATIC_LIBRARY_SUFFIX}"
+    )
 
-# add tk
-add_library(tk SHARED IMPORTED)
-set_target_properties(tk PROPERTIES
-    IMPORTED_LOCATION "${TCLTK_FULL_DIR}/bin/tcl9tk90.dll"
-    IMPORTED_IMPLIB "${TCLTK_FULL_DIR}/lib/${CMAKE_STATIC_LIBRARY_PREFIX}tcl9tk90${CMAKE_STATIC_LIBRARY_SUFFIX}"
-)
-
-# add tommath
-add_library(tommath SHARED IMPORTED)
-set_target_properties(tommath PROPERTIES
-    IMPORTED_LOCATION "${TCLTK_FULL_DIR}/bin/libtommath.dll"
-    IMPORTED_IMPLIB "${TCLTK_FULL_DIR}/lib/${CMAKE_STATIC_LIBRARY_PREFIX}tommath${CMAKE_STATIC_LIBRARY_SUFFIX}"
-)
-
-# add zlib
-if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-    set(ZLIB_LIB_NAME zdll)
-else()
-    set(ZLIB_LIB_NAME libz)
-endif()
-add_library(zlib SHARED IMPORTED)
-set_target_properties(zlib PROPERTIES
-    IMPORTED_LOCATION "${TCLTK_FULL_DIR}/bin/zlib1.dll"
-    IMPORTED_IMPLIB "${TCLTK_FULL_DIR}/lib/${CMAKE_STATIC_LIBRARY_PREFIX}${ZLIB_LIB_NAME}${CMAKE_STATIC_LIBRARY_SUFFIX}"
-)
+    list(APPEND IMPORTED_SHARED_LIBRARIES ${lib})   # Store the target name for later use
+endforeach()
 
 # create cpptkinter lib
 add_library(cpptkinter)
@@ -74,7 +57,11 @@ target_sources(cpptkinter
         BASE_DIRS ${SRC_DIR}
         FILES ${SRC_DIR}/cpptkinter.ixx ${SRC_DIR}/_cpptkinter.ixx ${SRC_DIR}/utility.ixx ${SRC_DIR}/constants.ixx
 )
-target_link_libraries(cpptkinter PUBLIC hhh tcl tk tommath zlib)
+target_link_libraries(cpptkinter PUBLIC hhh ${IMPORTED_SHARED_LIBRARIES} range-v3)
+
+if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+    add_compile_options(/bigobj)
+endif()
 
 # create test exe
 add_executable(test ${TEST_DIR}/test.cpp)

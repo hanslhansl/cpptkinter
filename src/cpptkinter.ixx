@@ -1,6 +1,10 @@
-﻿module;
+﻿/// @file cpptkinter.ixx
+/// @brief Implements __init__.py.
+
+module;
 #include "global.hpp"
 #include <reflect/reflect.hpp>
+#include <range/v3/all.hpp>
 export module cpptkinter;
 export import :constants;
 export import :utility;
@@ -8,9 +12,6 @@ export import :_cpptkinter;
 import std;
 import hhh;
 
-
-/// @file cpptkinter.hpp
-/// @brief Implements __init__.py.
 
 #define REF_TO_IMPL(member) decltype(impl::member)& member
 
@@ -35,6 +36,11 @@ import hhh;
     }   \
     using base::base
 
+#ifdef __cpp_lib_ranges_stride1
+constexpr auto stride = std::views::stride;
+#else
+constexpr auto stride = ranges::views::stride;
+#endif
 
 export namespace cpptkinter
 {
@@ -392,8 +398,8 @@ export namespace cpptkinter
                 };
 
             return std::map<std::string, V>(std::from_range, std::views::zip(
-                data | std::views::stride(2) | std::views::transform(lambda),
-                data | std::views::drop(1) | std::views::stride(2)
+                data | /*std::views::*/stride(2) | std::views::transform(lambda),
+                data | std::views::drop(1) | /*std::views::*/stride(2)
             ));
         }
         /// @copydoc wm_attributes(this auto&&)
@@ -2118,8 +2124,8 @@ export namespace cpptkinter
             auto str = self.tk->template call<std::string>("place", "info", self._w);
             std::vector<std::string> vec = self.tk->splitlist(str);
             std::map<std::string, std::string> map(std::from_range, std::views::zip(
-                vec | std::views::stride(2),
-                vec | std::views::drop(1) | std::views::stride(2)
+                vec | /*std::views::*/stride(2),
+                vec | std::views::drop(1) | /*std::views::*/stride(2)
             ));
 
             auto converter = [&self]<typename T2>(std::string&& v)->T2

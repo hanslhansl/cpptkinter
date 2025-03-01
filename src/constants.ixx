@@ -1,4 +1,8 @@
-﻿export module cpptkinter:constants;
+﻿/// @file constants.ixx
+/// @brief  Implements constants.py.
+
+
+export module cpptkinter:constants;
 import std;
 import hhh;
 
