@@ -36,10 +36,16 @@ import hhh;
     }   \
     using base::base
 
-#ifdef __cpp_lib_ranges_stride1
-constexpr auto stride = std::views::stride;
+#if defined(__cpp_lib_ranges_stride) && defined(__cpp_lib_ranges_to_container) && defined(__cpp_lib_ranges) && defined(__cpp_lib_ranges_zip)
+using std::views::stride;
+using std::ranges::to;
+using std::views::drop;
+using std::views::zip;
 #else
-constexpr auto stride = ranges::views::stride;
+using ranges::views::stride;
+using ranges::to;
+using ranges::views::drop;
+using ranges::views::zip;
 #endif
 
 export namespace cpptkinter
@@ -1098,7 +1104,7 @@ export namespace cpptkinter
                 std::ranges::move(arr | std::views::transform([&](V& e) { return std::visit(v_lambda, e); }), new_arr.begin());
                 return new_arr; });
 
-            return std::views::zip(key_view, value_view) | std::ranges::to<std::map>();
+            return /*std::views::*/zip(key_view, value_view) | /*std::ranges::*/to<std::map>();
         }
         std::array<std::variant<long long, std::string>, 5> _getconfigure1(std::vector<_cpptkinter::Tcl_Obj>&& raii)
         {
@@ -2125,7 +2131,7 @@ export namespace cpptkinter
             std::vector<std::string> vec = self.tk->splitlist(str);
             std::map<std::string, std::string> map(std::from_range, std::views::zip(
                 vec | /*std::views::*/stride(2),
-                vec | std::views::drop(1) | /*std::views::*/stride(2)
+                vec | /*std::views::*/drop(1) | /*std::views::*/stride(2)
             ));
 
             auto converter = [&self]<typename T2>(std::string&& v)->T2
