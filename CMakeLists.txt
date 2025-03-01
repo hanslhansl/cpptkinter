@@ -13,10 +13,13 @@ project(test LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_SCAN_FOR_MODULES ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-Set(FETCHCONTENT_QUIET FALSE)
+set(FETCHCONTENT_QUIET FALSE)
+set(SRC_DIR "src")
+set(TEST_DIR "tests")
+set(TCLTK_FULL_DIR "${TCLTK_DIR}/${CMAKE_CXX_COMPILER_ID}")
 
 # dont know why, vs generator complains about this
-if (NOT (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU"))
+if (NOT CMAKE_GENERATOR MATCHES "Visual Studio")
     set(CMAKE_CXX_MODULE_STD ON)
 endif()
 
@@ -24,61 +27,75 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     add_compile_options(/bigobj)
 endif()
 
-set(TCLTK_FULL_DIR "${TCLTK_DIR}/${CMAKE_CXX_COMPILER_ID}")
-
 # Include and link
 include_directories(${TCLTK_FULL_DIR}/include)
 include_directories(../)    # for reflect
-link_directories(${TCLTK_FULL_DIR}/lib)
 
-include(FetchContent)
+# add hhh
+add_subdirectory("${CMAKE_SOURCE_DIR}/../hhh" hhh)
 
-# include hhh
-FetchContent_Declare(
-    hhh
-    GIT_REPOSITORY https://github.com/hanslhansl/hhh.git
-    GIT_TAG "main"
-    GIT_SHALLOW TRUE
-    GIT_PROGRESS ON
+# add tcl
+add_library(tcl SHARED IMPORTED)
+set_target_properties(tcl PROPERTIES
+    IMPORTED_LOCATION "${TCLTK_FULL_DIR}/bin/tcl90.dll"
+    IMPORTED_IMPLIB "${TCLTK_FULL_DIR}/lib/${CMAKE_STATIC_LIBRARY_PREFIX}tcl90${CMAKE_STATIC_LIBRARY_SUFFIX}"
 )
-FetchContent_MakeAvailable(hhh)
 
-add_library(cpptkinter)
-target_sources(cpptkinter PUBLIC FILE_SET CXX_MODULES FILES cpptkinter.ixx _cpptkinter.ixx utility.ixx constants.ixx)
-target_link_libraries(cpptkinter hhh)
-target_compile_features(cpptkinter PUBLIC cxx_std_23)
+# add tk
+add_library(tk SHARED IMPORTED)
+set_target_properties(tk PROPERTIES
+    IMPORTED_LOCATION "${TCLTK_FULL_DIR}/bin/tcl9tk90.dll"
+    IMPORTED_IMPLIB "${TCLTK_FULL_DIR}/lib/${CMAKE_STATIC_LIBRARY_PREFIX}tcl9tk90${CMAKE_STATIC_LIBRARY_SUFFIX}"
+)
 
-add_executable(test test.cpp)
+# add tommath
+add_library(tommath SHARED IMPORTED)
+set_target_properties(tommath PROPERTIES
+    IMPORTED_LOCATION "${TCLTK_FULL_DIR}/bin/libtommath.dll"
+    IMPORTED_IMPLIB "${TCLTK_FULL_DIR}/lib/${CMAKE_STATIC_LIBRARY_PREFIX}tommath${CMAKE_STATIC_LIBRARY_SUFFIX}"
+)
+
+# add zlib
 if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-    add_compile_options(/bigobj)
-    target_link_libraries(test cpptkinter hhh tcl90 tcl9tk90)
+    set(ZLIB_LIB_NAME zdll)
 else()
-    target_link_libraries(test cpptkinter hhh libtcl90 libtcl9tk90)
+    set(ZLIB_LIB_NAME libz)
 endif()
-
-add_custom_command(TARGET test POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different
-        "${TCLTK_FULL_DIR}/bin/tcl90.dll"
-        $<TARGET_FILE_DIR:test>
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different
-        "${TCLTK_FULL_DIR}/bin/tcl9tk90.dll"
-        $<TARGET_FILE_DIR:test>
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different
-        "${TCLTK_FULL_DIR}/bin/libtommath.dll"
-        $<TARGET_FILE_DIR:test>
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different
-        "${TCLTK_FULL_DIR}/bin/zlib1.dll"
-        $<TARGET_FILE_DIR:test>
+add_library(zlib SHARED IMPORTED)
+set_target_properties(zlib PROPERTIES
+    IMPORTED_LOCATION "${TCLTK_FULL_DIR}/bin/zlib1.dll"
+    IMPORTED_IMPLIB "${TCLTK_FULL_DIR}/lib/${CMAKE_STATIC_LIBRARY_PREFIX}${ZLIB_LIB_NAME}${CMAKE_STATIC_LIBRARY_SUFFIX}"
 )
+
+# create cpptkinter lib
+add_library(cpptkinter)
+target_sources(cpptkinter 
+    PUBLIC FILE_SET CXX_MODULES
+        BASE_DIRS ${SRC_DIR}
+        FILES ${SRC_DIR}/cpptkinter.ixx ${SRC_DIR}/_cpptkinter.ixx ${SRC_DIR}/utility.ixx ${SRC_DIR}/constants.ixx
+)
+target_link_libraries(cpptkinter PUBLIC hhh tcl tk tommath zlib)
+
+# create test exe
+add_executable(test ${TEST_DIR}/test.cpp)
+target_link_libraries(test PUBLIC cpptkinter hhh)
+
+# copy dlls
+if(CMAKE_IMPORT_LIBRARY_SUFFIX)
+    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_RUNTIME_DLLS:${PROJECT_NAME}> $<TARGET_FILE_DIR:${PROJECT_NAME}>
+        COMMAND_EXPAND_LISTS
+  )
+endif()
 
 # copy libc++
 if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-    add_custom_command(TARGET test POST_BUILD
+    add_custom_command(TARGET cpptkinter POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
             "${LIBXX_DIR}/bin/libc++.dll"
-            $<TARGET_FILE_DIR:test>
+            $<TARGET_FILE_DIR:cpptkinter>
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
             "${LIBXX_DIR}/bin/libunwind.dll"
-            $<TARGET_FILE_DIR:test>
+            $<TARGET_FILE_DIR:cpptkinter>
     )
 endif()
