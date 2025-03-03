@@ -4,7 +4,7 @@ set(LIBXX_DIR "${CMAKE_SOURCE_DIR}/../llvm-mingw-20250212-ucrt-x86_64/x86_64-w64
 # Tcl/Tk Path
 set(TCLTK_DIR "${CMAKE_SOURCE_DIR}/../tktcl")
 
-cmake_minimum_required(VERSION 3.29.20240416 FATAL_ERROR)
+cmake_minimum_required(VERSION 4.0.0 FATAL_ERROR)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/..")
 include(my_cmake_commands)
@@ -55,9 +55,9 @@ add_library(cpptkinter)
 target_sources(cpptkinter 
     PUBLIC FILE_SET CXX_MODULES
         BASE_DIRS ${SRC_DIR}
-        FILES ${SRC_DIR}/cpptkinter.ixx ${SRC_DIR}/_cpptkinter.ixx ${SRC_DIR}/utility.ixx ${SRC_DIR}/constants.ixx
+        FILES ${SRC_DIR}/cpptkinter.ixx ${SRC_DIR}/_cpptkinter.ixx ${SRC_DIR}/utility.ixx ${SRC_DIR}/constants.ixx ${SRC_DIR}/tk.ixx
 )
-target_link_libraries(cpptkinter PUBLIC hhh ${IMPORTED_SHARED_LIBRARIES} range-v3)
+target_link_libraries(cpptkinter PUBLIC hhh range-v3 ${IMPORTED_SHARED_LIBRARIES})
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     add_compile_options(/bigobj)

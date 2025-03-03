@@ -21,6 +21,54 @@
       "buildCommandArgs": "",
       "ctestCommandArgs": "",
       "inheritEnvironments": [ "msvc_x64_x64" ]
+    },
+    {
+      "name": "custom-clang-x64-debug",
+      "generator": "Ninja",
+      "configurationType": "Debug",
+      "buildRoot": "${projectDir}\\out\\build\\${name}",
+      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [],
+      "intelliSenseMode": "windows-clang-x64",
+      "variables": [
+        {
+          "name": "CMAKE_C_COMPILER",
+          "value": "F:/Paul/Computer/Programmieren/C++/llvm-mingw-20250212-ucrt-x86_64/bin/clang.exe",
+          "type": "FILEPATH"
+        },
+        {
+          "name": "CMAKE_CXX_COMPILER",
+          "value": "F:/Paul/Computer/Programmieren/C++/llvm-mingw-20250212-ucrt-x86_64/bin/clang++.exe",
+          "type": "FILEPATH"
+        }
+      ]
+    },
+    {
+      "name": "custom-clang-x64-release",
+      "generator": "Ninja",
+      "configurationType": "RelWithDebInfo",
+      "buildRoot": "${projectDir}\\out\\build\\${name}",
+      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [],
+      "variables": [
+        {
+          "name": "CMAKE_C_COMPILER",
+          "value": "F:/Paul/Computer/Programmieren/C++/llvm-mingw-20250212-ucrt-x86_64/bin/clang.exe",
+          "type": "FILEPATH"
+        },
+        {
+          "name": "CMAKE_CXX_COMPILER",
+          "value": "F:/Paul/Computer/Programmieren/C++/llvm-mingw-20250212-ucrt-x86_64/bin/clang++.exe",
+          "type": "FILEPATH"
+        }
+      ],
+      "intelliSenseMode": "windows-clang-x64"
     }
   ]
 }

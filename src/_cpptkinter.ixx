@@ -4,9 +4,8 @@
 module;
 #include "global.hpp"
 #include <reflect/reflect.hpp>
-#include "tk.h"
 
-#ifdef MS_WINDOWS
+#ifdef _WIN32
 #define USE_TCL_UNICODE 1
 #include <windows.h>
 //#include <conio.h>
@@ -16,10 +15,12 @@ module;
 #endif
 export module cpptkinter:_cpptkinter;
 import :utility;
+import :tk;
 import std;
 import hhh;
 
 
+using namespace std::literals;
 static_assert(std::same_as<Tcl_WideInt, long long>);
 
 /// If Tcl is compiled for threads, we must also define TCL_THREAD. We define it always; if Tcl is not threaded, the thread functions in Tcl are empty.
@@ -39,7 +40,7 @@ static_assert(std::same_as<Tcl_WideInt, long long>);
 
 #define Tkapp_Interp(v) (((v))->interp)
 
-#define Py_BuildValue(fmt_str, ...) __VA_ARGS__
+#define Py_BuildValue(fmt_str, ...) "trace", __VA_ARGS__
 #define TRACE(_self, ARGS) do {                 \
         if ((_self)->trace) {  \
             Tkapp_Trace((_self), Py_BuildValue ARGS);   \
@@ -135,13 +136,13 @@ export namespace cpptkinter::_cpptkinter::detail
 	template<typename T>
 	T construct_exception(const std::string& str, const std::stacktrace& tr = std::stacktrace::current())
 	{
-		return T(str + "\nat:\n" + std::to_string(tr));
+		return T(std::format("{}\nat:\n{}", str, tr));
 	}
 #else
 	template<typename T>
-	T construct_exception(const std::string& str)
+	T construct_exception(const std::string& str, const std::source_location& loc = std::source_location::current())
 	{
-		return T(str);
+		return T(std::format("{}\nin file {}, at line {} in function {}", str, loc.file_name(), loc.line(), loc.function_name()));
 	}
 #endif
 
@@ -230,11 +231,19 @@ export namespace cpptkinter::_cpptkinter::detail
 			return typeid(t).name();
 	}
 
-	std::string Tcl_Obj_to_string_impl(TkappObject* tkapp, ::Tcl_Obj* obj);
-	std::string Tcl_Obj_to_string(TkappObject* tkapp, const Tcl_Obj& value)
+
+	std::string Tcl_obj_type_string(::Tcl_Obj* value)
 	{
-		return Tcl_Obj_to_string_impl(tkapp, value);
+		if (!value)
+			return "nullptr";
+		else if (!value->typePtr)
+			return "unknown type";
+		else if (!value->typePtr->name)
+			return "unknown type";
+		else
+			return value->typePtr->name;
 	}
+	std::string Tcl_Obj_to_string(TkappObject* tkapp, ::Tcl_Obj* obj);
 
 	template<typename T>
 	struct AsObjImplTrait;
@@ -395,9 +404,6 @@ export namespace cpptkinter::_cpptkinter::detail
 	concept FromObjConcept = std::same_as<R, void> || FromObjImplTrait<R>::value;
 
 	template<typename T>
-	concept GetVarConcept = std::convertible_to<T, std::string> || std::convertible_to<T, Tcl_Obj>;
-
-	template<typename T>
 	concept range_of_Tcl_Obj = std::ranges::range<T> && std::same_as<std::ranges::range_value_t<T>, Tcl_Obj>;
 
 	template<typename T>
@@ -446,7 +452,7 @@ export namespace cpptkinter::_cpptkinter
 	std::exception_ptr excInCmd{};
 	int Tkinter_busywaitinterval = 20;
 
-#ifndef MS_WINDOWS
+#ifndef _WIN32
 	/// @brief Millisecond Sleep() for Unix platforms.
 	void Sleep(int milli)
 	{
@@ -456,7 +462,7 @@ export namespace cpptkinter::_cpptkinter
 		t.tv_usec = (milli % 1000) * 1000;
 		select(0, (fd_set*)0, (fd_set*)0, (fd_set*)0, &t);
 	}
-#endif // MS_WINDOWS
+#endif // _WIN32
 
 	int Tcl_AppInit(Tcl_Interp* interp)
 	{
@@ -496,23 +502,24 @@ export namespace cpptkinter::_cpptkinter
 			auto cexe = uexe;
 			if (cexe)
 			{
-#ifdef MS_WINDOWS
+#ifdef _WIN32
 				bool set_var = false;
-#if !TCL_CORE_LIBRARY_IS_EMBEDDED
-				DWORD ret = GetEnvironmentVariableA("TCL_LIBRARY", NULL, 0);
-				if (!ret && GetLastError() == ERROR_ENVVAR_NOT_FOUND) {
-					auto str_path = detail::_get_tcl_lib_path();
-					SetEnvironmentVariableA("TCL_LIBRARY", str_path.data());
-					set_var = true;
+				if constexpr (!TCL_CORE_LIBRARY_IS_EMBEDDED)
+				{
+					DWORD ret = GetEnvironmentVariableA("TCL_LIBRARY", NULL, 0);
+					if (!ret && GetLastError() == ERROR_ENVVAR_NOT_FOUND) {
+						auto str_path = detail::_get_tcl_lib_path();
+						SetEnvironmentVariableA("TCL_LIBRARY", str_path.data());
+						set_var = true;
+					}
 				}
-#endif	// !TCL_CORE_LIBRARY_IS_EMBEDDED
 				Tcl_FindExecutable(cexe);
 
 				if (set_var)
 					SetEnvironmentVariableW(L"TCL_LIBRARY", NULL);
 #else
 				Tcl_FindExecutable(PyBytes_AS_STRING(cexe));
-#endif	// MS_WINDOWS
+#endif	// _WIN32
 			}
 		}
 	}
@@ -607,17 +614,20 @@ export namespace cpptkinter::_cpptkinter
 		else
 		{
 			auto opt_result = detail::FromObjImpl(tkapp, ptr, std::type_identity<R>{});
-			if (opt_result)
+			if (opt_result.has_value())
 				return std::move(*opt_result);
 
-			std::string error_string = std::format("Got tcl object {}.\nExpected c++ type '{}'.", detail::Tcl_Obj_to_string(tkapp, ptr), reflect::type_name<R>());
+			std::string error_string = std::format("Got tcl object {}.\nExpected c++ type {}.", detail::Tcl_Obj_to_string(tkapp, ptr), reflect::type_name<R>());
 			throw detail::construct_exception<TclError>(error_string);
 		}
 	}
 
 	/// @brief Retrieve the current value of a tcl variable.
-	template<detail::FromObjConcept R, detail::GetVarConcept A1>
-	R GetVar(TkappObject* self, const A1& arg1, const std::string& arg2, int flags);
+	template<detail::FromObjConcept R>
+	R GetVar(TkappObject* self, const std::string& arg1, const std::string& arg2, int flags);
+	/// @copydoc GetVar
+	template<detail::FromObjConcept R>
+	R GetVar(TkappObject* self, const Tcl_Obj& arg1, const std::string& arg2, int flags);
 
 	/// @brief Modify the value of a tcl variable. If the variable doesn't exist, it will be created.
 	void SetVar(TkappObject* self, const std::string& arg1, const detail::AsObjConcept auto& arg2, int flags);
@@ -634,7 +644,7 @@ export namespace cpptkinter::_cpptkinter
 	template<detail::call_argument_concept...Args>
 	std::vector<Tcl_Obj> Tkapp_CallArgs(Args&&...args)
 	{
-		DEVIATING_IMPLEMENTATION_WARNING("major changes");
+		DEVIATING_IMPLEMENTATION_WARNING("major changes, original ignores None and any argument thereafter, not implementable in c++");
 
 		std::vector<Tcl_Obj> raii{};
 
@@ -755,13 +765,34 @@ export namespace cpptkinter::_cpptkinter
 			auto args = std::ranges::subrange(objv + 1, objv + objc) | std::views::transform([](const auto& a) { return Tcl_Obj(a); }) | std::ranges::to<std::vector>();
 
 			if (sizeof...(Args) != args.size())
-				throw detail::construct_exception<TclError>(std::format("expected {} but got {} arguments", sizeof...(Args), args.size()));
+			{
+				std::string error_string = (std::format("Got {} tcl arguments ({}).\nExpected {} c++ arguments (", args.size(),
+					hhh::misc::join_strings(args | std::views::transform(detail::Tcl_obj_type_string), ", "),
+					sizeof...(Args))
+					+ ... + (std::string(reflect::type_name<Args>()) + ", "))
+					+ ").";
+
+				throw detail::construct_exception<TclError>(error_string);
+			}
 
 			ENTER_PYTHON;
 
+			auto inner_caller = [&]<typename T, size_t I>() {
+
+				auto opt_result = detail::FromObjImpl(data.self, args[I], std::type_identity<std::remove_cvref_t<T>>{});
+				if (opt_result.has_value())
+					return std::move(*opt_result);
+
+				std::string error_string = std::format("{}. tcl argument was {}.\nExpected c++ argument {}.",
+					I+1,
+					detail::Tcl_Obj_to_string(data.self, args[I]),
+					reflect::type_name<T>());
+				throw detail::construct_exception<TclError>(error_string);
+			};
+
 			// necessary bc c++ doesn't define function argument evaluation order :(
 			auto caller = [&]<size_t...I>(std::index_sequence<I...>) {
-				return data.func(FromObj<std::remove_cvref_t<Args>>(data.self, args[I])...);
+				return data.func(inner_caller.template operator()<Args, I>()...);
 			};
 
 			if constexpr (std::same_as<R, void>)
@@ -788,6 +819,7 @@ export namespace cpptkinter::_cpptkinter
 			}
 			catch (...)
 			{
+				hhh::misc::printl("caught exc");
 				errorInCmd = 1;
 				excInCmd = std::current_exception();
 				return TCL_ERROR;
@@ -929,16 +961,17 @@ export namespace cpptkinter::_cpptkinter
 				Tcl_SetVar(this->interp, "argv", args.c_str(), TCL_GLOBAL_ONLY);
 			}
 
-#ifdef MS_WINDOWS
-#if !TCL_CORE_LIBRARY_IS_EMBEDDED
-			DWORD ret = GetEnvironmentVariableA("TCL_LIBRARY", NULL, 0);
-			if (!ret && GetLastError() == ERROR_ENVVAR_NOT_FOUND)
+#ifdef _WIN32
+			if constexpr (!TCL_CORE_LIBRARY_IS_EMBEDDED)
 			{
-				auto str_path = detail::_get_tcl_lib_path();
-				Tcl_SetVar(this->interp, "tcl_library", str_path.c_str(), TCL_GLOBAL_ONLY);
+				DWORD ret = GetEnvironmentVariableA("TCL_LIBRARY", NULL, 0);
+				if (!ret && GetLastError() == ERROR_ENVVAR_NOT_FOUND)
+				{
+					auto str_path = detail::_get_tcl_lib_path();
+					Tcl_SetVar(this->interp, "tcl_library", str_path.c_str(), TCL_GLOBAL_ONLY);
+				}
 			}
-#endif	// !TCL_CORE_LIBRARY_IS_EMBEDDED
-#endif	// MS_WINDOWS
+#endif	// _WIN32
 
 			if (Tcl_AppInit(this->interp) != TCL_OK)
 				throw Tkinter_Error(this);
@@ -965,7 +998,9 @@ export namespace cpptkinter::_cpptkinter
 
 		/// @brief This is the main entry point for calling a Tcl command.
 		/// 
-		/// It supports three cases, with regard to threading:
+		/// In tkinter, if an argument is None, it and any following arguments are ignored. This feature isn't implemented here because c++ doesn't really have None.
+		/// 
+		/// There are three cases, with regard to threading:
 		/// 1. Tcl is not threaded:
 		///		Must have the Tcl lock, then can invoke command in the context of the calling thread.
 		/// 2. Tcl is threaded, caller of the command is in the interpreter thread:
@@ -983,6 +1018,7 @@ export namespace cpptkinter::_cpptkinter
 
 			if (self->threaded && self->thread_id != Tcl_GetCurrentThread())
 			{
+				hhh::misc::printl("call if 1");
 				DEVIATING_IMPLEMENTATION_WARNING("original: flags isnt actually passed, probably a bug in tkinter");
 				auto lambda = [&]() { return Tkapp_CallProc<R>(this, flags, std::forward<Args>(args)...); };
 				using FuncType = std::invoke_result_t<decltype(lambda)>();
@@ -1048,12 +1084,22 @@ export namespace cpptkinter::_cpptkinter
 			var_invoke([&]() { SetVar(this, arg1, arg2, arg3, TCL_LEAVE_ERR_MSG | TCL_GLOBAL_ONLY); }, this);
 		}
 		template<detail::FromObjConcept R>
-		R getvar(const detail::GetVarConcept auto& arg1, const std::string& arg2 = {})
+		R getvar(const std::string& arg1, const std::string& arg2 = {})
 		{
 			return var_invoke([&]()->decltype(auto) { return GetVar<R>(this, arg1, arg2, TCL_LEAVE_ERR_MSG); }, this);
 		}
 		template<detail::FromObjConcept R>
-		R globalgetvar(const detail::GetVarConcept auto& arg1, const std::string& arg2 = {})
+		R getvar(const Tcl_Obj& arg1, const std::string& arg2 = {})
+		{
+			return var_invoke([&]()->decltype(auto) { return GetVar<R>(this, arg1, arg2, TCL_LEAVE_ERR_MSG); }, this);
+		}
+		template<detail::FromObjConcept R>
+		R globalgetvar(const std::string& arg1, const std::string& arg2 = {})
+		{
+			return var_invoke([&]()->decltype(auto) { return GetVar<R>(this, arg1, arg2, TCL_LEAVE_ERR_MSG | TCL_GLOBAL_ONLY); }, this);
+		}
+		template<detail::FromObjConcept R>
+		R globalgetvar(const Tcl_Obj& arg1, const std::string& arg2 = {})
 		{
 			return var_invoke([&]()->decltype(auto) { return GetVar<R>(this, arg1, arg2, TCL_LEAVE_ERR_MSG | TCL_GLOBAL_ONLY); }, this);
 		}
@@ -1259,6 +1305,148 @@ export namespace cpptkinter::_cpptkinter
 // function template definitions
 ////////////////////////////////
 
+namespace cpptkinter::_cpptkinter::detail
+{
+	template<std::derived_from<Misc> T>
+	Tcl_Obj AsObjImpl(const std::shared_ptr<T>& value)
+	{
+		return AsObjImpl(value->operator std::string());
+	}
+	template<typename...Args>
+		requires (AsObjImplTrait<Args>::value && ...)
+	Tcl_Obj AsObjImpl(const std::variant<Args...>& value)
+	{
+		return std::visit([]<typename T2>(const T2 & arg) { return AsObjImpl(arg); }, value);
+	}
+	template<typename T>
+		requires (hhh::meta::tuple_like<T>&& hhh::meta::tuple_elements_satisfy<T, AsObjImplTrait>::value)
+	|| (utility::is_vector<T> && AsObjImplTrait<typename T::value_type>::value)
+		Tcl_Obj AsObjImpl(const T & value)
+	{
+		std::vector<Tcl_Obj> raii{};
+		utility::visit_range_or_tuple([&raii]<typename T2>(const T2 & elem) { raii.emplace_back(AsObjImpl(elem)); }, value);
+		return Tcl_NewListObj(raii);
+	}
+	template<typename T>
+		requires AsObjImplTrait<typename T::type>::value
+	&& (hhh::meta::is_template_instance<T, std::reference_wrapper> || hhh::meta::is_template_instance<T, utility::ref_wrapper>)
+		Tcl_Obj AsObjImpl(const T& value)
+	{
+		return AsObjImpl(value.get());
+	}
+
+	template<typename T>
+	T FromObjImplListQuery(Tcl_Interp* interp, TkappObject* tkapp, const Tcl_Obj& value, Tcl_Size i)
+	{
+		::Tcl_Obj* tcl_elem{};
+		if (Tcl_ListObjIndex(interp, value, i, &tcl_elem) == TCL_ERROR)
+			throw Tkinter_Error(tkapp);
+
+		return FromObj<T>(tkapp, Tcl_Obj(tcl_elem));
+	}
+
+	template<utility::is_vector T>
+		requires FromObjImplTrait<typename T::value_type>::value
+	std::optional<T> FromObjImpl(TkappObject* tkapp, const Tcl_Obj& value, std::type_identity<T>)
+	{
+		using value_type = typename T::value_type;
+
+		if (value->typePtr == nullptr)
+			return std::optional<T>{ std::in_place };
+		else if (value->typePtr == tkapp->ListType && tkapp->ListType)
+		{
+			Tcl_Interp* interp = Tkapp_Interp(tkapp);
+			Tcl_Size size{};
+			if (Tcl_ListObjLength(interp, value, &size) == TCL_ERROR)
+				throw Tkinter_Error(tkapp);
+
+			std::optional<T> result{ std::in_place };
+			auto&& vec = *result;
+			vec.reserve(size);
+			for (Tcl_Size i = 0; i < size; i++)
+				vec.emplace_back(FromObjImplListQuery<value_type>(interp, tkapp, value, i));
+
+			return result;
+		}
+		return {};
+	}
+	template<hhh::meta::is_template_instance<std::map> T>
+		requires FromObjImplTrait<typename T::key_type>::value&& FromObjImplTrait<typename T::mapped_type>::value
+	std::optional<T> FromObjImpl(TkappObject* tkapp, const Tcl_Obj& value, std::type_identity<T>)
+	{
+		using key_type = typename T::key_type;
+		using mapped_type = typename T::mapped_type;
+
+		if (value->typePtr == nullptr)
+			return std::optional<T>{ std::in_place };
+		else if (value->typePtr == tkapp->DictType && tkapp->DictType)
+		{
+			std::optional<T> result{ std::in_place };
+			auto&& map = *result;
+
+			Tcl_Interp* interp = Tkapp_Interp(tkapp);
+			Tcl_DictSearch search{};
+			::Tcl_Obj* keyPtr, * valuePtr;
+			int done{};
+
+			if (Tcl_DictObjFirst(interp, value, &search, &keyPtr, &valuePtr, &done) != TCL_OK)
+				throw Tkinter_Error(tkapp);
+
+			while (!done)
+			{
+				auto&& [it, success] = map.emplace(FromObj<key_type>(tkapp, keyPtr), FromObj<mapped_type>(tkapp, valuePtr));
+				if (!success)
+					throw detail::construct_exception<TclError>("duplicate key in dict");
+
+				Tcl_DictObjNext(&search, &keyPtr, &valuePtr, &done);
+			}
+
+			Tcl_DictObjDone(&search);
+			return result;
+		}
+		return {};
+	}
+	template<typename T>
+		requires (hhh::meta::tuple_like<T>&& hhh::meta::tuple_elements_satisfy<T, FromObjImplTrait>::value)
+	std::optional<T> FromObjImpl(TkappObject* tkapp, const Tcl_Obj& value, std::type_identity<T>)
+	{
+		if (std::tuple_size_v<T> == 0 && value->typePtr == nullptr)
+			return std::optional<T>{ std::in_place };
+		else if (value->typePtr == tkapp->ListType && tkapp->ListType)
+		{
+			Tcl_Interp* interp = Tkapp_Interp(tkapp);
+			Tcl_Size size{};
+			if (Tcl_ListObjLength(interp, value, &size) == TCL_ERROR)
+				throw Tkinter_Error(tkapp);
+
+			if (size != std::tuple_size_v<T>)
+				throw detail::construct_exception<TclError>(std::format("expected {} elements but got {}", std::tuple_size_v<T>, size));
+
+			return[&]<size_t...I>(std::index_sequence<I...>) {
+				return T{ FromObjImplListQuery<std::tuple_element_t<I, T>>(interp, tkapp, value, I)... };
+			} (std::make_index_sequence<std::tuple_size_v<T>>{});
+		}
+		return {};
+	}
+	template<typename...Args>
+		requires ((FromObjImplTrait<Args>::value && ...) && sizeof...(Args) != 0)
+	std::optional<std::variant<Args...>> FromObjImpl(TkappObject* tkapp, const Tcl_Obj& value, std::type_identity<std::variant<Args...>>)
+	{
+		auto lambda = [&]<typename First, typename...Other>(auto & self) -> std::optional<std::variant<Args...>>
+		{
+			auto intermediate = FromObjImpl(tkapp, value, std::type_identity<First>{});
+			if (intermediate.has_value())
+				return std::move(*intermediate);
+			else if constexpr (sizeof...(Other) != 0)
+				return self.template operator() < Other... > (self);
+			else
+				return {};
+		};
+
+		return lambda.template operator() < Args... > (lambda);
+	}
+}
+
 cpptkinter::_cpptkinter::Tcl_Obj::Tcl_Obj(::Tcl_Obj* ptr) : ptr{ ptr }
 {
 	if (!this->ptr)
@@ -1266,11 +1454,25 @@ cpptkinter::_cpptkinter::Tcl_Obj::Tcl_Obj(::Tcl_Obj* ptr) : ptr{ ptr }
 	Tcl_IncrRefCount(this->ptr);
 }
 
-template<cpptkinter::_cpptkinter::detail::FromObjConcept R, cpptkinter::_cpptkinter::detail::GetVarConcept A1>
-R cpptkinter::_cpptkinter::GetVar(TkappObject* self, const A1& arg1_, const std::string& arg2, int flags)
+template<cpptkinter::_cpptkinter::detail::FromObjConcept R>
+R cpptkinter::_cpptkinter::GetVar(TkappObject* self, const std::string& arg1, const std::string& arg2, int flags)
 {
-	const std::conditional_t<std::convertible_to<R, std::string>, std::string, Tcl_Obj>& arg1 = arg1_;
+	const char* name1 = varname_converter(arg1);
+	const char* name2 = arg2.empty() ? nullptr : arg2.data();
 
+	ENTER_TCL;
+	auto tres = Tcl_GetVar2Ex(Tkapp_Interp(self), name1, name2, flags);
+	ENTER_OVERLAP;
+	if (tres == NULL)
+		throw Tkinter_Error(self);
+	else
+		return FromObj<R>(self, Tcl_Obj(tres));
+
+	LEAVE_OVERLAP_TCL;
+}
+template<cpptkinter::_cpptkinter::detail::FromObjConcept R>
+R cpptkinter::_cpptkinter::GetVar(TkappObject* self, const Tcl_Obj& arg1, const std::string& arg2, int flags)
+{
 	const char* name1 = varname_converter(arg1);
 	const char* name2 = arg2.empty() ? nullptr : arg2.data();
 
@@ -1409,151 +1611,13 @@ std::invoke_result_t<Func&&> cpptkinter::_cpptkinter::var_invoke(Func&& func, Tk
 	}
 }
 
-namespace cpptkinter::_cpptkinter::detail
+std::string cpptkinter::_cpptkinter::detail::Tcl_Obj_to_string(TkappObject* tkapp, ::Tcl_Obj* value)
 {
-	template<std::derived_from<Misc> T>
-	Tcl_Obj AsObjImpl(const std::shared_ptr<T>& value)
-	{
-		return AsObjImpl(value->operator std::string());
-	}
-	template<typename...Args>
-		requires (AsObjImplTrait<Args>::value && ...)
-	Tcl_Obj AsObjImpl(const std::variant<Args...>& value)
-	{
-		return std::visit([]<typename T2>(const T2& arg) { return AsObjImpl(arg); }, value);
-	}
-	template<typename T>
-		requires (hhh::meta::tuple_like<T>&& hhh::meta::tuple_elements_satisfy<T, AsObjImplTrait>::value)
-	|| (utility::is_vector<T> && AsObjImplTrait<typename T::value_type>::value)
-		Tcl_Obj AsObjImpl(const T& value)
-	{
-		std::vector<Tcl_Obj> raii{};
-		utility::visit_range_or_tuple([&raii]<typename T2>(const T2& elem) { raii.emplace_back(AsObjImpl(elem)); }, value);
-		return Tcl_NewListObj(raii);
-	}
-	template<typename T>
-		requires AsObjImplTrait<typename T::type>::value
-	&& (hhh::meta::is_template_instance<T, std::reference_wrapper> || hhh::meta::is_template_instance<T, utility::ref_wrapper>)
-		Tcl_Obj AsObjImpl(const T& value)
-	{
-		return AsObjImpl(value.get());
-	}
+	auto type_string = Tcl_obj_type_string(value);
 
-	template<typename T>
-	T FromObjImplListQuery(Tcl_Interp* interp, TkappObject* tkapp, const Tcl_Obj& value, Tcl_Size i)
-	{
-		::Tcl_Obj* tcl_elem{};
-		if (Tcl_ListObjIndex(interp, value, i, &tcl_elem) == TCL_ERROR)
-			throw Tkinter_Error(tkapp);
-
-		return FromObj<T>(tkapp, Tcl_Obj(tcl_elem));
-	}
-
-	template<utility::is_vector T>
-		requires FromObjImplTrait<typename T::value_type>::value
-	std::optional<T> FromObjImpl(TkappObject* tkapp, const Tcl_Obj& value, std::type_identity<T>)
-	{
-		using value_type = typename T::value_type;
-
-		if (value->typePtr == nullptr)
-			return std::optional<T>{ std::in_place };
-		else if (value->typePtr == tkapp->ListType && tkapp->ListType)
-		{
-			Tcl_Interp* interp = Tkapp_Interp(tkapp);
-			Tcl_Size size{};
-			if (Tcl_ListObjLength(interp, value, &size) == TCL_ERROR)
-				throw Tkinter_Error(tkapp);
-
-			std::optional<T> result{ std::in_place };
-			auto&& vec = *result;
-			vec.reserve(size);
-			for (Tcl_Size i = 0; i < size; i++)
-				vec.emplace_back(FromObjImplListQuery<value_type>(interp, tkapp, value, i));
-
-			return result;
-		}
-		return {};
-	}
-	template<hhh::meta::is_template_instance<std::map> T>
-		requires FromObjImplTrait<typename T::key_type>::value&& FromObjImplTrait<typename T::mapped_type>::value
-	std::optional<T> FromObjImpl(TkappObject* tkapp, const Tcl_Obj& value, std::type_identity<T>)
-	{
-		using key_type = typename T::key_type;
-		using mapped_type = typename T::mapped_type;
-
-		if (value->typePtr == nullptr)
-			return std::optional<T>{ std::in_place };
-		else if (value->typePtr == tkapp->DictType && tkapp->DictType)
-		{
-			std::optional<T> result{ std::in_place };
-			auto&& map = *result;
-
-			Tcl_Interp* interp = Tkapp_Interp(tkapp);
-			Tcl_DictSearch search{};
-			::Tcl_Obj* keyPtr, * valuePtr;
-			int done{};
-
-			if (Tcl_DictObjFirst(interp, value, &search, &keyPtr, &valuePtr, &done) != TCL_OK)
-				throw Tkinter_Error(tkapp);
-
-			while (!done)
-			{
-				auto&& [it, success] = map.emplace(FromObj<key_type>(tkapp, keyPtr), FromObj<mapped_type>(tkapp, valuePtr));
-				if (!success)
-					throw detail::construct_exception<TclError>("duplicate key in dict");
-
-				Tcl_DictObjNext(&search, &keyPtr, &valuePtr, &done);
-			}
-
-			Tcl_DictObjDone(&search);
-			return result;
-		}
-		return {};
-	}
-	template<typename T>
-		requires (hhh::meta::tuple_like<T>&& hhh::meta::tuple_elements_satisfy<T, FromObjImplTrait>::value)
-	std::optional<T> FromObjImpl(TkappObject* tkapp, const Tcl_Obj& value, std::type_identity<T>)
-	{
-		if (std::tuple_size_v<T> == 0 && value->typePtr == nullptr)
-			return std::optional<T>{ std::in_place };
-		else if (value->typePtr == tkapp->ListType && tkapp->ListType)
-		{
-			Tcl_Interp* interp = Tkapp_Interp(tkapp);
-			Tcl_Size size{};
-			if (Tcl_ListObjLength(interp, value, &size) == TCL_ERROR)
-				throw Tkinter_Error(tkapp);
-
-			if (size != std::tuple_size_v<T>)
-				throw detail::construct_exception<TclError>(std::format("expected {} elements but got {}", std::tuple_size_v<T>, size));
-
-			return[&]<size_t...I>(std::index_sequence<I...>) {
-				return T{ FromObjImplListQuery<std::tuple_element_t<I, T>>(interp, tkapp, value, I)... };
-			} (std::make_index_sequence<std::tuple_size_v<T>>{});
-		}
-		return {};
-	}
-	template<typename...Args>
-		requires ((FromObjImplTrait<Args>::value && ...) && sizeof...(Args) != 0)
-	std::optional<std::variant<Args...>> FromObjImpl(TkappObject* tkapp, const Tcl_Obj& value, std::type_identity<std::variant<Args...>>)
-	{
-		auto lambda = [&]<typename First, typename...Other>(auto & self) -> std::optional<std::variant<Args...>>
-		{
-			auto intermediate = FromObjImpl(tkapp, value, std::type_identity<First>{});
-			if (intermediate.has_value())
-				return std::move(*intermediate);
-			else if constexpr (sizeof...(Other) != 0)
-				return self.template operator() < Other... > (self);
-			else
-				return {};
-		};
-
-		return lambda.template operator() < Args... > (lambda);
-	}
-}
-
-std::string cpptkinter::_cpptkinter::detail::Tcl_Obj_to_string_impl(TkappObject* tkapp, ::Tcl_Obj* value)
-{
-	if (!value->typePtr)
+	if (!value)
+		throw construct_exception<TclError>(std::format("Tcl_Obj* is nullptr"));
+	else if (!value->typePtr)
 		return std::format("(unknown type)'{}'", Tcl_GetString(value));
 	else if (!value->typePtr->name)
 		throw construct_exception<TclError>(std::format("Tcl_Obj->typePtr->name is nullptr (Tcl_GetString: {})", Tcl_GetString(value)));
@@ -1570,11 +1634,11 @@ std::string cpptkinter::_cpptkinter::detail::Tcl_Obj_to_string_impl(TkappObject*
 			if (Tcl_DictObjFirst(interp, value, &search, &keyPtr, &valuePtr, &done) != TCL_OK)
 				throw Tkinter_Error(tkapp);
 
-			result += value->typePtr->name;
+			result += type_string;
 			result += "{ ";
 
 			while (!done) {
-				result += Tcl_Obj_to_string_impl(tkapp, keyPtr) + " : " + Tcl_Obj_to_string_impl(tkapp, valuePtr) + ", ";
+				result += Tcl_Obj_to_string(tkapp, keyPtr) + " : " + Tcl_Obj_to_string(tkapp, valuePtr) + ", ";
 
 				Tcl_DictObjNext(&search, &keyPtr, &valuePtr, &done);
 			}
@@ -1590,7 +1654,7 @@ std::string cpptkinter::_cpptkinter::detail::Tcl_Obj_to_string_impl(TkappObject*
 			if (Tcl_ListObjLength(interp, value, &size) == TCL_ERROR)
 				throw Tkinter_Error(tkapp);
 
-			result += value->typePtr->name;
+			result += type_string;
 			result += "[ ";
 
 			for (Tcl_Size i = 0; i < size; i++)
@@ -1598,7 +1662,7 @@ std::string cpptkinter::_cpptkinter::detail::Tcl_Obj_to_string_impl(TkappObject*
 				::Tcl_Obj* tcl_elem{};
 				if (Tcl_ListObjIndex(interp, value, i, &tcl_elem) == TCL_ERROR)
 					throw Tkinter_Error(tkapp);
-				result += Tcl_Obj_to_string_impl(tkapp, tcl_elem);
+				result += Tcl_Obj_to_string(tkapp, tcl_elem);
 				if (i != size - 1)
 					result += ", ";
 			}
@@ -1607,7 +1671,7 @@ std::string cpptkinter::_cpptkinter::detail::Tcl_Obj_to_string_impl(TkappObject*
 		}
 		else
 		{
-			result += std::format("({})'{}'", value->typePtr->name, Tcl_GetString(value));
+			result += std::format("({})'{}'", type_string, Tcl_GetString(value));
 		}
 		return result;
 	}
@@ -1669,8 +1733,10 @@ int cpptkinter::_cpptkinter::WaitForMainloop(TkappObject* self)
 std::optional<std::string> cpptkinter::_cpptkinter::detail::FromObjImpl(TkappObject* tkapp, const Tcl_Obj& value, std::type_identity<std::string>)
 {
 	if (value->typePtr == nullptr
-		|| (value->typePtr == tkapp->StringType && tkapp->StringType)
-		|| (value->typePtr == tkapp->UTF32StringType && tkapp->UTF32StringType))
+		|| (tkapp->StringType && value->typePtr == tkapp->StringType)
+		|| (tkapp->UTF32StringType && value->typePtr == tkapp->UTF32StringType)
+		|| (value->typePtr && value->typePtr->name && value->typePtr->name == "parsedVarName"sv)
+		)
 		return unicodeFromTclObj(tkapp, value);
 	return {};
 }

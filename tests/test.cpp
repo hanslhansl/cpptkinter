@@ -16,14 +16,13 @@ to-do
 
 int main(int argc, char* argv[])
 {
-    tk::init(argc, argv);
     tk::detail::_debug = false;
-
-
 	tk::utility::weak<tk::Tk> wroot;
 
     try
     {
+        tk::init(argc, argv);
+
         auto root = tk::Tk();
 
         root.title("Welcome to GeeksForGeeks");
@@ -95,7 +94,34 @@ int main(int argc, char* argv[])
         auto submit_button = tk::Button({ .master = root, .command = print_answers, .text = "Submit" });
         submit_button.grid();
 
-		auto check1 = tk::Checkbutton({ .master = root, .text = "Check 1" });
+		auto check1 = tk::Checkbutton({ .master = root, .offvalue = 0, .onvalue = 1, .text = "Check 1", .tristatevalue = -1 });
+        auto toggle_checkbutton = [](tk::Event<tk::Misc> event) {
+            /*def toggle_checkbutton(event):
+            checkbutton = event.widget
+            varname = checkbutton.cget("variable")
+            current_value = checkbutton.getvar(varname)
+            if current_value == "on":
+                new_value = "off"
+            elif current_value == "off":
+                new_value = "tristate"
+            else:
+                new_value = "on"
+            checkbutton.setvar(varname, new_value)
+            return "break"*/
+            auto&& checkbutton = event.widget;
+            auto varname = checkbutton.cget<std::string>("variable");
+            auto current_value = checkbutton.tk->getvar<long long>(varname);
+            long long new_value;
+            if (current_value == 1)
+                new_value = 0;
+            else if (current_value == 0)
+                new_value = -1;
+            else
+                new_value = 1;
+            checkbutton.tk->setvar(varname, new_value);
+            return std::string("break");
+            };
+        check1.bind("<1>", toggle_checkbutton);
         check1.grid();
 
 
@@ -111,7 +137,10 @@ int main(int argc, char* argv[])
 
         tk::mainloop();
 
-    } catch (const std::exception& ex) { std::println("exception type: {}\n{}", typeid(ex).name(), ex.what()); }
+    }
+    catch (const std::exception& ex)
+    //catch (const std::logic_error& ex)
+    { std::println("exception type: {}\n{}", typeid(ex).name(), ex.what()); }
 
     misc::printl("wroot.use_count() ", wroot.use_count());
 

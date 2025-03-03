@@ -1,5 +1,5 @@
 ﻿/// @file constants.ixx
-/// @brief  Implements constants.py.
+/// @brief Implements constants.py.
 
 
 export module cpptkinter:constants;

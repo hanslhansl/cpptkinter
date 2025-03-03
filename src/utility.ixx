@@ -8,7 +8,7 @@ export module cpptkinter:utility;
 import std;
 import hhh;
 
-namespace detail
+namespace cpptkinter::utility::detail
 {
     template<typename T>
     struct is_std_array : std::false_type
@@ -291,7 +291,7 @@ export namespace cpptkinter::utility
 }
 
 template<typename T>
-void detail::range_or_tuple_to_string_visitor::operator()(const T& val)
+void cpptkinter::utility::detail::range_or_tuple_to_string_visitor::operator()(const T& val)
 {
     if constexpr ((std::ranges::range<T> && !std::same_as<T, std::string>) || hhh::meta::tuple_like<T>)
     {

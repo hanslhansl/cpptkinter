@@ -5,6 +5,8 @@ module;
 #include "global.hpp"
 #include <reflect/reflect.hpp>
 #include <range/v3/all.hpp>
+#undef TK_VERSION
+#undef TCL_VERSION
 export module cpptkinter;
 export import :constants;
 export import :utility;
@@ -12,6 +14,7 @@ export import :_cpptkinter;
 import std;
 import hhh;
 
+using namespace std::literals;
 
 #define REF_TO_IMPL(member) decltype(impl::member)& member
 
@@ -36,21 +39,29 @@ import hhh;
     }   \
     using base::base
 
-#if defined(__cpp_lib_ranges_stride) && defined(__cpp_lib_ranges_to_container) && defined(__cpp_lib_ranges) && defined(__cpp_lib_ranges_zip)
+using substitute_long_long = const std::variant<long long, std::string>&;
+#define MISC_SUBSTITUTE_PARAMETERS  const std::string& nsign, substitute_long_long b, substitute_long_long f, substitute_long_long h, substitute_long_long k, const std::string& s, \
+                                    const std::string& t, substitute_long_long w, const std::string& x, const std::string& y, const std::string& A, substitute_long_long E, const std::string& K, \
+                                    substitute_long_long N, const std::string& W, substitute_long_long T, const std::string& X, const std::string& Y, substitute_long_long D
+#define MISC_SUBSTITUTE_ARGUMENTS nsign, b, f, h, k, s, t, w, x, y, A, E, K, N, W, T, X, Y, D
+
+
+#if defined(__cpp_lib_ranges_stride) && defined(__cpp_lib_ranges_to_container) && defined(__cpp_lib_ranges) && defined(__cpp_lib_ranges_zip) && defined(__cpp_lib_ranges_join_with)
 using std::views::stride;
 using std::ranges::to;
 using std::views::drop;
 using std::views::zip;
+using std::ranges::join_with_view;
 #else
 using ranges::views::stride;
 using ranges::to;
 using ranges::views::drop;
 using ranges::views::zip;
+using ranges::join_with_view;
 #endif
 
 export namespace cpptkinter
 {
-
     using namespace constants;
 
     using _cpptkinter::TclError;
@@ -142,7 +153,7 @@ export namespace cpptkinter
         long long _checkbutton_count = 0;
 
         size_t tcl_command_name_counter = 0;
-        const std::set<char> tcl_forbidden_chars{ ' ', '{', '}', '[', ']', '(', ')', '"', '\\', '$', ';', '|', '&', '*', '~', '<', '>', ':' };
+        const std::set<char> tcl_forbidden_chars{ ' ', '{', '}', '[', ']', '(', ')', '"', '\\', '$', ';', '|', '&', '*', '~', '<', '>', ':', '\'', '`' , ',' };
 
         /// @brief Internal class.
         /// 
@@ -253,76 +264,36 @@ export namespace cpptkinter
         }
     }
 
-    /// @brief Contains structs to be passed to many of cpptkinter's functions.
-    ///
-    /// Replaces Python's **kwargs.
-    namespace cnfs
+    enum class EventType
     {
-        template<typename T>
-        struct is_cnf_member_trait : std::bool_constant<detail::AsObjConcept<T> || detail::createcommand_concept<T>> { };
-        template<typename...Args>
-            requires (is_cnf_member_trait<Args>::value && ...)
-        struct is_cnf_member_trait<std::variant<Args...>> : std::true_type {};
-        template<typename T>
-            requires is_cnf_member_trait<T>::value
-        struct is_cnf_member_trait<std::optional<T>> : std::true_type {};
 
-        template<typename T>
-        concept is_cnf_member = is_cnf_member_trait<T>::value;
+    };
 
-        template<typename T, typename IS = std::make_index_sequence<reflect::size<T>()>>
-        struct is_cnf_trait : std::false_type { };
-        template<typename T, size_t...I>
-            requires (!std::is_array_v<std::remove_cvref_t<T>>) && (is_cnf_member<std::remove_cvref_t<reflect::member_type<I, T>>> && ...)
-        struct is_cnf_trait<T, std::integer_sequence<size_t, I...>> : std::true_type { };
-        /// @brief Satsified if T is a cnf struct.
-        /// 
-        /// Usually cnf structs are passed to cpptkinter::Misc::_options() internally.
-        template<typename T>
-        concept is_cnf = is_cnf_trait<std::remove_cvref_t<T>>::value;
-
-        using pad_type = utility::extend_variants<detail::ScreenUnits, std::array<detail::ScreenUnits, 2>>::type;
-        using visual_type = std::variant<std::string, std::tuple<std::string, long long>>;
-
-        template<typename T>
-        using opt = std::optional<T>;
-        using opt_string = opt<std::string>;
-        using opt_bool = opt<bool>;
-        using opt_screenunits = opt<detail::ScreenUnits>;
-        using opt_pad_type = opt<pad_type>;
-        using opt_visual_type = opt<visual_type>;
-        using opt_anchor = opt<detail::Anchor>;
-        using opt_font_description = opt<detail::FontDescription>;
-        using opt_cursor = opt<detail::Cursor>;
-        using opt_image_spec = opt<detail::ImageSpec>;
-        using opt_compound = opt<detail::Compound>;
-        using opt_relief = opt<detail::Relief>;
-        using opt_take_focus_value = opt<detail::TakeFocusValue>;
-        using opt_text = opt<std::variant<double, std::string>>;
-        using opt_xy_scroll_command = opt<detail::XYScrollCommand>;
-
-        /// @brief Argument for Misc::grid_columnconfigure() and Misc::grid_rowconfigure().
-        struct grid_column_row_configure
-        {
-            opt_screenunits minsize;
-            opt_screenunits pad;
-            opt_string uniform;
-            opt<size_t> weight;
-        };
-        /// @brief Return type of Misc::grid_columnconfigure() and Misc::grid_rowconfigure().
-        struct grid_column_row_configure_return
-        {
-            long long minsize;
-            long long pad;
-            std::string uniform;
-            long long weight;
-        };
-
-        struct grid_bbox
-        {
-            opt<long long> column, row, col2, row2;
-        };
-    }
+    template<typename T>
+    struct Event
+    {
+        long long serial;
+		long long num;
+        // if invalid: false
+        bool focus;
+        long long height;
+		long long width;
+        long long keycode;
+        std::variant<long long, std::string> state;
+        long long time;
+        long long x;
+        long long y;
+        long long x_root;
+        long long y_root;
+        std::string char_;
+        // if invalid: false
+        bool send_event;
+        std::string keysym;
+		long long keysym_num;
+        EventType type;
+        T widget;
+        long long delta;
+    };
 
     /// @brief Initialize cpptkinter.
     /// 
@@ -940,6 +911,77 @@ export namespace cpptkinter
         }
     };
 
+    /// @brief Contains structs to be passed to many of cpptkinter's functions.
+    ///
+    /// Replaces Python's **kwargs.
+    namespace cnfs
+    {
+        template<typename T>
+        struct is_cnf_member_trait : std::bool_constant<detail::AsObjConcept<T> || detail::createcommand_concept<T>> {};
+        template<typename...Args>
+            requires (is_cnf_member_trait<Args>::value && ...)
+        struct is_cnf_member_trait<std::variant<Args...>> : std::true_type {};
+        template<typename T>
+            requires is_cnf_member_trait<T>::value
+        struct is_cnf_member_trait<std::optional<T>> : std::true_type {};
+
+        template<typename T>
+        concept is_cnf_member = is_cnf_member_trait<T>::value;
+
+        template<typename T, typename IS = std::make_index_sequence<reflect::size<T>()>>
+        struct is_cnf_trait : std::false_type {};
+        template<typename T, size_t...I>
+            requires (!std::is_array_v<std::remove_cvref_t<T>>) && (is_cnf_member<std::remove_cvref_t<reflect::member_type<I, T>>> && ...)
+        struct is_cnf_trait<T, std::integer_sequence<size_t, I...>> : std::true_type {};
+        /// @brief Satsified if T is a cnf struct.
+        /// 
+        /// Usually cnf structs are passed to cpptkinter::Misc::_options() internally.
+        template<typename T>
+        concept is_cnf = is_cnf_trait<std::remove_cvref_t<T>>::value;
+
+        using pad_type = utility::extend_variants<detail::ScreenUnits, std::array<detail::ScreenUnits, 2>>::type;
+        using visual_type = std::variant<std::string, std::tuple<std::string, long long>>;
+
+        template<typename T>
+        using opt = std::optional<T>;
+        using opt_string = opt<std::string>;
+        using opt_bool = opt<bool>;
+        using opt_screenunits = opt<detail::ScreenUnits>;
+        using opt_pad_type = opt<pad_type>;
+        using opt_visual_type = opt<visual_type>;
+        using opt_anchor = opt<detail::Anchor>;
+        using opt_font_description = opt<detail::FontDescription>;
+        using opt_cursor = opt<detail::Cursor>;
+        using opt_image_spec = opt<detail::ImageSpec>;
+        using opt_compound = opt<detail::Compound>;
+        using opt_relief = opt<detail::Relief>;
+        using opt_take_focus_value = opt<detail::TakeFocusValue>;
+        using opt_text = opt<std::variant<double, std::string>>;
+        using opt_xy_scroll_command = opt<detail::XYScrollCommand>;
+
+        /// @brief Argument for Misc::grid_columnconfigure() and Misc::grid_rowconfigure().
+        struct grid_column_row_configure
+        {
+            opt_screenunits minsize;
+            opt_screenunits pad;
+            opt_string uniform;
+            opt<size_t> weight;
+        };
+        /// @brief Return type of Misc::grid_columnconfigure() and Misc::grid_rowconfigure().
+        struct grid_column_row_configure_return
+        {
+            long long minsize;
+            long long pad;
+            std::string uniform;
+            long long weight;
+        };
+
+        struct grid_bbox
+        {
+            opt<long long> column, row, col2, row2;
+        };
+    }
+
     /// @brief Internal class.
     /// 
     /// Base class which defines methods common for interior widgets.
@@ -998,6 +1040,178 @@ export namespace cpptkinter
             this->tk->deletecommand(name);
             this->_tclCommands.erase(name);
         }
+
+        /// @brief Set the list of bindtags for this widget.
+        /// 
+        /// The bindtags determine in which order events are processed(see bind).
+        void bindtags(const utility::range_of_convertible_to<std::string> auto& tagList)
+        {
+			this->tk->call("bindtags", this->_w, tagList | std::views::transform([](auto& val) { return static_cast<std::string>(val); }));
+        }
+        /// @brief Get the list of bindtags for this widget.
+        /// 
+        /// The bindtags determine in which order events are processed(see bind).
+        /// @returns The list of all bindtags associated with this widget.
+        std::vector<std::string> bindtags()
+        {
+			return this->tk->template call<std::vector<std::string>>("bindtags", this->_w);
+        }
+
+        /// @brief Internal function.
+        /// 
+		/// Implements the first if statement.
+        void _bind(std::vector<std::string>&& what, const std::string& sequence, const std::string& func)
+        {
+            this->tk->call(what | std::views::transform([](const std::string& str) { return _cpptkinter::AsObj(str); }), sequence, func);
+        }
+    private:
+        template<std::invocable<Event<Misc>> Func>
+        std::string _bind_if_2(Func&& func, bool needcleanup)
+        {
+            return this->_register(
+                [func = std::forward<Func>(func), self = utility::weak(*this)](MISC_SUBSTITUTE_PARAMETERS) { return func(self.lock()._substitute(MISC_SUBSTITUTE_ARGUMENTS)); },
+                needcleanup
+            );
+        }
+    public:
+        /// @brief Internal function.
+        /// 
+		/// Implements the second if statement with sequence != None.
+		/// Creates a tcl command with func and binds it to sequence.
+        /// @returns An identifier for the created tcl command.
+        template<std::invocable<Event<Misc>> Func>
+        std::string _bind(std::vector<std::string>&& what, const std::string& sequence, Func&& func, bool add = false, bool needcleanup = true)
+        {
+			auto funcid = this->_bind_if_2(std::forward<Func>(func), needcleanup);
+            auto cmd = std::format("{}if {{\"[{} {}]\" == \"break\"}} break\n", add ? "+" : "", funcid, this->_subst_format_str);
+            this->tk->call(what | std::views::transform([](const std::string& str) { return _cpptkinter::AsObj(str); }), sequence, cmd);
+            return funcid;
+        }
+        /// @brief Internal function.
+        /// 
+		/// Implements the second if statement with sequence == None.
+		/// Creates a tcl command with func but doesn't bind it (i.e. does nothing with it).
+        /// @returns An identifier for the created tcl command.
+        template<std::invocable<Event<Misc>> Func>
+        std::string _bind(std::vector<std::string>&& what, Func&& func, bool add = false, bool needcleanup = true)
+        {
+            auto funcid = this->_bind_if_2(std::forward<Func>(func), needcleanup);
+            return funcid;
+        }
+        /// @brief Internal function
+        /// 
+		/// Implements the third if statement.
+		/// @returns The script currently bound to sequence or an empty string if there is no binding for sequence.
+        std::string _bind(std::vector<std::string>&& what, const std::string& sequence)
+        {
+            return this->tk->call<std::string>(what | std::views::transform([](const std::string& str) { return _cpptkinter::AsObj(str); }), sequence);
+        }
+        /// @brief Internal function.
+        /// 
+		/// Implements the fourth if statement.
+		/// @returns A list of all bound events associated with this widget.
+        std::vector<std::string> _bind(std::vector<std::string>&& what)
+        {
+            return this->tk->call<std::vector<std::string>>(what | std::views::transform([](const std::string& str) { return _cpptkinter::AsObj(str); }));
+        }
+
+        /// @brief Bind to this widget at event SEQUENCE a call to function FUNC.
+		///
+        /// @param sequence is a string of concatenated event patterns.
+        /// An event pattern is of the form <MODIFIER - MODIFIER - TYPE - DETAIL> where MODIFIER is one of Control, Mod2, M2, Shift, Mod3, M3, Lock, Mod4, M4, Button1, B1, Mod5, M5 Button2, B2, Meta, M, Button3, B3, Alt, Button4, B4, Double, Button5, B5 Triple, Mod1, M1.
+        /// TYPE is one of Activate, Enter, Map, ButtonPress, %Button, Expose, Motion, ButtonRelease FocusIn, MouseWheel, Circulate, FocusOut, Property, Colormap, Gravity Reparent, Configure, KeyPress, Key, Unmap, Deactivate, KeyRelease Visibility, Destroy, Leave and DETAIL is the button number for ButtonPress, ButtonRelease and DETAIL is the Keysym for KeyPress and KeyRelease.
+        /// Examples are <Control - %Button - 1> for pressing Control and mouse button 1 or <Alt - A> for pressing A and the Alt key (KeyPress can be omitted).
+        /// An event pattern can also be a virtual event of the form <<AString>> where AString can be arbitrary.
+        /// This event can be generated by event_generate. If events are concatenated they must appear shortly after each other.
+        /// 
+        /// @param func will be called if the event sequence occurs with an instance of Event as argument. If the return value of FUNC is "break" no further bound function is invoked.
+        /// 
+        /// @param add specifies whether FUNC will be called additionally to the other bound function or whether it will replace the previous function.
+        /// 
+        /// Bind will return an identifier to allow deletion of the bound function with unbind without memory leak.
+        /// 
+        /// If FUNC or SEQUENCE is omitted the bound function or list of bound events are returned.
+        /// /// @see _bind.
+        template<typename...Args>
+        auto bind(Args&&...args) requires requires { this->_bind({}, std::forward<Args>(args)...); }
+        {
+            return this->_bind({ "bind", this->_w }, std::forward<Args>(args)...);
+        }
+
+        /// @brief Unbind for this widget the event SEQUENCE.
+        /// 
+        /// Destroy the current binding for SEQUENCE, leaving SEQUENCE unbound.
+        void unbind(const std::string& sequence)
+        {
+			this->_unbind({ "bind", this->_w, sequence });
+        }
+        /// @brief Unbind for this widget the event SEQUENCE.
+        /// 
+        /// Unbind the function identified with FUNCID and also delete the corresponding Tcl command.
+        void unbind(const std::string& sequence, const std::string& funcid)
+        {
+			this->_unbind({ "bind", this->_w, sequence }, funcid);
+        }
+
+        /// @brief Internal function.
+        /// 
+		/// Implements the first if statement.
+        void _unbind(std::vector<std::string>&& what)
+        {
+			this->tk->call(what | std::views::transform([](const std::string& str) { return _cpptkinter::AsObj(str); }), "");
+        }
+        /// @brief Internal function.
+        /// 
+        /// Implements the second if statement.
+        void _unbind(std::vector<std::string>&& what, const std::string& funcid)
+        {
+            auto prefix = std::format("if {{\"[{} ", funcid);
+            std::string keep{};
+            for(auto&& s : this->tk->call<std::string>(what | std::views::transform([](const std::string& str) { return _cpptkinter::AsObj(str); }))
+                | std::views::split('\n')
+                | std::views::filter([&](const auto& line) { return !std::ranges::starts_with(line, prefix); }))
+            {
+                keep.append_range(s);
+                keep.push_back('\n');
+            }
+			if (keep.ends_with('\n'))
+				keep.pop_back();
+
+            auto temp_keep = keep;
+            temp_keep.erase(0, temp_keep.find_first_not_of("\t\n\v\f\r ")); // left trim
+            temp_keep.erase(temp_keep.find_last_not_of("\t\n\v\f\r ") + 1); // right trim
+            if (temp_keep.empty())
+                keep = "";
+
+            this->tk->call(what | std::views::transform([](const std::string& str) { return _cpptkinter::AsObj(str); }), keep);
+            this->deletecommand(funcid);
+        }
+
+        /// @brief Bind to all widgets at an event SEQUENCE a call to function FUNC.
+        /// 
+        /// An additional boolean parameter ADD specifies whether FUNC will be called additionally to the other bound function or whether it will replace the previous function.
+        /// @see bind for the return value.
+        template<typename...Args>
+        auto bind_all(Args&&...args) requires requires { this->_bind({}, std::forward<Args>(args)..., true); }
+        {
+            return this->bind_class("all", std::forward<Args>(args)...);
+        }
+
+        /// @brief Unbind for all widgets for event SEQUENCE all functions.
+        void unbind_all(const std::string& sequence)
+        {
+			this->unbind_class("all", sequence);
+        }
+
+        /// @brief Bind to widgets with bindtag CLASSNAME at event SEQUENCE a call of function FUNC.
+        /// 
+        /// An additional boolean parameter ADD specifies whether FUNC will be called additionally to the other bound function or whether it will replace the previous function.
+        /// @see bind for the return value.
+        template<typename...Args>
+        auto bind_class(const std::string& className, Args&&...args) requires requires { this->_bind({}, std::forward<Args>(args)..., true); };
+
+		/// @brief Unbind for all widgets with bindtag CLASSNAME for event SEQUENCE all functions.
+        void unbind_class(const std::string& className, const std::string& sequence);
 
         /// @brief Call the mainloop of Tk.
         void mainloop(int n = 0)
@@ -1082,6 +1296,65 @@ export namespace cpptkinter
 
         Tk _root() const;
 
+		static constexpr std::array _subst_format = { "%#"sv, "%b"sv, "%f"sv, "%h"sv, "%k"sv, "%s"sv, "%t"sv, "%w"sv, "%x"sv, "%y"sv, "%A"sv,
+            "%E"sv, "%K"sv, "%N"sv, "%W"sv, "%T"sv, "%X"sv, "%Y"sv, "%D"sv };
+        static const inline std::string _subst_format_str = hhh::misc::join_strings(_subst_format, " ");
+        /// @brief Internal function.
+        Event<Misc> _substitute(MISC_SUBSTITUTE_PARAMETERS)
+        {
+            // print args
+            
+            // [&](auto&...args) { (utility::visit_or_invoke([](auto& a) { hhh::misc::printl(a); }, args), ...); }(MISC_SUBSTITUTE_ARGUMENTS);
+
+            static auto get_long_long = []<typename T>(const T& p, long long def = std::numeric_limits<long long>::min()) {
+                if constexpr (std::same_as<T, std::string>)
+                    return std::stoll(p);
+				else if constexpr (std::same_as<T, long long>)
+					return p;
+                else    // substitute_long_long
+                {
+                    if (std::holds_alternative<std::string>(p))
+                    {
+                        if (std::get<std::string>(p) == "??")
+                            return def;
+                        throw detail::construct_exception<std::runtime_error>(std::format("expected \"??\" but got {}", std::get<std::string>(p)));
+                    }
+                    return std::get<long long>(p);
+                }
+                };
+            static auto get_bool = [&]<typename T>(const T& p) {
+                auto ll = get_long_long(p, 0);
+				if (ll == 0)
+					return false;
+				else if (ll == 1)
+					return true;
+				else
+					throw detail::construct_exception<std::runtime_error>(std::format("expected 0 or 1 but got {}", ll));
+            };
+
+            return {
+                get_long_long(nsign),       // serial
+                get_long_long(b),           // num
+                get_bool(f),                // focus
+                get_long_long(h),           // height
+                get_long_long(w),           // width
+                get_long_long(k),           // keycode
+                get_long_long(s),           // state
+                get_long_long(t),           // time
+                get_long_long(x),           // x
+                get_long_long(y),           // y
+                get_long_long(X),           // x_root
+                get_long_long(Y),           // y_root
+                A,                          // char_
+                get_bool(E),                // send_event
+                K,                          // keysym
+                get_long_long(N),           // keysym_num
+                EventType(get_long_long(T)),// type
+                this->nametowidget(W),      // widget
+                get_long_long(D, 0)         // delta
+            };
+        }
+
         void _report_exception();
 
         std::map<std::string, std::array<std::variant<long long, std::string>, 5>> _getconfigure(std::vector<_cpptkinter::Tcl_Obj>&& raii)
@@ -1154,8 +1427,7 @@ export namespace cpptkinter
         /// To get an overview about the allowed keyword arguments call the method keys.
         /// @param cnf A string or cnf struct.
         template<typename T>
-        auto configure(T&& v)
-            requires requires { this->_configure({ }, std::declval<T>()); }
+        auto configure(T&& v) requires requires { this->_configure({ }, std::declval<T>()); }
         {
             return this->_configure({ "configure" }, std::forward<T>(v));
         }
@@ -1164,23 +1436,20 @@ export namespace cpptkinter
         /// @param keyword The keyword of the resource.
         /// @param value The new value of the resource.
         template<typename T>
-        void configure(const std::string& key, T&& value)
-            requires requires { this->_options_inner_visitor(std::declval<T>()); }
+        void configure(const std::string& key, T&& value) requires requires { this->_options_inner_visitor(std::declval<T>()); }
         {
             this->tk->call(this->_w, "configure", "-" + key, this->_options_inner_visitor(std::forward<T>(value)));
         }
 
         /// @copydoc configure(T&&)
         template<typename T>
-        auto config(T&& v)
-            requires requires { this->configure(std::declval<T>()); }
+        auto config(T&& v) requires requires { this->configure(std::declval<T>()); }
         {
             return this->configure(std::forward<T>(v));
         }
         /// @copydoc configure(const std::string&, T&&)
         template<typename T>
-        void config(const std::string& key, T&& value)
-            requires requires { this->configure(key, std::declval<T>()); }
+        void config(const std::string& key, T&& value) requires requires { this->configure(key, std::declval<T>()); }
         {
             this->configure(key, std::forward<T>(value));
         }
@@ -1204,8 +1473,7 @@ export namespace cpptkinter
         /// 
         /// Used by detail::set_get_proxy. Can be overloaded by inheriting widgets.
         template<typename T>
-        void _setitem_(const std::string& key, T&& value)
-            requires requires { this->configure(std::string{}, std::declval<T>()); }
+        void _setitem_(const std::string& key, T&& value) requires requires { this->configure(std::string{}, std::declval<T>()); }
         {
             this->configure(key, std::forward<T>(value));
         }
@@ -1544,8 +1812,7 @@ export namespace cpptkinter
     struct detail::CallWrapper
     {
         std::function<R(Args...)> func;
-        //utility::weak<Misc> widget;
-        Misc widget;
+        Misc/*utility::weak<Misc>*/ widget;
 
         /// Apply FUNC to arguments.
         R operator()(Args...args)
@@ -4441,6 +4708,18 @@ cpptkinter::Tk cpptkinter::detail::_get_default_root(const std::string& what)
 void cpptkinter::Misc::destroy()
 {
     this->pimpl->destroy();
+}
+
+template<typename...Args>
+auto cpptkinter::Misc::bind_class(const std::string& className, Args&&...args)
+    requires requires { this->_bind({}, std::forward<Args>(args)..., true); }
+{
+    return this->_root()._bind({ "bind", className }, std::forward<Args>(args)..., true);
+}
+
+void cpptkinter::Misc::unbind_class(const std::string& className, const std::string& sequence)
+{
+    this->_root()._unbind({ "bind", className, sequence });
 }
 
 cpptkinter::Misc cpptkinter::Misc::nametowidget(std::string_view name)
