@@ -1,5 +1,10 @@
 var searchData=
 [
-  ['bbox_0',['bbox',['../classcpptkinter_1_1Misc.html#ab1e4b7d196f92db6cab7ea51215f7315',1,'cpptkinter::Misc::bbox()'],['../structcpptkinter_1_1Listbox.html#a3d80728bf489d74580ce28ffa7281e05',1,'cpptkinter::Listbox::bbox()'],['../structcpptkinter_1_1Spinbox.html#accec910930a133182e272fa85658c76a',1,'cpptkinter::Spinbox::bbox()']]],
-  ['button_1',['Button',['../structcpptkinter_1_1Button.html#aa5cda1b3ce9d3153727685368ad55b61',1,'cpptkinter::Button']]]
+  ['basewidget_0',['BaseWidget',['../classcpptkinter_1_1BaseWidget.html#aa3178ee67807135e75777ab2e366a913',1,'cpptkinter::BaseWidget::BaseWidget()'],['../structcpptkinter_1_1Widget.html#aa3178ee67807135e75777ab2e366a913',1,'cpptkinter::Widget::BaseWidget()']]],
+  ['bbox_1',['bbox',['../classcpptkinter_1_1Misc.html#ab1e4b7d196f92db6cab7ea51215f7315',1,'cpptkinter::Misc::bbox()'],['../structcpptkinter_1_1Listbox.html#a3d80728bf489d74580ce28ffa7281e05',1,'cpptkinter::Listbox::bbox()'],['../structcpptkinter_1_1Spinbox.html#accec910930a133182e272fa85658c76a',1,'cpptkinter::Spinbox::bbox()']]],
+  ['bind_2',['bind',['../classcpptkinter_1_1Misc.html#a3fe5995e5d53c85e8222206b311889d8',1,'cpptkinter::Misc']]],
+  ['bind_5fall_3',['bind_all',['../classcpptkinter_1_1Misc.html#a30ee3c45ee9c08e870268f890e3af7ab',1,'cpptkinter::Misc']]],
+  ['bind_5fclass_4',['bind_class',['../classcpptkinter_1_1Misc.html#afc8373edcdff2f0b9e394a0539b5c3a0',1,'cpptkinter::Misc']]],
+  ['bindtags_5',['bindtags',['../classcpptkinter_1_1Misc.html#a851ce25cea487f61c125d0939ab48b09',1,'cpptkinter::Misc::bindtags(const utility::range_of_convertible_to&lt; std::string &gt; auto &amp;tagList)'],['../classcpptkinter_1_1Misc.html#ac3504d63e1dbc8d54185c84e9bddd52d',1,'cpptkinter::Misc::bindtags()']]],
+  ['button_6',['Button',['../structcpptkinter_1_1Button.html#aa5cda1b3ce9d3153727685368ad55b61',1,'cpptkinter::Button::Button(CNF &amp;&amp;cnf={})'],['../structcpptkinter_1_1Button.html#afb6be9a97548127bb05c08e93a4b9b3e',1,'cpptkinter::Button::Button()']]]
 ];

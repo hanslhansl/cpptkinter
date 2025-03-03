@@ -15,6 +15,7 @@ var hierarchy =
     [ "cpptkinter::detail::CallWrapper< R, Args >", "structcpptkinter_1_1detail_1_1CallWrapper.html", null ],
     [ "cpptkinter::cnfs::Checkbutton< T >", "structcpptkinter_1_1cnfs_1_1Checkbutton.html", null ],
     [ "cpptkinter::cnfs::Entry", "structcpptkinter_1_1cnfs_1_1Entry.html", null ],
+    [ "cpptkinter::Event< T >", "structcpptkinter_1_1Event.html", null ],
     [ "cpptkinter::utility::extend_variants< V, Args >", "structcpptkinter_1_1utility_1_1extend__variants.html", null ],
     [ "cpptkinter::utility::extend_variants< std::variant< VArgs... >, Args... >", "structcpptkinter_1_1utility_1_1extend__variants_3_01std_1_1variant_3_01VArgs_8_8_8_01_4_00_01Args_8_8_8_01_4.html", null ],
     [ "hhh::misc::extended_enable_shared_from_this", null, [
@@ -26,7 +27,7 @@ var hierarchy =
     ] ],
     [ "std::false_type", null, [
       [ "cpptkinter::cnfs::is_cnf_trait< T, IS >", "structcpptkinter_1_1cnfs_1_1is__cnf__trait.html", null ],
-      [ "detail::is_std_array< T >", "structdetail_1_1is__std__array.html", null ]
+      [ "cpptkinter::utility::detail::is_std_array< T >", "structcpptkinter_1_1utility_1_1detail_1_1is__std__array.html", null ]
     ] ],
     [ "cpptkinter::cnfs::Frame", "structcpptkinter_1_1cnfs_1_1Frame.html", null ],
     [ "cpptkinter::Grid", "structcpptkinter_1_1Grid.html", [
@@ -93,7 +94,7 @@ var hierarchy =
     [ "cpptkinter::cnfs::PlaceInfo", "structcpptkinter_1_1cnfs_1_1PlaceInfo.html", null ],
     [ "cpptkinter::_cpptkinter::PythonCmd_ClientData< R, Args >", "structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html", null ],
     [ "cpptkinter::cnfs::Radiobutton< T >", "structcpptkinter_1_1cnfs_1_1Radiobutton.html", null ],
-    [ "detail::range_or_tuple_to_string_visitor", "structdetail_1_1range__or__tuple__to__string__visitor.html", null ],
+    [ "cpptkinter::utility::detail::range_or_tuple_to_string_visitor", "structcpptkinter_1_1utility_1_1detail_1_1range__or__tuple__to__string__visitor.html", null ],
     [ "cpptkinter::utility::ref_wrapper< T >", "classcpptkinter_1_1utility_1_1ref__wrapper.html", null ],
     [ "cpptkinter::utility::reference_variant< Args >", "structcpptkinter_1_1utility_1_1reference__variant.html", null ],
     [ "std::runtime_error", null, [
@@ -115,7 +116,7 @@ var hierarchy =
       [ "cpptkinter::cnfs::is_cnf_member_trait< std::optional< T > >", "structcpptkinter_1_1cnfs_1_1is__cnf__member__trait_3_01std_1_1optional_3_01T_01_4_01_4.html", null ],
       [ "cpptkinter::cnfs::is_cnf_member_trait< std::variant< Args... > >", "structcpptkinter_1_1cnfs_1_1is__cnf__member__trait_3_01std_1_1variant_3_01Args_8_8_8_01_4_01_4.html", null ],
       [ "cpptkinter::cnfs::is_cnf_trait< T, std::integer_sequence< size_t, I... > >", "structcpptkinter_1_1cnfs_1_1is__cnf__trait_3_01T_00_01std_1_1integer__sequence_3_01size__t_00_01I_8_8_8_01_4_01_4.html", null ],
-      [ "detail::is_std_array< std::array< T, N > >", "structdetail_1_1is__std__array_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html", null ]
+      [ "cpptkinter::utility::detail::is_std_array< std::array< T, N > >", "structcpptkinter_1_1utility_1_1detail_1_1is__std__array_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html", null ]
     ] ],
     [ "cpptkinter::cnfs::Variable< T >", "structcpptkinter_1_1cnfs_1_1Variable.html", null ],
     [ "cpptkinter::Variable", "classcpptkinter_1_1Variable.html", [

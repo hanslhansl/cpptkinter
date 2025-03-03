@@ -1,0 +1,26 @@
+var structcpptkinter_1_1cnfs_1_1Menu =
+[
+    [ "activebackground", "structcpptkinter_1_1cnfs_1_1Menu.html#a8e67bad861e49a4df571dff9a82ce5f4", null ],
+    [ "activeborderwidth", "structcpptkinter_1_1cnfs_1_1Menu.html#abe49969cc57ebaf7b54effc3c296b41d", null ],
+    [ "activeforeground", "structcpptkinter_1_1cnfs_1_1Menu.html#a7f8447140c8ae6c3714b04b4e7eed002", null ],
+    [ "background", "structcpptkinter_1_1cnfs_1_1Menu.html#ae68b2bd3ef0cc15be2ed5de7fbd2e01b", null ],
+    [ "bd", "structcpptkinter_1_1cnfs_1_1Menu.html#a673621294392268d224cda24ba83eed0", null ],
+    [ "bg", "structcpptkinter_1_1cnfs_1_1Menu.html#a9fdf64ba22e34e0df67a75dc3eb0b8b1", null ],
+    [ "border", "structcpptkinter_1_1cnfs_1_1Menu.html#ac19713bf784f6a0951ffbf64ee1e94e9", null ],
+    [ "borderwidth", "structcpptkinter_1_1cnfs_1_1Menu.html#ab619c55b7b38e017bfde97fbcfcae343", null ],
+    [ "cursor", "structcpptkinter_1_1cnfs_1_1Menu.html#a53041415588687fdea98d00df474fa53", null ],
+    [ "disabledforeground", "structcpptkinter_1_1cnfs_1_1Menu.html#a8759afb4f79d1bf3f340e5ac0fb97ace", null ],
+    [ "fg", "structcpptkinter_1_1cnfs_1_1Menu.html#a8e4fc0c9396226eb3e01ece53b16db74", null ],
+    [ "font", "structcpptkinter_1_1cnfs_1_1Menu.html#a19ed6480595004cb6c266d157802c6eb", null ],
+    [ "foreground", "structcpptkinter_1_1cnfs_1_1Menu.html#a61482753107a80a7bd940ac49a29709c", null ],
+    [ "master", "structcpptkinter_1_1cnfs_1_1Menu.html#a3ab07ce22a446c6beed09db509c3e00e", null ],
+    [ "name", "structcpptkinter_1_1cnfs_1_1Menu.html#ab69c5e5b6ae4ce70d9a098b756a4d51a", null ],
+    [ "postcommand", "structcpptkinter_1_1cnfs_1_1Menu.html#a97fa764fe018ecf4909ce0dfdd447777", null ],
+    [ "relief", "structcpptkinter_1_1cnfs_1_1Menu.html#a8e7122aa59e8a232d90d70227100e17a", null ],
+    [ "selectcolor", "structcpptkinter_1_1cnfs_1_1Menu.html#a66a235b02bb9715b8aad7c9732e64f7f", null ],
+    [ "takefocus", "structcpptkinter_1_1cnfs_1_1Menu.html#aee8fd61e79ee899613d152d3fd551e67", null ],
+    [ "tearoff", "structcpptkinter_1_1cnfs_1_1Menu.html#add20c00564cf3757a96b4942dfe00ad2", null ],
+    [ "tearoffcommand", "structcpptkinter_1_1cnfs_1_1Menu.html#afb58a0bc0d106a20ede5677b1fa305d4", null ],
+    [ "title", "structcpptkinter_1_1cnfs_1_1Menu.html#a63fc2ecfda0d06ab677baf0b6bf1936c", null ],
+    [ "type", "structcpptkinter_1_1cnfs_1_1Menu.html#af475f7fdf47c6f1b05896eb932026118", null ]
+];

@@ -93,6 +93,7 @@ $(document).ready(function(){initNavTree('namespacecpptkinter.html',''); initRes
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">cpptkinter Namespace Reference</div></div>
@@ -109,6 +110,8 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacecpptkinter_1_1cnfs"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1cnfs.html">cnfs</a></td></tr>
 <tr class="memdesc:namespacecpptkinter_1_1cnfs"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains structs to be passed to many of cpptkinter's functions. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacecpptkinter_1_1constants"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1constants.html">constants</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacecpptkinter_1_1detail"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1detail.html">detail</a></td></tr>
 <tr class="memdesc:namespacecpptkinter_1_1detail"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation details of cpptkinter. <br /></td></tr>
@@ -130,6 +133,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Entry.html">Entry</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Entry widget which allows displaying simple text.  <a href="structcpptkinter_1_1Entry.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Event.html">Event</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Frame.html">Frame</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frame widget which may contain other widgets and can have a 3D border.  <a href="structcpptkinter_1_1Frame.html#details">More...</a><br /></td></tr>
@@ -211,47 +216,134 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a03cf501b92e7c70762e62e4ad1596c43"><td class="memItemLeft" align="right" valign="top"><a id="a03cf501b92e7c70762e62e4ad1596c43" name="a03cf501b92e7c70762e62e4ad1596c43"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>StringVar</b> = <a class="el" href="structcpptkinter_1_1TypedVariable.html">TypedVariable</a>&lt; std::string &gt;</td></tr>
-<tr class="memdesc:a03cf501b92e7c70762e62e4ad1596c43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Value holder for string variables. <br /></td></tr>
+<tr class="memitem:a03cf501b92e7c70762e62e4ad1596c43"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter.html#a03cf501b92e7c70762e62e4ad1596c43">StringVar</a> = <a class="el" href="structcpptkinter_1_1TypedVariable.html">TypedVariable</a>&lt; std::string &gt;</td></tr>
+<tr class="memdesc:a03cf501b92e7c70762e62e4ad1596c43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Value holder for string variables.  <br /></td></tr>
 <tr class="separator:a03cf501b92e7c70762e62e4ad1596c43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a856a22d889edd3190007d5463ced565b"><td class="memItemLeft" align="right" valign="top"><a id="a856a22d889edd3190007d5463ced565b" name="a856a22d889edd3190007d5463ced565b"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>IntVar</b> = <a class="el" href="structcpptkinter_1_1TypedVariable.html">TypedVariable</a>&lt; long long &gt;</td></tr>
-<tr class="memdesc:a856a22d889edd3190007d5463ced565b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Value holder for integer variables. <br /></td></tr>
+<tr class="memitem:a856a22d889edd3190007d5463ced565b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter.html#a856a22d889edd3190007d5463ced565b">IntVar</a> = <a class="el" href="structcpptkinter_1_1TypedVariable.html">TypedVariable</a>&lt; long long &gt;</td></tr>
+<tr class="memdesc:a856a22d889edd3190007d5463ced565b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Value holder for integer variables.  <br /></td></tr>
 <tr class="separator:a856a22d889edd3190007d5463ced565b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad43a0343bd9525c51432f54729c00f0a"><td class="memItemLeft" align="right" valign="top"><a id="ad43a0343bd9525c51432f54729c00f0a" name="ad43a0343bd9525c51432f54729c00f0a"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>DoubleVar</b> = <a class="el" href="structcpptkinter_1_1TypedVariable.html">TypedVariable</a>&lt; double &gt;</td></tr>
-<tr class="memdesc:ad43a0343bd9525c51432f54729c00f0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Value holder for float variables. <br /></td></tr>
+<tr class="memitem:ad43a0343bd9525c51432f54729c00f0a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter.html#ad43a0343bd9525c51432f54729c00f0a">DoubleVar</a> = <a class="el" href="structcpptkinter_1_1TypedVariable.html">TypedVariable</a>&lt; double &gt;</td></tr>
+<tr class="memdesc:ad43a0343bd9525c51432f54729c00f0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Value holder for float variables.  <br /></td></tr>
 <tr class="separator:ad43a0343bd9525c51432f54729c00f0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acdb50861ebb752780f5d79c707116eec"><td class="memItemLeft" align="right" valign="top"><a id="acdb50861ebb752780f5d79c707116eec" name="acdb50861ebb752780f5d79c707116eec"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>BooleanVar</b> = <a class="el" href="structcpptkinter_1_1TypedVariable.html">TypedVariable</a>&lt; bool &gt;</td></tr>
-<tr class="memdesc:acdb50861ebb752780f5d79c707116eec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Value holder for boolean variables. <br /></td></tr>
+<tr class="memitem:acdb50861ebb752780f5d79c707116eec"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter.html#acdb50861ebb752780f5d79c707116eec">BooleanVar</a> = <a class="el" href="structcpptkinter_1_1TypedVariable.html">TypedVariable</a>&lt; bool &gt;</td></tr>
+<tr class="memdesc:acdb50861ebb752780f5d79c707116eec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Value holder for boolean variables.  <br /></td></tr>
 <tr class="separator:acdb50861ebb752780f5d79c707116eec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:afa0f8d41b67b2ac0c012f2f4da88f73f"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73f">EventType</a> </td></tr>
+<tr class="separator:afa0f8d41b67b2ac0c012f2f4da88f73f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a60f7cd611c9731ab744ab74fac958dc4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter.html#a60f7cd611c9731ab744ab74fac958dc4">init</a> (int argc, char *argv[], const std::string &amp;tcl_library={})</td></tr>
 <tr class="memdesc:a60f7cd611c9731ab744ab74fac958dc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize cpptkinter.  <br /></td></tr>
 <tr class="separator:a60f7cd611c9731ab744ab74fac958dc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82a4577283285a6ba412f0649b5b3580"><td class="memItemLeft" align="right" valign="top"><a id="a82a4577283285a6ba412f0649b5b3580" name="a82a4577283285a6ba412f0649b5b3580"></a>
-<a class="el" href="classcpptkinter_1_1Tk.html">Tk</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Tcl</b> (const std::string &amp;screenName={}, const std::string &amp;baseName={}, const std::string &amp;className=&quot;Tk&quot;, bool useTk=true)</td></tr>
+<tr class="memitem:a82a4577283285a6ba412f0649b5b3580"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcpptkinter_1_1Tk.html">Tk</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter.html#a82a4577283285a6ba412f0649b5b3580">Tcl</a> (const std::string &amp;screenName={}, const std::string &amp;baseName={}, const std::string &amp;className=&quot;Tk&quot;, bool useTk=true)</td></tr>
 <tr class="separator:a82a4577283285a6ba412f0649b5b3580"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9f0f9d6e00ea177804e476e30ff8fa9"><td class="memItemLeft" align="right" valign="top"><a id="ad9f0f9d6e00ea177804e476e30ff8fa9" name="ad9f0f9d6e00ea177804e476e30ff8fa9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>mainloop</b> (int n=0)</td></tr>
+<tr class="memitem:ad9f0f9d6e00ea177804e476e30ff8fa9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter.html#ad9f0f9d6e00ea177804e476e30ff8fa9">mainloop</a> (int n=0)</td></tr>
 <tr class="separator:ad9f0f9d6e00ea177804e476e30ff8fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a00397ebcdc2b3688239b54e95e49dd25"><td class="memItemLeft" align="right" valign="top"><a id="a00397ebcdc2b3688239b54e95e49dd25" name="a00397ebcdc2b3688239b54e95e49dd25"></a>
-const auto&#160;</td><td class="memItemRight" valign="bottom"><b>TkVersion</b> = std::atof(_cpptkinter::TK_VERSION.data())</td></tr>
+<tr class="memitem:a00397ebcdc2b3688239b54e95e49dd25"><td class="memItemLeft" align="right" valign="top">const auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter.html#a00397ebcdc2b3688239b54e95e49dd25">TkVersion</a> = std::atof(_cpptkinter::TK_VERSION.data())</td></tr>
 <tr class="separator:a00397ebcdc2b3688239b54e95e49dd25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ad4de4135e1fc7cf592eda012b06e8c"><td class="memItemLeft" align="right" valign="top"><a id="a8ad4de4135e1fc7cf592eda012b06e8c" name="a8ad4de4135e1fc7cf592eda012b06e8c"></a>
-const auto&#160;</td><td class="memItemRight" valign="bottom"><b>TclVersion</b> = std::atof(_cpptkinter::TCL_VERSION.data())</td></tr>
+<tr class="memitem:a8ad4de4135e1fc7cf592eda012b06e8c"><td class="memItemLeft" align="right" valign="top">const auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter.html#a8ad4de4135e1fc7cf592eda012b06e8c">TclVersion</a> = std::atof(_cpptkinter::TCL_VERSION.data())</td></tr>
 <tr class="separator:a8ad4de4135e1fc7cf592eda012b06e8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1647a8cbe08ae686b7c93fd45db41028"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter.html#a1647a8cbe08ae686b7c93fd45db41028">TCL_CORE_LIBRARY_IS_EMBEDDED</a> = true</td></tr>
+<tr class="separator:a1647a8cbe08ae686b7c93fd45db41028"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation of the Python module tkinter in C++. </p>
-</div><h2 class="groupheader">Function Documentation</h2>
+</div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="acdb50861ebb752780f5d79c707116eec" name="acdb50861ebb752780f5d79c707116eec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdb50861ebb752780f5d79c707116eec">&#9670;&#160;</a></span>BooleanVar</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacecpptkinter.html#acdb50861ebb752780f5d79c707116eec">cpptkinter::BooleanVar</a> = typedef <a class="el" href="structcpptkinter_1_1TypedVariable.html">TypedVariable</a>&lt;bool&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Value holder for boolean variables. </p>
+
+</div>
+</div>
+<a id="ad43a0343bd9525c51432f54729c00f0a" name="ad43a0343bd9525c51432f54729c00f0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad43a0343bd9525c51432f54729c00f0a">&#9670;&#160;</a></span>DoubleVar</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacecpptkinter.html#ad43a0343bd9525c51432f54729c00f0a">cpptkinter::DoubleVar</a> = typedef <a class="el" href="structcpptkinter_1_1TypedVariable.html">TypedVariable</a>&lt;double&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Value holder for float variables. </p>
+
+</div>
+</div>
+<a id="a856a22d889edd3190007d5463ced565b" name="a856a22d889edd3190007d5463ced565b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a856a22d889edd3190007d5463ced565b">&#9670;&#160;</a></span>IntVar</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacecpptkinter.html#a856a22d889edd3190007d5463ced565b">cpptkinter::IntVar</a> = typedef <a class="el" href="structcpptkinter_1_1TypedVariable.html">TypedVariable</a>&lt;long long&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Value holder for integer variables. </p>
+
+</div>
+</div>
+<a id="a03cf501b92e7c70762e62e4ad1596c43" name="a03cf501b92e7c70762e62e4ad1596c43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03cf501b92e7c70762e62e4ad1596c43">&#9670;&#160;</a></span>StringVar</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacecpptkinter.html#a03cf501b92e7c70762e62e4ad1596c43">cpptkinter::StringVar</a> = typedef <a class="el" href="structcpptkinter_1_1TypedVariable.html">TypedVariable</a>&lt;std::string&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Value holder for string variables. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="afa0f8d41b67b2ac0c012f2f4da88f73f" name="afa0f8d41b67b2ac0c012f2f4da88f73f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa0f8d41b67b2ac0c012f2f4da88f73f">&#9670;&#160;</a></span>EventType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73f">cpptkinter::EventType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
 <a id="a60f7cd611c9731ab744ab74fac958dc4" name="a60f7cd611c9731ab744ab74fac958dc4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a60f7cd611c9731ab744ab74fac958dc4">&#9670;&#160;</a></span>init()</h2>
 
@@ -293,6 +385,116 @@ const auto&#160;</td><td class="memItemRight" valign="bottom"><b>TclVersion</b> 
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ad9f0f9d6e00ea177804e476e30ff8fa9" name="ad9f0f9d6e00ea177804e476e30ff8fa9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9f0f9d6e00ea177804e476e30ff8fa9">&#9670;&#160;</a></span>mainloop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::mainloop </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em> = <code>0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a82a4577283285a6ba412f0649b5b3580" name="a82a4577283285a6ba412f0649b5b3580"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82a4577283285a6ba412f0649b5b3580">&#9670;&#160;</a></span>Tcl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcpptkinter_1_1Tk.html">Tk</a> cpptkinter::Tcl </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>screenName</em> = <code>{}</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>baseName</em> = <code>{}</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>className</em> = <code>&quot;Tk&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>useTk</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a1647a8cbe08ae686b7c93fd45db41028" name="a1647a8cbe08ae686b7c93fd45db41028"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1647a8cbe08ae686b7c93fd45db41028">&#9670;&#160;</a></span>TCL_CORE_LIBRARY_IS_EMBEDDED</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto cpptkinter::TCL_CORE_LIBRARY_IS_EMBEDDED = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>true/false whether the Tcl core library scripts are embedded into the executable (dll or static lib). if false the path to the Tcl core library must be specified with <a class="el" href="namespacecpptkinter.html#a60f7cd611c9731ab744ab74fac958dc4" title="Initialize cpptkinter.">cpptkinter::init</a>. </p>
+
+</div>
+</div>
+<a id="a8ad4de4135e1fc7cf592eda012b06e8c" name="a8ad4de4135e1fc7cf592eda012b06e8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ad4de4135e1fc7cf592eda012b06e8c">&#9670;&#160;</a></span>TclVersion</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const auto cpptkinter::TclVersion = std::atof(_cpptkinter::TCL_VERSION.data())</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a00397ebcdc2b3688239b54e95e49dd25" name="a00397ebcdc2b3688239b54e95e49dd25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00397ebcdc2b3688239b54e95e49dd25">&#9670;&#160;</a></span>TkVersion</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const auto cpptkinter::TkVersion = std::atof(_cpptkinter::TK_VERSION.data())</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

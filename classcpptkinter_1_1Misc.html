@@ -95,6 +95,8 @@ $(document).ready(function(){initNavTree('classcpptkinter_1_1Misc.html',''); ini
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="classcpptkinter_1_1Misc-members.html">List of all members</a>  </div>
@@ -137,39 +139,89 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a20e33e4dd583100707936dc380167324"><td class="memItemLeft" align="right" valign="top"><a id="a20e33e4dd583100707936dc380167324" name="a20e33e4dd583100707936dc380167324"></a>
-<a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &amp;other)</td></tr>
+<tr class="memitem:a20e33e4dd583100707936dc380167324"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a20e33e4dd583100707936dc380167324">operator=</a> (const <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &amp;other)</td></tr>
 <tr class="separator:a20e33e4dd583100707936dc380167324"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34a33b51a95322f8700f9eccd6068a77"><td class="memItemLeft" align="right" valign="top"><a id="a34a33b51a95322f8700f9eccd6068a77" name="a34a33b51a95322f8700f9eccd6068a77"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></tr>
-<tr class="memdesc:a34a33b51a95322f8700f9eccd6068a77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls this-&gt;pimpl-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#a34a33b51a95322f8700f9eccd6068a77" title="Calls this-&gt;pimpl-&gt;destroy().">destroy()</a>. <br /></td></tr>
+<tr class="memitem:a34a33b51a95322f8700f9eccd6068a77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a34a33b51a95322f8700f9eccd6068a77">destroy</a> ()</td></tr>
+<tr class="memdesc:a34a33b51a95322f8700f9eccd6068a77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls this-&gt;pimpl-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#a34a33b51a95322f8700f9eccd6068a77" title="Calls this-&gt;pimpl-&gt;destroy().">destroy()</a>.  <br /></td></tr>
 <tr class="separator:a34a33b51a95322f8700f9eccd6068a77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6d7a417fd992e4495bcf7c610f2a87c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#ad6d7a417fd992e4495bcf7c610f2a87c">deletecommand</a> (const std::string &amp;name)</td></tr>
 <tr class="memdesc:ad6d7a417fd992e4495bcf7c610f2a87c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function.  <br /></td></tr>
 <tr class="separator:ad6d7a417fd992e4495bcf7c610f2a87c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75a29ada49219601bf4f5b69260ea176"><td class="memItemLeft" align="right" valign="top"><a id="a75a29ada49219601bf4f5b69260ea176" name="a75a29ada49219601bf4f5b69260ea176"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>mainloop</b> (int n=0)</td></tr>
-<tr class="memdesc:a75a29ada49219601bf4f5b69260ea176"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call the mainloop of <a class="el" href="classcpptkinter_1_1Tk.html" title="Toplevel widget of Tk which represents mostly the main window of an application.">Tk</a>. <br /></td></tr>
+<tr class="memitem:a851ce25cea487f61c125d0939ab48b09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a851ce25cea487f61c125d0939ab48b09">bindtags</a> (const utility::range_of_convertible_to&lt; std::string &gt; auto &amp;tagList)</td></tr>
+<tr class="memdesc:a851ce25cea487f61c125d0939ab48b09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the list of bindtags for this widget.  <br /></td></tr>
+<tr class="separator:a851ce25cea487f61c125d0939ab48b09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3504d63e1dbc8d54185c84e9bddd52d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#ac3504d63e1dbc8d54185c84e9bddd52d">bindtags</a> ()</td></tr>
+<tr class="memdesc:ac3504d63e1dbc8d54185c84e9bddd52d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the list of bindtags for this widget.  <br /></td></tr>
+<tr class="separator:ac3504d63e1dbc8d54185c84e9bddd52d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6da139d9067826956bc265d65a30b5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#ac6da139d9067826956bc265d65a30b5e">_bind</a> (std::vector&lt; std::string &gt; &amp;&amp;what, const std::string &amp;sequence, const std::string &amp;func)</td></tr>
+<tr class="memdesc:ac6da139d9067826956bc265d65a30b5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function.  <br /></td></tr>
+<tr class="separator:ac6da139d9067826956bc265d65a30b5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afde02075fc23781890678be8681cebd3"><td class="memTemplParams" colspan="2">template&lt;std::invocable&lt; <a class="el" href="structcpptkinter_1_1Event.html">Event</a>&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt; &gt; Func&gt; </td></tr>
+<tr class="memitem:afde02075fc23781890678be8681cebd3"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#afde02075fc23781890678be8681cebd3">_bind</a> (std::vector&lt; std::string &gt; &amp;&amp;what, const std::string &amp;sequence, Func &amp;&amp;func, bool add=false, bool needcleanup=true)</td></tr>
+<tr class="memdesc:afde02075fc23781890678be8681cebd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function.  <br /></td></tr>
+<tr class="separator:afde02075fc23781890678be8681cebd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69df898620da12c238deb6d46b60a24f"><td class="memTemplParams" colspan="2">template&lt;std::invocable&lt; <a class="el" href="structcpptkinter_1_1Event.html">Event</a>&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt; &gt; Func&gt; </td></tr>
+<tr class="memitem:a69df898620da12c238deb6d46b60a24f"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a69df898620da12c238deb6d46b60a24f">_bind</a> (std::vector&lt; std::string &gt; &amp;&amp;what, Func &amp;&amp;func, bool add=false, bool needcleanup=true)</td></tr>
+<tr class="memdesc:a69df898620da12c238deb6d46b60a24f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function.  <br /></td></tr>
+<tr class="separator:a69df898620da12c238deb6d46b60a24f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bf1dbd37b7b17e2e9cb869b099cf788"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a0bf1dbd37b7b17e2e9cb869b099cf788">_bind</a> (std::vector&lt; std::string &gt; &amp;&amp;what, const std::string &amp;sequence)</td></tr>
+<tr class="memdesc:a0bf1dbd37b7b17e2e9cb869b099cf788"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function.  <br /></td></tr>
+<tr class="separator:a0bf1dbd37b7b17e2e9cb869b099cf788"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f35232a482b8c97d7967e9bbdc1942a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a9f35232a482b8c97d7967e9bbdc1942a">_bind</a> (std::vector&lt; std::string &gt; &amp;&amp;what)</td></tr>
+<tr class="memdesc:a9f35232a482b8c97d7967e9bbdc1942a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function.  <br /></td></tr>
+<tr class="separator:a9f35232a482b8c97d7967e9bbdc1942a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fe5995e5d53c85e8222206b311889d8"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; <br />
+requires requires { this-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#ac6da139d9067826956bc265d65a30b5e">_bind</a>({}, std::forward&lt;Args&gt;(args)...); }</td></tr>
+<tr class="memitem:a3fe5995e5d53c85e8222206b311889d8"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a3fe5995e5d53c85e8222206b311889d8">bind</a> (Args &amp;&amp;...args)</td></tr>
+<tr class="memdesc:a3fe5995e5d53c85e8222206b311889d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bind to this widget at event SEQUENCE a call to function FUNC.  <br /></td></tr>
+<tr class="separator:a3fe5995e5d53c85e8222206b311889d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1668cd487a1fbbb822d6f35f719d2954"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a1668cd487a1fbbb822d6f35f719d2954">unbind</a> (const std::string &amp;sequence)</td></tr>
+<tr class="memdesc:a1668cd487a1fbbb822d6f35f719d2954"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unbind for this widget the event SEQUENCE.  <br /></td></tr>
+<tr class="separator:a1668cd487a1fbbb822d6f35f719d2954"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a974e2ad0f29d12e83fab0eed41da95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a7a974e2ad0f29d12e83fab0eed41da95">unbind</a> (const std::string &amp;sequence, const std::string &amp;funcid)</td></tr>
+<tr class="memdesc:a7a974e2ad0f29d12e83fab0eed41da95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unbind for this widget the event SEQUENCE.  <br /></td></tr>
+<tr class="separator:a7a974e2ad0f29d12e83fab0eed41da95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a993e786ef22a4996c43a1daa2633e918"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a993e786ef22a4996c43a1daa2633e918">_unbind</a> (std::vector&lt; std::string &gt; &amp;&amp;what)</td></tr>
+<tr class="memdesc:a993e786ef22a4996c43a1daa2633e918"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function.  <br /></td></tr>
+<tr class="separator:a993e786ef22a4996c43a1daa2633e918"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65e8f43e002be2c9107931c4ee6c2ea3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a65e8f43e002be2c9107931c4ee6c2ea3">_unbind</a> (std::vector&lt; std::string &gt; &amp;&amp;what, const std::string &amp;funcid)</td></tr>
+<tr class="memdesc:a65e8f43e002be2c9107931c4ee6c2ea3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function.  <br /></td></tr>
+<tr class="separator:a65e8f43e002be2c9107931c4ee6c2ea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30ee3c45ee9c08e870268f890e3af7ab"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; <br />
+requires requires { this-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#ac6da139d9067826956bc265d65a30b5e">_bind</a>({}, std::forward&lt;Args&gt;(args)..., true); }</td></tr>
+<tr class="memitem:a30ee3c45ee9c08e870268f890e3af7ab"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a30ee3c45ee9c08e870268f890e3af7ab">bind_all</a> (Args &amp;&amp;...args)</td></tr>
+<tr class="memdesc:a30ee3c45ee9c08e870268f890e3af7ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bind to all widgets at an event SEQUENCE a call to function FUNC.  <br /></td></tr>
+<tr class="separator:a30ee3c45ee9c08e870268f890e3af7ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabb5954ed4f55855db5b636de5f0ae9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#aabb5954ed4f55855db5b636de5f0ae9c">unbind_all</a> (const std::string &amp;sequence)</td></tr>
+<tr class="memdesc:aabb5954ed4f55855db5b636de5f0ae9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unbind for all widgets for event SEQUENCE all functions.  <br /></td></tr>
+<tr class="separator:aabb5954ed4f55855db5b636de5f0ae9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc8373edcdff2f0b9e394a0539b5c3a0"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; <br />
+requires requires { this-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#ac6da139d9067826956bc265d65a30b5e">_bind</a>({}, std::forward&lt;Args&gt;(args)..., true); }</td></tr>
+<tr class="memitem:afc8373edcdff2f0b9e394a0539b5c3a0"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#afc8373edcdff2f0b9e394a0539b5c3a0">bind_class</a> (const std::string &amp;className, Args &amp;&amp;...args)</td></tr>
+<tr class="memdesc:afc8373edcdff2f0b9e394a0539b5c3a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bind to widgets with bindtag CLASSNAME at event SEQUENCE a call of function FUNC.  <br /></td></tr>
+<tr class="separator:afc8373edcdff2f0b9e394a0539b5c3a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05c582150538de8d653b941dda6c5cc8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a05c582150538de8d653b941dda6c5cc8">unbind_class</a> (const std::string &amp;className, const std::string &amp;sequence)</td></tr>
+<tr class="memdesc:a05c582150538de8d653b941dda6c5cc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unbind for all widgets with bindtag CLASSNAME for event SEQUENCE all functions.  <br /></td></tr>
+<tr class="separator:a05c582150538de8d653b941dda6c5cc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75a29ada49219601bf4f5b69260ea176"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a75a29ada49219601bf4f5b69260ea176">mainloop</a> (int n=0)</td></tr>
+<tr class="memdesc:a75a29ada49219601bf4f5b69260ea176"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call the mainloop of <a class="el" href="classcpptkinter_1_1Tk.html" title="Toplevel widget of Tk which represents mostly the main window of an application.">Tk</a>.  <br /></td></tr>
 <tr class="separator:a75a29ada49219601bf4f5b69260ea176"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06b5d9d4cfd174627b50cce85d024bfb"><td class="memItemLeft" align="right" valign="top"><a id="a06b5d9d4cfd174627b50cce85d024bfb" name="a06b5d9d4cfd174627b50cce85d024bfb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>quit</b> ()</td></tr>
-<tr class="memdesc:a06b5d9d4cfd174627b50cce85d024bfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quit the Tcl interpreter. All widgets will be destroyed. <br /></td></tr>
+<tr class="memitem:a06b5d9d4cfd174627b50cce85d024bfb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a06b5d9d4cfd174627b50cce85d024bfb">quit</a> ()</td></tr>
+<tr class="memdesc:a06b5d9d4cfd174627b50cce85d024bfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quit the Tcl interpreter. All widgets will be destroyed.  <br /></td></tr>
 <tr class="separator:a06b5d9d4cfd174627b50cce85d024bfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fb0c53d8ae5fafb298d3193487bd11f"><td class="memItemLeft" align="right" valign="top"><a id="a4fb0c53d8ae5fafb298d3193487bd11f" name="a4fb0c53d8ae5fafb298d3193487bd11f"></a>
-<a class="el" href="classcpptkinter_1_1Misc.html">Misc</a>&#160;</td><td class="memItemRight" valign="bottom"><b>nametowidget</b> (std::string_view name)</td></tr>
-<tr class="memdesc:a4fb0c53d8ae5fafb298d3193487bd11f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the Tkinter instance of a widget identified by its Tcl name NAME. <br /></td></tr>
+<tr class="memitem:a4fb0c53d8ae5fafb298d3193487bd11f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcpptkinter_1_1Misc.html">Misc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a4fb0c53d8ae5fafb298d3193487bd11f">nametowidget</a> (std::string_view name)</td></tr>
+<tr class="memdesc:a4fb0c53d8ae5fafb298d3193487bd11f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the Tkinter instance of a widget identified by its Tcl name NAME.  <br /></td></tr>
 <tr class="separator:a4fb0c53d8ae5fafb298d3193487bd11f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58f2988bb80138c96a4a2b3217c523b1"><td class="memItemLeft" align="right" valign="top"><a id="a58f2988bb80138c96a4a2b3217c523b1" name="a58f2988bb80138c96a4a2b3217c523b1"></a>
-<a class="el" href="classcpptkinter_1_1Misc.html">Misc</a>&#160;</td><td class="memItemRight" valign="bottom"><b>nametowidget</b> (<a class="el" href="structcpptkinter_1_1__cpptkinter_1_1tk__window__type.html">_cpptkinter::tk_window_type</a> window)</td></tr>
-<tr class="memdesc:a58f2988bb80138c96a4a2b3217c523b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the Tkinter instance of a widget. <br /></td></tr>
+<tr class="memitem:a58f2988bb80138c96a4a2b3217c523b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcpptkinter_1_1Misc.html">Misc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a58f2988bb80138c96a4a2b3217c523b1">nametowidget</a> (<a class="el" href="structcpptkinter_1_1__cpptkinter_1_1tk__window__type.html">_cpptkinter::tk_window_type</a> window)</td></tr>
+<tr class="memdesc:a58f2988bb80138c96a4a2b3217c523b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the Tkinter instance of a widget.  <br /></td></tr>
 <tr class="separator:a58f2988bb80138c96a4a2b3217c523b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01cb9bd348c14d0b3148f2dfa31212d0"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; <br />
-requires requires { this-&gt;_configure({ }, std::declval&lt;T&gt;()); }</td></tr>
+requires requires { this-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#a57ccfa89e86c682be76b7e3c3003cfb3">_configure</a>({ }, std::declval&lt;T&gt;()); }</td></tr>
 <tr class="memitem:a01cb9bd348c14d0b3148f2dfa31212d0"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a01cb9bd348c14d0b3148f2dfa31212d0">configure</a> (T &amp;&amp;v)</td></tr>
 <tr class="memdesc:a01cb9bd348c14d0b3148f2dfa31212d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure resources of a widget.  <br /></td></tr>
 <tr class="separator:a01cb9bd348c14d0b3148f2dfa31212d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf57f9fd1ae971afe16c3c0af1de8901"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; <br />
-requires requires { this-&gt;_options_inner_visitor(std::declval&lt;T&gt;()); }</td></tr>
+requires requires { this-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#a85cdec4cbaf4fbb99d8cd91e8ce9eddb">_options_inner_visitor</a>(std::declval&lt;T&gt;()); }</td></tr>
 <tr class="memitem:abf57f9fd1ae971afe16c3c0af1de8901"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#abf57f9fd1ae971afe16c3c0af1de8901">configure</a> (const std::string &amp;key, T &amp;&amp;value)</td></tr>
 <tr class="memdesc:abf57f9fd1ae971afe16c3c0af1de8901"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure a resource of a widget.  <br /></td></tr>
 <tr class="separator:abf57f9fd1ae971afe16c3c0af1de8901"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -183,9 +235,8 @@ requires requires { this-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#a0
 <tr class="memitem:a81a5427e356163bc8f0f9dacd349aaa3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a81a5427e356163bc8f0f9dacd349aaa3">config</a> (const std::string &amp;key, T &amp;&amp;value)</td></tr>
 <tr class="memdesc:a81a5427e356163bc8f0f9dacd349aaa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure a resource of a widget.    <br /></td></tr>
 <tr class="separator:a81a5427e356163bc8f0f9dacd349aaa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a864fb0988a19b6c5233f7a9a67dddb60"><td class="memTemplParams" colspan="2"><a id="a864fb0988a19b6c5233f7a9a67dddb60" name="a864fb0988a19b6c5233f7a9a67dddb60"></a>
-template&lt;detail::FromObjConcept R&gt; </td></tr>
-<tr class="memitem:a864fb0988a19b6c5233f7a9a67dddb60"><td class="memTemplItemLeft" align="right" valign="top">R&#160;</td><td class="memTemplItemRight" valign="bottom"><b>cget</b> (const std::string &amp;key)</td></tr>
+<tr class="memitem:a864fb0988a19b6c5233f7a9a67dddb60"><td class="memTemplParams" colspan="2">template&lt;detail::FromObjConcept R&gt; </td></tr>
+<tr class="memitem:a864fb0988a19b6c5233f7a9a67dddb60"><td class="memTemplItemLeft" align="right" valign="top">R&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a864fb0988a19b6c5233f7a9a67dddb60">cget</a> (const std::string &amp;key)</td></tr>
 <tr class="separator:a864fb0988a19b6c5233f7a9a67dddb60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26f7d417008c0e95579be102b0e1a278"><td class="memTemplParams" colspan="2">template&lt;detail::FromObjConcept R&gt; </td></tr>
 <tr class="memitem:a26f7d417008c0e95579be102b0e1a278"><td class="memTemplItemLeft" align="right" valign="top">R&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a26f7d417008c0e95579be102b0e1a278">_getitem_</a> (const std::string &amp;key, std::type_identity&lt; R &gt;)</td></tr>
@@ -196,18 +247,15 @@ requires requires { this-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#a0
 <tr class="memitem:a55949ea923e567d42d4b5b971cb7e24a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a55949ea923e567d42d4b5b971cb7e24a">_setitem_</a> (const std::string &amp;key, T &amp;&amp;value)</td></tr>
 <tr class="memdesc:a55949ea923e567d42d4b5b971cb7e24a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a resource of a widget.  <br /></td></tr>
 <tr class="separator:a55949ea923e567d42d4b5b971cb7e24a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2e7a95e9dee85a28bb78d7dc4eca089"><td class="memTemplParams" colspan="2"><a id="ab2e7a95e9dee85a28bb78d7dc4eca089" name="ab2e7a95e9dee85a28bb78d7dc4eca089"></a>
-template&lt;typename Self &gt; </td></tr>
-<tr class="memitem:ab2e7a95e9dee85a28bb78d7dc4eca089"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structcpptkinter_1_1detail_1_1set__get__proxy.html">detail::set_get_proxy</a>&lt; std::remove_cvref_t&lt; Self &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator[]</b> (this Self &amp;&amp;self, const std::string &amp;key)</td></tr>
-<tr class="memdesc:ab2e7a95e9dee85a28bb78d7dc4eca089"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a proxy object which can be used to set/get resources of a widget. <br /></td></tr>
+<tr class="memitem:ab2e7a95e9dee85a28bb78d7dc4eca089"><td class="memTemplParams" colspan="2">template&lt;typename Self &gt; </td></tr>
+<tr class="memitem:ab2e7a95e9dee85a28bb78d7dc4eca089"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structcpptkinter_1_1detail_1_1set__get__proxy.html">detail::set_get_proxy</a>&lt; std::remove_cvref_t&lt; Self &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#ab2e7a95e9dee85a28bb78d7dc4eca089">operator[]</a> (this Self &amp;&amp;self, const std::string &amp;key)</td></tr>
+<tr class="memdesc:ab2e7a95e9dee85a28bb78d7dc4eca089"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a proxy object which can be used to set/get resources of a widget.  <br /></td></tr>
 <tr class="separator:ab2e7a95e9dee85a28bb78d7dc4eca089"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7536d68ead97a1eb829e2e4abb6815b"><td class="memItemLeft" align="right" valign="top"><a id="ae7536d68ead97a1eb829e2e4abb6815b" name="ae7536d68ead97a1eb829e2e4abb6815b"></a>
-std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>keys</b> ()</td></tr>
-<tr class="memdesc:ae7536d68ead97a1eb829e2e4abb6815b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a list of all resource names of this widget. <br /></td></tr>
+<tr class="memitem:ae7536d68ead97a1eb829e2e4abb6815b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#ae7536d68ead97a1eb829e2e4abb6815b">keys</a> ()</td></tr>
+<tr class="memdesc:ae7536d68ead97a1eb829e2e4abb6815b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a list of all resource names of this widget.  <br /></td></tr>
 <tr class="separator:ae7536d68ead97a1eb829e2e4abb6815b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade7170e0512fc21c1f6b9b14f1073f4d"><td class="memItemLeft" align="right" valign="top"><a id="ade7170e0512fc21c1f6b9b14f1073f4d" name="ade7170e0512fc21c1f6b9b14f1073f4d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>operator std::string</b> () const</td></tr>
-<tr class="memdesc:ade7170e0512fc21c1f6b9b14f1073f4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the window path name of this widget. <br /></td></tr>
+<tr class="memitem:ade7170e0512fc21c1f6b9b14f1073f4d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#ade7170e0512fc21c1f6b9b14f1073f4d">operator std::string</a> () const</td></tr>
+<tr class="memdesc:ade7170e0512fc21c1f6b9b14f1073f4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the window path name of this widget.  <br /></td></tr>
 <tr class="separator:ade7170e0512fc21c1f6b9b14f1073f4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11515ecf752c5c4d7d5500f511eb966b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a11515ecf752c5c4d7d5500f511eb966b">pack_propagate</a> ()</td></tr>
 <tr class="memdesc:a11515ecf752c5c4d7d5500f511eb966b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the status for propagation of geometry information.  <br /></td></tr>
@@ -221,16 +269,14 @@ std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bott
 <tr class="memitem:a830decb8f2d116192e992a9065dfae59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a830decb8f2d116192e992a9065dfae59">propagate</a> (bool flag)</td></tr>
 <tr class="memdesc:a830decb8f2d116192e992a9065dfae59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the status for propagation of geometry information.    <br /></td></tr>
 <tr class="separator:a830decb8f2d116192e992a9065dfae59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95416e873c4117483ade79e046d14dbc"><td class="memItemLeft" align="right" valign="top"><a id="a95416e873c4117483ade79e046d14dbc" name="a95416e873c4117483ade79e046d14dbc"></a>
-std::vector&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>pack_slaves</b> ()</td></tr>
-<tr class="memdesc:a95416e873c4117483ade79e046d14dbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a list of all slaves of this widget in its packing order. <br /></td></tr>
+<tr class="memitem:a95416e873c4117483ade79e046d14dbc"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a95416e873c4117483ade79e046d14dbc">pack_slaves</a> ()</td></tr>
+<tr class="memdesc:a95416e873c4117483ade79e046d14dbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a list of all slaves of this widget in its packing order.  <br /></td></tr>
 <tr class="separator:a95416e873c4117483ade79e046d14dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade889891f0acae8dbb2f1eb1648e18e2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#ade889891f0acae8dbb2f1eb1648e18e2">slaves</a> ()</td></tr>
 <tr class="memdesc:ade889891f0acae8dbb2f1eb1648e18e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a list of all slaves of this widget in its packing order.    <br /></td></tr>
 <tr class="separator:ade889891f0acae8dbb2f1eb1648e18e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a314caf135f7d641cf3c592fa7b6df9b0"><td class="memItemLeft" align="right" valign="top"><a id="a314caf135f7d641cf3c592fa7b6df9b0" name="a314caf135f7d641cf3c592fa7b6df9b0"></a>
-std::vector&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>place_slaves</b> ()</td></tr>
-<tr class="memdesc:a314caf135f7d641cf3c592fa7b6df9b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a list of all slaves of this widget in its packing order. <br /></td></tr>
+<tr class="memitem:a314caf135f7d641cf3c592fa7b6df9b0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a314caf135f7d641cf3c592fa7b6df9b0">place_slaves</a> ()</td></tr>
+<tr class="memdesc:a314caf135f7d641cf3c592fa7b6df9b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a list of all slaves of this widget in its packing order.  <br /></td></tr>
 <tr class="separator:a314caf135f7d641cf3c592fa7b6df9b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b8066b121afc1e038d83a669b591b60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a3b8066b121afc1e038d83a669b591b60">grid_anchor</a> (const std::string &amp;<a class="el" href="classcpptkinter_1_1Misc.html#ae7a36fae7755eb2fc9fb24552e9733ea">anchor</a>={})</td></tr>
 <tr class="memdesc:a3b8066b121afc1e038d83a669b591b60"><td class="mdescLeft">&#160;</td><td class="mdescRight">The anchor value controls how to place the grid within the master when no row / column has any weight.  <br /></td></tr>
@@ -244,9 +290,8 @@ std::vector&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt;&
 <tr class="memitem:ab1e4b7d196f92db6cab7ea51215f7315"><td class="memItemLeft" align="right" valign="top">std::array&lt; long long, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#ab1e4b7d196f92db6cab7ea51215f7315">bbox</a> (const <a class="el" href="structcpptkinter_1_1cnfs_1_1grid__bbox.html">cnfs::grid_bbox</a> &amp;cnf={})</td></tr>
 <tr class="memdesc:ab1e4b7d196f92db6cab7ea51215f7315"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a tuple of integer coordinates for the bounding box of this widget controlled by the geometry manager grid.    <br /></td></tr>
 <tr class="separator:ab1e4b7d196f92db6cab7ea51215f7315"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7be60288ab15d2791f99f50b41a274d1"><td class="memItemLeft" align="right" valign="top"><a id="a7be60288ab15d2791f99f50b41a274d1" name="a7be60288ab15d2791f99f50b41a274d1"></a>
-<a class="el" href="structcpptkinter_1_1cnfs_1_1grid__column__row__configure__return.html">cnfs::grid_column_row_configure_return</a>&#160;</td><td class="memItemRight" valign="bottom"><b>grid_columnconfigure</b> (const std::variant&lt; long long, std::string &gt; &amp;index)</td></tr>
-<tr class="memdesc:a7be60288ab15d2791f99f50b41a274d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure column INDEX of a grid. <br /></td></tr>
+<tr class="memitem:a7be60288ab15d2791f99f50b41a274d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcpptkinter_1_1cnfs_1_1grid__column__row__configure__return.html">cnfs::grid_column_row_configure_return</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a7be60288ab15d2791f99f50b41a274d1">grid_columnconfigure</a> (const std::variant&lt; long long, std::string &gt; &amp;index)</td></tr>
+<tr class="memdesc:a7be60288ab15d2791f99f50b41a274d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure column INDEX of a grid.  <br /></td></tr>
 <tr class="separator:a7be60288ab15d2791f99f50b41a274d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d2c1af072daa0844c69531a387c9434"><td class="memTemplParams" colspan="2">template&lt;cnfs::is_cnf CNF = cnfs::grid_column_row_configure&gt; </td></tr>
 <tr class="memitem:a0d2c1af072daa0844c69531a387c9434"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a0d2c1af072daa0844c69531a387c9434">grid_columnconfigure</a> (std::variant&lt; size_t, std::vector&lt; size_t &gt;, std::string &gt; index, CNF &amp;&amp;cnf)</td></tr>
@@ -259,11 +304,10 @@ std::vector&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt;&
 <tr class="memitem:ae63c6aa2a6aaf86258af784d1e72b187"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#ae63c6aa2a6aaf86258af784d1e72b187">columnconfigure</a> (std::variant&lt; size_t, std::vector&lt; size_t &gt;, std::string &gt; index, CNF &amp;&amp;cnf)</td></tr>
 <tr class="memdesc:ae63c6aa2a6aaf86258af784d1e72b187"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure column INDEX of a grid.    <br /></td></tr>
 <tr class="separator:ae63c6aa2a6aaf86258af784d1e72b187"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affc7c7beaaa3e967fab21a056b995376"><td class="memItemLeft" align="right" valign="top"><a id="affc7c7beaaa3e967fab21a056b995376" name="affc7c7beaaa3e967fab21a056b995376"></a>
-std::array&lt; long long, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>grid_location</b> (const detail::ScreenUnits &amp;x, const detail::ScreenUnits &amp;y)</td></tr>
-<tr class="memdesc:affc7c7beaaa3e967fab21a056b995376"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a tuple of column and row which identify the cell at which the pixel at position X and Y inside the master widget is located. <br /></td></tr>
+<tr class="memitem:affc7c7beaaa3e967fab21a056b995376"><td class="memItemLeft" align="right" valign="top">std::array&lt; long long, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#affc7c7beaaa3e967fab21a056b995376">grid_location</a> (const <a class="el" href="namespacecpptkinter_1_1detail.html#afc7009a86a29f290dee42ceefba321bc">detail::ScreenUnits</a> &amp;x, const <a class="el" href="namespacecpptkinter_1_1detail.html#afc7009a86a29f290dee42ceefba321bc">detail::ScreenUnits</a> &amp;y)</td></tr>
+<tr class="memdesc:affc7c7beaaa3e967fab21a056b995376"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a tuple of column and row which identify the cell at which the pixel at position X and Y inside the master widget is located.  <br /></td></tr>
 <tr class="separator:affc7c7beaaa3e967fab21a056b995376"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0babea795be1964968235d9514d49ebf"><td class="memItemLeft" align="right" valign="top">std::array&lt; long long, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a0babea795be1964968235d9514d49ebf">location</a> (const detail::ScreenUnits &amp;x, const detail::ScreenUnits &amp;y)</td></tr>
+<tr class="memitem:a0babea795be1964968235d9514d49ebf"><td class="memItemLeft" align="right" valign="top">std::array&lt; long long, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a0babea795be1964968235d9514d49ebf">location</a> (const <a class="el" href="namespacecpptkinter_1_1detail.html#afc7009a86a29f290dee42ceefba321bc">detail::ScreenUnits</a> &amp;x, const <a class="el" href="namespacecpptkinter_1_1detail.html#afc7009a86a29f290dee42ceefba321bc">detail::ScreenUnits</a> &amp;y)</td></tr>
 <tr class="memdesc:a0babea795be1964968235d9514d49ebf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a tuple of column and row which identify the cell at which the pixel at position X and Y inside the master widget is located.    <br /></td></tr>
 <tr class="separator:a0babea795be1964968235d9514d49ebf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add6e4888b6b565b86466ab2f6f724c9d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#add6e4888b6b565b86466ab2f6f724c9d">grid_propagate</a> ()</td></tr>
@@ -272,9 +316,8 @@ std::array&lt; long long, 2 &gt;&#160;</td><td class="memItemRight" valign="bott
 <tr class="memitem:a7c3fc362ca6b23957a3f2393e99d7c89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a7c3fc362ca6b23957a3f2393e99d7c89">grid_propagate</a> (bool flag)</td></tr>
 <tr class="memdesc:a7c3fc362ca6b23957a3f2393e99d7c89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the status for propagation of geometry information.  <br /></td></tr>
 <tr class="separator:a7c3fc362ca6b23957a3f2393e99d7c89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a842f41ce717f503b275ac43f692b8a2a"><td class="memItemLeft" align="right" valign="top"><a id="a842f41ce717f503b275ac43f692b8a2a" name="a842f41ce717f503b275ac43f692b8a2a"></a>
-<a class="el" href="structcpptkinter_1_1cnfs_1_1grid__column__row__configure__return.html">cnfs::grid_column_row_configure_return</a>&#160;</td><td class="memItemRight" valign="bottom"><b>grid_rowconfigure</b> (const std::variant&lt; long long, std::string &gt; &amp;index)</td></tr>
-<tr class="memdesc:a842f41ce717f503b275ac43f692b8a2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure row INDEX of a grid. <br /></td></tr>
+<tr class="memitem:a842f41ce717f503b275ac43f692b8a2a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcpptkinter_1_1cnfs_1_1grid__column__row__configure__return.html">cnfs::grid_column_row_configure_return</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a842f41ce717f503b275ac43f692b8a2a">grid_rowconfigure</a> (const std::variant&lt; long long, std::string &gt; &amp;index)</td></tr>
+<tr class="memdesc:a842f41ce717f503b275ac43f692b8a2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure row INDEX of a grid.  <br /></td></tr>
 <tr class="separator:a842f41ce717f503b275ac43f692b8a2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e02b488cb86219a81fbf926fbb5b375"><td class="memTemplParams" colspan="2">template&lt;cnfs::is_cnf CNF = cnfs::grid_column_row_configure&gt; </td></tr>
 <tr class="memitem:a7e02b488cb86219a81fbf926fbb5b375"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a7e02b488cb86219a81fbf926fbb5b375">grid_rowconfigure</a> (const std::variant&lt; size_t, std::vector&lt; size_t &gt;, std::string &gt; &amp;index, CNF &amp;&amp;cnf)</td></tr>
@@ -287,134 +330,566 @@ std::array&lt; long long, 2 &gt;&#160;</td><td class="memItemRight" valign="bott
 <tr class="memitem:af81dc4dfb1d2d444ef88c5f0af256b7f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#af81dc4dfb1d2d444ef88c5f0af256b7f">rowconfigure</a> (const std::variant&lt; size_t, std::vector&lt; size_t &gt;, std::string &gt; &amp;index, CNF &amp;&amp;cnf)</td></tr>
 <tr class="memdesc:af81dc4dfb1d2d444ef88c5f0af256b7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure row INDEX of a grid.    <br /></td></tr>
 <tr class="separator:af81dc4dfb1d2d444ef88c5f0af256b7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45bd24f7fa48dc8f6aad308954f8ff49"><td class="memItemLeft" align="right" valign="top"><a id="a45bd24f7fa48dc8f6aad308954f8ff49" name="a45bd24f7fa48dc8f6aad308954f8ff49"></a>
-std::array&lt; long long, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>grid_size</b> ()</td></tr>
-<tr class="memdesc:a45bd24f7fa48dc8f6aad308954f8ff49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a tuple of the number of column and rows in the grid. <br /></td></tr>
+<tr class="memitem:a45bd24f7fa48dc8f6aad308954f8ff49"><td class="memItemLeft" align="right" valign="top">std::array&lt; long long, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a45bd24f7fa48dc8f6aad308954f8ff49">grid_size</a> ()</td></tr>
+<tr class="memdesc:a45bd24f7fa48dc8f6aad308954f8ff49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a tuple of the number of column and rows in the grid.  <br /></td></tr>
 <tr class="separator:a45bd24f7fa48dc8f6aad308954f8ff49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29124a5cc9128356447f7cf8f9e2cc5e"><td class="memItemLeft" align="right" valign="top">std::array&lt; long long, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a29124a5cc9128356447f7cf8f9e2cc5e">size</a> ()</td></tr>
 <tr class="memdesc:a29124a5cc9128356447f7cf8f9e2cc5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a tuple of the number of column and rows in the grid.    <br /></td></tr>
 <tr class="separator:a29124a5cc9128356447f7cf8f9e2cc5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b6245fa2dc8731d1db7e1116a5e80e1"><td class="memItemLeft" align="right" valign="top"><a id="a6b6245fa2dc8731d1db7e1116a5e80e1" name="a6b6245fa2dc8731d1db7e1116a5e80e1"></a>
-std::vector&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>grid_slaves</b> (std::optional&lt; long long &gt; row={}, std::optional&lt; long long &gt; column={})</td></tr>
-<tr class="memdesc:a6b6245fa2dc8731d1db7e1116a5e80e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a list of all slaves of this widget in its packing order. <br /></td></tr>
+<tr class="memitem:a6b6245fa2dc8731d1db7e1116a5e80e1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a6b6245fa2dc8731d1db7e1116a5e80e1">grid_slaves</a> (std::optional&lt; long long &gt; row={}, std::optional&lt; long long &gt; column={})</td></tr>
+<tr class="memdesc:a6b6245fa2dc8731d1db7e1116a5e80e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a list of all slaves of this widget in its packing order.  <br /></td></tr>
 <tr class="separator:a6b6245fa2dc8731d1db7e1116a5e80e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:abe382d5d690d971ab7a590b0966740a0"><td class="memItemLeft" align="right" valign="top"><a id="abe382d5d690d971ab7a590b0966740a0" name="abe382d5d690d971ab7a590b0966740a0"></a>
-std::optional&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>master</b></td></tr>
+<tr class="memitem:abe382d5d690d971ab7a590b0966740a0"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#abe382d5d690d971ab7a590b0966740a0">master</a></td></tr>
 <tr class="separator:abe382d5d690d971ab7a590b0966740a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a689ee457ea75000ba41e15a0041b335a"><td class="memItemLeft" align="right" valign="top"><a id="a689ee457ea75000ba41e15a0041b335a" name="a689ee457ea75000ba41e15a0041b335a"></a>
-std::shared_ptr&lt; <a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html">_cpptkinter::TkappObject</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>tk</b></td></tr>
+<tr class="memitem:a689ee457ea75000ba41e15a0041b335a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html">_cpptkinter::TkappObject</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a">tk</a></td></tr>
 <tr class="separator:a689ee457ea75000ba41e15a0041b335a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20ef56fc348440f5a3561ad261ac38da"><td class="memItemLeft" align="right" valign="top"><a id="a20ef56fc348440f5a3561ad261ac38da" name="a20ef56fc348440f5a3561ad261ac38da"></a>
-std::map&lt; std::string, <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>children</b></td></tr>
+<tr class="memitem:a20ef56fc348440f5a3561ad261ac38da"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a20ef56fc348440f5a3561ad261ac38da">children</a></td></tr>
 <tr class="separator:a20ef56fc348440f5a3561ad261ac38da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:af229c69075ddac49b5d058f813292699"><td class="memTemplParams" colspan="2"><a id="af229c69075ddac49b5d058f813292699" name="af229c69075ddac49b5d058f813292699"></a>
-template&lt;std::derived_from&lt; <a class="el" href="structcpptkinter_1_1Misc_1_1impl.html">impl</a> &gt; I&gt; </td></tr>
-<tr class="memitem:af229c69075ddac49b5d058f813292699"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Misc</b> (const std::shared_ptr&lt; I &gt; &amp;pimpl)</td></tr>
+<tr class="memitem:af229c69075ddac49b5d058f813292699"><td class="memTemplParams" colspan="2">template&lt;std::derived_from&lt; <a class="el" href="structcpptkinter_1_1Misc_1_1impl.html">impl</a> &gt; I&gt; </td></tr>
+<tr class="memitem:af229c69075ddac49b5d058f813292699"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#af229c69075ddac49b5d058f813292699">Misc</a> (const std::shared_ptr&lt; I &gt; &amp;<a class="el" href="classcpptkinter_1_1Misc.html#afe1bb4e9789aefd1fd0fd48b557b1de9">pimpl</a>)</td></tr>
 <tr class="separator:af229c69075ddac49b5d058f813292699"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85cdec4cbaf4fbb99d8cd91e8ce9eddb"><td class="memTemplParams" colspan="2"><a id="a85cdec4cbaf4fbb99d8cd91e8ce9eddb" name="a85cdec4cbaf4fbb99d8cd91e8ce9eddb"></a>
-template&lt;typename T &gt; <br />
+<tr class="memitem:a85cdec4cbaf4fbb99d8cd91e8ce9eddb"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; <br />
 requires (cnfs::is_cnf_member&lt;std::remove_cvref_t&lt;T&gt;&gt; &amp;&amp; !hhh::meta::is_template_instance&lt;std::remove_cvref_t&lt;T&gt;, std::optional&gt;)</td></tr>
-<tr class="memitem:a85cdec4cbaf4fbb99d8cd91e8ce9eddb"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">_cpptkinter::Tcl_Obj</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>_options_inner_visitor</b> (T &amp;&amp;value)</td></tr>
+<tr class="memitem:a85cdec4cbaf4fbb99d8cd91e8ce9eddb"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">_cpptkinter::Tcl_Obj</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a85cdec4cbaf4fbb99d8cd91e8ce9eddb">_options_inner_visitor</a> (T &amp;&amp;value)</td></tr>
 <tr class="separator:a85cdec4cbaf4fbb99d8cd91e8ce9eddb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a94a87a84beb7cced91392f62d01dfa"><td class="memTemplParams" colspan="2"><a id="a9a94a87a84beb7cced91392f62d01dfa" name="a9a94a87a84beb7cced91392f62d01dfa"></a>
-template&lt;cnfs::is_cnf CNF&gt; </td></tr>
-<tr class="memitem:a9a94a87a84beb7cced91392f62d01dfa"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">_cpptkinter::Tcl_Obj</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>_options</b> (CNF &amp;&amp;cnf, const std::set&lt; std::string &gt; &amp;ignore_fields={})</td></tr>
-<tr class="memdesc:a9a94a87a84beb7cced91392f62d01dfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a cnf struct to a vector of Tcl_Obj* which can be passed to TkappObject::call(). <br /></td></tr>
+<tr class="memitem:a9a94a87a84beb7cced91392f62d01dfa"><td class="memTemplParams" colspan="2">template&lt;cnfs::is_cnf CNF&gt; </td></tr>
+<tr class="memitem:a9a94a87a84beb7cced91392f62d01dfa"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">_cpptkinter::Tcl_Obj</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a9a94a87a84beb7cced91392f62d01dfa">_options</a> (CNF &amp;&amp;cnf, const std::set&lt; std::string &gt; &amp;ignore_fields={})</td></tr>
+<tr class="memdesc:a9a94a87a84beb7cced91392f62d01dfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a cnf struct to a vector of Tcl_Obj* which can be passed to TkappObject::call().  <br /></td></tr>
 <tr class="separator:a9a94a87a84beb7cced91392f62d01dfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c1a1bb73568fa6cea534059ba8addae"><td class="memTemplParams" colspan="2">template&lt;detail::createcommand_concept Func&gt; </td></tr>
 <tr class="memitem:a5c1a1bb73568fa6cea534059ba8addae"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a5c1a1bb73568fa6cea534059ba8addae">_register</a> (Func &amp;&amp;func, bool needcleanup=true)</td></tr>
 <tr class="memdesc:a5c1a1bb73568fa6cea534059ba8addae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a newly created Tcl function.  <br /></td></tr>
 <tr class="separator:a5c1a1bb73568fa6cea534059ba8addae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abdb43b083d457c93f5690e23f862fd76"><td class="memItemLeft" align="right" valign="top"><a id="abdb43b083d457c93f5690e23f862fd76" name="abdb43b083d457c93f5690e23f862fd76"></a>
-<a class="el" href="classcpptkinter_1_1Tk.html">Tk</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_root</b> () const</td></tr>
+<tr class="memitem:abdb43b083d457c93f5690e23f862fd76"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcpptkinter_1_1Tk.html">Tk</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#abdb43b083d457c93f5690e23f862fd76">_root</a> () const</td></tr>
 <tr class="separator:abdb43b083d457c93f5690e23f862fd76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa220e4f12c488cd7e5769edf3d829e79"><td class="memItemLeft" align="right" valign="top"><a id="aa220e4f12c488cd7e5769edf3d829e79" name="aa220e4f12c488cd7e5769edf3d829e79"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>_report_exception</b> ()</td></tr>
+<tr class="memitem:a118edbb731345114e266bc329fa78958"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcpptkinter_1_1Event.html">Event</a>&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a118edbb731345114e266bc329fa78958">_substitute</a> (const std::string &amp;nsign, <a class="el" href="cpptkinter_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb">substitute_long_long</a> b, <a class="el" href="cpptkinter_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb">substitute_long_long</a> f, <a class="el" href="cpptkinter_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb">substitute_long_long</a> h, <a class="el" href="cpptkinter_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb">substitute_long_long</a> k, const std::string &amp;s, const std::string &amp;t, <a class="el" href="cpptkinter_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb">substitute_long_long</a> w, const std::string &amp;x, const std::string &amp;y, const std::string &amp;A, <a class="el" href="cpptkinter_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb">substitute_long_long</a> <a class="el" href="namespacecpptkinter_1_1constants.html#ade417d1ff3c69b20e7e5fdd1b7becbd1">E</a>, const std::string &amp;K, <a class="el" href="cpptkinter_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb">substitute_long_long</a> <a class="el" href="namespacecpptkinter_1_1constants.html#a057403caa6b0dfa7abc9631f8ebf74d8">N</a>, const std::string &amp;<a class="el" href="namespacecpptkinter_1_1constants.html#a80afa61b7670fff64f620e06c6d590d2">W</a>, <a class="el" href="cpptkinter_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb">substitute_long_long</a> T, const std::string &amp;<a class="el" href="namespacecpptkinter_1_1constants.html#a944e4cb79024c06af420bf8ec312de28">X</a>, const std::string &amp;<a class="el" href="namespacecpptkinter_1_1constants.html#a8af11ba1eab74f266535b9e198a5abd1">Y</a>, <a class="el" href="cpptkinter_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb">substitute_long_long</a> D)</td></tr>
+<tr class="memdesc:a118edbb731345114e266bc329fa78958"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function.  <br /></td></tr>
+<tr class="separator:a118edbb731345114e266bc329fa78958"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa220e4f12c488cd7e5769edf3d829e79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#aa220e4f12c488cd7e5769edf3d829e79">_report_exception</a> ()</td></tr>
 <tr class="separator:aa220e4f12c488cd7e5769edf3d829e79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad7cdd1773141b7d803093250bbdb827"><td class="memItemLeft" align="right" valign="top"><a id="aad7cdd1773141b7d803093250bbdb827" name="aad7cdd1773141b7d803093250bbdb827"></a>
-std::map&lt; std::string, std::array&lt; std::variant&lt; long long, std::string &gt;, 5 &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_getconfigure</b> (std::vector&lt; <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">_cpptkinter::Tcl_Obj</a> &gt; &amp;&amp;raii)</td></tr>
+<tr class="memitem:aad7cdd1773141b7d803093250bbdb827"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, std::array&lt; std::variant&lt; long long, std::string &gt;, 5 &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#aad7cdd1773141b7d803093250bbdb827">_getconfigure</a> (std::vector&lt; <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">_cpptkinter::Tcl_Obj</a> &gt; &amp;&amp;raii)</td></tr>
 <tr class="separator:aad7cdd1773141b7d803093250bbdb827"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff0dad029d16bec9950fbaf7543cc1ad"><td class="memItemLeft" align="right" valign="top"><a id="aff0dad029d16bec9950fbaf7543cc1ad" name="aff0dad029d16bec9950fbaf7543cc1ad"></a>
-std::array&lt; std::variant&lt; long long, std::string &gt;, 5 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_getconfigure1</b> (std::vector&lt; <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">_cpptkinter::Tcl_Obj</a> &gt; &amp;&amp;raii)</td></tr>
+<tr class="memitem:aff0dad029d16bec9950fbaf7543cc1ad"><td class="memItemLeft" align="right" valign="top">std::array&lt; std::variant&lt; long long, std::string &gt;, 5 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#aff0dad029d16bec9950fbaf7543cc1ad">_getconfigure1</a> (std::vector&lt; <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">_cpptkinter::Tcl_Obj</a> &gt; &amp;&amp;raii)</td></tr>
 <tr class="separator:aff0dad029d16bec9950fbaf7543cc1ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57ccfa89e86c682be76b7e3c3003cfb3"><td class="memItemLeft" align="right" valign="top"><a id="a57ccfa89e86c682be76b7e3c3003cfb3" name="a57ccfa89e86c682be76b7e3c3003cfb3"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>_configure</b> (const std::vector&lt; std::string &gt; &amp;cmd) -&gt; decltype(_getconfigure({}))</td></tr>
+<tr class="memitem:a57ccfa89e86c682be76b7e3c3003cfb3"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a57ccfa89e86c682be76b7e3c3003cfb3">_configure</a> (const std::vector&lt; std::string &gt; &amp;cmd) -&gt; decltype(<a class="el" href="classcpptkinter_1_1Misc.html#aad7cdd1773141b7d803093250bbdb827">_getconfigure</a>({}))</td></tr>
 <tr class="separator:a57ccfa89e86c682be76b7e3c3003cfb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6a58e7a16ac6847300b7c1a255cbec8"><td class="memItemLeft" align="right" valign="top"><a id="ac6a58e7a16ac6847300b7c1a255cbec8" name="ac6a58e7a16ac6847300b7c1a255cbec8"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>_configure</b> (const std::vector&lt; std::string &gt; &amp;cmd, const std::string &amp;cnf) -&gt; decltype(_getconfigure1({}))</td></tr>
+<tr class="memitem:ac6a58e7a16ac6847300b7c1a255cbec8"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#ac6a58e7a16ac6847300b7c1a255cbec8">_configure</a> (const std::vector&lt; std::string &gt; &amp;cmd, const std::string &amp;cnf) -&gt; decltype(<a class="el" href="classcpptkinter_1_1Misc.html#aff0dad029d16bec9950fbaf7543cc1ad">_getconfigure1</a>({}))</td></tr>
 <tr class="separator:ac6a58e7a16ac6847300b7c1a255cbec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedb9f1dfdd6fa6dc4cddb0fa58108f6f"><td class="memTemplParams" colspan="2"><a id="aedb9f1dfdd6fa6dc4cddb0fa58108f6f" name="aedb9f1dfdd6fa6dc4cddb0fa58108f6f"></a>
-template&lt;cnfs::is_cnf CNF&gt; </td></tr>
-<tr class="memitem:aedb9f1dfdd6fa6dc4cddb0fa58108f6f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>_configure</b> (const std::vector&lt; std::string &gt; &amp;cmd, CNF &amp;&amp;cnf)</td></tr>
+<tr class="memitem:aedb9f1dfdd6fa6dc4cddb0fa58108f6f"><td class="memTemplParams" colspan="2">template&lt;cnfs::is_cnf CNF&gt; </td></tr>
+<tr class="memitem:aedb9f1dfdd6fa6dc4cddb0fa58108f6f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#aedb9f1dfdd6fa6dc4cddb0fa58108f6f">_configure</a> (const std::vector&lt; std::string &gt; &amp;cmd, CNF &amp;&amp;cnf)</td></tr>
 <tr class="separator:aedb9f1dfdd6fa6dc4cddb0fa58108f6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6752147885003abef24b5ef07f06f663"><td class="memItemLeft" align="right" valign="top"><a id="a6752147885003abef24b5ef07f06f663" name="a6752147885003abef24b5ef07f06f663"></a>
-<a class="el" href="structcpptkinter_1_1cnfs_1_1grid__column__row__configure__return.html">cnfs::grid_column_row_configure_return</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_grid_configure</b> (const std::string &amp;command, const std::variant&lt; long long, std::string &gt; &amp;index)</td></tr>
+<tr class="memitem:a6752147885003abef24b5ef07f06f663"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcpptkinter_1_1cnfs_1_1grid__column__row__configure__return.html">cnfs::grid_column_row_configure_return</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a6752147885003abef24b5ef07f06f663">_grid_configure</a> (const std::string &amp;command, const std::variant&lt; long long, std::string &gt; &amp;index)</td></tr>
 <tr class="separator:a6752147885003abef24b5ef07f06f663"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:afe1bb4e9789aefd1fd0fd48b557b1de9"><td class="memItemLeft" align="right" valign="top"><a id="afe1bb4e9789aefd1fd0fd48b557b1de9" name="afe1bb4e9789aefd1fd0fd48b557b1de9"></a>
-std::shared_ptr&lt; <a class="el" href="structcpptkinter_1_1Misc_1_1impl.html">impl</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>pimpl</b></td></tr>
+<tr class="memitem:afe1bb4e9789aefd1fd0fd48b557b1de9"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structcpptkinter_1_1Misc_1_1impl.html">impl</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#afe1bb4e9789aefd1fd0fd48b557b1de9">pimpl</a></td></tr>
 <tr class="separator:afe1bb4e9789aefd1fd0fd48b557b1de9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82eaa6a70694c943f622602df28bf232"><td class="memItemLeft" align="right" valign="top"><a id="a82eaa6a70694c943f622602df28bf232" name="a82eaa6a70694c943f622602df28bf232"></a>
-std::set&lt; std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>_tclCommands</b></td></tr>
+<tr class="memitem:a82eaa6a70694c943f622602df28bf232"><td class="memItemLeft" align="right" valign="top">std::set&lt; std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a82eaa6a70694c943f622602df28bf232">_tclCommands</a></td></tr>
 <tr class="separator:a82eaa6a70694c943f622602df28bf232"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c69ade45088b43ebef1d055593f18cd"><td class="memItemLeft" align="right" valign="top"><a id="a0c69ade45088b43ebef1d055593f18cd" name="a0c69ade45088b43ebef1d055593f18cd"></a>
-std::map&lt; std::string, int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>_last_child_ids</b></td></tr>
+<tr class="memitem:a0c69ade45088b43ebef1d055593f18cd"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a0c69ade45088b43ebef1d055593f18cd">_last_child_ids</a></td></tr>
 <tr class="separator:a0c69ade45088b43ebef1d055593f18cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a209dad39c06f5da9a5843111013fb69a"><td class="memItemLeft" align="right" valign="top"><a id="a209dad39c06f5da9a5843111013fb69a" name="a209dad39c06f5da9a5843111013fb69a"></a>
-std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>_w</b></td></tr>
+<tr class="memitem:a209dad39c06f5da9a5843111013fb69a"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a209dad39c06f5da9a5843111013fb69a">_w</a></td></tr>
 <tr class="separator:a209dad39c06f5da9a5843111013fb69a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
+Static Protected Attributes</h2></td></tr>
+<tr class="memitem:ad687654dfb9f40bfa2c12ab61e3197fa"><td class="memItemLeft" align="right" valign="top">static constexpr std::array&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#ad687654dfb9f40bfa2c12ab61e3197fa">_subst_format</a></td></tr>
+<tr class="separator:ad687654dfb9f40bfa2c12ab61e3197fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1171fdf5ec1b0036a4346fa01ade2390"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a1171fdf5ec1b0036a4346fa01ade2390">_subst_format_str</a> = hhh::misc::join_strings(<a class="el" href="classcpptkinter_1_1Misc.html#ad687654dfb9f40bfa2c12ab61e3197fa">_subst_format</a>, &quot; &quot;)</td></tr>
+<tr class="separator:a1171fdf5ec1b0036a4346fa01ade2390"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:aecbc2557132cf0a4b5a6ac9678d0e125"><td class="memTemplParams" colspan="2">template&lt;std::invocable&lt; <a class="el" href="structcpptkinter_1_1Event.html">Event</a>&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt; &gt; Func&gt; </td></tr>
+<tr class="memitem:aecbc2557132cf0a4b5a6ac9678d0e125"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#aecbc2557132cf0a4b5a6ac9678d0e125">_bind_if_2</a> (Func &amp;&amp;func, bool needcleanup)</td></tr>
+<tr class="separator:aecbc2557132cf0a4b5a6ac9678d0e125"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a84e66d1cd0601f58f4ef61a22000c3a2"><td class="memItemLeft" align="right" valign="top"><a id="a84e66d1cd0601f58f4ef61a22000c3a2" name="a84e66d1cd0601f58f4ef61a22000c3a2"></a>
-friend&#160;</td><td class="memItemRight" valign="bottom"><b>Wm</b></td></tr>
+<tr class="memitem:a84e66d1cd0601f58f4ef61a22000c3a2"><td class="memItemLeft" align="right" valign="top">friend&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a84e66d1cd0601f58f4ef61a22000c3a2">Wm</a></td></tr>
 <tr class="separator:a84e66d1cd0601f58f4ef61a22000c3a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10de6fcdf4d3ce231cf6ba544741eb46"><td class="memItemLeft" align="right" valign="top"><a id="a10de6fcdf4d3ce231cf6ba544741eb46" name="a10de6fcdf4d3ce231cf6ba544741eb46"></a>
-friend&#160;</td><td class="memItemRight" valign="bottom"><b>Variable</b></td></tr>
+<tr class="memitem:a10de6fcdf4d3ce231cf6ba544741eb46"><td class="memItemLeft" align="right" valign="top">friend&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a10de6fcdf4d3ce231cf6ba544741eb46">Variable</a></td></tr>
 <tr class="separator:a10de6fcdf4d3ce231cf6ba544741eb46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:ababf200a4e9706fc953f06ade5c2b5e0"><td class="memTemplParams" colspan="2"><a id="ababf200a4e9706fc953f06ade5c2b5e0" name="ababf200a4e9706fc953f06ade5c2b5e0"></a>
-template&lt;typename R , typename... Args&gt; </td></tr>
-<tr class="memitem:ababf200a4e9706fc953f06ade5c2b5e0"><td class="memTemplItemLeft" align="right" valign="top">struct&#160;</td><td class="memTemplItemRight" valign="bottom"><b>detail::CallWrapper</b></td></tr>
+<tr class="memitem:ababf200a4e9706fc953f06ade5c2b5e0"><td class="memTemplParams" colspan="2">template&lt;typename R , typename... Args&gt; </td></tr>
+<tr class="memitem:ababf200a4e9706fc953f06ade5c2b5e0"><td class="memTemplItemLeft" align="right" valign="top">struct&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#ababf200a4e9706fc953f06ade5c2b5e0">detail::CallWrapper</a></td></tr>
 <tr class="separator:ababf200a4e9706fc953f06ade5c2b5e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2b0b477aec36bcd034d05f897b35edc"><td class="memItemLeft" align="right" valign="top"><a id="aa2b0b477aec36bcd034d05f897b35edc" name="aa2b0b477aec36bcd034d05f897b35edc"></a>
-struct&#160;</td><td class="memItemRight" valign="bottom"><b>Pack</b></td></tr>
+<tr class="memitem:aa2b0b477aec36bcd034d05f897b35edc"><td class="memItemLeft" align="right" valign="top">struct&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#aa2b0b477aec36bcd034d05f897b35edc">Pack</a></td></tr>
 <tr class="separator:aa2b0b477aec36bcd034d05f897b35edc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43c86e4b43414933639a595e4977e85b"><td class="memItemLeft" align="right" valign="top"><a id="a43c86e4b43414933639a595e4977e85b" name="a43c86e4b43414933639a595e4977e85b"></a>
-struct&#160;</td><td class="memItemRight" valign="bottom"><b>Grid</b></td></tr>
+<tr class="memitem:a43c86e4b43414933639a595e4977e85b"><td class="memItemLeft" align="right" valign="top">struct&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a43c86e4b43414933639a595e4977e85b">Grid</a></td></tr>
 <tr class="separator:a43c86e4b43414933639a595e4977e85b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30bdb47d8a666ee98bdbf0094c7a3906"><td class="memItemLeft" align="right" valign="top"><a id="a30bdb47d8a666ee98bdbf0094c7a3906" name="a30bdb47d8a666ee98bdbf0094c7a3906"></a>
-struct&#160;</td><td class="memItemRight" valign="bottom"><b>Place</b></td></tr>
+<tr class="memitem:a30bdb47d8a666ee98bdbf0094c7a3906"><td class="memItemLeft" align="right" valign="top">struct&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a30bdb47d8a666ee98bdbf0094c7a3906">Place</a></td></tr>
 <tr class="separator:a30bdb47d8a666ee98bdbf0094c7a3906"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae315387931e4bd87f3a0490c491e91c3"><td class="memItemLeft" align="right" valign="top"><a id="ae315387931e4bd87f3a0490c491e91c3" name="ae315387931e4bd87f3a0490c491e91c3"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>BaseWidget</b></td></tr>
+<tr class="memitem:ae315387931e4bd87f3a0490c491e91c3"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#ae315387931e4bd87f3a0490c491e91c3">BaseWidget</a></td></tr>
 <tr class="separator:ae315387931e4bd87f3a0490c491e91c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34ffc36964fcfa046c2b869258c0f0aa"><td class="memTemplParams" colspan="2"><a id="a34ffc36964fcfa046c2b869258c0f0aa" name="a34ffc36964fcfa046c2b869258c0f0aa"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a34ffc36964fcfa046c2b869258c0f0aa"><td class="memTemplItemLeft" align="right" valign="top">class&#160;</td><td class="memTemplItemRight" valign="bottom"><b>utility::weak</b></td></tr>
+<tr class="memitem:a34ffc36964fcfa046c2b869258c0f0aa"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a34ffc36964fcfa046c2b869258c0f0aa"><td class="memTemplItemLeft" align="right" valign="top">class&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a34ffc36964fcfa046c2b869258c0f0aa">utility::weak</a></td></tr>
 <tr class="separator:a34ffc36964fcfa046c2b869258c0f0aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5aa9b1da1a8ed77b30db85a1c633b02"><td class="memItemLeft" align="right" valign="top"><a id="af5aa9b1da1a8ed77b30db85a1c633b02" name="af5aa9b1da1a8ed77b30db85a1c633b02"></a>
-<a class="el" href="classcpptkinter_1_1Tk.html">Tk</a>&#160;</td><td class="memItemRight" valign="bottom"><b>detail::_get_default_root</b> (const std::string &amp;)</td></tr>
+<tr class="memitem:af5aa9b1da1a8ed77b30db85a1c633b02"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcpptkinter_1_1Tk.html">Tk</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#af5aa9b1da1a8ed77b30db85a1c633b02">detail::_get_default_root</a> (const std::string &amp;)</td></tr>
 <tr class="separator:af5aa9b1da1a8ed77b30db85a1c633b02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a6c34fc58f97554124e4c3de776bc47"><td class="memItemLeft" align="right" valign="top"><a id="a0a6c34fc58f97554124e4c3de776bc47" name="a0a6c34fc58f97554124e4c3de776bc47"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;os, const <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &amp;self)</td></tr>
-<tr class="memdesc:a0a6c34fc58f97554124e4c3de776bc47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs the window path name of this widget to an output stream. <br /></td></tr>
+<tr class="memitem:a0a6c34fc58f97554124e4c3de776bc47"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a0a6c34fc58f97554124e4c3de776bc47">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &amp;self)</td></tr>
+<tr class="memdesc:a0a6c34fc58f97554124e4c3de776bc47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs the window path name of this widget to an output stream.  <br /></td></tr>
 <tr class="separator:a0a6c34fc58f97554124e4c3de776bc47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Internal class. </p>
 <p>Base class which defines methods common for interior widgets. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="af229c69075ddac49b5d058f813292699" name="af229c69075ddac49b5d058f813292699"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af229c69075ddac49b5d058f813292699">&#9670;&#160;</a></span>Misc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::derived_from&lt; <a class="el" href="structcpptkinter_1_1Misc_1_1impl.html">impl</a> &gt; I&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">cpptkinter::Misc::Misc </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; I &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pimpl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9f35232a482b8c97d7967e9bbdc1942a" name="a9f35232a482b8c97d7967e9bbdc1942a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f35232a482b8c97d7967e9bbdc1942a">&#9670;&#160;</a></span>_bind() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; cpptkinter::Misc::_bind </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>what</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Internal function. </p>
+<p>Implements the fourth if statement. </p><dl class="section return"><dt>Returns</dt><dd>A list of all bound events associated with this widget. </dd></dl>
+
+</div>
+</div>
+<a id="a0bf1dbd37b7b17e2e9cb869b099cf788" name="a0bf1dbd37b7b17e2e9cb869b099cf788"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bf1dbd37b7b17e2e9cb869b099cf788">&#9670;&#160;</a></span>_bind() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string cpptkinter::Misc::_bind </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>what</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>sequence</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Internal function. </p>
+<p>Implements the third if statement. </p><dl class="section return"><dt>Returns</dt><dd>The script currently bound to sequence or an empty string if there is no binding for sequence. </dd></dl>
+
+</div>
+</div>
+<a id="ac6da139d9067826956bc265d65a30b5e" name="ac6da139d9067826956bc265d65a30b5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6da139d9067826956bc265d65a30b5e">&#9670;&#160;</a></span>_bind() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Misc::_bind </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>what</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>sequence</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>func</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Internal function. </p>
+<p>Implements the first if statement. </p>
+
+</div>
+</div>
+<a id="afde02075fc23781890678be8681cebd3" name="afde02075fc23781890678be8681cebd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afde02075fc23781890678be8681cebd3">&#9670;&#160;</a></span>_bind() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::invocable&lt; <a class="el" href="structcpptkinter_1_1Event.html">Event</a>&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt; &gt; Func&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string cpptkinter::Misc::_bind </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>what</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>sequence</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Func &amp;&amp;&#160;</td>
+          <td class="paramname"><em>func</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>add</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>needcleanup</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Internal function. </p>
+<p>Implements the second if statement with sequence != None. Creates a tcl command with func and binds it to sequence. </p><dl class="section return"><dt>Returns</dt><dd>An identifier for the created tcl command. </dd></dl>
+
+</div>
+</div>
+<a id="a69df898620da12c238deb6d46b60a24f" name="a69df898620da12c238deb6d46b60a24f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69df898620da12c238deb6d46b60a24f">&#9670;&#160;</a></span>_bind() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::invocable&lt; <a class="el" href="structcpptkinter_1_1Event.html">Event</a>&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt; &gt; Func&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string cpptkinter::Misc::_bind </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>what</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Func &amp;&amp;&#160;</td>
+          <td class="paramname"><em>func</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>add</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>needcleanup</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Internal function. </p>
+<p>Implements the second if statement with sequence == None. Creates a tcl command with func but doesn't bind it (i.e. does nothing with it). </p><dl class="section return"><dt>Returns</dt><dd>An identifier for the created tcl command. </dd></dl>
+
+</div>
+</div>
+<a id="aecbc2557132cf0a4b5a6ac9678d0e125" name="aecbc2557132cf0a4b5a6ac9678d0e125"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecbc2557132cf0a4b5a6ac9678d0e125">&#9670;&#160;</a></span>_bind_if_2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::invocable&lt; <a class="el" href="structcpptkinter_1_1Event.html">Event</a>&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt; &gt; Func&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string cpptkinter::Misc::_bind_if_2 </td>
+          <td>(</td>
+          <td class="paramtype">Func &amp;&amp;&#160;</td>
+          <td class="paramname"><em>func</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>needcleanup</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a57ccfa89e86c682be76b7e3c3003cfb3" name="a57ccfa89e86c682be76b7e3c3003cfb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57ccfa89e86c682be76b7e3c3003cfb3">&#9670;&#160;</a></span>_configure() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto cpptkinter::Misc::_configure </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>cmd</em></td><td>)</td>
+          <td> -&gt; decltype(<a class="el" href="classcpptkinter_1_1Misc.html#aad7cdd1773141b7d803093250bbdb827">_getconfigure</a>({}))
+        </td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aedb9f1dfdd6fa6dc4cddb0fa58108f6f" name="aedb9f1dfdd6fa6dc4cddb0fa58108f6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedb9f1dfdd6fa6dc4cddb0fa58108f6f">&#9670;&#160;</a></span>_configure() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;cnfs::is_cnf CNF&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Misc::_configure </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CNF &amp;&amp;&#160;</td>
+          <td class="paramname"><em>cnf</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac6a58e7a16ac6847300b7c1a255cbec8" name="ac6a58e7a16ac6847300b7c1a255cbec8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6a58e7a16ac6847300b7c1a255cbec8">&#9670;&#160;</a></span>_configure() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto cpptkinter::Misc::_configure </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>cnf</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> -&gt; decltype(<a class="el" href="classcpptkinter_1_1Misc.html#aff0dad029d16bec9950fbaf7543cc1ad">_getconfigure1</a>({}))
+        </td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aad7cdd1773141b7d803093250bbdb827" name="aad7cdd1773141b7d803093250bbdb827"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad7cdd1773141b7d803093250bbdb827">&#9670;&#160;</a></span>_getconfigure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; std::string, std::array&lt; std::variant&lt; long long, std::string &gt;, 5 &gt; &gt; cpptkinter::Misc::_getconfigure </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">_cpptkinter::Tcl_Obj</a> &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>raii</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aff0dad029d16bec9950fbaf7543cc1ad" name="aff0dad029d16bec9950fbaf7543cc1ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff0dad029d16bec9950fbaf7543cc1ad">&#9670;&#160;</a></span>_getconfigure1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::array&lt; std::variant&lt; long long, std::string &gt;, 5 &gt; cpptkinter::Misc::_getconfigure1 </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">_cpptkinter::Tcl_Obj</a> &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>raii</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a26f7d417008c0e95579be102b0e1a278" name="a26f7d417008c0e95579be102b0e1a278"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a26f7d417008c0e95579be102b0e1a278">&#9670;&#160;</a></span>_getitem_()</h2>
 
@@ -453,6 +928,111 @@ template&lt;detail::FromObjConcept R&gt; </div>
 
 <p>Get a resource of a widget. </p>
 <p>Used by <a class="el" href="structcpptkinter_1_1detail_1_1set__get__proxy.html">detail::set_get_proxy</a>. Can be overloaded by inheriting widgets. </p>
+
+</div>
+</div>
+<a id="a6752147885003abef24b5ef07f06f663" name="a6752147885003abef24b5ef07f06f663"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6752147885003abef24b5ef07f06f663">&#9670;&#160;</a></span>_grid_configure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structcpptkinter_1_1cnfs_1_1grid__column__row__configure__return.html">cnfs::grid_column_row_configure_return</a> cpptkinter::Misc::_grid_configure </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>command</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::variant&lt; long long, std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9a94a87a84beb7cced91392f62d01dfa" name="a9a94a87a84beb7cced91392f62d01dfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a94a87a84beb7cced91392f62d01dfa">&#9670;&#160;</a></span>_options()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;cnfs::is_cnf CNF&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">_cpptkinter::Tcl_Obj</a> &gt; cpptkinter::Misc::_options </td>
+          <td>(</td>
+          <td class="paramtype">CNF &amp;&amp;&#160;</td>
+          <td class="paramname"><em>cnf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::set&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ignore_fields</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts a cnf struct to a vector of Tcl_Obj* which can be passed to TkappObject::call(). </p>
+
+</div>
+</div>
+<a id="a85cdec4cbaf4fbb99d8cd91e8ce9eddb" name="a85cdec4cbaf4fbb99d8cd91e8ce9eddb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85cdec4cbaf4fbb99d8cd91e8ce9eddb">&#9670;&#160;</a></span>_options_inner_visitor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; <br />
+requires (cnfs::is_cnf_member&lt;std::remove_cvref_t&lt;T&gt;&gt; &amp;&amp; !hhh::meta::is_template_instance&lt;std::remove_cvref_t&lt;T&gt;, std::optional&gt;)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">_cpptkinter::Tcl_Obj</a> cpptkinter::Misc::_options_inner_visitor </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&amp;&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -497,6 +1077,56 @@ template&lt;detail::createcommand_concept Func&gt; </div>
 
 </div>
 </div>
+<a id="aa220e4f12c488cd7e5769edf3d829e79" name="aa220e4f12c488cd7e5769edf3d829e79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa220e4f12c488cd7e5769edf3d829e79">&#9670;&#160;</a></span>_report_exception()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Misc::_report_exception </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abdb43b083d457c93f5690e23f862fd76" name="abdb43b083d457c93f5690e23f862fd76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdb43b083d457c93f5690e23f862fd76">&#9670;&#160;</a></span>_root()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcpptkinter_1_1Tk.html">cpptkinter::Tk</a> cpptkinter::Misc::_root </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a55949ea923e567d42d4b5b971cb7e24a" name="a55949ea923e567d42d4b5b971cb7e24a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a55949ea923e567d42d4b5b971cb7e24a">&#9670;&#160;</a></span>_setitem_()</h2>
 
@@ -536,6 +1166,214 @@ requires requires { this-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#a0
 
 <p>Set a resource of a widget. </p>
 <p>Used by <a class="el" href="structcpptkinter_1_1detail_1_1set__get__proxy.html">detail::set_get_proxy</a>. Can be overloaded by inheriting widgets. </p>
+
+</div>
+</div>
+<a id="a118edbb731345114e266bc329fa78958" name="a118edbb731345114e266bc329fa78958"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a118edbb731345114e266bc329fa78958">&#9670;&#160;</a></span>_substitute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structcpptkinter_1_1Event.html">Event</a>&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt; cpptkinter::Misc::_substitute </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>nsign</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="cpptkinter_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb">substitute_long_long</a>&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="cpptkinter_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb">substitute_long_long</a>&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="cpptkinter_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb">substitute_long_long</a>&#160;</td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="cpptkinter_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb">substitute_long_long</a>&#160;</td>
+          <td class="paramname"><em>k</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="cpptkinter_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb">substitute_long_long</a>&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="cpptkinter_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb">substitute_long_long</a>&#160;</td>
+          <td class="paramname"><em>E</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>K</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="cpptkinter_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb">substitute_long_long</a>&#160;</td>
+          <td class="paramname"><em>N</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>W</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="cpptkinter_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb">substitute_long_long</a>&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>X</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>Y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="cpptkinter_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb">substitute_long_long</a>&#160;</td>
+          <td class="paramname"><em>D</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Internal function. </p>
+
+</div>
+</div>
+<a id="a993e786ef22a4996c43a1daa2633e918" name="a993e786ef22a4996c43a1daa2633e918"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a993e786ef22a4996c43a1daa2633e918">&#9670;&#160;</a></span>_unbind() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Misc::_unbind </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>what</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Internal function. </p>
+<p>Implements the first if statement. </p>
+
+</div>
+</div>
+<a id="a65e8f43e002be2c9107931c4ee6c2ea3" name="a65e8f43e002be2c9107931c4ee6c2ea3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65e8f43e002be2c9107931c4ee6c2ea3">&#9670;&#160;</a></span>_unbind() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Misc::_unbind </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>what</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>funcid</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Internal function. </p>
+<p>Implements the second if statement. </p>
 
 </div>
 </div>
@@ -594,6 +1432,198 @@ requires requires { this-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#a0
 
 <p>Return a tuple of integer coordinates for the bounding box of this widget controlled by the geometry manager grid.   </p>
 <p>If COLUMN, ROW is given the bounding box applies from the cell with row and column 0 to the specified cell. If COL2 and ROW2 are given the bounding box starts at that cell. The returned integers specify the offset of the upper left corner in the master widget and the width and height.   </p>
+
+</div>
+</div>
+<a id="a3fe5995e5d53c85e8222206b311889d8" name="a3fe5995e5d53c85e8222206b311889d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fe5995e5d53c85e8222206b311889d8">&#9670;&#160;</a></span>bind()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; <br />
+requires requires { this-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#ac6da139d9067826956bc265d65a30b5e">_bind</a>({}, std::forward&lt;Args&gt;(args)...); }</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto cpptkinter::Misc::bind </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Bind to this widget at event SEQUENCE a call to function FUNC. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sequence</td><td>is a string of concatenated event patterns. An event pattern is of the form &lt;MODIFIER - MODIFIER - TYPE - DETAIL&gt; where MODIFIER is one of Control, Mod2, M2, Shift, Mod3, M3, Lock, Mod4, M4, Button1, B1, Mod5, M5 Button2, B2, Meta, M, Button3, B3, Alt, Button4, B4, Double, Button5, B5 Triple, Mod1, M1. TYPE is one of Activate, Enter, Map, ButtonPress, Button, Expose, Motion, ButtonRelease FocusIn, MouseWheel, Circulate, FocusOut, Property, Colormap, Gravity Reparent, Configure, KeyPress, Key, Unmap, Deactivate, KeyRelease Visibility, Destroy, Leave and DETAIL is the button number for ButtonPress, ButtonRelease and DETAIL is the Keysym for KeyPress and KeyRelease. Examples are &lt;Control - Button - 1&gt; for pressing Control and mouse button 1 or &lt;Alt - A&gt; for pressing A and the Alt key (KeyPress can be omitted). An event pattern can also be a virtual event of the form &lt;&lt;AString&gt;&gt; where AString can be arbitrary. This event can be generated by event_generate. If events are concatenated they must appear shortly after each other.</td></tr>
+    <tr><td class="paramname">func</td><td>will be called if the event sequence occurs with an instance of <a class="el" href="structcpptkinter_1_1Event.html">Event</a> as argument. If the return value of FUNC is "break" no further bound function is invoked.</td></tr>
+    <tr><td class="paramname">add</td><td>specifies whether FUNC will be called additionally to the other bound function or whether it will replace the previous function.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Bind will return an identifier to allow deletion of the bound function with unbind without memory leak.</p>
+<p>If FUNC or SEQUENCE is omitted the bound function or list of bound events are returned. /// </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classcpptkinter_1_1Misc.html#ac6da139d9067826956bc265d65a30b5e" title="Internal function.">_bind</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a30ee3c45ee9c08e870268f890e3af7ab" name="a30ee3c45ee9c08e870268f890e3af7ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30ee3c45ee9c08e870268f890e3af7ab">&#9670;&#160;</a></span>bind_all()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; <br />
+requires requires { this-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#ac6da139d9067826956bc265d65a30b5e">_bind</a>({}, std::forward&lt;Args&gt;(args)..., true); }</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto cpptkinter::Misc::bind_all </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Bind to all widgets at an event SEQUENCE a call to function FUNC. </p>
+<p>An additional boolean parameter ADD specifies whether FUNC will be called additionally to the other bound function or whether it will replace the previous function. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classcpptkinter_1_1Misc.html#a3fe5995e5d53c85e8222206b311889d8" title="Bind to this widget at event SEQUENCE a call to function FUNC.">bind</a> for the return value. </dd></dl>
+
+</div>
+</div>
+<a id="afc8373edcdff2f0b9e394a0539b5c3a0" name="afc8373edcdff2f0b9e394a0539b5c3a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc8373edcdff2f0b9e394a0539b5c3a0">&#9670;&#160;</a></span>bind_class()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; <br />
+requires requires { this-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#ac6da139d9067826956bc265d65a30b5e">_bind</a>({}, std::forward&lt;Args&gt;(args)..., true); }</div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto cpptkinter::Misc::bind_class </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>className</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Bind to widgets with bindtag CLASSNAME at event SEQUENCE a call of function FUNC. </p>
+<p>An additional boolean parameter ADD specifies whether FUNC will be called additionally to the other bound function or whether it will replace the previous function. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classcpptkinter_1_1Misc.html#a3fe5995e5d53c85e8222206b311889d8" title="Bind to this widget at event SEQUENCE a call to function FUNC.">bind</a> for the return value. </dd></dl>
+
+</div>
+</div>
+<a id="ac3504d63e1dbc8d54185c84e9bddd52d" name="ac3504d63e1dbc8d54185c84e9bddd52d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3504d63e1dbc8d54185c84e9bddd52d">&#9670;&#160;</a></span>bindtags() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; cpptkinter::Misc::bindtags </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the list of bindtags for this widget. </p>
+<p>The bindtags determine in which order events are processed(see bind). </p><dl class="section return"><dt>Returns</dt><dd>The list of all bindtags associated with this widget. </dd></dl>
+
+</div>
+</div>
+<a id="a851ce25cea487f61c125d0939ab48b09" name="a851ce25cea487f61c125d0939ab48b09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a851ce25cea487f61c125d0939ab48b09">&#9670;&#160;</a></span>bindtags() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Misc::bindtags </td>
+          <td>(</td>
+          <td class="paramtype">const utility::range_of_convertible_to&lt; std::string &gt; auto &amp;&#160;</td>
+          <td class="paramname"><em>tagList</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the list of bindtags for this widget. </p>
+<p>The bindtags determine in which order events are processed(see bind). </p>
+
+</div>
+</div>
+<a id="a864fb0988a19b6c5233f7a9a67dddb60" name="a864fb0988a19b6c5233f7a9a67dddb60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a864fb0988a19b6c5233f7a9a67dddb60">&#9670;&#160;</a></span>cget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;detail::FromObjConcept R&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">R cpptkinter::Misc::cget </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -757,7 +1787,7 @@ requires requires { this-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#a0
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T &gt; <br />
-requires requires { this-&gt;_options_inner_visitor(std::declval&lt;T&gt;()); }</div>
+requires requires { this-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#a85cdec4cbaf4fbb99d8cd91e8ce9eddb">_options_inner_visitor</a>(std::declval&lt;T&gt;()); }</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -805,7 +1835,7 @@ requires requires { this-&gt;_options_inner_visitor(std::declval&lt;T&gt;()); }<
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T &gt; <br />
-requires requires { this-&gt;_configure({ }, std::declval&lt;T&gt;()); }</div>
+requires requires { this-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#a57ccfa89e86c682be76b7e3c3003cfb3">_configure</a>({ }, std::declval&lt;T&gt;()); }</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -861,6 +1891,25 @@ requires requires { this-&gt;_configure({ }, std::declval&lt;T&gt;()); }</div>
 
 <p>Internal function. </p>
 <p>Delete the Tcl command provided in NAME. </p>
+
+</div>
+</div>
+<a id="a34a33b51a95322f8700f9eccd6068a77" name="a34a33b51a95322f8700f9eccd6068a77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34a33b51a95322f8700f9eccd6068a77">&#9670;&#160;</a></span>destroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Misc::destroy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calls this-&gt;pimpl-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#a34a33b51a95322f8700f9eccd6068a77" title="Calls this-&gt;pimpl-&gt;destroy().">destroy()</a>. </p>
 
 </div>
 </div>
@@ -922,8 +1971,36 @@ requires requires { this-&gt;_configure({ }, std::declval&lt;T&gt;()); }</div>
 
 </div>
 </div>
+<a id="a7be60288ab15d2791f99f50b41a274d1" name="a7be60288ab15d2791f99f50b41a274d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7be60288ab15d2791f99f50b41a274d1">&#9670;&#160;</a></span>grid_columnconfigure() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structcpptkinter_1_1cnfs_1_1grid__column__row__configure__return.html">cnfs::grid_column_row_configure_return</a> cpptkinter::Misc::grid_columnconfigure </td>
+          <td>(</td>
+          <td class="paramtype">const std::variant&lt; long long, std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Configure column INDEX of a grid. </p>
+
+</div>
+</div>
 <a id="a0d2c1af072daa0844c69531a387c9434" name="a0d2c1af072daa0844c69531a387c9434"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d2c1af072daa0844c69531a387c9434">&#9670;&#160;</a></span>grid_columnconfigure()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d2c1af072daa0844c69531a387c9434">&#9670;&#160;</a></span>grid_columnconfigure() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -960,6 +2037,44 @@ template&lt;cnfs::is_cnf CNF = cnfs::grid_column_row_configure&gt; </div>
 
 <p>Configure column INDEX of a grid. </p>
 <p>Valid resources are minsize (minimum size of the column), weight (how much does additional space propagate to this column), pad (how much space to let additionally) and uniform. </p>
+
+</div>
+</div>
+<a id="affc7c7beaaa3e967fab21a056b995376" name="affc7c7beaaa3e967fab21a056b995376"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affc7c7beaaa3e967fab21a056b995376">&#9670;&#160;</a></span>grid_location()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::array&lt; long long, 2 &gt; cpptkinter::Misc::grid_location </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacecpptkinter_1_1detail.html#afc7009a86a29f290dee42ceefba321bc">detail::ScreenUnits</a> &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacecpptkinter_1_1detail.html#afc7009a86a29f290dee42ceefba321bc">detail::ScreenUnits</a> &amp;&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return a tuple of column and row which identify the cell at which the pixel at position X and Y inside the master widget is located. </p>
 
 </div>
 </div>
@@ -1020,8 +2135,36 @@ template&lt;cnfs::is_cnf CNF = cnfs::grid_column_row_configure&gt; </div>
 
 </div>
 </div>
+<a id="a842f41ce717f503b275ac43f692b8a2a" name="a842f41ce717f503b275ac43f692b8a2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a842f41ce717f503b275ac43f692b8a2a">&#9670;&#160;</a></span>grid_rowconfigure() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structcpptkinter_1_1cnfs_1_1grid__column__row__configure__return.html">cnfs::grid_column_row_configure_return</a> cpptkinter::Misc::grid_rowconfigure </td>
+          <td>(</td>
+          <td class="paramtype">const std::variant&lt; long long, std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Configure row INDEX of a grid. </p>
+
+</div>
+</div>
 <a id="a7e02b488cb86219a81fbf926fbb5b375" name="a7e02b488cb86219a81fbf926fbb5b375"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e02b488cb86219a81fbf926fbb5b375">&#9670;&#160;</a></span>grid_rowconfigure()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e02b488cb86219a81fbf926fbb5b375">&#9670;&#160;</a></span>grid_rowconfigure() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1061,6 +2204,98 @@ template&lt;cnfs::is_cnf CNF = cnfs::grid_column_row_configure&gt; </div>
 
 </div>
 </div>
+<a id="a45bd24f7fa48dc8f6aad308954f8ff49" name="a45bd24f7fa48dc8f6aad308954f8ff49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45bd24f7fa48dc8f6aad308954f8ff49">&#9670;&#160;</a></span>grid_size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::array&lt; long long, 2 &gt; cpptkinter::Misc::grid_size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return a tuple of the number of column and rows in the grid. </p>
+
+</div>
+</div>
+<a id="a6b6245fa2dc8731d1db7e1116a5e80e1" name="a6b6245fa2dc8731d1db7e1116a5e80e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b6245fa2dc8731d1db7e1116a5e80e1">&#9670;&#160;</a></span>grid_slaves()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt; cpptkinter::Misc::grid_slaves </td>
+          <td>(</td>
+          <td class="paramtype">std::optional&lt; long long &gt;&#160;</td>
+          <td class="paramname"><em>row</em> = <code>{}</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::optional&lt; long long &gt;&#160;</td>
+          <td class="paramname"><em>column</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return a list of all slaves of this widget in its packing order. </p>
+
+</div>
+</div>
+<a id="ae7536d68ead97a1eb829e2e4abb6815b" name="ae7536d68ead97a1eb829e2e4abb6815b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7536d68ead97a1eb829e2e4abb6815b">&#9670;&#160;</a></span>keys()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; cpptkinter::Misc::keys </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return a list of all resource names of this widget. </p>
+
+</div>
+</div>
 <a id="a0babea795be1964968235d9514d49ebf" name="a0babea795be1964968235d9514d49ebf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0babea795be1964968235d9514d49ebf">&#9670;&#160;</a></span>location()</h2>
 
@@ -1073,13 +2308,13 @@ template&lt;cnfs::is_cnf CNF = cnfs::grid_column_row_configure&gt; </div>
         <tr>
           <td class="memname">std::array&lt; long long, 2 &gt; cpptkinter::Misc::location </td>
           <td>(</td>
-          <td class="paramtype">const detail::ScreenUnits &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacecpptkinter_1_1detail.html#afc7009a86a29f290dee42ceefba321bc">detail::ScreenUnits</a> &amp;&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const detail::ScreenUnits &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacecpptkinter_1_1detail.html#afc7009a86a29f290dee42ceefba321bc">detail::ScreenUnits</a> &amp;&#160;</td>
           <td class="paramname"><em>y</em>&#160;</td>
         </tr>
         <tr>
@@ -1096,6 +2331,167 @@ template&lt;cnfs::is_cnf CNF = cnfs::grid_column_row_configure&gt; </div>
 </div><div class="memdoc">
 
 <p>Return a tuple of column and row which identify the cell at which the pixel at position X and Y inside the master widget is located.   </p>
+
+</div>
+</div>
+<a id="a75a29ada49219601bf4f5b69260ea176" name="a75a29ada49219601bf4f5b69260ea176"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75a29ada49219601bf4f5b69260ea176">&#9670;&#160;</a></span>mainloop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Misc::mainloop </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em> = <code>0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Call the mainloop of <a class="el" href="classcpptkinter_1_1Tk.html" title="Toplevel widget of Tk which represents mostly the main window of an application.">Tk</a>. </p>
+
+</div>
+</div>
+<a id="a58f2988bb80138c96a4a2b3217c523b1" name="a58f2988bb80138c96a4a2b3217c523b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58f2988bb80138c96a4a2b3217c523b1">&#9670;&#160;</a></span>nametowidget() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> cpptkinter::Misc::nametowidget </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1tk__window__type.html">_cpptkinter::tk_window_type</a>&#160;</td>
+          <td class="paramname"><em>window</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the Tkinter instance of a widget. </p>
+
+</div>
+</div>
+<a id="a4fb0c53d8ae5fafb298d3193487bd11f" name="a4fb0c53d8ae5fafb298d3193487bd11f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fb0c53d8ae5fafb298d3193487bd11f">&#9670;&#160;</a></span>nametowidget() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcpptkinter_1_1Misc.html">cpptkinter::Misc</a> cpptkinter::Misc::nametowidget </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the Tkinter instance of a widget identified by its Tcl name NAME. </p>
+
+</div>
+</div>
+<a id="ade7170e0512fc21c1f6b9b14f1073f4d" name="ade7170e0512fc21c1f6b9b14f1073f4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade7170e0512fc21c1f6b9b14f1073f4d">&#9670;&#160;</a></span>operator std::string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">cpptkinter::Misc::operator std::string </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the window path name of this widget. </p>
+
+</div>
+</div>
+<a id="a20e33e4dd583100707936dc380167324" name="a20e33e4dd583100707936dc380167324"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20e33e4dd583100707936dc380167324">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &amp; cpptkinter::Misc::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab2e7a95e9dee85a28bb78d7dc4eca089" name="ab2e7a95e9dee85a28bb78d7dc4eca089"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2e7a95e9dee85a28bb78d7dc4eca089">&#9670;&#160;</a></span>operator[]()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Self &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structcpptkinter_1_1detail_1_1set__get__proxy.html">detail::set_get_proxy</a>&lt; std::remove_cvref_t&lt; Self &gt; &gt; cpptkinter::Misc::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">this Self &amp;&amp;&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>key</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a proxy object which can be used to set/get resources of a widget. </p>
 
 </div>
 </div>
@@ -1161,6 +2557,60 @@ template&lt;cnfs::is_cnf CNF = cnfs::grid_column_row_configure&gt; </div>
 
 </div>
 </div>
+<a id="a95416e873c4117483ade79e046d14dbc" name="a95416e873c4117483ade79e046d14dbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95416e873c4117483ade79e046d14dbc">&#9670;&#160;</a></span>pack_slaves()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt; cpptkinter::Misc::pack_slaves </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return a list of all slaves of this widget in its packing order. </p>
+
+</div>
+</div>
+<a id="a314caf135f7d641cf3c592fa7b6df9b0" name="a314caf135f7d641cf3c592fa7b6df9b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a314caf135f7d641cf3c592fa7b6df9b0">&#9670;&#160;</a></span>place_slaves()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt; cpptkinter::Misc::place_slaves </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return a list of all slaves of this widget in its packing order. </p>
+
+</div>
+</div>
 <a id="af9ba08eab8066696074e5646d594d14a" name="af9ba08eab8066696074e5646d594d14a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af9ba08eab8066696074e5646d594d14a">&#9670;&#160;</a></span>propagate() <span class="overload">[1/2]</span></h2>
 
@@ -1220,6 +2670,33 @@ template&lt;cnfs::is_cnf CNF = cnfs::grid_column_row_configure&gt; </div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a06b5d9d4cfd174627b50cce85d024bfb" name="a06b5d9d4cfd174627b50cce85d024bfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06b5d9d4cfd174627b50cce85d024bfb">&#9670;&#160;</a></span>quit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Misc::quit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Quit the Tcl interpreter. All widgets will be destroyed. </p>
 
 </div>
 </div>
@@ -1342,6 +2819,554 @@ template&lt;cnfs::is_cnf CNF = cnfs::grid_column_row_configure&gt; </div>
 </div><div class="memdoc">
 
 <p>Return a list of all slaves of this widget in its packing order.   </p>
+
+</div>
+</div>
+<a id="a1668cd487a1fbbb822d6f35f719d2954" name="a1668cd487a1fbbb822d6f35f719d2954"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1668cd487a1fbbb822d6f35f719d2954">&#9670;&#160;</a></span>unbind() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Misc::unbind </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>sequence</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Unbind for this widget the event SEQUENCE. </p>
+<p>Destroy the current binding for SEQUENCE, leaving SEQUENCE unbound. </p>
+
+</div>
+</div>
+<a id="a7a974e2ad0f29d12e83fab0eed41da95" name="a7a974e2ad0f29d12e83fab0eed41da95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a974e2ad0f29d12e83fab0eed41da95">&#9670;&#160;</a></span>unbind() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Misc::unbind </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>sequence</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>funcid</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Unbind for this widget the event SEQUENCE. </p>
+<p>Unbind the function identified with FUNCID and also delete the corresponding Tcl command. </p>
+
+</div>
+</div>
+<a id="aabb5954ed4f55855db5b636de5f0ae9c" name="aabb5954ed4f55855db5b636de5f0ae9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabb5954ed4f55855db5b636de5f0ae9c">&#9670;&#160;</a></span>unbind_all()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Misc::unbind_all </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>sequence</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Unbind for all widgets for event SEQUENCE all functions. </p>
+
+</div>
+</div>
+<a id="a05c582150538de8d653b941dda6c5cc8" name="a05c582150538de8d653b941dda6c5cc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05c582150538de8d653b941dda6c5cc8">&#9670;&#160;</a></span>unbind_class()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Misc::unbind_class </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>className</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>sequence</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Unbind for all widgets with bindtag CLASSNAME for event SEQUENCE all functions. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="ae315387931e4bd87f3a0490c491e91c3" name="ae315387931e4bd87f3a0490c491e91c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae315387931e4bd87f3a0490c491e91c3">&#9670;&#160;</a></span>BaseWidget</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classcpptkinter_1_1BaseWidget.html">BaseWidget</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af5aa9b1da1a8ed77b30db85a1c633b02" name="af5aa9b1da1a8ed77b30db85a1c633b02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5aa9b1da1a8ed77b30db85a1c633b02">&#9670;&#160;</a></span>detail::_get_default_root</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcpptkinter_1_1Tk.html">Tk</a> <a class="el" href="namespacecpptkinter_1_1detail.html#ac0b4eb6697fa1756cf5b389b468740c6">detail::_get_default_root</a> </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ababf200a4e9706fc953f06ade5c2b5e0" name="ababf200a4e9706fc953f06ade5c2b5e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ababf200a4e9706fc953f06ade5c2b5e0">&#9670;&#160;</a></span>detail::CallWrapper</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend struct <a class="el" href="structcpptkinter_1_1detail_1_1CallWrapper.html">detail::CallWrapper</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a43c86e4b43414933639a595e4977e85b" name="a43c86e4b43414933639a595e4977e85b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43c86e4b43414933639a595e4977e85b">&#9670;&#160;</a></span>Grid</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend struct <a class="el" href="structcpptkinter_1_1Grid.html">Grid</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0a6c34fc58f97554124e4c3de776bc47" name="a0a6c34fc58f97554124e4c3de776bc47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a6c34fc58f97554124e4c3de776bc47">&#9670;&#160;</a></span>operator&lt;&lt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream &amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &amp;&#160;</td>
+          <td class="paramname"><em>self</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Outputs the window path name of this widget to an output stream. </p>
+
+</div>
+</div>
+<a id="aa2b0b477aec36bcd034d05f897b35edc" name="aa2b0b477aec36bcd034d05f897b35edc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2b0b477aec36bcd034d05f897b35edc">&#9670;&#160;</a></span>Pack</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend struct <a class="el" href="structcpptkinter_1_1Pack.html">Pack</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a30bdb47d8a666ee98bdbf0094c7a3906" name="a30bdb47d8a666ee98bdbf0094c7a3906"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30bdb47d8a666ee98bdbf0094c7a3906">&#9670;&#160;</a></span>Place</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend struct <a class="el" href="structcpptkinter_1_1Place.html">Place</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a34ffc36964fcfa046c2b869258c0f0aa" name="a34ffc36964fcfa046c2b869258c0f0aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34ffc36964fcfa046c2b869258c0f0aa">&#9670;&#160;</a></span>utility::weak</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classcpptkinter_1_1utility_1_1weak.html">utility::weak</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a0c69ade45088b43ebef1d055593f18cd" name="a0c69ade45088b43ebef1d055593f18cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c69ade45088b43ebef1d055593f18cd">&#9670;&#160;</a></span>_last_child_ids</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;std::string, int&gt;&amp; cpptkinter::Misc::_last_child_ids</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad687654dfb9f40bfa2c12ab61e3197fa" name="ad687654dfb9f40bfa2c12ab61e3197fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad687654dfb9f40bfa2c12ab61e3197fa">&#9670;&#160;</a></span>_subst_format</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr std::array cpptkinter::Misc::_subst_format</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= { <span class="stringliteral">&quot;%#&quot;</span>sv, <span class="stringliteral">&quot;%b&quot;</span>sv, <span class="stringliteral">&quot;%f&quot;</span>sv, <span class="stringliteral">&quot;%h&quot;</span>sv, <span class="stringliteral">&quot;%k&quot;</span>sv, <span class="stringliteral">&quot;%s&quot;</span>sv, <span class="stringliteral">&quot;%t&quot;</span>sv, <span class="stringliteral">&quot;%w&quot;</span>sv, <span class="stringliteral">&quot;%x&quot;</span>sv, <span class="stringliteral">&quot;%y&quot;</span>sv, <span class="stringliteral">&quot;%A&quot;</span>sv,</div>
+<div class="line">            <span class="stringliteral">&quot;%E&quot;</span>sv, <span class="stringliteral">&quot;%K&quot;</span>sv, <span class="stringliteral">&quot;%N&quot;</span>sv, <span class="stringliteral">&quot;%W&quot;</span>sv, <span class="stringliteral">&quot;%T&quot;</span>sv, <span class="stringliteral">&quot;%X&quot;</span>sv, <span class="stringliteral">&quot;%Y&quot;</span>sv, <span class="stringliteral">&quot;%D&quot;</span>sv }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a1171fdf5ec1b0036a4346fa01ade2390" name="a1171fdf5ec1b0036a4346fa01ade2390"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1171fdf5ec1b0036a4346fa01ade2390">&#9670;&#160;</a></span>_subst_format_str</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string cpptkinter::Misc::_subst_format_str = hhh::misc::join_strings(<a class="el" href="classcpptkinter_1_1Misc.html#ad687654dfb9f40bfa2c12ab61e3197fa">_subst_format</a>, &quot; &quot;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a82eaa6a70694c943f622602df28bf232" name="a82eaa6a70694c943f622602df28bf232"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82eaa6a70694c943f622602df28bf232">&#9670;&#160;</a></span>_tclCommands</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::set&lt;std::string&gt;&amp; cpptkinter::Misc::_tclCommands</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a209dad39c06f5da9a5843111013fb69a" name="a209dad39c06f5da9a5843111013fb69a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a209dad39c06f5da9a5843111013fb69a">&#9670;&#160;</a></span>_w</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string&amp; cpptkinter::Misc::_w</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a20ef56fc348440f5a3561ad261ac38da" name="a20ef56fc348440f5a3561ad261ac38da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20ef56fc348440f5a3561ad261ac38da">&#9670;&#160;</a></span>children</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;std::string, <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a>&gt;&amp; cpptkinter::Misc::children</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abe382d5d690d971ab7a590b0966740a0" name="abe382d5d690d971ab7a590b0966740a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe382d5d690d971ab7a590b0966740a0">&#9670;&#160;</a></span>master</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt;<a class="el" href="classcpptkinter_1_1Misc.html">Misc</a>&gt;&amp; cpptkinter::Misc::master</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afe1bb4e9789aefd1fd0fd48b557b1de9" name="afe1bb4e9789aefd1fd0fd48b557b1de9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe1bb4e9789aefd1fd0fd48b557b1de9">&#9670;&#160;</a></span>pimpl</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="structcpptkinter_1_1Misc_1_1impl.html">impl</a>&gt; cpptkinter::Misc::pimpl</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a689ee457ea75000ba41e15a0041b335a" name="a689ee457ea75000ba41e15a0041b335a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a689ee457ea75000ba41e15a0041b335a">&#9670;&#160;</a></span>tk</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html">_cpptkinter::TkappObject</a>&gt;&amp; cpptkinter::Misc::tk</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a10de6fcdf4d3ce231cf6ba544741eb46" name="a10de6fcdf4d3ce231cf6ba544741eb46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10de6fcdf4d3ce231cf6ba544741eb46">&#9670;&#160;</a></span>Variable</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend cpptkinter::Misc::Variable</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a84e66d1cd0601f58f4ef61a22000c3a2" name="a84e66d1cd0601f58f4ef61a22000c3a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84e66d1cd0601f58f4ef61a22000c3a2">&#9670;&#160;</a></span>Wm</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend cpptkinter::Misc::Wm</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

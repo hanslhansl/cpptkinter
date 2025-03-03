@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['stringvar_0',['StringVar',['../namespacecpptkinter.html#a03cf501b92e7c70762e62e4ad1596c43',1,'cpptkinter']]]
+  ['doublevar_0',['DoubleVar',['../namespacecpptkinter.html#ad43a0343bd9525c51432f54729c00f0a',1,'cpptkinter']]]
 ];

@@ -7,6 +7,6 @@ var searchData=
   ['is_5fcnf_5fmember_5ftrait_3c_20std_3a_3avariant_3c_20args_2e_2e_2e_20_3e_20_3e_4',['is_cnf_member_trait&lt; std::variant&lt; Args... &gt; &gt;',['../structcpptkinter_1_1cnfs_1_1is__cnf__member__trait_3_01std_1_1variant_3_01Args_8_8_8_01_4_01_4.html',1,'cpptkinter::cnfs']]],
   ['is_5fcnf_5ftrait_5',['is_cnf_trait',['../structcpptkinter_1_1cnfs_1_1is__cnf__trait.html',1,'cpptkinter::cnfs']]],
   ['is_5fcnf_5ftrait_3c_20t_2c_20std_3a_3ainteger_5fsequence_3c_20size_5ft_2c_20i_2e_2e_2e_20_3e_20_3e_6',['is_cnf_trait&lt; T, std::integer_sequence&lt; size_t, I... &gt; &gt;',['../structcpptkinter_1_1cnfs_1_1is__cnf__trait_3_01T_00_01std_1_1integer__sequence_3_01size__t_00_01I_8_8_8_01_4_01_4.html',1,'cpptkinter::cnfs']]],
-  ['is_5fstd_5farray_7',['is_std_array',['../structdetail_1_1is__std__array.html',1,'detail']]],
-  ['is_5fstd_5farray_3c_20std_3a_3aarray_3c_20t_2c_20n_20_3e_20_3e_8',['is_std_array&lt; std::array&lt; T, N &gt; &gt;',['../structdetail_1_1is__std__array_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html',1,'detail']]]
+  ['is_5fstd_5farray_7',['is_std_array',['../structcpptkinter_1_1utility_1_1detail_1_1is__std__array.html',1,'cpptkinter::utility::detail']]],
+  ['is_5fstd_5farray_3c_20std_3a_3aarray_3c_20t_2c_20n_20_3e_20_3e_8',['is_std_array&lt; std::array&lt; T, N &gt; &gt;',['../structcpptkinter_1_1utility_1_1detail_1_1is__std__array_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html',1,'cpptkinter::utility::detail']]]
 ];

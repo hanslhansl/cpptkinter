@@ -1,6 +1,7 @@
 var structcpptkinter_1_1Menu =
 [
     [ "Menu", "structcpptkinter_1_1Menu.html#a26f2bd05f7ec3a35d749e6cb2ce38c5c", null ],
+    [ "Menu", "structcpptkinter_1_1Menu.html#a074f73bbffbd0bbd8f10c50f7b948bdc", null ],
     [ "activate", "structcpptkinter_1_1Menu.html#af8816fcc6b3c24624979f33f8cb0697d", null ],
     [ "add", "structcpptkinter_1_1Menu.html#a687927a1d92ae8a84ea1c9edc057d1ad", null ],
     [ "add_cascade", "structcpptkinter_1_1Menu.html#ab8bf298efc0766c7ea9e50a48e66ce6c", null ],
@@ -23,11 +24,13 @@ var structcpptkinter_1_1Menu =
     [ "insert_radiobutton", "structcpptkinter_1_1Menu.html#afe003be9bb67a6427206a27e313f9d1c", null ],
     [ "insert_separator", "structcpptkinter_1_1Menu.html#aa888cf2c21eee5aa1ad27d3424410e1a", null ],
     [ "invoke", "structcpptkinter_1_1Menu.html#adfb0cac267487619e8e4ddd911c69da9", null ],
+    [ "operator=", "structcpptkinter_1_1Menu.html#a1da74de7165b20d4e82b800066d8e26e", null ],
     [ "post", "structcpptkinter_1_1Menu.html#a97d0ef3c2864aeebfb45337a22bdc3c3", null ],
     [ "tk_popup", "structcpptkinter_1_1Menu.html#a05bf0f690e1b20a33c5b4e9bcbacc28f", null ],
     [ "tk_popup", "structcpptkinter_1_1Menu.html#a06802bd5dfdb4e4fbe1b23f68d6d1cff", null ],
     [ "type", "structcpptkinter_1_1Menu.html#a9ac59266ee9636f04d1419b3101e0c1f", null ],
     [ "unpost", "structcpptkinter_1_1Menu.html#a5722114e13b59aad642beb3b116724ce", null ],
     [ "xposition", "structcpptkinter_1_1Menu.html#a97d2491b24dea8883d7dab857e7de688", null ],
-    [ "yposition", "structcpptkinter_1_1Menu.html#a325a2c138c4f623a8225177042b6f256", null ]
+    [ "yposition", "structcpptkinter_1_1Menu.html#a325a2c138c4f623a8225177042b6f256", null ],
+    [ "OptionMenu", "structcpptkinter_1_1Menu.html#adc4aada23d3efa53697a0c03ffe24557", null ]
 ];

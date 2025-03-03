@@ -1,12 +1,14 @@
 var structcpptkinter_1_1Entry =
 [
     [ "Entry", "structcpptkinter_1_1Entry.html#a212b9e724c061349f7c8d59e95873248", null ],
+    [ "Entry", "structcpptkinter_1_1Entry.html#a59538d4a51edc4c243632a330ac7875e", null ],
     [ "delete_", "structcpptkinter_1_1Entry.html#a8fde50b8bda7cfbbd71c378c88d835bc", null ],
     [ "delete_", "structcpptkinter_1_1Entry.html#aa833cbb7ca2bc6fd268f3c9bd8a03da4", null ],
     [ "get", "structcpptkinter_1_1Entry.html#aa96c325fd23a5c31cdb404383aa62af9", null ],
     [ "icursor", "structcpptkinter_1_1Entry.html#af068e2d6dc1b2aa54e7bd660ef1c783f", null ],
     [ "index", "structcpptkinter_1_1Entry.html#a97e7c5700558b0b2bb1e6440be20101a", null ],
     [ "insert", "structcpptkinter_1_1Entry.html#a22d1f1263b4d523a9cd9de45bdd7af9d", null ],
+    [ "operator=", "structcpptkinter_1_1Entry.html#a11c3b57ff304fb7ace5441d9b83ed3b8", null ],
     [ "scan_dragto", "structcpptkinter_1_1Entry.html#a0ef3a6971b1723c7ed008371d41ff747", null ],
     [ "scan_mark", "structcpptkinter_1_1Entry.html#a06ae9c036eab4746b2d352d194ccf1d8", null ],
     [ "select_adjust", "structcpptkinter_1_1Entry.html#ac617ced415a30d6777113af223a8dedd", null ],

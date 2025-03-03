@@ -120,8 +120,6 @@ Concepts</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1FromObjConcept.html">FromObjConcept</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constraint for the return type of <a class="el" href="namespacecpptkinter_1_1__cpptkinter.html#ad5d1b8349f8efdac6254453977ec45fd" title="Convert a tcl object to a c++ value.">cpptkinter::_cpptkinter::FromObj()</a>. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1GetVarConcept.html">GetVarConcept</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1range__of__Tcl__Obj.html">range_of_Tcl_Obj</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1call__argument__concept.html">call_argument_concept</a></td></tr>
@@ -137,30 +135,24 @@ Concepts</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a457d470d08e7bea8541b73516bb856c6"><td class="memTemplParams" colspan="2"><a id="a457d470d08e7bea8541b73516bb856c6" name="a457d470d08e7bea8541b73516bb856c6"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a457d470d08e7bea8541b73516bb856c6"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>construct_exception</b> (const std::string &amp;str)</td></tr>
-<tr class="separator:a457d470d08e7bea8541b73516bb856c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93f41ee8f3025e6c2a902d6776512b51"><td class="memItemLeft" align="right" valign="top"><a id="a93f41ee8f3025e6c2a902d6776512b51" name="a93f41ee8f3025e6c2a902d6776512b51"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>_get_tcl_lib_path</b> ()</td></tr>
+<tr class="memitem:a1c0b313fee6322032efd582cd458962b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a1c0b313fee6322032efd582cd458962b"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a1c0b313fee6322032efd582cd458962b">construct_exception</a> (const std::string &amp;str, const std::source_location &amp;loc=std::source_location::current())</td></tr>
+<tr class="separator:a1c0b313fee6322032efd582cd458962b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93f41ee8f3025e6c2a902d6776512b51"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a93f41ee8f3025e6c2a902d6776512b51">_get_tcl_lib_path</a> ()</td></tr>
 <tr class="separator:a93f41ee8f3025e6c2a902d6776512b51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a541e8ed134d5571aab7ba521e197665b"><td class="memItemLeft" align="right" valign="top"><a id="a541e8ed134d5571aab7ba521e197665b" name="a541e8ed134d5571aab7ba521e197665b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>log_error</b> (const std::string &amp;message, const std::source_location location=std::source_location::current())</td></tr>
+<tr class="memitem:a541e8ed134d5571aab7ba521e197665b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a541e8ed134d5571aab7ba521e197665b">log_error</a> (const std::string &amp;message, const std::source_location location=std::source_location::current())</td></tr>
 <tr class="separator:a541e8ed134d5571aab7ba521e197665b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a251663365ff8a2df1c994317a6b7fc5d"><td class="memTemplParams" colspan="2"><a id="a251663365ff8a2df1c994317a6b7fc5d" name="a251663365ff8a2df1c994317a6b7fc5d"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a251663365ff8a2df1c994317a6b7fc5d"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Tkapp_Trace_to_string</b> (const T &amp;t)</td></tr>
+<tr class="memitem:a251663365ff8a2df1c994317a6b7fc5d"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a251663365ff8a2df1c994317a6b7fc5d"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a251663365ff8a2df1c994317a6b7fc5d">Tkapp_Trace_to_string</a> (const T &amp;t)</td></tr>
 <tr class="separator:a251663365ff8a2df1c994317a6b7fc5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a187669ce9efbf20415b1fe46d2dd79bf"><td class="memItemLeft" align="right" valign="top"><a id="a187669ce9efbf20415b1fe46d2dd79bf" name="a187669ce9efbf20415b1fe46d2dd79bf"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>Tcl_Obj_to_string_impl</b> (<a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html">TkappObject</a> *tkapp, ::Tcl_Obj *obj)</td></tr>
-<tr class="separator:a187669ce9efbf20415b1fe46d2dd79bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8bea7eceed4b042c8fcee6d87035394"><td class="memItemLeft" align="right" valign="top"><a id="aa8bea7eceed4b042c8fcee6d87035394" name="aa8bea7eceed4b042c8fcee6d87035394"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>Tcl_Obj_to_string</b> (<a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html">TkappObject</a> *tkapp, const <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">Tcl_Obj</a> &amp;value)</td></tr>
-<tr class="separator:aa8bea7eceed4b042c8fcee6d87035394"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20bf4f82ea4f1da37fa4207f340babac"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a20bf4f82ea4f1da37fa4207f340babac">Tcl_obj_type_string</a> (::Tcl_Obj *value)</td></tr>
+<tr class="separator:a20bf4f82ea4f1da37fa4207f340babac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20ce98f1952bba7e23075f196d7505fa"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a20ce98f1952bba7e23075f196d7505fa">Tcl_Obj_to_string</a> (<a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html">TkappObject</a> *tkapp, ::Tcl_Obj *obj)</td></tr>
+<tr class="separator:a20ce98f1952bba7e23075f196d7505fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90ce6f375e01cd4a4fa63bf6c84f4fd0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">Tcl_Obj</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a90ce6f375e01cd4a4fa63bf6c84f4fd0">AsObjImpl</a> (const <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">Tcl_Obj</a> &amp;value)</td></tr>
 <tr class="memdesc:a90ce6f375e01cd4a4fa63bf6c84f4fd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to convert a <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html" title="Represents a Tcl object.">Tcl_Obj</a> to <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html" title="Represents a Tcl object.">Tcl_Obj</a> (i.e. copy it).  <br /></td></tr>
 <tr class="separator:a90ce6f375e01cd4a4fa63bf6c84f4fd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a135041b14e9beaf5cd6fd33ae884e965"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">Tcl_Obj</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a135041b14e9beaf5cd6fd33ae884e965">AsObjImpl</a> (const byte_array &amp;value)</td></tr>
+<tr class="memitem:a135041b14e9beaf5cd6fd33ae884e965"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">Tcl_Obj</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a135041b14e9beaf5cd6fd33ae884e965">AsObjImpl</a> (const <a class="el" href="namespacecpptkinter_1_1__cpptkinter.html#ae951382cb2f92360842b25579a060d17">byte_array</a> &amp;value)</td></tr>
 <tr class="memdesc:a135041b14e9beaf5cd6fd33ae884e965"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to convert a byte_array to <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html" title="Represents a Tcl object.">Tcl_Obj</a>.  <br /></td></tr>
 <tr class="separator:a135041b14e9beaf5cd6fd33ae884e965"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85c35a679353c035fdf9a773a1fc57b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">Tcl_Obj</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a85c35a679353c035fdf9a773a1fc57b2">AsObjImpl</a> (double value)</td></tr>
@@ -201,7 +193,7 @@ requires <a class="el" href="structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObj
 <tr class="memitem:ac942ed9b718ed89e84ef684e6aed2fbb"><td class="memItemLeft" align="right" valign="top">std::optional&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter_1_1detail.html#ac942ed9b718ed89e84ef684e6aed2fbb">FromObjImpl</a> (<a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html">TkappObject</a> *tkapp, const <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">Tcl_Obj</a> &amp;value, std::type_identity&lt; bool &gt;)</td></tr>
 <tr class="memdesc:ac942ed9b718ed89e84ef684e6aed2fbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to convert <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html" title="Represents a Tcl object.">Tcl_Obj</a> to bool.  <br /></td></tr>
 <tr class="separator:ac942ed9b718ed89e84ef684e6aed2fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a99fc93f2e4527802cbe2cc0251cd79"><td class="memItemLeft" align="right" valign="top">std::optional&lt; byte_array &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a0a99fc93f2e4527802cbe2cc0251cd79">FromObjImpl</a> (<a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html">TkappObject</a> *tkapp, const <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">Tcl_Obj</a> &amp;value, std::type_identity&lt; byte_array &gt;)</td></tr>
+<tr class="memitem:a0a99fc93f2e4527802cbe2cc0251cd79"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="namespacecpptkinter_1_1__cpptkinter.html#ae951382cb2f92360842b25579a060d17">byte_array</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a0a99fc93f2e4527802cbe2cc0251cd79">FromObjImpl</a> (<a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html">TkappObject</a> *tkapp, const <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">Tcl_Obj</a> &amp;value, std::type_identity&lt; <a class="el" href="namespacecpptkinter_1_1__cpptkinter.html#ae951382cb2f92360842b25579a060d17">byte_array</a> &gt;)</td></tr>
 <tr class="memdesc:a0a99fc93f2e4527802cbe2cc0251cd79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to convert <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html" title="Represents a Tcl object.">Tcl_Obj</a> to byte_array.  <br /></td></tr>
 <tr class="separator:a0a99fc93f2e4527802cbe2cc0251cd79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5cfc8153ba2eaf3d99cb4177d810ac65"><td class="memItemLeft" align="right" valign="top">std::optional&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a5cfc8153ba2eaf3d99cb4177d810ac65">FromObjImpl</a> (<a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html">TkappObject</a> *tkapp, const <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">Tcl_Obj</a> &amp;value, std::type_identity&lt; double &gt;)</td></tr>
@@ -241,35 +233,46 @@ requires (hhh::meta::tuple_like&lt;T&gt;&amp;&amp; hhh::meta::tuple_elements_sat
 <tr class="memitem:a4a287ae8c0991220df7b0ebf0d6166a9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">Tcl_Obj</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a4a287ae8c0991220df7b0ebf0d6166a9">AsObjImpl</a> (const T &amp;value)</td></tr>
 <tr class="memdesc:a4a287ae8c0991220df7b0ebf0d6166a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to convert a tuple-like or a container to <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html" title="Represents a Tcl object.">Tcl_Obj</a>.  <br /></td></tr>
 <tr class="separator:a4a287ae8c0991220df7b0ebf0d6166a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5a40ffe4af5aa80b4fb2b972922d14e"><td class="memTemplParams" colspan="2"><a id="af5a40ffe4af5aa80b4fb2b972922d14e" name="af5a40ffe4af5aa80b4fb2b972922d14e"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:af5a40ffe4af5aa80b4fb2b972922d14e"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>FromObjImplListQuery</b> (Tcl_Interp *interp, <a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html">TkappObject</a> *tkapp, const <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">Tcl_Obj</a> &amp;value, Tcl_Size i)</td></tr>
+<tr class="memitem:af5a40ffe4af5aa80b4fb2b972922d14e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:af5a40ffe4af5aa80b4fb2b972922d14e"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter_1_1detail.html#af5a40ffe4af5aa80b4fb2b972922d14e">FromObjImplListQuery</a> (Tcl_Interp *interp, <a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html">TkappObject</a> *tkapp, const <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">Tcl_Obj</a> &amp;value, Tcl_Size i)</td></tr>
 <tr class="separator:af5a40ffe4af5aa80b4fb2b972922d14e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a69cddb2d7075905075194928760e68be"><td class="memItemLeft" align="right" valign="top"><a id="a69cddb2d7075905075194928760e68be" name="a69cddb2d7075905075194928760e68be"></a>
-constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><b>_TK_VERSION</b> = TK_VERSION</td></tr>
+<tr class="memitem:a69cddb2d7075905075194928760e68be"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a69cddb2d7075905075194928760e68be">_TK_VERSION</a> = <a class="el" href="namespacecpptkinter_1_1__cpptkinter.html#ab5047381528d43339df204cb5c420f15">TK_VERSION</a></td></tr>
 <tr class="separator:a69cddb2d7075905075194928760e68be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1aec895f5e87207873c45fe0ce97c547"><td class="memItemLeft" align="right" valign="top"><a id="a1aec895f5e87207873c45fe0ce97c547" name="a1aec895f5e87207873c45fe0ce97c547"></a>
-constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><b>_TCL_VERSION</b> = TCL_VERSION</td></tr>
+<tr class="memitem:a1aec895f5e87207873c45fe0ce97c547"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a1aec895f5e87207873c45fe0ce97c547">_TCL_VERSION</a> = <a class="el" href="namespacecpptkinter_1_1__cpptkinter.html#ad96227d1990a3d5753bba93c7cad196b">TCL_VERSION</a></td></tr>
 <tr class="separator:a1aec895f5e87207873c45fe0ce97c547"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfb6f4cca5d09482585adfad6aca2d5d"><td class="memItemLeft" align="right" valign="top"><a id="acfb6f4cca5d09482585adfad6aca2d5d" name="acfb6f4cca5d09482585adfad6aca2d5d"></a>
-std::optional&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_tcl_lib_path</b> {}</td></tr>
+<tr class="memitem:acfb6f4cca5d09482585adfad6aca2d5d"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter_1_1detail.html#acfb6f4cca5d09482585adfad6aca2d5d">_tcl_lib_path</a> {}</td></tr>
 <tr class="separator:acfb6f4cca5d09482585adfad6aca2d5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad80b2aaa00737e684b10e6fdf78ef7e9"><td class="memItemLeft" align="right" valign="top"><a id="ad80b2aaa00737e684b10e6fdf78ef7e9" name="ad80b2aaa00737e684b10e6fdf78ef7e9"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>argc</b></td></tr>
-<tr class="memdesc:ad80b2aaa00737e684b10e6fdf78ef7e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set by <a class="el" href="namespacecpptkinter.html#a60f7cd611c9731ab744ab74fac958dc4" title="Initialize cpptkinter.">cpptkinter::init()</a> <br /></td></tr>
+<tr class="memitem:ad80b2aaa00737e684b10e6fdf78ef7e9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter_1_1detail.html#ad80b2aaa00737e684b10e6fdf78ef7e9">argc</a></td></tr>
+<tr class="memdesc:ad80b2aaa00737e684b10e6fdf78ef7e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set by <a class="el" href="namespacecpptkinter.html#a60f7cd611c9731ab744ab74fac958dc4" title="Initialize cpptkinter.">cpptkinter::init()</a>  <br /></td></tr>
 <tr class="separator:ad80b2aaa00737e684b10e6fdf78ef7e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d543dc1a564409c1f310d098c36d82c"><td class="memItemLeft" align="right" valign="top"><a id="a7d543dc1a564409c1f310d098c36d82c" name="a7d543dc1a564409c1f310d098c36d82c"></a>
-char **&#160;</td><td class="memItemRight" valign="bottom"><b>argv</b></td></tr>
-<tr class="memdesc:a7d543dc1a564409c1f310d098c36d82c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set by <a class="el" href="namespacecpptkinter.html#a60f7cd611c9731ab744ab74fac958dc4" title="Initialize cpptkinter.">cpptkinter::init()</a> <br /></td></tr>
+<tr class="memitem:a7d543dc1a564409c1f310d098c36d82c"><td class="memItemLeft" align="right" valign="top">char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a7d543dc1a564409c1f310d098c36d82c">argv</a></td></tr>
+<tr class="memdesc:a7d543dc1a564409c1f310d098c36d82c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set by <a class="el" href="namespacecpptkinter.html#a60f7cd611c9731ab744ab74fac958dc4" title="Initialize cpptkinter.">cpptkinter::init()</a>  <br /></td></tr>
 <tr class="separator:a7d543dc1a564409c1f310d098c36d82c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation details of <a class="el" href="namespacecpptkinter_1_1__cpptkinter.html" title="Implementation of the Python module _tkinter in C++.">_cpptkinter</a>. </p>
 <p>This namespace contains implementation details of <a class="el" href="namespacecpptkinter_1_1__cpptkinter.html" title="Implementation of the Python module _tkinter in C++.">_cpptkinter</a> as well as the implementation of _tkinter entities prefixed with an underscore (e.g. _tkinter._get_tcl_lib_path()). </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a93f41ee8f3025e6c2a902d6776512b51" name="a93f41ee8f3025e6c2a902d6776512b51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93f41ee8f3025e6c2a902d6776512b51">&#9670;&#160;</a></span>_get_tcl_lib_path()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string cpptkinter::_cpptkinter::detail::_get_tcl_lib_path </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a135041b14e9beaf5cd6fd33ae884e965" name="a135041b14e9beaf5cd6fd33ae884e965"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a135041b14e9beaf5cd6fd33ae884e965">&#9670;&#160;</a></span>AsObjImpl() <span class="overload">[1/10]</span></h2>
 
@@ -279,7 +282,7 @@ char **&#160;</td><td class="memItemRight" valign="bottom"><b>argv</b></td></tr>
         <tr>
           <td class="memname"><a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">Tcl_Obj</a> cpptkinter::_cpptkinter::detail::AsObjImpl </td>
           <td>(</td>
-          <td class="paramtype">const byte_array &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacecpptkinter_1_1__cpptkinter.html#ae951382cb2f92360842b25579a060d17">byte_array</a> &amp;&#160;</td>
           <td class="paramname"><em>value</em></td><td>)</td>
           <td></td>
         </tr>
@@ -506,6 +509,36 @@ requires <a class="el" href="structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObj
 
 </div>
 </div>
+<a id="a1c0b313fee6322032efd582cd458962b" name="a1c0b313fee6322032efd582cd458962b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c0b313fee6322032efd582cd458962b">&#9670;&#160;</a></span>construct_exception()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T cpptkinter::_cpptkinter::detail::construct_exception </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::source_location &amp;&#160;</td>
+          <td class="paramname"><em>loc</em> = <code>std::source_location::current()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a8cab7e08ddfc731d3b512842db0b1680" name="a8cab7e08ddfc731d3b512842db0b1680"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8cab7e08ddfc731d3b512842db0b1680">&#9670;&#160;</a></span>FromObjImpl() <span class="overload">[1/12]</span></h2>
 
@@ -624,7 +657,7 @@ requires <a class="el" href="structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObj
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt; cpptkinter::_cpptkinter::byte_array &gt; cpptkinter::_cpptkinter::detail::FromObjImpl </td>
+          <td class="memname">std::optional&lt; <a class="el" href="namespacecpptkinter_1_1__cpptkinter.html#ae951382cb2f92360842b25579a060d17">cpptkinter::_cpptkinter::byte_array</a> &gt; cpptkinter::_cpptkinter::detail::FromObjImpl </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html">TkappObject</a> *&#160;</td>
           <td class="paramname"><em>tkapp</em>, </td>
@@ -638,7 +671,7 @@ requires <a class="el" href="structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObj
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::type_identity&lt; byte_array &gt;&#160;</td>
+          <td class="paramtype">std::type_identity&lt; <a class="el" href="namespacecpptkinter_1_1__cpptkinter.html#ae951382cb2f92360842b25579a060d17">byte_array</a> &gt;&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -959,6 +992,233 @@ requires (hhh::meta::tuple_like&lt;T&gt;&amp;&amp; hhh::meta::tuple_elements_sat
 
 <p>Try to convert <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html" title="Represents a Tcl object.">Tcl_Obj</a> to tuple-like. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacecpptkinter_1_1__cpptkinter.html#ad5d1b8349f8efdac6254453977ec45fd" title="Convert a tcl object to a c++ value.">cpptkinter::_cpptkinter::FromObj()</a> </dd></dl>
+
+</div>
+</div>
+<a id="af5a40ffe4af5aa80b4fb2b972922d14e" name="af5a40ffe4af5aa80b4fb2b972922d14e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5a40ffe4af5aa80b4fb2b972922d14e">&#9670;&#160;</a></span>FromObjImplListQuery()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T cpptkinter::_cpptkinter::detail::FromObjImplListQuery </td>
+          <td>(</td>
+          <td class="paramtype">Tcl_Interp *&#160;</td>
+          <td class="paramname"><em>interp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html">TkappObject</a> *&#160;</td>
+          <td class="paramname"><em>tkapp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">Tcl_Obj</a> &amp;&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Tcl_Size&#160;</td>
+          <td class="paramname"><em>i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a541e8ed134d5571aab7ba521e197665b" name="a541e8ed134d5571aab7ba521e197665b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a541e8ed134d5571aab7ba521e197665b">&#9670;&#160;</a></span>log_error()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::_cpptkinter::detail::log_error </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::source_location&#160;</td>
+          <td class="paramname"><em>location</em> = <code>std::source_location::current()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a20ce98f1952bba7e23075f196d7505fa" name="a20ce98f1952bba7e23075f196d7505fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20ce98f1952bba7e23075f196d7505fa">&#9670;&#160;</a></span>Tcl_Obj_to_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string cpptkinter::_cpptkinter::detail::Tcl_Obj_to_string </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html">TkappObject</a> *&#160;</td>
+          <td class="paramname"><em>tkapp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">::Tcl_Obj *&#160;</td>
+          <td class="paramname"><em>obj</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a20bf4f82ea4f1da37fa4207f340babac" name="a20bf4f82ea4f1da37fa4207f340babac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20bf4f82ea4f1da37fa4207f340babac">&#9670;&#160;</a></span>Tcl_obj_type_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string cpptkinter::_cpptkinter::detail::Tcl_obj_type_string </td>
+          <td>(</td>
+          <td class="paramtype">::Tcl_Obj *&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a251663365ff8a2df1c994317a6b7fc5d" name="a251663365ff8a2df1c994317a6b7fc5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a251663365ff8a2df1c994317a6b7fc5d">&#9670;&#160;</a></span>Tkapp_Trace_to_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string cpptkinter::_cpptkinter::detail::Tkapp_Trace_to_string </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="acfb6f4cca5d09482585adfad6aca2d5d" name="acfb6f4cca5d09482585adfad6aca2d5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfb6f4cca5d09482585adfad6aca2d5d">&#9670;&#160;</a></span>_tcl_lib_path</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt;std::string&gt; cpptkinter::_cpptkinter::detail::_tcl_lib_path {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1aec895f5e87207873c45fe0ce97c547" name="a1aec895f5e87207873c45fe0ce97c547"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1aec895f5e87207873c45fe0ce97c547">&#9670;&#160;</a></span>_TCL_VERSION</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto cpptkinter::_cpptkinter::detail::_TCL_VERSION = <a class="el" href="namespacecpptkinter_1_1__cpptkinter.html#ad96227d1990a3d5753bba93c7cad196b">TCL_VERSION</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a69cddb2d7075905075194928760e68be" name="a69cddb2d7075905075194928760e68be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69cddb2d7075905075194928760e68be">&#9670;&#160;</a></span>_TK_VERSION</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto cpptkinter::_cpptkinter::detail::_TK_VERSION = <a class="el" href="namespacecpptkinter_1_1__cpptkinter.html#ab5047381528d43339df204cb5c420f15">TK_VERSION</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad80b2aaa00737e684b10e6fdf78ef7e9" name="ad80b2aaa00737e684b10e6fdf78ef7e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad80b2aaa00737e684b10e6fdf78ef7e9">&#9670;&#160;</a></span>argc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cpptkinter::_cpptkinter::detail::argc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set by <a class="el" href="namespacecpptkinter.html#a60f7cd611c9731ab744ab74fac958dc4" title="Initialize cpptkinter.">cpptkinter::init()</a> </p>
+
+</div>
+</div>
+<a id="a7d543dc1a564409c1f310d098c36d82c" name="a7d543dc1a564409c1f310d098c36d82c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d543dc1a564409c1f310d098c36d82c">&#9670;&#160;</a></span>argv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char** cpptkinter::_cpptkinter::detail::argv</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set by <a class="el" href="namespacecpptkinter.html#a60f7cd611c9731ab744ab74fac958dc4" title="Initialize cpptkinter.">cpptkinter::init()</a> </p>
 
 </div>
 </div>

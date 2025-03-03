@@ -102,30 +102,111 @@ $(document).ready(function(){initNavTree('classcpptkinter_1_1utility_1_1weak.htm
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa2672fed720c6d7cbb29663e5b456aac"><td class="memItemLeft" align="right" valign="top"><a id="aa2672fed720c6d7cbb29663e5b456aac" name="aa2672fed720c6d7cbb29663e5b456aac"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>weak</b> (const T &amp;obj)</td></tr>
+<tr class="memitem:a6017f03790ef1b09d0d5a43dee23dd22"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1utility_1_1weak.html#a6017f03790ef1b09d0d5a43dee23dd22">weak</a> ()=default</td></tr>
+<tr class="separator:a6017f03790ef1b09d0d5a43dee23dd22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2672fed720c6d7cbb29663e5b456aac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1utility_1_1weak.html#aa2672fed720c6d7cbb29663e5b456aac">weak</a> (const T &amp;obj)</td></tr>
 <tr class="separator:aa2672fed720c6d7cbb29663e5b456aac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea6be86678967722544db6ec044e6653"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1utility_1_1weak.html#aea6be86678967722544db6ec044e6653">lock</a> () const</td></tr>
 <tr class="memdesc:aea6be86678967722544db6ec044e6653"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a strong reference to the widget.  <br /></td></tr>
 <tr class="separator:aea6be86678967722544db6ec044e6653"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9059c0ccf21227797d18d55e885dedf"><td class="memItemLeft" align="right" valign="top"><a id="aa9059c0ccf21227797d18d55e885dedf" name="aa9059c0ccf21227797d18d55e885dedf"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>expired</b> () const noexcept</td></tr>
+<tr class="memitem:aa9059c0ccf21227797d18d55e885dedf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1utility_1_1weak.html#aa9059c0ccf21227797d18d55e885dedf">expired</a> () const noexcept</td></tr>
 <tr class="separator:aa9059c0ccf21227797d18d55e885dedf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c42a56fc08bcb859c8ba8d7d678a2e9"><td class="memItemLeft" align="right" valign="top"><a id="a3c42a56fc08bcb859c8ba8d7d678a2e9" name="a3c42a56fc08bcb859c8ba8d7d678a2e9"></a>
-long&#160;</td><td class="memItemRight" valign="bottom"><b>use_count</b> () const noexcept</td></tr>
+<tr class="memitem:a3c42a56fc08bcb859c8ba8d7d678a2e9"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1utility_1_1weak.html#a3c42a56fc08bcb859c8ba8d7d678a2e9">use_count</a> () const noexcept</td></tr>
 <tr class="separator:a3c42a56fc08bcb859c8ba8d7d678a2e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:af3d77c7dc1f6ec58ec3a317fdce0246e"><td class="memItemLeft" align="right" valign="top"><a id="af3d77c7dc1f6ec58ec3a317fdce0246e" name="af3d77c7dc1f6ec58ec3a317fdce0246e"></a>
-std::weak_ptr&lt; typename T::impl &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>pimpl</b></td></tr>
+<tr class="memitem:af3d77c7dc1f6ec58ec3a317fdce0246e"><td class="memItemLeft" align="right" valign="top">std::weak_ptr&lt; typename T::impl &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1utility_1_1weak.html#af3d77c7dc1f6ec58ec3a317fdce0246e">pimpl</a></td></tr>
 <tr class="separator:af3d77c7dc1f6ec58ec3a317fdce0246e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T&gt;<br />
 class cpptkinter::utility::weak&lt; T &gt;</div><p>A weak reference to a widget. </p>
 <p>Holds a weak reference to a widget of type T (e.g. <a class="el" href="classcpptkinter_1_1Tk.html" title="Toplevel widget of Tk which represents mostly the main window of an application.">Tk</a>, <a class="el" href="structcpptkinter_1_1Button.html" title="Button widget.">Button</a>, etc.). Basically works like std::weak_ptr. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a6017f03790ef1b09d0d5a43dee23dd22" name="a6017f03790ef1b09d0d5a43dee23dd22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6017f03790ef1b09d0d5a43dee23dd22">&#9670;&#160;</a></span>weak() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcpptkinter_1_1utility_1_1weak.html">cpptkinter::utility::weak</a>&lt; T &gt;::weak </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa2672fed720c6d7cbb29663e5b456aac" name="aa2672fed720c6d7cbb29663e5b456aac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2672fed720c6d7cbb29663e5b456aac">&#9670;&#160;</a></span>weak() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcpptkinter_1_1utility_1_1weak.html">cpptkinter::utility::weak</a>&lt; T &gt;::weak </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa9059c0ccf21227797d18d55e885dedf" name="aa9059c0ccf21227797d18d55e885dedf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9059c0ccf21227797d18d55e885dedf">&#9670;&#160;</a></span>expired()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classcpptkinter_1_1utility_1_1weak.html">cpptkinter::utility::weak</a>&lt; T &gt;::expired </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aea6be86678967722544db6ec044e6653" name="aea6be86678967722544db6ec044e6653"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aea6be86678967722544db6ec044e6653">&#9670;&#160;</a></span>lock()</h2>
 
@@ -153,6 +234,58 @@ template&lt;typename T &gt; </div>
 
 <p>Creates a strong reference to the widget. </p>
 <p>Eequivalent to std::weak_ptr::lock except that this function throws if the widget has already been destroyed. </p>
+
+</div>
+</div>
+<a id="a3c42a56fc08bcb859c8ba8d7d678a2e9" name="a3c42a56fc08bcb859c8ba8d7d678a2e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c42a56fc08bcb859c8ba8d7d678a2e9">&#9670;&#160;</a></span>use_count()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long <a class="el" href="classcpptkinter_1_1utility_1_1weak.html">cpptkinter::utility::weak</a>&lt; T &gt;::use_count </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="af3d77c7dc1f6ec58ec3a317fdce0246e" name="af3d77c7dc1f6ec58ec3a317fdce0246e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3d77c7dc1f6ec58ec3a317fdce0246e">&#9670;&#160;</a></span>pimpl</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::weak_ptr&lt;typename T::impl&gt; <a class="el" href="classcpptkinter_1_1utility_1_1weak.html">cpptkinter::utility::weak</a>&lt; T &gt;::pimpl</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

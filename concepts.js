@@ -5,7 +5,6 @@ var concepts =
         [ "detail", "namespacecpptkinter_1_1__cpptkinter_1_1detail.html", [
           [ "AsObjConcept", "conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjConcept.html", null ],
           [ "FromObjConcept", "conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1FromObjConcept.html", null ],
-          [ "GetVarConcept", "conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1GetVarConcept.html", null ],
           [ "range_of_Tcl_Obj", "conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1range__of__Tcl__Obj.html", null ],
           [ "call_argument_concept", "conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1call__argument__concept.html", null ],
           [ "PythonCmd_ClientDataArgsConcept", "conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1PythonCmd__ClientDataArgsConcept.html", null ],

@@ -1,0 +1,4 @@
+var structcpptkinter_1_1utility_1_1extend__variants_3_01std_1_1variant_3_01VArgs_8_8_8_01_4_00_01Args_8_8_8_01_4 =
+[
+    [ "type", "structcpptkinter_1_1utility_1_1extend__variants_3_01std_1_1variant_3_01VArgs_8_8_8_01_4_00_01Args_8_8_8_01_4.html#ad52aebdd0022f4b0c07dc8cd07166933", null ]
+];

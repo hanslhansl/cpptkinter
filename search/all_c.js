@@ -1,10 +1,23 @@
 var searchData=
 [
-  ['mainloop_0',['mainloop',['../classcpptkinter_1_1Misc.html#a75a29ada49219601bf4f5b69260ea176',1,'cpptkinter::Misc']]],
-  ['manage_1',['manage',['../structcpptkinter_1_1Wm.html#ab811968ff9e06b691cc90d489b847b00',1,'cpptkinter::Wm']]],
-  ['maxsize_2',['maxsize',['../structcpptkinter_1_1Wm.html#a60db4ff93ced3d5a12785b0b2b24dd28',1,'cpptkinter::Wm::maxsize(this auto &amp;&amp;self, long long width, long long height)'],['../structcpptkinter_1_1Wm.html#a412a9b7832a5c8dfa55c4a5e59f0ae52',1,'cpptkinter::Wm::maxsize(this auto &amp;&amp;self)']]],
-  ['menu_3',['Menu',['../structcpptkinter_1_1cnfs_1_1Menu.html',1,'cpptkinter::cnfs::Menu'],['../structcpptkinter_1_1Menu.html',1,'cpptkinter::Menu'],['../structcpptkinter_1_1Menu.html#a26f2bd05f7ec3a35d749e6cb2ce38c5c',1,'cpptkinter::Menu::Menu()']]],
-  ['menubutton_4',['Menubutton',['../structcpptkinter_1_1cnfs_1_1Menubutton.html',1,'cpptkinter::cnfs::Menubutton'],['../structcpptkinter_1_1Menubutton.html',1,'cpptkinter::Menubutton'],['../structcpptkinter_1_1Menubutton.html#a1642df000c0efecb49428b5baf2b86b9',1,'cpptkinter::Menubutton::Menubutton()']]],
-  ['minsize_5',['minsize',['../structcpptkinter_1_1Wm.html#ad710c9b0d2516f28f405157aef6f38cb',1,'cpptkinter::Wm::minsize(this auto &amp;&amp;self, long long width, long long height)'],['../structcpptkinter_1_1Wm.html#af2961fa600a2ad15aa3f1f05fb8f2aa9',1,'cpptkinter::Wm::minsize(this auto &amp;&amp;self)']]],
-  ['misc_6',['Misc',['../classcpptkinter_1_1Misc.html',1,'cpptkinter']]]
+  ['label_0',['Label',['../structcpptkinter_1_1cnfs_1_1Label.html',1,'cpptkinter::cnfs::Label'],['../structcpptkinter_1_1Label.html',1,'cpptkinter::Label']]],
+  ['label_1',['label',['../structcpptkinter_1_1cnfs_1_1add__checkbutton.html#a1d1e47d7f3b23d31d72f8742cdd7162e',1,'cpptkinter::cnfs::add_checkbutton::label()'],['../structcpptkinter_1_1cnfs_1_1add__command.html#a8141dcdc6f36824763475dd0c05a56e1',1,'cpptkinter::cnfs::add_command::label()'],['../structcpptkinter_1_1cnfs_1_1add__radiobutton.html#a27bcb9f71343ba3a3065cb766e6bed45',1,'cpptkinter::cnfs::add_radiobutton::label()'],['../structcpptkinter_1_1cnfs_1_1add__cascade.html#a41ca4410c1fca4dea15619f598343548',1,'cpptkinter::cnfs::add_cascade::label()'],['../structcpptkinter_1_1cnfs_1_1Scale.html#a95efd8023a9c67b5e621ffacbe71d9fa',1,'cpptkinter::cnfs::Scale::label()']]],
+  ['label_2',['Label',['../structcpptkinter_1_1Label.html#a9a731c800ee507cf7b9ef5257688213b',1,'cpptkinter::Label::Label(CNF &amp;&amp;cnf={})'],['../structcpptkinter_1_1Label.html#aca974107f76f42e2381dc3ca63e6ff07',1,'cpptkinter::Label::Label()']]],
+  ['labelanchor_3',['labelanchor',['../structcpptkinter_1_1cnfs_1_1LabelFrame.html#a8ec8f7734558d2afb134bf95c57776e5',1,'cpptkinter::cnfs::LabelFrame']]],
+  ['labelframe_4',['LabelFrame',['../structcpptkinter_1_1cnfs_1_1LabelFrame.html',1,'cpptkinter::cnfs::LabelFrame'],['../structcpptkinter_1_1LabelFrame.html',1,'cpptkinter::LabelFrame'],['../structcpptkinter_1_1LabelFrame.html#ae729da4863b545cb8862b469a86d42f2',1,'cpptkinter::LabelFrame::LabelFrame()'],['../structcpptkinter_1_1LabelFrame.html#a3b32c5a3cbc4952ada99c1794647d4e6',1,'cpptkinter::LabelFrame::LabelFrame(CNF &amp;&amp;cnf={})']]],
+  ['labelwidget_5',['labelwidget',['../structcpptkinter_1_1cnfs_1_1LabelFrame.html#a24aaecc886381c5badf4a56c87e7184d',1,'cpptkinter::cnfs::LabelFrame']]],
+  ['last_6',['LAST',['../namespacecpptkinter_1_1constants.html#a8c4de2a16efd97630d418f7763b9e9e6',1,'cpptkinter::constants']]],
+  ['leave_5foverlap_5ftcl_7',['LEAVE_OVERLAP_TCL',['../__cpptkinter_8ixx.html#a6aa17d5bb404eb5421f6582b8e026156',1,'_cpptkinter.ixx']]],
+  ['leave_5fpython_8',['LEAVE_PYTHON',['../__cpptkinter_8ixx.html#aa2b08a860e96dc7f6d1cba578dfbf2fe',1,'_cpptkinter.ixx']]],
+  ['leave_5ftcl_9',['LEAVE_TCL',['../__cpptkinter_8ixx.html#a689d409af4ec1cf2f7c35460dc53dba6',1,'_cpptkinter.ixx']]],
+  ['left_10',['LEFT',['../namespacecpptkinter_1_1constants.html#a81b0185011ce1a108a9d6e0f637838a7',1,'cpptkinter::constants']]],
+  ['length_11',['length',['../structcpptkinter_1_1cnfs_1_1Scale.html#ac7104389de0d54c163a279d47c1232f9',1,'cpptkinter::cnfs::Scale']]],
+  ['listbox_12',['Listbox',['../structcpptkinter_1_1cnfs_1_1Listbox.html',1,'cpptkinter::cnfs::Listbox'],['../structcpptkinter_1_1Listbox.html',1,'cpptkinter::Listbox'],['../structcpptkinter_1_1Listbox.html#a94a35b352f5c42628a2cbd0cfe1e4a67',1,'cpptkinter::Listbox::Listbox(CNF &amp;&amp;cnf={})'],['../structcpptkinter_1_1Listbox.html#af0fd8d2292393ea690656993e1b9c914',1,'cpptkinter::Listbox::Listbox()']]],
+  ['listbox_5fitemconfigure_13',['Listbox_itemconfigure',['../structcpptkinter_1_1cnfs_1_1Listbox__itemconfigure.html',1,'cpptkinter::cnfs']]],
+  ['listtype_14',['ListType',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#adb67bbb235bacfbc9e4b30a94c633f73',1,'cpptkinter::_cpptkinter::TkappObject']]],
+  ['listvariable_15',['listvariable',['../structcpptkinter_1_1cnfs_1_1Listbox.html#a30ba11d6adee41321314dd6c8c9734c3',1,'cpptkinter::cnfs::Listbox']]],
+  ['loadtk_16',['loadtk',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#ac1e50c5e2d832f536595244ae8ca2fc6',1,'cpptkinter::_cpptkinter::TkappObject::loadtk()'],['../classcpptkinter_1_1Tk.html#a99cf78c6bd0ae0b43724a9ec4c195d0c',1,'cpptkinter::Tk::loadtk()']]],
+  ['location_17',['location',['../classcpptkinter_1_1Misc.html#a0babea795be1964968235d9514d49ebf',1,'cpptkinter::Misc']]],
+  ['lock_18',['lock',['../classcpptkinter_1_1utility_1_1optional__inverse__mutex__adaptor.html#a78597a7d01c33df03c193f507c6ac4ef',1,'cpptkinter::utility::optional_inverse_mutex_adaptor::lock()'],['../classcpptkinter_1_1utility_1_1optional__mutex__adaptor.html#ac9e84f4b9d46c66efd1f2c60888a5ec7',1,'cpptkinter::utility::optional_mutex_adaptor::lock()'],['../classcpptkinter_1_1utility_1_1weak.html#aea6be86678967722544db6ec044e6653',1,'cpptkinter::utility::weak::lock()']]],
+  ['log_5ferror_19',['log_error',['../namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a541e8ed134d5571aab7ba521e197665b',1,'cpptkinter::_cpptkinter::detail']]]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['side_0',['side',['../structcpptkinter_1_1cnfs_1_1pack__configure.html#a15f27b3d7dcb70cbbd4dcaacf660bd92',1,'cpptkinter::cnfs::pack_configure']]],
-  ['sticky_1',['sticky',['../structcpptkinter_1_1cnfs_1_1grid__configure.html#a827219a796d8ee9bd15c33578e0ab4ad',1,'cpptkinter::cnfs::grid_configure']]]
+  ['justify_0',['justify',['../structcpptkinter_1_1cnfs_1_1Button.html#a3953d6f4c6c2f1c23c4897fc95dc4ca6',1,'cpptkinter::cnfs::Button::justify()'],['../structcpptkinter_1_1cnfs_1_1Checkbutton.html#aa6bbe7000523932fff8c88562f72311f',1,'cpptkinter::cnfs::Checkbutton::justify()'],['../structcpptkinter_1_1cnfs_1_1Entry.html#ab7611c6f2844c3f47cbeb90d892ce976',1,'cpptkinter::cnfs::Entry::justify()'],['../structcpptkinter_1_1cnfs_1_1Label.html#af56404d5b4268948a18cd976c8e91938',1,'cpptkinter::cnfs::Label::justify()'],['../structcpptkinter_1_1cnfs_1_1Listbox.html#aaba7411fc9f15189eaeba9e696083a50',1,'cpptkinter::cnfs::Listbox::justify()'],['../structcpptkinter_1_1cnfs_1_1Menubutton.html#a18a110b8d5384c60f683e52d13c6b6a4',1,'cpptkinter::cnfs::Menubutton::justify()'],['../structcpptkinter_1_1cnfs_1_1Radiobutton.html#ab1f52f63b2713ec452479c7c0c3c1888',1,'cpptkinter::cnfs::Radiobutton::justify()'],['../structcpptkinter_1_1cnfs_1_1Spinbox.html#aec3b3a43d7d8aedea9e9098a26ff19a6',1,'cpptkinter::cnfs::Spinbox::justify()']]]
 ];

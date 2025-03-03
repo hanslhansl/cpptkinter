@@ -101,16 +101,16 @@ $(document).ready(function(){initNavTree('utility_8ixx.html',''); initResizable(
 
 <p>Contains utility functions and classes which are not present in tkinter or _tkinter.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;global.hpp&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="global_8hpp_source.html">global.hpp</a>&quot;</code><br />
 <code>#include &lt;reflect/reflect.hpp&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdetail_1_1is__std__array.html">detail::is_std_array&lt; T &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1utility_1_1detail_1_1is__std__array.html">cpptkinter::utility::detail::is_std_array&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdetail_1_1is__std__array_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html">detail::is_std_array&lt; std::array&lt; T, N &gt; &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1utility_1_1detail_1_1is__std__array_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html">cpptkinter::utility::detail::is_std_array&lt; std::array&lt; T, N &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdetail_1_1range__or__tuple__to__string__visitor.html">detail::range_or_tuple_to_string_visitor</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1utility_1_1detail_1_1range__or__tuple__to__string__visitor.html">cpptkinter::utility::detail::range_or_tuple_to_string_visitor</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1utility_1_1weak.html">cpptkinter::utility::weak&lt; T &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A weak reference to a widget.  <a href="classcpptkinter_1_1utility_1_1weak.html#details">More...</a><br /></td></tr>
@@ -135,6 +135,8 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacecpptkinter_1_1utility"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1utility.html">cpptkinter::utility</a></td></tr>
 <tr class="memdesc:namespacecpptkinter_1_1utility"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities that aren't related to Python's tkinter or _tkinter. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacecpptkinter_1_1utility_1_1detail"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1utility_1_1detail.html">cpptkinter::utility::detail</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="concepts" name="concepts"></a>
 Concepts</h2></td></tr>
@@ -151,15 +153,13 @@ Concepts</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a2f72ae3ca7ee1e47deb9e7c235247794"><td class="memTemplParams" colspan="2"><a id="a2f72ae3ca7ee1e47deb9e7c235247794" name="a2f72ae3ca7ee1e47deb9e7c235247794"></a>
-template&lt;typename Aggr , template&lt; typename... &gt; typename Trait, typename... Args, std::size_t... I&gt; <br />
+<tr class="memitem:a135afae8d758afed0e7b812dbc5f235f"><td class="memTemplParams" colspan="2">template&lt;typename Aggr , template&lt; typename... &gt; typename Trait, typename... Args, std::size_t... I&gt; <br />
 requires std::is_aggregate_v&lt;Aggr&gt;</td></tr>
-<tr class="memitem:a2f72ae3ca7ee1e47deb9e7c235247794"><td class="memTemplItemLeft" align="right" valign="top">consteval bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>detail::check_trait_for_all_aggregate_members</b> (std::index_sequence&lt; I... &gt;)</td></tr>
-<tr class="separator:a2f72ae3ca7ee1e47deb9e7c235247794"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ff5ee6b6be869e4bbbbf39e930a7796"><td class="memTemplParams" colspan="2"><a id="a0ff5ee6b6be869e4bbbbf39e930a7796" name="a0ff5ee6b6be869e4bbbbf39e930a7796"></a>
-template&lt;typename Visitor , typename Variant , size_t... I&gt; </td></tr>
-<tr class="memitem:a0ff5ee6b6be869e4bbbbf39e930a7796"><td class="memTemplItemLeft" align="right" valign="top">consteval bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>detail::invokeable_with_variant_types</b> (std::index_sequence&lt; I... &gt;)</td></tr>
-<tr class="separator:a0ff5ee6b6be869e4bbbbf39e930a7796"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a135afae8d758afed0e7b812dbc5f235f"><td class="memTemplItemLeft" align="right" valign="top">consteval bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1utility_1_1detail.html#a135afae8d758afed0e7b812dbc5f235f">cpptkinter::utility::detail::check_trait_for_all_aggregate_members</a> (std::index_sequence&lt; I... &gt;)</td></tr>
+<tr class="separator:a135afae8d758afed0e7b812dbc5f235f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1803b10fa31fb0798ede1f750a8db603"><td class="memTemplParams" colspan="2">template&lt;typename Visitor , typename Variant , size_t... I&gt; </td></tr>
+<tr class="memitem:a1803b10fa31fb0798ede1f750a8db603"><td class="memTemplItemLeft" align="right" valign="top">consteval bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1utility_1_1detail.html#a1803b10fa31fb0798ede1f750a8db603">cpptkinter::utility::detail::invokeable_with_variant_types</a> (std::index_sequence&lt; I... &gt;)</td></tr>
+<tr class="separator:a1803b10fa31fb0798ede1f750a8db603"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa170a44ac4809210df20e1457ed16b71"><td class="memTemplParams" colspan="2">template&lt;typename Callable , typename Variant &gt; <br />
 requires (hhh::meta::is_template_instance&lt;std::remove_cvref_t&lt;Variant&gt;, std::variant&gt; &amp;&amp; detail::invokeable_with_variant_types&lt;Callable, Variant&gt;(std::make_index_sequence&lt;std::variant_size_v&lt;std::remove_cvref_t&lt;Variant&gt;&gt;&gt;{}))</td></tr>
 <tr class="memitem:aa170a44ac4809210df20e1457ed16b71"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1utility.html#aa170a44ac4809210df20e1457ed16b71">cpptkinter::utility::visit_or_invoke</a> (Callable &amp;&amp;callable, Variant &amp;&amp;variant)</td></tr>
@@ -185,39 +185,89 @@ requires std::ranges::range&lt;T&gt; || hhh::meta::tuple_like&lt;T&gt;</td></tr>
 <tr class="memitem:ab8ee6adf9f6b25ba4ab3641c97d05004"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1utility.html#ab8ee6adf9f6b25ba4ab3641c97d05004">cpptkinter::utility::visit_range_or_tuple</a> (Visitor &amp;&amp;vis, T &amp;&amp;val)</td></tr>
 <tr class="memdesc:ab8ee6adf9f6b25ba4ab3641c97d05004"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <em>vis</em> on every element of <em>val</em>.  <br /></td></tr>
 <tr class="separator:ab8ee6adf9f6b25ba4ab3641c97d05004"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad867f2a9fe97d50c3469bb4065e18d7"><td class="memTemplParams" colspan="2"><a id="aad867f2a9fe97d50c3469bb4065e18d7" name="aad867f2a9fe97d50c3469bb4065e18d7"></a>
-template&lt;typename T &gt; <br />
+<tr class="memitem:aad867f2a9fe97d50c3469bb4065e18d7"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; <br />
 requires std::ranges::range&lt;T&gt; || hhh::meta::tuple_like&lt;T&gt;</td></tr>
-<tr class="memitem:aad867f2a9fe97d50c3469bb4065e18d7"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><b>cpptkinter::utility::range_or_tuple_to_string</b> (const T &amp;val)</td></tr>
+<tr class="memitem:aad867f2a9fe97d50c3469bb4065e18d7"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1utility.html#aad867f2a9fe97d50c3469bb4065e18d7">cpptkinter::utility::range_or_tuple_to_string</a> (const T &amp;val)</td></tr>
 <tr class="separator:aad867f2a9fe97d50c3469bb4065e18d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b2911bee46129bd959f3d7bc0d35402"><td class="memTemplParams" colspan="2"><a id="a7b2911bee46129bd959f3d7bc0d35402" name="a7b2911bee46129bd959f3d7bc0d35402"></a>
-template&lt;typename T &gt; <br />
+<tr class="memitem:a7b2911bee46129bd959f3d7bc0d35402"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; <br />
 requires std::is_aggregate_v&lt;T&gt;</td></tr>
-<tr class="memitem:a7b2911bee46129bd959f3d7bc0d35402"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><b>cpptkinter::utility::aggregate_to_string</b> (const T &amp;val)</td></tr>
+<tr class="memitem:a7b2911bee46129bd959f3d7bc0d35402"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1utility.html#a7b2911bee46129bd959f3d7bc0d35402">cpptkinter::utility::aggregate_to_string</a> (const T &amp;val)</td></tr>
 <tr class="separator:a7b2911bee46129bd959f3d7bc0d35402"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17e35294490f8bb33e8a623c97dfe025"><td class="memTemplParams" colspan="2"><a id="a17e35294490f8bb33e8a623c97dfe025" name="a17e35294490f8bb33e8a623c97dfe025"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a17e35294490f8bb33e8a623c97dfe025"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>cpptkinter::utility::ref_wrapper</b> (T &amp;&amp;) -&gt; ref_wrapper&lt; std::conditional_t&lt; std::same_as&lt; T, std::remove_cvref_t&lt; T &gt; &amp; &gt;, std::remove_cvref_t&lt; T &gt;, const std::remove_cvref_t&lt; T &gt; &gt; &gt;</td></tr>
+<tr class="memitem:a17e35294490f8bb33e8a623c97dfe025"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a17e35294490f8bb33e8a623c97dfe025"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1utility.html#a17e35294490f8bb33e8a623c97dfe025">cpptkinter::utility::ref_wrapper</a> (T &amp;&amp;) -&gt; ref_wrapper&lt; std::conditional_t&lt; std::same_as&lt; T, std::remove_cvref_t&lt; T &gt; &amp; &gt;, std::remove_cvref_t&lt; T &gt;, const std::remove_cvref_t&lt; T &gt; &gt; &gt;</td></tr>
 <tr class="separator:a17e35294490f8bb33e8a623c97dfe025"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a96e5f0eca87c2426370e0897ac7b8ca6"><td class="memItemLeft" align="right" valign="top"><a id="a96e5f0eca87c2426370e0897ac7b8ca6" name="a96e5f0eca87c2426370e0897ac7b8ca6"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>module</b></td></tr>
+<tr class="memitem:a96e5f0eca87c2426370e0897ac7b8ca6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8ixx.html#a96e5f0eca87c2426370e0897ac7b8ca6">module</a></td></tr>
 <tr class="separator:a96e5f0eca87c2426370e0897ac7b8ca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6a666df714a8ea283ff40996c1f4669"><td class="memItemLeft" align="right" valign="top"><a id="ac6a666df714a8ea283ff40996c1f4669" name="ac6a666df714a8ea283ff40996c1f4669"></a>
-export module&#160;</td><td class="memItemRight" valign="bottom"><b>cpptkinter</b></td></tr>
+<tr class="memitem:ac6a666df714a8ea283ff40996c1f4669"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8ixx.html#af44e2d3afd4e0e4d03f637dbb2bce3cd">export</a> <a class="el" href="__cpptkinter_8ixx.html#a96e5f0eca87c2426370e0897ac7b8ca6">module</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8ixx.html#ac6a666df714a8ea283ff40996c1f4669">cpptkinter</a></td></tr>
 <tr class="separator:ac6a666df714a8ea283ff40996c1f4669"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f42581b64a695b89aba6966398fc784"><td class="memItemLeft" align="right" valign="top"><a id="a2f42581b64a695b89aba6966398fc784" name="a2f42581b64a695b89aba6966398fc784"></a>
-import&#160;</td><td class="memItemRight" valign="bottom"><b>std</b></td></tr>
+<tr class="memitem:a2f42581b64a695b89aba6966398fc784"><td class="memItemLeft" align="right" valign="top"><a class="el" href="cpptkinter_8ixx.html#aff55674fa41a3a4ef62434c039b6c32d">import</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8ixx.html#a2f42581b64a695b89aba6966398fc784">std</a></td></tr>
 <tr class="separator:a2f42581b64a695b89aba6966398fc784"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00f312ffd4f12513c22c7e98aa3c94c0"><td class="memItemLeft" align="right" valign="top"><a id="a00f312ffd4f12513c22c7e98aa3c94c0" name="a00f312ffd4f12513c22c7e98aa3c94c0"></a>
-import&#160;</td><td class="memItemRight" valign="bottom"><b>hhh</b></td></tr>
+<tr class="memitem:a00f312ffd4f12513c22c7e98aa3c94c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="cpptkinter_8ixx.html#aff55674fa41a3a4ef62434c039b6c32d">import</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8ixx.html#a00f312ffd4f12513c22c7e98aa3c94c0">hhh</a></td></tr>
 <tr class="separator:a00f312ffd4f12513c22c7e98aa3c94c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains utility functions and classes which are not present in tkinter or _tkinter. </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Variable Documentation</h2>
+<a id="ac6a666df714a8ea283ff40996c1f4669" name="ac6a666df714a8ea283ff40996c1f4669"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6a666df714a8ea283ff40996c1f4669">&#9670;&#160;</a></span>cpptkinter</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="tk_8ixx.html#af44e2d3afd4e0e4d03f637dbb2bce3cd">export</a> <a class="el" href="__cpptkinter_8ixx.html#a96e5f0eca87c2426370e0897ac7b8ca6">module</a> cpptkinter</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a00f312ffd4f12513c22c7e98aa3c94c0" name="a00f312ffd4f12513c22c7e98aa3c94c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00f312ffd4f12513c22c7e98aa3c94c0">&#9670;&#160;</a></span>hhh</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="cpptkinter_8ixx.html#aff55674fa41a3a4ef62434c039b6c32d">import</a> hhh</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a96e5f0eca87c2426370e0897ac7b8ca6" name="a96e5f0eca87c2426370e0897ac7b8ca6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96e5f0eca87c2426370e0897ac7b8ca6">&#9670;&#160;</a></span>module</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">module</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2f42581b64a695b89aba6966398fc784" name="a2f42581b64a695b89aba6966398fc784"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f42581b64a695b89aba6966398fc784">&#9670;&#160;</a></span>std</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="cpptkinter_8ixx.html#aff55674fa41a3a4ef62434c039b6c32d">import</a> std</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

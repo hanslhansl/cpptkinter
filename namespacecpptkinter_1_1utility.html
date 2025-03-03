@@ -90,6 +90,7 @@ $(document).ready(function(){initNavTree('namespacecpptkinter_1_1utility.html','
 
 <div class="header">
   <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#concepts">Concepts</a> &#124;
 <a href="#func-members">Functions</a>  </div>
@@ -100,6 +101,11 @@ $(document).ready(function(){initNavTree('namespacecpptkinter_1_1utility.html','
 <p>Utilities that aren't related to Python's tkinter or _tkinter.  
 <a href="namespacecpptkinter_1_1utility.html#details">More...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacecpptkinter_1_1utility_1_1detail"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1utility_1_1detail.html">detail</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1utility_1_1extend__variants.html">extend_variants</a></td></tr>
@@ -135,7 +141,7 @@ Concepts</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aa170a44ac4809210df20e1457ed16b71"><td class="memTemplParams" colspan="2">template&lt;typename Callable , typename Variant &gt; <br />
-requires (hhh::meta::is_template_instance&lt;std::remove_cvref_t&lt;Variant&gt;, std::variant&gt; &amp;&amp; detail::invokeable_with_variant_types&lt;Callable, Variant&gt;(std::make_index_sequence&lt;std::variant_size_v&lt;std::remove_cvref_t&lt;Variant&gt;&gt;&gt;{}))</td></tr>
+requires (hhh::meta::is_template_instance&lt;std::remove_cvref_t&lt;Variant&gt;, std::variant&gt; &amp;&amp; <a class="el" href="namespacecpptkinter_1_1utility_1_1detail.html#a1803b10fa31fb0798ede1f750a8db603">detail::invokeable_with_variant_types</a>&lt;Callable, Variant&gt;(std::make_index_sequence&lt;std::variant_size_v&lt;std::remove_cvref_t&lt;Variant&gt;&gt;&gt;{}))</td></tr>
 <tr class="memitem:aa170a44ac4809210df20e1457ed16b71"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1utility.html#aa170a44ac4809210df20e1457ed16b71">visit_or_invoke</a> (Callable &amp;&amp;callable, Variant &amp;&amp;variant)</td></tr>
 <tr class="memdesc:aa170a44ac4809210df20e1457ed16b71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invokes a callable with a variant's currently held alternative (equal to std::visit).  <br /></td></tr>
 <tr class="separator:aa170a44ac4809210df20e1457ed16b71"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -159,24 +165,42 @@ requires std::ranges::range&lt;T&gt; || hhh::meta::tuple_like&lt;T&gt;</td></tr>
 <tr class="memitem:ab8ee6adf9f6b25ba4ab3641c97d05004"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1utility.html#ab8ee6adf9f6b25ba4ab3641c97d05004">visit_range_or_tuple</a> (Visitor &amp;&amp;vis, T &amp;&amp;val)</td></tr>
 <tr class="memdesc:ab8ee6adf9f6b25ba4ab3641c97d05004"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <em>vis</em> on every element of <em>val</em>.  <br /></td></tr>
 <tr class="separator:ab8ee6adf9f6b25ba4ab3641c97d05004"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad867f2a9fe97d50c3469bb4065e18d7"><td class="memTemplParams" colspan="2"><a id="aad867f2a9fe97d50c3469bb4065e18d7" name="aad867f2a9fe97d50c3469bb4065e18d7"></a>
-template&lt;typename T &gt; <br />
+<tr class="memitem:aad867f2a9fe97d50c3469bb4065e18d7"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; <br />
 requires std::ranges::range&lt;T&gt; || hhh::meta::tuple_like&lt;T&gt;</td></tr>
-<tr class="memitem:aad867f2a9fe97d50c3469bb4065e18d7"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><b>range_or_tuple_to_string</b> (const T &amp;val)</td></tr>
+<tr class="memitem:aad867f2a9fe97d50c3469bb4065e18d7"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1utility.html#aad867f2a9fe97d50c3469bb4065e18d7">range_or_tuple_to_string</a> (const T &amp;val)</td></tr>
 <tr class="separator:aad867f2a9fe97d50c3469bb4065e18d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b2911bee46129bd959f3d7bc0d35402"><td class="memTemplParams" colspan="2"><a id="a7b2911bee46129bd959f3d7bc0d35402" name="a7b2911bee46129bd959f3d7bc0d35402"></a>
-template&lt;typename T &gt; <br />
+<tr class="memitem:a7b2911bee46129bd959f3d7bc0d35402"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; <br />
 requires std::is_aggregate_v&lt;T&gt;</td></tr>
-<tr class="memitem:a7b2911bee46129bd959f3d7bc0d35402"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><b>aggregate_to_string</b> (const T &amp;val)</td></tr>
+<tr class="memitem:a7b2911bee46129bd959f3d7bc0d35402"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1utility.html#a7b2911bee46129bd959f3d7bc0d35402">aggregate_to_string</a> (const T &amp;val)</td></tr>
 <tr class="separator:a7b2911bee46129bd959f3d7bc0d35402"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17e35294490f8bb33e8a623c97dfe025"><td class="memTemplParams" colspan="2"><a id="a17e35294490f8bb33e8a623c97dfe025" name="a17e35294490f8bb33e8a623c97dfe025"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a17e35294490f8bb33e8a623c97dfe025"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ref_wrapper</b> (T &amp;&amp;) -&gt; <a class="el" href="classcpptkinter_1_1utility_1_1ref__wrapper.html">ref_wrapper</a>&lt; std::conditional_t&lt; std::same_as&lt; T, std::remove_cvref_t&lt; T &gt; &amp; &gt;, std::remove_cvref_t&lt; T &gt;, const std::remove_cvref_t&lt; T &gt; &gt; &gt;</td></tr>
+<tr class="memitem:a17e35294490f8bb33e8a623c97dfe025"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a17e35294490f8bb33e8a623c97dfe025"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1utility.html#a17e35294490f8bb33e8a623c97dfe025">ref_wrapper</a> (T &amp;&amp;) -&gt; <a class="el" href="classcpptkinter_1_1utility_1_1ref__wrapper.html">ref_wrapper</a>&lt; std::conditional_t&lt; std::same_as&lt; T, std::remove_cvref_t&lt; T &gt; &amp; &gt;, std::remove_cvref_t&lt; T &gt;, const std::remove_cvref_t&lt; T &gt; &gt; &gt;</td></tr>
 <tr class="separator:a17e35294490f8bb33e8a623c97dfe025"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Utilities that aren't related to Python's tkinter or _tkinter. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a7b2911bee46129bd959f3d7bc0d35402" name="a7b2911bee46129bd959f3d7bc0d35402"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b2911bee46129bd959f3d7bc0d35402">&#9670;&#160;</a></span>aggregate_to_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; <br />
+requires std::is_aggregate_v&lt;T&gt;</div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string cpptkinter::utility::aggregate_to_string </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>val</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aa39d16517e944408c448c375f1ce91f2" name="aa39d16517e944408c448c375f1ce91f2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa39d16517e944408c448c375f1ce91f2">&#9670;&#160;</a></span>invoke_or_and_then() <span class="overload">[1/2]</span></h2>
 
@@ -271,6 +295,47 @@ requires (!hhh::meta::is_template_instance&lt;std::remove_cvref_t&lt;T&gt;, std:
 
 </div>
 </div>
+<a id="aad867f2a9fe97d50c3469bb4065e18d7" name="aad867f2a9fe97d50c3469bb4065e18d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad867f2a9fe97d50c3469bb4065e18d7">&#9670;&#160;</a></span>range_or_tuple_to_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; <br />
+requires std::ranges::range&lt;T&gt; || hhh::meta::tuple_like&lt;T&gt;</div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string cpptkinter::utility::range_or_tuple_to_string </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>val</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a17e35294490f8bb33e8a623c97dfe025" name="a17e35294490f8bb33e8a623c97dfe025"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17e35294490f8bb33e8a623c97dfe025">&#9670;&#160;</a></span>ref_wrapper()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcpptkinter_1_1utility_1_1ref__wrapper.html">cpptkinter::utility::ref_wrapper</a> </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> -&gt;  <a class="el" href="classcpptkinter_1_1utility_1_1ref__wrapper.html">ref_wrapper</a>&lt; std::conditional_t&lt; std::same_as&lt; T, std::remove_cvref_t&lt; T &gt; &amp; &gt;, std::remove_cvref_t&lt; T &gt;, const std::remove_cvref_t&lt; T &gt; &gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="acf98789d5bc0177bd3be2df1c0cbf8af" name="acf98789d5bc0177bd3be2df1c0cbf8af"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acf98789d5bc0177bd3be2df1c0cbf8af">&#9670;&#160;</a></span>visit_or_invoke() <span class="overload">[1/2]</span></h2>
 
@@ -318,7 +383,7 @@ requires (!hhh::meta::is_template_instance&lt;std::remove_cvref_t&lt;T&gt;, std:
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename Callable , typename Variant &gt; <br />
-requires (hhh::meta::is_template_instance&lt;std::remove_cvref_t&lt;Variant&gt;, std::variant&gt; &amp;&amp; detail::invokeable_with_variant_types&lt;Callable, Variant&gt;(std::make_index_sequence&lt;std::variant_size_v&lt;std::remove_cvref_t&lt;Variant&gt;&gt;&gt;{}))</div>
+requires (hhh::meta::is_template_instance&lt;std::remove_cvref_t&lt;Variant&gt;, std::variant&gt; &amp;&amp; <a class="el" href="namespacecpptkinter_1_1utility_1_1detail.html#a1803b10fa31fb0798ede1f750a8db603">detail::invokeable_with_variant_types</a>&lt;Callable, Variant&gt;(std::make_index_sequence&lt;std::variant_size_v&lt;std::remove_cvref_t&lt;Variant&gt;&gt;&gt;{}))</div>
       <table class="memname">
         <tr>
           <td class="memname">decltype(auto) cpptkinter::utility::visit_or_invoke </td>

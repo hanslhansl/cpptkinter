@@ -1,6 +1,7 @@
 var structcpptkinter_1_1Spinbox =
 [
     [ "Spinbox", "structcpptkinter_1_1Spinbox.html#a6de61273450d5d0ce8ec8efdc1b98e2c", null ],
+    [ "Spinbox", "structcpptkinter_1_1Spinbox.html#a221f4be7f588a8766c10a907ff81c92e", null ],
     [ "bbox", "structcpptkinter_1_1Spinbox.html#accec910930a133182e272fa85658c76a", null ],
     [ "delete_", "structcpptkinter_1_1Spinbox.html#a315fe4e354f2bf3f8c6755d0f2750085", null ],
     [ "delete_", "structcpptkinter_1_1Spinbox.html#a3564792734f440ba09ef3fa9414609e0", null ],
@@ -10,6 +11,7 @@ var structcpptkinter_1_1Spinbox =
     [ "index", "structcpptkinter_1_1Spinbox.html#ae494f641bea0ba6d5fe5169c81fd8a71", null ],
     [ "insert", "structcpptkinter_1_1Spinbox.html#a12b53a3603cd912fd47b18cd714399b5", null ],
     [ "invoke", "structcpptkinter_1_1Spinbox.html#afb4344c2b830e0c2327455e0afee5aaa", null ],
+    [ "operator=", "structcpptkinter_1_1Spinbox.html#a880aa5d64d09eaa5e8ec351caaa34989", null ],
     [ "scan_dragto", "structcpptkinter_1_1Spinbox.html#ad8f1aa3ebcb6e5ed66ccfb3be09c1587", null ],
     [ "scan_mark", "structcpptkinter_1_1Spinbox.html#afafa2ad1f0d2d0c7e4405adbc12dcdf4", null ],
     [ "selection_adjust", "structcpptkinter_1_1Spinbox.html#a323c8f1c13df5b47c7935ab4c1886001", null ],

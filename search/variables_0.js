@@ -1,4 +1,26 @@
 var searchData=
 [
-  ['_5fdebug_0',['_debug',['../namespacecpptkinter_1_1detail.html#a3c8a0d1f7e4913b7ea8d26da2c2c349a',1,'cpptkinter::detail']]]
+  ['_5f_5fpad0_5f_5f_0',['__pad0__',['../__cpptkinter_8ixx.html#acadcd9c7c4790b089dcbbc02cfc69587',1,'_cpptkinter.ixx']]],
+  ['_5f_5fpad1_5f_5f_1',['__pad1__',['../__cpptkinter_8ixx.html#a29bf73bedf4e20dbd09ab99bd6ed6d8f',1,'_cpptkinter.ixx']]],
+  ['_5fcallback_2',['_callback',['../structcpptkinter_1_1detail_1_1__setit.html#af6ceb6e6f6a1d90f6829b6aadfbd0b3c',1,'cpptkinter::detail::_setit']]],
+  ['_5fcheckbutton_5fcount_3',['_checkbutton_count',['../namespacecpptkinter_1_1detail.html#a6d6030cb329393ba61f2fae2341750d0',1,'cpptkinter::detail']]],
+  ['_5fdebug_4',['_debug',['../namespacecpptkinter_1_1detail.html#a3c8a0d1f7e4913b7ea8d26da2c2c349a',1,'cpptkinter::detail']]],
+  ['_5fdefault_5froot_5',['_default_root',['../namespacecpptkinter_1_1detail.html#a953eeb455fc57f0968d19433d0748fed',1,'cpptkinter::detail']]],
+  ['_5flast_5fchild_5fids_6',['_last_child_ids',['../classcpptkinter_1_1Misc.html#a0c69ade45088b43ebef1d055593f18cd',1,'cpptkinter::Misc::_last_child_ids()'],['../structcpptkinter_1_1Misc_1_1impl.html#a44fe7eb8abf3a6a01caffc0fcf55b115',1,'cpptkinter::Misc::impl::_last_child_ids()']]],
+  ['_5fmenu_7',['_menu',['../structcpptkinter_1_1OptionMenu_1_1impl.html#a8d606a169e5b3461b18e1a2e58ab2766',1,'cpptkinter::OptionMenu::impl::_menu()'],['../classcpptkinter_1_1OptionMenu.html#a13a840ac8aaf567d31bf9973b9c35a34',1,'cpptkinter::OptionMenu::_menu()']]],
+  ['_5fname_8',['_name',['../classcpptkinter_1_1BaseWidget.html#adc64cc0fb6a41525c7537dd493d2e339',1,'cpptkinter::BaseWidget::_name()'],['../structcpptkinter_1_1BaseWidget_1_1impl.html#a0f37a0fa62c39a9ecf3a43d6d443db7a',1,'cpptkinter::BaseWidget::impl::_name()'],['../classcpptkinter_1_1Variable.html#add0835bdeb07db02c970ccb2991460b6',1,'cpptkinter::Variable::_name()'],['../structcpptkinter_1_1Variable_1_1impl.html#a1a5d6635f8f0bc0d3988eac1545b8349',1,'cpptkinter::Variable::impl::_name()']]],
+  ['_5froot_9',['_root',['../structcpptkinter_1_1Variable_1_1impl.html#a1e477ef2d48f3e6632c06bf9139f1452',1,'cpptkinter::Variable::impl::_root()'],['../classcpptkinter_1_1Variable.html#a2cc8bcf97e335c44666ce5c390195cce',1,'cpptkinter::Variable::_root()']]],
+  ['_5fsubst_5fformat_10',['_subst_format',['../classcpptkinter_1_1Misc.html#ad687654dfb9f40bfa2c12ab61e3197fa',1,'cpptkinter::Misc']]],
+  ['_5fsubst_5fformat_5fstr_11',['_subst_format_str',['../classcpptkinter_1_1Misc.html#a1171fdf5ec1b0036a4346fa01ade2390',1,'cpptkinter::Misc']]],
+  ['_5fsupport_5fdefault_5froot_12',['_support_default_root',['../namespacecpptkinter_1_1detail.html#a2d1dfbb7aab3a775091e67aa16a8bbe3',1,'cpptkinter::detail']]],
+  ['_5ftcl_5flib_5fpath_13',['_tcl_lib_path',['../namespacecpptkinter_1_1__cpptkinter_1_1detail.html#acfb6f4cca5d09482585adfad6aca2d5d',1,'cpptkinter::_cpptkinter::detail']]],
+  ['_5ftcl_5fversion_14',['_TCL_VERSION',['../namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a1aec895f5e87207873c45fe0ce97c547',1,'cpptkinter::_cpptkinter::detail']]],
+  ['_5ftclcommands_15',['_tclCommands',['../classcpptkinter_1_1Variable.html#ac80502dffe505b1ddcbb8219f3c6ebf0',1,'cpptkinter::Variable::_tclCommands()'],['../structcpptkinter_1_1Variable_1_1impl.html#af1c04f5139ef7c848d36346032ca10e2',1,'cpptkinter::Variable::impl::_tclCommands()'],['../structcpptkinter_1_1Misc_1_1impl.html#abc9c640a87b98e17b3de830fdd243e52',1,'cpptkinter::Misc::impl::_tclCommands()'],['../classcpptkinter_1_1Misc.html#a82eaa6a70694c943f622602df28bf232',1,'cpptkinter::Misc::_tclCommands()']]],
+  ['_5ftk_16',['_tk',['../structcpptkinter_1_1Variable_1_1impl.html#aa5e7658276beaca031f945c97f0d42a4',1,'cpptkinter::Variable::impl::_tk()'],['../classcpptkinter_1_1Variable.html#a40e1d33c68ba0065446c42e323d0df10',1,'cpptkinter::Variable::_tk()']]],
+  ['_5ftk_5fversion_17',['_TK_VERSION',['../namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a69cddb2d7075905075194928760e68be',1,'cpptkinter::_cpptkinter::detail']]],
+  ['_5ftkloaded_18',['_tkloaded',['../classcpptkinter_1_1Tk.html#ab8658fcc0fb65233bcc2b4c9868562d5',1,'cpptkinter::Tk::_tkloaded()'],['../structcpptkinter_1_1detail_1_1Tk__impl.html#abc3d8a07fb24a9b4e6993cd311ffc2e3',1,'cpptkinter::detail::Tk_impl::_tkloaded()']]],
+  ['_5fvalue_19',['_value',['../structcpptkinter_1_1detail_1_1__setit.html#a801f3fde5f1900a30438707b041454ab',1,'cpptkinter::detail::_setit']]],
+  ['_5fvar_20',['_var',['../structcpptkinter_1_1detail_1_1__setit.html#a46a2aceffa3d3361a82bde43c50458f7',1,'cpptkinter::detail::_setit']]],
+  ['_5fvarnum_21',['_varnum',['../namespacecpptkinter_1_1detail.html#a3be8e7ded72389f552f47c0e36cf4a77',1,'cpptkinter::detail']]],
+  ['_5fw_22',['_w',['../structcpptkinter_1_1Misc_1_1impl.html#ae488323ded862e9be37a69347b5b2f72',1,'cpptkinter::Misc::impl::_w()'],['../classcpptkinter_1_1Misc.html#a209dad39c06f5da9a5843111013fb69a',1,'cpptkinter::Misc::_w()']]]
 ];
