@@ -4,10 +4,9 @@
 
 export module cpptkinter:tk;
 
+#include "tk.h"
 export
 {
-#include "tk.h"
-
 #ifdef Tcl_GetByteArrayFromObj
 	EXTERN inline unsigned char* (Tcl_GetByteArrayFromObj)(Tcl_Obj* objPtr, Tcl_Size* sizePtr)
 	{

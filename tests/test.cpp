@@ -96,18 +96,6 @@ int main(int argc, char* argv[])
 
 		auto check1 = tk::Checkbutton({ .master = root, .offvalue = 0, .onvalue = 1, .text = "Check 1", .tristatevalue = -1 });
         auto toggle_checkbutton = [](tk::Event<tk::Misc> event) {
-            /*def toggle_checkbutton(event):
-            checkbutton = event.widget
-            varname = checkbutton.cget("variable")
-            current_value = checkbutton.getvar(varname)
-            if current_value == "on":
-                new_value = "off"
-            elif current_value == "off":
-                new_value = "tristate"
-            else:
-                new_value = "on"
-            checkbutton.setvar(varname, new_value)
-            return "break"*/
             auto&& checkbutton = event.widget;
             auto varname = checkbutton.cget<std::string>("variable");
             auto current_value = checkbutton.tk->getvar<long long>(varname);

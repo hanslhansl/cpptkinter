@@ -4,6 +4,7 @@
 module;
 #include "global.hpp"
 #include <reflect/reflect.hpp>
+#include <tk.h>
 
 #ifdef _WIN32
 #define USE_TCL_UNICODE 1
@@ -15,7 +16,7 @@ module;
 #endif
 export module cpptkinter:_cpptkinter;
 import :utility;
-import :tk;
+//import :tk;
 import std;
 import hhh;
 

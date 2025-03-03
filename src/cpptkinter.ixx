@@ -26,12 +26,13 @@ using namespace std::literals;
     }
 // expanded DEFINE_ASSIGNMENT_OPERATOR(cl) macro to make COMMA macro work
 #define CNF_CONSTRUCTOR_AND_ASSIGNMENT(cl, cnf_type, str, base) \
-    template<cnfs::is_cnf CNF = cnf_type> \
+    using constructor_cnf = cnf_type;   \
+    template<cnfs::is_cnf CNF = constructor_cnf> \
     cl(CNF&& cnf = {}) : cl(std::make_shared<impl>()) \
     {   \
         this->_init_(str, std::forward<CNF>(cnf));  \
     }   \
-    cl() : cl(cnf_type{}) { }   \
+    cl() : cl(constructor_cnf{}) { }   \
     cl& operator=(const cl& other) \
     {   \
         std::destroy_at(this);  \
@@ -266,32 +267,96 @@ export namespace cpptkinter
 
     enum class EventType
     {
-
+		KeyPress = 2,
+        Key = KeyPress,
+		KeyRelease = 3,
+		ButtonPress = 4,
+		Button = ButtonPress,
+		ButtonRelease = 5,
+		Motion = 6,
+		Enter = 7,
+		Leave = 8,
+		FocusIn = 9,
+		FocusOut = 10,
+		Keymap = 11,
+		Expose = 12,
+		GraphicsExpose = 13,
+		NoExpose = 14,
+		Visibility = 15,
+		Create = 16,
+		Destroy = 17,
+		Unmap = 18,
+		Map = 19,
+		MapRequest = 20,
+		Reparent = 21,
+		Configure = 22,
+        ConfigureRequest = 23,
+		Gravity = 24,
+		ResizeRequest = 25,
+		Circulate = 26,
+		CirculateRequest = 27,
+		Property = 28,
+        SelectionClear = 29,
+        SelectionRequest = 30,
+        Selection = 31,
+		Colormap = 32,
+		ClientMessage = 33,
+		Mapping = 34,
+		VirtualEvent = 35,
+		Activate = 36,
+		Deactivate = 37,
+		MouseWheel = 38
     };
 
+    /// @brief Container for the properties of an event.
+    /// 
+    /// Instances of this type are generated if one of the following events occurs:
+    /// 
+    /// KeyPress, KeyRelease - for keyboard events\n
+    /// ButtonPress, ButtonRelease, Motion, Enter, Leave, MouseWheel - for mouse events\n
+    /// Visibility, Unmap, Map, Expose, FocusIn, FocusOut, Circulate, Colormap, Gravity, Reparent, Property, Destroy, Activate, Deactivate - for window events
+    /// 
+    /// If a callback function for one of these events is registered using bind, bind_all, bind_class, or tag_bind, the callback is called with an Event as first argument.
     template<typename T>
     struct Event
     {
+        /// serial number of event
         long long serial;
+        /// mouse button pressed(ButtonPress, ButtonRelease)
 		long long num;
-        // if invalid: false
+        /// whether the window has the focus (Enter, Leave), if invalid: false
         bool focus;
+        /// height of the exposed window (Configure, Expose)
         long long height;
+        /// width of the exposed window (Configure, Expose)
 		long long width;
+        /// keycode of the pressed key (KeyPress, KeyRelease)
         long long keycode;
+        /// state of the event as a number (ButtonPress, ButtonRelease, Enter, KeyPress, KeyRelease, Leave, Motion) or as a string (Visibility)
         std::variant<long long, std::string> state;
+        /// when the event occurred
         long long time;
+        /// x - position of the mouse
         long long x;
+        /// y - position of the mouse
         long long y;
+        /// x - position of the mouse on the screen (ButtonPress, ButtonRelease, KeyPress, KeyRelease, Motion)
         long long x_root;
+        /// y - position of the mouse on the screen (ButtonPress, ButtonRelease, KeyPress, KeyRelease, Motion)
         long long y_root;
+        /// pressed character (KeyPress, KeyRelease)
         std::string char_;
-        // if invalid: false
+        /// see X / Windows documentation, if invalid: false
         bool send_event;
+        /// keysym of the event as a string (KeyPress, KeyRelease)
         std::string keysym;
+        /// keysym of the event as a number (KeyPress, KeyRelease)
 		long long keysym_num;
+        /// type of the event as a number
         EventType type;
+        /// widget in which the event occurred
         T widget;
+        /// delta of wheel movement (MouseWheel)
         long long delta;
     };
 
@@ -4080,8 +4145,67 @@ export namespace cpptkinter
         }
     };
 
+    namespace cnfs
+    {
+		/// @brief Argument for Scrollbar::Scrollbar().
+        struct Scrollbar
+        {
+
+        };
+    }
+
     /// @brief %Scrollbar widget which displays a slider at a certain position.
-    struct Scrollbar;
+    struct Scrollbar : Widget
+    {
+		/// @brief Construct a scrollbar widget.
+		CNF_CONSTRUCTOR_AND_ASSIGNMENT(Scrollbar, cnfs::Scrollbar, "scrollbar", Widget);
+
+		/// @brief Get the active element.
+        /// 
+        /// @returns The name of the element that is currently active, or "" if no element is active.
+        std::string activate()
+		{
+			return this->tk->call<std::string>(this->_w, "activate");
+		}
+        /// @brief Marks the element indicated by index as active.
+        /// 
+        /// The only index values understood by this method are "arrow1", "slider", or "arrow2".
+        /// If any other value is specified then no element of the scrollbar will be active.
+        void activate(const std::string& index)
+        {
+			this->tk->call(this->_w, "activate", index);
+        }
+
+        /// @brief Return the fractional change of the scrollbar setting if it would be moved by DELTAX or DELTAY pixels.
+        double delta(long long deltax, long long deltay)
+        {
+			this->tk->call<double>(this->_w, "delta", deltax, deltay);
+        }
+
+        /// @brief Return the fractional value which corresponds to a slider position of X, Y.
+        double fraction(long long x, long long y)
+        {
+			return this->tk->call<double>(this->_w, "fraction", x, y);
+        }
+
+        /// @brief Return the element under position X,Y as one of "arrow1", "slider", "arrow2" or "".
+        std::string identify(long long x, long long y)
+        {
+			return this->tk->call<std::string>(this->_w, "identify", x, y);
+        }
+
+        /// @brief Return the current fractional values (upper and lower end) of the slider position.
+        std::array<double, 2> get()
+        {
+			return this->tk->call<std::array<double, 2>>(this->_w, "get");
+        }
+
+        /// @brief Set the fractional values of the slider position (upper and lower ends as value between 0 and 1).
+        void set(double first, double last)
+        {
+			this->tk->call(this->_w, "set", first, last);
+        }
+    };
 
     /// @brief %Text widget which can display text in various forms.
     struct Text;

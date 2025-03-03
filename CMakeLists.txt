@@ -18,6 +18,7 @@ set(SRC_DIR "src")
 set(TEST_DIR "tests")
 set(TCLTK_FULL_DIR "${TCLTK_DIR}/${CMAKE_CXX_COMPILER_ID}")
 
+
 # Include and link
 include_directories(${TCLTK_FULL_DIR}/include)
 include_directories(../)    # for reflect
@@ -57,6 +58,9 @@ target_sources(cpptkinter
         BASE_DIRS ${SRC_DIR}
         FILES ${SRC_DIR}/cpptkinter.ixx ${SRC_DIR}/_cpptkinter.ixx ${SRC_DIR}/utility.ixx ${SRC_DIR}/constants.ixx ${SRC_DIR}/tk.ixx
 )
+if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+    target_compile_options(cpptkinter PUBLIC "/translateInclude")
+endif()
 target_link_libraries(cpptkinter PUBLIC hhh range-v3 ${IMPORTED_SHARED_LIBRARIES})
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
