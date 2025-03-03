@@ -19,6 +19,7 @@ int main(int argc, char* argv[])
     tk::detail::_debug = false;
 	tk::utility::weak<tk::Tk> wroot;
 
+
     try
     {
         tk::init(argc, argv);

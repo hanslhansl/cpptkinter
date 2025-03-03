@@ -246,23 +246,18 @@ export namespace cpptkinter
         template<typename R>
         concept range_of_AsObj = std::ranges::range<R> && AsObjConcept<std::ranges::range_value_t<R>>;
 
+        const long long& to_index(const long long& t)
+        {
+            return t;
+        }
+        const std::string& to_index(const std::string& t)
+        {
+            return t;
+        }
+
         /// @brief Concept for types allowed as indices to e.g. Entry and Listbox.
         template<typename T>
-        concept index = AsObjConcept<T> && (std::convertible_to<T, long long> || std::convertible_to<T, std::string>);
-
-        long long to_index_impl(long long);
-        std::string to_index_impl(std::string);
-
-        template<index T>
-        decltype(auto) to_index(const T& t)
-        {
-            if constexpr (std::same_as<T, long long>)
-                return t;
-            else if constexpr (std::same_as<T, std::string>)
-                return t;
-            else
-                return static_cast<decltype(to_index_impl(t))>(t);
-        }
+		concept index = requires (T t) { to_index(t); };
     }
 
     enum class EventType
@@ -1684,9 +1679,9 @@ export namespace cpptkinter
         }
     public:
         /// @brief Configure column INDEX of a grid.
-        cnfs::grid_column_row_configure_return grid_columnconfigure(const std::variant<long long, std::string>& index)
+        cnfs::grid_column_row_configure_return grid_columnconfigure(detail::index auto&& index)
         {
-            return this->_grid_configure("columnconfigure", index);
+            return this->_grid_configure("columnconfigure", detail::to_index(index));
         }
         /// @brief Configure column INDEX of a grid.
         /// 
@@ -1699,9 +1694,9 @@ export namespace cpptkinter
         }
 
         /// @copydoc grid_columnconfigure(const std::variant<long long, std::string>&)
-        cnfs::grid_column_row_configure_return columnconfigure(const std::variant<long long, std::string>& index)
+        cnfs::grid_column_row_configure_return columnconfigure(detail::index auto&& index)
         {
-            return this->grid_columnconfigure(index);
+            return this->grid_columnconfigure(detail::to_index(index));
         }
         /// @copydoc grid_columnconfigure()
         template<cnfs::is_cnf CNF = cnfs::grid_column_row_configure>
@@ -1737,9 +1732,9 @@ export namespace cpptkinter
         }
 
         /// @brief Configure row INDEX of a grid.
-        cnfs::grid_column_row_configure_return grid_rowconfigure(const std::variant<long long, std::string>& index)
+        cnfs::grid_column_row_configure_return grid_rowconfigure(detail::index auto&& index)
         {
-            return this->_grid_configure("rowconfigure", index);
+            return this->_grid_configure("rowconfigure", detail::to_index(index));
         }
         /// @brief Configure row INDEX of a grid.
         ///
@@ -1752,9 +1747,9 @@ export namespace cpptkinter
         }
 
         /// @copydoc grid_rowconfigure(const std::variant<long long, std::string>&)
-        cnfs::grid_column_row_configure_return rowconfigure(const std::variant<long long, std::string>& index)
+        cnfs::grid_column_row_configure_return rowconfigure(detail::index auto&& index)
         {
-            return this->grid_rowconfigure(index);
+            return this->grid_rowconfigure(detail::to_index(index));
         }
         /// @copydoc grid_rowconfigure()
         template<cnfs::is_cnf CNF = cnfs::grid_column_row_configure>
@@ -2818,7 +2813,7 @@ export namespace cpptkinter
         }
 
         /// @brief Activate entry at INDEX.
-        void activate(const detail::index auto& index)
+        void activate(detail::index auto&& index)
         {
             this->tk->call(this->_w, "activate", detail::to_index(index));
         }
@@ -2867,53 +2862,53 @@ export namespace cpptkinter
 
         /// @brief Internal function.
         template<cnfs::is_cnf CNF>
-        void insert(const detail::index auto& index, const std::string& itemType, CNF&& cnf)
+        void insert(detail::index auto&& index, const std::string& itemType, CNF&& cnf)
         {
             this->tk->call(this->_w, "insert", detail::to_index(index), itemType, this->_options(std::forward<CNF>(cnf)));
         }
 
         /// @brief Add hierarchical menu item at INDEX.
         template<cnfs::is_cnf CNF = cnfs::add_cascade>
-        void insert_cascade(const detail::index auto& index, CNF&& cnf = {})
+        void insert_cascade(detail::index auto&& index, CNF&& cnf = {})
         {
             this->insert(index, "cascade", std::forward<CNF>(cnf));
         }
 
         /// @brief Add checkbutton menu item at INDEX.
         template<cnfs::is_cnf CNF = cnfs::add_checkbutton<bool>>
-        void insert_checkbutton(const detail::index auto& index, CNF&& cnf = {})
+        void insert_checkbutton(detail::index auto&& index, CNF&& cnf = {})
         {
             this->insert(index, "checkbutton", std::forward<CNF>(cnf));
         }
 
         /// @brief Add command menu item at INDEX.
         template<cnfs::is_cnf CNF = cnfs::add_command>
-        void insert_command(const detail::index auto& index, CNF&& cnf = {})
+        void insert_command(detail::index auto&& index, CNF&& cnf = {})
         {
             this->insert(index, "command", std::forward<CNF>(cnf));
         }
 
         /// @brief Add radio menu item at INDEX.
         template<cnfs::is_cnf CNF = cnfs::add_radiobutton<int>>
-        void insert_radiobutton(const detail::index auto& index, CNF&& cnf = {})
+        void insert_radiobutton(detail::index auto&& index, CNF&& cnf = {})
         {
             this->insert(index, "radiobutton", std::forward<CNF>(cnf));
         }
 
         /// @brief Add separator at INDEX.
         template<cnfs::is_cnf CNF = cnfs::add_separator>
-        void insert_separator(const detail::index auto& index, CNF&& cnf = {})
+        void insert_separator(detail::index auto&& index, CNF&& cnf = {})
         {
             this->insert(index, "separator", std::forward<CNF>(cnf));
         }
 
         /// @brief Delete menu items at INDEX.
-        void delete_(const detail::index auto& index)
+        void delete_(detail::index auto&& index)
         {
             this->delete_(detail::to_index(index), detail::to_index(index));
         }
         /// @brief Delete menu items between INDEX1 and INDEX2 (included).
-        void delete_(const detail::index auto& index1_, const detail::index auto& index2_)
+        void delete_(detail::index auto&& index1_, detail::index auto&& index2_)
         {
             auto&& index1 = detail::to_index(index1_);
             auto&& index2 = detail::to_index(index2_);
@@ -2939,14 +2934,14 @@ export namespace cpptkinter
 
         /// @brief Return the resource value of a menu item for OPTION at INDEX.
         template<detail::FromObjConcept R>
-        R entrycget(const detail::index auto& index, const std::string& option)
+        R entrycget(detail::index auto&& index, const std::string& option)
         {
             return this->tk->call<R>(this->_w, "entrycget", detail::to_index(index), "-" + option);
         }
 
         /// @brief Configure a menu item at INDEX.
         template<cnfs::is_cnf CNF>
-        auto entryconfigure(const detail::index auto& index_, CNF&& cnf)
+        auto entryconfigure(detail::index auto&& index_, CNF&& cnf)
         {
             auto&& index = detail::to_index(index_);
             if constexpr (std::same_as<std::remove_cvref_t<decltype(index)>, long long>)
@@ -2955,7 +2950,7 @@ export namespace cpptkinter
                 return this->_configure({ "entryconfigure", index }, std::forward<CNF>(cnf));
         }
         /// @brief Configure a menu item at INDEX.
-        auto entryconfigure(const detail::index auto& index_) -> decltype(this->_configure({}))
+        auto entryconfigure(detail::index auto&& index_) -> decltype(this->_configure({}))
         {
             auto&& index = detail::to_index(index_);
             if constexpr (std::same_as<std::remove_cvref_t<decltype(index)>, long long>)
@@ -2966,25 +2961,25 @@ export namespace cpptkinter
 
         /// @copydoc entryconfigure(long long, CNF&&)
         template<cnfs::is_cnf CNF>
-        auto entryconfig(const detail::index auto& index, CNF&& cnf)
+        auto entryconfig(detail::index auto&& index, CNF&& cnf)
         {
             return this->entryconfigure(detail::to_index(index), std::forward<CNF>(cnf));
         }
         /// @copydoc entryconfigure(long long)
-        auto entryconfig(const detail::index auto& index) -> decltype(this->entryconfigure(index))
+        auto entryconfig(detail::index auto&& index) -> decltype(this->entryconfigure(index))
         {
             return this->entryconfigure(detail::to_index(index));
         }
 
         /// @brief Return the index of a menu item identified by INDEX.
-        long long index(const detail::index auto& index)
+        long long index(detail::index auto&& index)
         {
             return this->tk->call<long long>(this->_w, "index", detail::to_index(index));
         }
 
         /// @brief Invoke a menu item identified by INDEX and execute the associated command.
         template<detail::FromObjConcept R = void>
-        R invoke(const detail::index auto& index)
+        R invoke(detail::index auto&& index)
         {
             return this->tk->call<R>(this->_w, "invoke", detail::to_index(index));
         }
@@ -2996,7 +2991,7 @@ export namespace cpptkinter
         }
 
         /// @brief Return the type of the menu item at INDEX.
-        std::string type(const detail::index auto& index)
+        std::string type(detail::index auto&& index)
         {
             return this->tk->call<std::string>(this->_w, "type", detail::to_index(index));
         }
@@ -3008,13 +3003,13 @@ export namespace cpptkinter
         }
 
         /// @brief Return the x-position of the leftmost pixel of the menu item at INDEX.
-        long long xposition(const detail::index auto& index)
+        long long xposition(detail::index auto&& index)
         {
             return this->tk->call<long long>(this->_w, "xposition", detail::to_index(index));
         }
 
         /// @brief "Return the y-position of the topmost pixel of the menu item at INDEX.
-        long long yposition(const detail::index auto& index)
+        long long yposition(detail::index auto&& index)
         {
             return this->tk->call<long long>(this->_w, "yposition", detail::to_index(index));
         }
@@ -3379,7 +3374,7 @@ export namespace cpptkinter
         CNF_CONSTRUCTOR_AND_ASSIGNMENT(Entry, cnfs::Entry, "entry", Widget);
 
         /// @brief Delete a character.
-        void delete_(const detail::index auto& index)
+        void delete_(detail::index auto&& index)
         {
             this->tk->call(this->_w, "delete", detail::to_index(index));
         }
@@ -3396,19 +3391,19 @@ export namespace cpptkinter
         }
 
         /// @brief Insert cursor at INDEX.
-        void icursor(const detail::index auto& index)
+        void icursor(detail::index auto&& index)
         {
             this->tk->call(this->_w, "icursor", detail::to_index(index));
         }
 
         /// @brief Return position of cursor.
-        long long index(const detail::index auto& index)
+        long long index(detail::index auto&& index)
         {
             return this->tk->call<long long>(this->_w, "index", detail::to_index(index));
         }
 
         /// @brief Insert STRING at INDEX.
-        void insert(const detail::index auto& index, const std::string& string)
+        void insert(detail::index auto&& index, const std::string& string)
         {
             this->tk->call(this->_w, "insert", detail::to_index(index), string);
         }
@@ -3426,13 +3421,13 @@ export namespace cpptkinter
         }
 
         /// @brief Adjust the end of the selection near the cursor to INDEX.
-        void selection_adjust(const detail::index auto& index)
+        void selection_adjust(detail::index auto&& index)
         {
             this->tk->call(this->_w, "selection", "adjust", detail::to_index(index));
         }
 
         /// @copydoc selection_adjust
-        void select_adjust(const detail::index auto& index)
+        void select_adjust(detail::index auto&& index)
         {
             this->selection_adjust(detail::to_index(index));
         }
@@ -3450,13 +3445,13 @@ export namespace cpptkinter
         }
 
         /// @brief Set the fixed end of a selection to INDEX.
-        void selection_from(const detail::index auto& index)
+        void selection_from(detail::index auto&& index)
         {
             this->tk->call(this->_w, "selection", "from", detail::to_index(index));
         }
 
         /// @copydoc selection_from
-        void select_from(const detail::index auto& index)
+        void select_from(detail::index auto&& index)
         {
             this->selection_from(detail::to_index(index));
         }
@@ -3486,13 +3481,13 @@ export namespace cpptkinter
         }
 
         /// @brief Set the variable end of a selection to INDEX.
-        void selection_to(const detail::index auto& index)
+        void selection_to(detail::index auto&& index)
         {
             this->tk->call(this->_w, "selection", "to", detail::to_index(index));
         }
 
         /// @copydoc selection_to
-        void select_to(const detail::index auto& index)
+        void select_to(detail::index auto&& index)
         {
             this->selection_to(detail::to_index(index));
         }
@@ -3658,13 +3653,13 @@ export namespace cpptkinter
         CNF_CONSTRUCTOR_AND_ASSIGNMENT(Listbox, cnfs::Listbox, "listbox", Widget);
 
         /// @brief Activate item identified by INDEX.
-        void activate(const detail::index auto& index)
+        void activate(detail::index auto&& index)
         {
             this->tk->call(this->_w, "activate", detail::to_index(index));
         }
 
         /// @brief Return a tuple of X1,Y1,X2,Y2 coordinates for a rectangle which encloses the item identified by the given index.
-        std::array<long long, 4> bbox(const detail::index auto& index)
+        std::array<long long, 4> bbox(detail::index auto&& index)
         {
             return this->tk->call<std::array<long long, 4>>(this->_w, "bbox", detail::to_index(index));
         }
@@ -3676,7 +3671,7 @@ export namespace cpptkinter
         }
 
         /// @brief Delete item at index.
-        void delete_(const detail::index auto& index)
+        void delete_(detail::index auto&& index)
         {
             this->tk->call(this->_w, "delete", detail::to_index(index));
         }
@@ -3688,7 +3683,7 @@ export namespace cpptkinter
 
         /// @brief Get the item at index.
         template<detail::FromObjConcept R>
-        R get(const detail::index auto& index)
+        R get(detail::index auto&& index)
         {
             if constexpr (std::same_as<R, std::string>)
                 return this->tk->call<R>(this->_w, "get", detail::to_index(index));
@@ -3714,18 +3709,18 @@ export namespace cpptkinter
         }
 
         /// @brief Return index of item identified with INDEX.
-        long long index(const detail::index auto& index)
+        long long index(detail::index auto&& index)
         {
             return this->tk->call<long long>(this->_w, "index", detail::to_index(index));
         }
 
         /// @brief Insert ELEMENTS at INDEX.
-        void insert(const detail::index auto& index, const detail::AsObjConcept auto&...elements)
+        void insert(detail::index auto&& index, const detail::AsObjConcept auto&...elements)
         {
             this->tk->call(this->_w, "insert", detail::to_index(index), elements...);
         }
         /// @copydoc insert(const detail::index auto&, const detail::AsObjConcept auto&...)
-        void insert(const detail::index auto& index, const detail::range_of_AsObj auto& elements)
+        void insert(detail::index auto&& index, const detail::range_of_AsObj auto& elements)
         {
             this->tk->call(this->_w, "insert", detail::to_index(index), elements | std::views::transform([](auto& val) { return _cpptkinter::AsObj(val); }));
         }
@@ -3749,25 +3744,25 @@ export namespace cpptkinter
         }
 
         /// @brief Scroll such that INDEX is visible.
-        void see(const detail::index auto& index)
+        void see(detail::index auto&& index)
         {
             this->tk->call(this->_w, "see", detail::to_index(index));
         }
 
         /// @brief Set the fixed end oft the selection to INDEX.
-        void selection_anchor(const detail::index auto& index)
+        void selection_anchor(detail::index auto&& index)
         {
             this->tk->call(this->_w, "selection", "anchor", detail::to_index(index));
         }
 
         /// @copydoc selection_anchor
-        void select_anchor(const detail::index auto& index)
+        void select_anchor(detail::index auto&& index)
         {
             this->selection_anchor(detail::to_index(index));
         }
 
         /// @brief Clear the selection at index.
-        void selection_clear(const detail::index auto& index)
+        void selection_clear(detail::index auto&& index)
         {
             this->tk->call(this->_w, "selection", "clear", detail::to_index(index));
         }
@@ -3778,7 +3773,7 @@ export namespace cpptkinter
         }
 
         /// @copydoc selection_clear(const detail::index auto&)
-        void select_clear(const detail::index auto& index)
+        void select_clear(detail::index auto&& index)
         {
             this->selection_clear(detail::to_index(index));
         }
@@ -3789,19 +3784,19 @@ export namespace cpptkinter
         }
 
         /// @brief Return True if INDEX is part of the selection.
-        bool selection_includes(const detail::index auto& index)
+        bool selection_includes(detail::index auto&& index)
         {
             return this->tk->call<bool>(this->_w, "selection", "includes", detail::to_index(index));
         }
 
         /// @copydoc selection_includes
-        bool select_includes(const detail::index auto& index)
+        bool select_includes(detail::index auto&& index)
         {
             return this->selection_includes(detail::to_index(index));
         }
 
         /// @brief Set the selection for index without changing the currently selected elements.
-        void selection_set(const detail::index auto& index)
+        void selection_set(detail::index auto&& index)
         {
             this->tk->call(this->_w, "selection", "set", detail::to_index(index));
         }
@@ -3812,7 +3807,7 @@ export namespace cpptkinter
         }
 
         /// @copydoc selection_set(const detail::index auto&)
-        void select_set(const detail::index auto& index)
+        void select_set(detail::index auto&& index)
         {
             this->selection_set(detail::to_index(index));
         }
@@ -3830,13 +3825,13 @@ export namespace cpptkinter
 
         /// @brief Return the resource value for an ITEM and an OPTION.
         template<detail::FromObjConcept R>
-        void itemcget(const detail::index auto& index, const std::string& option)
+        void itemcget(detail::index auto&& index, const std::string& option)
         {
             return this->tk->call<R>(this->_w, "itemcget", detail::to_index(index), "-" + option);
         }
 
         /// @brief Get allowed keywords.
-        std::map<std::string, std::array<std::string, 5>> itemconfigure(const detail::index auto& index)
+        std::map<std::string, std::array<std::string, 5>> itemconfigure(detail::index auto&& index)
         {
             std::string index_{};
             if constexpr (std::same_as<std::remove_cvref_t<decltype(detail::to_index(index))>, std::string>)
@@ -3856,7 +3851,7 @@ export namespace cpptkinter
         }
         /// @brief Configure resources of an ITEM.
         template<cnfs::is_cnf CNF = cnfs::Listbox_itemconfigure>
-        void itemconfigure(const detail::index auto& index, CNF&& cnf = {})
+        void itemconfigure(detail::index auto&& index, CNF&& cnf = {})
         {
             auto&& index_ = detail::to_index(index);
             if constexpr (std::same_as<std::remove_cvref_t<decltype(index)>, std::string>)
@@ -3866,13 +3861,13 @@ export namespace cpptkinter
         }
 
         /// @copydoc itemconfigure(const detail::index auto&)
-        std::map<std::string, std::array<std::string, 5>> itemconfig(const detail::index auto& index)
+        std::map<std::string, std::array<std::string, 5>> itemconfig(detail::index auto&& index)
         {
             return this->itemconfigure(detail::to_index(index));
         }
         /// @copydoc itemconfigure(const detail::index auto&, CNF&&)
         template<cnfs::is_cnf CNF = cnfs::Listbox_itemconfigure>
-        void itemconfig(const detail::index auto& index, CNF&& cnf = {})
+        void itemconfig(detail::index auto&& index, CNF&& cnf = {})
         {
             this->itemconfigure(detail::to_index(index), std::forward<CNF>(cnf));
         }
@@ -3892,7 +3887,7 @@ export namespace cpptkinter
         CNF_CONSTRUCTOR_AND_ASSIGNMENT(TypedListbox, cnfs::Listbox, "listbox", Listbox);
 
         /// @copydoc Listbox::get(const detail::index auto&)
-        value_type get(const detail::index auto& index)
+        value_type get(detail::index auto&& index)
         {
             return this->Listbox::get<value_type>(detail::to_index(index));
         }
@@ -3903,12 +3898,12 @@ export namespace cpptkinter
         }
 
         /// @copydoc Listbox::insert(const detail::index auto&, const detail::AsObjConcept auto&...)
-        void insert(const detail::index auto& index, const std::convertible_to<value_type> auto&...elements)
+        void insert(detail::index auto&& index, const std::convertible_to<value_type> auto&...elements)
         {
             this->Listbox::insert(detail::to_index(index), static_cast<value_type>(elements)...);
         }
         /// @copydoc insert(const detail::index auto&, const detail::range_of_AsObj auto&)
-        void insert(const detail::index auto& index, const utility::range_of_convertible_to<value_type> auto& elements)
+        void insert(detail::index auto&& index, const utility::range_of_convertible_to<value_type> auto& elements)
         {
             this->Listbox::insert(detail::to_index(index), elements | std::views::transform([](auto& val) { return static_cast<value_type>(val); }));
         }
@@ -4150,7 +4145,29 @@ export namespace cpptkinter
 		/// @brief Argument for Scrollbar::Scrollbar().
         struct Scrollbar
         {
-
+			opt_master master;
+			opt_string activebackground;
+			opt_relief activerelief;
+			opt_string background;
+			opt_screenunits bd;
+			opt_string bg;
+			opt_screenunits border;
+			opt_screenunits borderwidth;
+            opt<std::variant<std::string, std::function<void(std::array<double, 2>)>>> command;
+			opt_cursor cursor;
+            opt_screenunits elementborderwidth;
+			opt_string highlightbackground;
+			opt_string highlightcolor;
+			opt_screenunits highlightthickness;
+			opt_bool jump;
+			opt_string name;
+            opt_string orient;
+			opt_relief relief;
+			opt<size_t> repeatdelay;
+            opt<size_t> repeatinterval;
+			opt_take_focus_value takefocus;
+			opt_string troughcolor;
+            opt_screenunits width;
         };
     }
 
@@ -4207,8 +4224,143 @@ export namespace cpptkinter
         }
     };
 
+    namespace cnfs
+    {
+        /// @brief Argument for Text::Text().
+        struct Text
+        {
+			opt_master master;
+            opt_bool autoseparators;
+			opt_string background;
+			opt_screenunits bd;
+			opt_string bg;
+            opt_bool blockcursor;
+			opt_screenunits border;
+			opt_screenunits borderwidth;
+			opt_cursor cursor;
+			opt<long long> endline;
+			opt_bool exportselection;
+			opt_string fg;
+			opt_font_description font;
+			opt_string foreground;
+            opt_screenunits height;
+			opt_string highlightbackground;
+			opt_string highlightcolor;
+			opt_screenunits highlightthickness;
+            opt_string inactiveselectbackground;
+            opt_string insertbackground;
+            opt_screenunits insertborderwidth;
+            opt<size_t> insertofftime;
+            opt<size_t> insertontime;
+            opt_string insertunfocussed;
+			opt_bool insertwidth;
+			opt<long long> maxundo;
+			opt_string name;
+            opt_screenunits padx;
+            opt_screenunits pady;
+			opt_relief relief;
+			opt_string selectbackground;
+            opt_screenunits selectborderwidth;
+			opt_string selectforeground;
+            opt_bool setgrid;
+			opt_screenunits spacing1;
+			opt_screenunits spacing2;
+			opt_screenunits spacing3;
+            opt<long long> startline;
+			opt_string state;
+            opt<std::variant<detail::screenunits, std::vector<detail::screenunits>>> tabs;
+            opt_string tabstyle;
+			opt_take_focus_value takefocus;
+			opt_bool undo;
+            opt<long long> width;
+			opt_string wrap;
+			opt_xy_scroll_command xscrollcommand;
+			opt_xy_scroll_command yscrollcommand;
+        };
+    }
+
+    namespace detail
+    {
+        const long long& to_text_index(const long long& t)
+        {
+            return t;
+        }
+        const std::string& to_text_index(const std::string& t)
+        {
+            return t;
+        }
+        template<std::derived_from<Misc> T>
+        const T& to_text_index(const T& t)
+        {
+            return t;
+        }
+
+        /// @brief Concept for types allowed as indices to Text.
+        template<typename T>
+        concept text_index = requires (T t) { to_text_index(t); };
+    }
+
     /// @brief %Text widget which can display text in various forms.
-    struct Text;
+    struct Text : Widget, XView, YView
+    {
+        /// @brief Construct a text widget.
+        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Text, cnfs::Text, "text", Widget);
+
+        /// @brief Return a tuple of (x, y, width, height) which gives the bounding box of the visible part of the character at the given index.
+        std::array<long long, 4> bbox(detail::text_index auto&& index)
+        {
+			return this->tk->call<std::array<long long, 4>>(this->_w, "bbox", detail::to_text_index(index));
+        }
+
+        /// @brief Return whether between index INDEX1 and index INDEX2 the relation OP is satisfied.OP is one of <, <= , == , >= , >, or !=.
+		bool compare(detail::text_index auto&& index1, const std::string& op, detail::text_index auto&& index2)
+        {
+			return this->tk->call<bool>(this->_w, "compare", detail::to_text_index(index1), op, detail::to_text_index(index2));
+        }
+
+        /// @brief Counts the number of relevant things between the two indices.
+        /// 
+        /// If index1 is after index2, the result will be a negative number (and this holds for each of the possible options).
+        /// 
+        /// The actual items which are counted depends on the options given by args.
+        /// The result is a list of integers, one for the result of each counting option given.
+        /// Valid counting options are "chars", "displaychars", "displayindices", "displaylines", "indices", "lines", "xpixels" and "ypixels".
+        /// There is an additional possible  option "update", which if given then all subsequent options ensure that any possible out of date information is recalculated.
+        template<std::convertible_to<std::string>...Args>
+        std::vector<std::string> count(detail::text_index auto&& index1, detail::text_index auto&& index2, Args&&...args)
+        {
+            return this->tk->call<std::vector<std::string>>(this->_w, "count", (std::string("-") + std::forward<Args>(args))..., detail::to_text_index(index1), detail::to_text_index(index2));
+        }
+
+        /// @brief Get whether the internal consistency checks of the B-Tree inside the text widget is active.
+        bool debug()
+        {
+            return this->tk->call<bool>(this->_w, "debug");
+        }
+        /// @brief Turn on the internal consistency checks of the B-Tree inside the text widget according to BOOLEAN.
+        void debug(bool boolean)
+        {
+			this->tk->call(this->_w, "debug", boolean);
+        }
+
+        /// @brief Delete the character at INDEX.
+        void delete_(detail::text_index auto&& index)
+        {
+			this->tk->call(this->_w, "delete", detail::to_text_index(index));
+
+        }
+        /// @brief Delete the characters between INDEX1 and INDEX2 (not included).
+        void delete_(detail::text_index auto&& index1, detail::text_index auto&& index2)
+        {
+			this->tk->call(this->_w, "delete", detail::to_text_index(index1), detail::to_text_index(index2));
+        }
+
+        /// @brief 
+        void ___()
+        {
+
+        }
+    };
 
     namespace detail
     {
@@ -4398,13 +4550,13 @@ export namespace cpptkinter
         /// The first two elements of the list give the x and y coordinates of the upper - left corner of the screen area covered by the character (in pixels relative to the widget)
         /// and the last two elements give the width and height of the character, in pixels.
         /// The bounding box may refer to a region outside the visible area of the window.
-        std::array<long long, 4> bbox(const detail::index auto& index)
+        std::array<long long, 4> bbox(detail::index auto&& index)
         {
             return this->tk->call<std::array<long long, 4>>(this->_w, "bbox", detail::to_index(index));
         }
 
         /// @brief Delete one element of the spinbox.
-        void delete_(const detail::index auto& index)
+        void delete_(detail::index auto&& index)
         {
             this->tk->call(this->_w, "delete", detail::to_index(index));
         }
@@ -4426,7 +4578,7 @@ export namespace cpptkinter
         /// @brief Alter the position of the insertion cursor.
         /// 
         /// The insertion cursor will be displayed just before the character given by index.
-        void icursor(const detail::index auto& index)
+        void icursor(detail::index auto&& index)
         {
             this->tk->call(this->_w, "icursor", detail::to_index(index));
         }
@@ -4440,13 +4592,13 @@ export namespace cpptkinter
         }
 
         /// @brief Returns the numerical index corresponding to index.
-        long long index(const detail::index auto& index)
+        long long index(detail::index auto&& index)
         {
             return this->tk->call<long long>(this->_w, "index", detail::to_index(index));
         }
 
         /// @brief Insert string s at index.
-        void insert(const detail::index auto& index, const std::string& s)
+        void insert(detail::index auto&& index, const std::string& s)
         {
             this->tk->call(this->_w, "insert", detail::to_index(index), s);
         }
@@ -4486,7 +4638,7 @@ export namespace cpptkinter
         /// 
         /// The other end of the selection is made the anchor point for future select to commands.
         /// If the selection isn't currently in the spinbox, then a new selection is created to include the characters between index and the most recent selection anchor point, inclusive.
-        void selection_adjust(const detail::index auto& index)
+        void selection_adjust(detail::index auto&& index)
         {
             this->tk->call(this->_w, "selection", "adjust", detail::to_index(index));
         }
@@ -4513,7 +4665,7 @@ export namespace cpptkinter
         }
 
         /// @brief Set the fixed end of a selection to INDEX.
-        void selection_from(const detail::index auto& index)
+        void selection_from(detail::index auto&& index)
         {
             this->tk->call(this->_w, "selection", "from", detail::to_index(index));
         }
@@ -4531,7 +4683,7 @@ export namespace cpptkinter
         }
 
         /// @brief Set the variable end of a selection to INDEX.
-        void selection_to(const detail::index auto& index)
+        void selection_to(detail::index auto&& index)
         {
             this->tk->call(this->_w, "selection", "to", detail::to_index(index));
         }
@@ -4708,7 +4860,7 @@ export namespace cpptkinter
         /// The coordinates given are those of the top left corner of the region containing the sash.
         /// pathName sash dragto index x y This command computes the difference between the given coordinates and the coordinates given to the last sash coord command for the given sash.
         /// It then moves that sash the computed difference.
-        std::array<long long, 2> sash_coord(const detail::index auto& index)
+        std::array<long long, 2> sash_coord(detail::index auto&& index)
         {
             return this->tk->call<std::array<long long, 2>>(this->_w, "sash", "coord", detail::to_index(index));
         }
@@ -4716,13 +4868,13 @@ export namespace cpptkinter
         /// @brief Records x and y for the sash given by index.
         /// 
         /// Used in conjunction with later dragto commands to move the sash.
-        void sash_mark(const detail::index auto& index)
+        void sash_mark(detail::index auto&& index)
         {
             this->tk->call(this->_w, "sash", "mark", detail::to_index(index));
         }
 
         /// @brief Place the sash given by index at the given coordinates.
-        void sash_place(const detail::index auto& index, long long x, long long y)
+        void sash_place(detail::index auto&& index, long long x, long long y)
         {
             this->tk->call(this->_w, "sash", "place", detail::to_index(index), x, y);
         }
