@@ -53,7 +53,8 @@ var hierarchy =
         [ "cpptkinter::Radiobutton", "structcpptkinter_1_1Radiobutton.html", null ],
         [ "cpptkinter::Scale", "structcpptkinter_1_1Scale.html", null ],
         [ "cpptkinter::Scrollbar", "structcpptkinter_1_1Scrollbar.html", null ],
-        [ "cpptkinter::Spinbox", "structcpptkinter_1_1Spinbox.html", null ]
+        [ "cpptkinter::Spinbox", "structcpptkinter_1_1Spinbox.html", null ],
+        [ "cpptkinter::Text", "structcpptkinter_1_1Text.html", null ]
       ] ]
     ] ],
     [ "cpptkinter::cnfs::grid_bbox", "structcpptkinter_1_1cnfs_1_1grid__bbox.html", null ],
@@ -112,6 +113,7 @@ var hierarchy =
     [ "cpptkinter::_cpptkinter::Tcl_Obj", "classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html", [
       [ "cpptkinter::_cpptkinter::tk_window_type", "structcpptkinter_1_1__cpptkinter_1_1tk__window__type.html", null ]
     ] ],
+    [ "cpptkinter::cnfs::Text", "structcpptkinter_1_1cnfs_1_1Text.html", null ],
     [ "cpptkinter::_cpptkinter::TkappObject", "structcpptkinter_1_1__cpptkinter_1_1TkappObject.html", null ],
     [ "cpptkinter::cnfs::Toplevel", "structcpptkinter_1_1cnfs_1_1Toplevel.html", null ],
     [ "std::true_type", null, [
@@ -131,7 +133,10 @@ var hierarchy =
       [ "cpptkinter::Toplevel", "structcpptkinter_1_1Toplevel.html", null ]
     ] ],
     [ "cpptkinter::XView", "structcpptkinter_1_1XView.html", [
-      [ "cpptkinter::Entry", "structcpptkinter_1_1Entry.html", null ]
+      [ "cpptkinter::Entry", "structcpptkinter_1_1Entry.html", null ],
+      [ "cpptkinter::Text", "structcpptkinter_1_1Text.html", null ]
     ] ],
-    [ "cpptkinter::YView", "structcpptkinter_1_1YView.html", null ]
+    [ "cpptkinter::YView", "structcpptkinter_1_1YView.html", [
+      [ "cpptkinter::Text", "structcpptkinter_1_1Text.html", null ]
+    ] ]
 ];

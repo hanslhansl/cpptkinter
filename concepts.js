@@ -20,6 +20,7 @@ var concepts =
         [ "range_of_AsObj", "conceptcpptkinter_1_1detail_1_1range__of__AsObj.html", null ],
         [ "index", "conceptcpptkinter_1_1detail_1_1index.html", null ],
         [ "Variable_mode_concept", "conceptcpptkinter_1_1detail_1_1Variable__mode__concept.html", null ],
+        [ "text_index", "conceptcpptkinter_1_1detail_1_1text__index.html", null ],
         [ "sized_range_of_string", "conceptcpptkinter_1_1detail_1_1sized__range__of__string.html", null ]
       ] ],
       [ "utility", "namespacecpptkinter_1_1utility.html", [

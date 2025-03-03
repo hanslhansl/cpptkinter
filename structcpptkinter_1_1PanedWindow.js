@@ -19,7 +19,7 @@ var structcpptkinter_1_1PanedWindow =
     [ "proxy_forget", "structcpptkinter_1_1PanedWindow.html#a157db88f0809448be84dad2f5bc17d7c", null ],
     [ "proxy_place", "structcpptkinter_1_1PanedWindow.html#ab40a06f09d475c22dccfe2b4f012deff", null ],
     [ "remove", "structcpptkinter_1_1PanedWindow.html#ac6cfa5ad4cda11e64d9ffcfbf9777889", null ],
-    [ "sash_coord", "structcpptkinter_1_1PanedWindow.html#a766e47f6c2756621f1c18dca4734ae5e", null ],
-    [ "sash_mark", "structcpptkinter_1_1PanedWindow.html#abb0fb9af10485d4803abf0e250b84445", null ],
-    [ "sash_place", "structcpptkinter_1_1PanedWindow.html#ab19478badc25500fc43aac116f423937", null ]
+    [ "sash_coord", "structcpptkinter_1_1PanedWindow.html#abad8f0197ec46a90d2255151e25112c0", null ],
+    [ "sash_mark", "structcpptkinter_1_1PanedWindow.html#ac0afb41931e0dd5758ffd2d10f67a35b", null ],
+    [ "sash_place", "structcpptkinter_1_1PanedWindow.html#a7ea2be801db74db893d2f3f09379a23f", null ]
 ];

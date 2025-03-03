@@ -50,8 +50,9 @@ var annotated_dup =
         [ "PlaceInfo", "structcpptkinter_1_1cnfs_1_1PlaceInfo.html", "structcpptkinter_1_1cnfs_1_1PlaceInfo" ],
         [ "Radiobutton", "structcpptkinter_1_1cnfs_1_1Radiobutton.html", "structcpptkinter_1_1cnfs_1_1Radiobutton" ],
         [ "Scale", "structcpptkinter_1_1cnfs_1_1Scale.html", "structcpptkinter_1_1cnfs_1_1Scale" ],
-        [ "Scrollbar", "structcpptkinter_1_1cnfs_1_1Scrollbar.html", null ],
+        [ "Scrollbar", "structcpptkinter_1_1cnfs_1_1Scrollbar.html", "structcpptkinter_1_1cnfs_1_1Scrollbar" ],
         [ "Spinbox", "structcpptkinter_1_1cnfs_1_1Spinbox.html", "structcpptkinter_1_1cnfs_1_1Spinbox" ],
+        [ "Text", "structcpptkinter_1_1cnfs_1_1Text.html", "structcpptkinter_1_1cnfs_1_1Text" ],
         [ "Toplevel", "structcpptkinter_1_1cnfs_1_1Toplevel.html", "structcpptkinter_1_1cnfs_1_1Toplevel" ],
         [ "Variable", "structcpptkinter_1_1cnfs_1_1Variable.html", "structcpptkinter_1_1cnfs_1_1Variable" ]
       ] ],
@@ -96,6 +97,7 @@ var annotated_dup =
       [ "Scale", "structcpptkinter_1_1Scale.html", "structcpptkinter_1_1Scale" ],
       [ "Scrollbar", "structcpptkinter_1_1Scrollbar.html", "structcpptkinter_1_1Scrollbar" ],
       [ "Spinbox", "structcpptkinter_1_1Spinbox.html", "structcpptkinter_1_1Spinbox" ],
+      [ "Text", "structcpptkinter_1_1Text.html", "structcpptkinter_1_1Text" ],
       [ "Tk", "classcpptkinter_1_1Tk.html", "classcpptkinter_1_1Tk" ],
       [ "Toplevel", "structcpptkinter_1_1Toplevel.html", "structcpptkinter_1_1Toplevel" ],
       [ "TypedCheckbutton", "structcpptkinter_1_1TypedCheckbutton.html", "structcpptkinter_1_1TypedCheckbutton" ],
