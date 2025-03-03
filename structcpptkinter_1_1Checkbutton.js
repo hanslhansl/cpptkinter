@@ -1,5 +1,6 @@
 var structcpptkinter_1_1Checkbutton =
 [
+    [ "constructor_cnf", "structcpptkinter_1_1Checkbutton.html#ae92bfcf2c77a72704481a7a60a2d1960", null ],
     [ "Checkbutton", "structcpptkinter_1_1Checkbutton.html#a4f5551c205bac13a2560ef1b36b7f366", null ],
     [ "Checkbutton", "structcpptkinter_1_1Checkbutton.html#adad6f6e093efe4fd3370275bfae3d850", null ],
     [ "_setup", "structcpptkinter_1_1Checkbutton.html#a021a8f4deb8f3da6d592f10a423f6ba0", null ],

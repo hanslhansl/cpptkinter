@@ -1,5 +1,6 @@
 var structcpptkinter_1_1Spinbox =
 [
+    [ "constructor_cnf", "structcpptkinter_1_1Spinbox.html#aaccb446768eb562b62219c91e3fded7d", null ],
     [ "Spinbox", "structcpptkinter_1_1Spinbox.html#a6de61273450d5d0ce8ec8efdc1b98e2c", null ],
     [ "Spinbox", "structcpptkinter_1_1Spinbox.html#a221f4be7f588a8766c10a907ff81c92e", null ],
     [ "bbox", "structcpptkinter_1_1Spinbox.html#accec910930a133182e272fa85658c76a", null ],

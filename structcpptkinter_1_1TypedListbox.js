@@ -1,5 +1,6 @@
 var structcpptkinter_1_1TypedListbox =
 [
+    [ "constructor_cnf", "structcpptkinter_1_1TypedListbox.html#a7dbb100019752b6c8f7bb91b12471237", null ],
     [ "value_type", "structcpptkinter_1_1TypedListbox.html#a83e9166beb2b02966efbb6a541e7549a", null ],
     [ "TypedListbox", "structcpptkinter_1_1TypedListbox.html#aee5b7b685632ef40888c965739b339d6", null ],
     [ "TypedListbox", "structcpptkinter_1_1TypedListbox.html#ab54fdd4fc6de51feaf79614b327efa63", null ],

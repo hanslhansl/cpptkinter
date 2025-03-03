@@ -1,5 +1,6 @@
 var structcpptkinter_1_1Radiobutton =
 [
+    [ "constructor_cnf", "structcpptkinter_1_1Radiobutton.html#a7603c42ef4cad060f85ccb733e2c4ae5", null ],
     [ "Radiobutton", "structcpptkinter_1_1Radiobutton.html#a231393ed42225d252309cb45dd0d0e10", null ],
     [ "Radiobutton", "structcpptkinter_1_1Radiobutton.html#ab0b50621d4d9846eb6ab3169499188f3", null ],
     [ "deselect", "structcpptkinter_1_1Radiobutton.html#a0fe466b1dc33697d70c0862323a63f77", null ],

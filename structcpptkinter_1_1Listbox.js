@@ -1,5 +1,6 @@
 var structcpptkinter_1_1Listbox =
 [
+    [ "constructor_cnf", "structcpptkinter_1_1Listbox.html#a6500035ee76d348bd9811c8bb50b6f23", null ],
     [ "Listbox", "structcpptkinter_1_1Listbox.html#a94a35b352f5c42628a2cbd0cfe1e4a67", null ],
     [ "Listbox", "structcpptkinter_1_1Listbox.html#af0fd8d2292393ea690656993e1b9c914", null ],
     [ "activate", "structcpptkinter_1_1Listbox.html#ae6a17b19a55ae4ffc7b984338dd24070", null ],

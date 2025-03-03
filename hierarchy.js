@@ -52,6 +52,7 @@ var hierarchy =
         [ "cpptkinter::PanedWindow", "structcpptkinter_1_1PanedWindow.html", null ],
         [ "cpptkinter::Radiobutton", "structcpptkinter_1_1Radiobutton.html", null ],
         [ "cpptkinter::Scale", "structcpptkinter_1_1Scale.html", null ],
+        [ "cpptkinter::Scrollbar", "structcpptkinter_1_1Scrollbar.html", null ],
         [ "cpptkinter::Spinbox", "structcpptkinter_1_1Spinbox.html", null ]
       ] ]
     ] ],
@@ -101,6 +102,7 @@ var hierarchy =
       [ "cpptkinter::_cpptkinter::TclError", "structcpptkinter_1_1__cpptkinter_1_1TclError.html", null ]
     ] ],
     [ "cpptkinter::cnfs::Scale", "structcpptkinter_1_1cnfs_1_1Scale.html", null ],
+    [ "cpptkinter::cnfs::Scrollbar", "structcpptkinter_1_1cnfs_1_1Scrollbar.html", null ],
     [ "cpptkinter::detail::set_get_proxy< W >", "structcpptkinter_1_1detail_1_1set__get__proxy.html", null ],
     [ "cpptkinter::cnfs::Spinbox", "structcpptkinter_1_1cnfs_1_1Spinbox.html", null ],
     [ "Tcl_Event", null, [

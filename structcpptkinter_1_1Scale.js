@@ -1,5 +1,6 @@
 var structcpptkinter_1_1Scale =
 [
+    [ "constructor_cnf", "structcpptkinter_1_1Scale.html#ac1d19177be05f611ca7cbf948d5cad76", null ],
     [ "Scale", "structcpptkinter_1_1Scale.html#ab8d39623662e8de7fa41d7d6102ae922", null ],
     [ "Scale", "structcpptkinter_1_1Scale.html#a95a552eb6f1b8c9329353e4ed162dc1b", null ],
     [ "coords", "structcpptkinter_1_1Scale.html#afd2c55212699dfb2611965040cf7ae07", null ],

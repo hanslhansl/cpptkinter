@@ -95,7 +95,6 @@ var __cpptkinter_8ixx =
     [ "varname_converter", "__cpptkinter_8ixx.html#adbbbbe119d816bca5702dce5f39a0dbe", null ],
     [ "WaitForMainloop", "__cpptkinter_8ixx.html#ae551796a0f1c031f2ec29211e01e74b8", null ],
     [ "__pad0__", "__cpptkinter_8ixx.html#acadcd9c7c4790b089dcbbc02cfc69587", null ],
-    [ "__pad1__", "__cpptkinter_8ixx.html#a29bf73bedf4e20dbd09ab99bd6ed6d8f", null ],
     [ "_tcl_lib_path", "__cpptkinter_8ixx.html#acfb6f4cca5d09482585adfad6aca2d5d", null ],
     [ "_TCL_VERSION", "__cpptkinter_8ixx.html#a1aec895f5e87207873c45fe0ce97c547", null ],
     [ "_TK_VERSION", "__cpptkinter_8ixx.html#a69cddb2d7075905075194928760e68be", null ],

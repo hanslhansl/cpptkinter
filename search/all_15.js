@@ -9,13 +9,14 @@ var searchData=
   ['uniform_6',['uniform',['../structcpptkinter_1_1cnfs_1_1grid__column__row__configure.html#ac56147df347b61036c8958b104086b72',1,'cpptkinter::cnfs::grid_column_row_configure::uniform()'],['../structcpptkinter_1_1cnfs_1_1grid__column__row__configure__return.html#ab31e4523af74223efe0a156550093782',1,'cpptkinter::cnfs::grid_column_row_configure_return::uniform()']]],
   ['units_7',['UNITS',['../namespacecpptkinter_1_1constants.html#a41ea957208ba9ca7fac850df6ca55b30',1,'cpptkinter::constants']]],
   ['unlock_8',['unlock',['../classcpptkinter_1_1utility_1_1optional__mutex__adaptor.html#a2f54d056821ea1b2599fc36defd2a369',1,'cpptkinter::utility::optional_mutex_adaptor::unlock()'],['../classcpptkinter_1_1utility_1_1optional__inverse__mutex__adaptor.html#a1ec5020047bd71f8944bd01616f507d0',1,'cpptkinter::utility::optional_inverse_mutex_adaptor::unlock()']]],
-  ['unpost_9',['unpost',['../structcpptkinter_1_1Menu.html#a5722114e13b59aad642beb3b116724ce',1,'cpptkinter::Menu']]],
-  ['unsetvar_10',['unsetvar',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#ab2da6b411ebb66583e8fad71c8c58aba',1,'cpptkinter::_cpptkinter::TkappObject']]],
-  ['unsetvar_11',['UnsetVar',['../namespacecpptkinter_1_1__cpptkinter.html#aa2464a5c3c0ac5d856518846e438b4e5',1,'cpptkinter::_cpptkinter']]],
-  ['use_12',['use',['../structcpptkinter_1_1cnfs_1_1Toplevel.html#a426797018387069d90379eb8094d0aca',1,'cpptkinter::cnfs::Toplevel']]],
-  ['use_5fcount_13',['use_count',['../classcpptkinter_1_1utility_1_1weak.html#a3c42a56fc08bcb859c8ba8d7d678a2e9',1,'cpptkinter::utility::weak']]],
-  ['use_5ftcl_5funicode_14',['USE_TCL_UNICODE',['../__cpptkinter_8ixx.html#a9e502ea0de53982a6920f1726ea22029',1,'_cpptkinter.ixx']]],
-  ['utf32stringtype_15',['UTF32StringType',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a37cfb45fe948fc758bc3f66cd43407bf',1,'cpptkinter::_cpptkinter::TkappObject']]],
-  ['utility_2eixx_16',['utility.ixx',['../utility_8ixx.html',1,'']]],
-  ['weak_17',['weak',['../classcpptkinter_1_1Misc.html#a34ffc36964fcfa046c2b869258c0f0aa',1,'cpptkinter::Misc::weak()'],['../classcpptkinter_1_1Tk.html#a34ffc36964fcfa046c2b869258c0f0aa',1,'cpptkinter::Tk::weak()'],['../classcpptkinter_1_1BaseWidget.html#a34ffc36964fcfa046c2b869258c0f0aa',1,'cpptkinter::BaseWidget::weak()'],['../classcpptkinter_1_1OptionMenu.html#a34ffc36964fcfa046c2b869258c0f0aa',1,'cpptkinter::OptionMenu::weak()']]]
+  ['unmap_9',['Unmap',['../namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa48180ddd584de21589006d56a86d3410',1,'cpptkinter']]],
+  ['unpost_10',['unpost',['../structcpptkinter_1_1Menu.html#a5722114e13b59aad642beb3b116724ce',1,'cpptkinter::Menu']]],
+  ['unsetvar_11',['unsetvar',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#ab2da6b411ebb66583e8fad71c8c58aba',1,'cpptkinter::_cpptkinter::TkappObject']]],
+  ['unsetvar_12',['UnsetVar',['../namespacecpptkinter_1_1__cpptkinter.html#aa2464a5c3c0ac5d856518846e438b4e5',1,'cpptkinter::_cpptkinter']]],
+  ['use_13',['use',['../structcpptkinter_1_1cnfs_1_1Toplevel.html#a426797018387069d90379eb8094d0aca',1,'cpptkinter::cnfs::Toplevel']]],
+  ['use_5fcount_14',['use_count',['../classcpptkinter_1_1utility_1_1weak.html#a3c42a56fc08bcb859c8ba8d7d678a2e9',1,'cpptkinter::utility::weak']]],
+  ['use_5ftcl_5funicode_15',['USE_TCL_UNICODE',['../__cpptkinter_8ixx.html#a9e502ea0de53982a6920f1726ea22029',1,'_cpptkinter.ixx']]],
+  ['utf32stringtype_16',['UTF32StringType',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a37cfb45fe948fc758bc3f66cd43407bf',1,'cpptkinter::_cpptkinter::TkappObject']]],
+  ['utility_2eixx_17',['utility.ixx',['../utility_8ixx.html',1,'']]],
+  ['weak_18',['weak',['../classcpptkinter_1_1Misc.html#a34ffc36964fcfa046c2b869258c0f0aa',1,'cpptkinter::Misc::weak()'],['../classcpptkinter_1_1Tk.html#a34ffc36964fcfa046c2b869258c0f0aa',1,'cpptkinter::Tk::weak()'],['../classcpptkinter_1_1BaseWidget.html#a34ffc36964fcfa046c2b869258c0f0aa',1,'cpptkinter::BaseWidget::weak()'],['../classcpptkinter_1_1OptionMenu.html#a34ffc36964fcfa046c2b869258c0f0aa',1,'cpptkinter::OptionMenu::weak()']]]
 ];

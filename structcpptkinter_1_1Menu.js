@@ -1,5 +1,6 @@
 var structcpptkinter_1_1Menu =
 [
+    [ "constructor_cnf", "structcpptkinter_1_1Menu.html#a562ff4c6cf646936579753fc0705151e", null ],
     [ "Menu", "structcpptkinter_1_1Menu.html#a26f2bd05f7ec3a35d749e6cb2ce38c5c", null ],
     [ "Menu", "structcpptkinter_1_1Menu.html#a074f73bbffbd0bbd8f10c50f7b948bdc", null ],
     [ "activate", "structcpptkinter_1_1Menu.html#af8816fcc6b3c24624979f33f8cb0697d", null ],

@@ -135,6 +135,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Entry widget which allows displaying simple text.  <a href="structcpptkinter_1_1Entry.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Event.html">Event</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container for the properties of an event.  <a href="structcpptkinter_1_1Event.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Frame.html">Frame</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frame widget which may contain other widgets and can have a 3D border.  <a href="structcpptkinter_1_1Frame.html#details">More...</a><br /></td></tr>
@@ -177,6 +178,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Scale.html">Scale</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scale widget which can display a numerical scale.  <a href="structcpptkinter_1_1Scale.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Scrollbar.html">Scrollbar</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scrollbar widget which displays a slider at a certain position.  <a href="structcpptkinter_1_1Scrollbar.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Spinbox.html">Spinbox</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spinbox widget.  <a href="structcpptkinter_1_1Spinbox.html#details">More...</a><br /></td></tr>
@@ -231,7 +235,57 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:afa0f8d41b67b2ac0c012f2f4da88f73f"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73f">EventType</a> </td></tr>
+<tr class="memitem:afa0f8d41b67b2ac0c012f2f4da88f73f"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73f">EventType</a> { <br />
+&#160;&#160;<a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa65a1aa093fcf3acd50b318f1942c02f5">KeyPress</a> = 2
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa897356954c2cd3d41b221e3f24f99bba">Key</a> = KeyPress
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa17ee17cec34ff017c382ba1ce8dc4cdc">KeyRelease</a> = 3
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fae331802be240d79912c365112ad41ddb">ButtonPress</a> = 4
+, <br />
+&#160;&#160;<a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa87b7760f14fbff78d8819291f36ab9a0">Button</a> = ButtonPress
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fac58a283b80d411649376455b98710c95">ButtonRelease</a> = 5
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa8226588f03da49b857e5ddf8c508dd2d">Motion</a> = 6
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73faf1851d5600eae616ee802a31ac74701b">Enter</a> = 7
+, <br />
+&#160;&#160;<a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73faa52945dbe283de2f7e9d63ca3417f36a">Leave</a> = 8
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa7e4b154beb74b6adb080843d5f22879b">FocusIn</a> = 9
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa2241f0c0c7e396382705028677ac184e">FocusOut</a> = 10
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa6f7a1b5b2f06aec27c91dfa0d066685a">Keymap</a> = 11
+, <br />
+&#160;&#160;<a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa90befe8d2cb32b83516bce95983c6b5f">Expose</a> = 12
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa6d46dd24c352583634958ed10d76fc0c">GraphicsExpose</a> = 13
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73faeebbcba535a5d939cc1c3910afc391c1">NoExpose</a> = 14
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa1729a56cfc89021478498fe0c89a843a">Visibility</a> = 15
+, <br />
+&#160;&#160;<a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa686e697538050e4664636337cc3b834f">Create</a> = 16
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa0e181f89f47654b86f3beb42f5cc08b8">Destroy</a> = 17
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa48180ddd584de21589006d56a86d3410">Unmap</a> = 18
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa46f3ea056caa3126b91f3f70beea068c">Map</a> = 19
+, <br />
+&#160;&#160;<a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa0a18d0f3af54765e119d43d43243ec34">MapRequest</a> = 20
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73facae1aa0a77218af83ad753d3dc1c7486">Reparent</a> = 21
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73faf1206f9fadc5ce41694f69129aecac26">Configure</a> = 22
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa550958c6c3d345b48c7903691c63c141">ConfigureRequest</a> = 23
+, <br />
+&#160;&#160;<a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa8a88c39cef668fb55f188af09665bd40">Gravity</a> = 24
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa2cfc032661e38d33713ef423d01b9903">ResizeRequest</a> = 25
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73faf0c6c2ab7fbe2709c566784a9416cd98">Circulate</a> = 26
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa402fa52afe267bcb8b37ca5466510c97">CirculateRequest</a> = 27
+, <br />
+&#160;&#160;<a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa5ad234cb2cde4266195252a23ca7d84e">Property</a> = 28
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73faa4c58c92c65cd92405bc2035e5ff1135">SelectionClear</a> = 29
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fadebe41ad765f57b1709ec10419a681a3">SelectionRequest</a> = 30
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa6ff9dd0d34f65181173c1e4bc39939de">Selection</a> = 31
+, <br />
+&#160;&#160;<a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa3633383ad3207062e75cddf2369999ed">Colormap</a> = 32
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa4575e52aa270eda08089191a654a8eb5">ClientMessage</a> = 33
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa0014f8b96d996135614c21355a053994">Mapping</a> = 34
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fae167cc16d3bd20222624f063d063ce87">VirtualEvent</a> = 35
+, <br />
+&#160;&#160;<a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73faa13367a8e2a3f3bf4f3409079e3fdf87">Activate</a> = 36
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa109fec06829bd79d222cfc8af52aaaf1">Deactivate</a> = 37
+, <a class="el" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa6924f81750ac471df87fed683bcea516">MouseWheel</a> = 38
+<br />
+ }</td></tr>
 <tr class="separator:afa0f8d41b67b2ac0c012f2f4da88f73f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -340,6 +394,47 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fa65a1aa093fcf3acd50b318f1942c02f5" name="afa0f8d41b67b2ac0c012f2f4da88f73fa65a1aa093fcf3acd50b318f1942c02f5"></a>KeyPress&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fa897356954c2cd3d41b221e3f24f99bba" name="afa0f8d41b67b2ac0c012f2f4da88f73fa897356954c2cd3d41b221e3f24f99bba"></a>Key&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fa17ee17cec34ff017c382ba1ce8dc4cdc" name="afa0f8d41b67b2ac0c012f2f4da88f73fa17ee17cec34ff017c382ba1ce8dc4cdc"></a>KeyRelease&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fae331802be240d79912c365112ad41ddb" name="afa0f8d41b67b2ac0c012f2f4da88f73fae331802be240d79912c365112ad41ddb"></a>ButtonPress&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fa87b7760f14fbff78d8819291f36ab9a0" name="afa0f8d41b67b2ac0c012f2f4da88f73fa87b7760f14fbff78d8819291f36ab9a0"></a>Button&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fac58a283b80d411649376455b98710c95" name="afa0f8d41b67b2ac0c012f2f4da88f73fac58a283b80d411649376455b98710c95"></a>ButtonRelease&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fa8226588f03da49b857e5ddf8c508dd2d" name="afa0f8d41b67b2ac0c012f2f4da88f73fa8226588f03da49b857e5ddf8c508dd2d"></a>Motion&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73faf1851d5600eae616ee802a31ac74701b" name="afa0f8d41b67b2ac0c012f2f4da88f73faf1851d5600eae616ee802a31ac74701b"></a>Enter&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73faa52945dbe283de2f7e9d63ca3417f36a" name="afa0f8d41b67b2ac0c012f2f4da88f73faa52945dbe283de2f7e9d63ca3417f36a"></a>Leave&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fa7e4b154beb74b6adb080843d5f22879b" name="afa0f8d41b67b2ac0c012f2f4da88f73fa7e4b154beb74b6adb080843d5f22879b"></a>FocusIn&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fa2241f0c0c7e396382705028677ac184e" name="afa0f8d41b67b2ac0c012f2f4da88f73fa2241f0c0c7e396382705028677ac184e"></a>FocusOut&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fa6f7a1b5b2f06aec27c91dfa0d066685a" name="afa0f8d41b67b2ac0c012f2f4da88f73fa6f7a1b5b2f06aec27c91dfa0d066685a"></a>Keymap&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fa90befe8d2cb32b83516bce95983c6b5f" name="afa0f8d41b67b2ac0c012f2f4da88f73fa90befe8d2cb32b83516bce95983c6b5f"></a>Expose&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fa6d46dd24c352583634958ed10d76fc0c" name="afa0f8d41b67b2ac0c012f2f4da88f73fa6d46dd24c352583634958ed10d76fc0c"></a>GraphicsExpose&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73faeebbcba535a5d939cc1c3910afc391c1" name="afa0f8d41b67b2ac0c012f2f4da88f73faeebbcba535a5d939cc1c3910afc391c1"></a>NoExpose&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fa1729a56cfc89021478498fe0c89a843a" name="afa0f8d41b67b2ac0c012f2f4da88f73fa1729a56cfc89021478498fe0c89a843a"></a>Visibility&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fa686e697538050e4664636337cc3b834f" name="afa0f8d41b67b2ac0c012f2f4da88f73fa686e697538050e4664636337cc3b834f"></a>Create&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fa0e181f89f47654b86f3beb42f5cc08b8" name="afa0f8d41b67b2ac0c012f2f4da88f73fa0e181f89f47654b86f3beb42f5cc08b8"></a>Destroy&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fa48180ddd584de21589006d56a86d3410" name="afa0f8d41b67b2ac0c012f2f4da88f73fa48180ddd584de21589006d56a86d3410"></a>Unmap&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fa46f3ea056caa3126b91f3f70beea068c" name="afa0f8d41b67b2ac0c012f2f4da88f73fa46f3ea056caa3126b91f3f70beea068c"></a>Map&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fa0a18d0f3af54765e119d43d43243ec34" name="afa0f8d41b67b2ac0c012f2f4da88f73fa0a18d0f3af54765e119d43d43243ec34"></a>MapRequest&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73facae1aa0a77218af83ad753d3dc1c7486" name="afa0f8d41b67b2ac0c012f2f4da88f73facae1aa0a77218af83ad753d3dc1c7486"></a>Reparent&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73faf1206f9fadc5ce41694f69129aecac26" name="afa0f8d41b67b2ac0c012f2f4da88f73faf1206f9fadc5ce41694f69129aecac26"></a>Configure&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fa550958c6c3d345b48c7903691c63c141" name="afa0f8d41b67b2ac0c012f2f4da88f73fa550958c6c3d345b48c7903691c63c141"></a>ConfigureRequest&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fa8a88c39cef668fb55f188af09665bd40" name="afa0f8d41b67b2ac0c012f2f4da88f73fa8a88c39cef668fb55f188af09665bd40"></a>Gravity&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fa2cfc032661e38d33713ef423d01b9903" name="afa0f8d41b67b2ac0c012f2f4da88f73fa2cfc032661e38d33713ef423d01b9903"></a>ResizeRequest&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73faf0c6c2ab7fbe2709c566784a9416cd98" name="afa0f8d41b67b2ac0c012f2f4da88f73faf0c6c2ab7fbe2709c566784a9416cd98"></a>Circulate&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fa402fa52afe267bcb8b37ca5466510c97" name="afa0f8d41b67b2ac0c012f2f4da88f73fa402fa52afe267bcb8b37ca5466510c97"></a>CirculateRequest&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fa5ad234cb2cde4266195252a23ca7d84e" name="afa0f8d41b67b2ac0c012f2f4da88f73fa5ad234cb2cde4266195252a23ca7d84e"></a>Property&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73faa4c58c92c65cd92405bc2035e5ff1135" name="afa0f8d41b67b2ac0c012f2f4da88f73faa4c58c92c65cd92405bc2035e5ff1135"></a>SelectionClear&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fadebe41ad765f57b1709ec10419a681a3" name="afa0f8d41b67b2ac0c012f2f4da88f73fadebe41ad765f57b1709ec10419a681a3"></a>SelectionRequest&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fa6ff9dd0d34f65181173c1e4bc39939de" name="afa0f8d41b67b2ac0c012f2f4da88f73fa6ff9dd0d34f65181173c1e4bc39939de"></a>Selection&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fa3633383ad3207062e75cddf2369999ed" name="afa0f8d41b67b2ac0c012f2f4da88f73fa3633383ad3207062e75cddf2369999ed"></a>Colormap&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fa4575e52aa270eda08089191a654a8eb5" name="afa0f8d41b67b2ac0c012f2f4da88f73fa4575e52aa270eda08089191a654a8eb5"></a>ClientMessage&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fa0014f8b96d996135614c21355a053994" name="afa0f8d41b67b2ac0c012f2f4da88f73fa0014f8b96d996135614c21355a053994"></a>Mapping&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fae167cc16d3bd20222624f063d063ce87" name="afa0f8d41b67b2ac0c012f2f4da88f73fae167cc16d3bd20222624f063d063ce87"></a>VirtualEvent&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73faa13367a8e2a3f3bf4f3409079e3fdf87" name="afa0f8d41b67b2ac0c012f2f4da88f73faa13367a8e2a3f3bf4f3409079e3fdf87"></a>Activate&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fa109fec06829bd79d222cfc8af52aaaf1" name="afa0f8d41b67b2ac0c012f2f4da88f73fa109fec06829bd79d222cfc8af52aaaf1"></a>Deactivate&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa0f8d41b67b2ac0c012f2f4da88f73fa6924f81750ac471df87fed683bcea516" name="afa0f8d41b67b2ac0c012f2f4da88f73fa6924f81750ac471df87fed683bcea516"></a>MouseWheel&#160;</td><td class="fielddoc"></td></tr>
+</table>
 
 </div>
 </div>
