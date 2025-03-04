@@ -4268,7 +4268,7 @@ export namespace cpptkinter
 			opt_screenunits spacing3;
             opt<long long> startline;
 			opt_string state;
-            opt<std::variant<detail::screenunits, std::vector<detail::screenunits>>> tabs;
+            opt<std::variant<detail::ScreenUnits, std::vector<detail::ScreenUnits>>> tabs;
             opt_string tabstyle;
 			opt_take_focus_value takefocus;
 			opt_bool undo;
@@ -4277,11 +4277,26 @@ export namespace cpptkinter
 			opt_xy_scroll_command xscrollcommand;
 			opt_xy_scroll_command yscrollcommand;
         };
+
+		/// @brief Argument for Text::search().
+        struct Text_search
+        {
+			std::string pattern;
+            std::variant<std::string, double, Misc> index;
+            opt<std::variant<std::string, double, Misc>> stopindex;
+            bool forwards;
+            bool backwards;
+            bool exact;
+            bool regexp;
+            bool nocase;
+			opt_variable count;
+            bool elide;
+        };
     }
 
     namespace detail
     {
-        const long long& to_text_index(const long long& t)
+        const long long& to_text_index(const double& t)
         {
             return t;
         }
@@ -4353,6 +4368,243 @@ export namespace cpptkinter
         void delete_(detail::text_index auto&& index1, detail::text_index auto&& index2)
         {
 			this->tk->call(this->_w, "delete", detail::to_text_index(index1), detail::to_text_index(index2));
+        }
+
+        /// @brief Return tuple (x, y, width, height, baseline) giving the bounding box and baseline position of the visible part of the line containing the character at INDEX.
+        std::array<long long, 5> dlineinfo(detail::text_index auto&& inde)
+        {
+			return this->tk->call<std::array<long long, 5>>(this->_w, "dlineinfo", detail::to_text_index(inde));
+        }
+
+        /// @brief Return the contents of the widget between index1 and index2.
+        /// 
+        /// The type of contents returned in filtered based on the keyword parameters; if 'all', 'image', 'mark', 'tag', 'text', or 'window' are given and true, then the corresponding items are returned.
+        /// The result is a list of triples of the form(key, value, index).If none of the keywords are true then 'all' is used by default.
+        /// 
+        /// If the 'command' argument is given, it is called once for each element of the list of triples, with the values of each triple serving as the arguments to the function.
+        /// In this case the list is not returned.
+        void dump();
+
+        /// @brief Internal method
+        /// 
+        /// This method controls the undo mechanism and the modified flag.
+        /// The exact behavior of the command depends on the option argument that follows the edit argument.
+        /// The following forms of the command are currently supported: edit_modified, edit_redo, edit_reset, edit_separator and edit_undo
+        void edit(const detail::AsObjConcept auto&...args)
+        {
+			this->tk->call(this->_w, "edit", args...);
+        }
+
+        /// @brief Get the modified flag
+        /// 
+        /// The insert, delete, edit undo and edit redo commands or the user can set or clear the modified flag.
+        /// @returns The modified flag of the widget.
+        bool edit_modified()
+        {
+			return this->tk->call<bool>(this->_w, "edit", "modified");
+        }
+        /// @brief Set the modified flag
+        /// 
+        /// Sets the modified flag of the widget to arg.
+        /// The insert, delete, edit undo and edit redo commands or the user can set or clear the modified flag.
+        void edit_modified(bool arg)
+        {
+			this->tk->call(this->_w, "edit", "modified", arg);
+        }
+
+        /// @brief Redo the last undone edit
+        /// 
+        /// When the undo option is true, reapplies the last undone edits provided no other edits were done since then.
+        /// Generates an error when the redo stack is empty.
+        /// Does nothing when the undo option is false.
+        void edit_redo()
+        {
+			this->tk->call(this->_w, "edit", "redo");
+        }
+
+        /// @brief Clears the undo and redo stacks.
+        void edit_reset()
+        {
+			this->tk->call(this->_w, "edit", "reset");
+        }
+
+        /// @brief Inserts a separator (boundary) on the undo stack.
+        /// 
+        /// Does nothing when the undo option is false.
+        void edit_separator()
+        {
+			this->tk->call(this->_w, "edit", "separator");
+        }
+
+        /// @brief Undoes the last edit action if the undo option is true.
+        /// 
+        /// An edit action is defined as all the insert and delete commands that are recorded on the undo stack in between two separators.
+        /// Generates an error when the undo stack is empty.
+        /// Does nothing when the undo option is false
+        void edit_undo()
+        {
+			this->tk->call(this->_w, "edit", "undo");
+        }
+
+        /// @brief Return the text at INDEX.
+        std::string get(detail::text_index auto&& index)
+        {
+			return this->tk->call<std::string>(this->_w, "get", detail::to_text_index(index));
+        }
+        /// @brief Return the text from INDEX1 to INDEX2 (not included).
+        std::string get(detail::text_index auto&& index1, detail::text_index auto&& index2)
+        {
+			return this->tk->call<std::string>(this->_w, "get", detail::to_text_index(index1), detail::to_text_index(index2));
+        }
+
+        /// @brief Return the value of OPTION of an embedded image at INDEX.
+        void image_cget();
+        /// @brief Configure an embedded image at INDEX.
+        void image_configure();
+        /// @brief Create an embedded image at INDEX.
+        void image_create();
+        /// @brief Return all names of embedded images in this widget.
+        void image_names();
+
+        /// @brief Return the index in the form line.char for INDEX.
+        std::string index(detail::text_index auto&& index)
+        {
+			return this->tk->call<std::string>(this->_w, "index", detail::to_text_index(index));
+        }
+
+        /// @brief Insert CHARS before the characters at INDEX. An additional tag can be given in ARGS. Additional CHARS and tags can follow in ARGS.
+        void insert(detail::text_index auto&& index, const std::string& chars, auto&&...args)
+        {
+			this->tk->call(this->_w, "insert", detail::to_text_index(index), chars, args...);
+        }
+
+        /// @brief Get the gravity of a mark MARKNAME.
+        std::string mark_gravity(const std::string& markName)
+        {
+			return this->tk->call<std::string>(this->_w, "mark", "gravity", markName);
+        }
+        /// @brief Change the gravity of a mark MARKNAME to DIRECTION (LEFT or RIGHT).
+        void mark_gravity(const std::string& markName, const std::string& direction)
+        {
+			this->tk->call(this->_w, "mark", "gravity", markName, direction);
+        }
+
+        /// @brief Return all mark names.
+        std::vector<std::string> mark_names()
+        {
+			return this->tk->call<std::vector<std::string>>(this->_w, "mark", "names");
+        }
+
+        /// @brief Set mark MARKNAME before the character at INDEX.
+        void mark_set(const std::string& markName, detail::text_index auto&& index)
+        {
+			this->tk->call(this->_w, "mark", "set", markName, detail::to_text_index(index));
+        }
+
+        /// @brief 
+        void mark_unset(std::convertible_to<std::string> auto&&...markNames)
+        {
+			this->tk->call(this->_w, "mark", "unset", std::string(std::forward<decltype(markNames)>(markNames))...);
+        }
+
+        /// @brief Return the name of the next mark after INDEX.
+        std::string mark_next(detail::text_index auto&& index)
+        {
+			return this->tk->call<std::string>(this->_w, "mark", "next", detail::to_text_index(index));
+        }
+
+        /// @brief Return the name of the previous mark before INDEX.
+        std::string mark_previous(detail::text_index auto&& index)
+        {
+			return this->tk->call<std::string>(this->_w, "mark", "previous", detail::to_text_index(index));
+        }
+
+        /// @brief Creates a peer text widget with the given newPathName, and any optional standard configuration options.
+        /// 
+        /// By default the peer will have the same start and end line as the parent widget, but these can be overridden with the standard configuration options.
+        void peer_create();
+
+        /// @brief Returns a list of peers of this widget (this does not include the widget itself).
+        std::vector<std::string> peer_names()
+        {
+            return this->tk->call<std::vector<std::string>>(this->_w, "peer", "names");
+        }
+
+        /// @brief Replaces the range of characters between index1 and index2 with the given characters and tags specified by args.
+        /// 
+        /// See the method insert for some more information about args, and the method delete for information about the indices.
+        void replace(detail::text_index auto&& index1, detail::text_index auto&& index2, const std::string& chars, auto&&...args)
+        {
+			this->tk->call(this->_w, "replace", detail::to_text_index(index1), detail::to_text_index(index2), chars, args...);
+        }
+
+        /// @brief Remember the current X, Y coordinates.
+        void scan_mark(long long x, long long y)
+        {
+			this->tk->call(this->_w, "scan", "mark", x, y);
+        }
+
+        /// @brief Adjust the view of the text to 10 times the difference between X and Y and the coordinates given in scan_mark.
+        void scan_dragto(long long x, long long y)
+        {
+			this->tk->call(this->_w, "scan", "dragto", x, y);
+        }
+
+        /// @brief Search PATTERN beginning from INDEX until STOPINDEX.
+        /// 
+        // @returns The index of the first character of a match or an empty string.
+        template<cnfs::is_cnf CNF = cnfs::Text_search>
+        std::string search(CNF&& cnf)
+        {
+            std::vector<_cpptkinter::Tcl_Obj> args{ _cpptkinter::AsObj(this->_w), _cpptkinter::AsObj("search") };
+			if (cnf.forwards) args.emplace_back(_cpptkinter::AsObj("-forwards"));
+			if (cnf.backwards) args.emplace_back(_cpptkinter::AsObj("-backwards"));
+			if (cnf.exact) args.emplace_back(_cpptkinter::AsObj("-exact"));
+			if (cnf.regexp) args.emplace_back(_cpptkinter::AsObj("-regexp"));
+			if (cnf.nocase) args.emplace_back(_cpptkinter::AsObj("-nocase"));
+			if (cnf.elide) args.emplace_back(_cpptkinter::AsObj("-elide"));
+            if (cnf.count.has_value()) { args.emplace_back(_cpptkinter::AsObj("-count"); _cpptkinter::AsObj(cnf.count.value())) };
+			if (cnf.pattern.starts_with('-')) args.emplace_back(_cpptkinter::AsObj("--"));
+			args.emplace_back(_cpptkinter::AsObj(cnf.pattern));
+			args.emplace_back(_cpptkinter::AsObj(cnf.index));
+			if (cnf.stopindex.has_value()) args.emplace_back(_cpptkinter::AsObj(cnf.stopindex.value()));
+			return this->tk->call<std::string>(args);
+        }
+
+        /// @brief Scroll such that the character at INDEX is visible.
+        void see(detail::text_index auto&& index)
+        {
+			this->tk->call(this->_w, "see", detail::to_text_index(index));
+        }
+
+        /// @brief Add tag TAGNAME to all characters between INDEX1 and index2 in ARGS. 
+        /// 
+        /// Additional pairs of indices may follow in ARGS.
+		void tag_add(const std::string& tagName, detail::text_index auto&& index1, detail::text_index auto&&...args)
+        {
+			this->tk->call(this->_w, "tag", "add", tagName, detail::to_text_index(index1), detail::to_text_index(args)...);
+        }
+
+        /// @brief Unbind for all characters with TAGNAME for event SEQUENCE.
+        void tag_unbind(const std::string& tagName, const std::string& sequence)
+        {
+            this->_unbind({ this->_w, "tag", "bind", tagName, sequence });
+        }
+        /// @brief Unbind for all characters with TAGNAME for event SEQUENCE the function identified with FUNCID.
+        void tag_unbind(const std::string& tagName, const std::string& sequence, const std::string& funcid)
+        {
+            this->_unbind({ this->_w, "tag", "bind", tagName, sequence }, funcid);
+        }
+
+        /// @brief 
+        void tag_bind(tagName, sequence, func)
+        {
+
+        }
+        /// @brief 
+        void tag_bind(tagName, sequence, func, add)
+        {
+
         }
 
         /// @brief 
