@@ -131,7 +131,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae6cea27e34bd14702083bd649263c3c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f01eaeed08524ff2978008af3317b70"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcpptkinter_1_1Text.html">Text</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a4f01eaeed08524ff2978008af3317b70">operator=</a> (const <a class="el" href="structcpptkinter_1_1Text.html">Text</a> &amp;other)</td></tr>
 <tr class="separator:a4f01eaeed08524ff2978008af3317b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a551acb5ba7fdb3238a85bac8b17f81"><td class="memItemLeft" align="right" valign="top">std::array&lt; long long, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a8a551acb5ba7fdb3238a85bac8b17f81">bbox</a> (detail::text_index auto &amp;&amp;index)</td></tr>
+<tr class="memitem:a8a551acb5ba7fdb3238a85bac8b17f81"><td class="memItemLeft" align="right" valign="top">std::array&lt; long long, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a8a551acb5ba7fdb3238a85bac8b17f81">bbox</a> (detail::text_index auto &amp;&amp;<a class="el" href="structcpptkinter_1_1Text.html#a9854b89e34d4b2be2102c084eedb1309">index</a>)</td></tr>
 <tr class="memdesc:a8a551acb5ba7fdb3238a85bac8b17f81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a tuple of (x, y, width, height) which gives the bounding box of the visible part of the character at the given index.  <br /></td></tr>
 <tr class="separator:a8a551acb5ba7fdb3238a85bac8b17f81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fe47c4337fdd3b3db518f524d8e47cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a4fe47c4337fdd3b3db518f524d8e47cb">compare</a> (detail::text_index auto &amp;&amp;index1, const std::string &amp;op, detail::text_index auto &amp;&amp;index2)</td></tr>
@@ -147,12 +147,118 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acb5416ed6e78d1034de8b0a5427a6aec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#acb5416ed6e78d1034de8b0a5427a6aec">debug</a> (bool boolean)</td></tr>
 <tr class="memdesc:acb5416ed6e78d1034de8b0a5427a6aec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn on the internal consistency checks of the B-Tree inside the text widget according to BOOLEAN.  <br /></td></tr>
 <tr class="separator:acb5416ed6e78d1034de8b0a5427a6aec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01718031b49f08f47c1f3baf9a3d09fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a01718031b49f08f47c1f3baf9a3d09fd">delete_</a> (detail::text_index auto &amp;&amp;index)</td></tr>
+<tr class="memitem:a01718031b49f08f47c1f3baf9a3d09fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a01718031b49f08f47c1f3baf9a3d09fd">delete_</a> (detail::text_index auto &amp;&amp;<a class="el" href="structcpptkinter_1_1Text.html#a9854b89e34d4b2be2102c084eedb1309">index</a>)</td></tr>
 <tr class="memdesc:a01718031b49f08f47c1f3baf9a3d09fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete the character at INDEX.  <br /></td></tr>
 <tr class="separator:a01718031b49f08f47c1f3baf9a3d09fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a259ba2933ba2fd5face218377d2eb6d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a259ba2933ba2fd5face218377d2eb6d1">delete_</a> (detail::text_index auto &amp;&amp;index1, detail::text_index auto &amp;&amp;index2)</td></tr>
 <tr class="memdesc:a259ba2933ba2fd5face218377d2eb6d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete the characters between INDEX1 and INDEX2 (not included).  <br /></td></tr>
 <tr class="separator:a259ba2933ba2fd5face218377d2eb6d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9684368becd45099ed32820d4e29360f"><td class="memItemLeft" align="right" valign="top">std::array&lt; long long, 5 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a9684368becd45099ed32820d4e29360f">dlineinfo</a> (detail::text_index auto &amp;&amp;inde)</td></tr>
+<tr class="memdesc:a9684368becd45099ed32820d4e29360f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return tuple (x, y, width, height, baseline) giving the bounding box and baseline position of the visible part of the line containing the character at INDEX.  <br /></td></tr>
+<tr class="separator:a9684368becd45099ed32820d4e29360f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b94000a72e6da65f8ef99dee0ec7ebd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a1b94000a72e6da65f8ef99dee0ec7ebd">dump</a> ()</td></tr>
+<tr class="memdesc:a1b94000a72e6da65f8ef99dee0ec7ebd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the contents of the widget between index1 and index2.  <br /></td></tr>
+<tr class="separator:a1b94000a72e6da65f8ef99dee0ec7ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4260de1ba5d274930e8077d4f4927410"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a4260de1ba5d274930e8077d4f4927410">edit</a> (const detail::AsObjConcept auto &amp;...args)</td></tr>
+<tr class="memdesc:a4260de1ba5d274930e8077d4f4927410"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal method.  <br /></td></tr>
+<tr class="separator:a4260de1ba5d274930e8077d4f4927410"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a224e89046dee69ce874450bc9dd594f1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a224e89046dee69ce874450bc9dd594f1">edit_modified</a> ()</td></tr>
+<tr class="memdesc:a224e89046dee69ce874450bc9dd594f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the modified flag.  <br /></td></tr>
+<tr class="separator:a224e89046dee69ce874450bc9dd594f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad47e2228cb1571dda9478d0f598727ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#ad47e2228cb1571dda9478d0f598727ee">edit_modified</a> (bool arg)</td></tr>
+<tr class="memdesc:ad47e2228cb1571dda9478d0f598727ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the modified flag.  <br /></td></tr>
+<tr class="separator:ad47e2228cb1571dda9478d0f598727ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63e15f248dde22379ec7c47c302549f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a63e15f248dde22379ec7c47c302549f4">edit_redo</a> ()</td></tr>
+<tr class="memdesc:a63e15f248dde22379ec7c47c302549f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Redo the last undone edit.  <br /></td></tr>
+<tr class="separator:a63e15f248dde22379ec7c47c302549f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d2c4f22b7c0a6dfcfdc3e0f41eb6290"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a4d2c4f22b7c0a6dfcfdc3e0f41eb6290">edit_reset</a> ()</td></tr>
+<tr class="memdesc:a4d2c4f22b7c0a6dfcfdc3e0f41eb6290"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the undo and redo stacks.  <br /></td></tr>
+<tr class="separator:a4d2c4f22b7c0a6dfcfdc3e0f41eb6290"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93188a938ae0b1c517c8d3dd5b37d84b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a93188a938ae0b1c517c8d3dd5b37d84b">edit_separator</a> ()</td></tr>
+<tr class="memdesc:a93188a938ae0b1c517c8d3dd5b37d84b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts a separator (boundary) on the undo stack.  <br /></td></tr>
+<tr class="separator:a93188a938ae0b1c517c8d3dd5b37d84b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c9716055b0bd488a7c68d5c9e17d0a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a7c9716055b0bd488a7c68d5c9e17d0a7">edit_undo</a> ()</td></tr>
+<tr class="memdesc:a7c9716055b0bd488a7c68d5c9e17d0a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Undoes the last edit action if the undo option is true.  <br /></td></tr>
+<tr class="separator:a7c9716055b0bd488a7c68d5c9e17d0a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacb63195ffaa6dbfa9ada99dbc4e02c1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#aacb63195ffaa6dbfa9ada99dbc4e02c1">get</a> (detail::text_index auto &amp;&amp;<a class="el" href="structcpptkinter_1_1Text.html#a9854b89e34d4b2be2102c084eedb1309">index</a>)</td></tr>
+<tr class="memdesc:aacb63195ffaa6dbfa9ada99dbc4e02c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the text at INDEX.  <br /></td></tr>
+<tr class="separator:aacb63195ffaa6dbfa9ada99dbc4e02c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4750c51b3472537d468da23128f111b0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a4750c51b3472537d468da23128f111b0">get</a> (detail::text_index auto &amp;&amp;index1, detail::text_index auto &amp;&amp;index2)</td></tr>
+<tr class="memdesc:a4750c51b3472537d468da23128f111b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the text from INDEX1 to INDEX2 (not included).  <br /></td></tr>
+<tr class="separator:a4750c51b3472537d468da23128f111b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad863b7058ec3529080b321875af690a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#ad863b7058ec3529080b321875af690a1">image_cget</a> ()</td></tr>
+<tr class="memdesc:ad863b7058ec3529080b321875af690a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the value of OPTION of an embedded image at INDEX.  <br /></td></tr>
+<tr class="separator:ad863b7058ec3529080b321875af690a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2933ea82056e238298c4c0fc9007aee4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a2933ea82056e238298c4c0fc9007aee4">image_configure</a> ()</td></tr>
+<tr class="memdesc:a2933ea82056e238298c4c0fc9007aee4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure an embedded image at INDEX.  <br /></td></tr>
+<tr class="separator:a2933ea82056e238298c4c0fc9007aee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e542a671ae9684b2119993cb1e2d29d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a5e542a671ae9684b2119993cb1e2d29d">image_create</a> ()</td></tr>
+<tr class="memdesc:a5e542a671ae9684b2119993cb1e2d29d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an embedded image at INDEX.  <br /></td></tr>
+<tr class="separator:a5e542a671ae9684b2119993cb1e2d29d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a8ee9e0de3a493a6d993ed67312f765"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a8a8ee9e0de3a493a6d993ed67312f765">image_names</a> ()</td></tr>
+<tr class="memdesc:a8a8ee9e0de3a493a6d993ed67312f765"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return all names of embedded images in this widget.  <br /></td></tr>
+<tr class="separator:a8a8ee9e0de3a493a6d993ed67312f765"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9854b89e34d4b2be2102c084eedb1309"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a9854b89e34d4b2be2102c084eedb1309">index</a> (detail::text_index auto &amp;&amp;index)</td></tr>
+<tr class="memdesc:a9854b89e34d4b2be2102c084eedb1309"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the index in the form line.char for INDEX.  <br /></td></tr>
+<tr class="separator:a9854b89e34d4b2be2102c084eedb1309"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ce3fedefd13bed585677c105c406d1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a0ce3fedefd13bed585677c105c406d1f">insert</a> (detail::text_index auto &amp;&amp;<a class="el" href="structcpptkinter_1_1Text.html#a9854b89e34d4b2be2102c084eedb1309">index</a>, const std::string &amp;chars, auto &amp;&amp;...args)</td></tr>
+<tr class="memdesc:a0ce3fedefd13bed585677c105c406d1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert CHARS before the characters at INDEX. An additional tag can be given in ARGS. Additional CHARS and tags can follow in ARGS.  <br /></td></tr>
+<tr class="separator:a0ce3fedefd13bed585677c105c406d1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a700a5bae49045d79617e8b2cc8add81f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a700a5bae49045d79617e8b2cc8add81f">mark_gravity</a> (const std::string &amp;markName)</td></tr>
+<tr class="memdesc:a700a5bae49045d79617e8b2cc8add81f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the gravity of a mark MARKNAME.  <br /></td></tr>
+<tr class="separator:a700a5bae49045d79617e8b2cc8add81f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a088b6c26998e4d12f74450f83a2fd9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a0a088b6c26998e4d12f74450f83a2fd9">mark_gravity</a> (const std::string &amp;markName, const std::string &amp;direction)</td></tr>
+<tr class="memdesc:a0a088b6c26998e4d12f74450f83a2fd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the gravity of a mark MARKNAME to DIRECTION (LEFT or RIGHT).  <br /></td></tr>
+<tr class="separator:a0a088b6c26998e4d12f74450f83a2fd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa03e82948b7bdca77723f0e356e9aad1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#aa03e82948b7bdca77723f0e356e9aad1">mark_names</a> ()</td></tr>
+<tr class="memdesc:aa03e82948b7bdca77723f0e356e9aad1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return all mark names.  <br /></td></tr>
+<tr class="separator:aa03e82948b7bdca77723f0e356e9aad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a499967e228f791fa0b36bf4f2923d562"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a499967e228f791fa0b36bf4f2923d562">mark_set</a> (const std::string &amp;markName, detail::text_index auto &amp;&amp;<a class="el" href="structcpptkinter_1_1Text.html#a9854b89e34d4b2be2102c084eedb1309">index</a>)</td></tr>
+<tr class="memdesc:a499967e228f791fa0b36bf4f2923d562"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set mark MARKNAME before the character at INDEX.  <br /></td></tr>
+<tr class="separator:a499967e228f791fa0b36bf4f2923d562"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4115dfc7743fd1ec1ee5c1f848c6d80b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a4115dfc7743fd1ec1ee5c1f848c6d80b">mark_unset</a> (std::convertible_to&lt; std::string &gt; auto &amp;&amp;...markNames)</td></tr>
+<tr class="separator:a4115dfc7743fd1ec1ee5c1f848c6d80b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af34607ca82de7303e470e643e1a7bca0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#af34607ca82de7303e470e643e1a7bca0">mark_next</a> (detail::text_index auto &amp;&amp;<a class="el" href="structcpptkinter_1_1Text.html#a9854b89e34d4b2be2102c084eedb1309">index</a>)</td></tr>
+<tr class="memdesc:af34607ca82de7303e470e643e1a7bca0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the name of the next mark after INDEX.  <br /></td></tr>
+<tr class="separator:af34607ca82de7303e470e643e1a7bca0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fc9d6ee00c2e365e1083063beb7dfd6"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a7fc9d6ee00c2e365e1083063beb7dfd6">mark_previous</a> (detail::text_index auto &amp;&amp;<a class="el" href="structcpptkinter_1_1Text.html#a9854b89e34d4b2be2102c084eedb1309">index</a>)</td></tr>
+<tr class="memdesc:a7fc9d6ee00c2e365e1083063beb7dfd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the name of the previous mark before INDEX.  <br /></td></tr>
+<tr class="separator:a7fc9d6ee00c2e365e1083063beb7dfd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae653517c27cca49e4347af2d887d56d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#ae653517c27cca49e4347af2d887d56d1">peer_create</a> ()</td></tr>
+<tr class="memdesc:ae653517c27cca49e4347af2d887d56d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a peer text widget with the given newPathName, and any optional standard configuration options.  <br /></td></tr>
+<tr class="separator:ae653517c27cca49e4347af2d887d56d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61eae26f83b096ab157804bcd02382e0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a61eae26f83b096ab157804bcd02382e0">peer_names</a> ()</td></tr>
+<tr class="memdesc:a61eae26f83b096ab157804bcd02382e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of peers of this widget (this does not include the widget itself).  <br /></td></tr>
+<tr class="separator:a61eae26f83b096ab157804bcd02382e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55e73b7c7c0515b309117f53fff09fe9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a55e73b7c7c0515b309117f53fff09fe9">replace</a> (detail::text_index auto &amp;&amp;index1, detail::text_index auto &amp;&amp;index2, const std::string &amp;chars, auto &amp;&amp;...args)</td></tr>
+<tr class="memdesc:a55e73b7c7c0515b309117f53fff09fe9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the range of characters between index1 and index2 with the given characters and tags specified by args.  <br /></td></tr>
+<tr class="separator:a55e73b7c7c0515b309117f53fff09fe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9da8fbb0d8d352dfcb4a8b9fa48c006a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a9da8fbb0d8d352dfcb4a8b9fa48c006a">scan_mark</a> (long long x, long long y)</td></tr>
+<tr class="memdesc:a9da8fbb0d8d352dfcb4a8b9fa48c006a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remember the current X, Y coordinates.  <br /></td></tr>
+<tr class="separator:a9da8fbb0d8d352dfcb4a8b9fa48c006a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9714c0103e1848a7f437fc34070c21d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#ad9714c0103e1848a7f437fc34070c21d">scan_dragto</a> (long long x, long long y)</td></tr>
+<tr class="memdesc:ad9714c0103e1848a7f437fc34070c21d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjust the view of the text to 10 times the difference between X and Y and the coordinates given in scan_mark.  <br /></td></tr>
+<tr class="separator:ad9714c0103e1848a7f437fc34070c21d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae87f98fb8e8535d09e34b4a5b27e7e6b"><td class="memTemplParams" colspan="2">template&lt;cnfs::is_cnf CNF = cnfs::Text_search&gt; </td></tr>
+<tr class="memitem:ae87f98fb8e8535d09e34b4a5b27e7e6b"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#ae87f98fb8e8535d09e34b4a5b27e7e6b">search</a> (CNF &amp;&amp;cnf)</td></tr>
+<tr class="memdesc:ae87f98fb8e8535d09e34b4a5b27e7e6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search PATTERN beginning from INDEX until STOPINDEX.  <br /></td></tr>
+<tr class="separator:ae87f98fb8e8535d09e34b4a5b27e7e6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae72da9990f783919f3ff588ce580b2b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#ae72da9990f783919f3ff588ce580b2b5">see</a> (detail::text_index auto &amp;&amp;<a class="el" href="structcpptkinter_1_1Text.html#a9854b89e34d4b2be2102c084eedb1309">index</a>)</td></tr>
+<tr class="memdesc:ae72da9990f783919f3ff588ce580b2b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scroll such that the character at INDEX is visible.  <br /></td></tr>
+<tr class="separator:ae72da9990f783919f3ff588ce580b2b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a94e844cd8396b43b7f4574042d5b4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a6a94e844cd8396b43b7f4574042d5b4a">tag_add</a> (const std::string &amp;tagName, detail::text_index auto &amp;&amp;index1, detail::text_index auto &amp;&amp;...args)</td></tr>
+<tr class="memdesc:a6a94e844cd8396b43b7f4574042d5b4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add tag TAGNAME to all characters between INDEX1 and index2 in ARGS.  <br /></td></tr>
+<tr class="separator:a6a94e844cd8396b43b7f4574042d5b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9dd1c94c6a2921c4588bf6537265606"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#ad9dd1c94c6a2921c4588bf6537265606">tag_unbind</a> (const std::string &amp;tagName, const std::string &amp;sequence)</td></tr>
+<tr class="memdesc:ad9dd1c94c6a2921c4588bf6537265606"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unbind for all characters with TAGNAME for event SEQUENCE.  <br /></td></tr>
+<tr class="separator:ad9dd1c94c6a2921c4588bf6537265606"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa46713630d474087ab196f9aea97fd7c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#aa46713630d474087ab196f9aea97fd7c">tag_unbind</a> (const std::string &amp;tagName, const std::string &amp;sequence, const std::string &amp;funcid)</td></tr>
+<tr class="memdesc:aa46713630d474087ab196f9aea97fd7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unbind for all characters with TAGNAME for event SEQUENCE the function identified with FUNCID.  <br /></td></tr>
+<tr class="separator:aa46713630d474087ab196f9aea97fd7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a204f032fe462baa0e89230ee2e354450"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a204f032fe462baa0e89230ee2e354450">tag_bind</a> (tagName, sequence, func)</td></tr>
+<tr class="separator:a204f032fe462baa0e89230ee2e354450"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee970e837672ece6eba86d269bea9e72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#aee970e837672ece6eba86d269bea9e72">tag_bind</a> (tagName, sequence, func, add)</td></tr>
+<tr class="separator:aee970e837672ece6eba86d269bea9e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a295d92c8e64f45821a9a592abcf0e6b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a295d92c8e64f45821a9a592abcf0e6b5">___</a> ()</td></tr>
 <tr class="separator:a295d92c8e64f45821a9a592abcf0e6b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_structcpptkinter_1_1Widget"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_structcpptkinter_1_1Widget')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="structcpptkinter_1_1Widget.html">cpptkinter::Widget</a></td></tr>
@@ -852,6 +958,679 @@ template&lt;std::convertible_to&lt; std::string &gt;... Args&gt; </div>
 
 </div>
 </div>
+<a id="a9684368becd45099ed32820d4e29360f" name="a9684368becd45099ed32820d4e29360f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9684368becd45099ed32820d4e29360f">&#9670;&#160;</a></span>dlineinfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::array&lt; long long, 5 &gt; cpptkinter::Text::dlineinfo </td>
+          <td>(</td>
+          <td class="paramtype">detail::text_index auto &amp;&amp;&#160;</td>
+          <td class="paramname"><em>inde</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return tuple (x, y, width, height, baseline) giving the bounding box and baseline position of the visible part of the line containing the character at INDEX. </p>
+
+</div>
+</div>
+<a id="a1b94000a72e6da65f8ef99dee0ec7ebd" name="a1b94000a72e6da65f8ef99dee0ec7ebd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b94000a72e6da65f8ef99dee0ec7ebd">&#9670;&#160;</a></span>dump()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Text::dump </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the contents of the widget between index1 and index2. </p>
+<p>The type of contents returned in filtered based on the keyword parameters; if 'all', 'image', 'mark', 'tag', 'text', or 'window' are given and true, then the corresponding items are returned. The result is a list of triples of the form(key, value, index).If none of the keywords are true then 'all' is used by default.</p>
+<p>If the 'command' argument is given, it is called once for each element of the list of triples, with the values of each triple serving as the arguments to the function. In this case the list is not returned. </p>
+
+</div>
+</div>
+<a id="a4260de1ba5d274930e8077d4f4927410" name="a4260de1ba5d274930e8077d4f4927410"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4260de1ba5d274930e8077d4f4927410">&#9670;&#160;</a></span>edit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Text::edit </td>
+          <td>(</td>
+          <td class="paramtype">const detail::AsObjConcept auto &amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Internal method. </p>
+<p>This method controls the undo mechanism and the modified flag. The exact behavior of the command depends on the option argument that follows the edit argument. The following forms of the command are currently supported: edit_modified, edit_redo, edit_reset, edit_separator and edit_undo </p>
+
+</div>
+</div>
+<a id="a224e89046dee69ce874450bc9dd594f1" name="a224e89046dee69ce874450bc9dd594f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a224e89046dee69ce874450bc9dd594f1">&#9670;&#160;</a></span>edit_modified() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cpptkinter::Text::edit_modified </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the modified flag. </p>
+<p>The insert, delete, edit undo and edit redo commands or the user can set or clear the modified flag. </p><dl class="section return"><dt>Returns</dt><dd>The modified flag of the widget. </dd></dl>
+
+</div>
+</div>
+<a id="ad47e2228cb1571dda9478d0f598727ee" name="ad47e2228cb1571dda9478d0f598727ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad47e2228cb1571dda9478d0f598727ee">&#9670;&#160;</a></span>edit_modified() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Text::edit_modified </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>arg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the modified flag. </p>
+<p>Sets the modified flag of the widget to arg. The insert, delete, edit undo and edit redo commands or the user can set or clear the modified flag. </p>
+
+</div>
+</div>
+<a id="a63e15f248dde22379ec7c47c302549f4" name="a63e15f248dde22379ec7c47c302549f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63e15f248dde22379ec7c47c302549f4">&#9670;&#160;</a></span>edit_redo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Text::edit_redo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Redo the last undone edit. </p>
+<p>When the undo option is true, reapplies the last undone edits provided no other edits were done since then. Generates an error when the redo stack is empty. Does nothing when the undo option is false. </p>
+
+</div>
+</div>
+<a id="a4d2c4f22b7c0a6dfcfdc3e0f41eb6290" name="a4d2c4f22b7c0a6dfcfdc3e0f41eb6290"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d2c4f22b7c0a6dfcfdc3e0f41eb6290">&#9670;&#160;</a></span>edit_reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Text::edit_reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Clears the undo and redo stacks. </p>
+
+</div>
+</div>
+<a id="a93188a938ae0b1c517c8d3dd5b37d84b" name="a93188a938ae0b1c517c8d3dd5b37d84b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93188a938ae0b1c517c8d3dd5b37d84b">&#9670;&#160;</a></span>edit_separator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Text::edit_separator </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Inserts a separator (boundary) on the undo stack. </p>
+<p>Does nothing when the undo option is false. </p>
+
+</div>
+</div>
+<a id="a7c9716055b0bd488a7c68d5c9e17d0a7" name="a7c9716055b0bd488a7c68d5c9e17d0a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c9716055b0bd488a7c68d5c9e17d0a7">&#9670;&#160;</a></span>edit_undo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Text::edit_undo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Undoes the last edit action if the undo option is true. </p>
+<p>An edit action is defined as all the insert and delete commands that are recorded on the undo stack in between two separators. Generates an error when the undo stack is empty. Does nothing when the undo option is false </p>
+
+</div>
+</div>
+<a id="aacb63195ffaa6dbfa9ada99dbc4e02c1" name="aacb63195ffaa6dbfa9ada99dbc4e02c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacb63195ffaa6dbfa9ada99dbc4e02c1">&#9670;&#160;</a></span>get() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string cpptkinter::Text::get </td>
+          <td>(</td>
+          <td class="paramtype">detail::text_index auto &amp;&amp;&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the text at INDEX. </p>
+
+</div>
+</div>
+<a id="a4750c51b3472537d468da23128f111b0" name="a4750c51b3472537d468da23128f111b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4750c51b3472537d468da23128f111b0">&#9670;&#160;</a></span>get() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string cpptkinter::Text::get </td>
+          <td>(</td>
+          <td class="paramtype">detail::text_index auto &amp;&amp;&#160;</td>
+          <td class="paramname"><em>index1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">detail::text_index auto &amp;&amp;&#160;</td>
+          <td class="paramname"><em>index2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the text from INDEX1 to INDEX2 (not included). </p>
+
+</div>
+</div>
+<a id="ad863b7058ec3529080b321875af690a1" name="ad863b7058ec3529080b321875af690a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad863b7058ec3529080b321875af690a1">&#9670;&#160;</a></span>image_cget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Text::image_cget </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the value of OPTION of an embedded image at INDEX. </p>
+
+</div>
+</div>
+<a id="a2933ea82056e238298c4c0fc9007aee4" name="a2933ea82056e238298c4c0fc9007aee4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2933ea82056e238298c4c0fc9007aee4">&#9670;&#160;</a></span>image_configure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Text::image_configure </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Configure an embedded image at INDEX. </p>
+
+</div>
+</div>
+<a id="a5e542a671ae9684b2119993cb1e2d29d" name="a5e542a671ae9684b2119993cb1e2d29d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e542a671ae9684b2119993cb1e2d29d">&#9670;&#160;</a></span>image_create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Text::image_create </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create an embedded image at INDEX. </p>
+
+</div>
+</div>
+<a id="a8a8ee9e0de3a493a6d993ed67312f765" name="a8a8ee9e0de3a493a6d993ed67312f765"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a8ee9e0de3a493a6d993ed67312f765">&#9670;&#160;</a></span>image_names()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Text::image_names </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return all names of embedded images in this widget. </p>
+
+</div>
+</div>
+<a id="a9854b89e34d4b2be2102c084eedb1309" name="a9854b89e34d4b2be2102c084eedb1309"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9854b89e34d4b2be2102c084eedb1309">&#9670;&#160;</a></span>index()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string cpptkinter::Text::index </td>
+          <td>(</td>
+          <td class="paramtype">detail::text_index auto &amp;&amp;&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the index in the form line.char for INDEX. </p>
+
+</div>
+</div>
+<a id="a0ce3fedefd13bed585677c105c406d1f" name="a0ce3fedefd13bed585677c105c406d1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ce3fedefd13bed585677c105c406d1f">&#9670;&#160;</a></span>insert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Text::insert </td>
+          <td>(</td>
+          <td class="paramtype">detail::text_index auto &amp;&amp;&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>chars</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">auto &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Insert CHARS before the characters at INDEX. An additional tag can be given in ARGS. Additional CHARS and tags can follow in ARGS. </p>
+
+</div>
+</div>
+<a id="a700a5bae49045d79617e8b2cc8add81f" name="a700a5bae49045d79617e8b2cc8add81f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a700a5bae49045d79617e8b2cc8add81f">&#9670;&#160;</a></span>mark_gravity() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string cpptkinter::Text::mark_gravity </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>markName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the gravity of a mark MARKNAME. </p>
+
+</div>
+</div>
+<a id="a0a088b6c26998e4d12f74450f83a2fd9" name="a0a088b6c26998e4d12f74450f83a2fd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a088b6c26998e4d12f74450f83a2fd9">&#9670;&#160;</a></span>mark_gravity() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Text::mark_gravity </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>markName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>direction</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Change the gravity of a mark MARKNAME to DIRECTION (LEFT or RIGHT). </p>
+
+</div>
+</div>
+<a id="aa03e82948b7bdca77723f0e356e9aad1" name="aa03e82948b7bdca77723f0e356e9aad1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa03e82948b7bdca77723f0e356e9aad1">&#9670;&#160;</a></span>mark_names()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; cpptkinter::Text::mark_names </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return all mark names. </p>
+
+</div>
+</div>
+<a id="af34607ca82de7303e470e643e1a7bca0" name="af34607ca82de7303e470e643e1a7bca0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af34607ca82de7303e470e643e1a7bca0">&#9670;&#160;</a></span>mark_next()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string cpptkinter::Text::mark_next </td>
+          <td>(</td>
+          <td class="paramtype">detail::text_index auto &amp;&amp;&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the name of the next mark after INDEX. </p>
+
+</div>
+</div>
+<a id="a7fc9d6ee00c2e365e1083063beb7dfd6" name="a7fc9d6ee00c2e365e1083063beb7dfd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fc9d6ee00c2e365e1083063beb7dfd6">&#9670;&#160;</a></span>mark_previous()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string cpptkinter::Text::mark_previous </td>
+          <td>(</td>
+          <td class="paramtype">detail::text_index auto &amp;&amp;&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the name of the previous mark before INDEX. </p>
+
+</div>
+</div>
+<a id="a499967e228f791fa0b36bf4f2923d562" name="a499967e228f791fa0b36bf4f2923d562"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a499967e228f791fa0b36bf4f2923d562">&#9670;&#160;</a></span>mark_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Text::mark_set </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>markName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">detail::text_index auto &amp;&amp;&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set mark MARKNAME before the character at INDEX. </p>
+
+</div>
+</div>
+<a id="a4115dfc7743fd1ec1ee5c1f848c6d80b" name="a4115dfc7743fd1ec1ee5c1f848c6d80b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4115dfc7743fd1ec1ee5c1f848c6d80b">&#9670;&#160;</a></span>mark_unset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Text::mark_unset </td>
+          <td>(</td>
+          <td class="paramtype">std::convertible_to&lt; std::string &gt; auto &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>markNames</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a4f01eaeed08524ff2978008af3317b70" name="a4f01eaeed08524ff2978008af3317b70"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4f01eaeed08524ff2978008af3317b70">&#9670;&#160;</a></span>operator=()</h2>
 
@@ -875,6 +1654,455 @@ template&lt;std::convertible_to&lt; std::string &gt;... Args&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae653517c27cca49e4347af2d887d56d1" name="ae653517c27cca49e4347af2d887d56d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae653517c27cca49e4347af2d887d56d1">&#9670;&#160;</a></span>peer_create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Text::peer_create </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a peer text widget with the given newPathName, and any optional standard configuration options. </p>
+<p>By default the peer will have the same start and end line as the parent widget, but these can be overridden with the standard configuration options. </p>
+
+</div>
+</div>
+<a id="a61eae26f83b096ab157804bcd02382e0" name="a61eae26f83b096ab157804bcd02382e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61eae26f83b096ab157804bcd02382e0">&#9670;&#160;</a></span>peer_names()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; cpptkinter::Text::peer_names </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a list of peers of this widget (this does not include the widget itself). </p>
+
+</div>
+</div>
+<a id="a55e73b7c7c0515b309117f53fff09fe9" name="a55e73b7c7c0515b309117f53fff09fe9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55e73b7c7c0515b309117f53fff09fe9">&#9670;&#160;</a></span>replace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Text::replace </td>
+          <td>(</td>
+          <td class="paramtype">detail::text_index auto &amp;&amp;&#160;</td>
+          <td class="paramname"><em>index1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">detail::text_index auto &amp;&amp;&#160;</td>
+          <td class="paramname"><em>index2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>chars</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">auto &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Replaces the range of characters between index1 and index2 with the given characters and tags specified by args. </p>
+<p>See the method insert for some more information about args, and the method delete for information about the indices. </p>
+
+</div>
+</div>
+<a id="ad9714c0103e1848a7f437fc34070c21d" name="ad9714c0103e1848a7f437fc34070c21d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9714c0103e1848a7f437fc34070c21d">&#9670;&#160;</a></span>scan_dragto()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Text::scan_dragto </td>
+          <td>(</td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adjust the view of the text to 10 times the difference between X and Y and the coordinates given in scan_mark. </p>
+
+</div>
+</div>
+<a id="a9da8fbb0d8d352dfcb4a8b9fa48c006a" name="a9da8fbb0d8d352dfcb4a8b9fa48c006a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9da8fbb0d8d352dfcb4a8b9fa48c006a">&#9670;&#160;</a></span>scan_mark()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Text::scan_mark </td>
+          <td>(</td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Remember the current X, Y coordinates. </p>
+
+</div>
+</div>
+<a id="ae87f98fb8e8535d09e34b4a5b27e7e6b" name="ae87f98fb8e8535d09e34b4a5b27e7e6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae87f98fb8e8535d09e34b4a5b27e7e6b">&#9670;&#160;</a></span>search()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;cnfs::is_cnf CNF = cnfs::Text_search&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string cpptkinter::Text::search </td>
+          <td>(</td>
+          <td class="paramtype">CNF &amp;&amp;&#160;</td>
+          <td class="paramname"><em>cnf</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Search PATTERN beginning from INDEX until STOPINDEX. </p>
+
+</div>
+</div>
+<a id="ae72da9990f783919f3ff588ce580b2b5" name="ae72da9990f783919f3ff588ce580b2b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae72da9990f783919f3ff588ce580b2b5">&#9670;&#160;</a></span>see()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Text::see </td>
+          <td>(</td>
+          <td class="paramtype">detail::text_index auto &amp;&amp;&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Scroll such that the character at INDEX is visible. </p>
+
+</div>
+</div>
+<a id="a6a94e844cd8396b43b7f4574042d5b4a" name="a6a94e844cd8396b43b7f4574042d5b4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a94e844cd8396b43b7f4574042d5b4a">&#9670;&#160;</a></span>tag_add()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Text::tag_add </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tagName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">detail::text_index auto &amp;&amp;&#160;</td>
+          <td class="paramname"><em>index1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">detail::text_index auto &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Add tag TAGNAME to all characters between INDEX1 and index2 in ARGS. </p>
+<p>Additional pairs of indices may follow in ARGS. </p>
+
+</div>
+</div>
+<a id="a204f032fe462baa0e89230ee2e354450" name="a204f032fe462baa0e89230ee2e354450"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a204f032fe462baa0e89230ee2e354450">&#9670;&#160;</a></span>tag_bind() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Text::tag_bind </td>
+          <td>(</td>
+          <td class="paramtype">tagName&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sequence&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">func&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aee970e837672ece6eba86d269bea9e72" name="aee970e837672ece6eba86d269bea9e72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee970e837672ece6eba86d269bea9e72">&#9670;&#160;</a></span>tag_bind() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Text::tag_bind </td>
+          <td>(</td>
+          <td class="paramtype">tagName&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sequence&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">func&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">add&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad9dd1c94c6a2921c4588bf6537265606" name="ad9dd1c94c6a2921c4588bf6537265606"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9dd1c94c6a2921c4588bf6537265606">&#9670;&#160;</a></span>tag_unbind() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Text::tag_unbind </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tagName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>sequence</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Unbind for all characters with TAGNAME for event SEQUENCE. </p>
+
+</div>
+</div>
+<a id="aa46713630d474087ab196f9aea97fd7c" name="aa46713630d474087ab196f9aea97fd7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa46713630d474087ab196f9aea97fd7c">&#9670;&#160;</a></span>tag_unbind() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cpptkinter::Text::tag_unbind </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>tagName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>sequence</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>funcid</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Unbind for all characters with TAGNAME for event SEQUENCE the function identified with FUNCID. </p>
 
 </div>
 </div>

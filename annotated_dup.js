@@ -53,6 +53,7 @@ var annotated_dup =
         [ "Scrollbar", "structcpptkinter_1_1cnfs_1_1Scrollbar.html", "structcpptkinter_1_1cnfs_1_1Scrollbar" ],
         [ "Spinbox", "structcpptkinter_1_1cnfs_1_1Spinbox.html", "structcpptkinter_1_1cnfs_1_1Spinbox" ],
         [ "Text", "structcpptkinter_1_1cnfs_1_1Text.html", "structcpptkinter_1_1cnfs_1_1Text" ],
+        [ "Text_search", "structcpptkinter_1_1cnfs_1_1Text__search.html", "structcpptkinter_1_1cnfs_1_1Text__search" ],
         [ "Toplevel", "structcpptkinter_1_1cnfs_1_1Toplevel.html", "structcpptkinter_1_1cnfs_1_1Toplevel" ],
         [ "Variable", "structcpptkinter_1_1cnfs_1_1Variable.html", "structcpptkinter_1_1cnfs_1_1Variable" ]
       ] ],

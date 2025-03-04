@@ -114,6 +114,7 @@ var hierarchy =
       [ "cpptkinter::_cpptkinter::tk_window_type", "structcpptkinter_1_1__cpptkinter_1_1tk__window__type.html", null ]
     ] ],
     [ "cpptkinter::cnfs::Text", "structcpptkinter_1_1cnfs_1_1Text.html", null ],
+    [ "cpptkinter::cnfs::Text_search", "structcpptkinter_1_1cnfs_1_1Text__search.html", null ],
     [ "cpptkinter::_cpptkinter::TkappObject", "structcpptkinter_1_1__cpptkinter_1_1TkappObject.html", null ],
     [ "cpptkinter::cnfs::Toplevel", "structcpptkinter_1_1cnfs_1_1Toplevel.html", null ],
     [ "std::true_type", null, [

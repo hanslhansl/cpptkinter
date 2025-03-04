@@ -6,13 +6,14 @@ var searchData=
   ['ne_3',['NE',['../namespacecpptkinter_1_1constants.html#a60981ceaed22ffac07123a73c319479f',1,'cpptkinter::constants']]],
   ['nearest_4',['nearest',['../structcpptkinter_1_1Listbox.html#a5d83cde2f73c695ceb8e14e8e34f316c',1,'cpptkinter::Listbox']]],
   ['no_5',['NO',['../namespacecpptkinter_1_1constants.html#a2d9630e13af5849756cee2f02de8edb8',1,'cpptkinter::constants']]],
-  ['noexpose_6',['NoExpose',['../namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73faeebbcba535a5d939cc1c3910afc391c1',1,'cpptkinter']]],
-  ['none_7',['NONE',['../namespacecpptkinter_1_1constants.html#aa8cfc11d7fbfec98bee29bfaffb2b9a5',1,'cpptkinter::constants']]],
-  ['normal_8',['NORMAL',['../namespacecpptkinter_1_1constants.html#ac90df0c200591b1a59aced56ed4c0c8e',1,'cpptkinter::constants']]],
-  ['not_5fimplemented_5ferror_9',['NOT_IMPLEMENTED_ERROR',['../global_8hpp.html#ad35291fcc3be0ae39a6d67259dadfe98',1,'global.hpp']]],
-  ['ns_10',['NS',['../namespacecpptkinter_1_1constants.html#ae0c15f86d580bb867e6071b882dd5bdd',1,'cpptkinter::constants']]],
-  ['nsew_11',['NSEW',['../namespacecpptkinter_1_1constants.html#a1cfd8e67c32f076730cdb2f8df8a348f',1,'cpptkinter::constants']]],
-  ['num_12',['num',['../structcpptkinter_1_1Event.html#a6ddaccb1eb5f533327665ec97a5efb24',1,'cpptkinter::Event']]],
-  ['numeric_13',['NUMERIC',['../namespacecpptkinter_1_1constants.html#aed8b982509c8f79e1ae689fde8c3db58',1,'cpptkinter::constants']]],
-  ['nw_14',['NW',['../namespacecpptkinter_1_1constants.html#a8c1ef7edadf63384e4ef75e8e177d558',1,'cpptkinter::constants']]]
+  ['nocase_6',['nocase',['../structcpptkinter_1_1cnfs_1_1Text__search.html#a5a4f892017db0edc69d8ee5d54df03ed',1,'cpptkinter::cnfs::Text_search']]],
+  ['noexpose_7',['NoExpose',['../namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73faeebbcba535a5d939cc1c3910afc391c1',1,'cpptkinter']]],
+  ['none_8',['NONE',['../namespacecpptkinter_1_1constants.html#aa8cfc11d7fbfec98bee29bfaffb2b9a5',1,'cpptkinter::constants']]],
+  ['normal_9',['NORMAL',['../namespacecpptkinter_1_1constants.html#ac90df0c200591b1a59aced56ed4c0c8e',1,'cpptkinter::constants']]],
+  ['not_5fimplemented_5ferror_10',['NOT_IMPLEMENTED_ERROR',['../global_8hpp.html#ad35291fcc3be0ae39a6d67259dadfe98',1,'global.hpp']]],
+  ['ns_11',['NS',['../namespacecpptkinter_1_1constants.html#ae0c15f86d580bb867e6071b882dd5bdd',1,'cpptkinter::constants']]],
+  ['nsew_12',['NSEW',['../namespacecpptkinter_1_1constants.html#a1cfd8e67c32f076730cdb2f8df8a348f',1,'cpptkinter::constants']]],
+  ['num_13',['num',['../structcpptkinter_1_1Event.html#a6ddaccb1eb5f533327665ec97a5efb24',1,'cpptkinter::Event']]],
+  ['numeric_14',['NUMERIC',['../namespacecpptkinter_1_1constants.html#aed8b982509c8f79e1ae689fde8c3db58',1,'cpptkinter::constants']]],
+  ['nw_15',['NW',['../namespacecpptkinter_1_1constants.html#a8c1ef7edadf63384e4ef75e8e177d558',1,'cpptkinter::constants']]]
 ];

@@ -39,7 +39,7 @@ var structcpptkinter_1_1cnfs_1_1Text =
     [ "spacing3", "structcpptkinter_1_1cnfs_1_1Text.html#a49e381ad7b94f7989943f7c4d8281ef7", null ],
     [ "startline", "structcpptkinter_1_1cnfs_1_1Text.html#a676987eabf606f4aadd6b6b575bafa72", null ],
     [ "state", "structcpptkinter_1_1cnfs_1_1Text.html#accd52499ef66f38525e950a645a6daf1", null ],
-    [ "tabs", "structcpptkinter_1_1cnfs_1_1Text.html#a2d0e9c9c0143b23101db8873f6491394", null ],
+    [ "tabs", "structcpptkinter_1_1cnfs_1_1Text.html#a3664c7a846f9ff82c63c33ec7a5b7093", null ],
     [ "tabstyle", "structcpptkinter_1_1cnfs_1_1Text.html#a5909becb1cc061f0255282e22e013cf6", null ],
     [ "takefocus", "structcpptkinter_1_1cnfs_1_1Text.html#a018abe6dd9848d0d0f7a3a5684982981", null ],
     [ "undo", "structcpptkinter_1_1cnfs_1_1Text.html#a48c6ef5730353cf6d1ae66bed5b68978", null ],
