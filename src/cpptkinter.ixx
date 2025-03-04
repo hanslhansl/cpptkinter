@@ -1120,7 +1120,7 @@ export namespace cpptkinter
         /// @brief Internal function.
         /// 
 		/// Implements the first if statement.
-        void _bind(std::vector<std::string>&& what, const std::string& sequence, const std::string& func)
+        void _bind(std::vector<std::string>&& what, const std::string& sequence, const std::string& func, bool = false, bool = true)
         {
             this->tk->call(what | std::views::transform([](const std::string& str) { return _cpptkinter::AsObj(str); }), sequence, func);
         }
@@ -4463,8 +4463,12 @@ export namespace cpptkinter
         void image_configure();
         /// @brief Create an embedded image at INDEX.
         void image_create();
+
         /// @brief Return all names of embedded images in this widget.
-        void image_names();
+        std::vector<std::string> image_names()
+        {
+			return this->tk->call<std::vector<std::string>>(this->_w, "image", "names");
+        }
 
         /// @brief Return the index in the form line.char for INDEX.
         std::string index(detail::text_index auto&& index)
@@ -4596,21 +4600,134 @@ export namespace cpptkinter
             this->_unbind({ this->_w, "tag", "bind", tagName, sequence }, funcid);
         }
 
-        /// @brief 
-        void tag_bind(tagName, sequence, func)
+        /// @brief Bind to all characters with TAGNAME at event SEQUENCE a call to function FUNC.
+        /// 
+        /// An additional boolean parameter ADD specifies whether FUNC will be called additionally to the other bound function or whether it will replace the previous function.
+        /// See bind for the return value.
+        auto tag_bind(const std::string& tagName, const std::string& sequence, const std::string& func, bool add = false)
         {
-
+			this->_bind({ this->_w, "tag", "bind", tagName }, sequence, func, add);
         }
-        /// @brief 
-        void tag_bind(tagName, sequence, func, add)
+        /// @copydoc tag_bind
+        template<std::invocable<Event<Misc>> Func>
+        auto tag_bind(const std::string& tagName, const std::string& sequence, Func&& func, bool add = false)
         {
-
+            this->_bind({ this->_w, "tag", "bind", tagName }, sequence, std::forward<Func>(func), add);
         }
 
-        /// @brief 
-        void ___()
-        {
+        void _tag_bind();
 
+        /// @brief Return the value of OPTION for tag TAGNAME.
+        void tag_cget(const std::string& tagName);
+
+        /// @brief Configure a tag TAGNAME.
+        void tag_configure();
+
+        /// @copydoc tag_configure
+        void tag_config();
+
+        /// @brief Delete all tags in TAGNAMES.
+        void tag_delete(const std::string& first_tag_name, std::convertible_to<std::string> auto&&...tagNames)
+        {
+			this->tk->call(this->_w, "tag", "delete", first_tag_name, std::string(std::forward<decltype(tagNames)>(tagNames))...);
+        }
+
+        /// @brief Change the priority of tag TAGNAME such that it is lower than the priority of BELOWTHIS.
+        void tag_lower(const std::string& tagName)
+        {
+			this->tk->call(this->_w, "tag", "lower", tagName);
+        }
+        /// @brief Change the priority of tag TAGNAME such that it is lower than the priority of BELOWTHIS.
+        void tag_lower(const std::string& tagName, const std::string& belowThis)
+        {
+			this->tk->call(this->_w, "tag", "lower", tagName, belowThis);
+        }
+
+        /// @brief Return a list of all tag names.
+        std::vector<std::string> tag_names()
+        {
+			return this->tk->call<std::vector<std::string>>(this->_w, "tag", "names");
+        }
+        /// @brief Return a list of all tag names.
+        std::vector<std::string> tag_names(detail::text_index auto&& index)
+        {
+			return this->tk->call<std::vector<std::string>>(this->_w, "tag", "names", detail::to_text_index(index));
+        }
+
+        /// @brief Return a list of start and end index for the first sequence of characters starting at INDEX which all have tag TAGNAME.
+        /// 
+        /// The text is searched forward from INDEX.
+        std::array<std::string, 2> tag_nextrange(const std::string& tagName, detail::text_index auto&& index)
+        {
+			return this->tk->call<std::array<std::string, 2>>(this->_w, "tag", "nextrange", tagName, detail::to_text_index(index));
+        }
+        /// @brief Return a list of start and end index for the first sequence of characters between INDEX1 and INDEX2 which all have tag TAGNAME.
+        /// 
+        /// The text is searched forward from INDEX1.
+        std::array<std::string, 2> tag_nextrange(const std::string& tagName, detail::text_index auto&& index1, detail::text_index auto&& index2)
+        {
+			return this->tk->call<std::array<std::string, 2>>(this->_w, "tag", "nextrange", tagName, detail::to_text_index(index1), detail::to_text_index(index2));
+        }
+
+        /// @brief Return a list of start and end index for the first sequence of characters backwards from INDEX which all have tag TAGNAME.
+        /// 
+        /// The text is searched backwards from INDEX.
+        std::array<std::string, 2> tag_prevrange(const std::string& tagName, detail::text_index auto&& index)
+        {
+            return this->tk->call<std::array<std::string, 2>>(this->_w, "tag", "prevrange", tagName, detail::to_text_index(index));
+        }
+        /// @brief Return a list of start and end index for the first sequence of characters between INDEX1 and INDEX2 which all have tag TAGNAME.
+        /// 
+        /// The text is searched backwards from INDEX1.
+        std::array<std::string, 2> tag_prevrange(const std::string& tagName, detail::text_index auto&& index1, detail::text_index auto&& index2)
+        {
+            return this->tk->call<std::array<std::string, 2>>(this->_w, "tag", "prevrange", tagName, detail::to_text_index(index1), detail::to_text_index(index2));
+        }
+
+        /// @brief Change the priority of tag TAGNAME such that it is higher than the priority of ABOVETHIS.
+        void tag_raise(const std::string& tagName)
+        {
+			this->tk->call(this->_w, "tag", "raise", tagName);
+        }
+        /// @brief Change the priority of tag TAGNAME such that it is higher than the priority of ABOVETHIS.
+        void tag_raise(const std::string& tagName, const std::string& aboveThis)
+        {
+			this->tk->call(this->_w, "tag", "raise", tagName, aboveThis);
+        }
+
+        /// @brief Return a list of ranges of text which have tag TAGNAME.
+        std::vector<std::array<std::string, 2>> tag_ranges(const std::string& tagName)
+        {
+			return this->tk->call<std::vector<std::array<std::string, 2>>>(this->_w, "tag", "ranges", tagName);
+        }
+
+        /// @brief Remove tag TAGNAME from the character at INDEX.
+        void tag_remove(const std::string& tagName, detail::text_index auto&& index)
+        {
+			this->tk->call(this->_w, "tag", "remove", tagName, detail::to_text_index(index));
+        }
+		/// @brief Remove tag TAGNAME from the characters between INDEX1 and INDEX2.
+		void tag_remove(const std::string& tagName, detail::text_index auto&& index1, detail::text_index auto&& index2)
+		{
+			this->tk->call(this->_w, "tag", "remove", tagName, detail::to_text_index(index1), detail::to_text_index(index2));
+		}
+
+        /// @brief 
+        void window_cget();
+
+        /// @brief 
+        void window_configure();
+
+        /// @brief 
+        void window_config();
+
+        /// @brief 
+        void window_create();
+
+        /// @brief Return all names of embedded windows in this widget.
+        std::vector<std::string> window_names()
+        {
+			return this->tk->call<std::vector<std::string>>(this->_w, "window", "names");
         }
     };
 
