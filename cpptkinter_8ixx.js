@@ -1,13 +1,13 @@
 var cpptkinter_8ixx =
 [
     [ "cpptkinter::detail::set_get_proxy< W >", "structcpptkinter_1_1detail_1_1set__get__proxy.html", "structcpptkinter_1_1detail_1_1set__get__proxy" ],
-    [ "cpptkinter::Event< T >", "structcpptkinter_1_1Event.html", "structcpptkinter_1_1Event" ],
-    [ "cpptkinter::Wm", "structcpptkinter_1_1Wm.html", "structcpptkinter_1_1Wm" ],
     [ "cpptkinter::cnfs::is_cnf_member_trait< T >", "structcpptkinter_1_1cnfs_1_1is__cnf__member__trait.html", null ],
     [ "cpptkinter::cnfs::is_cnf_member_trait< std::variant< Args... > >", "structcpptkinter_1_1cnfs_1_1is__cnf__member__trait_3_01std_1_1variant_3_01Args_8_8_8_01_4_01_4.html", null ],
     [ "cpptkinter::cnfs::is_cnf_member_trait< std::optional< T > >", "structcpptkinter_1_1cnfs_1_1is__cnf__member__trait_3_01std_1_1optional_3_01T_01_4_01_4.html", null ],
     [ "cpptkinter::cnfs::is_cnf_trait< T, IS >", "structcpptkinter_1_1cnfs_1_1is__cnf__trait.html", null ],
     [ "cpptkinter::cnfs::is_cnf_trait< T, std::integer_sequence< size_t, I... > >", "structcpptkinter_1_1cnfs_1_1is__cnf__trait_3_01T_00_01std_1_1integer__sequence_3_01size__t_00_01I_8_8_8_01_4_01_4.html", null ],
+    [ "cpptkinter::Event< T >", "structcpptkinter_1_1Event.html", "structcpptkinter_1_1Event" ],
+    [ "cpptkinter::Wm", "structcpptkinter_1_1Wm.html", "structcpptkinter_1_1Wm" ],
     [ "cpptkinter::cnfs::grid_column_row_configure", "structcpptkinter_1_1cnfs_1_1grid__column__row__configure.html", "structcpptkinter_1_1cnfs_1_1grid__column__row__configure" ],
     [ "cpptkinter::cnfs::grid_column_row_configure_return", "structcpptkinter_1_1cnfs_1_1grid__column__row__configure__return.html", "structcpptkinter_1_1cnfs_1_1grid__column__row__configure__return" ],
     [ "cpptkinter::cnfs::grid_bbox", "structcpptkinter_1_1cnfs_1_1grid__bbox.html", "structcpptkinter_1_1cnfs_1_1grid__bbox" ],
@@ -101,6 +101,7 @@ var cpptkinter_8ixx =
     [ "DoubleVar", "cpptkinter_8ixx.html#ad43a0343bd9525c51432f54729c00f0a", null ],
     [ "EntryValidateCommand", "cpptkinter_8ixx.html#aa342b817c53e66f069327bb40a4cfe1a", null ],
     [ "FontDescription", "cpptkinter_8ixx.html#a73e9cdfea87ef3fd1a49a52262f9f6a5", null ],
+    [ "get_constructor_cnf", "cpptkinter_8ixx.html#a2fc1361e2846dda0d05f8ddfe5b473c3", null ],
     [ "ImageSpec", "cpptkinter_8ixx.html#ace7b7510bddcf5b281834b00376bbdf1", null ],
     [ "IntVar", "cpptkinter_8ixx.html#a856a22d889edd3190007d5463ced565b", null ],
     [ "opt", "cpptkinter_8ixx.html#a141eec9ec3612e6f92bb05baf82bac9f", null ],

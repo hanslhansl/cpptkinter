@@ -1,4 +1,22 @@
 var searchData=
 [
-  ['pad_5ftype_0',['pad_type',['../namespacecpptkinter_1_1cnfs.html#a154fadf1590a520fecb43761f6ea4c86',1,'cpptkinter::cnfs']]]
+  ['opt_0',['opt',['../namespacecpptkinter_1_1cnfs.html#a141eec9ec3612e6f92bb05baf82bac9f',1,'cpptkinter::cnfs']]],
+  ['opt_5fanchor_1',['opt_anchor',['../namespacecpptkinter_1_1cnfs.html#a4783d948d31348934812a9e7c8aa3733',1,'cpptkinter::cnfs']]],
+  ['opt_5fbool_2',['opt_bool',['../namespacecpptkinter_1_1cnfs.html#a4d9105bd3c9d4a39ae17e8b2546cb512',1,'cpptkinter::cnfs']]],
+  ['opt_5fcompound_3',['opt_compound',['../namespacecpptkinter_1_1cnfs.html#abc6a19edd4eb19edc38831ced2245be9',1,'cpptkinter::cnfs']]],
+  ['opt_5fcursor_4',['opt_cursor',['../namespacecpptkinter_1_1cnfs.html#a6cfd8fab4290b53d0595737010316e58',1,'cpptkinter::cnfs']]],
+  ['opt_5fentry_5fvalidate_5fcommand_5',['opt_entry_validate_command',['../namespacecpptkinter_1_1cnfs.html#aa3b3c20c4a5c9d13116c63d8d7e7c114',1,'cpptkinter::cnfs']]],
+  ['opt_5ffont_5fdescription_6',['opt_font_description',['../namespacecpptkinter_1_1cnfs.html#affbfb2ff01e7ca9399cfcf7cac9366f9',1,'cpptkinter::cnfs']]],
+  ['opt_5fimage_5fspec_7',['opt_image_spec',['../namespacecpptkinter_1_1cnfs.html#aa995a028317d898170bc78fe805680f5',1,'cpptkinter::cnfs']]],
+  ['opt_5fmaster_8',['opt_master',['../namespacecpptkinter_1_1cnfs.html#a0e0d563e8890af60f3871b538218ed64',1,'cpptkinter::cnfs']]],
+  ['opt_5fmenu_9',['opt_menu',['../namespacecpptkinter_1_1cnfs.html#a4b6654cced70d52cc2c6016ce4deba97',1,'cpptkinter::cnfs']]],
+  ['opt_5fpad_5ftype_10',['opt_pad_type',['../namespacecpptkinter_1_1cnfs.html#ab84bc131b46044b0bb0a6e1ebcf6363e',1,'cpptkinter::cnfs']]],
+  ['opt_5frelief_11',['opt_relief',['../namespacecpptkinter_1_1cnfs.html#a5a7aae85dabb7300d3b922ecc2e3c307',1,'cpptkinter::cnfs']]],
+  ['opt_5fscreenunits_12',['opt_screenunits',['../namespacecpptkinter_1_1cnfs.html#ae81251b9e0646a6281d6773202d8a3d8',1,'cpptkinter::cnfs']]],
+  ['opt_5fstring_13',['opt_string',['../namespacecpptkinter_1_1cnfs.html#ad23b73168129703032ea3b4c8e4d18d4',1,'cpptkinter::cnfs']]],
+  ['opt_5ftake_5ffocus_5fvalue_14',['opt_take_focus_value',['../namespacecpptkinter_1_1cnfs.html#a9694a01c1fb98fc98d24f06940898d92',1,'cpptkinter::cnfs']]],
+  ['opt_5ftext_15',['opt_text',['../namespacecpptkinter_1_1cnfs.html#ac56306a23b76881d69c82c7e88d0d9ad',1,'cpptkinter::cnfs']]],
+  ['opt_5fvariable_16',['opt_variable',['../namespacecpptkinter_1_1cnfs.html#a4850dbf72cfe1e76620a75386599f0eb',1,'cpptkinter::cnfs']]],
+  ['opt_5fvisual_5ftype_17',['opt_visual_type',['../namespacecpptkinter_1_1cnfs.html#af9fc3dbb18175f87bdf39ff31b74dc05',1,'cpptkinter::cnfs']]],
+  ['opt_5fxy_5fscroll_5fcommand_18',['opt_xy_scroll_command',['../namespacecpptkinter_1_1cnfs.html#af84170ec593dc58ef22cfb6537e9f2eb',1,'cpptkinter::cnfs']]]
 ];

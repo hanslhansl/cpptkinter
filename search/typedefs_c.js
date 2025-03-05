@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['value_5ftype_0',['value_type',['../structcpptkinter_1_1TypedVariable.html#a91ee3f17207ac95b4ffe9ddab9a33751',1,'cpptkinter::TypedVariable::value_type()'],['../structcpptkinter_1_1TypedCheckbutton.html#aad62971e04ce7a4f8776ba1910adc0e2',1,'cpptkinter::TypedCheckbutton::value_type()'],['../structcpptkinter_1_1TypedListbox.html#a83e9166beb2b02966efbb6a541e7549a',1,'cpptkinter::TypedListbox::value_type()'],['../structcpptkinter_1_1TypedRadiobutton.html#a67ed12ce597fbfd7dd2f0d262ed69876',1,'cpptkinter::TypedRadiobutton::value_type()']]],
-  ['varevent_1',['VarEvent',['../namespacecpptkinter_1_1__cpptkinter.html#a71bf54d96db66a6c1b62240dca8b7583',1,'cpptkinter::_cpptkinter']]],
-  ['variant_5ftype_2',['variant_type',['../structcpptkinter_1_1utility_1_1reference__variant.html#a6de556904dd820f253fabb2baa981864',1,'cpptkinter::utility::reference_variant']]],
-  ['visual_5ftype_3',['visual_type',['../namespacecpptkinter_1_1cnfs.html#ab665ebd22e5b2a0943a44a465460fd8f',1,'cpptkinter::cnfs']]]
+  ['takefocusvalue_0',['TakeFocusValue',['../namespacecpptkinter_1_1detail.html#a088393b2f3a5fa677dbede0ec8ee90d4',1,'cpptkinter::detail']]],
+  ['tkapp_5fcallevent_1',['Tkapp_CallEvent',['../namespacecpptkinter_1_1__cpptkinter.html#a18ac389299291d8a14edc01fbba2bd88',1,'cpptkinter::_cpptkinter']]],
+  ['type_2',['type',['../classcpptkinter_1_1utility_1_1ref__wrapper.html#a3837ddda56a41617bac7be2d2cb339b7',1,'cpptkinter::utility::ref_wrapper::type()'],['../structcpptkinter_1_1utility_1_1extend__variants_3_01std_1_1variant_3_01VArgs_8_8_8_01_4_00_01Args_8_8_8_01_4.html#ad52aebdd0022f4b0c07dc8cd07166933',1,'cpptkinter::utility::extend_variants&lt; std::variant&lt; VArgs... &gt;, Args... &gt;::type()']]]
 ];

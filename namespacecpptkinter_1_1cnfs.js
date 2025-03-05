@@ -42,6 +42,7 @@ var namespacecpptkinter_1_1cnfs =
     [ "Variable", "structcpptkinter_1_1cnfs_1_1Variable.html", "structcpptkinter_1_1cnfs_1_1Variable" ],
     [ "is_cnf_member", "conceptcpptkinter_1_1cnfs_1_1is__cnf__member.html", null ],
     [ "is_cnf", "conceptcpptkinter_1_1cnfs_1_1is__cnf.html", null ],
+    [ "get_constructor_cnf", "namespacecpptkinter_1_1cnfs.html#a2fc1361e2846dda0d05f8ddfe5b473c3", null ],
     [ "opt", "namespacecpptkinter_1_1cnfs.html#a141eec9ec3612e6f92bb05baf82bac9f", null ],
     [ "opt_anchor", "namespacecpptkinter_1_1cnfs.html#a4783d948d31348934812a9e7c8aa3733", null ],
     [ "opt_bool", "namespacecpptkinter_1_1cnfs.html#a4d9105bd3c9d4a39ae17e8b2546cb512", null ],

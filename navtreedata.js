@@ -64,20 +64,20 @@ var NAVTREEINDEX =
 [
 "__cpptkinter_8ixx.html",
 "classcpptkinter_1_1Misc.html#ab2e7a95e9dee85a28bb78d7dc4eca089",
-"constants_8ixx.html",
-"functions_u.html",
-"namespacecpptkinter_1_1constants.html#a86512d23cd17e6febcf9929d07ddc26a",
-"structcpptkinter_1_1Frame.html",
-"structcpptkinter_1_1PanedWindow.html#a75f95ac01e96e22ce24090e8ef075030",
-"structcpptkinter_1_1Text.html#ab71b9e96235d26432ba3de2886088d0c",
-"structcpptkinter_1_1Wm.html#a89d4507ada23a5d987f425b38da478cc",
-"structcpptkinter_1_1__cpptkinter_1_1detail_1_1TclBaseEvent.html",
-"structcpptkinter_1_1cnfs_1_1Entry.html#ade408e4a259cea48a95e7e4089e9f88f",
-"structcpptkinter_1_1cnfs_1_1Listbox.html#aaba7411fc9f15189eaeba9e696083a50",
-"structcpptkinter_1_1cnfs_1_1PlaceInfo.html#a655a5af542cafea97ea4dae629a5b052",
-"structcpptkinter_1_1cnfs_1_1Spinbox.html#a29a0ea4575bd054b01242189addc9924",
-"structcpptkinter_1_1cnfs_1_1Toplevel.html#af1f50517eb6017f7fead9cb91c48bb97",
-"structcpptkinter_1_1cnfs_1_1pack__configure.html#aeb7c17ba42d8c86c0fc2934da40ce79f"
+"conceptcpptkinter_1_1utility_1_1is__vector.html",
+"functions_r.html",
+"namespacecpptkinter_1_1constants.html#a77a738b56b49cd69630c64913669e6f6",
+"structcpptkinter_1_1Event.html#ae23c8922f1f1e1a07c6eeda8b6b001bd",
+"structcpptkinter_1_1PanedWindow.html#a543b691ee767d3b0fcadc7761873a85f",
+"structcpptkinter_1_1Text.html#ab1a3c95445b4a111c4776e2a45b892dd",
+"structcpptkinter_1_1Wm.html#a7e751200d5c37ae2fb8e1bf31d5af211",
+"structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#aff3a73abcfa99f96ff9b1971202d1d97",
+"structcpptkinter_1_1cnfs_1_1Entry.html#acc8bf37c85c2acce56fc205f7e38afe7",
+"structcpptkinter_1_1cnfs_1_1Listbox.html#a952bd6b76f68446f65d3fdfefbdfee06",
+"structcpptkinter_1_1cnfs_1_1PlaceInfo.html",
+"structcpptkinter_1_1cnfs_1_1Spinbox.html#a201092f03e268ba30af654fbf93bdbcd",
+"structcpptkinter_1_1cnfs_1_1Toplevel.html#ad370373e71fcd229d68c45af73784def",
+"structcpptkinter_1_1cnfs_1_1pack__configure.html#abfcc4333f25dac7f1b4ff05f45a5e0a8"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
