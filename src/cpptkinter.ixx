@@ -260,6 +260,58 @@ export namespace cpptkinter
 		concept index = requires (T t) { to_index(t); };
     }
 
+    /// @brief Contains structs to be passed to many of cpptkinter's functions.
+    ///
+    /// Replaces Python's **kwargs.
+    namespace cnfs
+    {
+        template<typename T>
+        struct is_cnf_member_trait : std::bool_constant<detail::AsObjConcept<T> || detail::createcommand_concept<T>> {};
+        template<typename...Args>
+            requires (is_cnf_member_trait<Args>::value && ...)
+        struct is_cnf_member_trait<std::variant<Args...>> : std::true_type {};
+        template<typename T>
+            requires is_cnf_member_trait<T>::value
+        struct is_cnf_member_trait<std::optional<T>> : std::true_type {};
+
+        template<typename T>
+        concept is_cnf_member = is_cnf_member_trait<T>::value;
+
+        template<typename T, typename IS = std::make_index_sequence<reflect::size<T>()>>
+        struct is_cnf_trait : std::false_type {};
+        template<typename T, size_t...I>
+            requires (!std::is_array_v<std::remove_cvref_t<T>>) && (is_cnf_member<std::remove_cvref_t<reflect::member_type<I, T>>> && ...)
+        struct is_cnf_trait<T, std::integer_sequence<size_t, I...>> : std::true_type {};
+        /// @brief Satsified if T is a cnf struct.
+        /// 
+        /// Usually cnf structs are passed to cpptkinter::Misc::_options() internally.
+        template<typename T>
+        concept is_cnf = is_cnf_trait<std::remove_cvref_t<T>>::value;
+
+        using pad_type = utility::extend_variants<detail::ScreenUnits, std::array<detail::ScreenUnits, 2>>::type;
+        using visual_type = std::variant<std::string, std::tuple<std::string, long long>>;
+
+        template<typename T>
+        using opt = std::optional<T>;
+        using opt_string = opt<std::string>;
+        using opt_bool = opt<bool>;
+        using opt_screenunits = opt<detail::ScreenUnits>;
+        using opt_pad_type = opt<pad_type>;
+        using opt_visual_type = opt<visual_type>;
+        using opt_anchor = opt<detail::Anchor>;
+        using opt_font_description = opt<detail::FontDescription>;
+        using opt_cursor = opt<detail::Cursor>;
+        using opt_image_spec = opt<detail::ImageSpec>;
+        using opt_compound = opt<detail::Compound>;
+        using opt_relief = opt<detail::Relief>;
+        using opt_take_focus_value = opt<detail::TakeFocusValue>;
+        using opt_text = opt<std::variant<double, std::string>>;
+        using opt_xy_scroll_command = opt<detail::XYScrollCommand>;
+
+        template<typename T> requires requires { std::same_as<float, typename std::remove_cvref_t<T>::constructor_cnf>; }
+        using get_constructor_cnf = typename std::remove_cvref_t<T>::constructor_cnf;
+    }
+
     enum class EventType
     {
 		KeyPress = 2,
@@ -971,54 +1023,8 @@ export namespace cpptkinter
         }
     };
 
-    /// @brief Contains structs to be passed to many of cpptkinter's functions.
-    ///
-    /// Replaces Python's **kwargs.
     namespace cnfs
     {
-        template<typename T>
-        struct is_cnf_member_trait : std::bool_constant<detail::AsObjConcept<T> || detail::createcommand_concept<T>> {};
-        template<typename...Args>
-            requires (is_cnf_member_trait<Args>::value && ...)
-        struct is_cnf_member_trait<std::variant<Args...>> : std::true_type {};
-        template<typename T>
-            requires is_cnf_member_trait<T>::value
-        struct is_cnf_member_trait<std::optional<T>> : std::true_type {};
-
-        template<typename T>
-        concept is_cnf_member = is_cnf_member_trait<T>::value;
-
-        template<typename T, typename IS = std::make_index_sequence<reflect::size<T>()>>
-        struct is_cnf_trait : std::false_type {};
-        template<typename T, size_t...I>
-            requires (!std::is_array_v<std::remove_cvref_t<T>>) && (is_cnf_member<std::remove_cvref_t<reflect::member_type<I, T>>> && ...)
-        struct is_cnf_trait<T, std::integer_sequence<size_t, I...>> : std::true_type {};
-        /// @brief Satsified if T is a cnf struct.
-        /// 
-        /// Usually cnf structs are passed to cpptkinter::Misc::_options() internally.
-        template<typename T>
-        concept is_cnf = is_cnf_trait<std::remove_cvref_t<T>>::value;
-
-        using pad_type = utility::extend_variants<detail::ScreenUnits, std::array<detail::ScreenUnits, 2>>::type;
-        using visual_type = std::variant<std::string, std::tuple<std::string, long long>>;
-
-        template<typename T>
-        using opt = std::optional<T>;
-        using opt_string = opt<std::string>;
-        using opt_bool = opt<bool>;
-        using opt_screenunits = opt<detail::ScreenUnits>;
-        using opt_pad_type = opt<pad_type>;
-        using opt_visual_type = opt<visual_type>;
-        using opt_anchor = opt<detail::Anchor>;
-        using opt_font_description = opt<detail::FontDescription>;
-        using opt_cursor = opt<detail::Cursor>;
-        using opt_image_spec = opt<detail::ImageSpec>;
-        using opt_compound = opt<detail::Compound>;
-        using opt_relief = opt<detail::Relief>;
-        using opt_take_focus_value = opt<detail::TakeFocusValue>;
-        using opt_text = opt<std::variant<double, std::string>>;
-        using opt_xy_scroll_command = opt<detail::XYScrollCommand>;
-
         /// @brief Argument for Misc::grid_columnconfigure() and Misc::grid_rowconfigure().
         struct grid_column_row_configure
         {
@@ -1478,18 +1484,25 @@ export namespace cpptkinter
         template<cnfs::is_cnf CNF>
         void _configure(const std::vector<std::string>& cmd, CNF&& cnf)
         {
-            auto raii = cmd | std::views::transform(_cpptkinter::AsObj<std::string>) | std::ranges::to<std::vector>();
-            this->tk->call(this->_w, std::move(raii), this->_options(std::forward<CNF>(cnf)));
+            this->tk->call(this->_w, cmd | std::views::transform(_cpptkinter::AsObj<std::string>), this->_options(std::forward<CNF>(cnf)));
         }
     public:
         /// @brief Configure resources of a widget.
         /// 
         /// To get an overview about the allowed keyword arguments call the method keys.
         /// @param cnf A string or cnf struct.
-        template<typename T>
-        auto configure(T&& v) requires requires { this->_configure({ }, std::declval<T>()); }
+        auto configure(const std::string& cnf)
         {
-            return this->_configure({ "configure" }, std::forward<T>(v));
+            return this->_configure({ "configure" }, cnf);
+        }
+        /// @brief Configure resources of a widget.
+        /// 
+        /// To get an overview about the allowed keyword arguments call the method keys.
+        /// @param cnf A string or cnf struct.
+        template<typename Self, cnfs::is_cnf CNF = cnfs::get_constructor_cnf<Self>>
+        auto configure(this Self&& self, CNF&& cnf)
+        {
+            self.tk->call(self._w, "configure", self._options(std::forward<CNF>(cnf), { "name" }));
         }
         /// @brief Configure a resource of a widget.
         ///
@@ -1501,11 +1514,17 @@ export namespace cpptkinter
             this->tk->call(this->_w, "configure", "-" + key, this->_options_inner_visitor(std::forward<T>(value)));
         }
 
-        /// @copydoc configure(T&&)
+        /// @copydoc configure(const std::string&)
         template<typename T>
-        auto config(T&& v) requires requires { this->configure(std::declval<T>()); }
+        auto config(const std::string& cnf)
         {
-            return this->configure(std::forward<T>(v));
+            return this->configure(cnf);
+        }
+        /// @copydoc configure(this Self&&, CNF&&)
+        template<typename Self, cnfs::is_cnf CNF = cnfs::get_constructor_cnf<Self>>
+        auto config(this Self&& self, CNF&& cnf)
+        {
+            return self.configure(std::forward<CNF>(cnf));
         }
         /// @copydoc configure(const std::string&, T&&)
         template<typename T>
@@ -4567,7 +4586,7 @@ export namespace cpptkinter
 			if (cnf.regexp) args.emplace_back(_cpptkinter::AsObj("-regexp"));
 			if (cnf.nocase) args.emplace_back(_cpptkinter::AsObj("-nocase"));
 			if (cnf.elide) args.emplace_back(_cpptkinter::AsObj("-elide"));
-            if (cnf.count.has_value()) { args.emplace_back(_cpptkinter::AsObj("-count"); _cpptkinter::AsObj(cnf.count.value())) };
+            if (cnf.count.has_value()) { args.emplace_back(_cpptkinter::AsObj("-count")); _cpptkinter::AsObj(cnf.count.value()); }
 			if (cnf.pattern.starts_with('-')) args.emplace_back(_cpptkinter::AsObj("--"));
 			args.emplace_back(_cpptkinter::AsObj(cnf.pattern));
 			args.emplace_back(_cpptkinter::AsObj(cnf.index));
