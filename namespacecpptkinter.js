@@ -84,6 +84,7 @@ var namespacecpptkinter =
     [ "detail", "namespacecpptkinter_1_1detail.html", "namespacecpptkinter_1_1detail" ],
     [ "utility", "namespacecpptkinter_1_1utility.html", "namespacecpptkinter_1_1utility" ],
     [ "BaseWidget", "classcpptkinter_1_1BaseWidget.html", "classcpptkinter_1_1BaseWidget" ],
+    [ "BitmapImage", "structcpptkinter_1_1BitmapImage.html", "structcpptkinter_1_1BitmapImage" ],
     [ "Button", "structcpptkinter_1_1Button.html", "structcpptkinter_1_1Button" ],
     [ "Checkbutton", "structcpptkinter_1_1Checkbutton.html", "structcpptkinter_1_1Checkbutton" ],
     [ "Entry", "structcpptkinter_1_1Entry.html", "structcpptkinter_1_1Entry" ],
@@ -163,6 +164,8 @@ var namespacecpptkinter =
       [ "Deactivate", "namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa109fec06829bd79d222cfc8af52aaaf1", null ],
       [ "MouseWheel", "namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa6924f81750ac471df87fed683bcea516", null ]
     ] ],
+    [ "image_names", "namespacecpptkinter.html#a78096e6ba5fe2e171f41fc8e56f4e990", null ],
+    [ "image_types", "namespacecpptkinter.html#a0e5ad5e0b5329df43f812ea62ed99816", null ],
     [ "init", "namespacecpptkinter.html#a60f7cd611c9731ab744ab74fac958dc4", null ],
     [ "mainloop", "namespacecpptkinter.html#ad9f0f9d6e00ea177804e476e30ff8fa9", null ],
     [ "Tcl", "namespacecpptkinter.html#a82a4577283285a6ba412f0649b5b3580", null ],

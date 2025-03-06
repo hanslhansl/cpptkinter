@@ -5,6 +5,7 @@ var namespacecpptkinter_1_1cnfs =
     [ "add_command", "structcpptkinter_1_1cnfs_1_1add__command.html", "structcpptkinter_1_1cnfs_1_1add__command" ],
     [ "add_radiobutton", "structcpptkinter_1_1cnfs_1_1add__radiobutton.html", "structcpptkinter_1_1cnfs_1_1add__radiobutton" ],
     [ "add_separator", "structcpptkinter_1_1cnfs_1_1add__separator.html", "structcpptkinter_1_1cnfs_1_1add__separator" ],
+    [ "BitmapImage", "structcpptkinter_1_1cnfs_1_1BitmapImage.html", "structcpptkinter_1_1cnfs_1_1BitmapImage" ],
     [ "Button", "structcpptkinter_1_1cnfs_1_1Button.html", "structcpptkinter_1_1cnfs_1_1Button" ],
     [ "Checkbutton", "structcpptkinter_1_1cnfs_1_1Checkbutton.html", "structcpptkinter_1_1cnfs_1_1Checkbutton" ],
     [ "Entry", "structcpptkinter_1_1cnfs_1_1Entry.html", "structcpptkinter_1_1cnfs_1_1Entry" ],

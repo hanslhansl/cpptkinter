@@ -4,7 +4,7 @@ var searchData=
   ['weak_1',['weak',['../classcpptkinter_1_1utility_1_1weak.html#aa2672fed720c6d7cbb29663e5b456aac',1,'cpptkinter::utility::weak::weak(const T &amp;obj)'],['../classcpptkinter_1_1utility_1_1weak.html#a6017f03790ef1b09d0d5a43dee23dd22',1,'cpptkinter::utility::weak::weak()=default']]],
   ['weak_5fptr_5fis_5fempty_2',['weak_ptr_is_empty',['../namespacecpptkinter_1_1detail.html#a39ee2e9892a8b1aaf60095d0d39ba82e',1,'cpptkinter::detail']]],
   ['widget_3',['Widget',['../structcpptkinter_1_1Widget.html#aab19394868bdb0745c9950f06b626fd9',1,'cpptkinter::Widget']]],
-  ['width_4',['width',['../structcpptkinter_1_1Image.html#a7444cc08463af2a2b3e1cd8a4801bff1',1,'cpptkinter::Image']]],
+  ['width_4',['width',['../structcpptkinter_1_1Image.html#af91d10c3005ae9fddfedee72e2229b2b',1,'cpptkinter::Image']]],
   ['wilddispatch_5',['wilddispatch',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a7c6471be5987d5c4c2c8d63bb2c65c4a',1,'cpptkinter::_cpptkinter::TkappObject']]],
   ['window_5fcget_6',['window_cget',['../structcpptkinter_1_1Text.html#a7b9ec2156ae7aa232dd5d367c989c7ab',1,'cpptkinter::Text']]],
   ['window_5fconfig_7',['window_config',['../structcpptkinter_1_1Text.html#a5b7edd144bf659ed117c77efae4f8108',1,'cpptkinter::Text']]],
@@ -42,5 +42,6 @@ var searchData=
   ['wm_5fstate_39',['wm_state',['../structcpptkinter_1_1Wm.html#a67a45fdc93b8b054056922deff949cb6',1,'cpptkinter::Wm::wm_state(this auto &amp;&amp;self, const std::string &amp;newstate)'],['../structcpptkinter_1_1Wm.html#ae066a13d395daff1c7274f8152be828e',1,'cpptkinter::Wm::wm_state(this auto &amp;&amp;self)']]],
   ['wm_5ftitle_40',['wm_title',['../structcpptkinter_1_1Wm.html#aa9e61511153096d945dcc32eb3206140',1,'cpptkinter::Wm::wm_title(this auto &amp;&amp;self, const std::string &amp;string)'],['../structcpptkinter_1_1Wm.html#a2833376c5fdbfdb384afcb08d25f7071',1,'cpptkinter::Wm::wm_title(this auto &amp;&amp;self)']]],
   ['wm_5ftransient_41',['wm_transient',['../structcpptkinter_1_1Wm.html#a01dd893f9a22ab773fd236ffa5d7c009',1,'cpptkinter::Wm::wm_transient(this auto &amp;&amp;self, const std::string &amp;master)'],['../structcpptkinter_1_1Wm.html#a16ccde8c74ded505580f051892dc3a2c',1,'cpptkinter::Wm::wm_transient(this auto &amp;&amp;self)']]],
-  ['wm_5fwithdraw_42',['wm_withdraw',['../structcpptkinter_1_1Wm.html#ab8114ff85482a0e8826cb4fcd89b9849',1,'cpptkinter::Wm']]]
+  ['wm_5fwithdraw_42',['wm_withdraw',['../structcpptkinter_1_1Wm.html#ab8114ff85482a0e8826cb4fcd89b9849',1,'cpptkinter::Wm']]],
+  ['write_43',['write',['../structcpptkinter_1_1PhotoImage.html#a13da2423b2e10c4388409a28a9f70594',1,'cpptkinter::PhotoImage']]]
 ];

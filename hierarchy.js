@@ -6,6 +6,8 @@ var hierarchy =
     [ "cpptkinter::cnfs::add_command", "structcpptkinter_1_1cnfs_1_1add__command.html", null ],
     [ "cpptkinter::cnfs::add_radiobutton< T >", "structcpptkinter_1_1cnfs_1_1add__radiobutton.html", null ],
     [ "cpptkinter::cnfs::add_separator", "structcpptkinter_1_1cnfs_1_1add__separator.html", null ],
+    [ "cpptkinter::BitmapImage", "structcpptkinter_1_1BitmapImage.html", null ],
+    [ "cpptkinter::cnfs::BitmapImage", "structcpptkinter_1_1cnfs_1_1BitmapImage.html", null ],
     [ "std::bool_constant", null, [
       [ "cpptkinter::_cpptkinter::detail::AsObjImplTrait< T >", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjImplTrait.html", null ],
       [ "cpptkinter::_cpptkinter::detail::FromObjImplTrait< T >", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1FromObjImplTrait.html", null ],

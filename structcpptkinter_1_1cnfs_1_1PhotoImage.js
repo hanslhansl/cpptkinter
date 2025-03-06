@@ -5,7 +5,7 @@ var structcpptkinter_1_1cnfs_1_1PhotoImage =
     [ "format", "structcpptkinter_1_1cnfs_1_1PhotoImage.html#a08b594e65aeaf48ee91badb6dd01acd1", null ],
     [ "gamma", "structcpptkinter_1_1cnfs_1_1PhotoImage.html#a4da6a2dffa9f941491e37ce3b9d20d65", null ],
     [ "height", "structcpptkinter_1_1cnfs_1_1PhotoImage.html#aba9e271bc19308a48a862f579a419a0b", null ],
-    [ "master", "structcpptkinter_1_1cnfs_1_1PhotoImage.html#a3aae0f6ba0b0943b533703af2a645a4e", null ],
+    [ "master", "structcpptkinter_1_1cnfs_1_1PhotoImage.html#ab13d37864e867e9a452246ee4fe754c4", null ],
     [ "name", "structcpptkinter_1_1cnfs_1_1PhotoImage.html#a2932ba341279794d3ac2cfc147306704", null ],
     [ "palette", "structcpptkinter_1_1cnfs_1_1PhotoImage.html#ad0cc56e2b23889c80ecd503819756c5d", null ],
     [ "width", "structcpptkinter_1_1cnfs_1_1PhotoImage.html#aa4cad72d7c2931d15c44551778522d80", null ]
