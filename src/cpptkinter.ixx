@@ -4245,6 +4245,8 @@ export namespace cpptkinter
 
     namespace cnfs
     {
+        using text_index = std::variant<std::string, double, Misc>;
+
         /// @brief Argument for Text::Text().
         struct Text
         {
@@ -4295,6 +4297,30 @@ export namespace cpptkinter
 			opt_string wrap;
 			opt_xy_scroll_command xscrollcommand;
 			opt_xy_scroll_command yscrollcommand;
+        };
+
+		/// @brief Argument for Text::dump().
+        struct Text_dump
+        {
+            text_index index1;
+            opt<text_index> index2;
+            bool all;
+            bool image;
+            bool mark;
+            bool tag;
+            bool text;
+            bool window;
+        };
+
+		/// @brief Argument for Text::image_create().
+        struct Text_image_create
+        {
+            text_index index;
+            opt_string align;
+            opt_image_spec image;
+            opt_string name;
+            opt_screenunits padx;
+			opt_screenunits pady;
         };
 
         /// @brief Argument for Text::peer_create().
@@ -4354,15 +4380,42 @@ export namespace cpptkinter
         struct Text_tag_configure
         {
             std::string tagName;
-            static_assert(false, "incomplete");
+			opt_string background;
+			opt_string bgstipple;
+            opt_screenunits border;
+            opt_screenunits borderwidth;
+            opt_bool elide;
+			opt_string fgstipple;
+			opt_font_description font;
+			opt_string foreground;
+			opt_string justify;
+            opt_screenunits lmargin1;
+			opt_screenunits lmargin2;
+            opt_string lmargincolor;
+            opt_screenunits offset;
+            opt_bool overstrike;
+            opt_string overstrikefg;
+			opt_relief relief;
+			opt_screenunits rmargin;
+			opt_string rmargincolor;
+			opt_string selectbackground;
+			opt_string selectforeground;
+			opt_screenunits spacing1;
+			opt_screenunits spacing2;
+			opt_screenunits spacing3;
+            opt<std::variant<detail::ScreenUnits, std::vector<detail::ScreenUnits>>> tabs;
+			opt_string tabstyle;
+            opt_bool underline;
+			opt_string underlinefg;
+			opt_string wrap;
         };
 
 		/// @brief Argument for Text::search().
         struct Text_search
         {
 			std::string pattern;
-            std::variant<std::string, double, Misc> index;
-            opt<std::variant<std::string, double, Misc>> stopindex;
+            text_index index;
+            opt<text_index> stopindex;
             bool forwards;
             bool backwards;
             bool exact;
@@ -4370,6 +4423,18 @@ export namespace cpptkinter
             bool nocase;
 			opt_variable count;
             bool elide;
+        };
+
+		/// @brief Argument for Text::window_create().
+        struct Text_window_create
+        {
+            text_index index;
+            opt_string align;
+            opt_string create;
+			opt_screenunits padx;
+			opt_screenunits pady;
+            opt_bool stretch;
+            opt<std::variant<std::string, Misc>> window;
         };
     }
 
@@ -4457,12 +4522,34 @@ export namespace cpptkinter
 
         /// @brief Return the contents of the widget between index1 and index2.
         /// 
-        /// The type of contents returned in filtered based on the keyword parameters; if 'all', 'image', 'mark', 'tag', 'text', or 'window' are given and true, then the corresponding items are returned.
-        /// The result is a list of triples of the form(key, value, index).If none of the keywords are true then 'all' is used by default.
-        /// 
-        /// If the 'command' argument is given, it is called once for each element of the list of triples, with the values of each triple serving as the arguments to the function.
-        /// In this case the list is not returned.
-        void dump();
+        /// The type of contents returned in filtered based on the keyword parameters;
+        /// if 'all', 'image', 'mark', 'tag', 'text', or 'window' are given and true, then the corresponding items are returned.
+        /// @returns A list of triples of the form (key, value, index). If none of the keywords are true then 'all' is used by default.
+		template<cnfs::is_cnf CNF = cnfs::Text_dump>
+        std::vector<std::array<std::string, 3>> dump(CNF&& cnf)
+        {
+            DEVIATING_IMPLEMENTATION_WARNING("original also allows passing a callback to receive the vector of arrays, we dont");
+            std::vector<std::array<std::string, 3>> result{};
+            std::vector<Tcl_Obj> args{};
+
+            auto append_triple = [&](std::array<std::string, 3> arr) {
+                result.empalce_back(std::move(arr));
+                };
+            auto func_name = this->_register(std::move(append_triple));
+            args.emplace_back("-command");
+            args.emplace_back(func_name);
+			if (cnf.all) args.emplace_back("-all");
+			if (cnf.image) args.emplace_back("-image");
+			if (cnf.mark) args.emplace_back("-mark");
+			if (cnf.tag) args.emplace_back("-tag");
+			if (cnf.text) args.emplace_back("-text");
+			if (cnf.window) args.emplace_back("-window");
+            args.emplace_back(cnf.index1);
+			if (cnf.index2.has_value())
+				args.emplace_back(cnf.index2.value());
+			this->tk->call(this->_w, "dump", args);
+			return result;
+        }
 
         /// @brief Internal method
         /// 
@@ -4548,9 +4635,18 @@ export namespace cpptkinter
         }
 
         /// @brief Configure an embedded image at INDEX.
-        void image_configure();
+        template<cnfs::is_cnf CNF = cnfs::Text_image_create>
+        auto image_configure(CNF&& cnf)
+        {
+			return this->_configure({ "image", "configure", cnf.index }, this->_options(std::forward<CNF>(cnf), { "index" }));
+        }
+
         /// @brief Create an embedded image at INDEX.
-        void image_create();
+        template<cnfs::is_cnf CNF = cnfs::Text_image_create>
+        void image_create(CNF&& cnf)
+        {
+            this->tk->call(this->_w, "image", "create", cnf.index, this->_options(std::forward<CNF>(cnf), { "index" }));
+        }
 
         /// @brief Return all names of embedded images in this widget.
         std::vector<std::string> image_names()
@@ -4852,13 +4948,25 @@ export namespace cpptkinter
 		}
 
         /// @brief Configure an embedded window at INDEX.
-        void window_configure();
+        template<cnfs::is_cnf CNF = cnfs::Text_window_create>
+        auto window_configure(CNF&& cnf)
+        {
+			return this->_configure({ "window", "configure", cnf.index }, this->_options(std::forward<CNF>(cnf), { "index" }));
+        }
 
 		/// @copydoc window_configure
-        void window_config();
+		template<cnfs::is_cnf CNF = cnfs::Text_window_create>
+        auto window_config(CNF&& cnf)
+        {
+			return this->window_configure(std::forward<CNF>(cnf));
+        }
 
         /// @brief Create a window at INDEX.
-        void window_create();
+        template<cnfs::is_cnf CNF = cnfs::Text_window_create>
+        void window_create(CNF&& cnf)
+        {
+            this->tk->call(this->_w, "window", "create", cnf.index, this->_options(std::forward<CNF>(cnf), { "index" }));
+        }
 
         /// @brief Return all names of embedded windows in this widget.
         std::vector<std::string> window_names()
