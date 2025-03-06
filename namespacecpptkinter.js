@@ -168,6 +168,7 @@ var namespacecpptkinter =
     [ "image_types", "namespacecpptkinter.html#a0e5ad5e0b5329df43f812ea62ed99816", null ],
     [ "init", "namespacecpptkinter.html#a60f7cd611c9731ab744ab74fac958dc4", null ],
     [ "mainloop", "namespacecpptkinter.html#ad9f0f9d6e00ea177804e476e30ff8fa9", null ],
+    [ "NoDefaultRoot", "namespacecpptkinter.html#a2698e430ac047fce1d72f2a7bfc44766", null ],
     [ "Tcl", "namespacecpptkinter.html#a82a4577283285a6ba412f0649b5b3580", null ],
     [ "TCL_CORE_LIBRARY_IS_EMBEDDED", "namespacecpptkinter.html#a1647a8cbe08ae686b7c93fd45db41028", null ],
     [ "TclVersion", "namespacecpptkinter.html#a8ad4de4135e1fc7cf592eda012b06e8c", null ],

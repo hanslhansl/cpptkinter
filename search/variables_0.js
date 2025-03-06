@@ -12,7 +12,7 @@ var searchData=
   ['_5froot_9',['_root',['../structcpptkinter_1_1Variable_1_1impl.html#a1e477ef2d48f3e6632c06bf9139f1452',1,'cpptkinter::Variable::impl::_root()'],['../classcpptkinter_1_1Variable.html#a2cc8bcf97e335c44666ce5c390195cce',1,'cpptkinter::Variable::_root()']]],
   ['_5fsubst_5fformat_10',['_subst_format',['../classcpptkinter_1_1Misc.html#ad687654dfb9f40bfa2c12ab61e3197fa',1,'cpptkinter::Misc']]],
   ['_5fsubst_5fformat_5fstr_11',['_subst_format_str',['../classcpptkinter_1_1Misc.html#a1171fdf5ec1b0036a4346fa01ade2390',1,'cpptkinter::Misc']]],
-  ['_5fsupport_5fdefault_5froot_12',['_support_default_root',['../namespacecpptkinter_1_1detail.html#a2d1dfbb7aab3a775091e67aa16a8bbe3',1,'cpptkinter::detail']]],
+  ['_5fsupport_5fdefault_5froot_12',['_support_default_root',['../namespacecpptkinter_1_1detail.html#ad0e153509f7b29be7873602abac3ec15',1,'cpptkinter::detail']]],
   ['_5ftcl_5flib_5fpath_13',['_tcl_lib_path',['../namespacecpptkinter_1_1__cpptkinter_1_1detail.html#acfb6f4cca5d09482585adfad6aca2d5d',1,'cpptkinter::_cpptkinter::detail']]],
   ['_5ftcl_5fversion_14',['_TCL_VERSION',['../namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a1aec895f5e87207873c45fe0ce97c547',1,'cpptkinter::_cpptkinter::detail']]],
   ['_5ftclcommands_15',['_tclCommands',['../classcpptkinter_1_1Variable.html#ac80502dffe505b1ddcbb8219f3c6ebf0',1,'cpptkinter::Variable::_tclCommands()'],['../structcpptkinter_1_1Variable_1_1impl.html#af1c04f5139ef7c848d36346032ca10e2',1,'cpptkinter::Variable::impl::_tclCommands()'],['../structcpptkinter_1_1Misc_1_1impl.html#abc9c640a87b98e17b3de830fdd243e52',1,'cpptkinter::Misc::impl::_tclCommands()'],['../classcpptkinter_1_1Misc.html#a82eaa6a70694c943f622602df28bf232',1,'cpptkinter::Misc::_tclCommands()']]],

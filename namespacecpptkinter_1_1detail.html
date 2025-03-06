@@ -144,8 +144,8 @@ Typedefs</h2></td></tr>
 <tr class="separator:a86b1237866bb1f4ceae897bd3f064769"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa342b817c53e66f069327bb40a4cfe1a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1detail.html#aa342b817c53e66f069327bb40a4cfe1a">EntryValidateCommand</a> = std::variant&lt; std::string, std::vector&lt; std::string &gt;, std::function&lt; bool()&gt; &gt;</td></tr>
 <tr class="separator:aa342b817c53e66f069327bb40a4cfe1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace7b7510bddcf5b281834b00376bbdf1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1detail.html#ace7b7510bddcf5b281834b00376bbdf1">ImageSpec</a> = std::variant&lt; std::string &gt;</td></tr>
-<tr class="separator:ace7b7510bddcf5b281834b00376bbdf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2c4db963dde9ddb5040b474c7a8c353"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1detail.html#ac2c4db963dde9ddb5040b474c7a8c353">ImageSpec</a> = std::variant&lt; std::string, <a class="el" href="structcpptkinter_1_1Image.html">Image</a> &gt;</td></tr>
+<tr class="separator:ac2c4db963dde9ddb5040b474c7a8c353"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88ae1cadeee0b5cb6ce20e9b93e8b213"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1detail.html#a88ae1cadeee0b5cb6ce20e9b93e8b213">Relief</a> = std::string</td></tr>
 <tr class="separator:a88ae1cadeee0b5cb6ce20e9b93e8b213"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc7009a86a29f290dee42ceefba321bc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1detail.html#afc7009a86a29f290dee42ceefba321bc">ScreenUnits</a> = std::variant&lt; long long, double, std::string &gt;</td></tr>
@@ -200,8 +200,8 @@ Variables</h2></td></tr>
 <tr class="memitem:a3c8a0d1f7e4913b7ea8d26da2c2c349a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1detail.html#a3c8a0d1f7e4913b7ea8d26da2c2c349a">_debug</a></td></tr>
 <tr class="memdesc:a3c8a0d1f7e4913b7ea8d26da2c2c349a"><td class="mdescLeft">&#160;</td><td class="mdescRight">set to true to print executed Tcl / <a class="el" href="classcpptkinter_1_1Tk.html" title="Toplevel widget of Tk which represents mostly the main window of an application.">Tk</a> commands  <br /></td></tr>
 <tr class="separator:a3c8a0d1f7e4913b7ea8d26da2c2c349a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d1dfbb7aab3a775091e67aa16a8bbe3"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1detail.html#a2d1dfbb7aab3a775091e67aa16a8bbe3">_support_default_root</a> = true</td></tr>
-<tr class="separator:a2d1dfbb7aab3a775091e67aa16a8bbe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0e153509f7b29be7873602abac3ec15"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1detail.html#ad0e153509f7b29be7873602abac3ec15">_support_default_root</a> = true</td></tr>
+<tr class="separator:ad0e153509f7b29be7873602abac3ec15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a953eeb455fc57f0968d19433d0748fed"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structcpptkinter_1_1detail_1_1Tk__impl.html">Tk_impl</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1detail.html#a953eeb455fc57f0968d19433d0748fed">_default_root</a> = nullptr</td></tr>
 <tr class="separator:a953eeb455fc57f0968d19433d0748fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3be8e7ded72389f552f47c0e36cf4a77"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1detail.html#a3be8e7ded72389f552f47c0e36cf4a77">_varnum</a> = 0</td></tr>
@@ -301,14 +301,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ace7b7510bddcf5b281834b00376bbdf1" name="ace7b7510bddcf5b281834b00376bbdf1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace7b7510bddcf5b281834b00376bbdf1">&#9670;&#160;</a></span>ImageSpec</h2>
+<a id="ac2c4db963dde9ddb5040b474c7a8c353" name="ac2c4db963dde9ddb5040b474c7a8c353"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2c4db963dde9ddb5040b474c7a8c353">&#9670;&#160;</a></span>ImageSpec</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespacecpptkinter_1_1detail.html#ace7b7510bddcf5b281834b00376bbdf1">cpptkinter::detail::ImageSpec</a> = typedef std::variant&lt;std::string&gt;</td>
+          <td class="memname">using <a class="el" href="namespacecpptkinter_1_1detail.html#ac2c4db963dde9ddb5040b474c7a8c353">cpptkinter::detail::ImageSpec</a> = typedef std::variant&lt;std::string, <a class="el" href="structcpptkinter_1_1Image.html">Image</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -736,24 +736,16 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a2d1dfbb7aab3a775091e67aa16a8bbe3" name="a2d1dfbb7aab3a775091e67aa16a8bbe3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d1dfbb7aab3a775091e67aa16a8bbe3">&#9670;&#160;</a></span>_support_default_root</h2>
+<a id="ad0e153509f7b29be7873602abac3ec15" name="ad0e153509f7b29be7873602abac3ec15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0e153509f7b29be7873602abac3ec15">&#9670;&#160;</a></span>_support_default_root</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool cpptkinter::detail::_support_default_root = true</td>
+          <td class="memname">bool cpptkinter::detail::_support_default_root = true</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>

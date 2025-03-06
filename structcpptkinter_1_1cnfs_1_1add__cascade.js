@@ -5,7 +5,7 @@ var structcpptkinter_1_1cnfs_1_1add__cascade =
     [ "activeforeground", "structcpptkinter_1_1cnfs_1_1add__cascade.html#a472d0bbcc7eae474af14eefc65c63e25", null ],
     [ "background", "structcpptkinter_1_1cnfs_1_1add__cascade.html#aad80f0bf847db7f18f1e2994acc24487", null ],
     [ "bitmap", "structcpptkinter_1_1cnfs_1_1add__cascade.html#a0a2d307b6c12c864c752a44f64f9a0bb", null ],
-    [ "columnbreak", "structcpptkinter_1_1cnfs_1_1add__cascade.html#a38a18fdc18843b0ca79e0ddb32cf263c", null ],
+    [ "columnbreak", "structcpptkinter_1_1cnfs_1_1add__cascade.html#acc494061cae09ba34e84c1b713aa47b0", null ],
     [ "command", "structcpptkinter_1_1cnfs_1_1add__cascade.html#a2e55b8224d86102bf886e588bdef0936", null ],
     [ "compound", "structcpptkinter_1_1cnfs_1_1add__cascade.html#ac06600d91993b8ce3f97773b04f48449", null ],
     [ "font", "structcpptkinter_1_1cnfs_1_1add__cascade.html#ad4f6a83a6b53eb51c88a4548e0f9c7d2", null ],
@@ -15,5 +15,5 @@ var structcpptkinter_1_1cnfs_1_1add__cascade =
     [ "label", "structcpptkinter_1_1cnfs_1_1add__cascade.html#a41ca4410c1fca4dea15619f598343548", null ],
     [ "menu", "structcpptkinter_1_1cnfs_1_1add__cascade.html#a28202770f411a81047ae61653c35607b", null ],
     [ "state", "structcpptkinter_1_1cnfs_1_1add__cascade.html#ace7075ba8f9b4d1685a50fa4e21a8cb5", null ],
-    [ "underline", "structcpptkinter_1_1cnfs_1_1add__cascade.html#ab7fcd9c017a6adf535fc6a959304cb26", null ]
+    [ "underline", "structcpptkinter_1_1cnfs_1_1add__cascade.html#ac977bd376a46194e6098b95bfba6ace7", null ]
 ];

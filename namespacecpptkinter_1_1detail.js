@@ -15,7 +15,7 @@ var namespacecpptkinter_1_1detail =
     [ "Cursor", "namespacecpptkinter_1_1detail.html#a86b1237866bb1f4ceae897bd3f064769", null ],
     [ "EntryValidateCommand", "namespacecpptkinter_1_1detail.html#aa342b817c53e66f069327bb40a4cfe1a", null ],
     [ "FontDescription", "namespacecpptkinter_1_1detail.html#a73e9cdfea87ef3fd1a49a52262f9f6a5", null ],
-    [ "ImageSpec", "namespacecpptkinter_1_1detail.html#ace7b7510bddcf5b281834b00376bbdf1", null ],
+    [ "ImageSpec", "namespacecpptkinter_1_1detail.html#ac2c4db963dde9ddb5040b474c7a8c353", null ],
     [ "Relief", "namespacecpptkinter_1_1detail.html#a88ae1cadeee0b5cb6ce20e9b93e8b213", null ],
     [ "ScreenUnits", "namespacecpptkinter_1_1detail.html#afc7009a86a29f290dee42ceefba321bc", null ],
     [ "TakeFocusValue", "namespacecpptkinter_1_1detail.html#a088393b2f3a5fa677dbede0ec8ee90d4", null ],
@@ -37,7 +37,7 @@ var namespacecpptkinter_1_1detail =
     [ "_checkbutton_count", "namespacecpptkinter_1_1detail.html#a6d6030cb329393ba61f2fae2341750d0", null ],
     [ "_debug", "namespacecpptkinter_1_1detail.html#a3c8a0d1f7e4913b7ea8d26da2c2c349a", null ],
     [ "_default_root", "namespacecpptkinter_1_1detail.html#a953eeb455fc57f0968d19433d0748fed", null ],
-    [ "_support_default_root", "namespacecpptkinter_1_1detail.html#a2d1dfbb7aab3a775091e67aa16a8bbe3", null ],
+    [ "_support_default_root", "namespacecpptkinter_1_1detail.html#ad0e153509f7b29be7873602abac3ec15", null ],
     [ "_varnum", "namespacecpptkinter_1_1detail.html#a3be8e7ded72389f552f47c0e36cf4a77", null ],
     [ "tcl_command_name_counter", "namespacecpptkinter_1_1detail.html#a9adcafb800b059ac391e912dbff0ef55", null ],
     [ "tcl_forbidden_chars", "namespacecpptkinter_1_1detail.html#acf1508eec0d4fb028240fcc748db5ce7", null ]
