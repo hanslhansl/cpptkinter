@@ -9,7 +9,7 @@ var classcpptkinter_1_1Misc =
     [ "_bind", "classcpptkinter_1_1Misc.html#a69df898620da12c238deb6d46b60a24f", null ],
     [ "_bind_if_2", "classcpptkinter_1_1Misc.html#aecbc2557132cf0a4b5a6ac9678d0e125", null ],
     [ "_configure", "classcpptkinter_1_1Misc.html#a57ccfa89e86c682be76b7e3c3003cfb3", null ],
-    [ "_configure", "classcpptkinter_1_1Misc.html#aedb9f1dfdd6fa6dc4cddb0fa58108f6f", null ],
+    [ "_configure", "classcpptkinter_1_1Misc.html#a7f94bb6870eef53a07be98f3f0d5b1dc", null ],
     [ "_configure", "classcpptkinter_1_1Misc.html#ac6a58e7a16ac6847300b7c1a255cbec8", null ],
     [ "_getconfigure", "classcpptkinter_1_1Misc.html#aad7cdd1773141b7d803093250bbdb827", null ],
     [ "_getconfigure1", "classcpptkinter_1_1Misc.html#aff0dad029d16bec9950fbaf7543cc1ad", null ],

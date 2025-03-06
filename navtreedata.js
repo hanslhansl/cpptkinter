@@ -63,21 +63,22 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "__cpptkinter_8ixx.html",
-"classcpptkinter_1_1Misc.html#ab2e7a95e9dee85a28bb78d7dc4eca089",
+"classcpptkinter_1_1Misc.html#ab1e4b7d196f92db6cab7ea51215f7315",
 "conceptcpptkinter_1_1utility_1_1is__vector.html",
 "functions_r.html",
 "namespacecpptkinter_1_1constants.html#a77a738b56b49cd69630c64913669e6f6",
 "structcpptkinter_1_1Event.html#ae23c8922f1f1e1a07c6eeda8b6b001bd",
 "structcpptkinter_1_1PanedWindow.html#a543b691ee767d3b0fcadc7761873a85f",
-"structcpptkinter_1_1Text.html#ab1a3c95445b4a111c4776e2a45b892dd",
-"structcpptkinter_1_1Wm.html#a7e751200d5c37ae2fb8e1bf31d5af211",
-"structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#aff3a73abcfa99f96ff9b1971202d1d97",
-"structcpptkinter_1_1cnfs_1_1Entry.html#acc8bf37c85c2acce56fc205f7e38afe7",
-"structcpptkinter_1_1cnfs_1_1Listbox.html#a952bd6b76f68446f65d3fdfefbdfee06",
-"structcpptkinter_1_1cnfs_1_1PlaceInfo.html",
-"structcpptkinter_1_1cnfs_1_1Spinbox.html#a201092f03e268ba30af654fbf93bdbcd",
-"structcpptkinter_1_1cnfs_1_1Toplevel.html#ad370373e71fcd229d68c45af73784def",
-"structcpptkinter_1_1cnfs_1_1pack__configure.html#abfcc4333f25dac7f1b4ff05f45a5e0a8"
+"structcpptkinter_1_1Text.html#aa03e82948b7bdca77723f0e356e9aad1",
+"structcpptkinter_1_1Wm.html#a6db05624f1b9cee57ad3cdcd1fba6944",
+"structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#af02b853595c4a9bdd18db1ae65baf28b",
+"structcpptkinter_1_1cnfs_1_1Entry.html#aba1a61bffe4c5fe0ad312051d776c735",
+"structcpptkinter_1_1cnfs_1_1Listbox.html#a733b5d38947d0fb90638dfb00a6dba89",
+"structcpptkinter_1_1cnfs_1_1PanedWindow__add.html#a864151e5003e72fd79f99dafa5f0d329",
+"structcpptkinter_1_1cnfs_1_1Spinbox.html#a135b06881a7c516f3600b59b20834787",
+"structcpptkinter_1_1cnfs_1_1Text__peer__create.html#aa4a6816d9c276070d2db2c0224ebe69d",
+"structcpptkinter_1_1cnfs_1_1add__radiobutton.html#a4062ddac7b6db490c036501a0848caeb",
+"tk_8ixx.html#a886ef6f47a470b30d8b342085c41321f"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

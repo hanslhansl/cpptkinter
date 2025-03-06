@@ -68,6 +68,8 @@ var cpptkinter_8ixx =
     [ "cpptkinter::cnfs::Scrollbar", "structcpptkinter_1_1cnfs_1_1Scrollbar.html", "structcpptkinter_1_1cnfs_1_1Scrollbar" ],
     [ "cpptkinter::Scrollbar", "structcpptkinter_1_1Scrollbar.html", "structcpptkinter_1_1Scrollbar" ],
     [ "cpptkinter::cnfs::Text", "structcpptkinter_1_1cnfs_1_1Text.html", "structcpptkinter_1_1cnfs_1_1Text" ],
+    [ "cpptkinter::cnfs::Text_peer_create", "structcpptkinter_1_1cnfs_1_1Text__peer__create.html", "structcpptkinter_1_1cnfs_1_1Text__peer__create" ],
+    [ "cpptkinter::cnfs::Text_tag_configure", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html", "structcpptkinter_1_1cnfs_1_1Text__tag__configure" ],
     [ "cpptkinter::cnfs::Text_search", "structcpptkinter_1_1cnfs_1_1Text__search.html", "structcpptkinter_1_1cnfs_1_1Text__search" ],
     [ "cpptkinter::Text", "structcpptkinter_1_1Text.html", "structcpptkinter_1_1Text" ],
     [ "cpptkinter::detail::_setit", "structcpptkinter_1_1detail_1_1__setit.html", "structcpptkinter_1_1detail_1_1__setit" ],

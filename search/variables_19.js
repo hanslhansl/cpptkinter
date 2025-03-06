@@ -4,6 +4,6 @@ var searchData=
   ['y_1',['Y',['../namespacecpptkinter_1_1constants.html#a8af11ba1eab74f266535b9e198a5abd1',1,'cpptkinter::constants']]],
   ['y_5froot_2',['y_root',['../structcpptkinter_1_1Event.html#a9d7620ba245d6b547336db40fa7650a5',1,'cpptkinter::Event']]],
   ['yes_3',['YES',['../namespacecpptkinter_1_1constants.html#a9b22af8425fa934bf9b5c70359b2dbdf',1,'cpptkinter::constants']]],
-  ['yscrollcommand_4',['yscrollcommand',['../structcpptkinter_1_1cnfs_1_1Text.html#a1fc420955bbad2c43d04de54bd8ddce2',1,'cpptkinter::cnfs::Text']]],
+  ['yscrollcommand_4',['yscrollcommand',['../structcpptkinter_1_1cnfs_1_1Text.html#a1fc420955bbad2c43d04de54bd8ddce2',1,'cpptkinter::cnfs::Text::yscrollcommand()'],['../structcpptkinter_1_1cnfs_1_1Text__peer__create.html#a6228edabfaf325a34f828f128fd3ecc4',1,'cpptkinter::cnfs::Text_peer_create::yscrollcommand()']]],
   ['yscrollincrement_5',['yscrollincrement',['../structcpptkinter_1_1cnfs_1_1Listbox.html#a5faf3da945d872fd441ac5dec6e7a16c',1,'cpptkinter::cnfs::Listbox']]]
 ];

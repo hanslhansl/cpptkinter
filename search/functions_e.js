@@ -12,7 +12,7 @@ var searchData=
   ['paneconfigure_9',['paneconfigure',['../structcpptkinter_1_1PanedWindow.html#a73e8b3be7167ab70c265d663756a85bd',1,'cpptkinter::PanedWindow::paneconfigure(const std::derived_from&lt; Widget &gt; auto &amp;tagOrId, const std::string &amp;cnf) -&gt; decltype(_getconfigure1({}))'],['../structcpptkinter_1_1PanedWindow.html#a90f31cc94562cded5c1d543d4333e725',1,'cpptkinter::PanedWindow::paneconfigure(CNF &amp;&amp;cnf)'],['../structcpptkinter_1_1PanedWindow.html#a2ea93c096209e6c245715b82e6915852',1,'cpptkinter::PanedWindow::paneconfigure(const std::derived_from&lt; Widget &gt; auto &amp;tagOrId) -&gt; decltype(_getconfigure({}))']]],
   ['panedwindow_10',['PanedWindow',['../structcpptkinter_1_1PanedWindow.html#a93b9b23e68ff767281082432d557bb5b',1,'cpptkinter::PanedWindow::PanedWindow(CNF &amp;&amp;cnf={})'],['../structcpptkinter_1_1PanedWindow.html#a75f95ac01e96e22ce24090e8ef075030',1,'cpptkinter::PanedWindow::PanedWindow()']]],
   ['panes_11',['panes',['../structcpptkinter_1_1PanedWindow.html#affddca8f4b6b70451c0ce25907cbf0d0',1,'cpptkinter::PanedWindow']]],
-  ['peer_5fcreate_12',['peer_create',['../structcpptkinter_1_1Text.html#ae653517c27cca49e4347af2d887d56d1',1,'cpptkinter::Text']]],
+  ['peer_5fcreate_12',['peer_create',['../structcpptkinter_1_1Text.html#a9991707206af72ed17b021aa5a674562',1,'cpptkinter::Text']]],
   ['peer_5fnames_13',['peer_names',['../structcpptkinter_1_1Text.html#a61eae26f83b096ab157804bcd02382e0',1,'cpptkinter::Text']]],
   ['place_14',['place',['../structcpptkinter_1_1Place.html#adce9c9a36521649d07b9e0c45d50a1fc',1,'cpptkinter::Place']]],
   ['place_5fconfigure_15',['place_configure',['../structcpptkinter_1_1Place.html#a029f67274cf84a9f78e4bb926ed7e053',1,'cpptkinter::Place']]],

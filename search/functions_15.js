@@ -5,7 +5,7 @@ var searchData=
   ['weak_5fptr_5fis_5fempty_2',['weak_ptr_is_empty',['../namespacecpptkinter_1_1detail.html#a39ee2e9892a8b1aaf60095d0d39ba82e',1,'cpptkinter::detail']]],
   ['widget_3',['Widget',['../structcpptkinter_1_1Widget.html#aab19394868bdb0745c9950f06b626fd9',1,'cpptkinter::Widget']]],
   ['wilddispatch_4',['wilddispatch',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a7c6471be5987d5c4c2c8d63bb2c65c4a',1,'cpptkinter::_cpptkinter::TkappObject']]],
-  ['window_5fcget_5',['window_cget',['../structcpptkinter_1_1Text.html#ac4eaedce44c1720167878d19ce6e4e3e',1,'cpptkinter::Text']]],
+  ['window_5fcget_5',['window_cget',['../structcpptkinter_1_1Text.html#a7b9ec2156ae7aa232dd5d367c989c7ab',1,'cpptkinter::Text']]],
   ['window_5fconfig_6',['window_config',['../structcpptkinter_1_1Text.html#aa2312a3276e8ec07e4d755a4ee1fa4ac',1,'cpptkinter::Text']]],
   ['window_5fconfigure_7',['window_configure',['../structcpptkinter_1_1Text.html#adc0ea271956414da4f9dd2e7d463d8a6',1,'cpptkinter::Text']]],
   ['window_5fcreate_8',['window_create',['../structcpptkinter_1_1Text.html#a890f5349d471dab5b744752036297c31',1,'cpptkinter::Text']]],
