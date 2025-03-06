@@ -5094,11 +5094,16 @@ export namespace cpptkinter
         std::string name;
         std::shared_ptr<_cpptkinter::TkappObject> tk;
 
-        template<cnfs::is_cnf CNF>
-        Image(const std::string& imgtype, CNF&& cnf) : tk{ (cnf.master.has_value() ? cnf.master.value() : detail::_get_default_root("create image")).tk }
+        template<typename CNF>
+        Image(const std::string& imgtype, CNF&& cnf) : tk{ !cnf.master.has_value() ?
+                detail::_get_default_root("create image").tk :
+            (std::holds_alternative<Misc>(cnf.master.value()) ?
+                std::get<Misc>(cnf.master.value()).tk :
+                std::get<std::shared_ptr<_cpptkinter::TkappObject>>(cnf.master.value())
+                )}
         {
             const static std::set<std::string> ignore = { "name", "master" };
-            if (cnf.name().empty())
+            if (cnf.name.empty())
             {
                 Image::_last_id++;
 				this->name = std::format("cppimage{}", Image::_last_id);
@@ -5121,7 +5126,7 @@ export namespace cpptkinter
 
         ~Image()
         {
-            if (this->name)
+            if (!this->name.empty())
             {
 				this->tk->call("image", "delete", this->name);
             }
@@ -5180,9 +5185,9 @@ export namespace cpptkinter
         }
 
         /// @brief Return the height of the image.
-        size_t height()
+        long long height()
         {
-			return this->tk->call<size_t>("image", "height", this->name);
+			return this->tk->call<long long>("image", "height", this->name);
         }
 
         /// @brief Return the type of the image, e.g. "photo" or "bitmap".
@@ -5192,9 +5197,9 @@ export namespace cpptkinter
         }
 
 		/// @brief Return the width of the image.
-        size_t width()
+        long long width()
         {
-            return this->tk->call<size_t>("image", "width", this->name);
+            return this->tk->call<long long>("image", "width", this->name);
         }
     };
 
@@ -5211,7 +5216,7 @@ export namespace cpptkinter
             opt<size_t> height;
             opt<std::variant<long long, std::string>> palette;
 			opt<size_t> width;
-            opt_master master;
+            opt<std::variant<Misc, std::shared_ptr<_cpptkinter::TkappObject>>> master;
         };
     }
 
@@ -5223,15 +5228,151 @@ export namespace cpptkinter
 		/// @brief Create an image with NAME.
         /// 
         /// Valid resource names : data, format, file, gamma, height, palette, width.
-		template<cnfs::is_cnf CNF = constructor_cnf>
+		template<typename CNF = constructor_cnf>
         PhotoImage(CNF&& cnf = {}) : Image("photo", std::forward<CNF>(cnf))
+        {
+
+        }
+
+        /// @brief Display a transparent image.
+        void blank()
+        {
+			this->tk->call(this->name, "blank");
+        }
+
+        template<detail::FromObjConcept R>
+        R cget(const std::string& key)
+        {
+            return this->tk->call<R>(this->name, "cget", "-" + key);
+        }
+
+        template<detail::FromObjConcept R>
+        R _getitem_(const std::string& key, std::type_identity<R>)
+        {
+            return this->tk->call<R>(this->name, "cget", "-" + key);
+        }
+
+        /// @brief Return a new PhotoImage with the same image as this widget.
+        PhotoImage copy()
+        {
+            auto destImage = PhotoImage({ .master = this->tk });
+			this->tk->call(destImage, "copy", this->name);
+			return destImage;
+        }
+
+        /// @brief Return a new PhotoImage with the same image as this widget but zoom it with a factor of x in the X direction and y in the Y direction.
+        /// 
+        /// If y is not given, the default value is the same as x.
+        PhotoImage zoom(long long x, long long y = std::numeric_limits<long long>::min())
+        {
+            auto destImage = PhotoImage({ .master = this->tk });
+            if (y == std::numeric_limits<long long>::min())
+                y = x;
+			this->tk->call(destImage, "copy", this->name, "-zoom", x, y);
+			return destImage;
+        }
+
+        /// @brief Return a new PhotoImage based on the same image as this widget but use only every Xth or Yth pixel.
+        /// 
+        /// If y is not given, the default value is the same as x.
+        PhotoImage subsample(long long x, long long y = std::numeric_limits<long long>::min())
+        {
+            auto destImage = PhotoImage({ .master = this->tk });
+            if (y == std::numeric_limits<long long>::min())
+                y = x;
+            this->tk->call(destImage, "copy", this->name, "-subsample", x, y);
+            return destImage;
+        }
+
+        /// @brief Return the color (red, green, blue) of the pixel at X,Y.
+        std::array<long long, 3> get(long long x, long long y)
+        {
+			return this->tk->call<std::array<long long, 3>>(this->name, "get", x, y);
+        }
+
+        /// @brief Put row formatted colors to image starting from position TO.
+        /// 
+        /// e.g. image.put("{red green} {blue yellow}", to = (4, 6))
+        void put(detail::AsObjConcept auto&& data, std::optional<std::array<long long, 2>> to = std::nullopt)
+        {
+            std::vector<_cpptkinter::Tcl_Obj> args{ _cpptkinter::AsObj(this->name), _cpptkinter::AsObj("put"), _cpptkinter::AsObj(data) };
+            if (to.has_value())
+            {
+                args.emplace_back(_cpptkinter::AsObj("-to"));
+                args.emplace_back(_cpptkinter::AsObj(to.value()));
+            }
+            this->tk->call(args);
+        }
+
+        /// @brief 
+        void write(const std::string& filename, const std::string& format = {}, std::optional<std::array<long long, 2>> from_coords = std::nullopt)
+        {
+            std::vector<_cpptkinter::Tcl_Obj> args{ _cpptkinter::AsObj(this->name), _cpptkinter::AsObj("write"), _cpptkinter::AsObj(filename) };
+			if (!format.empty())
+				args.emplace_back(_cpptkinter::AsObj(format));
+			if (from_coords.has_value())
+			{
+				args.emplace_back(_cpptkinter::AsObj("-from"));
+				args.emplace_back(_cpptkinter::AsObj(from_coords.value()));
+			}
+			this->tk->call(args);
+        }
+
+        /// @brief Return True if the pixel at x,y is transparent.
+        void transparency_get(long long x, long long y)
+        {
+			this->tk->call<bool>(this->name, "transparency", "get", x, y);
+        }
+
+        /// @brief Set the transparency of the pixel at x,y.
+        void transparency_set(long long x, long long y, bool boolean)
+        {
+			this->tk->call(this->name, "transparency", "set", x, y, boolean);
+        }
+    };
+
+    namespace cnfs
+    {
+		/// @brief Argument for BitmapImage::BitmapImage().
+		struct BitmapImage
+		{
+			std::string name;
+            opt_string background;
+			opt_string data;
+			opt_string file;
+			opt_string foreground;
+			opt_string maskdata;
+			opt_string maskfile;
+			opt<std::variant<Misc, std::shared_ptr<_cpptkinter::TkappObject>>> master;
+		};
+    }
+
+    /// @brief %Widget which can display images in XBM format.
+    struct BitmapImage
+    {
+        using constructor_cnf = cnfs::BitmapImage;
+
+        /// @brief Create a bitmap with NAME.
+        /// 
+        /// Valid resource names: background, data, file, foreground, maskdata, maskfile.
+        template<typename CNF = constructor_cnf>
+        BitmapImage(CNF&& cnf = {}) : Image("bitmap", std::forward<CNF>(cnf))
         {
 
         }
     };
 
-    /// @brief %Widget which can display images in XBM format.
-    struct BitmapImage;
+    std::vector<std::string> image_names()
+    {
+		auto tk = detail::_get_default_root("use image_names()").tk;
+		return tk->call<std::vector<std::string>>("image", "names");
+    }
+
+    std::vector<std::string> image_types()
+    {
+		auto tk = detail::_get_default_root("use image_types()").tk;
+		return tk->call<std::vector<std::string>>("image", "types");
+    }
 
     namespace cnfs
     {
@@ -5741,8 +5882,7 @@ void cpptkinter::Misc::destroy()
 }
 
 template<typename...Args>
-auto cpptkinter::Misc::bind_class(const std::string& className, Args&&...args)
-    requires requires { this->_bind({}, std::forward<Args>(args)..., true); }
+auto cpptkinter::Misc::bind_class(const std::string& className, Args&&...args) requires requires { this->_bind({}, std::forward<Args>(args)..., true); }
 {
     return this->_root()._bind({ "bind", className }, std::forward<Args>(args)..., true);
 }
