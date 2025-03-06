@@ -1,9 +1,12 @@
 var searchData=
 [
-  ['var_5finvoke_0',['var_invoke',['../namespacecpptkinter_1_1__cpptkinter.html#a6c16febdbceaeea8600ecc1cfa80c0f9',1,'cpptkinter::_cpptkinter']]],
-  ['var_5fproc_1',['var_proc',['../namespacecpptkinter_1_1__cpptkinter.html#a410fd2360eddd5ce3750be3c31246454',1,'cpptkinter::_cpptkinter']]],
-  ['variable_2',['Variable',['../classcpptkinter_1_1Variable.html#a04a9766809fffb85cbaf8ac2f1bcdb11',1,'cpptkinter::Variable::Variable(const std::shared_ptr&lt; I &gt; &amp;pimpl)'],['../classcpptkinter_1_1Variable.html#ab884f4a8996d5664f3db3553c3b3fa4d',1,'cpptkinter::Variable::Variable(const cnfs::Variable&lt; T &gt; &amp;cnf={})']]],
-  ['varname_5fconverter_3',['varname_converter',['../namespacecpptkinter_1_1__cpptkinter.html#abca399a989ceda406ce13f35e9f54d7f',1,'cpptkinter::_cpptkinter::varname_converter(const std::string &amp;arg)'],['../namespacecpptkinter_1_1__cpptkinter.html#adbbbbe119d816bca5702dce5f39a0dbe',1,'cpptkinter::_cpptkinter::varname_converter(const Tcl_Obj &amp;arg)']]],
-  ['visit_5for_5finvoke_4',['visit_or_invoke',['../namespacecpptkinter_1_1utility.html#aa170a44ac4809210df20e1457ed16b71',1,'cpptkinter::utility::visit_or_invoke(Callable &amp;&amp;callable, Variant &amp;&amp;variant)'],['../namespacecpptkinter_1_1utility.html#acf98789d5bc0177bd3be2df1c0cbf8af',1,'cpptkinter::utility::visit_or_invoke(Callable &amp;&amp;callable, T &amp;&amp;value)']]],
-  ['visit_5frange_5for_5ftuple_5',['visit_range_or_tuple',['../namespacecpptkinter_1_1utility.html#ab8ee6adf9f6b25ba4ab3641c97d05004',1,'cpptkinter::utility']]]
+  ['unbind_0',['unbind',['../classcpptkinter_1_1Misc.html#a1668cd487a1fbbb822d6f35f719d2954',1,'cpptkinter::Misc::unbind(const std::string &amp;sequence)'],['../classcpptkinter_1_1Misc.html#a7a974e2ad0f29d12e83fab0eed41da95',1,'cpptkinter::Misc::unbind(const std::string &amp;sequence, const std::string &amp;funcid)']]],
+  ['unbind_5fall_1',['unbind_all',['../classcpptkinter_1_1Misc.html#aabb5954ed4f55855db5b636de5f0ae9c',1,'cpptkinter::Misc']]],
+  ['unbind_5fclass_2',['unbind_class',['../classcpptkinter_1_1Misc.html#a05c582150538de8d653b941dda6c5cc8',1,'cpptkinter::Misc']]],
+  ['unicodefromtclobj_3',['unicodeFromTclObj',['../namespacecpptkinter_1_1__cpptkinter.html#a01c7206f65bda30c2d8cd4a93d83b1bd',1,'cpptkinter::_cpptkinter']]],
+  ['unlock_4',['unlock',['../classcpptkinter_1_1utility_1_1optional__mutex__adaptor.html#a2f54d056821ea1b2599fc36defd2a369',1,'cpptkinter::utility::optional_mutex_adaptor::unlock()'],['../classcpptkinter_1_1utility_1_1optional__inverse__mutex__adaptor.html#a1ec5020047bd71f8944bd01616f507d0',1,'cpptkinter::utility::optional_inverse_mutex_adaptor::unlock()']]],
+  ['unpost_5',['unpost',['../structcpptkinter_1_1Menu.html#a5722114e13b59aad642beb3b116724ce',1,'cpptkinter::Menu']]],
+  ['unsetvar_6',['unsetvar',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#ab2da6b411ebb66583e8fad71c8c58aba',1,'cpptkinter::_cpptkinter::TkappObject']]],
+  ['unsetvar_7',['UnsetVar',['../namespacecpptkinter_1_1__cpptkinter.html#aa2464a5c3c0ac5d856518846e438b4e5',1,'cpptkinter::_cpptkinter']]],
+  ['use_5fcount_8',['use_count',['../classcpptkinter_1_1utility_1_1weak.html#a3c42a56fc08bcb859c8ba8d7d678a2e9',1,'cpptkinter::utility::weak']]]
 ];

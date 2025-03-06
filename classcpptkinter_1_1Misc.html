@@ -359,10 +359,6 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:af229c69075ddac49b5d058f813292699"><td class="memTemplParams" colspan="2">template&lt;std::derived_from&lt; <a class="el" href="structcpptkinter_1_1Misc_1_1impl.html">impl</a> &gt; I&gt; </td></tr>
 <tr class="memitem:af229c69075ddac49b5d058f813292699"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#af229c69075ddac49b5d058f813292699">Misc</a> (const std::shared_ptr&lt; I &gt; &amp;<a class="el" href="classcpptkinter_1_1Misc.html#afe1bb4e9789aefd1fd0fd48b557b1de9">pimpl</a>)</td></tr>
 <tr class="separator:af229c69075ddac49b5d058f813292699"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85cdec4cbaf4fbb99d8cd91e8ce9eddb"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; <br />
-requires (cnfs::is_cnf_member&lt;std::remove_cvref_t&lt;T&gt;&gt; &amp;&amp; !hhh::meta::is_template_instance&lt;std::remove_cvref_t&lt;T&gt;, std::optional&gt;)</td></tr>
-<tr class="memitem:a85cdec4cbaf4fbb99d8cd91e8ce9eddb"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">_cpptkinter::Tcl_Obj</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a85cdec4cbaf4fbb99d8cd91e8ce9eddb">_options_inner_visitor</a> (T &amp;&amp;value)</td></tr>
-<tr class="separator:a85cdec4cbaf4fbb99d8cd91e8ce9eddb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a94a87a84beb7cced91392f62d01dfa"><td class="memTemplParams" colspan="2">template&lt;cnfs::is_cnf CNF&gt; </td></tr>
 <tr class="memitem:a9a94a87a84beb7cced91392f62d01dfa"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">_cpptkinter::Tcl_Obj</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a9a94a87a84beb7cced91392f62d01dfa">_options</a> (CNF &amp;&amp;cnf, const std::set&lt; std::string &gt; &amp;ignore_fields={})</td></tr>
 <tr class="memdesc:a9a94a87a84beb7cced91392f62d01dfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a cnf struct to a vector of Tcl_Obj* which can be passed to TkappObject::call().  <br /></td></tr>
@@ -415,6 +411,10 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:aecbc2557132cf0a4b5a6ac9678d0e125"><td class="memTemplParams" colspan="2">template&lt;std::invocable&lt; <a class="el" href="structcpptkinter_1_1Event.html">Event</a>&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt; &gt; Func&gt; </td></tr>
 <tr class="memitem:aecbc2557132cf0a4b5a6ac9678d0e125"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#aecbc2557132cf0a4b5a6ac9678d0e125">_bind_if_2</a> (Func &amp;&amp;func, bool needcleanup)</td></tr>
 <tr class="separator:aecbc2557132cf0a4b5a6ac9678d0e125"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85cdec4cbaf4fbb99d8cd91e8ce9eddb"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; <br />
+requires (cnfs::is_cnf_member&lt;std::remove_cvref_t&lt;T&gt;&gt; &amp;&amp; !hhh::meta::is_template_instance&lt;std::remove_cvref_t&lt;T&gt;, std::optional&gt;)</td></tr>
+<tr class="memitem:a85cdec4cbaf4fbb99d8cd91e8ce9eddb"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">_cpptkinter::Tcl_Obj</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a85cdec4cbaf4fbb99d8cd91e8ce9eddb">_options_inner_visitor</a> (T &amp;&amp;value)</td></tr>
+<tr class="separator:a85cdec4cbaf4fbb99d8cd91e8ce9eddb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -1052,7 +1052,7 @@ requires (cnfs::is_cnf_member&lt;std::remove_cvref_t&lt;T&gt;&gt; &amp;&amp; !hh
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

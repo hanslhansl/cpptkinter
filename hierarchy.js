@@ -63,6 +63,9 @@ var hierarchy =
     [ "cpptkinter::cnfs::grid_configure", "structcpptkinter_1_1cnfs_1_1grid__configure.html", null ],
     [ "cpptkinter::cnfs::GridInfo", "structcpptkinter_1_1cnfs_1_1GridInfo.html", null ],
     [ "cpptkinter::_cpptkinter::detail::ignore", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1ignore.html", null ],
+    [ "cpptkinter::Image", "structcpptkinter_1_1Image.html", [
+      [ "cpptkinter::PhotoImage", "structcpptkinter_1_1PhotoImage.html", null ]
+    ] ],
     [ "Menubutton::impl", null, [
       [ "cpptkinter::OptionMenu::impl", "structcpptkinter_1_1OptionMenu_1_1impl.html", null ]
     ] ],
@@ -89,6 +92,7 @@ var hierarchy =
     [ "cpptkinter::cnfs::paneconfigure", "structcpptkinter_1_1cnfs_1_1paneconfigure.html", null ],
     [ "cpptkinter::cnfs::PanedWindow", "structcpptkinter_1_1cnfs_1_1PanedWindow.html", null ],
     [ "cpptkinter::cnfs::PanedWindow_add", "structcpptkinter_1_1cnfs_1_1PanedWindow__add.html", null ],
+    [ "cpptkinter::cnfs::PhotoImage", "structcpptkinter_1_1cnfs_1_1PhotoImage.html", null ],
     [ "cpptkinter::Place", "structcpptkinter_1_1Place.html", [
       [ "cpptkinter::Widget", "structcpptkinter_1_1Widget.html", null ]
     ] ],

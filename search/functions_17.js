@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['yposition_0',['yposition',['../structcpptkinter_1_1Menu.html#a971990e1a99268c4bf93e4100f4ec915',1,'cpptkinter::Menu']]],
-  ['yview_1',['yview',['../structcpptkinter_1_1YView.html#ae49d7923e4f218676601d76ee9379841',1,'cpptkinter::YView::yview(this auto &amp;&amp;self)'],['../structcpptkinter_1_1YView.html#af721c7abbd9ac32e68eed2edd723df20',1,'cpptkinter::YView::yview(this auto &amp;&amp;self, double d1, double d2)']]],
-  ['yview_5fmoveto_2',['yview_moveto',['../structcpptkinter_1_1YView.html#a85ee61e57c432dd92b3ce197744870f9',1,'cpptkinter::YView']]],
-  ['yview_5fscroll_3',['yview_scroll',['../structcpptkinter_1_1YView.html#a0460e2b8dd367a5bbb8e7da77781d5dc',1,'cpptkinter::YView']]]
+  ['xposition_0',['xposition',['../structcpptkinter_1_1Menu.html#ac4d1a08094cc8898035063607ae0a832',1,'cpptkinter::Menu']]],
+  ['xview_1',['xview',['../structcpptkinter_1_1XView.html#a56ea682f0eed80a131d6c85ac9aa29dc',1,'cpptkinter::XView::xview(this auto &amp;&amp;self)'],['../structcpptkinter_1_1XView.html#a3a973ab3d6a3f1145285c8c8a083d5cf',1,'cpptkinter::XView::xview(this auto &amp;&amp;self, double d1, double d2)']]],
+  ['xview_5fmoveto_2',['xview_moveto',['../structcpptkinter_1_1XView.html#a50693f7269e6f2bbc2e0c7ef928c84c1',1,'cpptkinter::XView']]],
+  ['xview_5fscroll_3',['xview_scroll',['../structcpptkinter_1_1XView.html#a618dc6627cfe3c2a35904309bde94cdb',1,'cpptkinter::XView']]]
 ];

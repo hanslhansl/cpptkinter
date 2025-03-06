@@ -6,8 +6,9 @@ var searchData=
   ['paneconfigure_3',['paneconfigure',['../structcpptkinter_1_1cnfs_1_1paneconfigure.html',1,'cpptkinter::cnfs']]],
   ['panedwindow_4',['PanedWindow',['../structcpptkinter_1_1cnfs_1_1PanedWindow.html',1,'cpptkinter::cnfs::PanedWindow'],['../structcpptkinter_1_1PanedWindow.html',1,'cpptkinter::PanedWindow']]],
   ['panedwindow_5fadd_5',['PanedWindow_add',['../structcpptkinter_1_1cnfs_1_1PanedWindow__add.html',1,'cpptkinter::cnfs']]],
-  ['place_6',['Place',['../structcpptkinter_1_1Place.html',1,'cpptkinter']]],
-  ['place_5fconfigure_7',['place_configure',['../structcpptkinter_1_1cnfs_1_1place__configure.html',1,'cpptkinter::cnfs']]],
-  ['placeinfo_8',['PlaceInfo',['../structcpptkinter_1_1cnfs_1_1PlaceInfo.html',1,'cpptkinter::cnfs']]],
-  ['pythoncmd_5fclientdata_9',['PythonCmd_ClientData',['../structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html',1,'cpptkinter::_cpptkinter']]]
+  ['photoimage_6',['PhotoImage',['../structcpptkinter_1_1cnfs_1_1PhotoImage.html',1,'cpptkinter::cnfs::PhotoImage'],['../structcpptkinter_1_1PhotoImage.html',1,'cpptkinter::PhotoImage']]],
+  ['place_7',['Place',['../structcpptkinter_1_1Place.html',1,'cpptkinter']]],
+  ['place_5fconfigure_8',['place_configure',['../structcpptkinter_1_1cnfs_1_1place__configure.html',1,'cpptkinter::cnfs']]],
+  ['placeinfo_9',['PlaceInfo',['../structcpptkinter_1_1cnfs_1_1PlaceInfo.html',1,'cpptkinter::cnfs']]],
+  ['pythoncmd_5fclientdata_10',['PythonCmd_ClientData',['../structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html',1,'cpptkinter::_cpptkinter']]]
 ];

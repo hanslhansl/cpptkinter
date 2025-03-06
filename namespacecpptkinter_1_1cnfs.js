@@ -30,6 +30,7 @@ var namespacecpptkinter_1_1cnfs =
     [ "paneconfigure", "structcpptkinter_1_1cnfs_1_1paneconfigure.html", "structcpptkinter_1_1cnfs_1_1paneconfigure" ],
     [ "PanedWindow", "structcpptkinter_1_1cnfs_1_1PanedWindow.html", "structcpptkinter_1_1cnfs_1_1PanedWindow" ],
     [ "PanedWindow_add", "structcpptkinter_1_1cnfs_1_1PanedWindow__add.html", "structcpptkinter_1_1cnfs_1_1PanedWindow__add" ],
+    [ "PhotoImage", "structcpptkinter_1_1cnfs_1_1PhotoImage.html", "structcpptkinter_1_1cnfs_1_1PhotoImage" ],
     [ "place_configure", "structcpptkinter_1_1cnfs_1_1place__configure.html", "structcpptkinter_1_1cnfs_1_1place__configure" ],
     [ "PlaceInfo", "structcpptkinter_1_1cnfs_1_1PlaceInfo.html", "structcpptkinter_1_1cnfs_1_1PlaceInfo" ],
     [ "Radiobutton", "structcpptkinter_1_1cnfs_1_1Radiobutton.html", "structcpptkinter_1_1cnfs_1_1Radiobutton" ],
