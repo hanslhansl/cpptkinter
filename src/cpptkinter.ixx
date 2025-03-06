@@ -86,7 +86,7 @@ export namespace cpptkinter
         using namespace _cpptkinter::detail;
 
         struct Tk_impl;
-        template<std::derived_from<Misc> W>
+        template<typename W>
         struct set_get_proxy
         {
             W widget;
@@ -1290,12 +1290,12 @@ export namespace cpptkinter
         {
             this->tk->quit();
         }
-    protected:
+    private:
         template<typename T>
             requires (cnfs::is_cnf_member<std::remove_cvref_t<T>> && !hhh::meta::is_template_instance<std::remove_cvref_t<T>, std::optional>)
         _cpptkinter::Tcl_Obj _options_inner_visitor(T&& value)
         {
-            auto visitor = [this]<typename T2>(T2 && value) {
+            auto visitor = [&]<typename T2>(T2 && value) {
                 if constexpr (detail::createcommand_concept<T2>)
                     return _cpptkinter::AsObj(this->_register(std::forward<T2>(value)));
                 else
@@ -1304,7 +1304,7 @@ export namespace cpptkinter
 
             return utility::visit_or_invoke(visitor, std::forward<T>(value));
         }
-
+    protected:
         /// @brief Converts a cnf struct to a vector of Tcl_Obj* which can be passed to TkappObject::call().
         template<cnfs::is_cnf CNF>
         std::vector<_cpptkinter::Tcl_Obj> _options(CNF&& cnf, const std::set<std::string>& ignore_fields = {})
@@ -1502,6 +1502,8 @@ export namespace cpptkinter
         template<typename Self, cnfs::is_cnf CNF = cnfs::get_constructor_cnf<Self>>
         auto configure(this Self&& self, CNF&& cnf)
         {
+            if (cnf.master.has_value())
+				throw detail::construct_exception<std::invalid_argument>("master cannot be set in configure");
             self._configure({ "configure" }, std::forward<CNF>(cnf), { "name" });
         }
         /// @brief Configure a resource of a widget.
@@ -4530,23 +4532,23 @@ export namespace cpptkinter
         {
             DEVIATING_IMPLEMENTATION_WARNING("original also allows passing a callback to receive the vector of arrays, we dont");
             std::vector<std::array<std::string, 3>> result{};
-            std::vector<Tcl_Obj> args{};
+            std::vector<_cpptkinter::Tcl_Obj> args{};
 
             auto append_triple = [&](std::array<std::string, 3> arr) {
-                result.empalce_back(std::move(arr));
+                result.emplace_back(std::move(arr));
                 };
             auto func_name = this->_register(std::move(append_triple));
-            args.emplace_back("-command");
-            args.emplace_back(func_name);
-			if (cnf.all) args.emplace_back("-all");
-			if (cnf.image) args.emplace_back("-image");
-			if (cnf.mark) args.emplace_back("-mark");
-			if (cnf.tag) args.emplace_back("-tag");
-			if (cnf.text) args.emplace_back("-text");
-			if (cnf.window) args.emplace_back("-window");
-            args.emplace_back(cnf.index1);
+            args.emplace_back(_cpptkinter::AsObj("-command"));
+            args.emplace_back(_cpptkinter::AsObj(func_name));
+            if (cnf.all) args.emplace_back(_cpptkinter::AsObj("-all"));
+            if (cnf.image) args.emplace_back(_cpptkinter::AsObj("-image"));
+            if (cnf.mark) args.emplace_back(_cpptkinter::AsObj("-mark"));
+            if (cnf.tag) args.emplace_back(_cpptkinter::AsObj("-tag"));
+            if (cnf.text) args.emplace_back(_cpptkinter::AsObj("-text"));
+            if (cnf.window) args.emplace_back(_cpptkinter::AsObj("-window"));
+            args.emplace_back(_cpptkinter::AsObj(cnf.index1));
 			if (cnf.index2.has_value())
-				args.emplace_back(cnf.index2.value());
+                args.emplace_back(_cpptkinter::AsObj(cnf.index2.value()));
 			this->tk->call(this->_w, "dump", args);
 			return result;
         }
@@ -5084,10 +5086,149 @@ export namespace cpptkinter
     };
 
     /// @brief %Base class for images.
-    struct Image;
+    struct Image
+    {
+    private:
+        static inline long long _last_id = 0;
+    public:
+        std::string name;
+        std::shared_ptr<_cpptkinter::TkappObject> tk;
+
+        template<cnfs::is_cnf CNF>
+        Image(const std::string& imgtype, CNF&& cnf) : tk{ (cnf.master.has_value() ? cnf.master.value() : detail::_get_default_root("create image")).tk }
+        {
+            const static std::set<std::string> ignore = { "name", "master" };
+            if (cnf.name().empty())
+            {
+                Image::_last_id++;
+				this->name = std::format("cppimage{}", Image::_last_id);
+            }
+
+            std::vector<_cpptkinter::Tcl_Obj> options{};
+            auto visitor = [&]<typename T>(T && value, auto I) {
+                constexpr auto k = reflect::member_name<I, CNF>();
+
+                if constexpr (k != "name" && k != "master")
+                {
+                    options.emplace_back(_cpptkinter::AsObj("-" + std::string(k)));
+                    options.emplace_back(_cpptkinter::AsObj(std::forward<T>(value)));
+                }
+            };
+            reflect::for_each<CNF>([&](auto I) { utility::invoke_or_and_then(visitor, reflect::get<I>(std::forward<CNF>(cnf)), I); });
+
+			this->tk->call("image", "create", imgtype, this->name, options);
+        }
+
+        ~Image()
+        {
+            if (this->name)
+            {
+				this->tk->call("image", "delete", this->name);
+            }
+        }
+
+        operator std::string() const
+        {
+			return this->name;
+        }
+
+        template<detail::AsObjConcept T>
+        void _setitem_(const std::string& key, T&& value)
+        {
+            this->tk->call(this->name, "configure", "-"+key, std::forward<T>(value));
+        }
+
+        template<detail::FromObjConcept R>
+        R _getitem_(const std::string& key, std::type_identity<R>)
+        {
+            return this->tk->call<R>(this->name, "configure", "-"+key);
+        }
+
+        /// @brief Returns a proxy object which can be used to set/get resources of a widget.
+        template<typename Self>
+        detail::set_get_proxy<std::remove_cvref_t<Self>> operator[](this Self&& self, const std::string& key)
+        {
+            return { std::forward<Self>(self), key };
+        }
+
+        /// @brief Configure the image.
+        template<typename Self, cnfs::is_cnf CNF = cnfs::get_constructor_cnf<Self>>
+        void configure(this Self&& self, CNF&& cnf)
+        {
+            std::vector<_cpptkinter::Tcl_Obj> options{};
+            auto visitor = [&]<typename T>(T && value, auto I) {
+                constexpr auto k = reflect::member_name<I, CNF>();
+
+                if constexpr (k != "name" && k != "master")
+                {
+                    auto key = std::string(k);
+					if (key.ends_with('_'))
+						key.pop_back();
+                    options.emplace_back(_cpptkinter::AsObj("-" + key));
+                    options.emplace_back(_cpptkinter::AsObj(std::forward<T>(value)));
+                }
+            };
+            reflect::for_each<CNF>([&](auto I) { utility::invoke_or_and_then(visitor, reflect::get<I>(std::forward<CNF>(cnf)), I); });
+
+            self.tk->call(self.name, "config", options);
+        }
+		/// @copydoc configure
+		template<typename Self, cnfs::is_cnf CNF = cnfs::get_constructor_cnf<Self>>
+        void config(this Self&& self, CNF&& cnf)
+        {
+            self.configure(std::forward<CNF>(cnf));
+        }
+
+        /// @brief Return the height of the image.
+        size_t height()
+        {
+			return this->tk->call<size_t>("image", "height", this->name);
+        }
+
+        /// @brief Return the type of the image, e.g. "photo" or "bitmap".
+        std::string type()
+        {
+			return this->tk->call<std::string>("image", "type", this->name);
+        }
+
+		/// @brief Return the width of the image.
+        size_t width()
+        {
+            return this->tk->call<size_t>("image", "width", this->name);
+        }
+    };
+
+    namespace cnfs
+    {
+		/// @brief Argument for PhotoImage::PhotoImage().
+        struct PhotoImage
+        {
+            std::string name;
+			opt_string data;
+            opt_string format;
+			opt_string file;
+            opt<double> gamma;
+            opt<size_t> height;
+            opt<std::variant<long long, std::string>> palette;
+			opt<size_t> width;
+            opt_master master;
+        };
+    }
 
     /// @brief %Widget which can display images in PGM, PPM, GIF, PNG format.
-    struct PhotoImage;
+    struct PhotoImage : Image
+    {
+		using constructor_cnf = cnfs::PhotoImage;
+
+		/// @brief Create an image with NAME.
+        /// 
+        /// Valid resource names : data, format, file, gamma, height, palette, width.
+		template<cnfs::is_cnf CNF = constructor_cnf>
+        PhotoImage(CNF&& cnf = {}) : Image("photo", std::forward<CNF>(cnf))
+        {
+
+        }
+    };
 
     /// @brief %Widget which can display images in XBM format.
     struct BitmapImage;
