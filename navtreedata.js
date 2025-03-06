@@ -65,20 +65,20 @@ var NAVTREEINDEX =
 "__cpptkinter_8ixx.html",
 "classcpptkinter_1_1Misc.html#ab1e4b7d196f92db6cab7ea51215f7315",
 "conceptcpptkinter_1_1utility_1_1is__vector.html",
-"functions_r.html",
-"namespacecpptkinter_1_1constants.html#a77a738b56b49cd69630c64913669e6f6",
-"structcpptkinter_1_1Event.html#ae23c8922f1f1e1a07c6eeda8b6b001bd",
-"structcpptkinter_1_1PanedWindow.html#a543b691ee767d3b0fcadc7761873a85f",
+"functions_q.html",
+"namespacecpptkinter_1_1constants.html#a727105a116e3e55c439b204aeb0446c5",
+"structcpptkinter_1_1Event.html#ad64a5d8e9d5c41fb7528f92cad63934b",
+"structcpptkinter_1_1PanedWindow.html#a42f7362fd21aa1458e410a3c7cfbe9dc",
 "structcpptkinter_1_1Text.html#aa03e82948b7bdca77723f0e356e9aad1",
-"structcpptkinter_1_1Wm.html#a6db05624f1b9cee57ad3cdcd1fba6944",
-"structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#af02b853595c4a9bdd18db1ae65baf28b",
-"structcpptkinter_1_1cnfs_1_1Entry.html#aba1a61bffe4c5fe0ad312051d776c735",
-"structcpptkinter_1_1cnfs_1_1Listbox.html#a733b5d38947d0fb90638dfb00a6dba89",
-"structcpptkinter_1_1cnfs_1_1PanedWindow__add.html#a864151e5003e72fd79f99dafa5f0d329",
-"structcpptkinter_1_1cnfs_1_1Spinbox.html#a135b06881a7c516f3600b59b20834787",
-"structcpptkinter_1_1cnfs_1_1Text__peer__create.html#aa4a6816d9c276070d2db2c0224ebe69d",
-"structcpptkinter_1_1cnfs_1_1add__radiobutton.html#a4062ddac7b6db490c036501a0848caeb",
-"tk_8ixx.html#a886ef6f47a470b30d8b342085c41321f"
+"structcpptkinter_1_1Wm.html#a6a459420d6a5b00fe0231285c11bf277",
+"structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#aeddb3e95c96093b931dc25a46b6f7ae8",
+"structcpptkinter_1_1cnfs_1_1Entry.html#ab7611c6f2844c3f47cbeb90d892ce976",
+"structcpptkinter_1_1cnfs_1_1Listbox.html#a6cffdbe411e9abc4510a1de24e9990b5",
+"structcpptkinter_1_1cnfs_1_1PanedWindow__add.html#a7f45f99993eac7539330cd2f8ad7b3ed",
+"structcpptkinter_1_1cnfs_1_1Spinbox.html#a0bb735a9f8a663b7d5651b2f6cc7a778",
+"structcpptkinter_1_1cnfs_1_1Text__peer__create.html#a413d4c05a592c85ff52c4ba936b9b8c8",
+"structcpptkinter_1_1cnfs_1_1add__cascade.html#a472d0bbcc7eae474af14eefc65c63e25",
+"structcpptkinter_1_1cnfs_1_1place__configure.html#a4067e09c71a1062e94b56368fc31575d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

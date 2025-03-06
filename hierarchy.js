@@ -114,9 +114,12 @@ var hierarchy =
       [ "cpptkinter::_cpptkinter::tk_window_type", "structcpptkinter_1_1__cpptkinter_1_1tk__window__type.html", null ]
     ] ],
     [ "cpptkinter::cnfs::Text", "structcpptkinter_1_1cnfs_1_1Text.html", null ],
+    [ "cpptkinter::cnfs::Text_dump", "structcpptkinter_1_1cnfs_1_1Text__dump.html", null ],
+    [ "cpptkinter::cnfs::Text_image_create", "structcpptkinter_1_1cnfs_1_1Text__image__create.html", null ],
     [ "cpptkinter::cnfs::Text_peer_create", "structcpptkinter_1_1cnfs_1_1Text__peer__create.html", null ],
     [ "cpptkinter::cnfs::Text_search", "structcpptkinter_1_1cnfs_1_1Text__search.html", null ],
     [ "cpptkinter::cnfs::Text_tag_configure", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html", null ],
+    [ "cpptkinter::cnfs::Text_window_create", "structcpptkinter_1_1cnfs_1_1Text__window__create.html", null ],
     [ "cpptkinter::_cpptkinter::TkappObject", "structcpptkinter_1_1__cpptkinter_1_1TkappObject.html", null ],
     [ "cpptkinter::cnfs::Toplevel", "structcpptkinter_1_1cnfs_1_1Toplevel.html", null ],
     [ "std::true_type", null, [

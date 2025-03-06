@@ -7,5 +7,8 @@ var searchData=
   ['left_4',['LEFT',['../namespacecpptkinter_1_1constants.html#a81b0185011ce1a108a9d6e0f637838a7',1,'cpptkinter::constants']]],
   ['length_5',['length',['../structcpptkinter_1_1cnfs_1_1Scale.html#ac7104389de0d54c163a279d47c1232f9',1,'cpptkinter::cnfs::Scale']]],
   ['listtype_6',['ListType',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#adb67bbb235bacfbc9e4b30a94c633f73',1,'cpptkinter::_cpptkinter::TkappObject']]],
-  ['listvariable_7',['listvariable',['../structcpptkinter_1_1cnfs_1_1Listbox.html#a30ba11d6adee41321314dd6c8c9734c3',1,'cpptkinter::cnfs::Listbox']]]
+  ['listvariable_7',['listvariable',['../structcpptkinter_1_1cnfs_1_1Listbox.html#a30ba11d6adee41321314dd6c8c9734c3',1,'cpptkinter::cnfs::Listbox']]],
+  ['lmargin1_8',['lmargin1',['../structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#a1f218eda438615b0c3d9879343c8c16c',1,'cpptkinter::cnfs::Text_tag_configure']]],
+  ['lmargin2_9',['lmargin2',['../structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#a9360e53a7c6105d4b18337d96698808d',1,'cpptkinter::cnfs::Text_tag_configure']]],
+  ['lmargincolor_10',['lmargincolor',['../structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#a096250e2cc719913a88453506ec87135',1,'cpptkinter::cnfs::Text_tag_configure']]]
 ];

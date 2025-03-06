@@ -156,9 +156,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9684368becd45099ed32820d4e29360f"><td class="memItemLeft" align="right" valign="top">std::array&lt; long long, 5 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a9684368becd45099ed32820d4e29360f">dlineinfo</a> (detail::text_index auto &amp;&amp;inde)</td></tr>
 <tr class="memdesc:a9684368becd45099ed32820d4e29360f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return tuple (x, y, width, height, baseline) giving the bounding box and baseline position of the visible part of the line containing the character at INDEX.  <br /></td></tr>
 <tr class="separator:a9684368becd45099ed32820d4e29360f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b94000a72e6da65f8ef99dee0ec7ebd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a1b94000a72e6da65f8ef99dee0ec7ebd">dump</a> ()</td></tr>
-<tr class="memdesc:a1b94000a72e6da65f8ef99dee0ec7ebd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the contents of the widget between index1 and index2.  <br /></td></tr>
-<tr class="separator:a1b94000a72e6da65f8ef99dee0ec7ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e310b5557b75f5eefe8db7dbf3eea5f"><td class="memTemplParams" colspan="2">template&lt;cnfs::is_cnf CNF = cnfs::Text_dump&gt; </td></tr>
+<tr class="memitem:a4e310b5557b75f5eefe8db7dbf3eea5f"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::array&lt; std::string, 3 &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a4e310b5557b75f5eefe8db7dbf3eea5f">dump</a> (CNF &amp;&amp;cnf)</td></tr>
+<tr class="memdesc:a4e310b5557b75f5eefe8db7dbf3eea5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the contents of the widget between index1 and index2.  <br /></td></tr>
+<tr class="separator:a4e310b5557b75f5eefe8db7dbf3eea5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4260de1ba5d274930e8077d4f4927410"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a4260de1ba5d274930e8077d4f4927410">edit</a> (const detail::AsObjConcept auto &amp;...args)</td></tr>
 <tr class="memdesc:a4260de1ba5d274930e8077d4f4927410"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal method.  <br /></td></tr>
 <tr class="separator:a4260de1ba5d274930e8077d4f4927410"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -190,12 +191,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6ea50ca11286fba8f6197417a6b8e5bd"><td class="memTemplItemLeft" align="right" valign="top">R&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a6ea50ca11286fba8f6197417a6b8e5bd">image_cget</a> (detail::text_index auto &amp;&amp;<a class="el" href="structcpptkinter_1_1Text.html#a9854b89e34d4b2be2102c084eedb1309">index</a>, std::string option)</td></tr>
 <tr class="memdesc:a6ea50ca11286fba8f6197417a6b8e5bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the value of OPTION of an embedded image at INDEX.  <br /></td></tr>
 <tr class="separator:a6ea50ca11286fba8f6197417a6b8e5bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2933ea82056e238298c4c0fc9007aee4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a2933ea82056e238298c4c0fc9007aee4">image_configure</a> ()</td></tr>
-<tr class="memdesc:a2933ea82056e238298c4c0fc9007aee4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure an embedded image at INDEX.  <br /></td></tr>
-<tr class="separator:a2933ea82056e238298c4c0fc9007aee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e542a671ae9684b2119993cb1e2d29d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a5e542a671ae9684b2119993cb1e2d29d">image_create</a> ()</td></tr>
-<tr class="memdesc:a5e542a671ae9684b2119993cb1e2d29d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an embedded image at INDEX.  <br /></td></tr>
-<tr class="separator:a5e542a671ae9684b2119993cb1e2d29d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e740ac75b81b3d81b61f936870730a0"><td class="memTemplParams" colspan="2">template&lt;cnfs::is_cnf CNF = cnfs::Text_image_create&gt; </td></tr>
+<tr class="memitem:a3e740ac75b81b3d81b61f936870730a0"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a3e740ac75b81b3d81b61f936870730a0">image_configure</a> (CNF &amp;&amp;cnf)</td></tr>
+<tr class="memdesc:a3e740ac75b81b3d81b61f936870730a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure an embedded image at INDEX.  <br /></td></tr>
+<tr class="separator:a3e740ac75b81b3d81b61f936870730a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab265098e58acb79a23726b5ffe60416b"><td class="memTemplParams" colspan="2">template&lt;cnfs::is_cnf CNF = cnfs::Text_image_create&gt; </td></tr>
+<tr class="memitem:ab265098e58acb79a23726b5ffe60416b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#ab265098e58acb79a23726b5ffe60416b">image_create</a> (CNF &amp;&amp;cnf)</td></tr>
+<tr class="memdesc:ab265098e58acb79a23726b5ffe60416b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an embedded image at INDEX.  <br /></td></tr>
+<tr class="separator:ab265098e58acb79a23726b5ffe60416b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7221c14bf3c0ba59e6e386110c1ed850"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a7221c14bf3c0ba59e6e386110c1ed850">image_names</a> ()</td></tr>
 <tr class="memdesc:a7221c14bf3c0ba59e6e386110c1ed850"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return all names of embedded images in this widget.  <br /></td></tr>
 <tr class="separator:a7221c14bf3c0ba59e6e386110c1ed850"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -335,15 +338,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7b9ec2156ae7aa232dd5d367c989c7ab"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a7b9ec2156ae7aa232dd5d367c989c7ab">window_cget</a> (detail::text_index auto &amp;&amp;<a class="el" href="structcpptkinter_1_1Text.html#a9854b89e34d4b2be2102c084eedb1309">index</a>, std::string option)</td></tr>
 <tr class="memdesc:a7b9ec2156ae7aa232dd5d367c989c7ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the value of OPTION of an embedded window at INDEX.  <br /></td></tr>
 <tr class="separator:a7b9ec2156ae7aa232dd5d367c989c7ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc0ea271956414da4f9dd2e7d463d8a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#adc0ea271956414da4f9dd2e7d463d8a6">window_configure</a> ()</td></tr>
-<tr class="memdesc:adc0ea271956414da4f9dd2e7d463d8a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure an embedded window at INDEX.  <br /></td></tr>
-<tr class="separator:adc0ea271956414da4f9dd2e7d463d8a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2312a3276e8ec07e4d755a4ee1fa4ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#aa2312a3276e8ec07e4d755a4ee1fa4ac">window_config</a> ()</td></tr>
-<tr class="memdesc:aa2312a3276e8ec07e4d755a4ee1fa4ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure an embedded window at INDEX.    <br /></td></tr>
-<tr class="separator:aa2312a3276e8ec07e4d755a4ee1fa4ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a890f5349d471dab5b744752036297c31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a890f5349d471dab5b744752036297c31">window_create</a> ()</td></tr>
-<tr class="memdesc:a890f5349d471dab5b744752036297c31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a window at INDEX.  <br /></td></tr>
-<tr class="separator:a890f5349d471dab5b744752036297c31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab994876f5660070788315a71736259c7"><td class="memTemplParams" colspan="2">template&lt;cnfs::is_cnf CNF = cnfs::Text_window_create&gt; </td></tr>
+<tr class="memitem:ab994876f5660070788315a71736259c7"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#ab994876f5660070788315a71736259c7">window_configure</a> (CNF &amp;&amp;cnf)</td></tr>
+<tr class="memdesc:ab994876f5660070788315a71736259c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure an embedded window at INDEX.  <br /></td></tr>
+<tr class="separator:ab994876f5660070788315a71736259c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b7edd144bf659ed117c77efae4f8108"><td class="memTemplParams" colspan="2">template&lt;cnfs::is_cnf CNF = cnfs::Text_window_create&gt; </td></tr>
+<tr class="memitem:a5b7edd144bf659ed117c77efae4f8108"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a5b7edd144bf659ed117c77efae4f8108">window_config</a> (CNF &amp;&amp;cnf)</td></tr>
+<tr class="memdesc:a5b7edd144bf659ed117c77efae4f8108"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure an embedded window at INDEX.    <br /></td></tr>
+<tr class="separator:a5b7edd144bf659ed117c77efae4f8108"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae040486de68d57a5628d0041f33a93e"><td class="memTemplParams" colspan="2">template&lt;cnfs::is_cnf CNF = cnfs::Text_window_create&gt; </td></tr>
+<tr class="memitem:aae040486de68d57a5628d0041f33a93e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#aae040486de68d57a5628d0041f33a93e">window_create</a> (CNF &amp;&amp;cnf)</td></tr>
+<tr class="memdesc:aae040486de68d57a5628d0041f33a93e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a window at INDEX.  <br /></td></tr>
+<tr class="separator:aae040486de68d57a5628d0041f33a93e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a598fc4ac760b9b6d6cea3654f11c7928"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Text.html#a598fc4ac760b9b6d6cea3654f11c7928">window_names</a> ()</td></tr>
 <tr class="memdesc:a598fc4ac760b9b6d6cea3654f11c7928"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return all names of embedded windows in this widget.  <br /></td></tr>
 <tr class="separator:a598fc4ac760b9b6d6cea3654f11c7928"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1109,24 +1115,34 @@ template&lt;std::convertible_to&lt; std::string &gt;... Args&gt; </div>
 
 </div>
 </div>
-<a id="a1b94000a72e6da65f8ef99dee0ec7ebd" name="a1b94000a72e6da65f8ef99dee0ec7ebd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b94000a72e6da65f8ef99dee0ec7ebd">&#9670;&#160;</a></span>dump()</h2>
+<a id="a4e310b5557b75f5eefe8db7dbf3eea5f" name="a4e310b5557b75f5eefe8db7dbf3eea5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e310b5557b75f5eefe8db7dbf3eea5f">&#9670;&#160;</a></span>dump()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;cnfs::is_cnf CNF = cnfs::Text_dump&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void cpptkinter::Text::dump </td>
+          <td class="memname">std::vector&lt; std::array&lt; std::string, 3 &gt; &gt; cpptkinter::Text::dump </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">CNF &amp;&amp;&#160;</td>
+          <td class="paramname"><em>cnf</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Return the contents of the widget between index1 and index2. </p>
-<p>The type of contents returned in filtered based on the keyword parameters; if 'all', 'image', 'mark', 'tag', 'text', or 'window' are given and true, then the corresponding items are returned. The result is a list of triples of the form(key, value, index).If none of the keywords are true then 'all' is used by default.</p>
-<p>If the 'command' argument is given, it is called once for each element of the list of triples, with the values of each triple serving as the arguments to the function. In this case the list is not returned. </p>
+<p>The type of contents returned in filtered based on the keyword parameters; if 'all', 'image', 'mark', 'tag', 'text', or 'window' are given and true, then the corresponding items are returned. </p><dl class="section return"><dt>Returns</dt><dd>A list of triples of the form (key, value, index). If none of the keywords are true then 'all' is used by default. </dd></dl>
 
 </div>
 </div>
@@ -1433,38 +1449,60 @@ template&lt;detail::FromObjConcept R&gt; </div>
 
 </div>
 </div>
-<a id="a2933ea82056e238298c4c0fc9007aee4" name="a2933ea82056e238298c4c0fc9007aee4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2933ea82056e238298c4c0fc9007aee4">&#9670;&#160;</a></span>image_configure()</h2>
+<a id="a3e740ac75b81b3d81b61f936870730a0" name="a3e740ac75b81b3d81b61f936870730a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e740ac75b81b3d81b61f936870730a0">&#9670;&#160;</a></span>image_configure()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;cnfs::is_cnf CNF = cnfs::Text_image_create&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void cpptkinter::Text::image_configure </td>
+          <td class="memname">auto cpptkinter::Text::image_configure </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">CNF &amp;&amp;&#160;</td>
+          <td class="paramname"><em>cnf</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Configure an embedded image at INDEX. </p>
 
 </div>
 </div>
-<a id="a5e542a671ae9684b2119993cb1e2d29d" name="a5e542a671ae9684b2119993cb1e2d29d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e542a671ae9684b2119993cb1e2d29d">&#9670;&#160;</a></span>image_create()</h2>
+<a id="ab265098e58acb79a23726b5ffe60416b" name="ab265098e58acb79a23726b5ffe60416b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab265098e58acb79a23726b5ffe60416b">&#9670;&#160;</a></span>image_create()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;cnfs::is_cnf CNF = cnfs::Text_image_create&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void cpptkinter::Text::image_create </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">CNF &amp;&amp;&#160;</td>
+          <td class="paramname"><em>cnf</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Create an embedded image at INDEX. </p>
@@ -3028,57 +3066,90 @@ template&lt;detail::FromObjConcept R&gt; </div>
 
 </div>
 </div>
-<a id="aa2312a3276e8ec07e4d755a4ee1fa4ac" name="aa2312a3276e8ec07e4d755a4ee1fa4ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2312a3276e8ec07e4d755a4ee1fa4ac">&#9670;&#160;</a></span>window_config()</h2>
+<a id="a5b7edd144bf659ed117c77efae4f8108" name="a5b7edd144bf659ed117c77efae4f8108"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b7edd144bf659ed117c77efae4f8108">&#9670;&#160;</a></span>window_config()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;cnfs::is_cnf CNF = cnfs::Text_window_create&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void cpptkinter::Text::window_config </td>
+          <td class="memname">auto cpptkinter::Text::window_config </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">CNF &amp;&amp;&#160;</td>
+          <td class="paramname"><em>cnf</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Configure an embedded window at INDEX.   </p>
 
 </div>
 </div>
-<a id="adc0ea271956414da4f9dd2e7d463d8a6" name="adc0ea271956414da4f9dd2e7d463d8a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc0ea271956414da4f9dd2e7d463d8a6">&#9670;&#160;</a></span>window_configure()</h2>
+<a id="ab994876f5660070788315a71736259c7" name="ab994876f5660070788315a71736259c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab994876f5660070788315a71736259c7">&#9670;&#160;</a></span>window_configure()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;cnfs::is_cnf CNF = cnfs::Text_window_create&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void cpptkinter::Text::window_configure </td>
+          <td class="memname">auto cpptkinter::Text::window_configure </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">CNF &amp;&amp;&#160;</td>
+          <td class="paramname"><em>cnf</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Configure an embedded window at INDEX. </p>
 
 </div>
 </div>
-<a id="a890f5349d471dab5b744752036297c31" name="a890f5349d471dab5b744752036297c31"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a890f5349d471dab5b744752036297c31">&#9670;&#160;</a></span>window_create()</h2>
+<a id="aae040486de68d57a5628d0041f33a93e" name="aae040486de68d57a5628d0041f33a93e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae040486de68d57a5628d0041f33a93e">&#9670;&#160;</a></span>window_create()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;cnfs::is_cnf CNF = cnfs::Text_window_create&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void cpptkinter::Text::window_create </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">CNF &amp;&amp;&#160;</td>
+          <td class="paramname"><em>cnf</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Create a window at INDEX. </p>

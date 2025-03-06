@@ -33,5 +33,5 @@ var searchData=
   ['dotbox_30',['DOTBOX',['../namespacecpptkinter_1_1constants.html#a9a661adff440e6e329d7c0c7f1ec6cf2',1,'cpptkinter::constants']]],
   ['doubletype_31',['DoubleType',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#aa37d032ca5a8b332a7ba0afb07bd351e',1,'cpptkinter::_cpptkinter::TkappObject']]],
   ['doublevar_32',['DoubleVar',['../namespacecpptkinter.html#ad43a0343bd9525c51432f54729c00f0a',1,'cpptkinter']]],
-  ['dump_33',['dump',['../structcpptkinter_1_1Text.html#a1b94000a72e6da65f8ef99dee0ec7ebd',1,'cpptkinter::Text']]]
+  ['dump_33',['dump',['../structcpptkinter_1_1Text.html#a4e310b5557b75f5eefe8db7dbf3eea5f',1,'cpptkinter::Text']]]
 ];

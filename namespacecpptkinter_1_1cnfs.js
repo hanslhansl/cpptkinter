@@ -37,9 +37,12 @@ var namespacecpptkinter_1_1cnfs =
     [ "Scrollbar", "structcpptkinter_1_1cnfs_1_1Scrollbar.html", "structcpptkinter_1_1cnfs_1_1Scrollbar" ],
     [ "Spinbox", "structcpptkinter_1_1cnfs_1_1Spinbox.html", "structcpptkinter_1_1cnfs_1_1Spinbox" ],
     [ "Text", "structcpptkinter_1_1cnfs_1_1Text.html", "structcpptkinter_1_1cnfs_1_1Text" ],
+    [ "Text_dump", "structcpptkinter_1_1cnfs_1_1Text__dump.html", "structcpptkinter_1_1cnfs_1_1Text__dump" ],
+    [ "Text_image_create", "structcpptkinter_1_1cnfs_1_1Text__image__create.html", "structcpptkinter_1_1cnfs_1_1Text__image__create" ],
     [ "Text_peer_create", "structcpptkinter_1_1cnfs_1_1Text__peer__create.html", "structcpptkinter_1_1cnfs_1_1Text__peer__create" ],
     [ "Text_search", "structcpptkinter_1_1cnfs_1_1Text__search.html", "structcpptkinter_1_1cnfs_1_1Text__search" ],
     [ "Text_tag_configure", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html", "structcpptkinter_1_1cnfs_1_1Text__tag__configure" ],
+    [ "Text_window_create", "structcpptkinter_1_1cnfs_1_1Text__window__create.html", "structcpptkinter_1_1cnfs_1_1Text__window__create" ],
     [ "Toplevel", "structcpptkinter_1_1cnfs_1_1Toplevel.html", "structcpptkinter_1_1cnfs_1_1Toplevel" ],
     [ "Variable", "structcpptkinter_1_1cnfs_1_1Variable.html", "structcpptkinter_1_1cnfs_1_1Variable" ],
     [ "is_cnf_member", "conceptcpptkinter_1_1cnfs_1_1is__cnf__member.html", null ],
@@ -65,5 +68,6 @@ var namespacecpptkinter_1_1cnfs =
     [ "opt_visual_type", "namespacecpptkinter_1_1cnfs.html#af9fc3dbb18175f87bdf39ff31b74dc05", null ],
     [ "opt_xy_scroll_command", "namespacecpptkinter_1_1cnfs.html#af84170ec593dc58ef22cfb6537e9f2eb", null ],
     [ "pad_type", "namespacecpptkinter_1_1cnfs.html#a154fadf1590a520fecb43761f6ea4c86", null ],
+    [ "text_index", "namespacecpptkinter_1_1cnfs.html#aa27fcc512223db69f440cb9079e2713c", null ],
     [ "visual_type", "namespacecpptkinter_1_1cnfs.html#ab665ebd22e5b2a0943a44a465460fd8f", null ]
 ];

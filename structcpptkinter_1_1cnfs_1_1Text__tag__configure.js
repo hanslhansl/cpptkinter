@@ -1,4 +1,32 @@
 var structcpptkinter_1_1cnfs_1_1Text__tag__configure =
 [
-    [ "tagName", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#add78926328a52be52af5fab910eb5fb5", null ]
+    [ "background", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#a34a32fc1fe71feb7cd4652a1c061594e", null ],
+    [ "bgstipple", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#a4d6f2bce4c9e8f736b14a4e2d46d6120", null ],
+    [ "border", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#a58deb4a68901b83b3db1225f47f55038", null ],
+    [ "borderwidth", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#af5557806c58b4f19655317dc660340d3", null ],
+    [ "elide", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#aed0dc95f64d9d83b3071d76fbaf97c46", null ],
+    [ "fgstipple", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#ac2a86d9226f80efa144fc54798b07e34", null ],
+    [ "font", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#a9a7e4e949bf32da74a774efffa539690", null ],
+    [ "foreground", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#aad1156dc97c8a30df9368545509e4d04", null ],
+    [ "justify", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#a33319dc1cdd8fdffc126e6dbe70d96ce", null ],
+    [ "lmargin1", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#a1f218eda438615b0c3d9879343c8c16c", null ],
+    [ "lmargin2", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#a9360e53a7c6105d4b18337d96698808d", null ],
+    [ "lmargincolor", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#a096250e2cc719913a88453506ec87135", null ],
+    [ "offset", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#a56b6537ab1312d83032fe44c8cc83fef", null ],
+    [ "overstrike", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#aaba40b53176c0bbc85e8600ff334c177", null ],
+    [ "overstrikefg", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#a8d00b18bfc6d57ce1fe0b6ea65772a4e", null ],
+    [ "relief", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#a6f385209f901c42e699cd692552edc23", null ],
+    [ "rmargin", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#acf82a372913bfe4ced90f4517534cfed", null ],
+    [ "rmargincolor", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#a19e481fc741433e8ea4915cd11b959b4", null ],
+    [ "selectbackground", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#a92a98944214e8261cb9b1647f100f140", null ],
+    [ "selectforeground", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#a026d4ceff0d716c14d2e0877b555a984", null ],
+    [ "spacing1", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#a3f381c5131b4371cfc446181d73a049a", null ],
+    [ "spacing2", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#ab60d5a3334ef9b17d4d6748739710d9f", null ],
+    [ "spacing3", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#afe38a6a68dd767c435ae7a90e5c3b6cf", null ],
+    [ "tabs", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#a27c52a311e501c0c58504fad62345eaa", null ],
+    [ "tabstyle", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#a3f72f6186b95ac07f01c10726aac286f", null ],
+    [ "tagName", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#add78926328a52be52af5fab910eb5fb5", null ],
+    [ "underline", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#ac6b49460364e6267b58dcdbbddc871b4", null ],
+    [ "underlinefg", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#a991ca57e84a5e649017ba4c10c22dc58", null ],
+    [ "wrap", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#a332c52424ca02a2c3db04626a70bf13c", null ]
 ];

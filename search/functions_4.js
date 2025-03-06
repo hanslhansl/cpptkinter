@@ -12,5 +12,5 @@ var searchData=
   ['disableeventhook_9',['DisableEventHook',['../namespacecpptkinter_1_1__cpptkinter.html#a3e20db2013f2c0ac32474768180159c3',1,'cpptkinter::_cpptkinter']]],
   ['dlineinfo_10',['dlineinfo',['../structcpptkinter_1_1Text.html#a9684368becd45099ed32820d4e29360f',1,'cpptkinter::Text']]],
   ['dooneevent_11',['dooneevent',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#ae2309ab7f1f254ad2f00e426bf2f1562',1,'cpptkinter::_cpptkinter::TkappObject']]],
-  ['dump_12',['dump',['../structcpptkinter_1_1Text.html#a1b94000a72e6da65f8ef99dee0ec7ebd',1,'cpptkinter::Text']]]
+  ['dump_12',['dump',['../structcpptkinter_1_1Text.html#a4e310b5557b75f5eefe8db7dbf3eea5f',1,'cpptkinter::Text']]]
 ];
