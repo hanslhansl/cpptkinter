@@ -1482,9 +1482,9 @@ export namespace cpptkinter
             return this->_getconfigure1(std::move(raii));
         }
         template<cnfs::is_cnf CNF>
-        void _configure(const std::vector<std::string>& cmd, CNF&& cnf)
+        void _configure(const std::vector<std::string>& cmd, CNF&& cnf, const std::set<std::string>& ignore_fields = {})
         {
-            this->tk->call(this->_w, cmd | std::views::transform(_cpptkinter::AsObj<std::string>), this->_options(std::forward<CNF>(cnf)));
+            this->tk->call(this->_w, cmd | std::views::transform(_cpptkinter::AsObj<std::string>), this->_options(std::forward<CNF>(cnf), ignore_fields));
         }
     public:
         /// @brief Configure resources of a widget.
@@ -1502,7 +1502,7 @@ export namespace cpptkinter
         template<typename Self, cnfs::is_cnf CNF = cnfs::get_constructor_cnf<Self>>
         auto configure(this Self&& self, CNF&& cnf)
         {
-            self.tk->call(self._w, "configure", self._options(std::forward<CNF>(cnf), { "name" }));
+            self._configure({ "configure" }, std::forward<CNF>(cnf), { "name" });
         }
         /// @brief Configure a resource of a widget.
         ///
@@ -4297,6 +4297,66 @@ export namespace cpptkinter
 			opt_xy_scroll_command yscrollcommand;
         };
 
+        /// @brief Argument for Text::peer_create().
+        struct Text_peer_create
+        {
+            std::string newPathName;
+            opt_master master;
+            opt_bool autoseparators;
+            opt_string background;
+            opt_screenunits bd;
+            opt_string bg;
+            opt_bool blockcursor;
+            opt_screenunits border;
+            opt_screenunits borderwidth;
+            opt_cursor cursor;
+            opt<long long> endline;
+            opt_bool exportselection;
+            opt_string fg;
+            opt_font_description font;
+            opt_string foreground;
+            opt_screenunits height;
+            opt_string highlightbackground;
+            opt_string highlightcolor;
+            opt_screenunits highlightthickness;
+            opt_string inactiveselectbackground;
+            opt_string insertbackground;
+            opt_screenunits insertborderwidth;
+            opt<size_t> insertofftime;
+            opt<size_t> insertontime;
+            opt_string insertunfocussed;
+            opt_bool insertwidth;
+            opt<long long> maxundo;
+            opt_string name;
+            opt_screenunits padx;
+            opt_screenunits pady;
+            opt_relief relief;
+            opt_string selectbackground;
+            opt_screenunits selectborderwidth;
+            opt_string selectforeground;
+            opt_bool setgrid;
+            opt_screenunits spacing1;
+            opt_screenunits spacing2;
+            opt_screenunits spacing3;
+            opt<long long> startline;
+            opt_string state;
+            opt<std::variant<detail::ScreenUnits, std::vector<detail::ScreenUnits>>> tabs;
+            opt_string tabstyle;
+            opt_take_focus_value takefocus;
+            opt_bool undo;
+            opt<long long> width;
+            opt_string wrap;
+            opt_xy_scroll_command xscrollcommand;
+            opt_xy_scroll_command yscrollcommand;
+        };
+
+		/// @brief Argument for Text::tag_configure().
+        struct Text_tag_configure
+        {
+            std::string tagName;
+            static_assert(false, "incomplete");
+        };
+
 		/// @brief Argument for Text::search().
         struct Text_search
         {
@@ -4477,7 +4537,16 @@ export namespace cpptkinter
         }
 
         /// @brief Return the value of OPTION of an embedded image at INDEX.
-        void image_cget();
+        template<detail::FromObjConcept R>
+        R image_cget(detail::text_index auto&& index, std::string option)
+        {
+            if (!option.starts_with('-'))
+                option = '-' + option;
+            if (option.ends_with('_'))
+                option.pop_back();
+            return this->tk->call<R>(this->_w, "image", "cget", detail::to_text_index(index), option);
+        }
+
         /// @brief Configure an embedded image at INDEX.
         void image_configure();
         /// @brief Create an embedded image at INDEX.
@@ -4545,7 +4614,11 @@ export namespace cpptkinter
         /// @brief Creates a peer text widget with the given newPathName, and any optional standard configuration options.
         /// 
         /// By default the peer will have the same start and end line as the parent widget, but these can be overridden with the standard configuration options.
-        void peer_create();
+        template<cnfs::is_cnf CNF = cnfs::Text_peer_create>
+        void peer_create(CNF&& cnf)
+        {
+			this->tk->call(this->_w, "peer", "create", this->_options(std::forward<CNF>(cnf)));
+        }
 
         /// @brief Returns a list of peers of this widget (this does not include the widget itself).
         std::vector<std::string> peer_names()
@@ -4637,13 +4710,49 @@ export namespace cpptkinter
         void _tag_bind();
 
         /// @brief Return the value of OPTION for tag TAGNAME.
-        void tag_cget(const std::string& tagName);
+        template<detail::FromObjConcept R>
+        R cget(const std::string& tagName, std::string option)
+        {
+            if (!option.starts_with('-'))
+                option = '-' + option;
+            if (option.ends_with('_'))
+                option.pop_back();
+			return this->tk->call<R>(this->_w, "tag", "cget", tagName, option);
+        }
 
         /// @brief Configure a tag TAGNAME.
-        void tag_configure();
+        std::vector<std::array<std::string, 5>> tag_configure(const std::string& tagName)
+        {
+            return this->tk->call<std::vector<std::array<std::string, 5>>>(this->_w, "tag", "configure", tagName);
+        }
+        /// @brief Configure a tag TAGNAME.
+        auto tag_configure(const std::string& tagName, const std::string& cnf)
+        {
+			return this->_configure({ "tag", "configure", tagName }, cnf);
+        }
+        /// @brief Configure a tag TAGNAME.
+        template<cnfs::is_cnf CNF = cnfs::Text_tag_configure>
+        void tag_configure(CNF&& cnf)
+        {
+            return this->_configure({ "tag", "configure", cnf.tagName }, std::forward<CNF>(cnf), { "tagName" });
+        }
 
-        /// @copydoc tag_configure
-        void tag_config();
+        /// @copydoc tag_configure(const std::string&)
+        std::vector<std::array<std::string, 5>> tag_config(const std::string& tagName)
+        {
+			return this->tag_configure(tagName);
+        }
+		/// @copydoc tag_configure(const std::string&, const std::string&)
+		auto tag_config(const std::string& tagName, const std::string& cnf)
+		{
+			return this->tag_configure(tagName, cnf);
+		}
+		/// @copydoc tag_configure(const std::string&, CNF&&)
+		template<cnfs::is_cnf CNF = cnfs::Text_tag_configure>
+		void tag_config(const std::string& tagName, CNF&& cnf)
+		{
+			return this->tag_configure(tagName, std::forward<CNF>(cnf));
+		}
 
         /// @brief Delete all tags in TAGNAMES.
         void tag_delete(const std::string& first_tag_name, std::convertible_to<std::string> auto&&...tagNames)
@@ -4731,16 +4840,24 @@ export namespace cpptkinter
 			this->tk->call(this->_w, "tag", "remove", tagName, detail::to_text_index(index1), detail::to_text_index(index2));
 		}
 
-        /// @brief 
-        void window_cget();
+        /// @brief Return the value of OPTION of an embedded window at INDEX.
+		template<detail::FromObjConcept R>
+		void window_cget(detail::text_index auto&& index, std::string option)
+		{
+			if (!option.starts_with('-'))
+				option = '-' + option;
+			if (option.ends_with('_'))
+				option.pop_back();
+			return this->tk->call<R>(this->_w, "window", "cget", detail::to_text_index(index), option);
+		}
 
-        /// @brief 
+        /// @brief Configure an embedded window at INDEX.
         void window_configure();
 
-        /// @brief 
+		/// @copydoc window_configure
         void window_config();
 
-        /// @brief 
+        /// @brief Create a window at INDEX.
         void window_create();
 
         /// @brief Return all names of embedded windows in this widget.

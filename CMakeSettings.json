@@ -32,7 +32,7 @@
       "buildCommandArgs": "",
       "ctestCommandArgs": "",
       "inheritEnvironments": [],
-      "intelliSenseMode": "windows-clang-x64",
+      "intelliSenseMode": "windows-msvc-x64",
       "variables": [
         {
           "name": "CMAKE_C_COMPILER",
