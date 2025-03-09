@@ -41,7 +41,7 @@ static_assert(std::same_as<Tcl_WideInt, long long>);
 
 #define Tkapp_Interp(v) (((v))->interp)
 
-#define Py_BuildValue(fmt_str, ...) "trace", __VA_ARGS__
+#define Py_BuildValue(fmt_str, ...) __VA_ARGS__
 #define TRACE(_self, ARGS) do {                 \
         if ((_self)->trace) {  \
             Tkapp_Trace((_self), Py_BuildValue ARGS);   \
@@ -410,14 +410,22 @@ export namespace cpptkinter::_cpptkinter::detail
 	template<typename T>
 	concept call_argument_concept = range_of_Tcl_Obj<T> || AsObjConcept<T>;
 
+	template<typename...Args>
+	concept PythonCmd_ClientDataArgsConcept1 = std::invocable<std::function<void(Args...)>, std::remove_cvref_t<Args>...> && (FromObjConcept<std::remove_cvref_t<Args>> && ...);
+	template<typename T>
+	concept PythonCmd_ClientDataArgsConcept2Impl = std::invocable<std::function<void(T)>, std::vector<Tcl_Obj>&&>&& std::same_as<std::remove_cvref_t<T>, std::vector<Tcl_Obj>>;
+	template<typename...Args>
+	concept PythonCmd_ClientDataArgsConcept2 = sizeof...(Args) == 1 && (PythonCmd_ClientDataArgsConcept2Impl<Args> && ...);
+
 	/// @brief The concept for cpptkinter::_cpptkinter::PythonCmd_ClientData type parameter Args.
 	/// 
-	/// Specifies that
-	/// 1. void(Args...) can be invoked with values of type cpptkinter::_cpptkinter::FromObj<Args>()...\n 
+	/// Specifies that std::function<void(Args...)> can be invoked with 
+	/// 1. cpptkinter::_cpptkinter::FromObj<std::remove_cvref_t<Args>>()...\n 
 	/// or
-	/// 2. not implemented.
+	/// 2. std::vector<Tcl_Obj>&&.
 	template<typename...Args>
-	concept PythonCmd_ClientDataArgsConcept = (requires (std::function<void(Args...)> f, std::remove_cvref_t<Args>...args) { f(args...); } && (FromObjConcept<std::remove_cvref_t<Args>> && ...));
+	concept PythonCmd_ClientDataArgsConcept = PythonCmd_ClientDataArgsConcept1<Args...> || PythonCmd_ClientDataArgsConcept2<Args...>;
+
 	/// @brief The concept for cpptkinter::_cpptkinter::PythonCmd_ClientData type parameter R.
 	/// 
 	/// Specifies that
@@ -757,43 +765,63 @@ export namespace cpptkinter::_cpptkinter
 	{
 		std::function<R(Args...)> func;
 		TkappObject* self;
+#ifndef NDEBUG 
+		std::string name;
+#endif
 
-		static void PythonCmdImpl(PythonCmd_ClientData& data, Tcl_Interp* interp, int objc, ::Tcl_Obj* const objv[])
+		std::string get_error_string_header(::Tcl_Obj* objv0)
+		{
+			auto tcl_invocation_name = Tcl_Obj(objv0).to_string();
+			std::string error_string = std::format("In {}", tcl_invocation_name);
+#ifndef NDEBUG 
+			error_string += std::format(" ({})", this->name);
+#endif
+			return error_string;
+		}
+
+		void PythonCmdImpl(Tcl_Interp* interp, int objc, ::Tcl_Obj* const objv[])
 		{
 			if (objc < 1)
 				throw detail::construct_exception<TclError>("this should never get triggered. objc should never be < 1 but is " + std::to_string(objc));
 
 			auto args = std::ranges::subrange(objv + 1, objv + objc) | std::views::transform([](const auto& a) { return Tcl_Obj(a); }) | std::ranges::to<std::vector>();
 
-			if (sizeof...(Args) != args.size())
+			if constexpr (detail::PythonCmd_ClientDataArgsConcept2<Args...>)
+				;//pass
+			else
 			{
-				std::string error_string = (std::format("Got {} tcl arguments ({}).\nExpected {} c++ arguments (", args.size(),
-					hhh::misc::join_strings(args | std::views::transform(detail::Tcl_obj_type_string), ", "),
-					sizeof...(Args))
-					+ ... + (std::string(reflect::type_name<Args>()) + ", "))
-					+ ").";
-
-				throw detail::construct_exception<TclError>(error_string);
+				if (sizeof...(Args) != args.size())
+				{
+					std::string error_string = std::format("{}\ngot {} tcl arguments:", this->get_error_string_header(objv[0]), args.size());
+					for (auto&& arg : args)
+						error_string += "\n\t- " + detail::Tcl_Obj_to_string(this->self, arg);
+					error_string += std::format("\nexpected {} c++ arguments:", sizeof...(Args));
+					error_string += ("" + ... + ("\n\t- " + std::string(reflect::type_name<Args>())));
+					throw detail::construct_exception<TclError>(error_string);
+				}
 			}
 
 			ENTER_PYTHON;
 
 			auto inner_caller = [&]<typename T, size_t I>() {
-
-				auto opt_result = detail::FromObjImpl(data.self, args[I], std::type_identity<std::remove_cvref_t<T>>{});
+				auto opt_result = detail::FromObjImpl(this->self, args[I], std::type_identity<std::remove_cvref_t<T>>{});
 				if (opt_result.has_value())
 					return std::move(*opt_result);
 
-				std::string error_string = std::format("{}. tcl argument was {}.\nExpected c++ argument {}.",
+				std::string error_string = std::format("{}\n{}. tcl argument was {}\nxpected c++ argument {}",
+					this->get_error_string_header(objv[0]),
 					I+1,
-					detail::Tcl_Obj_to_string(data.self, args[I]),
+					detail::Tcl_Obj_to_string(this->self, args[I]),
 					reflect::type_name<T>());
 				throw detail::construct_exception<TclError>(error_string);
 			};
 
 			// necessary bc c++ doesn't define function argument evaluation order :(
 			auto caller = [&]<size_t...I>(std::index_sequence<I...>) {
-				return data.func(inner_caller.template operator()<Args, I>()...);
+				if constexpr (detail::PythonCmd_ClientDataArgsConcept2<Args...>)	// pass std::vector<Tcl_Obj>
+					this->func(std::move(args));
+				else	// pass c++ args
+					return this->func(inner_caller.template operator() < Args, I > ()...);
 			};
 
 			if constexpr (std::same_as<R, void>)
@@ -804,8 +832,6 @@ export namespace cpptkinter::_cpptkinter
 			else
 			{
 				auto obj_res = AsObj(caller(std::make_index_sequence<sizeof...(Args)>{}));
-				if (obj_res == nullptr)
-					throw detail::construct_exception<TclError>("AsObj returned nullptr");
 				Tcl_SetObjResult(interp, obj_res);
 			}
 
@@ -816,11 +842,10 @@ export namespace cpptkinter::_cpptkinter
 		{
 			try
 			{
-				PythonCmdImpl(*static_cast<PythonCmd_ClientData*>(clientData), interp, objc, objv);
+				static_cast<PythonCmd_ClientData*>(clientData)->PythonCmdImpl(interp, objc, objv);
 			}
 			catch (...)
 			{
-				hhh::misc::printl("caught exc");
 				errorInCmd = 1;
 				excInCmd = std::current_exception();
 				return TCL_ERROR;
@@ -854,7 +879,19 @@ export namespace cpptkinter::_cpptkinter
 	namespace detail
 	{
 		template<typename Func>
-		concept createcommand_concept = requires (Func && func) { decltype(PythonCmd_ClientData{ std::function(std::forward<Func>(func)) }){ std::forward<Func>(func) }; };
+		auto new_PythonCmd_ClientData(Func&& func, TkappObject* self, const std::string& name) -> decltype(PythonCmd_ClientData{ std::forward<Func>(func) })*
+		{
+			return new decltype(PythonCmd_ClientData{ std::function(std::forward<Func>(func)) }){
+				std::forward<Func>(func),
+				self
+#ifndef NDEBUG 
+				,name
+#endif
+			};
+		}
+
+		template<typename Func>
+		concept createcommand_concept = requires { utility::callable_to_std_function(std::declval<Func>()); };
 	}
 
 	/// @brief This class allows running Tcl code. Cpptkinter uses it internally a lot.
@@ -1149,7 +1186,7 @@ export namespace cpptkinter::_cpptkinter
 
 			TRACE(self, ("((ss()O))", "proc", name, func));
 
-			auto data = new decltype(PythonCmd_ClientData{ std::function(std::forward<Func>(func)) }){ std::forward<Func>(func), self };
+			auto data = detail::new_PythonCmd_ClientData(utility::callable_to_std_function(std::forward<Func>(func)), self, name);
 			DEVIATING_IMPLEMENTATION_WARNING("in the original data 'holds a reference' to self keeping it from being destructed. i doubt that this is actually necessary");
 
 			if (self->threaded && self->thread_id != Tcl_GetCurrentThread())

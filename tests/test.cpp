@@ -25,11 +25,11 @@ int main(int argc, char* argv[])
         tk::init(argc, argv);
 
         auto root = tk::Tk();
+        wroot = root;
 
         root.title("Welcome to GeeksForGeeks");
         root.geometry("700x500");
 
-		wroot = root;
 
 		auto donothing = [&]() { misc::printl("do_nothing was called"); };
 
@@ -65,8 +65,6 @@ int main(int argc, char* argv[])
         root.config("menu", menubar);
 
         filemenu.delete_(1);
-
-        auto toplvl = tk::Toplevel({ root });
 
         tk::StringVar var({ .value = "Hello, World!" });
 
@@ -122,6 +120,27 @@ int main(int argc, char* argv[])
         pw.grid();
         auto pwb = tk::Button({ .text = "pwb" });
         pw.add({ .child = pwb, .minsize = 100 });
+
+
+
+
+
+
+        auto text = tk::Text({.master= root, .height = 10, .width=40, .wrap="none"});
+
+        //auto ys = tk::Scrollbar({ .master = root, .command = [&](std::vector<tk::Tcl_Obj> args) { text.yview(args); }, .orient = "vertical" });
+        auto ys = tk::Scrollbar({ .master = root, .command = text.yview, .orient = "vertical" });
+
+        text["yscrollcommand"] = ys.set;
+        text.grid({ .column = 0, .row = 0, .sticky = "nwes" });
+        ys.grid({ .column = 1, .row = 0, .sticky = "ns" });
+        for (int i = 0; i<105;i++)
+        {
+            auto b = tk::Button({ .master = text, .command = [i]() { misc::printl("button ", i); }, .text = std::to_string(i) });
+            text.window_create({ .index="end", .window = b });
+            text.insert("end", "\n");
+        }
+
 
         tk::mainloop();
 

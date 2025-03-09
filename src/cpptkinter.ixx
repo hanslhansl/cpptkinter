@@ -16,7 +16,7 @@ import hhh;
 
 using namespace std::literals;
 
-#define REF_TO_IMPL(member) decltype(impl::member)& member
+#define REF_TO_IMPL(member) decltype(impl::member)& member = static_cast<impl*>(this->pimpl.get())->member
 
 #define DEFINE_ASSIGNMENT_OPERATOR(cl) \
     cl& operator=(const cl& other) \
@@ -24,7 +24,6 @@ using namespace std::literals;
         std::destroy_at(this); \
         return *std::construct_at(this, other); \
     }
-// expanded DEFINE_ASSIGNMENT_OPERATOR(cl) macro to make COMMA macro work
 #define CNF_CONSTRUCTOR_AND_ASSIGNMENT(cl, cnf_type, str, base) \
     using constructor_cnf = cnf_type;   \
     template<cnfs::is_cnf CNF = constructor_cnf> \
@@ -33,11 +32,7 @@ using namespace std::literals;
         this->_init_(str, std::forward<CNF>(cnf));  \
     }   \
     cl() : cl(constructor_cnf{}) { }   \
-    cl& operator=(const cl& other) \
-    {   \
-        std::destroy_at(this);  \
-        return *std::construct_at(this, other); \
-    }   \
+    DEFINE_ASSIGNMENT_OPERATOR(cl)   \
     using base::base
 
 using substitute_long_long = const std::variant<long long, std::string>&;
@@ -63,6 +58,8 @@ using ranges::join_with_view;
 
 export namespace cpptkinter
 {
+    using _cpptkinter::Tcl_Obj;
+
     using namespace constants;
 
     using _cpptkinter::TclError;
@@ -133,7 +130,8 @@ export namespace cpptkinter
         DEVIATING_IMPLEMENTATION_WARNING("_ImageSpec not done");
         using Relief = std::string;
         using ScreenUnits = std::variant<long long, double, std::string>;
-        using XYScrollCommand = std::variant<std::string, std::function<void(double, double)>>;
+        /// the callback takes 2 strings which contain floats
+        using XYScrollCommand = std::variant<std::string, std::function<void(std::string, std::string)>>;
         using TakeFocusValue = std::variant<bool, std::function<bool(const std::string&)>>;
         using FontDescription = std::variant<std::string, /*Font, */
             std::tuple<std::string>,
@@ -171,7 +169,7 @@ export namespace cpptkinter
         }
 
         /// Internal function
-        void _tkerror()
+        void _tkerror(std::string)
         {
 
         }
@@ -1066,6 +1064,10 @@ export namespace cpptkinter
         template<typename R, typename...Args>
         friend struct detail::CallWrapper;
         friend Wm;
+        template<typename Self>
+        friend struct XView;
+        template<typename Self>
+        friend struct YView;
         friend struct Pack;
         friend struct Grid;
         friend struct Place;
@@ -1356,7 +1358,8 @@ export namespace cpptkinter
         std::string _register(Func&& func, bool needcleanup = true)
         {
             DEVIATING_IMPLEMENTATION_WARNING("original has subst");
-            auto f = detail::CallWrapper{ std::function(std::forward<Func>(func)), *this };
+
+            auto f = detail::CallWrapper{ utility::callable_to_std_function(std::forward<Func>(func)), *this };
             auto name = (std::ostringstream() << detail::tcl_command_name_counter++ << "_" << &func << "_").str();
             if constexpr (requires { std::ostringstream() << func; })
                 name += (std::ostringstream() << func).str();
@@ -1846,56 +1849,74 @@ export namespace cpptkinter
     };
 
     /// @brief Mix-in class for querying and changing the horizontal position of a widget's window.
+    /// 
+	/// Implemented as crtp to enable the use of utility::member_functor.
+	template<typename Self>
     struct XView
     {
-        /// @brief Query the horizontal position of the view.
-        std::array<double, 2> xview(this auto&& self)
+        struct : utility::member_functor<Misc::impl>
         {
-            return self.tk->template call<std::array<double, 2>>(self._w, "xview");
+            using decays_to = void(const std::vector<Tcl_Obj>&);
+
+            std::array<double, 2> operator()()
+            {
+                return self.tk->template call<std::array<double, 2>>(self._w, "xview");
+            }
+
+            void operator()(const std::vector<Tcl_Obj>& args)
+            {
+                self.tk->call(self._w, "xview", args);
+            }
         }
-        /// @brief Change the horizontal position of the view.
-        void xview(this auto&& self, double d1, double d2)
-        {
-            self.tk->call(self._w, "xview", d1, d2);
-        }
+        /// @brief Query or change the horizontal position of the view.
+        xview{ *static_cast<Self*>(this)->pimpl };
 
         /// @brief Adjusts the view in the window so that FRACTION of the total width of the canvas is off - screen to the left.
-        void xview_moveto(this auto&& self, double fraction)
+        void xview_moveto(double fraction)
         {
-            self.tk->call(self._w, "xview", "moveto", fraction);
+            static_cast<Self*>(this)->tk->call(static_cast<Self*>(this)->_w, "xview", "moveto", fraction);
         }
 
         /// @brief Shift the x-view according to NUMBER which is measured in "units" or "pages" (WHAT).
-        void xview_scroll(this auto&& self, const detail::ScreenUnits& number, const std::string& what)
+        void xview_scroll(const detail::ScreenUnits& number, const std::string& what)
         {
-            self.tk->call(self._w, "xview", "scroll", number, what);
+            static_cast<Self*>(this)->tk->call(static_cast<Self*>(this)->_w, "xview", "scroll", number, what);
         }
     };
 
     /// @brief Mix-in class for querying and changing the vertical position of a widget's window.
+    /// 
+	/// Implemented as crtp to enable the use of utility::member_functor.
+    template<typename Self>
     struct YView
     {
-        /// @brief Query the vertical position of the view.
-        std::array<double, 2> yview(this auto&& self)
+        struct : utility::member_functor<Misc::impl>
         {
-            return self.tk->template call<std::array<double, 2>>(self._w, "yview");
+            using decays_to = void(const std::vector<Tcl_Obj>&);
+
+            std::array<double, 2> operator()()
+            {
+                return self.tk->template call<std::array<double, 2>>(self._w, "yview");
+            }
+
+            void operator()(const std::vector<Tcl_Obj>& args)
+            {
+                self.tk->call(self._w, "yview", args);
+            }
         }
-        /// @brief Change the vertical position of the view.
-        void yview(this auto&& self, double d1, double d2)
-        {
-            self.tk->call(self._w, "yview", d1, d2);
-        }
+        /// @brief Query or change the vertical position of the view.
+        yview{ *static_cast<Self*>(this)->pimpl };
 
         /// @brief Adjusts the view in the window so that FRACTION of the total height of the canvas is off - screen to the top.
-        void yview_moveto(this auto&& self, double fraction)
+        void yview_moveto(double fraction)
         {
-            self.tk->call(self._w, "yview", "moveto", fraction);
+            static_cast<Self*>(this)->tk->call(static_cast<Self*>(this)->_w, "yview", "moveto", fraction);
         }
 
         /// @brief Shift the y-view according to NUMBER which is measured in "units" or "pages" (WHAT).
-        void yview_scroll(this auto&& self, const detail::ScreenUnits& number, const std::string& what)
+        void yview_scroll(const detail::ScreenUnits& number, const std::string& what)
         {
-            self.tk->call(self._w, "yview", "scroll", number, what);
+            static_cast<Self*>(this)->tk->call(static_cast<Self*>(this)->_w, "yview", "scroll", number, what);
         }
     };
 
@@ -1970,13 +1991,7 @@ export namespace cpptkinter
             this->readprofile(baseName, className);
         }
 
-        template<std::derived_from<impl> I>
-        Tk(const std::shared_ptr<I>& pimpl) :
-            Misc(pimpl),
-            _tkloaded(pimpl->_tkloaded)
-        {
-
-        }
+        using Misc::Misc;
     public:
         DEFINE_ASSIGNMENT_OPERATOR(Tk);
 
@@ -2190,12 +2205,7 @@ export namespace cpptkinter
         }
 
         template<std::derived_from<impl> I>
-        Variable(const std::shared_ptr<I>& pimpl) :
-            pimpl(pimpl),
-            _tclCommands(pimpl->_tclCommands),
-            _root(pimpl->_root),
-            _tk(pimpl->_tk),
-            _name(pimpl->_name)
+        Variable(const std::shared_ptr<I>& pimpl) : pimpl(pimpl)
         {
 
         }
@@ -2616,6 +2626,8 @@ export namespace cpptkinter
     protected:
         REF_TO_IMPL(_name);
 
+        using Misc::Misc;
+
         /// @brief Internal function. Sets up information about children.
         ///
         /// @param override_name only used by Checkbutton.
@@ -2688,15 +2700,6 @@ export namespace cpptkinter
             self._setup(master, cnf, ignore_fields);
             self.tk->call(self.widgetName, self._w, std::move(extra), self._options(std::forward<CNF>(cnf), ignore_fields));
             DEVIATING_IMPLEMENTATION_WARNING("something with classes in cnf (?)");
-        }
-
-        template<std::derived_from<impl> I>
-        BaseWidget(const std::shared_ptr<I>& pimpl) :
-            Misc(pimpl),
-            widgetName(pimpl->widgetName),
-            _name(pimpl->_name)
-        {
-
         }
     };
 
@@ -3516,7 +3519,7 @@ export namespace cpptkinter
     }
 
     /// @brief %Entry widget which allows displaying simple text.
-    struct Entry : Widget, XView
+    struct Entry : Widget, XView<Entry>
     {
         /// @brief Construct a new Entry widget.
         CNF_CONSTRUCTOR_AND_ASSIGNMENT(Entry, cnfs::Entry, "entry", Widget);
@@ -4301,7 +4304,7 @@ export namespace cpptkinter
 			opt_string bg;
 			opt_screenunits border;
 			opt_screenunits borderwidth;
-            opt<std::variant<std::string, std::function<void(std::array<double, 2>)>>> command;
+            opt<std::variant<std::string, std::function<void(std::vector<Tcl_Obj>)>>> command;
 			opt_cursor cursor;
             opt_screenunits elementborderwidth;
 			opt_string highlightbackground;
@@ -4365,11 +4368,22 @@ export namespace cpptkinter
 			return this->tk->call<std::array<double, 2>>(this->_w, "get");
         }
 
-        /// @brief Set the fractional values of the slider position (upper and lower ends as value between 0 and 1).
-        void set(double first, double last)
+        struct : utility::member_functor<impl>
         {
-			this->tk->call(this->_w, "set", first, last);
+            using decays_to = void(const std::string&, const std::string&);
+
+            void operator()(double first, double last)
+            {
+                self.tk->call(self._w, "set", first, last);
+            }
+
+            void operator()(const std::string& first, const std::string& last)
+            {
+                (*this)(std::stod(first), std::stod(last));
+            }
         }
+        /// @brief Set the fractional values of the slider position (upper and lower ends as value between 0 and 1).
+        set{ *static_cast<impl*>(this->pimpl.get()) };
     };
 
     namespace cnfs
@@ -4589,7 +4603,7 @@ export namespace cpptkinter
     }
 
     /// @brief %Text widget which can display text in various forms.
-    struct Text : Widget, XView, YView
+    struct Text : Widget, XView<Text>, YView<Text>
     {
         /// @brief Construct a text widget.
         CNF_CONSTRUCTOR_AND_ASSIGNMENT(Text, cnfs::Text, "text", Widget);
@@ -5173,23 +5187,16 @@ export namespace cpptkinter
             (*this)["menu"] = menu;
         }
 
-        template<std::derived_from<impl> I>
-        OptionMenu(const std::shared_ptr<I>& pimpl) :
-            Menubutton(pimpl),
-            _menu(pimpl->_menu),
-            menuname(pimpl->menuname)
-        {
-
-        }
+		using Menubutton::Menubutton;
     public:
-        DEFINE_ASSIGNMENT_OPERATOR(OptionMenu);
-
         /// @brief Construct an optionmenu widget.
         OptionMenu(const Misc& master, const StringVar& variable, const detail::sized_range_of_string auto& values, const std::function<void(const StringVar&)>& command = {}) :
             OptionMenu(std::make_shared<impl>())
         {
             this->_init_(master, variable, values, command);
         }
+        
+        DEFINE_ASSIGNMENT_OPERATOR(OptionMenu);
 
         template<typename R>
             requires detail::FromObjConcept<R> || std::same_as<R, Menu> || std::same_as<R, std::optional<Menu>>

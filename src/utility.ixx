@@ -288,6 +288,33 @@ export namespace cpptkinter::utility
 	{
 		using type = std::variant<VArgs..., Args...>;
 	};
+
+    /// @brief Base class for member functors.
+    template<typename T>
+    class member_functor
+    {
+    protected:
+        T& self;
+    public:
+        using container_type = T;
+
+        member_functor(T& t) : self(t) {}
+    };
+
+    template<typename Func>
+    decltype(std::function(std::declval<Func>())) callable_to_std_function(Func&& func)
+    {
+		return std::forward<Func>(func);
+    }
+    template<typename Func> requires requires {
+        typename std::remove_cvref_t<Func>::decays_to;
+        typename std::remove_cvref_t<Func>::container_type;
+        requires std::derived_from<std::remove_cvref_t<Func>, member_functor<typename std::remove_cvref_t<Func>::container_type>>;
+    }
+    decltype(std::function(std::declval<typename std::remove_cvref_t<Func>::decays_to>())) callable_to_std_function(Func&& func)
+    {
+        return std::forward<Func>(func);
+    }
 }
 
 template<typename T>
