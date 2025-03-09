@@ -84,6 +84,8 @@ var classcpptkinter_1_1Misc =
     [ "Pack", "classcpptkinter_1_1Misc.html#aa2b0b477aec36bcd034d05f897b35edc", null ],
     [ "Place", "classcpptkinter_1_1Misc.html#a30bdb47d8a666ee98bdbf0094c7a3906", null ],
     [ "utility::weak", "classcpptkinter_1_1Misc.html#a34ffc36964fcfa046c2b869258c0f0aa", null ],
+    [ "XView", "classcpptkinter_1_1Misc.html#a554fc7de93fca2ad143725d71f174192", null ],
+    [ "YView", "classcpptkinter_1_1Misc.html#a893121bef7fa75d046963c3e41fcca98", null ],
     [ "_last_child_ids", "classcpptkinter_1_1Misc.html#a0c69ade45088b43ebef1d055593f18cd", null ],
     [ "_tclCommands", "classcpptkinter_1_1Misc.html#a82eaa6a70694c943f622602df28bf232", null ],
     [ "_w", "classcpptkinter_1_1Misc.html#a209dad39c06f5da9a5843111013fb69a", null ],

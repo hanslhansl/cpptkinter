@@ -7,7 +7,7 @@ var structcpptkinter_1_1cnfs_1_1Scrollbar =
     [ "bg", "structcpptkinter_1_1cnfs_1_1Scrollbar.html#a727409038b4ac20ddf49635c5b426ec8", null ],
     [ "border", "structcpptkinter_1_1cnfs_1_1Scrollbar.html#a5e3660411912fc4e36fc263e03834886", null ],
     [ "borderwidth", "structcpptkinter_1_1cnfs_1_1Scrollbar.html#a258f6e5b5c57b495c2db8ec33de88105", null ],
-    [ "command", "structcpptkinter_1_1cnfs_1_1Scrollbar.html#aadc3cafa402a812c94a7099680fe2cf3", null ],
+    [ "command", "structcpptkinter_1_1cnfs_1_1Scrollbar.html#addf1565fb5a748ed6a7af0f75fa3b712", null ],
     [ "cursor", "structcpptkinter_1_1cnfs_1_1Scrollbar.html#a16ec6bde0f7c7938b1639e74aa47e261", null ],
     [ "elementborderwidth", "structcpptkinter_1_1cnfs_1_1Scrollbar.html#af35854ac73045540f5e61c10e5e3d0b6", null ],
     [ "highlightbackground", "structcpptkinter_1_1cnfs_1_1Scrollbar.html#ae12ad92af6c72b9ce7d6558c5f109c98", null ],

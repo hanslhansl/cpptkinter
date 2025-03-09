@@ -1,7 +1,7 @@
 var structcpptkinter_1_1XView =
 [
-    [ "xview", "structcpptkinter_1_1XView.html#a56ea682f0eed80a131d6c85ac9aa29dc", null ],
-    [ "xview", "structcpptkinter_1_1XView.html#a3a973ab3d6a3f1145285c8c8a083d5cf", null ],
-    [ "xview_moveto", "structcpptkinter_1_1XView.html#a50693f7269e6f2bbc2e0c7ef928c84c1", null ],
-    [ "xview_scroll", "structcpptkinter_1_1XView.html#a618dc6627cfe3c2a35904309bde94cdb", null ]
+    [ "decays_to", "structcpptkinter_1_1XView.html#a75ccf91b43bb083085229ec5baaca9b1", null ],
+    [ "Self", "structcpptkinter_1_1XView.html#aed1888c48071d3738c07e95bdbb4895d", null ],
+    [ "xview_moveto", "structcpptkinter_1_1XView.html#a8697ce1623ef786bf74dff54e64300ca", null ],
+    [ "xview_scroll", "structcpptkinter_1_1XView.html#a292fb652dd36c26155eeebfcf7cc265d", null ]
 ];

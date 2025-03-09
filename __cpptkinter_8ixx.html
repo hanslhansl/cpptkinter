@@ -159,6 +159,12 @@ Concepts</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1call__argument__concept.html">cpptkinter::_cpptkinter::detail::call_argument_concept</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1PythonCmd__ClientDataArgsConcept1.html">cpptkinter::_cpptkinter::detail::PythonCmd_ClientDataArgsConcept1</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1PythonCmd__ClientDataArgsConcept2Impl.html">cpptkinter::_cpptkinter::detail::PythonCmd_ClientDataArgsConcept2Impl</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1PythonCmd__ClientDataArgsConcept2.html">cpptkinter::_cpptkinter::detail::PythonCmd_ClientDataArgsConcept2</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1PythonCmd__ClientDataArgsConcept.html">cpptkinter::_cpptkinter::detail::PythonCmd_ClientDataArgsConcept</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The concept for <a class="el" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html" title="A wrapper allowing for the contained c++ callback to be called from/through tcl.">cpptkinter::_cpptkinter::PythonCmd_ClientData</a> type parameter Args. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -191,7 +197,7 @@ Macros</h2></td></tr>
 <tr class="separator:a4bb7628c59167b48410013ca74311168"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a455ac70f8c7ae447126ca40a2ea0db6b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="__cpptkinter_8ixx.html#a455ac70f8c7ae447126ca40a2ea0db6b">Tkapp_Interp</a>(v)&#160;&#160;&#160;(((v))-&gt;interp)</td></tr>
 <tr class="separator:a455ac70f8c7ae447126ca40a2ea0db6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae260bdd94c8cc1657557300b973a10f5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="__cpptkinter_8ixx.html#ae260bdd94c8cc1657557300b973a10f5">Py_BuildValue</a>(fmt_str, ...)&#160;&#160;&#160;&quot;trace&quot;, __VA_ARGS__</td></tr>
+<tr class="memitem:ae260bdd94c8cc1657557300b973a10f5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="__cpptkinter_8ixx.html#ae260bdd94c8cc1657557300b973a10f5">Py_BuildValue</a>(fmt_str, ...)&#160;&#160;&#160;__VA_ARGS__</td></tr>
 <tr class="separator:ae260bdd94c8cc1657557300b973a10f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a268a5497247469c43b9b16215342ffdf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="__cpptkinter_8ixx.html#a268a5497247469c43b9b16215342ffdf">TRACE</a>(_self,  ARGS)</td></tr>
 <tr class="separator:a268a5497247469c43b9b16215342ffdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -390,6 +396,9 @@ requires ((FromObjImplTrait&lt;Args&gt;::value &amp;&amp; ...) &amp;&amp; sizeof
 <tr class="memitem:a6c16febdbceaeea8600ecc1cfa80c0f9"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; </td></tr>
 <tr class="memitem:a6c16febdbceaeea8600ecc1cfa80c0f9"><td class="memTemplItemLeft" align="right" valign="top">std::invoke_result_t&lt; Func &amp;&amp; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter.html#a6c16febdbceaeea8600ecc1cfa80c0f9">cpptkinter::_cpptkinter::var_invoke</a> (Func &amp;&amp;func, TkappObject *self)</td></tr>
 <tr class="separator:a6c16febdbceaeea8600ecc1cfa80c0f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20589bedb66c4d2875f33a0fad1c7bdb"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; </td></tr>
+<tr class="memitem:a20589bedb66c4d2875f33a0fad1c7bdb"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a20589bedb66c4d2875f33a0fad1c7bdb">cpptkinter::_cpptkinter::detail::new_PythonCmd_ClientData</a> (Func &amp;&amp;func, TkappObject *self, const std::string &amp;name) -&gt; decltype(PythonCmd_ClientData{ std::forward&lt; Func &gt;(func) }) *</td></tr>
+<tr class="separator:a20589bedb66c4d2875f33a0fad1c7bdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a287ae8c0991220df7b0ebf0d6166a9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; <br />
 requires (hhh::meta::tuple_like&lt;T&gt;&amp;&amp; hhh::meta::tuple_elements_satisfy&lt;T, AsObjImplTrait&gt;::value) || (utility::is_vector&lt;T&gt; &amp;&amp; AsObjImplTrait&lt;typename T::value_type&gt;::value)</td></tr>
 <tr class="memitem:a4a287ae8c0991220df7b0ebf0d6166a9"><td class="memTemplItemLeft" align="right" valign="top">Tcl_Obj&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a4a287ae8c0991220df7b0ebf0d6166a9">cpptkinter::_cpptkinter::detail::AsObjImpl</a> (const T &amp;value)</td></tr>
@@ -584,7 +593,7 @@ Variables</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;&quot;trace&quot;, __VA_ARGS__</td>
+          <td></td><td>&#160;&#160;&#160;__VA_ARGS__</td>
         </tr>
       </table>
 </div><div class="memdoc">

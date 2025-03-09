@@ -150,8 +150,9 @@ Typedefs</h2></td></tr>
 <tr class="separator:a88ae1cadeee0b5cb6ce20e9b93e8b213"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc7009a86a29f290dee42ceefba321bc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1detail.html#afc7009a86a29f290dee42ceefba321bc">ScreenUnits</a> = std::variant&lt; long long, double, std::string &gt;</td></tr>
 <tr class="separator:afc7009a86a29f290dee42ceefba321bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc50bc7da50e0617fd87c567e4131396"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1detail.html#adc50bc7da50e0617fd87c567e4131396">XYScrollCommand</a> = std::variant&lt; std::string, std::function&lt; void(double, double)&gt; &gt;</td></tr>
-<tr class="separator:adc50bc7da50e0617fd87c567e4131396"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e67f2d04ef0c7921739ea8718120908"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1detail.html#a9e67f2d04ef0c7921739ea8718120908">XYScrollCommand</a> = std::variant&lt; std::string, std::function&lt; void(std::string, std::string)&gt; &gt;</td></tr>
+<tr class="memdesc:a9e67f2d04ef0c7921739ea8718120908"><td class="mdescLeft">&#160;</td><td class="mdescRight">the callback takes 2 strings which contain floats  <br /></td></tr>
+<tr class="separator:a9e67f2d04ef0c7921739ea8718120908"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a088393b2f3a5fa677dbede0ec8ee90d4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1detail.html#a088393b2f3a5fa677dbede0ec8ee90d4">TakeFocusValue</a> = std::variant&lt; bool, std::function&lt; bool(const std::string &amp;)&gt; &gt;</td></tr>
 <tr class="separator:a088393b2f3a5fa677dbede0ec8ee90d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73e9cdfea87ef3fd1a49a52262f9f6a5"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1detail.html#a73e9cdfea87ef3fd1a49a52262f9f6a5">FontDescription</a> = std::variant&lt; std::string, std::tuple&lt; std::string &gt;, std::tuple&lt; std::string, long long &gt;, std::tuple&lt; std::string, long long, std::string &gt;, std::tuple&lt; std::string, long long, std::vector&lt; std::string &gt; &gt; &gt;</td></tr>
@@ -165,9 +166,9 @@ Functions</h2></td></tr>
 <tr class="separator:ac31dbc066ecd7f2a39832e553a1382a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36a78e7e8c441012be56c03a322d6278"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1detail.html#a36a78e7e8c441012be56c03a322d6278">_print_command</a> (std::vector&lt; std::string &gt; cmd)</td></tr>
 <tr class="separator:a36a78e7e8c441012be56c03a322d6278"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54f76867b49cb2935f272a5d5161670b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1detail.html#a54f76867b49cb2935f272a5d5161670b">_tkerror</a> ()</td></tr>
-<tr class="memdesc:a54f76867b49cb2935f272a5d5161670b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function.  <br /></td></tr>
-<tr class="separator:a54f76867b49cb2935f272a5d5161670b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad58ef7017e478990f9e9f9a0bcd3ef9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1detail.html#ad58ef7017e478990f9e9f9a0bcd3ef9b">_tkerror</a> (std::string)</td></tr>
+<tr class="memdesc:ad58ef7017e478990f9e9f9a0bcd3ef9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function.  <br /></td></tr>
+<tr class="separator:ad58ef7017e478990f9e9f9a0bcd3ef9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac38a50f86e7f5c627b87ddc715488b4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1detail.html#ac38a50f86e7f5c627b87ddc715488b4f">_exit</a> ()</td></tr>
 <tr class="memdesc:ac38a50f86e7f5c627b87ddc715488b4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function. Calling it will throw std::runtime_error.  <br /></td></tr>
 <tr class="separator:ac38a50f86e7f5c627b87ddc715488b4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -357,17 +358,19 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="adc50bc7da50e0617fd87c567e4131396" name="adc50bc7da50e0617fd87c567e4131396"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc50bc7da50e0617fd87c567e4131396">&#9670;&#160;</a></span>XYScrollCommand</h2>
+<a id="a9e67f2d04ef0c7921739ea8718120908" name="a9e67f2d04ef0c7921739ea8718120908"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e67f2d04ef0c7921739ea8718120908">&#9670;&#160;</a></span>XYScrollCommand</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespacecpptkinter_1_1detail.html#adc50bc7da50e0617fd87c567e4131396">cpptkinter::detail::XYScrollCommand</a> = typedef std::variant&lt;std::string, std::function&lt;void(double, double)&gt; &gt;</td>
+          <td class="memname">using <a class="el" href="namespacecpptkinter_1_1detail.html#a9e67f2d04ef0c7921739ea8718120908">cpptkinter::detail::XYScrollCommand</a> = typedef std::variant&lt;std::string, std::function&lt;void(std::string, std::string)&gt; &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>the callback takes 2 strings which contain floats </p>
 
 </div>
 </div>
@@ -499,8 +502,8 @@ template&lt;typename A , typename V , typename Conv  = const std::nullopt_t&amp;
 
 </div>
 </div>
-<a id="a54f76867b49cb2935f272a5d5161670b" name="a54f76867b49cb2935f272a5d5161670b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a54f76867b49cb2935f272a5d5161670b">&#9670;&#160;</a></span>_tkerror()</h2>
+<a id="ad58ef7017e478990f9e9f9a0bcd3ef9b" name="ad58ef7017e478990f9e9f9a0bcd3ef9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad58ef7017e478990f9e9f9a0bcd3ef9b">&#9670;&#160;</a></span>_tkerror()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -508,6 +511,7 @@ template&lt;typename A , typename V , typename Conv  = const std::nullopt_t&amp;
         <tr>
           <td class="memname">void cpptkinter::detail::_tkerror </td>
           <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>

@@ -124,6 +124,12 @@ Concepts</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1call__argument__concept.html">call_argument_concept</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1PythonCmd__ClientDataArgsConcept1.html">PythonCmd_ClientDataArgsConcept1</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1PythonCmd__ClientDataArgsConcept2Impl.html">PythonCmd_ClientDataArgsConcept2Impl</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1PythonCmd__ClientDataArgsConcept2.html">PythonCmd_ClientDataArgsConcept2</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1PythonCmd__ClientDataArgsConcept.html">PythonCmd_ClientDataArgsConcept</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The concept for <a class="el" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html" title="A wrapper allowing for the contained c++ callback to be called from/through tcl.">cpptkinter::_cpptkinter::PythonCmd_ClientData</a> type parameter Args. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -228,6 +234,9 @@ requires ((<a class="el" href="structcpptkinter_1_1__cpptkinter_1_1detail_1_1Fro
 <tr class="memitem:a40fb5b60f6a9669d19b362b5a7db234d"><td class="memTemplItemLeft" align="right" valign="top">std::optional&lt; std::variant&lt; Args... &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a40fb5b60f6a9669d19b362b5a7db234d">FromObjImpl</a> (<a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html">TkappObject</a> *tkapp, const <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">Tcl_Obj</a> &amp;value, std::type_identity&lt; std::variant&lt; Args... &gt; &gt;)</td></tr>
 <tr class="memdesc:a40fb5b60f6a9669d19b362b5a7db234d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to convert <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html" title="Represents a Tcl object.">Tcl_Obj</a> to std::variant.  <br /></td></tr>
 <tr class="separator:a40fb5b60f6a9669d19b362b5a7db234d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20589bedb66c4d2875f33a0fad1c7bdb"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; </td></tr>
+<tr class="memitem:a20589bedb66c4d2875f33a0fad1c7bdb"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a20589bedb66c4d2875f33a0fad1c7bdb">new_PythonCmd_ClientData</a> (Func &amp;&amp;func, <a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html">TkappObject</a> *self, const std::string &amp;name) -&gt; decltype(<a class="el" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html">PythonCmd_ClientData</a>{ std::forward&lt; Func &gt;(func) }) *</td></tr>
+<tr class="separator:a20589bedb66c4d2875f33a0fad1c7bdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a287ae8c0991220df7b0ebf0d6166a9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; <br />
 requires (hhh::meta::tuple_like&lt;T&gt;&amp;&amp; hhh::meta::tuple_elements_satisfy&lt;T, <a class="el" href="structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjImplTrait.html">AsObjImplTrait</a>&gt;::value) || (utility::is_vector&lt;T&gt; &amp;&amp; <a class="el" href="structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjImplTrait.html">AsObjImplTrait</a>&lt;typename T::value_type&gt;::value)</td></tr>
 <tr class="memitem:a4a287ae8c0991220df7b0ebf0d6166a9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">Tcl_Obj</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a4a287ae8c0991220df7b0ebf0d6166a9">AsObjImpl</a> (const T &amp;value)</td></tr>
@@ -1059,6 +1068,43 @@ template&lt;typename T &gt; </div>
           <td></td>
           <td>)</td>
           <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a20589bedb66c4d2875f33a0fad1c7bdb" name="a20589bedb66c4d2875f33a0fad1c7bdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20589bedb66c4d2875f33a0fad1c7bdb">&#9670;&#160;</a></span>new_PythonCmd_ClientData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Func &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto cpptkinter::_cpptkinter::detail::new_PythonCmd_ClientData </td>
+          <td>(</td>
+          <td class="paramtype">Func &amp;&amp;&#160;</td>
+          <td class="paramname"><em>func</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html">TkappObject</a> *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> -&gt; decltype(<a class="el" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html">PythonCmd_ClientData</a>{ std::forward&lt;Func&gt;(func) })*
+		</td>
         </tr>
       </table>
 </div><div class="memdoc">

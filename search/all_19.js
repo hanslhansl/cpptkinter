@@ -7,8 +7,8 @@ var searchData=
   ['yposition_4',['yposition',['../structcpptkinter_1_1Menu.html#a971990e1a99268c4bf93e4100f4ec915',1,'cpptkinter::Menu']]],
   ['yscrollcommand_5',['yscrollcommand',['../structcpptkinter_1_1cnfs_1_1Text.html#a1fc420955bbad2c43d04de54bd8ddce2',1,'cpptkinter::cnfs::Text::yscrollcommand()'],['../structcpptkinter_1_1cnfs_1_1Text__peer__create.html#a6228edabfaf325a34f828f128fd3ecc4',1,'cpptkinter::cnfs::Text_peer_create::yscrollcommand()']]],
   ['yscrollincrement_6',['yscrollincrement',['../structcpptkinter_1_1cnfs_1_1Listbox.html#a5faf3da945d872fd441ac5dec6e7a16c',1,'cpptkinter::cnfs::Listbox']]],
-  ['yview_7',['YView',['../structcpptkinter_1_1YView.html',1,'cpptkinter']]],
-  ['yview_8',['yview',['../structcpptkinter_1_1YView.html#ae49d7923e4f218676601d76ee9379841',1,'cpptkinter::YView::yview(this auto &amp;&amp;self)'],['../structcpptkinter_1_1YView.html#af721c7abbd9ac32e68eed2edd723df20',1,'cpptkinter::YView::yview(this auto &amp;&amp;self, double d1, double d2)']]],
-  ['yview_5fmoveto_9',['yview_moveto',['../structcpptkinter_1_1YView.html#a85ee61e57c432dd92b3ce197744870f9',1,'cpptkinter::YView']]],
-  ['yview_5fscroll_10',['yview_scroll',['../structcpptkinter_1_1YView.html#a0460e2b8dd367a5bbb8e7da77781d5dc',1,'cpptkinter::YView']]]
+  ['yview_7',['YView',['../structcpptkinter_1_1YView.html',1,'cpptkinter::YView&lt; Self &gt;'],['../classcpptkinter_1_1Misc.html#a893121bef7fa75d046963c3e41fcca98',1,'cpptkinter::Misc::YView()']]],
+  ['yview_3c_20text_20_3e_8',['YView&lt; Text &gt;',['../structcpptkinter_1_1YView.html',1,'cpptkinter']]],
+  ['yview_5fmoveto_9',['yview_moveto',['../structcpptkinter_1_1YView.html#a897f4ad63d4d3a04188921e9ae622ebb',1,'cpptkinter::YView']]],
+  ['yview_5fscroll_10',['yview_scroll',['../structcpptkinter_1_1YView.html#a74e0f30dbbee884021148e4b89c88ae1',1,'cpptkinter::YView']]]
 ];

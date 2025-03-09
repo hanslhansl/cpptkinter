@@ -25,6 +25,19 @@
 var NAVTREE =
 [
   [ "cpptkinter", "index.html", [
+    [ "philosophy", "philosophy.html", null ],
+    [ "terminology", "terminology.html", null ],
+    [ "design decisions", "design.html", [
+      [ "keyword arguments", "design.html#kwargs", null ],
+      [ "reference counting", "design.html#refcount", null ],
+      [ "converting objects from and to <em>tcl</em>", "design.html#converting", null ],
+      [ "registering callbacks", "design.html#callbacks", null ]
+    ] ],
+    [ "thread safety", "threads.html", null ],
+    [ "a simple example", "example.html", null ],
+    [ "building", "building.html", null ],
+    [ "current state of the project", "state.html", null ],
+    [ "to-do's", "todo.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -52,6 +65,7 @@ var NAVTREE =
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
+        [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
         [ "Macros", "globals_defs.html", null ]
@@ -63,22 +77,23 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "__cpptkinter_8ixx.html",
-"classcpptkinter_1_1Misc.html#ab1e4b7d196f92db6cab7ea51215f7315",
-"conceptcpptkinter_1_1utility_1_1is__vector.html",
-"functions_l.html",
-"namespacecpptkinter_1_1constants.html#a4b8dd3de04e3fb8c3b1a3b489ff8dc3d",
-"structcpptkinter_1_1Event.html#a82ff930b6d13729c4814cea6d2af9711",
-"structcpptkinter_1_1Misc_1_1impl.html",
-"structcpptkinter_1_1Text.html#a2ab285be00ce13aa2d51b8ab8c067c40",
-"structcpptkinter_1_1Wm.html#a2b861098c1e91062b253afe29ea9d709",
-"structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a490e6e2a171fc7c05f6ed89217c7a0f0",
-"structcpptkinter_1_1cnfs_1_1Checkbutton.html#a73c655ee85b32a8dae418f5c3d015e77",
-"structcpptkinter_1_1cnfs_1_1Label.html#afec6d90edd66fb8fc5dfa5b135f45b24",
-"structcpptkinter_1_1cnfs_1_1Menubutton.html#ad59a6b7fbbb517e3ba1e53eceddc1064",
-"structcpptkinter_1_1cnfs_1_1Scale.html#a365f58c0e05de1b0e8dba233dba3dcae",
-"structcpptkinter_1_1cnfs_1_1Text.html#a6918c7e0a8e54df38140e843297441d0",
-"structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#aad1156dc97c8a30df9368545509e4d04",
-"structcpptkinter_1_1cnfs_1_1grid__bbox.html#a23d9437016b15ab015a7285a97893707"
+"classcpptkinter_1_1Misc.html#aabb5954ed4f55855db5b636de5f0ae9c",
+"conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1createcommand__concept.html",
+"functions_e.html",
+"namespacecpptkinter_1_1cnfs.html#a4d9105bd3c9d4a39ae17e8b2546cb512",
+"structcpptkinter_1_1Entry.html#a5d40d43542a3339b7f3a58c89e0e1db8",
+"structcpptkinter_1_1Menu.html#aa794930f571e37496464f6d77f53ce68",
+"structcpptkinter_1_1Spinbox.html#ab5a48163aa2d19aa57b699159ab49111",
+"structcpptkinter_1_1Variable_1_1impl.html#ac3b8058e8c1ae3513f08d174ebd22918",
+"structcpptkinter_1_1__cpptkinter_1_1CommandEvent.html#a732f295a2c09af254318b56ebad9a50d",
+"structcpptkinter_1_1cnfs_1_1Checkbutton.html#a0392da73c0c51a1af4df61452e52718a",
+"structcpptkinter_1_1cnfs_1_1Label.html#a3b70eae226925a24a8a5060b6d5bda35",
+"structcpptkinter_1_1cnfs_1_1Menubutton.html#a237ed02fbbf8ee7bcf497de2d81bdac3",
+"structcpptkinter_1_1cnfs_1_1Radiobutton.html#aa940d2144d6607e5d7d89f53667e6be2",
+"structcpptkinter_1_1cnfs_1_1Spinbox.html#aec3b3a43d7d8aedea9e9098a26ff19a6",
+"structcpptkinter_1_1cnfs_1_1Text__search.html#aa7e2cc22541ec4d23c818622dfe6a4a2",
+"structcpptkinter_1_1cnfs_1_1add__radiobutton.html",
+"tk_8ixx.html#a25398a3a9dc609fb12020adab7fe9403"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

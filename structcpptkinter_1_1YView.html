@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>cpptkinter: cpptkinter::YView Struct Reference</title>
+<title>cpptkinter: cpptkinter::YView&lt; Self &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -90,139 +90,94 @@ $(document).ready(function(){initNavTree('structcpptkinter_1_1YView.html',''); i
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="structcpptkinter_1_1YView-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">cpptkinter::YView Struct Reference</div></div>
+  <div class="headertitle"><div class="title">cpptkinter::YView&lt; Self &gt; Struct Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Mix-in class for querying and changing the vertical position of a widget's window.  
  <a href="structcpptkinter_1_1YView.html#details">More...</a></p>
-<div class="dynheader">
-Inheritance diagram for cpptkinter::YView:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="structcpptkinter_1_1YView.png" usemap="#cpptkinter::YView_map" alt=""/>
-  <map id="cpptkinter::YView_map" name="cpptkinter::YView_map">
-<area href="structcpptkinter_1_1Text.html" title="Text widget which can display text in various forms." alt="cpptkinter::Text" shape="rect" coords="0,56,110,80"/>
-  </map>
-</div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ac9f62e038e2c77c955312050c071f94e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1YView.html#ac9f62e038e2c77c955312050c071f94e">decays_to</a> = void(const std::vector&lt; <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">Tcl_Obj</a> &gt; &amp;)</td></tr>
+<tr class="separator:ac9f62e038e2c77c955312050c071f94e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae49d7923e4f218676601d76ee9379841"><td class="memItemLeft" align="right" valign="top">std::array&lt; double, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1YView.html#ae49d7923e4f218676601d76ee9379841">yview</a> (this auto &amp;&amp;self)</td></tr>
-<tr class="memdesc:ae49d7923e4f218676601d76ee9379841"><td class="mdescLeft">&#160;</td><td class="mdescRight">Query the vertical position of the view.  <br /></td></tr>
-<tr class="separator:ae49d7923e4f218676601d76ee9379841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af721c7abbd9ac32e68eed2edd723df20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1YView.html#af721c7abbd9ac32e68eed2edd723df20">yview</a> (this auto &amp;&amp;self, double d1, double d2)</td></tr>
-<tr class="memdesc:af721c7abbd9ac32e68eed2edd723df20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the vertical position of the view.  <br /></td></tr>
-<tr class="separator:af721c7abbd9ac32e68eed2edd723df20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85ee61e57c432dd92b3ce197744870f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1YView.html#a85ee61e57c432dd92b3ce197744870f9">yview_moveto</a> (this auto &amp;&amp;self, double fraction)</td></tr>
-<tr class="memdesc:a85ee61e57c432dd92b3ce197744870f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjusts the view in the window so that FRACTION of the total height of the canvas is off - screen to the top.  <br /></td></tr>
-<tr class="separator:a85ee61e57c432dd92b3ce197744870f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0460e2b8dd367a5bbb8e7da77781d5dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1YView.html#a0460e2b8dd367a5bbb8e7da77781d5dc">yview_scroll</a> (this auto &amp;&amp;self, const <a class="el" href="namespacecpptkinter_1_1detail.html#afc7009a86a29f290dee42ceefba321bc">detail::ScreenUnits</a> &amp;number, const std::string &amp;what)</td></tr>
-<tr class="memdesc:a0460e2b8dd367a5bbb8e7da77781d5dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shift the y-view according to NUMBER which is measured in "units" or "pages" (WHAT).  <br /></td></tr>
-<tr class="separator:a0460e2b8dd367a5bbb8e7da77781d5dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f1ac5681453b003af9167b680f767ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcpptkinter_1_1utility_1_1member__functor.html">utility::member_functor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1YView.html#a5f1ac5681453b003af9167b680f767ff">Self</a> (this) -&gt; pimpl }</td></tr>
+<tr class="memdesc:a5f1ac5681453b003af9167b680f767ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Query or change the vertical position of the view.  <br /></td></tr>
+<tr class="separator:a5f1ac5681453b003af9167b680f767ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a897f4ad63d4d3a04188921e9ae622ebb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1YView.html#a897f4ad63d4d3a04188921e9ae622ebb">yview_moveto</a> (double fraction)</td></tr>
+<tr class="memdesc:a897f4ad63d4d3a04188921e9ae622ebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjusts the view in the window so that FRACTION of the total height of the canvas is off - screen to the top.  <br /></td></tr>
+<tr class="separator:a897f4ad63d4d3a04188921e9ae622ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74e0f30dbbee884021148e4b89c88ae1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1YView.html#a74e0f30dbbee884021148e4b89c88ae1">yview_scroll</a> (const <a class="el" href="namespacecpptkinter_1_1detail.html#afc7009a86a29f290dee42ceefba321bc">detail::ScreenUnits</a> &amp;number, const std::string &amp;what)</td></tr>
+<tr class="memdesc:a74e0f30dbbee884021148e4b89c88ae1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shift the y-view according to NUMBER which is measured in "units" or "pages" (WHAT).  <br /></td></tr>
+<tr class="separator:a74e0f30dbbee884021148e4b89c88ae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Mix-in class for querying and changing the vertical position of a widget's window. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae49d7923e4f218676601d76ee9379841" name="ae49d7923e4f218676601d76ee9379841"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae49d7923e4f218676601d76ee9379841">&#9670;&#160;</a></span>yview() <span class="overload">[1/2]</span></h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename <a class="el" href="structcpptkinter_1_1YView.html#a5f1ac5681453b003af9167b680f767ff">Self</a>&gt;<br />
+struct cpptkinter::YView&lt; Self &gt;</div><p>Mix-in class for querying and changing the vertical position of a widget's window. </p>
+<p>Implemented as crtp to enable the use of <a class="el" href="classcpptkinter_1_1utility_1_1member__functor.html" title="Base class for member functors.">utility::member_functor</a>. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="ac9f62e038e2c77c955312050c071f94e" name="ac9f62e038e2c77c955312050c071f94e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9f62e038e2c77c955312050c071f94e">&#9670;&#160;</a></span>decays_to</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="structcpptkinter_1_1YView.html#a5f1ac5681453b003af9167b680f767ff">Self</a> &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::array&lt; double, 2 &gt; cpptkinter::YView::yview </td>
-          <td>(</td>
-          <td class="paramtype">this auto &amp;&amp;&#160;</td>
-          <td class="paramname"><em>self</em></td><td>)</td>
-          <td></td>
+          <td class="memname">using <a class="el" href="structcpptkinter_1_1YView.html">cpptkinter::YView</a>&lt; <a class="el" href="structcpptkinter_1_1YView.html#a5f1ac5681453b003af9167b680f767ff">Self</a> &gt;<a class="el" href="cpptkinter_8ixx.html#a008f29843e0395730df3e8a39e80e809">::decays_to</a> =  void(const std::vector&lt;<a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">Tcl_Obj</a>&gt;&amp;)</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Query the vertical position of the view. </p>
-
 </div>
 </div>
-<a id="af721c7abbd9ac32e68eed2edd723df20" name="af721c7abbd9ac32e68eed2edd723df20"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af721c7abbd9ac32e68eed2edd723df20">&#9670;&#160;</a></span>yview() <span class="overload">[2/2]</span></h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5f1ac5681453b003af9167b680f767ff" name="a5f1ac5681453b003af9167b680f767ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f1ac5681453b003af9167b680f767ff">&#9670;&#160;</a></span>Self()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+<div class="memtemplate">
+template&lt;typename Self &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void cpptkinter::YView::yview </td>
+          <td class="memname"><a class="el" href="classcpptkinter_1_1utility_1_1member__functor.html">utility::member_functor</a> <a class="el" href="structcpptkinter_1_1YView.html">cpptkinter::YView</a>&lt; Self &gt;::Self </td>
           <td>(</td>
-          <td class="paramtype">this auto &amp;&amp;&#160;</td>
-          <td class="paramname"><em>self</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>d1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>d2</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">this&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> -&gt;  pimpl }</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Change the vertical position of the view. </p>
+<p>Query or change the vertical position of the view. </p>
 
 </div>
 </div>
-<a id="a85ee61e57c432dd92b3ce197744870f9" name="a85ee61e57c432dd92b3ce197744870f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85ee61e57c432dd92b3ce197744870f9">&#9670;&#160;</a></span>yview_moveto()</h2>
+<a id="a897f4ad63d4d3a04188921e9ae622ebb" name="a897f4ad63d4d3a04188921e9ae622ebb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a897f4ad63d4d3a04188921e9ae622ebb">&#9670;&#160;</a></span>yview_moveto()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="structcpptkinter_1_1YView.html#a5f1ac5681453b003af9167b680f767ff">Self</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void cpptkinter::YView::yview_moveto </td>
+          <td class="memname">void <a class="el" href="structcpptkinter_1_1YView.html">cpptkinter::YView</a>&lt; <a class="el" href="structcpptkinter_1_1YView.html#a5f1ac5681453b003af9167b680f767ff">Self</a> &gt;::yview_moveto </td>
           <td>(</td>
-          <td class="paramtype">this auto &amp;&amp;&#160;</td>
-          <td class="paramname"><em>self</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>fraction</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>fraction</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -236,24 +191,20 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a0460e2b8dd367a5bbb8e7da77781d5dc" name="a0460e2b8dd367a5bbb8e7da77781d5dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0460e2b8dd367a5bbb8e7da77781d5dc">&#9670;&#160;</a></span>yview_scroll()</h2>
+<a id="a74e0f30dbbee884021148e4b89c88ae1" name="a74e0f30dbbee884021148e4b89c88ae1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74e0f30dbbee884021148e4b89c88ae1">&#9670;&#160;</a></span>yview_scroll()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="structcpptkinter_1_1YView.html#a5f1ac5681453b003af9167b680f767ff">Self</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void cpptkinter::YView::yview_scroll </td>
+          <td class="memname">void <a class="el" href="structcpptkinter_1_1YView.html">cpptkinter::YView</a>&lt; <a class="el" href="structcpptkinter_1_1YView.html#a5f1ac5681453b003af9167b680f767ff">Self</a> &gt;::yview_scroll </td>
           <td>(</td>
-          <td class="paramtype">this auto &amp;&amp;&#160;</td>
-          <td class="paramname"><em>self</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">const <a class="el" href="namespacecpptkinter_1_1detail.html#afc7009a86a29f290dee42ceefba321bc">detail::ScreenUnits</a> &amp;&#160;</td>
           <td class="paramname"><em>number</em>, </td>
         </tr>

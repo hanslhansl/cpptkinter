@@ -92,32 +92,45 @@ $(document).ready(function(){initNavTree('global_8hpp_source.html',''); initResi
   <div class="headertitle"><div class="title">global.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="global_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma warning(disable : 4996)</span></div>
+<a href="global_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacecpptkinter.html">cpptkinter</a></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>{</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="namespacecpptkinter.html#a1647a8cbe08ae686b7c93fd45db41028">    8</a></span>    <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_variable" href="namespacecpptkinter.html#a1647a8cbe08ae686b7c93fd45db41028">TCL_CORE_LIBRARY_IS_EMBEDDED</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>}</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#if defined(_MSC_VER) &amp;&amp; !defined(__clang__)</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#define CPPTKINTER_WARNING(msg) __pragma(warning(msg))</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="global_8hpp.html#a4a0fc50cf4263067f53d23ddb7f8a6d8">   15</a></span><span class="preprocessor">#define CPPTKINTER_WARNING(msg) _Pragma(msg)</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="global_8hpp.html#ad092689f9ce64d6dbacd6e78e77f983c">   18</a></span><span class="preprocessor">#define ANNOTATION_WARNING(msg) CPPTKINTER_WARNING(msg)</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="global_8hpp.html#ad08e1eaa565f8afcb49eded8d6cd9f4c">   19</a></span><span class="preprocessor">#define DEVIATING_IMPLEMENTATION_WARNING(msg) CPPTKINTER_WARNING(msg)</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#if !true</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#define NOT_IMPLEMENTED_ERROR static_assert(false, &quot;not implemented&quot;</span>)</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#define ANNOTATION_ERROR(msg) static_assert(false, msg)</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="global_8hpp.html#ad35291fcc3be0ae39a6d67259dadfe98">   25</a></span><span class="preprocessor">#define NOT_IMPLEMENTED_ERROR throw std::exception(&quot;not implemented&quot;</span>)</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="global_8hpp.html#a16921e6e5c63c3524eb9a915cbbfe42a">   26</a></span><span class="preprocessor">#define ANNOTATION_ERROR(msg) throw std::exception(msg)</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="comment">//#pragma warning(disable : 4996)</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacecpptkinter.html">cpptkinter</a></div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>{</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno"><a class="line" href="namespacecpptkinter.html#a1647a8cbe08ae686b7c93fd45db41028">  213</a></span>    <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_variable" href="namespacecpptkinter.html#a1647a8cbe08ae686b7c93fd45db41028">TCL_CORE_LIBRARY_IS_EMBEDDED</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>}</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span><span class="preprocessor">#if defined(_MSC_VER) &amp;&amp; !defined(__clang__)</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="preprocessor">#define CPPTKINTER_WARNING(msg) __pragma(warning(msg))</span></div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno"><a class="line" href="global_8hpp.html#a4a0fc50cf4263067f53d23ddb7f8a6d8">  220</a></span><span class="preprocessor">#define CPPTKINTER_WARNING(msg) _Pragma(msg)</span></div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno"><a class="line" href="global_8hpp.html#ad092689f9ce64d6dbacd6e78e77f983c">  223</a></span><span class="preprocessor">#define ANNOTATION_WARNING(msg) CPPTKINTER_WARNING(msg)</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno"><a class="line" href="global_8hpp.html#ad08e1eaa565f8afcb49eded8d6cd9f4c">  224</a></span><span class="preprocessor">#define DEVIATING_IMPLEMENTATION_WARNING(msg) CPPTKINTER_WARNING(msg)</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span><span class="preprocessor">#if !true</span></div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="preprocessor">#define NOT_IMPLEMENTED_ERROR static_assert(false, &quot;not implemented&quot;</span>)</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="preprocessor">#define ANNOTATION_ERROR(msg) static_assert(false, msg)</span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno"><a class="line" href="global_8hpp.html#ad35291fcc3be0ae39a6d67259dadfe98">  230</a></span><span class="preprocessor">#define NOT_IMPLEMENTED_ERROR throw std::exception(&quot;not implemented&quot;</span>)</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno"><a class="line" href="global_8hpp.html#a16921e6e5c63c3524eb9a915cbbfe42a">  231</a></span><span class="preprocessor">#define ANNOTATION_ERROR(msg) throw std::exception(msg)</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="anamespacecpptkinter_html"><div class="ttname"><a href="namespacecpptkinter.html">cpptkinter</a></div><div class="ttdoc">Implementation of the Python module tkinter in C++.</div><div class="ttdef"><b>Definition:</b> _cpptkinter.ixx:54</div></div>
-<div class="ttc" id="anamespacecpptkinter_html_a1647a8cbe08ae686b7c93fd45db41028"><div class="ttname"><a href="namespacecpptkinter.html#a1647a8cbe08ae686b7c93fd45db41028">cpptkinter::TCL_CORE_LIBRARY_IS_EMBEDDED</a></div><div class="ttdeci">constexpr auto TCL_CORE_LIBRARY_IS_EMBEDDED</div><div class="ttdef"><b>Definition:</b> global.hpp:8</div></div>
+<div class="ttc" id="anamespacecpptkinter_html_a1647a8cbe08ae686b7c93fd45db41028"><div class="ttname"><a href="namespacecpptkinter.html#a1647a8cbe08ae686b7c93fd45db41028">cpptkinter::TCL_CORE_LIBRARY_IS_EMBEDDED</a></div><div class="ttdeci">constexpr auto TCL_CORE_LIBRARY_IS_EMBEDDED</div><div class="ttdef"><b>Definition:</b> global.hpp:213</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

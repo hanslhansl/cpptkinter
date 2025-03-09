@@ -11,11 +11,14 @@ var searchData=
   ['is_5fderived_5fshared_5fptr_8',['is_derived_shared_ptr',['../conceptcpptkinter_1_1utility_1_1is__derived__shared__ptr.html',1,'cpptkinter::utility']]],
   ['is_5fvector_9',['is_vector',['../conceptcpptkinter_1_1utility_1_1is__vector.html',1,'cpptkinter::utility']]],
   ['pythoncmd_5fclientdataargsconcept_10',['PythonCmd_ClientDataArgsConcept',['../conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1PythonCmd__ClientDataArgsConcept.html',1,'cpptkinter::_cpptkinter::detail']]],
-  ['pythoncmd_5fclientdatareturnconcept_11',['PythonCmd_ClientDataReturnConcept',['../conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1PythonCmd__ClientDataReturnConcept.html',1,'cpptkinter::_cpptkinter::detail']]],
-  ['range_5fof_5fasobj_12',['range_of_AsObj',['../conceptcpptkinter_1_1detail_1_1range__of__AsObj.html',1,'cpptkinter::detail']]],
-  ['range_5fof_5fconvertible_5fto_13',['range_of_convertible_to',['../conceptcpptkinter_1_1utility_1_1range__of__convertible__to.html',1,'cpptkinter::utility']]],
-  ['range_5fof_5ftcl_5fobj_14',['range_of_Tcl_Obj',['../conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1range__of__Tcl__Obj.html',1,'cpptkinter::_cpptkinter::detail']]],
-  ['sized_5frange_5fof_5fstring_15',['sized_range_of_string',['../conceptcpptkinter_1_1detail_1_1sized__range__of__string.html',1,'cpptkinter::detail']]],
-  ['text_5findex_16',['text_index',['../conceptcpptkinter_1_1detail_1_1text__index.html',1,'cpptkinter::detail']]],
-  ['variable_5fmode_5fconcept_17',['Variable_mode_concept',['../conceptcpptkinter_1_1detail_1_1Variable__mode__concept.html',1,'cpptkinter::detail']]]
+  ['pythoncmd_5fclientdataargsconcept1_11',['PythonCmd_ClientDataArgsConcept1',['../conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1PythonCmd__ClientDataArgsConcept1.html',1,'cpptkinter::_cpptkinter::detail']]],
+  ['pythoncmd_5fclientdataargsconcept2_12',['PythonCmd_ClientDataArgsConcept2',['../conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1PythonCmd__ClientDataArgsConcept2.html',1,'cpptkinter::_cpptkinter::detail']]],
+  ['pythoncmd_5fclientdataargsconcept2impl_13',['PythonCmd_ClientDataArgsConcept2Impl',['../conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1PythonCmd__ClientDataArgsConcept2Impl.html',1,'cpptkinter::_cpptkinter::detail']]],
+  ['pythoncmd_5fclientdatareturnconcept_14',['PythonCmd_ClientDataReturnConcept',['../conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1PythonCmd__ClientDataReturnConcept.html',1,'cpptkinter::_cpptkinter::detail']]],
+  ['range_5fof_5fasobj_15',['range_of_AsObj',['../conceptcpptkinter_1_1detail_1_1range__of__AsObj.html',1,'cpptkinter::detail']]],
+  ['range_5fof_5fconvertible_5fto_16',['range_of_convertible_to',['../conceptcpptkinter_1_1utility_1_1range__of__convertible__to.html',1,'cpptkinter::utility']]],
+  ['range_5fof_5ftcl_5fobj_17',['range_of_Tcl_Obj',['../conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1range__of__Tcl__Obj.html',1,'cpptkinter::_cpptkinter::detail']]],
+  ['sized_5frange_5fof_5fstring_18',['sized_range_of_string',['../conceptcpptkinter_1_1detail_1_1sized__range__of__string.html',1,'cpptkinter::detail']]],
+  ['text_5findex_19',['text_index',['../conceptcpptkinter_1_1detail_1_1text__index.html',1,'cpptkinter::detail']]],
+  ['variable_5fmode_5fconcept_20',['Variable_mode_concept',['../conceptcpptkinter_1_1detail_1_1Variable__mode__concept.html',1,'cpptkinter::detail']]]
 ];

@@ -71,5 +71,7 @@ var namespacecpptkinter_1_1cnfs =
     [ "opt_xy_scroll_command", "namespacecpptkinter_1_1cnfs.html#af84170ec593dc58ef22cfb6537e9f2eb", null ],
     [ "pad_type", "namespacecpptkinter_1_1cnfs.html#a154fadf1590a520fecb43761f6ea4c86", null ],
     [ "text_index", "namespacecpptkinter_1_1cnfs.html#aa27fcc512223db69f440cb9079e2713c", null ],
-    [ "visual_type", "namespacecpptkinter_1_1cnfs.html#ab665ebd22e5b2a0943a44a465460fd8f", null ]
+    [ "visual_type", "namespacecpptkinter_1_1cnfs.html#ab665ebd22e5b2a0943a44a465460fd8f", null ],
+    [ "impl", "namespacecpptkinter_1_1cnfs.html#a2ea4e3a9a5792c0414afbbaa68a1dc4a", null ],
+    [ "Self", "namespacecpptkinter_1_1cnfs.html#a3fb5f2b66da98d1a827b2df78714cac1", null ]
 ];

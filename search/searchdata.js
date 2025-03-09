@@ -9,9 +9,10 @@ var indexSectionsWithContent =
   6: "abcdefgioprstvx",
   7: "e",
   8: "abcdefgklmnprsuv",
-  9: "bdgopu",
+  9: "bdgopuxy",
   10: "abcdelmnprstu",
-  11: "c"
+  11: "abcdpt",
+  12: "c"
 };
 
 var indexSectionNames =
@@ -27,7 +28,8 @@ var indexSectionNames =
   8: "enumvalues",
   9: "related",
   10: "defines",
-  11: "concepts"
+  11: "pages",
+  12: "concepts"
 };
 
 var indexSectionLabels =
@@ -43,6 +45,7 @@ var indexSectionLabels =
   8: "Enumerator",
   9: "Friends",
   10: "Macros",
-  11: "Concepts"
+  11: "Pages",
+  12: "Concepts"
 };
 

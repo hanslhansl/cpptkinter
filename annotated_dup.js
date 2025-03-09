@@ -78,6 +78,7 @@ var annotated_dup =
         ] ],
         [ "extend_variants", "structcpptkinter_1_1utility_1_1extend__variants.html", null ],
         [ "extend_variants< std::variant< VArgs... >, Args... >", "structcpptkinter_1_1utility_1_1extend__variants_3_01std_1_1variant_3_01VArgs_8_8_8_01_4_00_01Args_8_8_8_01_4.html", "structcpptkinter_1_1utility_1_1extend__variants_3_01std_1_1variant_3_01VArgs_8_8_8_01_4_00_01Args_8_8_8_01_4" ],
+        [ "member_functor", "classcpptkinter_1_1utility_1_1member__functor.html", "classcpptkinter_1_1utility_1_1member__functor" ],
         [ "optional_inverse_mutex_adaptor", "classcpptkinter_1_1utility_1_1optional__inverse__mutex__adaptor.html", "classcpptkinter_1_1utility_1_1optional__inverse__mutex__adaptor" ],
         [ "optional_mutex_adaptor", "classcpptkinter_1_1utility_1_1optional__mutex__adaptor.html", "classcpptkinter_1_1utility_1_1optional__mutex__adaptor" ],
         [ "ref_wrapper", "classcpptkinter_1_1utility_1_1ref__wrapper.html", "classcpptkinter_1_1utility_1_1ref__wrapper" ],

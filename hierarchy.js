@@ -75,6 +75,7 @@ var hierarchy =
     [ "cpptkinter::cnfs::LabelFrame", "structcpptkinter_1_1cnfs_1_1LabelFrame.html", null ],
     [ "cpptkinter::cnfs::Listbox", "structcpptkinter_1_1cnfs_1_1Listbox.html", null ],
     [ "cpptkinter::cnfs::Listbox_itemconfigure", "structcpptkinter_1_1cnfs_1_1Listbox__itemconfigure.html", null ],
+    [ "cpptkinter::utility::member_functor< T >", "classcpptkinter_1_1utility_1_1member__functor.html", null ],
     [ "cpptkinter::cnfs::Menu", "structcpptkinter_1_1cnfs_1_1Menu.html", null ],
     [ "cpptkinter::cnfs::Menubutton", "structcpptkinter_1_1cnfs_1_1Menubutton.html", null ],
     [ "cpptkinter::Misc", "classcpptkinter_1_1Misc.html", [
@@ -144,11 +145,15 @@ var hierarchy =
       [ "cpptkinter::Tk", "classcpptkinter_1_1Tk.html", null ],
       [ "cpptkinter::Toplevel", "structcpptkinter_1_1Toplevel.html", null ]
     ] ],
-    [ "cpptkinter::XView", "structcpptkinter_1_1XView.html", [
-      [ "cpptkinter::Entry", "structcpptkinter_1_1Entry.html", null ],
+    [ "cpptkinter::XView< Self >", "structcpptkinter_1_1XView.html", null ],
+    [ "cpptkinter::XView< Entry >", "structcpptkinter_1_1XView.html", [
+      [ "cpptkinter::Entry", "structcpptkinter_1_1Entry.html", null ]
+    ] ],
+    [ "cpptkinter::XView< Text >", "structcpptkinter_1_1XView.html", [
       [ "cpptkinter::Text", "structcpptkinter_1_1Text.html", null ]
     ] ],
-    [ "cpptkinter::YView", "structcpptkinter_1_1YView.html", [
+    [ "cpptkinter::YView< Self >", "structcpptkinter_1_1YView.html", null ],
+    [ "cpptkinter::YView< Text >", "structcpptkinter_1_1YView.html", [
       [ "cpptkinter::Text", "structcpptkinter_1_1Text.html", null ]
     ] ]
 ];

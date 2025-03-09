@@ -7,6 +7,9 @@ var concepts =
           [ "FromObjConcept", "conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1FromObjConcept.html", null ],
           [ "range_of_Tcl_Obj", "conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1range__of__Tcl__Obj.html", null ],
           [ "call_argument_concept", "conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1call__argument__concept.html", null ],
+          [ "PythonCmd_ClientDataArgsConcept1", "conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1PythonCmd__ClientDataArgsConcept1.html", null ],
+          [ "PythonCmd_ClientDataArgsConcept2Impl", "conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1PythonCmd__ClientDataArgsConcept2Impl.html", null ],
+          [ "PythonCmd_ClientDataArgsConcept2", "conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1PythonCmd__ClientDataArgsConcept2.html", null ],
           [ "PythonCmd_ClientDataArgsConcept", "conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1PythonCmd__ClientDataArgsConcept.html", null ],
           [ "PythonCmd_ClientDataReturnConcept", "conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1PythonCmd__ClientDataReturnConcept.html", null ],
           [ "createcommand_concept", "conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1createcommand__concept.html", null ]

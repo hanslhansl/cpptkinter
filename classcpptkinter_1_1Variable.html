@@ -171,13 +171,13 @@ requires detail::AsObjConcept&lt;T&gt; &amp;&amp; std::default_initializable&lt;
 Protected Attributes</h2></td></tr>
 <tr class="memitem:ad48eb247a9b9a5016a10ce2288fe7db5"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structcpptkinter_1_1Variable_1_1impl.html">impl</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Variable.html#ad48eb247a9b9a5016a10ce2288fe7db5">pimpl</a></td></tr>
 <tr class="separator:ad48eb247a9b9a5016a10ce2288fe7db5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac80502dffe505b1ddcbb8219f3c6ebf0"><td class="memItemLeft" align="right" valign="top">decltype(impl::_tclCommands) &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Variable.html#ac80502dffe505b1ddcbb8219f3c6ebf0">_tclCommands</a></td></tr>
+<tr class="memitem:ac80502dffe505b1ddcbb8219f3c6ebf0"><td class="memItemLeft" align="right" valign="top">decltype(impl::_tclCommands) &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Variable.html#ac80502dffe505b1ddcbb8219f3c6ebf0">_tclCommands</a> = static_cast&lt;<a class="el" href="structcpptkinter_1_1Variable_1_1impl.html">impl</a>*&gt;(this-&gt;pimpl.get())-&gt; _tclCommands</td></tr>
 <tr class="separator:ac80502dffe505b1ddcbb8219f3c6ebf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cc8bcf97e335c44666ce5c390195cce"><td class="memItemLeft" align="right" valign="top">decltype(impl::_root) &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Variable.html#a2cc8bcf97e335c44666ce5c390195cce">_root</a></td></tr>
+<tr class="memitem:a2cc8bcf97e335c44666ce5c390195cce"><td class="memItemLeft" align="right" valign="top">decltype(impl::_root) &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Variable.html#a2cc8bcf97e335c44666ce5c390195cce">_root</a> = static_cast&lt;<a class="el" href="structcpptkinter_1_1Variable_1_1impl.html">impl</a>*&gt;(this-&gt;pimpl.get())-&gt; _root</td></tr>
 <tr class="separator:a2cc8bcf97e335c44666ce5c390195cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40e1d33c68ba0065446c42e323d0df10"><td class="memItemLeft" align="right" valign="top">decltype(impl::_tk) &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Variable.html#a40e1d33c68ba0065446c42e323d0df10">_tk</a></td></tr>
+<tr class="memitem:a40e1d33c68ba0065446c42e323d0df10"><td class="memItemLeft" align="right" valign="top">decltype(impl::_tk) &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Variable.html#a40e1d33c68ba0065446c42e323d0df10">_tk</a> = static_cast&lt;<a class="el" href="structcpptkinter_1_1Variable_1_1impl.html">impl</a>*&gt;(this-&gt;pimpl.get())-&gt; _tk</td></tr>
 <tr class="separator:a40e1d33c68ba0065446c42e323d0df10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add0835bdeb07db02c970ccb2991460b6"><td class="memItemLeft" align="right" valign="top">decltype(impl::_name) &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Variable.html#add0835bdeb07db02c970ccb2991460b6">_name</a></td></tr>
+<tr class="memitem:add0835bdeb07db02c970ccb2991460b6"><td class="memItemLeft" align="right" valign="top">decltype(impl::_name) &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Variable.html#add0835bdeb07db02c970ccb2991460b6">_name</a> = static_cast&lt;<a class="el" href="structcpptkinter_1_1Variable_1_1impl.html">impl</a>*&gt;(this-&gt;pimpl.get())-&gt; _name</td></tr>
 <tr class="separator:add0835bdeb07db02c970ccb2991460b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -611,7 +611,7 @@ template&lt;detail::Variable_mode_concept T&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">decltype(impl:: _name ) &amp; cpptkinter::Variable::_name</td>
+          <td class="memname">decltype(impl:: _name ) &amp; cpptkinter::Variable::_name = static_cast&lt;<a class="el" href="structcpptkinter_1_1Variable_1_1impl.html">impl</a>*&gt;(this-&gt;pimpl.get())-&gt; _name</td>
         </tr>
       </table>
   </td>
@@ -633,7 +633,7 @@ template&lt;detail::Variable_mode_concept T&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">decltype(impl:: _root ) &amp; cpptkinter::Variable::_root</td>
+          <td class="memname">decltype(impl:: _root ) &amp; cpptkinter::Variable::_root = static_cast&lt;<a class="el" href="structcpptkinter_1_1Variable_1_1impl.html">impl</a>*&gt;(this-&gt;pimpl.get())-&gt; _root</td>
         </tr>
       </table>
   </td>
@@ -655,7 +655,7 @@ template&lt;detail::Variable_mode_concept T&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">decltype(impl:: _tclCommands ) &amp; cpptkinter::Variable::_tclCommands</td>
+          <td class="memname">decltype(impl:: _tclCommands ) &amp; cpptkinter::Variable::_tclCommands = static_cast&lt;<a class="el" href="structcpptkinter_1_1Variable_1_1impl.html">impl</a>*&gt;(this-&gt;pimpl.get())-&gt; _tclCommands</td>
         </tr>
       </table>
   </td>
@@ -677,7 +677,7 @@ template&lt;detail::Variable_mode_concept T&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">decltype(impl:: _tk ) &amp; cpptkinter::Variable::_tk</td>
+          <td class="memname">decltype(impl:: _tk ) &amp; cpptkinter::Variable::_tk = static_cast&lt;<a class="el" href="structcpptkinter_1_1Variable_1_1impl.html">impl</a>*&gt;(this-&gt;pimpl.get())-&gt; _tk</td>
         </tr>
       </table>
   </td>

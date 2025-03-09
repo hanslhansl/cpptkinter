@@ -126,6 +126,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1utility_1_1extend__variants_3_01std_1_1variant_3_01VArgs_8_8_8_01_4_00_01Args_8_8_8_01_4.html">cpptkinter::utility::extend_variants&lt; std::variant&lt; VArgs... &gt;, Args... &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1utility_1_1member__functor.html">cpptkinter::utility::member_functor&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for member functors.  <a href="classcpptkinter_1_1utility_1_1member__functor.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -196,6 +199,13 @@ requires std::is_aggregate_v&lt;T&gt;</td></tr>
 <tr class="memitem:a17e35294490f8bb33e8a623c97dfe025"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a17e35294490f8bb33e8a623c97dfe025"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1utility.html#a17e35294490f8bb33e8a623c97dfe025">cpptkinter::utility::ref_wrapper</a> (T &amp;&amp;) -&gt; ref_wrapper&lt; std::conditional_t&lt; std::same_as&lt; T, std::remove_cvref_t&lt; T &gt; &amp; &gt;, std::remove_cvref_t&lt; T &gt;, const std::remove_cvref_t&lt; T &gt; &gt; &gt;</td></tr>
 <tr class="separator:a17e35294490f8bb33e8a623c97dfe025"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a59ce8de106b1e460b5fe39fd4ad569"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; </td></tr>
+<tr class="memitem:a8a59ce8de106b1e460b5fe39fd4ad569"><td class="memTemplItemLeft" align="right" valign="top">decltype(std::function(std::declval&lt; Func &gt;()))&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1utility.html#a8a59ce8de106b1e460b5fe39fd4ad569">cpptkinter::utility::callable_to_std_function</a> (Func &amp;&amp;func)</td></tr>
+<tr class="separator:a8a59ce8de106b1e460b5fe39fd4ad569"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7039417b48e30b3f7988a2194972203e"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; <br />
+requires requires { typename std::remove_cvref_t&lt;Func&gt;<a class="el" href="cpptkinter_8ixx.html#a008f29843e0395730df3e8a39e80e809">::decays_to</a>; typename std::remove_cvref_t&lt;Func&gt;::container_type; requires std::derived_from&lt;std::remove_cvref_t&lt;Func&gt;, member_functor&lt;typename std::remove_cvref_t&lt;Func&gt;::container_type&gt;&gt;; }</td></tr>
+<tr class="memitem:a7039417b48e30b3f7988a2194972203e"><td class="memTemplItemLeft" align="right" valign="top">decltype(std::function(std::declval&lt; typename std::remove_cvref_t&lt; Func &gt;<a class="el" href="cpptkinter_8ixx.html#a008f29843e0395730df3e8a39e80e809">::decays_to</a> &gt;()))&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1utility.html#a7039417b48e30b3f7988a2194972203e">cpptkinter::utility::callable_to_std_function</a> (Func &amp;&amp;func)</td></tr>
+<tr class="separator:a7039417b48e30b3f7988a2194972203e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
