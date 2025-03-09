@@ -88,7 +88,7 @@
 /// See [this issue](/../../issues/1) for further information.
 /// `cpptkinter::utility::weak` provides a weak reference mechanism much like `std::weak_ptr` which can be used to break reference cycles.
 /// 
-/// @section converting converting objects from and to _tcl_
+/// @section converting converting objects from and to tcl
 /// Some _cpptkinter_ functions take arguments which are passed on to _tcl_ and some return values from _tcl_ back to _c++_.
 /// The conversion from and to _tcl_ is done by `cpptkinter::_cpptkinter::FromObj()` and `cpptkinter::_cpptkinter::AsObj()` respectively.
 /// To allow for maximum flexibility these functions are heavily templated and guarded by concepts.
