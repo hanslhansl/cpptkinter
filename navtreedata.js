@@ -30,7 +30,7 @@ var NAVTREE =
     [ "design decisions", "design.html", [
       [ "keyword arguments", "design.html#kwargs", null ],
       [ "reference counting", "design.html#refcount", null ],
-      [ "converting objects from and to <em>tcl</em>", "design.html#converting", null ],
+      [ "converting objects from and to tcl", "design.html#converting", null ],
       [ "registering callbacks", "design.html#callbacks", null ]
     ] ],
     [ "thread safety", "threads.html", null ],
