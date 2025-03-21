@@ -319,6 +319,22 @@ export namespace cpptkinter::_cpptkinter::detail
 	template<typename T>
 	struct AsObjImplTrait : std::bool_constant<requires { AsObjImpl(std::declval<T>()); }>{ };
 
+	/// @brief The constraint for the argument type of cpptkinter::_cpptkinter::AsObj().
+	/// 
+	/// T is intended to come from const T& as AsObjImpl doesn't make use of rvalues.
+	/// This concept is satisfied if there exists an overload of cpptkinter::_cpptkinter::detail::AsObjImpl() for type T.
+	template<typename T>
+	concept AsObjConcept = AsObjImplTrait<T>::value;
+
+	/// @brief Functor type of AsObj. operator() calls AsObjImpl.
+	struct AsObjFunctorType
+	{
+		static Tcl_Obj operator()(const AsObjConcept auto& value)
+		{
+			return AsObjImpl(value);
+		}
+	};
+
 	struct ignore {};
 
 	template<typename T>
@@ -386,14 +402,6 @@ export namespace cpptkinter::_cpptkinter::detail
 
 	template<typename T>
 	struct FromObjImplTrait : std::bool_constant<requires { FromObjImpl({}, std::declval<Tcl_Obj>(), std::type_identity<T>{}); }> {};
-
-
-	/// @brief The constraint for the argument type of cpptkinter::_cpptkinter::AsObj().
-	/// 
-	/// T is intended to come from const T& as AsObjImpl doesn't make use of rvalues.
-	/// This concept is satisfied if there exists an overload of cpptkinter::_cpptkinter::detail::AsObjImpl() for type T.
-	template<typename T>
-	concept AsObjConcept = AsObjImplTrait<T>::value;
 
 	/// @brief The constraint for the return type of cpptkinter::_cpptkinter::FromObj().
 	/// 
@@ -601,13 +609,11 @@ export namespace cpptkinter::_cpptkinter
 
 	/// @brief Convert a c++ value to a tcl object.
 	///
-	/// This function is used to convert a value to a Tcl_Obj. Throws if the conversion fails.
+	/// Throws if the conversion fails. Implemented as a functor to allow for use with std::views::transform.
 	/// @param value The c++ value to convert.
 	/// @return A Tcl_Obj representing the value.
-	Tcl_Obj AsObj(const detail::AsObjConcept auto& value)
-	{
-		return detail::AsObjImpl(value);
-	}
+	/// @see detail::AsObjImpl()
+	detail::AsObjFunctorType AsObj {};
 
 	/// @brief Convert a tcl object to a c++ value.
 	/// 

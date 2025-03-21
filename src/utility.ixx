@@ -40,6 +40,25 @@ namespace cpptkinter::utility::detail
         template<typename T>
         void operator()(const T& val);
     };
+
+    template<typename T>
+    struct union_arg_overload_base
+    {
+        static constexpr const T& operator()(const T& t)
+        {
+            return t;
+        }
+        static constexpr T& operator()(T& t)
+        {
+            return t;
+        }
+    };
+
+    template<typename...Args>
+    struct union_arg_overload : union_arg_overload_base<Args>...
+    {
+        using union_arg_overload_base<Args>::operator()...;
+    };
 }
 
 /// @brief Utilities that aren't related to Python's tkinter or _tkinter.
@@ -315,6 +334,12 @@ export namespace cpptkinter::utility
     {
         return std::forward<Func>(func);
     }
+
+    template<typename...Args>
+    constexpr detail::union_arg_overload<Args...> to_union_arg{};
+
+	template<typename T, typename...Args>
+	concept union_arg = requires(T&& t) { to_union_arg<Args...>(std::forward<T>(t)); };
 }
 
 template<typename T>

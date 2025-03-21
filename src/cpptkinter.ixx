@@ -245,18 +245,15 @@ export namespace cpptkinter
         template<typename R>
         concept range_of_AsObj = std::ranges::range<R> && AsObjConcept<std::ranges::range_value_t<R>>;
 
-        const long long& to_index(const long long& t)
-        {
-            return t;
-        }
-        const std::string& to_index(const std::string& t)
-        {
-            return t;
-        }
-
         /// @brief Concept for types allowed as indices to e.g. Entry and Listbox.
         template<typename T>
-		concept index = requires (T t) { to_index(t); };
+        concept index = utility::union_arg<T, long long, std::string>;
+        constexpr auto to_index = utility::to_union_arg<long long, std::string>;
+
+        /// @brief Concept for types allowed as screenunits
+        template<typename T>
+        concept screenunits_arg = utility::union_arg<T, long long, double, std::string>;
+        constexpr auto to_screenunits_arg = utility::to_union_arg<long long, double, std::string>;
     }
 
     /// @brief Contains structs to be passed to many of cpptkinter's functions.
@@ -305,7 +302,7 @@ export namespace cpptkinter
         using opt_relief = opt<detail::Relief>;
         using opt_take_focus_value = opt<detail::TakeFocusValue>;
         using opt_text = opt<std::variant<double, std::string>>;
-        using opt_xy_scroll_command = opt<detail::XYScrollCommand>;
+        using opt_xy_scrollcommand = opt<detail::XYScrollCommand>;
 
         template<typename T> requires requires { std::same_as<float, typename std::remove_cvref_t<T>::constructor_cnf>; }
         using get_constructor_cnf = typename std::remove_cvref_t<T>::constructor_cnf;
@@ -1122,9 +1119,9 @@ export namespace cpptkinter
         /// @brief Set the list of bindtags for this widget.
         /// 
         /// The bindtags determine in which order events are processed(see bind).
-        void bindtags(const utility::range_of_convertible_to<std::string> auto& tagList)
+        void bindtags(const std::vector<std::string>& tagList)
         {
-			this->tk->call("bindtags", this->_w, tagList | std::views::transform([](auto& val) { return static_cast<std::string>(val); }));
+			this->tk->call("bindtags", this->_w, tagList);
         }
         /// @brief Get the list of bindtags for this widget.
         /// 
@@ -1140,7 +1137,7 @@ export namespace cpptkinter
 		/// Implements the first if statement.
         void _bind(std::vector<std::string>&& what, const std::string& sequence, const std::string& func, bool = false, bool = true)
         {
-            this->tk->call(what | std::views::transform([](const std::string& str) { return _cpptkinter::AsObj(str); }), sequence, func);
+            this->tk->call(what | std::views::transform(_cpptkinter::AsObj), sequence, func);
         }
     private:
         template<std::invocable<Event<Misc>> Func>
@@ -1162,7 +1159,7 @@ export namespace cpptkinter
         {
 			auto funcid = this->_bind_if_2(std::forward<Func>(func), needcleanup);
             auto cmd = std::format("{}if {{\"[{} {}]\" == \"break\"}} break\n", add ? "+" : "", funcid, this->_subst_format_str);
-            this->tk->call(what | std::views::transform([](const std::string& str) { return _cpptkinter::AsObj(str); }), sequence, cmd);
+            this->tk->call(what | std::views::transform(_cpptkinter::AsObj), sequence, cmd);
             return funcid;
         }
         /// @brief Internal function.
@@ -1182,7 +1179,7 @@ export namespace cpptkinter
 		/// @returns The script currently bound to sequence or an empty string if there is no binding for sequence.
         std::string _bind(std::vector<std::string>&& what, const std::string& sequence)
         {
-            return this->tk->call<std::string>(what | std::views::transform([](const std::string& str) { return _cpptkinter::AsObj(str); }), sequence);
+            return this->tk->call<std::string>(what | std::views::transform(_cpptkinter::AsObj), sequence);
         }
         /// @brief Internal function.
         /// 
@@ -1190,7 +1187,7 @@ export namespace cpptkinter
 		/// @returns A list of all bound events associated with this widget.
         std::vector<std::string> _bind(std::vector<std::string>&& what)
         {
-            return this->tk->call<std::vector<std::string>>(what | std::views::transform([](const std::string& str) { return _cpptkinter::AsObj(str); }));
+            return this->tk->call<std::vector<std::string>>(what | std::views::transform(_cpptkinter::AsObj));
         }
 
         /// @brief Bind to this widget at event SEQUENCE a call to function FUNC.
@@ -1236,7 +1233,7 @@ export namespace cpptkinter
 		/// Implements the first if statement.
         void _unbind(std::vector<std::string>&& what)
         {
-			this->tk->call(what | std::views::transform([](const std::string& str) { return _cpptkinter::AsObj(str); }), "");
+			this->tk->call(what | std::views::transform(_cpptkinter::AsObj), "");
         }
         /// @brief Internal function.
         /// 
@@ -1245,7 +1242,7 @@ export namespace cpptkinter
         {
             auto prefix = std::format("if {{\"[{} ", funcid);
             std::string keep{};
-            for(auto&& s : this->tk->call<std::string>(what | std::views::transform([](const std::string& str) { return _cpptkinter::AsObj(str); }))
+            for(auto&& s : this->tk->call<std::string>(what | std::views::transform(_cpptkinter::AsObj))
                 | std::views::split('\n')
                 | std::views::filter([&](const auto& line) { return !std::ranges::starts_with(line, prefix); }))
             {
@@ -1261,7 +1258,7 @@ export namespace cpptkinter
             if (temp_keep.empty())
                 keep = "";
 
-            this->tk->call(what | std::views::transform([](const std::string& str) { return _cpptkinter::AsObj(str); }), keep);
+            this->tk->call(what | std::views::transform(_cpptkinter::AsObj), keep);
             this->deletecommand(funcid);
         }
 
@@ -1311,7 +1308,7 @@ export namespace cpptkinter
                 if constexpr (detail::createcommand_concept<T2>)
                     return _cpptkinter::AsObj(this->_register(std::forward<T2>(value)));
                 else
-                    return _cpptkinter::AsObj(std::forward<T2>(value));
+                    return _cpptkinter::AsObj(value);
             };
 
             return utility::visit_or_invoke(visitor, std::forward<T>(value));
@@ -1497,7 +1494,7 @@ export namespace cpptkinter
         template<cnfs::is_cnf CNF>
         void _configure(const std::vector<std::string>& cmd, CNF&& cnf, const std::set<std::string>& ignore_fields = {})
         {
-            this->tk->call(this->_w, cmd | std::views::transform(_cpptkinter::AsObj<std::string>), this->_options(std::forward<CNF>(cnf), ignore_fields));
+            this->tk->call(this->_w, cmd | std::views::transform(_cpptkinter::AsObj), this->_options(std::forward<CNF>(cnf), ignore_fields));
         }
     public:
         /// @brief Configure resources of a widget.
@@ -1740,12 +1737,12 @@ export namespace cpptkinter
         }
 
         /// @brief Return a tuple of column and row which identify the cell at which the pixel at position X and Y inside the master widget is located.
-        std::array<long long, 2> grid_location(const detail::ScreenUnits& x, const detail::ScreenUnits& y)
+        std::array<long long, 2> grid_location(detail::screenunits_arg auto&& x, detail::screenunits_arg auto&& y)
         {
-            return this->tk->call<std::array<long long, 2>>("grid", "location", this->_w, x, y);
+            return this->tk->call<std::array<long long, 2>>("grid", "location", this->_w, detail::to_screenunits_arg(x), detail::to_screenunits_arg(y));
         }
         /// @copydoc grid_location
-        std::array<long long, 2> location(const detail::ScreenUnits& x, const detail::ScreenUnits& y)
+        std::array<long long, 2> location(detail::screenunits_arg auto&& x, detail::screenunits_arg auto&& y)
         {
             return this->grid_location(x, y);
         }
@@ -1878,9 +1875,9 @@ export namespace cpptkinter
         }
 
         /// @brief Shift the x-view according to NUMBER which is measured in "units" or "pages" (WHAT).
-        void xview_scroll(const detail::ScreenUnits& number, const std::string& what)
+        void xview_scroll(detail::screenunits_arg auto&& number, const std::string& what)
         {
-            static_cast<Self*>(this)->tk->call(static_cast<Self*>(this)->_w, "xview", "scroll", number, what);
+            static_cast<Self*>(this)->tk->call(static_cast<Self*>(this)->_w, "xview", "scroll", detail::to_screenunits_arg(number), what);
         }
     };
 
@@ -1914,9 +1911,9 @@ export namespace cpptkinter
         }
 
         /// @brief Shift the y-view according to NUMBER which is measured in "units" or "pages" (WHAT).
-        void yview_scroll(const detail::ScreenUnits& number, const std::string& what)
+        void yview_scroll(detail::screenunits_arg auto&& number, const std::string& what)
         {
-            static_cast<Self*>(this)->tk->call(static_cast<Self*>(this)->_w, "yview", "scroll", number, what);
+            static_cast<Self*>(this)->tk->call(static_cast<Self*>(this)->_w, "yview", "scroll", detail::to_screenunits_arg(number), what);
         }
     };
 
@@ -3338,8 +3335,292 @@ export namespace cpptkinter
         }
     };
 
+    namespace cnfs
+    {
+		/// @brief Argument for Canvas::Canvas().
+        struct Canvas
+        {
+			opt_master master;
+			opt_string background;
+			opt_screenunits bd;
+			opt_string bg;
+			opt_screenunits border;
+			opt_screenunits borderwidth;
+			opt<double> closeenough;
+			opt_bool confine;
+			opt_cursor cursor;
+			opt_screenunits height;
+			opt_string highlightbackground;
+			opt_string highlightcolor;
+			opt_screenunits highlightthickness;
+			opt_string insertbackground;
+			opt_screenunits insertborderwidth;
+			opt<size_t> insertofftime;
+			opt<size_t> insertontime;
+			opt_screenunits insertwidth;
+			opt_string name;
+            //void offset;
+			opt_relief relief;
+            opt<std::array<detail::ScreenUnits, 4>> scrollregion;
+			opt_string selectbackground;
+            opt_screenunits selectborderwidth;
+			opt_string selectforeground;
+			opt_string state;
+			opt_take_focus_value takefocus;
+			opt_screenunits width;
+			opt_xy_scrollcommand xscrollcommand;
+			opt_screenunits xscrollincrement;
+			opt_xy_scrollcommand yscrollcommand;
+			opt_screenunits yscrollincrement;
+        };
+
+		/// @brief Argument for Canvas::create_arc().
+        struct create_arc
+        {
+
+        };
+
+        /// @brief Argument for Canvas::create_bitmap().
+        struct create_bitmap
+        {
+
+        };
+
+        /// @brief Argument for Canvas::create_image().
+        struct create_image
+        {
+
+        };
+
+        /// @brief Argument for Canvas::create_line().
+        struct create_line
+        {
+
+        };
+
+        /// @brief Argument for Canvas::create_oval().
+        struct create_oval
+        {
+
+        };
+
+        /// @brief Argument for Canvas::create_polygon().
+        struct create_polygon
+        {
+
+        };
+
+        /// @brief Argument for Canvas::create_rectangle().
+        struct create_rectangle
+        {
+
+        };
+
+        /// @brief Argument for Canvas::create_text().
+        struct create_text
+        {
+
+        };
+
+        /// @brief Argument for Canvas::create_window().
+        struct create_window
+        {
+
+        };
+    }
+
+    namespace detail
+    {
+        /// @brief std::string or long long
+        template<typename T>
+        concept tag_or_id_arg = utility::union_arg<T, long long, std::string>;
+        constexpr auto to_tag_or_id_arg_arg = utility::to_union_arg<long long, std::string>;
+    }
+
     /// @brief %Canvas widget to display graphical elements like lines or text.
-    struct Canvas;
+    struct Canvas : Widget, XView<Canvas>, YView<Canvas>
+    {
+        /// @brief Construct a canvas widget.
+        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Canvas, cnfs::Canvas, "canvas", Widget);
+
+    private:
+		/// @brief Internal function.
+        template<typename...Args>
+        void addtag(Args&&...args)
+        {
+			this->tk->call(this->_w, "addtag", std::forward<Args>(args)...);
+        }
+    public:
+        /// @brief Add tag NEWTAG to all items above TAGORID.
+        void addtag_above(const std::string& newtag, detail::tag_or_id_arg auto&& tagOrId)
+        {
+            this->addtag(newtag, "above", detail::to_tag_or_id_arg_arg(tagOrId));
+        }
+        
+        /// @brief Add tag NEWTAG to all items.
+        void addtag_all(const std::string& newtag)
+        {
+			this->addtag(newtag, "all");
+        }
+
+        /// @brief Add tag NEWTAG to all items below TAGORID.
+        void addtag_below(const std::string& newtag, detail::tag_or_id_arg auto&& tagOrId)
+        {
+            this->addtag(newtag, "below", detail::to_tag_or_id_arg_arg(tagOrId));
+        }
+
+        /// @brief Add tag NEWTAG to item which is closest to pixel at X, Y.
+        /// 
+        /// If several match take the top - most. All items closer than HALO are considered overlapping (all are closest). If START is specified the next below this tag is taken.
+        void addtag_closest(const std::string& newtag, detail::screenunits_arg auto&& x, detail::screenunits_arg auto&& y)
+        {
+            this->addtag(newtag, "closest", detail::to_screenunits_arg(x), detail::to_screenunits_arg(y));
+        }
+		/// @copydoc addtag_closest
+        void addtag_closest(const std::string& newtag, detail::screenunits_arg auto&& x, detail::screenunits_arg auto&& y, detail::screenunits_arg auto&& halo)
+        {
+            this->addtag(newtag, "closest", detail::to_screenunits_arg(x), detail::to_screenunits_arg(y), detail::to_screenunits_arg(halo));
+        }
+        /// @copydoc addtag_closest
+        void addtag_closest(const std::string& newtag, detail::screenunits_arg auto&& x, detail::screenunits_arg auto&& y, detail::screenunits_arg auto&& halo,
+            utility::union_arg<long long, std::string> auto&& start)
+        {
+            this->addtag(newtag, "closest", detail::to_screenunits_arg(x), detail::to_screenunits_arg(y), detail::to_screenunits_arg(halo),
+                utility::to_union_arg<long long, std::string>(start));
+        }
+
+        /// @brief Add tag NEWTAG to all items in the rectangle defined by X1, Y1, X2, Y2.
+        void addtag_enclosed(const std::string& newtag, detail::screenunits_arg auto&& x1, detail::screenunits_arg auto&& y1,
+            detail::screenunits_arg auto&& x2, detail::screenunits_arg auto&& y2)
+        {
+            this->addtag(newtag, "enclosed", detail::to_screenunits_arg(x1), detail::to_screenunits_arg(y1), detail::to_screenunits_arg(x2), detail::to_screenunits_arg(y2));
+        }
+
+        /// @brief Add tag NEWTAG to all items which overlap the rectangle defined by X1, Y1, X2, Y2.
+        void addtag_overlapping(const std::string& newtag, detail::screenunits_arg auto&& x1, detail::screenunits_arg auto&& y1,
+            detail::screenunits_arg auto&& x2, detail::screenunits_arg auto&& y2)
+        {
+			this->addtag(newtag, "overlapping", detail::to_screenunits_arg(x1), detail::to_screenunits_arg(y1), detail::to_screenunits_arg(x2), detail::to_screenunits_arg(y2));
+        }
+
+        /// @brief Add tag NEWTAG to all items with TAGORID.
+        void addtag_withtag(const std::string& newtag, detail::tag_or_id_arg auto&& tagOrId)
+        {
+			this->addtag(newtag, "withtag", detail::to_tag_or_id_arg_arg(tagOrId));
+        }
+
+        /// @brief Return a tuple of X1,Y1,X2,Y2 coordinates for a rectangle which encloses all items with tags specified as arguments.
+        std::array<long long, 4> bbox(detail::tag_or_id_arg auto&&...args)
+        {
+			return this->tk->call<std::array<long long, 4>>(this->_w, "bbox", detail::to_tag_or_id_arg_arg(args)...);
+        }
+
+        /// @brief Unbind for all items with TAGORID for event SEQUENCE the function identified with FUNCID.
+        void tag_unbind(detail::tag_or_id_arg auto&& tagOrId, const std::string& sequence)
+        {
+            this->_unbind({ this->_w, "bind", std::format("{}", detail::to_tag_or_id_arg_arg(tagOrId)), sequence });
+        }
+		/// @copydoc tag_unbind
+        void tag_unbind(detail::tag_or_id_arg auto&& tagOrId, const std::string& sequence, const std::string& funcid)
+        {
+            this->_unbind({ this->_w, "bind", std::format("{}", detail::to_tag_or_id_arg_arg(tagOrId)), sequence }, funcid);
+        }
+
+        /// @brief Bind to all items with TAGORID at event SEQUENCE a call to function FUNC.
+        ///
+        /// An additional boolean parameter ADD specifies whether FUNC will be called additionally to the other bound function or whether it will replace the previous function.
+        /// See bind for the return value.
+        template<typename...Args>
+        auto tag_bind(detail::tag_or_id_arg auto&& tagOrId, Args&&...args) requires requires { this->_bind({}, std::forward<Args>(args)...); }
+        {
+            this->_bind({ this->_w, "bind", std::format("{}", detail::to_tag_or_id_arg_arg(tagOrId)) }, std::forward<Args>(args)...);
+        }
+
+        /// @brief Return the canvas x coordinate of pixel position SCREENX rounded to nearest multiple of GRIDSPACING units.
+        void canvasx();
+
+        /// @brief Return the canvas y coordinate of pixel position SCREENY rounded to nearest multiple of GRIDSPACING units.
+        void canvasy();
+
+        /// @brief Return a list of coordinates for the item given in ARGS.
+        void coords();
+
+        /// @brief Internal function.
+        template<typename CNF>
+        long long _create(const std::string& itemType, const std::vector<double>& args, CNF&& cnf)
+        {
+			return this->tk->call<long long>(this->_w, "create", itemType, args, this->_options(std::forward<CNF>(cnf)));
+        }
+
+        /// @brief Create arc shaped region with coordinates x1,y1,x2,y2.
+        template<typename CNF = cnfs::create_arc>
+        long long create_arc(double x1, double y1, double x2, double y2, CNF&& cnf = {})
+        {
+            return this->_create("arc", { x1, y1, x2, y2 }, std::forward<CNF>(cnf));
+        }
+
+        /// @brief Create bitmap with coordinates x1,y1.
+        template<typename CNF = cnfs::create_arc>
+        long long create_bitmap(double x1, double y1, CNF&& cnf = {})
+        {
+            return this->create_bitmap("bitmap", { x1, y1 }, std::forward<CNF>(cnf));
+        }
+
+        /// @brief Create image item with coordinates x1,y1.
+        template<typename CNF = cnfs::create_arc>
+        long long create_image(double x1, double y1, CNF&& cnf = {})
+        {
+            return this->_create("image", { x1, y1 }, std::forward<CNF>(cnf));
+        }
+
+        /// @brief Create line with coordinates x1,y1,...,xn,yn.
+        template<typename CNF = cnfs::create_arc>
+        long long create_line(const std::vector<std::array<double, 2>>& coords, CNF&& cnf = {})
+        {
+            return this->_create("line", coords, std::forward<CNF>(cnf));
+        }
+
+        /// @brief Create oval with coordinates x1,y1,x2,y2.
+        template<typename CNF = cnfs::create_arc>
+        long long create_oval(double x1, double y1, double x2, double y2, CNF&& cnf = {})
+        {
+            return this->_create("oval", { x1, y1, x2, y2 }, std::forward<CNF>(cnf));
+        }
+
+        /// @brief Create polygon with coordinates x1,y1,...,xn,yn.
+        template<typename CNF = cnfs::create_arc>
+        long long create_polygon(const std::vector<std::array<double, 2>>& coords, CNF&& cnf = {})
+        {
+            return this->_create("polygon", coords, std::forward<CNF>(cnf));
+        }
+
+        /// @brief Create rectangle with coordinates x1,y1,x2,y2.
+        template<typename CNF = cnfs::create_arc>
+        long long create_rectangle(double x1, double y1, double x2, double y2, CNF&& cnf = {})
+        {
+            return this->_create("rectangle", { x1, y1, x2, y2 }, std::forward<CNF>(cnf));
+        }
+
+        /// @brief Create text with coordinates x1,y1.
+        template<typename CNF = cnfs::create_arc>
+        long long create_text(double x1, double y1, CNF&& cnf = {})
+        {
+            return this->_create("text", { x1, y1 }, std::forward<CNF>(cnf));
+        }
+
+        /// @brief Create window with coordinates x1,y1,x2,y2.
+        template<typename CNF = cnfs::create_arc>
+        long long create_window(double x1, double y1, double x2, double y2, CNF&& cnf = {})
+        {
+            return this->_create("window", { x1, y1, x2, y2 }, std::forward<CNF>(cnf));
+        }
+
+        /// @brief 
+        void aaa()
+        {
+
+        }
+    };
 
     namespace cnfs
     {
@@ -3514,7 +3795,7 @@ export namespace cpptkinter
             opt_entry_validate_command validatecommand;
             opt_entry_validate_command vcmd;
             opt_screenunits width;
-            opt_xy_scroll_command xscrollcommand;
+            opt_xy_scrollcommand xscrollcommand;
         };
     }
 
@@ -3781,8 +4062,8 @@ export namespace cpptkinter
             opt_string state;
             opt_take_focus_value takefocus;
             opt_screenunits width;
-            opt_xy_scroll_command xscrollincrement;
-            opt_xy_scroll_command yscrollincrement;
+            opt_xy_scrollcommand xscrollincrement;
+            opt_xy_scrollcommand yscrollincrement;
         };
 
         /// @brief Argument for Listbox::itemconfigure(long long, CNF&&).
@@ -3873,7 +4154,7 @@ export namespace cpptkinter
         /// @copydoc insert(const detail::index auto&, const detail::AsObjConcept auto&...)
         void insert(detail::index auto&& index, const detail::range_of_AsObj auto& elements)
         {
-            this->tk->call(this->_w, "insert", detail::to_index(index), elements | std::views::transform([](auto& val) { return _cpptkinter::AsObj(val); }));
+            this->tk->call(this->_w, "insert", detail::to_index(index), elements | std::views::transform(_cpptkinter::AsObj));
         }
 
         /// @brief Get index of item which is nearest to y coordinate Y.
@@ -4285,9 +4566,9 @@ export namespace cpptkinter
         }
 
         /// @brief Return where the point X,Y lies. Valid return values are "slider", "though1" and "though2".
-        std::string identify(detail::ScreenUnits x, detail::ScreenUnits y)
+        std::string identify(detail::screenunits_arg auto&& x, detail::screenunits_arg auto&& y)
         {
-            return this->tk->call<std::string>(this->_w, "identify", x, y);
+            return this->tk->call<std::string>(this->_w, "identify", detail::to_screenunits_arg(x), detail::to_screenunits_arg(y));
         }
     };
 
@@ -4438,8 +4719,8 @@ export namespace cpptkinter
 			opt_bool undo;
             opt<long long> width;
 			opt_string wrap;
-			opt_xy_scroll_command xscrollcommand;
-			opt_xy_scroll_command yscrollcommand;
+			opt_xy_scrollcommand xscrollcommand;
+			opt_xy_scrollcommand yscrollcommand;
         };
 
 		/// @brief Argument for Text::dump().
@@ -4515,8 +4796,8 @@ export namespace cpptkinter
             opt_bool undo;
             opt<long long> width;
             opt_string wrap;
-            opt_xy_scroll_command xscrollcommand;
-            opt_xy_scroll_command yscrollcommand;
+            opt_xy_scrollcommand xscrollcommand;
+            opt_xy_scrollcommand yscrollcommand;
         };
 
 		/// @brief Argument for Text::tag_configure().
@@ -5446,7 +5727,7 @@ export namespace cpptkinter
             opt<std::vector<std::string>> values;
             opt_screenunits width;
             opt_bool wrap;
-            opt_xy_scroll_command xscrollcommand;
+            opt_xy_scrollcommand xscrollcommand;
         };
     }
 

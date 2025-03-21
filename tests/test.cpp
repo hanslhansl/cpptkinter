@@ -127,10 +127,7 @@ int main(int argc, char* argv[])
 
 
         auto text = tk::Text({.master= root, .height = 10, .width=40, .wrap="none"});
-
-        //auto ys = tk::Scrollbar({ .master = root, .command = [&](std::vector<tk::Tcl_Obj> args) { text.yview(args); }, .orient = "vertical" });
         auto ys = tk::Scrollbar({ .master = root, .command = text.yview, .orient = "vertical" });
-
         text["yscrollcommand"] = ys.set;
         text.grid({ .column = 0, .row = 0, .sticky = "nwes" });
         ys.grid({ .column = 1, .row = 0, .sticky = "ns" });

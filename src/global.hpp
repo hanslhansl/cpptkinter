@@ -195,11 +195,13 @@
 /// - `ttk`: Not implemented.
 
 /// @page todo to-do's
-/// - Implementing `cpptkinter::Canvas`
-/// - Fully implementing `cpptkinter::Misc`
-/// - Adding tests
-/// - Simplifying `cpptkinter::_cpptkinter`
-/// - Implementing `cpptkinter::ttk`
+/// - Implementing `cpptkinter::Canvas`.
+/// - Fully implementing `cpptkinter::Misc`.
+/// - Adding tests.
+/// - Simplifying `cpptkinter::_cpptkinter`.
+/// - Implementing `cpptkinter::ttk`.
+/// - ...
+/// - Implementing some of the widget member functions as calls to the c tk api instead of as tcl scripts.
 
 
 
