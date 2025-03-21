@@ -93,7 +93,8 @@ $(document).ready(function(){initNavTree('namespacecpptkinter_1_1utility.html','
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#concepts">Concepts</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">cpptkinter::utility Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -139,6 +140,8 @@ Concepts</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptcpptkinter_1_1utility_1_1aggregate__members__satisfy.html">aggregate_members_satisfy</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptcpptkinter_1_1utility_1_1is__derived__shared__ptr.html">is_derived_shared_ptr</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptcpptkinter_1_1utility_1_1union__arg.html">union_arg</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -186,6 +189,12 @@ requires std::is_aggregate_v&lt;T&gt;</td></tr>
 requires requires { typename std::remove_cvref_t&lt;Func&gt;<a class="el" href="cpptkinter_8ixx.html#a008f29843e0395730df3e8a39e80e809">::decays_to</a>; typename std::remove_cvref_t&lt;Func&gt;::container_type; requires std::derived_from&lt;std::remove_cvref_t&lt;Func&gt;, <a class="el" href="classcpptkinter_1_1utility_1_1member__functor.html">member_functor</a>&lt;typename std::remove_cvref_t&lt;Func&gt;::container_type&gt;&gt;; }</td></tr>
 <tr class="memitem:a7039417b48e30b3f7988a2194972203e"><td class="memTemplItemLeft" align="right" valign="top">decltype(std::function(std::declval&lt; typename std::remove_cvref_t&lt; Func &gt;<a class="el" href="cpptkinter_8ixx.html#a008f29843e0395730df3e8a39e80e809">::decays_to</a> &gt;()))&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1utility.html#a7039417b48e30b3f7988a2194972203e">callable_to_std_function</a> (Func &amp;&amp;func)</td></tr>
 <tr class="separator:a7039417b48e30b3f7988a2194972203e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a68b858cfbe58d72ca9b6636dd4bc6833"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a68b858cfbe58d72ca9b6636dd4bc6833"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="structcpptkinter_1_1utility_1_1detail_1_1union__arg__overload.html">detail::union_arg_overload</a>&lt; Args... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1utility.html#a68b858cfbe58d72ca9b6636dd4bc6833">to_union_arg</a> {}</td></tr>
+<tr class="separator:a68b858cfbe58d72ca9b6636dd4bc6833"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Utilities that aren't related to Python's tkinter or _tkinter. </p>
@@ -503,6 +512,31 @@ requires std::ranges::range&lt;T&gt; || hhh::meta::tuple_like&lt;T&gt;</div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a68b858cfbe58d72ca9b6636dd4bc6833" name="a68b858cfbe58d72ca9b6636dd4bc6833"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68b858cfbe58d72ca9b6636dd4bc6833">&#9670;&#160;</a></span>to_union_arg</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="structcpptkinter_1_1utility_1_1detail_1_1union__arg__overload.html">detail::union_arg_overload</a>&lt;Args...&gt; cpptkinter::utility::to_union_arg {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

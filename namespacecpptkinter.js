@@ -86,6 +86,7 @@ var namespacecpptkinter =
     [ "BaseWidget", "classcpptkinter_1_1BaseWidget.html", "classcpptkinter_1_1BaseWidget" ],
     [ "BitmapImage", "structcpptkinter_1_1BitmapImage.html", "structcpptkinter_1_1BitmapImage" ],
     [ "Button", "structcpptkinter_1_1Button.html", "structcpptkinter_1_1Button" ],
+    [ "Canvas", "structcpptkinter_1_1Canvas.html", "structcpptkinter_1_1Canvas" ],
     [ "Checkbutton", "structcpptkinter_1_1Checkbutton.html", "structcpptkinter_1_1Checkbutton" ],
     [ "Entry", "structcpptkinter_1_1Entry.html", "structcpptkinter_1_1Entry" ],
     [ "Event", "structcpptkinter_1_1Event.html", "structcpptkinter_1_1Event" ],

@@ -46,6 +46,6 @@ var structcpptkinter_1_1cnfs_1_1Text__peer__create =
     [ "undo", "structcpptkinter_1_1cnfs_1_1Text__peer__create.html#a01d39a9766985f63e864c5ad190fab5a", null ],
     [ "width", "structcpptkinter_1_1cnfs_1_1Text__peer__create.html#aab0d88fefb1890a745a9fa10c8360a1f", null ],
     [ "wrap", "structcpptkinter_1_1cnfs_1_1Text__peer__create.html#a413d4c05a592c85ff52c4ba936b9b8c8", null ],
-    [ "xscrollcommand", "structcpptkinter_1_1cnfs_1_1Text__peer__create.html#a6d2e000c3ba9d0c336d16ce429addb82", null ],
-    [ "yscrollcommand", "structcpptkinter_1_1cnfs_1_1Text__peer__create.html#a6228edabfaf325a34f828f128fd3ecc4", null ]
+    [ "xscrollcommand", "structcpptkinter_1_1cnfs_1_1Text__peer__create.html#acef13b6b4f6ea4a8eb54502568bcbd05", null ],
+    [ "yscrollcommand", "structcpptkinter_1_1cnfs_1_1Text__peer__create.html#a5cf13e84545e34a2869f3892324687b5", null ]
 ];

@@ -3,6 +3,7 @@ var annotated_dup =
     [ "cpptkinter", "namespacecpptkinter.html", [
       [ "_cpptkinter", "namespacecpptkinter_1_1__cpptkinter.html", [
         [ "detail", "namespacecpptkinter_1_1__cpptkinter_1_1detail.html", [
+          [ "AsObjFunctorType", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjFunctorType.html", null ],
           [ "AsObjImplTrait", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjImplTrait.html", null ],
           [ "FromObjImplTrait", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1FromObjImplTrait.html", null ],
           [ "ignore", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1ignore.html", null ],
@@ -23,7 +24,17 @@ var annotated_dup =
         [ "add_separator", "structcpptkinter_1_1cnfs_1_1add__separator.html", "structcpptkinter_1_1cnfs_1_1add__separator" ],
         [ "BitmapImage", "structcpptkinter_1_1cnfs_1_1BitmapImage.html", "structcpptkinter_1_1cnfs_1_1BitmapImage" ],
         [ "Button", "structcpptkinter_1_1cnfs_1_1Button.html", "structcpptkinter_1_1cnfs_1_1Button" ],
+        [ "Canvas", "structcpptkinter_1_1cnfs_1_1Canvas.html", "structcpptkinter_1_1cnfs_1_1Canvas" ],
         [ "Checkbutton", "structcpptkinter_1_1cnfs_1_1Checkbutton.html", "structcpptkinter_1_1cnfs_1_1Checkbutton" ],
+        [ "create_arc", "structcpptkinter_1_1cnfs_1_1create__arc.html", null ],
+        [ "create_bitmap", "structcpptkinter_1_1cnfs_1_1create__bitmap.html", null ],
+        [ "create_image", "structcpptkinter_1_1cnfs_1_1create__image.html", null ],
+        [ "create_line", "structcpptkinter_1_1cnfs_1_1create__line.html", null ],
+        [ "create_oval", "structcpptkinter_1_1cnfs_1_1create__oval.html", null ],
+        [ "create_polygon", "structcpptkinter_1_1cnfs_1_1create__polygon.html", null ],
+        [ "create_rectangle", "structcpptkinter_1_1cnfs_1_1create__rectangle.html", null ],
+        [ "create_text", "structcpptkinter_1_1cnfs_1_1create__text.html", null ],
+        [ "create_window", "structcpptkinter_1_1cnfs_1_1create__window.html", null ],
         [ "Entry", "structcpptkinter_1_1cnfs_1_1Entry.html", "structcpptkinter_1_1cnfs_1_1Entry" ],
         [ "Frame", "structcpptkinter_1_1cnfs_1_1Frame.html", "structcpptkinter_1_1cnfs_1_1Frame" ],
         [ "grid_bbox", "structcpptkinter_1_1cnfs_1_1grid__bbox.html", "structcpptkinter_1_1cnfs_1_1grid__bbox" ],
@@ -74,7 +85,9 @@ var annotated_dup =
         [ "detail", "namespacecpptkinter_1_1utility_1_1detail.html", [
           [ "is_std_array", "structcpptkinter_1_1utility_1_1detail_1_1is__std__array.html", null ],
           [ "is_std_array< std::array< T, N > >", "structcpptkinter_1_1utility_1_1detail_1_1is__std__array_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html", null ],
-          [ "range_or_tuple_to_string_visitor", "structcpptkinter_1_1utility_1_1detail_1_1range__or__tuple__to__string__visitor.html", "structcpptkinter_1_1utility_1_1detail_1_1range__or__tuple__to__string__visitor" ]
+          [ "range_or_tuple_to_string_visitor", "structcpptkinter_1_1utility_1_1detail_1_1range__or__tuple__to__string__visitor.html", "structcpptkinter_1_1utility_1_1detail_1_1range__or__tuple__to__string__visitor" ],
+          [ "union_arg_overload", "structcpptkinter_1_1utility_1_1detail_1_1union__arg__overload.html", null ],
+          [ "union_arg_overload_base", "structcpptkinter_1_1utility_1_1detail_1_1union__arg__overload__base.html", null ]
         ] ],
         [ "extend_variants", "structcpptkinter_1_1utility_1_1extend__variants.html", null ],
         [ "extend_variants< std::variant< VArgs... >, Args... >", "structcpptkinter_1_1utility_1_1extend__variants_3_01std_1_1variant_3_01VArgs_8_8_8_01_4_00_01Args_8_8_8_01_4.html", "structcpptkinter_1_1utility_1_1extend__variants_3_01std_1_1variant_3_01VArgs_8_8_8_01_4_00_01Args_8_8_8_01_4" ],
@@ -88,6 +101,7 @@ var annotated_dup =
       [ "BaseWidget", "classcpptkinter_1_1BaseWidget.html", "classcpptkinter_1_1BaseWidget" ],
       [ "BitmapImage", "structcpptkinter_1_1BitmapImage.html", "structcpptkinter_1_1BitmapImage" ],
       [ "Button", "structcpptkinter_1_1Button.html", "structcpptkinter_1_1Button" ],
+      [ "Canvas", "structcpptkinter_1_1Canvas.html", "structcpptkinter_1_1Canvas" ],
       [ "Checkbutton", "structcpptkinter_1_1Checkbutton.html", "structcpptkinter_1_1Checkbutton" ],
       [ "Entry", "structcpptkinter_1_1Entry.html", "structcpptkinter_1_1Entry" ],
       [ "Event", "structcpptkinter_1_1Event.html", "structcpptkinter_1_1Event" ],

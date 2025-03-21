@@ -51,5 +51,5 @@ var structcpptkinter_1_1cnfs_1_1Spinbox =
     [ "vcmd", "structcpptkinter_1_1cnfs_1_1Spinbox.html#a6efca220b23882116335cdef11d14413", null ],
     [ "width", "structcpptkinter_1_1cnfs_1_1Spinbox.html#afe67d582ddaa3924af6036578b8d34ad", null ],
     [ "wrap", "structcpptkinter_1_1cnfs_1_1Spinbox.html#a75d337351b59966f657487aa93407c59", null ],
-    [ "xscrollcommand", "structcpptkinter_1_1cnfs_1_1Spinbox.html#aea02ea57d1b86cbaecd36bedd154e5b1", null ]
+    [ "xscrollcommand", "structcpptkinter_1_1cnfs_1_1Spinbox.html#a8249d2ce8e25fe8c89ac437a33256211", null ]
 ];

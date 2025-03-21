@@ -45,6 +45,6 @@ var structcpptkinter_1_1cnfs_1_1Text =
     [ "undo", "structcpptkinter_1_1cnfs_1_1Text.html#a48c6ef5730353cf6d1ae66bed5b68978", null ],
     [ "width", "structcpptkinter_1_1cnfs_1_1Text.html#ab5de328cf7566acaf940f191800cb18c", null ],
     [ "wrap", "structcpptkinter_1_1cnfs_1_1Text.html#a0bc0236b1bcf27880e35224137288f46", null ],
-    [ "xscrollcommand", "structcpptkinter_1_1cnfs_1_1Text.html#a88504967ed761bb10809c66ee9ba6be3", null ],
-    [ "yscrollcommand", "structcpptkinter_1_1cnfs_1_1Text.html#a1fc420955bbad2c43d04de54bd8ddce2", null ]
+    [ "xscrollcommand", "structcpptkinter_1_1cnfs_1_1Text.html#a0409ff7a22db2aa841593dd26d87f2fc", null ],
+    [ "yscrollcommand", "structcpptkinter_1_1cnfs_1_1Text.html#a343e18f81dd56f67e5c6edd76d494b75", null ]
 ];

@@ -6,7 +6,9 @@ var namespacecpptkinter_1_1detail =
     [ "Tk_impl", "structcpptkinter_1_1detail_1_1Tk__impl.html", "structcpptkinter_1_1detail_1_1Tk__impl" ],
     [ "range_of_AsObj", "conceptcpptkinter_1_1detail_1_1range__of__AsObj.html", null ],
     [ "index", "conceptcpptkinter_1_1detail_1_1index.html", null ],
+    [ "screenunits_arg", "conceptcpptkinter_1_1detail_1_1screenunits__arg.html", null ],
     [ "Variable_mode_concept", "conceptcpptkinter_1_1detail_1_1Variable__mode__concept.html", null ],
+    [ "tag_or_id_arg", "conceptcpptkinter_1_1detail_1_1tag__or__id__arg.html", null ],
     [ "text_index", "conceptcpptkinter_1_1detail_1_1text__index.html", null ],
     [ "sized_range_of_string", "conceptcpptkinter_1_1detail_1_1sized__range__of__string.html", null ],
     [ "Anchor", "namespacecpptkinter_1_1detail.html#adf2d71616e8e9beb9e75cd248c7b8be3", null ],
@@ -28,8 +30,6 @@ var namespacecpptkinter_1_1detail =
     [ "_splitdict_to_aggregate", "namespacecpptkinter_1_1detail.html#a4025246af34d067adce0a714703f333f", null ],
     [ "_tkerror", "namespacecpptkinter_1_1detail.html#ad58ef7017e478990f9e9f9a0bcd3ef9b", null ],
     [ "pack_grid_info", "namespacecpptkinter_1_1detail.html#af78b3243b9551605de5f37bb66a925ef", null ],
-    [ "to_index", "namespacecpptkinter_1_1detail.html#a46a6dbc0bc882f0d0fcea774b305c983", null ],
-    [ "to_index", "namespacecpptkinter_1_1detail.html#ac75c311a820dcaf8eca745437a0c9eaa", null ],
     [ "to_text_index", "namespacecpptkinter_1_1detail.html#a334dff5cd9736107d0128281089eb7bb", null ],
     [ "to_text_index", "namespacecpptkinter_1_1detail.html#a63c75e23bef32762d06ed01ef043a4b8", null ],
     [ "to_text_index", "namespacecpptkinter_1_1detail.html#af4796d07259f3367f9438e5d17122fc7", null ],
@@ -40,5 +40,8 @@ var namespacecpptkinter_1_1detail =
     [ "_support_default_root", "namespacecpptkinter_1_1detail.html#ad0e153509f7b29be7873602abac3ec15", null ],
     [ "_varnum", "namespacecpptkinter_1_1detail.html#a3be8e7ded72389f552f47c0e36cf4a77", null ],
     [ "tcl_command_name_counter", "namespacecpptkinter_1_1detail.html#a9adcafb800b059ac391e912dbff0ef55", null ],
-    [ "tcl_forbidden_chars", "namespacecpptkinter_1_1detail.html#acf1508eec0d4fb028240fcc748db5ce7", null ]
+    [ "tcl_forbidden_chars", "namespacecpptkinter_1_1detail.html#acf1508eec0d4fb028240fcc748db5ce7", null ],
+    [ "to_index", "namespacecpptkinter_1_1detail.html#a49b5f9c1f4246c1f51f518b4aa3c1ee3", null ],
+    [ "to_screenunits_arg", "namespacecpptkinter_1_1detail.html#a72698205db4c3e4cadaa35da35c86897", null ],
+    [ "to_tag_or_id_arg_arg", "namespacecpptkinter_1_1detail.html#a82adbb280439337271d0eeed62221b47", null ]
 ];

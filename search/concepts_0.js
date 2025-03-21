@@ -18,7 +18,10 @@ var searchData=
   ['range_5fof_5fasobj_15',['range_of_AsObj',['../conceptcpptkinter_1_1detail_1_1range__of__AsObj.html',1,'cpptkinter::detail']]],
   ['range_5fof_5fconvertible_5fto_16',['range_of_convertible_to',['../conceptcpptkinter_1_1utility_1_1range__of__convertible__to.html',1,'cpptkinter::utility']]],
   ['range_5fof_5ftcl_5fobj_17',['range_of_Tcl_Obj',['../conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1range__of__Tcl__Obj.html',1,'cpptkinter::_cpptkinter::detail']]],
-  ['sized_5frange_5fof_5fstring_18',['sized_range_of_string',['../conceptcpptkinter_1_1detail_1_1sized__range__of__string.html',1,'cpptkinter::detail']]],
-  ['text_5findex_19',['text_index',['../conceptcpptkinter_1_1detail_1_1text__index.html',1,'cpptkinter::detail']]],
-  ['variable_5fmode_5fconcept_20',['Variable_mode_concept',['../conceptcpptkinter_1_1detail_1_1Variable__mode__concept.html',1,'cpptkinter::detail']]]
+  ['screenunits_5farg_18',['screenunits_arg',['../conceptcpptkinter_1_1detail_1_1screenunits__arg.html',1,'cpptkinter::detail']]],
+  ['sized_5frange_5fof_5fstring_19',['sized_range_of_string',['../conceptcpptkinter_1_1detail_1_1sized__range__of__string.html',1,'cpptkinter::detail']]],
+  ['tag_5for_5fid_5farg_20',['tag_or_id_arg',['../conceptcpptkinter_1_1detail_1_1tag__or__id__arg.html',1,'cpptkinter::detail']]],
+  ['text_5findex_21',['text_index',['../conceptcpptkinter_1_1detail_1_1text__index.html',1,'cpptkinter::detail']]],
+  ['union_5farg_22',['union_arg',['../conceptcpptkinter_1_1utility_1_1union__arg.html',1,'cpptkinter::utility']]],
+  ['variable_5fmode_5fconcept_23',['Variable_mode_concept',['../conceptcpptkinter_1_1detail_1_1Variable__mode__concept.html',1,'cpptkinter::detail']]]
 ];

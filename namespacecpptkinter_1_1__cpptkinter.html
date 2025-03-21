@@ -181,9 +181,6 @@ Functions</h2></td></tr>
 <tr class="separator:ad4d00aad7c1bf3e1949ec952fec3de60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ed4f9e81d118a44360c99f6342ee68f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter.html#a0ed4f9e81d118a44360c99f6342ee68f">Tkapp_Trace</a> (<a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html">TkappObject</a> *self, const auto &amp;...args)</td></tr>
 <tr class="separator:a0ed4f9e81d118a44360c99f6342ee68f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bd7152df2e60e65d3d5496e9c673e0a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">Tcl_Obj</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter.html#a1bd7152df2e60e65d3d5496e9c673e0a">AsObj</a> (const detail::AsObjConcept auto &amp;value)</td></tr>
-<tr class="memdesc:a1bd7152df2e60e65d3d5496e9c673e0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a c++ value to a tcl object.  <br /></td></tr>
-<tr class="separator:a1bd7152df2e60e65d3d5496e9c673e0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5d1b8349f8efdac6254453977ec45fd"><td class="memTemplParams" colspan="2">template&lt;detail::FromObjConcept R&gt; </td></tr>
 <tr class="memitem:ad5d1b8349f8efdac6254453977ec45fd"><td class="memTemplItemLeft" align="right" valign="top">R&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter.html#ad5d1b8349f8efdac6254453977ec45fd">FromObj</a> (<a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html">TkappObject</a> *tkapp, const <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">Tcl_Obj</a> &amp;ptr)</td></tr>
 <tr class="memdesc:ad5d1b8349f8efdac6254453977ec45fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a tcl object to a c++ value.  <br /></td></tr>
@@ -270,6 +267,9 @@ Variables</h2></td></tr>
 <tr class="separator:aaf7cbb354663af677e27cf51c23ae863"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a235f23b395ff9f7aaca74d3fe6213032"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter.html#a235f23b395ff9f7aaca74d3fe6213032">Tkinter_busywaitinterval</a> = 20</td></tr>
 <tr class="separator:a235f23b395ff9f7aaca74d3fe6213032"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add2e5324e272427d04c0909afe6360b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjFunctorType.html">detail::AsObjFunctorType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter.html#add2e5324e272427d04c0909afe6360b0">AsObj</a> {}</td></tr>
+<tr class="memdesc:add2e5324e272427d04c0909afe6360b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a c++ value to a tcl object.  <br /></td></tr>
+<tr class="separator:add2e5324e272427d04c0909afe6360b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation of the Python module _tkinter in C++. </p>
@@ -350,33 +350,6 @@ template&lt;typename Func &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1bd7152df2e60e65d3d5496e9c673e0a" name="a1bd7152df2e60e65d3d5496e9c673e0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1bd7152df2e60e65d3d5496e9c673e0a">&#9670;&#160;</a></span>AsObj()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">Tcl_Obj</a> cpptkinter::_cpptkinter::AsObj </td>
-          <td>(</td>
-          <td class="paramtype">const detail::AsObjConcept auto &amp;&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Convert a c++ value to a tcl object. </p>
-<p>This function is used to convert a value to a <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html" title="Represents a Tcl object.">Tcl_Obj</a>. Throws if the conversion fails. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td>The c++ value to convert. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html" title="Represents a Tcl object.">Tcl_Obj</a> representing the value. </dd></dl>
 
 </div>
 </div>
@@ -1325,6 +1298,30 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="add2e5324e272427d04c0909afe6360b0" name="add2e5324e272427d04c0909afe6360b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add2e5324e272427d04c0909afe6360b0">&#9670;&#160;</a></span>AsObj</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjFunctorType.html">detail::AsObjFunctorType</a> cpptkinter::_cpptkinter::AsObj {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert a c++ value to a tcl object. </p>
+<p>Throws if the conversion fails. Implemented as a functor to allow for use with std::views::transform. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The c++ value to convert. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html" title="Represents a Tcl object.">Tcl_Obj</a> representing the value. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a90ce6f375e01cd4a4fa63bf6c84f4fd0" title="Try to convert a Tcl_Obj to Tcl_Obj (i.e. copy it).">detail::AsObjImpl()</a> </dd></dl>
 
 </div>
 </div>

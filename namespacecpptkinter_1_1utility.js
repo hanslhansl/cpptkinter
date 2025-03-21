@@ -13,6 +13,7 @@ var namespacecpptkinter_1_1utility =
     [ "range_of_convertible_to", "conceptcpptkinter_1_1utility_1_1range__of__convertible__to.html", null ],
     [ "aggregate_members_satisfy", "conceptcpptkinter_1_1utility_1_1aggregate__members__satisfy.html", null ],
     [ "is_derived_shared_ptr", "conceptcpptkinter_1_1utility_1_1is__derived__shared__ptr.html", null ],
+    [ "union_arg", "conceptcpptkinter_1_1utility_1_1union__arg.html", null ],
     [ "aggregate_to_string", "namespacecpptkinter_1_1utility.html#a7b2911bee46129bd959f3d7bc0d35402", null ],
     [ "callable_to_std_function", "namespacecpptkinter_1_1utility.html#a8a59ce8de106b1e460b5fe39fd4ad569", null ],
     [ "callable_to_std_function", "namespacecpptkinter_1_1utility.html#a7039417b48e30b3f7988a2194972203e", null ],
@@ -22,5 +23,6 @@ var namespacecpptkinter_1_1utility =
     [ "ref_wrapper", "namespacecpptkinter_1_1utility.html#a17e35294490f8bb33e8a623c97dfe025", null ],
     [ "visit_or_invoke", "namespacecpptkinter_1_1utility.html#acf98789d5bc0177bd3be2df1c0cbf8af", null ],
     [ "visit_or_invoke", "namespacecpptkinter_1_1utility.html#aa170a44ac4809210df20e1457ed16b71", null ],
-    [ "visit_range_or_tuple", "namespacecpptkinter_1_1utility.html#ab8ee6adf9f6b25ba4ab3641c97d05004", null ]
+    [ "visit_range_or_tuple", "namespacecpptkinter_1_1utility.html#ab8ee6adf9f6b25ba4ab3641c97d05004", null ],
+    [ "to_union_arg", "namespacecpptkinter_1_1utility.html#a68b858cfbe58d72ca9b6636dd4bc6833", null ]
 ];

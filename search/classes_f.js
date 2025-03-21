@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['variable_0',['Variable',['../structcpptkinter_1_1cnfs_1_1Variable.html',1,'cpptkinter::cnfs::Variable&lt; T &gt;'],['../classcpptkinter_1_1Variable.html',1,'cpptkinter::Variable']]]
+  ['union_5farg_5foverload_0',['union_arg_overload',['../structcpptkinter_1_1utility_1_1detail_1_1union__arg__overload.html',1,'cpptkinter::utility::detail']]],
+  ['union_5farg_5foverload_5fbase_1',['union_arg_overload_base',['../structcpptkinter_1_1utility_1_1detail_1_1union__arg__overload__base.html',1,'cpptkinter::utility::detail']]],
+  ['union_5farg_5foverload_5fbase_3c_20args_20_3e_2',['union_arg_overload_base&lt; Args &gt;',['../structcpptkinter_1_1utility_1_1detail_1_1union__arg__overload__base.html',1,'cpptkinter::utility::detail']]]
 ];

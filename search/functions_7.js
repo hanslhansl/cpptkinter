@@ -19,7 +19,7 @@ var searchData=
   ['grid_5fconfigure_16',['grid_configure',['../structcpptkinter_1_1Grid.html#a5fba7857da5375039d1f1dd1ae2ea48f',1,'cpptkinter::Grid']]],
   ['grid_5fforget_17',['grid_forget',['../structcpptkinter_1_1Grid.html#a05fef2a4de53a58bf84567582742b8ee',1,'cpptkinter::Grid']]],
   ['grid_5finfo_18',['grid_info',['../structcpptkinter_1_1Grid.html#af4d6a8f739d150e0992fbc703cbb596a',1,'cpptkinter::Grid']]],
-  ['grid_5flocation_19',['grid_location',['../classcpptkinter_1_1Misc.html#affc7c7beaaa3e967fab21a056b995376',1,'cpptkinter::Misc']]],
+  ['grid_5flocation_19',['grid_location',['../classcpptkinter_1_1Misc.html#a3ece2cdbdf82fa632be98f1364af39ff',1,'cpptkinter::Misc']]],
   ['grid_5fpropagate_20',['grid_propagate',['../classcpptkinter_1_1Misc.html#add6e4888b6b565b86466ab2f6f724c9d',1,'cpptkinter::Misc::grid_propagate()'],['../classcpptkinter_1_1Misc.html#a7c3fc362ca6b23957a3f2393e99d7c89',1,'cpptkinter::Misc::grid_propagate(bool flag)']]],
   ['grid_5fremove_21',['grid_remove',['../structcpptkinter_1_1Grid.html#acb7532e5dad2dcf943a022a98c7a7460',1,'cpptkinter::Grid']]],
   ['grid_5frowconfigure_22',['grid_rowconfigure',['../classcpptkinter_1_1Misc.html#ae55c448aad19b86effa7f7d80cc48646',1,'cpptkinter::Misc::grid_rowconfigure(detail::index auto &amp;&amp;index)'],['../classcpptkinter_1_1Misc.html#a7e02b488cb86219a81fbf926fbb5b375',1,'cpptkinter::Misc::grid_rowconfigure(const std::variant&lt; size_t, std::vector&lt; size_t &gt;, std::string &gt; &amp;index, CNF &amp;&amp;cnf)']]],

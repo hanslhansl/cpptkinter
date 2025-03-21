@@ -122,6 +122,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjImplTrait.html">cpptkinter::_cpptkinter::detail::AsObjImplTrait&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjFunctorType.html">cpptkinter::_cpptkinter::detail::AsObjFunctorType</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Functor type of AsObj. operator() calls AsObjImpl.  <a href="structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjFunctorType.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1detail_1_1ignore.html">cpptkinter::_cpptkinter::detail::ignore</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1detail_1_1FromObjImplTrait.html">cpptkinter::_cpptkinter::detail::FromObjImplTrait&lt; T &gt;</a></td></tr>
@@ -150,7 +153,7 @@ Namespaces</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="concepts" name="concepts"></a>
 Concepts</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjConcept.html">cpptkinter::_cpptkinter::detail::AsObjConcept</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constraint for the argument type of <a class="el" href="namespacecpptkinter_1_1__cpptkinter.html#a1bd7152df2e60e65d3d5496e9c673e0a" title="Convert a c++ value to a tcl object.">cpptkinter::_cpptkinter::AsObj()</a>. <br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constraint for the argument type of <a class="el" href="namespacecpptkinter_1_1__cpptkinter.html#add2e5324e272427d04c0909afe6360b0" title="Convert a c++ value to a tcl object.">cpptkinter::_cpptkinter::AsObj()</a>. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1FromObjConcept.html">cpptkinter::_cpptkinter::detail::FromObjConcept</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constraint for the return type of <a class="el" href="namespacecpptkinter_1_1__cpptkinter.html#ad5d1b8349f8efdac6254453977ec45fd" title="Convert a tcl object to a c++ value.">cpptkinter::_cpptkinter::FromObj()</a>. <br /></td></tr>
@@ -348,9 +351,6 @@ requires ((FromObjImplTrait&lt;Args&gt;::value &amp;&amp; ...) &amp;&amp; sizeof
 <tr class="separator:ad4d00aad7c1bf3e1949ec952fec3de60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ed4f9e81d118a44360c99f6342ee68f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter.html#a0ed4f9e81d118a44360c99f6342ee68f">cpptkinter::_cpptkinter::Tkapp_Trace</a> (TkappObject *self, const auto &amp;...args)</td></tr>
 <tr class="separator:a0ed4f9e81d118a44360c99f6342ee68f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bd7152df2e60e65d3d5496e9c673e0a"><td class="memItemLeft" align="right" valign="top">Tcl_Obj&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter.html#a1bd7152df2e60e65d3d5496e9c673e0a">cpptkinter::_cpptkinter::AsObj</a> (const detail::AsObjConcept auto &amp;value)</td></tr>
-<tr class="memdesc:a1bd7152df2e60e65d3d5496e9c673e0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a c++ value to a tcl object.  <br /></td></tr>
-<tr class="separator:a1bd7152df2e60e65d3d5496e9c673e0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5d1b8349f8efdac6254453977ec45fd"><td class="memTemplParams" colspan="2">template&lt;detail::FromObjConcept R&gt; </td></tr>
 <tr class="memitem:ad5d1b8349f8efdac6254453977ec45fd"><td class="memTemplItemLeft" align="right" valign="top">R&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter.html#ad5d1b8349f8efdac6254453977ec45fd">cpptkinter::_cpptkinter::FromObj</a> (TkappObject *tkapp, const Tcl_Obj &amp;ptr)</td></tr>
 <tr class="memdesc:ad5d1b8349f8efdac6254453977ec45fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a tcl object to a c++ value.  <br /></td></tr>
@@ -470,6 +470,9 @@ Variables</h2></td></tr>
 <tr class="separator:aaf7cbb354663af677e27cf51c23ae863"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a235f23b395ff9f7aaca74d3fe6213032"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter.html#a235f23b395ff9f7aaca74d3fe6213032">cpptkinter::_cpptkinter::Tkinter_busywaitinterval</a> = 20</td></tr>
 <tr class="separator:a235f23b395ff9f7aaca74d3fe6213032"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add2e5324e272427d04c0909afe6360b0"><td class="memItemLeft" align="right" valign="top">detail::AsObjFunctorType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1__cpptkinter.html#add2e5324e272427d04c0909afe6360b0">cpptkinter::_cpptkinter::AsObj</a> {}</td></tr>
+<tr class="memdesc:add2e5324e272427d04c0909afe6360b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a c++ value to a tcl object.  <br /></td></tr>
+<tr class="separator:add2e5324e272427d04c0909afe6360b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements _tkinter.c, _tkinter.c.h and tkappinit.c. </p>

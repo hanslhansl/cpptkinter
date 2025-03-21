@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['bbox_0',['bbox',['../classcpptkinter_1_1Misc.html#ab1e4b7d196f92db6cab7ea51215f7315',1,'cpptkinter::Misc::bbox()'],['../structcpptkinter_1_1Listbox.html#a5d02e239e26ecab1ec827bf931bad42b',1,'cpptkinter::Listbox::bbox()'],['../structcpptkinter_1_1Text.html#a8a551acb5ba7fdb3238a85bac8b17f81',1,'cpptkinter::Text::bbox()'],['../structcpptkinter_1_1Spinbox.html#a79fccde3a74c516567b35a5ecda1223a',1,'cpptkinter::Spinbox::bbox()']]],
+  ['bbox_0',['bbox',['../classcpptkinter_1_1Misc.html#ab1e4b7d196f92db6cab7ea51215f7315',1,'cpptkinter::Misc::bbox()'],['../structcpptkinter_1_1Canvas.html#a56af180e8dfacf2fe6d0f13091a6a989',1,'cpptkinter::Canvas::bbox()'],['../structcpptkinter_1_1Listbox.html#a5d02e239e26ecab1ec827bf931bad42b',1,'cpptkinter::Listbox::bbox()'],['../structcpptkinter_1_1Text.html#a8a551acb5ba7fdb3238a85bac8b17f81',1,'cpptkinter::Text::bbox()'],['../structcpptkinter_1_1Spinbox.html#a79fccde3a74c516567b35a5ecda1223a',1,'cpptkinter::Spinbox::bbox()']]],
   ['bind_1',['bind',['../classcpptkinter_1_1Misc.html#a3fe5995e5d53c85e8222206b311889d8',1,'cpptkinter::Misc']]],
   ['bind_5fall_2',['bind_all',['../classcpptkinter_1_1Misc.html#a30ee3c45ee9c08e870268f890e3af7ab',1,'cpptkinter::Misc']]],
   ['bind_5fclass_3',['bind_class',['../classcpptkinter_1_1Misc.html#afc8373edcdff2f0b9e394a0539b5c3a0',1,'cpptkinter::Misc']]],
-  ['bindtags_4',['bindtags',['../classcpptkinter_1_1Misc.html#a851ce25cea487f61c125d0939ab48b09',1,'cpptkinter::Misc::bindtags(const utility::range_of_convertible_to&lt; std::string &gt; auto &amp;tagList)'],['../classcpptkinter_1_1Misc.html#ac3504d63e1dbc8d54185c84e9bddd52d',1,'cpptkinter::Misc::bindtags()']]],
+  ['bindtags_4',['bindtags',['../classcpptkinter_1_1Misc.html#a821b778ace151e96271b01fae99b4959',1,'cpptkinter::Misc::bindtags(const std::vector&lt; std::string &gt; &amp;tagList)'],['../classcpptkinter_1_1Misc.html#ac3504d63e1dbc8d54185c84e9bddd52d',1,'cpptkinter::Misc::bindtags()']]],
   ['bitmapimage_5',['BitmapImage',['../structcpptkinter_1_1BitmapImage.html#a68e09dbcee4a4ca3b1ddb4bbc4b300c8',1,'cpptkinter::BitmapImage']]],
   ['blank_6',['blank',['../structcpptkinter_1_1PhotoImage.html#adcf8fa45135bae044928d351d6811ce3',1,'cpptkinter::PhotoImage']]],
   ['button_7',['Button',['../structcpptkinter_1_1Button.html#aa5cda1b3ce9d3153727685368ad55b61',1,'cpptkinter::Button::Button(CNF &amp;&amp;cnf={})'],['../structcpptkinter_1_1Button.html#afb6be9a97548127bb05c08e93a4b9b3e',1,'cpptkinter::Button::Button()']]]

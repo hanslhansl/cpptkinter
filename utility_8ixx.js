@@ -3,6 +3,8 @@ var utility_8ixx =
     [ "cpptkinter::utility::detail::is_std_array< T >", "structcpptkinter_1_1utility_1_1detail_1_1is__std__array.html", null ],
     [ "cpptkinter::utility::detail::is_std_array< std::array< T, N > >", "structcpptkinter_1_1utility_1_1detail_1_1is__std__array_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html", null ],
     [ "cpptkinter::utility::detail::range_or_tuple_to_string_visitor", "structcpptkinter_1_1utility_1_1detail_1_1range__or__tuple__to__string__visitor.html", "structcpptkinter_1_1utility_1_1detail_1_1range__or__tuple__to__string__visitor" ],
+    [ "cpptkinter::utility::detail::union_arg_overload_base< T >", "structcpptkinter_1_1utility_1_1detail_1_1union__arg__overload__base.html", null ],
+    [ "cpptkinter::utility::detail::union_arg_overload< Args >", "structcpptkinter_1_1utility_1_1detail_1_1union__arg__overload.html", null ],
     [ "cpptkinter::utility::weak< T >", "classcpptkinter_1_1utility_1_1weak.html", "classcpptkinter_1_1utility_1_1weak" ],
     [ "cpptkinter::utility::ref_wrapper< T >", "classcpptkinter_1_1utility_1_1ref__wrapper.html", "classcpptkinter_1_1utility_1_1ref__wrapper" ],
     [ "cpptkinter::utility::reference_variant< Args >", "structcpptkinter_1_1utility_1_1reference__variant.html", "structcpptkinter_1_1utility_1_1reference__variant" ],
@@ -14,6 +16,7 @@ var utility_8ixx =
     [ "cpptkinter::utility::range_of_convertible_to", "conceptcpptkinter_1_1utility_1_1range__of__convertible__to.html", null ],
     [ "cpptkinter::utility::aggregate_members_satisfy", "conceptcpptkinter_1_1utility_1_1aggregate__members__satisfy.html", null ],
     [ "cpptkinter::utility::is_derived_shared_ptr", "conceptcpptkinter_1_1utility_1_1is__derived__shared__ptr.html", null ],
+    [ "cpptkinter::utility::union_arg", "conceptcpptkinter_1_1utility_1_1union__arg.html", null ],
     [ "aggregate_to_string", "utility_8ixx.html#a7b2911bee46129bd959f3d7bc0d35402", null ],
     [ "callable_to_std_function", "utility_8ixx.html#a8a59ce8de106b1e460b5fe39fd4ad569", null ],
     [ "callable_to_std_function", "utility_8ixx.html#a7039417b48e30b3f7988a2194972203e", null ],
@@ -29,5 +32,6 @@ var utility_8ixx =
     [ "cpptkinter", "utility_8ixx.html#ac6a666df714a8ea283ff40996c1f4669", null ],
     [ "hhh", "utility_8ixx.html#a00f312ffd4f12513c22c7e98aa3c94c0", null ],
     [ "module", "utility_8ixx.html#a96e5f0eca87c2426370e0897ac7b8ca6", null ],
-    [ "std", "utility_8ixx.html#a2f42581b64a695b89aba6966398fc784", null ]
+    [ "std", "utility_8ixx.html#a2f42581b64a695b89aba6966398fc784", null ],
+    [ "to_union_arg", "utility_8ixx.html#a68b858cfbe58d72ca9b6636dd4bc6833", null ]
 ];

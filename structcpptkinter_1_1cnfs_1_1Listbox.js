@@ -29,6 +29,6 @@ var structcpptkinter_1_1cnfs_1_1Listbox =
     [ "state", "structcpptkinter_1_1cnfs_1_1Listbox.html#ae8bdd115f806ac594e08854e7fc74ab9", null ],
     [ "takefocus", "structcpptkinter_1_1cnfs_1_1Listbox.html#a4b4d84ce02c1fcff55849ab0aad47aa6", null ],
     [ "width", "structcpptkinter_1_1cnfs_1_1Listbox.html#abbaeee96e76ecadb09eb70afc0524c48", null ],
-    [ "xscrollincrement", "structcpptkinter_1_1cnfs_1_1Listbox.html#acac6f18827322783683aca9739d7a34e", null ],
-    [ "yscrollincrement", "structcpptkinter_1_1cnfs_1_1Listbox.html#a5faf3da945d872fd441ac5dec6e7a16c", null ]
+    [ "xscrollincrement", "structcpptkinter_1_1cnfs_1_1Listbox.html#a49e069e433576cdf8be5f0a7bc599136", null ],
+    [ "yscrollincrement", "structcpptkinter_1_1cnfs_1_1Listbox.html#ab39d283ec37a20c1f07af4776847168b", null ]
 ];

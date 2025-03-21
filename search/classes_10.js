@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['weak_0',['weak',['../classcpptkinter_1_1utility_1_1weak.html',1,'cpptkinter::utility']]],
-  ['widget_1',['Widget',['../structcpptkinter_1_1Widget.html',1,'cpptkinter']]],
-  ['wm_2',['Wm',['../structcpptkinter_1_1Wm.html',1,'cpptkinter']]]
+  ['variable_0',['Variable',['../structcpptkinter_1_1cnfs_1_1Variable.html',1,'cpptkinter::cnfs::Variable&lt; T &gt;'],['../classcpptkinter_1_1Variable.html',1,'cpptkinter::Variable']]]
 ];

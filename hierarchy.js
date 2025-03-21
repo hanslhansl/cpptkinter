@@ -6,6 +6,7 @@ var hierarchy =
     [ "cpptkinter::cnfs::add_command", "structcpptkinter_1_1cnfs_1_1add__command.html", null ],
     [ "cpptkinter::cnfs::add_radiobutton< T >", "structcpptkinter_1_1cnfs_1_1add__radiobutton.html", null ],
     [ "cpptkinter::cnfs::add_separator", "structcpptkinter_1_1cnfs_1_1add__separator.html", null ],
+    [ "cpptkinter::_cpptkinter::detail::AsObjFunctorType", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjFunctorType.html", null ],
     [ "cpptkinter::BitmapImage", "structcpptkinter_1_1BitmapImage.html", null ],
     [ "cpptkinter::cnfs::BitmapImage", "structcpptkinter_1_1cnfs_1_1BitmapImage.html", null ],
     [ "std::bool_constant", null, [
@@ -15,7 +16,17 @@ var hierarchy =
     ] ],
     [ "cpptkinter::cnfs::Button", "structcpptkinter_1_1cnfs_1_1Button.html", null ],
     [ "cpptkinter::detail::CallWrapper< R, Args >", "structcpptkinter_1_1detail_1_1CallWrapper.html", null ],
+    [ "cpptkinter::cnfs::Canvas", "structcpptkinter_1_1cnfs_1_1Canvas.html", null ],
     [ "cpptkinter::cnfs::Checkbutton< T >", "structcpptkinter_1_1cnfs_1_1Checkbutton.html", null ],
+    [ "cpptkinter::cnfs::create_arc", "structcpptkinter_1_1cnfs_1_1create__arc.html", null ],
+    [ "cpptkinter::cnfs::create_bitmap", "structcpptkinter_1_1cnfs_1_1create__bitmap.html", null ],
+    [ "cpptkinter::cnfs::create_image", "structcpptkinter_1_1cnfs_1_1create__image.html", null ],
+    [ "cpptkinter::cnfs::create_line", "structcpptkinter_1_1cnfs_1_1create__line.html", null ],
+    [ "cpptkinter::cnfs::create_oval", "structcpptkinter_1_1cnfs_1_1create__oval.html", null ],
+    [ "cpptkinter::cnfs::create_polygon", "structcpptkinter_1_1cnfs_1_1create__polygon.html", null ],
+    [ "cpptkinter::cnfs::create_rectangle", "structcpptkinter_1_1cnfs_1_1create__rectangle.html", null ],
+    [ "cpptkinter::cnfs::create_text", "structcpptkinter_1_1cnfs_1_1create__text.html", null ],
+    [ "cpptkinter::cnfs::create_window", "structcpptkinter_1_1cnfs_1_1create__window.html", null ],
     [ "cpptkinter::cnfs::Entry", "structcpptkinter_1_1cnfs_1_1Entry.html", null ],
     [ "cpptkinter::Event< T >", "structcpptkinter_1_1Event.html", null ],
     [ "cpptkinter::utility::extend_variants< V, Args >", "structcpptkinter_1_1utility_1_1extend__variants.html", null ],
@@ -37,6 +48,7 @@ var hierarchy =
         [ "cpptkinter::Button", "structcpptkinter_1_1Button.html", [
           [ "cpptkinter::TypedRadiobutton< T >", "structcpptkinter_1_1TypedRadiobutton.html", null ]
         ] ],
+        [ "cpptkinter::Canvas", "structcpptkinter_1_1Canvas.html", null ],
         [ "cpptkinter::Checkbutton", "structcpptkinter_1_1Checkbutton.html", [
           [ "cpptkinter::TypedCheckbutton< T >", "structcpptkinter_1_1TypedCheckbutton.html", null ]
         ] ],
@@ -135,6 +147,10 @@ var hierarchy =
       [ "cpptkinter::cnfs::is_cnf_trait< T, std::integer_sequence< size_t, I... > >", "structcpptkinter_1_1cnfs_1_1is__cnf__trait_3_01T_00_01std_1_1integer__sequence_3_01size__t_00_01I_8_8_8_01_4_01_4.html", null ],
       [ "cpptkinter::utility::detail::is_std_array< std::array< T, N > >", "structcpptkinter_1_1utility_1_1detail_1_1is__std__array_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html", null ]
     ] ],
+    [ "cpptkinter::utility::detail::union_arg_overload_base< T >", "structcpptkinter_1_1utility_1_1detail_1_1union__arg__overload__base.html", null ],
+    [ "cpptkinter::utility::detail::union_arg_overload_base< Args >", "structcpptkinter_1_1utility_1_1detail_1_1union__arg__overload__base.html", [
+      [ "cpptkinter::utility::detail::union_arg_overload< Args >", "structcpptkinter_1_1utility_1_1detail_1_1union__arg__overload.html", null ]
+    ] ],
     [ "cpptkinter::cnfs::Variable< T >", "structcpptkinter_1_1cnfs_1_1Variable.html", null ],
     [ "cpptkinter::Variable", "classcpptkinter_1_1Variable.html", [
       [ "cpptkinter::TypedVariable< std::string >", "structcpptkinter_1_1TypedVariable.html", null ],
@@ -146,6 +162,9 @@ var hierarchy =
       [ "cpptkinter::Toplevel", "structcpptkinter_1_1Toplevel.html", null ]
     ] ],
     [ "cpptkinter::XView< Self >", "structcpptkinter_1_1XView.html", null ],
+    [ "cpptkinter::XView< Canvas >", "structcpptkinter_1_1XView.html", [
+      [ "cpptkinter::Canvas", "structcpptkinter_1_1Canvas.html", null ]
+    ] ],
     [ "cpptkinter::XView< Entry >", "structcpptkinter_1_1XView.html", [
       [ "cpptkinter::Entry", "structcpptkinter_1_1Entry.html", null ]
     ] ],
@@ -153,6 +172,9 @@ var hierarchy =
       [ "cpptkinter::Text", "structcpptkinter_1_1Text.html", null ]
     ] ],
     [ "cpptkinter::YView< Self >", "structcpptkinter_1_1YView.html", null ],
+    [ "cpptkinter::YView< Canvas >", "structcpptkinter_1_1YView.html", [
+      [ "cpptkinter::Canvas", "structcpptkinter_1_1Canvas.html", null ]
+    ] ],
     [ "cpptkinter::YView< Text >", "structcpptkinter_1_1YView.html", [
       [ "cpptkinter::Text", "structcpptkinter_1_1Text.html", null ]
     ] ]
