@@ -31,7 +31,7 @@ int main(int argc, char* argv[])
         root.geometry("700x500");
 
 
-		auto donothing = [&]() { misc::printl("do_nothing was called"); };
+		/*auto donothing = [&]() { misc::printl("do_nothing was called"); };
 
         auto menubar = tk::Menu({ root });
         auto filemenu = tk::Menu({ .master = menubar, .tearoff = 0 });
@@ -121,11 +121,6 @@ int main(int argc, char* argv[])
         auto pwb = tk::Button({ .text = "pwb" });
         pw.add({ .child = pwb, .minsize = 100 });
 
-
-
-
-
-
         auto text = tk::Text({.master= root, .height = 10, .width=40, .wrap="none"});
         auto ys = tk::Scrollbar({ .master = root, .command = text.yview, .orient = "vertical" });
         text["yscrollcommand"] = ys.set;
@@ -136,7 +131,36 @@ int main(int argc, char* argv[])
             auto b = tk::Button({ .master = text, .command = [i]() { misc::printl("button ", i); }, .text = std::to_string(i) });
             text.window_create({ .index="end", .window = b });
             text.insert("end", "\n");
-        }
+        }*/
+
+        // Create a canvas
+        auto canvas = tk::Canvas({ .height = 400, .width = 300 });
+        canvas.pack({ .expand = true, .fill = "both", .side = "left" });
+
+        // Add a scrollbar to the canvas
+        auto scrollbar = tk::Scrollbar({ .command = canvas.yview, .orient = "vertical" });
+        scrollbar.pack({ .fill = "y", .side = "right" });
+
+        // Configure the canvas to work with the scrollbar
+        canvas["yscrollcommand"] = scrollbar.set;
+
+        // Create a frame inside the canvas
+        auto scrollable_frame = tk::Frame({ canvas });
+
+        // Add the frame to the canvas's window
+        auto canvas_window = canvas.create_window(0, 0, { .anchor = "nw", .window = scrollable_frame });
+
+        // Configure scrolling
+        auto on_frame_configure = [&](tk::Event event) { canvas["scrollregion"] = canvas.bbox("all"); };
+        scrollable_frame.bind("<Configure>", on_frame_configure);
+
+        // Enable scrolling with the mouse wheel (Windows/Linux)
+        auto _on_mouse_wheel = [&](tk::Event event){ canvas.yview_scroll(-1 * (event.delta / 120), "units"); };
+        canvas.bind_all("<MouseWheel>", _on_mouse_wheel);
+
+
+        for (auto i = 0; i < 50; i++)
+            tk::Label({ .master = scrollable_frame, .text = std::format("Label {}", i + 1) }).pack({ .pady = 5 });
 
 
         tk::mainloop();

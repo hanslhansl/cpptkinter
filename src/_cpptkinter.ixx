@@ -778,7 +778,7 @@ export namespace cpptkinter::_cpptkinter
 		std::string get_error_string_header(::Tcl_Obj* objv0)
 		{
 			auto tcl_invocation_name = Tcl_Obj(objv0).to_string();
-			std::string error_string = std::format("In {}", tcl_invocation_name);
+			std::string error_string = std::format("In tcl procedure {}", tcl_invocation_name);
 #ifndef NDEBUG 
 			error_string += std::format(" ({})", this->name);
 #endif
@@ -814,7 +814,7 @@ export namespace cpptkinter::_cpptkinter
 				if (opt_result.has_value())
 					return std::move(*opt_result);
 
-				std::string error_string = std::format("{}\n{}. tcl argument was {}\nxpected c++ argument {}",
+				std::string error_string = std::format("{}\ntcl argument at position {} was {}\nexpected c++ argument type {}",
 					this->get_error_string_header(objv[0]),
 					I+1,
 					detail::Tcl_Obj_to_string(this->self, args[I]),

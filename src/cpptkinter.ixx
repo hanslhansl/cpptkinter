@@ -37,8 +37,9 @@ using namespace std::literals;
 
 using substitute_long_long = const std::variant<long long, std::string>&;
 #define MISC_SUBSTITUTE_PARAMETERS  const std::string& nsign, substitute_long_long b, substitute_long_long f, substitute_long_long h, substitute_long_long k, const std::string& s, \
-                                    const std::string& t, substitute_long_long w, const std::string& x, const std::string& y, const std::string& A, substitute_long_long E, const std::string& K, \
-                                    substitute_long_long N, const std::string& W, substitute_long_long T, const std::string& X, const std::string& Y, substitute_long_long D
+                                    const std::string& t, substitute_long_long w, substitute_long_long x, substitute_long_long y, const std::string& A, substitute_long_long E, \
+                                    const std::string& K, substitute_long_long N, const std::string& W, substitute_long_long T, const std::string& X, const std::string& Y, \
+                                    substitute_long_long D
 #define MISC_SUBSTITUTE_ARGUMENTS nsign, b, f, h, k, s, t, w, x, y, A, E, K, N, W, T, X, Y, D
 
 
@@ -997,6 +998,7 @@ export namespace cpptkinter
             long long weight;
         };
 
+		/// @brief Argument for Misc::grid_bbox().
         struct grid_bbox
         {
             opt<long long> column, row, col2, row2;
@@ -1090,7 +1092,7 @@ export namespace cpptkinter
             this->tk->call(what | std::views::transform(_cpptkinter::AsObj), sequence, func);
         }
     private:
-        template<std::invocable<Event> Func>
+        template<typename Func>
         std::string _bind_if_2(Func&& func, bool needcleanup);
     public:
         /// @brief Internal function.
@@ -2801,11 +2803,11 @@ export namespace cpptkinter
         };
 
         /// @brief Argument for Menu::add_command().
-        struct add_cascade;
+        struct Menu_add_cascade;
 
         /// @brief Argument for Menu::add_radiobutton().
         template<typename T>
-        struct add_checkbutton
+        struct Menu_add_checkbutton
         {
             opt_string accelerator;
             opt_string activebackground;
@@ -2831,7 +2833,7 @@ export namespace cpptkinter
         };
 
         /// @brief Argument for Menu::add_command().
-        struct add_command
+        struct Menu_add_command
         {
             opt_string accelerator;
             opt_string activebackground;
@@ -2852,7 +2854,7 @@ export namespace cpptkinter
 
         /// @brief Argument for Menu::add_radiobutton().
         template<typename T>
-        struct add_radiobutton
+        struct Menu_add_radiobutton
         {
             opt_string accelerator;
             opt_string activebackground;
@@ -2877,7 +2879,7 @@ export namespace cpptkinter
         };
 
         /// @brief Argument for Menu::add_separator().
-        struct add_separator
+        struct Menu_add_separator
         {
             opt_string background;
         };
@@ -2916,35 +2918,35 @@ export namespace cpptkinter
         }
 
         /// @brief Add hierarchical menu item.
-        template<cnfs::is_cnf CNF = cnfs::add_cascade>
+        template<cnfs::is_cnf CNF = cnfs::Menu_add_cascade>
         void add_cascade(CNF&& cnf = {})
         {
             this->add("cascade", std::forward<CNF>(cnf));
         }
 
         /// @brief Add checkbutton menu item.
-        template<cnfs::is_cnf CNF = cnfs::add_checkbutton<bool>>
+        template<cnfs::is_cnf CNF = cnfs::Menu_add_checkbutton<bool>>
         void add_checkbutton(CNF&& cnf = {})
         {
             this->add("checkbutton", std::forward<CNF>(cnf));
         }
 
         /// @brief Add command menu item.
-        template<cnfs::is_cnf CNF = cnfs::add_command>
+        template<cnfs::is_cnf CNF = cnfs::Menu_add_command>
         void add_command(CNF&& cnf = {})
         {
             this->add("command", std::forward<CNF>(cnf));
         }
 
         /// @brief Add radio menu item.
-        template<cnfs::is_cnf CNF = cnfs::add_radiobutton<int>>
+        template<cnfs::is_cnf CNF = cnfs::Menu_add_radiobutton<int>>
         void add_radiobutton(CNF&& cnf = {})
         {
             this->add("radiobutton", std::forward<CNF>(cnf));
         }
 
         /// @brief Add separator menu item.
-        template<cnfs::is_cnf CNF = cnfs::add_separator>
+        template<cnfs::is_cnf CNF = cnfs::Menu_add_separator>
         void add_separator(CNF&& cnf = {})
         {
             this->add("separator", std::forward<CNF>(cnf));
@@ -3317,55 +3319,55 @@ export namespace cpptkinter
         };
 
 		/// @brief Argument for Canvas::create_arc().
-        struct create_arc
+        struct Canvas_create_arc
         {
 
         };
 
         /// @brief Argument for Canvas::create_bitmap().
-        struct create_bitmap
+        struct Canvas_create_bitmap
         {
 
         };
 
         /// @brief Argument for Canvas::create_image().
-        struct create_image
+        struct Canvas_create_image
         {
 
         };
 
         /// @brief Argument for Canvas::create_line().
-        struct create_line
+        struct Canvas_create_line
         {
 
         };
 
         /// @brief Argument for Canvas::create_oval().
-        struct create_oval
+        struct Canvas_create_oval
         {
 
         };
 
         /// @brief Argument for Canvas::create_polygon().
-        struct create_polygon
+        struct Canvas_create_polygon
         {
 
         };
 
         /// @brief Argument for Canvas::create_rectangle().
-        struct create_rectangle
+        struct Canvas_create_rectangle
         {
 
         };
 
         /// @brief Argument for Canvas::create_text().
-        struct create_text
+        struct Canvas_create_text
         {
 
         };
 
         /// @brief Argument for Canvas::create_window().
-        struct create_window
+        struct Canvas_create_window
         {
             opt_anchor anchor;
 			opt_screenunits height;
@@ -3500,63 +3502,63 @@ export namespace cpptkinter
         }
 
         /// @brief Create arc shaped region with coordinates x1,y1,x2,y2.
-        template<typename CNF = cnfs::create_arc>
+        template<typename CNF = cnfs::Canvas_create_arc>
         long long create_arc(double x1, double y1, double x2, double y2, CNF&& cnf = {})
         {
             return this->_create("arc", { x1, y1, x2, y2 }, std::forward<CNF>(cnf));
         }
 
         /// @brief Create bitmap with coordinates x1,y1.
-        template<typename CNF = cnfs::create_bitmap>
+        template<typename CNF = cnfs::Canvas_create_bitmap>
         long long create_bitmap(double x1, double y1, CNF&& cnf = {})
         {
             return this->create_bitmap("bitmap", { x1, y1 }, std::forward<CNF>(cnf));
         }
 
         /// @brief Create image item with coordinates x1,y1.
-        template<typename CNF = cnfs::create_image>
+        template<typename CNF = cnfs::Canvas_create_image>
         long long create_image(double x1, double y1, CNF&& cnf = {})
         {
             return this->_create("image", { x1, y1 }, std::forward<CNF>(cnf));
         }
 
         /// @brief Create line with coordinates x1,y1,...,xn,yn.
-        template<typename CNF = cnfs::create_line>
+        template<typename CNF = cnfs::Canvas_create_line>
         long long create_line(const std::vector<std::array<double, 2>>& coords, CNF&& cnf = {})
         {
             return this->_create("line", coords, std::forward<CNF>(cnf));
         }
 
         /// @brief Create oval with coordinates x1,y1,x2,y2.
-        template<typename CNF = cnfs::create_oval>
+        template<typename CNF = cnfs::Canvas_create_oval>
         long long create_oval(double x1, double y1, double x2, double y2, CNF&& cnf = {})
         {
             return this->_create("oval", { x1, y1, x2, y2 }, std::forward<CNF>(cnf));
         }
 
         /// @brief Create polygon with coordinates x1,y1,...,xn,yn.
-        template<typename CNF = cnfs::create_polygon>
+        template<typename CNF = cnfs::Canvas_create_polygon>
         long long create_polygon(const std::vector<std::array<double, 2>>& coords, CNF&& cnf = {})
         {
             return this->_create("polygon", coords, std::forward<CNF>(cnf));
         }
 
         /// @brief Create rectangle with coordinates x1,y1,x2,y2.
-        template<typename CNF = cnfs::create_rectangle>
+        template<typename CNF = cnfs::Canvas_create_rectangle>
         long long create_rectangle(double x1, double y1, double x2, double y2, CNF&& cnf = {})
         {
             return this->_create("rectangle", { x1, y1, x2, y2 }, std::forward<CNF>(cnf));
         }
 
         /// @brief Create text with coordinates x ,y.
-        template<typename CNF = cnfs::create_text>
+        template<typename CNF = cnfs::Canvas_create_text>
         long long create_text(double x, double y, CNF&& cnf = {})
         {
             return this->_create("text", { x, y }, std::forward<CNF>(cnf));
         }
 
         /// @brief Create window with coordinates x, y.
-        template<typename CNF = cnfs::create_window>
+        template<typename CNF = cnfs::Canvas_create_window>
         long long create_window(double x, double y, CNF&& cnf = {})
         {
             return this->_create("window", { x, y }, std::forward<CNF>(cnf));
@@ -5910,7 +5912,7 @@ export namespace cpptkinter
         };
 
         /// @brief Argument for PanedWindow::paneconfigure().
-        struct paneconfigure
+        struct PanedWindow_paneconfigure
         {
             Widget tagOrId;
             opt<Widget> after;
@@ -6065,7 +6067,7 @@ export namespace cpptkinter
             return this->_getconfigure1({ _cpptkinter::AsObj(this->_w), _cpptkinter::AsObj("paneconfigure"), _cpptkinter::AsObj(tagOrId), _cpptkinter::AsObj("-"+ cnf)});
         }
         /// @copydoc paneconfigure(const std::derived_from<Widget> auto&)
-        template<cnfs::is_cnf CNF = cnfs::paneconfigure>
+        template<cnfs::is_cnf CNF = cnfs::PanedWindow_paneconfigure>
         void paneconfigure(CNF&& cnf)
         {
             this->tk->call(this->_w, "paneconfigure", std::forward<CNF>(cnf).tagOrId, this->_options(std::forward<CNF>(cnf), { "tagOrId" }));
@@ -6082,7 +6084,7 @@ export namespace cpptkinter
             return this->paneconfigure(tagOrId, cnf);
         }
         /// @copydoc paneconfigure(CNF&&)
-        template<cnfs::is_cnf CNF = cnfs::paneconfigure>
+        template<cnfs::is_cnf CNF = cnfs::PanedWindow_paneconfigure>
         void paneconfig(CNF&& cnf)
         {
             this->paneconfigure(std::forward<CNF>(cnf));
@@ -6166,7 +6168,7 @@ cpptkinter::Tk cpptkinter::Misc::_root() const
     return std::static_pointer_cast<Tk::impl>(w);
 }
 
-template<std::invocable<cpptkinter::Event> Func>
+template<typename Func>
 std::string cpptkinter::Misc::_bind_if_2(Func&& func, bool needcleanup)
 {
     return this->_register(
@@ -6179,24 +6181,34 @@ cpptkinter::Event cpptkinter::Misc::_substitute(MISC_SUBSTITUTE_PARAMETERS)
 {
     // print args
 
-    // [&](auto&...args) { (utility::visit_or_invoke([](auto& a) { hhh::misc::printl(a); }, args), ...); }(MISC_SUBSTITUTE_ARGUMENTS);
+    // [&](auto&...args) { (utility::visit_or_invoke([](auto& a) { std::println("{}", a); }, args), ...); }(MISC_SUBSTITUTE_ARGUMENTS);
 
-    static auto get_long_long = []<typename T>(const T & p, long long def = std::numeric_limits<long long>::min()) {
-        if constexpr (std::same_as<T, std::string>)
-            return std::stoll(p);
-        else if constexpr (std::same_as<T, long long>)
-            return p;
-        else    // substitute_long_long
-        {
-            if (std::holds_alternative<std::string>(p))
+    static auto get_long_long = [](auto&& p, long long def = std::numeric_limits<long long>::min()) {
+
+        auto inner = [&]<typename T>(const T & arg)->long long {
+            if constexpr (std::same_as<T, std::string>)
             {
-                if (std::get<std::string>(p) == "??")
+                if (arg == "??")
                     return def;
-                throw detail::construct_exception<std::runtime_error>(std::format("expected \"??\" but got {}", std::get<std::string>(p)));
+
+                try
+                {
+                    return std::stoll(arg);
+                }
+                catch (const std::invalid_argument& e)
+                {
+                    throw detail::construct_exception<std::runtime_error>(std::format("{} on argument {}", e.what(), arg));
+                }
             }
-            return std::get<long long>(p);
-        }
+            else
+            {
+                return arg;
+            }
+        };
+
+        return utility::visit_or_invoke(inner, p);
     };
+
     static auto get_bool = [&]<typename T>(const T & p) {
         auto ll = get_long_long(p, 0);
         if (ll == 0)
@@ -6207,26 +6219,47 @@ cpptkinter::Event cpptkinter::Misc::_substitute(MISC_SUBSTITUTE_PARAMETERS)
             throw detail::construct_exception<std::runtime_error>(std::format("expected 0 or 1 but got {}", ll));
     };
 
+    
+    auto serial = get_long_long(nsign);
+    auto num = get_long_long(b);
+    auto focus = get_bool(f);
+    auto height = get_long_long(h);
+    auto width = get_long_long(w);
+    auto keycode = get_long_long(k);
+    auto state = get_long_long(s);
+    auto time = get_long_long(t);
+    auto x_ = get_long_long(x);
+    auto y_ = get_long_long(y);
+    auto x_root = get_long_long(X);
+    auto y_root = get_long_long(Y);
+    auto char_ = A;
+    auto send_event = get_bool(E);
+    auto keysym = K;
+    auto keysym_num = get_long_long(N);
+    auto type = EventType(get_long_long(T));
+    auto widget = this->nametowidget(W);
+    auto delta = get_long_long(D, 0);
+
     return {
-        get_long_long(nsign),       // serial
-        get_long_long(b),           // num
-        get_bool(f),                // focus
-        get_long_long(h),           // height
-        get_long_long(w),           // width
-        get_long_long(k),           // keycode
-        get_long_long(s),           // state
-        get_long_long(t),           // time
-        get_long_long(x),           // x
-        get_long_long(y),           // y
-        get_long_long(X),           // x_root
-        get_long_long(Y),           // y_root
-        A,                          // char_
-        get_bool(E),                // send_event
-        K,                          // keysym
-        get_long_long(N),           // keysym_num
-        EventType(get_long_long(T)),// type
-        this->nametowidget(W),      // widget
-        get_long_long(D, 0)         // delta
+            serial,
+            num,
+            focus,
+            height,
+            width,
+            keycode,
+            state,
+            time,
+            x_,
+            y_,
+            x_root,
+            y_root,
+            char_,
+            send_event,
+            keysym,
+            keysym_num,
+            type,
+            widget,
+            delta
     };
 }
 
