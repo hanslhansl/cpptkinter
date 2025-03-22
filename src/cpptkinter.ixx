@@ -2960,35 +2960,35 @@ export namespace cpptkinter
         }
 
         /// @brief Add hierarchical menu item at INDEX.
-        template<cnfs::is_cnf CNF = cnfs::add_cascade>
+        template<cnfs::is_cnf CNF = cnfs::Menu_add_cascade>
         void insert_cascade(detail::index auto&& index, CNF&& cnf = {})
         {
             this->insert(index, "cascade", std::forward<CNF>(cnf));
         }
 
         /// @brief Add checkbutton menu item at INDEX.
-        template<cnfs::is_cnf CNF = cnfs::add_checkbutton<bool>>
+        template<cnfs::is_cnf CNF = cnfs::Menu_add_checkbutton<bool>>
         void insert_checkbutton(detail::index auto&& index, CNF&& cnf = {})
         {
             this->insert(index, "checkbutton", std::forward<CNF>(cnf));
         }
 
         /// @brief Add command menu item at INDEX.
-        template<cnfs::is_cnf CNF = cnfs::add_command>
+        template<cnfs::is_cnf CNF = cnfs::Menu_add_command>
         void insert_command(detail::index auto&& index, CNF&& cnf = {})
         {
             this->insert(index, "command", std::forward<CNF>(cnf));
         }
 
         /// @brief Add radio menu item at INDEX.
-        template<cnfs::is_cnf CNF = cnfs::add_radiobutton<int>>
+        template<cnfs::is_cnf CNF = cnfs::Menu_add_radiobutton<int>>
         void insert_radiobutton(detail::index auto&& index, CNF&& cnf = {})
         {
             this->insert(index, "radiobutton", std::forward<CNF>(cnf));
         }
 
         /// @brief Add separator at INDEX.
-        template<cnfs::is_cnf CNF = cnfs::add_separator>
+        template<cnfs::is_cnf CNF = cnfs::Menu_add_separator>
         void insert_separator(detail::index auto&& index, CNF&& cnf = {})
         {
             this->insert(index, "separator", std::forward<CNF>(cnf));
@@ -3112,7 +3112,7 @@ export namespace cpptkinter
         using opt_menu = opt<cpptkinter::Menu>;
 
         /// @brief Argument for Menu::add_command().
-        struct add_cascade
+        struct Menu_add_cascade
         {
             opt_string accelerator;
             opt_string activebackground;
