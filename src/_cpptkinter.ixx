@@ -329,7 +329,7 @@ export namespace cpptkinter::_cpptkinter::detail
 	/// @brief Functor type of AsObj. operator() calls AsObjImpl.
 	struct AsObjFunctorType
 	{
-		static Tcl_Obj operator()(const AsObjConcept auto& value)
+		/*static*/ Tcl_Obj operator()(const AsObjConcept auto& value) const
 		{
 			return AsObjImpl(value);
 		}

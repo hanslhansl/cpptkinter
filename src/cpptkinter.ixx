@@ -1155,7 +1155,7 @@ export namespace cpptkinter
 		/// Creates a tcl command with func and binds it to sequence.
         /// @returns An identifier for the created tcl command.
         template<std::invocable<Event<Misc>> Func>
-        std::string _bind(std::vector<std::string>&& what, const std::string& sequence, Func&& func, bool add = false, bool needcleanup = true)
+        std::string _bind(const std::vector<std::string>& what, const std::string& sequence, Func&& func, bool add = false, bool needcleanup = true)
         {
 			auto funcid = this->_bind_if_2(std::forward<Func>(func), needcleanup);
             auto cmd = std::format("{}if {{\"[{} {}]\" == \"break\"}} break\n", add ? "+" : "", funcid, this->_subst_format_str);
@@ -3425,7 +3425,12 @@ export namespace cpptkinter
         /// @brief Argument for Canvas::create_window().
         struct create_window
         {
-
+            opt_anchor anchor;
+			opt_screenunits height;
+            opt_string state;
+            opt<std::variant<std::string, std::vector<std::string>>> tags;
+			opt_screenunits width;
+            opt<Misc> window;
         };
     }
 
@@ -3560,65 +3565,59 @@ export namespace cpptkinter
         }
 
         /// @brief Create bitmap with coordinates x1,y1.
-        template<typename CNF = cnfs::create_arc>
+        template<typename CNF = cnfs::create_bitmap>
         long long create_bitmap(double x1, double y1, CNF&& cnf = {})
         {
             return this->create_bitmap("bitmap", { x1, y1 }, std::forward<CNF>(cnf));
         }
 
         /// @brief Create image item with coordinates x1,y1.
-        template<typename CNF = cnfs::create_arc>
+        template<typename CNF = cnfs::create_image>
         long long create_image(double x1, double y1, CNF&& cnf = {})
         {
             return this->_create("image", { x1, y1 }, std::forward<CNF>(cnf));
         }
 
         /// @brief Create line with coordinates x1,y1,...,xn,yn.
-        template<typename CNF = cnfs::create_arc>
+        template<typename CNF = cnfs::create_line>
         long long create_line(const std::vector<std::array<double, 2>>& coords, CNF&& cnf = {})
         {
             return this->_create("line", coords, std::forward<CNF>(cnf));
         }
 
         /// @brief Create oval with coordinates x1,y1,x2,y2.
-        template<typename CNF = cnfs::create_arc>
+        template<typename CNF = cnfs::create_oval>
         long long create_oval(double x1, double y1, double x2, double y2, CNF&& cnf = {})
         {
             return this->_create("oval", { x1, y1, x2, y2 }, std::forward<CNF>(cnf));
         }
 
         /// @brief Create polygon with coordinates x1,y1,...,xn,yn.
-        template<typename CNF = cnfs::create_arc>
+        template<typename CNF = cnfs::create_polygon>
         long long create_polygon(const std::vector<std::array<double, 2>>& coords, CNF&& cnf = {})
         {
             return this->_create("polygon", coords, std::forward<CNF>(cnf));
         }
 
         /// @brief Create rectangle with coordinates x1,y1,x2,y2.
-        template<typename CNF = cnfs::create_arc>
+        template<typename CNF = cnfs::create_rectangle>
         long long create_rectangle(double x1, double y1, double x2, double y2, CNF&& cnf = {})
         {
             return this->_create("rectangle", { x1, y1, x2, y2 }, std::forward<CNF>(cnf));
         }
 
         /// @brief Create text with coordinates x1,y1.
-        template<typename CNF = cnfs::create_arc>
+        template<typename CNF = cnfs::create_text>
         long long create_text(double x1, double y1, CNF&& cnf = {})
         {
             return this->_create("text", { x1, y1 }, std::forward<CNF>(cnf));
         }
 
         /// @brief Create window with coordinates x1,y1,x2,y2.
-        template<typename CNF = cnfs::create_arc>
+        template<typename CNF = cnfs::create_window>
         long long create_window(double x1, double y1, double x2, double y2, CNF&& cnf = {})
         {
             return this->_create("window", { x1, y1, x2, y2 }, std::forward<CNF>(cnf));
-        }
-
-        /// @brief 
-        void aaa()
-        {
-
         }
     };
 
