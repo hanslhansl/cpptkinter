@@ -2138,7 +2138,7 @@ export namespace cpptkinter
         {
             opt_master master;
             opt<T> value;
-            std::string name;
+            opt_string name;
         };
     }
 
@@ -2189,8 +2189,8 @@ export namespace cpptkinter
             else
                 this->_tk = this->_root.tk;
 
-            if (!cnf.name.empty())
-                this->_name = cnf.name;
+            if (cnf.name.has_value() && !cnf.name.value().empty())
+                this->_name = cnf.name.value();
             else
                 this->_name = std::format("PY_VAR{}", detail::_varnum++);
 
