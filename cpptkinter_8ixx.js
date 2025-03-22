@@ -55,7 +55,7 @@ var cpptkinter_8ixx =
     [ "cpptkinter::cnfs::create_polygon", "structcpptkinter_1_1cnfs_1_1create__polygon.html", null ],
     [ "cpptkinter::cnfs::create_rectangle", "structcpptkinter_1_1cnfs_1_1create__rectangle.html", null ],
     [ "cpptkinter::cnfs::create_text", "structcpptkinter_1_1cnfs_1_1create__text.html", null ],
-    [ "cpptkinter::cnfs::create_window", "structcpptkinter_1_1cnfs_1_1create__window.html", null ],
+    [ "cpptkinter::cnfs::create_window", "structcpptkinter_1_1cnfs_1_1create__window.html", "structcpptkinter_1_1cnfs_1_1create__window" ],
     [ "cpptkinter::Canvas", "structcpptkinter_1_1Canvas.html", "structcpptkinter_1_1Canvas" ],
     [ "cpptkinter::cnfs::Checkbutton< T >", "structcpptkinter_1_1cnfs_1_1Checkbutton.html", "structcpptkinter_1_1cnfs_1_1Checkbutton" ],
     [ "cpptkinter::Checkbutton", "structcpptkinter_1_1Checkbutton.html", "structcpptkinter_1_1Checkbutton" ],

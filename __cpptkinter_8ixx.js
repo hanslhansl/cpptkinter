@@ -5,7 +5,7 @@ var __cpptkinter_8ixx =
     [ "cpptkinter::_cpptkinter::TclError", "structcpptkinter_1_1__cpptkinter_1_1TclError.html", null ],
     [ "cpptkinter::_cpptkinter::detail::TclBaseEvent< Func >", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1TclBaseEvent.html", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1TclBaseEvent" ],
     [ "cpptkinter::_cpptkinter::detail::AsObjImplTrait< T >", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjImplTrait.html", null ],
-    [ "cpptkinter::_cpptkinter::detail::AsObjFunctorType", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjFunctorType.html", null ],
+    [ "cpptkinter::_cpptkinter::detail::AsObjFunctorType", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjFunctorType.html", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjFunctorType" ],
     [ "cpptkinter::_cpptkinter::detail::ignore", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1ignore.html", null ],
     [ "cpptkinter::_cpptkinter::detail::FromObjImplTrait< T >", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1FromObjImplTrait.html", null ],
     [ "cpptkinter::_cpptkinter::CommandEvent", "structcpptkinter_1_1__cpptkinter_1_1CommandEvent.html", "structcpptkinter_1_1__cpptkinter_1_1CommandEvent" ],

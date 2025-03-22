@@ -4,7 +4,6 @@ var structcpptkinter_1_1Canvas =
     [ "Canvas", "structcpptkinter_1_1Canvas.html#a227bf33d2e2e7ebc2092618561e81209", null ],
     [ "Canvas", "structcpptkinter_1_1Canvas.html#a68d957855432830594e9719885583c16", null ],
     [ "_create", "structcpptkinter_1_1Canvas.html#a07c314288e95aeef4d2c7d1d9e4a8318", null ],
-    [ "aaa", "structcpptkinter_1_1Canvas.html#ab36d461537aee074f5251a699b0e351f", null ],
     [ "addtag", "structcpptkinter_1_1Canvas.html#a180a3441fd5aad63f357e63a8f6ecc20", null ],
     [ "addtag_above", "structcpptkinter_1_1Canvas.html#a673c192bdb83087cad2dd7df8229de3a", null ],
     [ "addtag_all", "structcpptkinter_1_1Canvas.html#adf89a7a5649c7e4571220a326c04e28c", null ],

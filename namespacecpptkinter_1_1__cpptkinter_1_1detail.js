@@ -1,6 +1,6 @@
 var namespacecpptkinter_1_1__cpptkinter_1_1detail =
 [
-    [ "AsObjFunctorType", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjFunctorType.html", null ],
+    [ "AsObjFunctorType", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjFunctorType.html", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjFunctorType" ],
     [ "AsObjImplTrait", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjImplTrait.html", null ],
     [ "FromObjImplTrait", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1FromObjImplTrait.html", null ],
     [ "ignore", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1ignore.html", null ],

@@ -17,7 +17,7 @@ var namespacecpptkinter_1_1cnfs =
     [ "create_polygon", "structcpptkinter_1_1cnfs_1_1create__polygon.html", null ],
     [ "create_rectangle", "structcpptkinter_1_1cnfs_1_1create__rectangle.html", null ],
     [ "create_text", "structcpptkinter_1_1cnfs_1_1create__text.html", null ],
-    [ "create_window", "structcpptkinter_1_1cnfs_1_1create__window.html", null ],
+    [ "create_window", "structcpptkinter_1_1cnfs_1_1create__window.html", "structcpptkinter_1_1cnfs_1_1create__window" ],
     [ "Entry", "structcpptkinter_1_1cnfs_1_1Entry.html", "structcpptkinter_1_1cnfs_1_1Entry" ],
     [ "Frame", "structcpptkinter_1_1cnfs_1_1Frame.html", "structcpptkinter_1_1cnfs_1_1Frame" ],
     [ "grid_bbox", "structcpptkinter_1_1cnfs_1_1grid__bbox.html", "structcpptkinter_1_1cnfs_1_1grid__bbox" ],

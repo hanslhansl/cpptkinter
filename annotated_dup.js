@@ -3,7 +3,7 @@ var annotated_dup =
     [ "cpptkinter", "namespacecpptkinter.html", [
       [ "_cpptkinter", "namespacecpptkinter_1_1__cpptkinter.html", [
         [ "detail", "namespacecpptkinter_1_1__cpptkinter_1_1detail.html", [
-          [ "AsObjFunctorType", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjFunctorType.html", null ],
+          [ "AsObjFunctorType", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjFunctorType.html", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjFunctorType" ],
           [ "AsObjImplTrait", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjImplTrait.html", null ],
           [ "FromObjImplTrait", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1FromObjImplTrait.html", null ],
           [ "ignore", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1ignore.html", null ],
@@ -34,7 +34,7 @@ var annotated_dup =
         [ "create_polygon", "structcpptkinter_1_1cnfs_1_1create__polygon.html", null ],
         [ "create_rectangle", "structcpptkinter_1_1cnfs_1_1create__rectangle.html", null ],
         [ "create_text", "structcpptkinter_1_1cnfs_1_1create__text.html", null ],
-        [ "create_window", "structcpptkinter_1_1cnfs_1_1create__window.html", null ],
+        [ "create_window", "structcpptkinter_1_1cnfs_1_1create__window.html", "structcpptkinter_1_1cnfs_1_1create__window" ],
         [ "Entry", "structcpptkinter_1_1cnfs_1_1Entry.html", "structcpptkinter_1_1cnfs_1_1Entry" ],
         [ "Frame", "structcpptkinter_1_1cnfs_1_1Frame.html", "structcpptkinter_1_1cnfs_1_1Frame" ],
         [ "grid_bbox", "structcpptkinter_1_1cnfs_1_1grid__bbox.html", "structcpptkinter_1_1cnfs_1_1grid__bbox" ],

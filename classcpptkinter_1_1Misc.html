@@ -159,10 +159,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a89eec462942f2db0634d33b32daf028e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a89eec462942f2db0634d33b32daf028e">_bind</a> (std::vector&lt; std::string &gt; &amp;&amp;what, const std::string &amp;sequence, const std::string &amp;func, bool=false, bool=true)</td></tr>
 <tr class="memdesc:a89eec462942f2db0634d33b32daf028e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function.  <br /></td></tr>
 <tr class="separator:a89eec462942f2db0634d33b32daf028e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afde02075fc23781890678be8681cebd3"><td class="memTemplParams" colspan="2">template&lt;std::invocable&lt; <a class="el" href="structcpptkinter_1_1Event.html">Event</a>&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt; &gt; Func&gt; </td></tr>
-<tr class="memitem:afde02075fc23781890678be8681cebd3"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#afde02075fc23781890678be8681cebd3">_bind</a> (std::vector&lt; std::string &gt; &amp;&amp;what, const std::string &amp;sequence, Func &amp;&amp;func, bool add=false, bool needcleanup=true)</td></tr>
-<tr class="memdesc:afde02075fc23781890678be8681cebd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function.  <br /></td></tr>
-<tr class="separator:afde02075fc23781890678be8681cebd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a997e15f35ecd74ade6c92904bc25efc3"><td class="memTemplParams" colspan="2">template&lt;std::invocable&lt; <a class="el" href="structcpptkinter_1_1Event.html">Event</a>&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt; &gt; Func&gt; </td></tr>
+<tr class="memitem:a997e15f35ecd74ade6c92904bc25efc3"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a997e15f35ecd74ade6c92904bc25efc3">_bind</a> (const std::vector&lt; std::string &gt; &amp;what, const std::string &amp;sequence, Func &amp;&amp;func, bool add=false, bool needcleanup=true)</td></tr>
+<tr class="memdesc:a997e15f35ecd74ade6c92904bc25efc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function.  <br /></td></tr>
+<tr class="separator:a997e15f35ecd74ade6c92904bc25efc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69df898620da12c238deb6d46b60a24f"><td class="memTemplParams" colspan="2">template&lt;std::invocable&lt; <a class="el" href="structcpptkinter_1_1Event.html">Event</a>&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt; &gt; Func&gt; </td></tr>
 <tr class="memitem:a69df898620da12c238deb6d46b60a24f"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a69df898620da12c238deb6d46b60a24f">_bind</a> (std::vector&lt; std::string &gt; &amp;&amp;what, Func &amp;&amp;func, bool add=false, bool needcleanup=true)</td></tr>
 <tr class="memdesc:a69df898620da12c238deb6d46b60a24f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function.  <br /></td></tr>
@@ -485,8 +485,67 @@ template&lt;std::derived_from&lt; <a class="el" href="structcpptkinter_1_1Misc_1
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a997e15f35ecd74ade6c92904bc25efc3" name="a997e15f35ecd74ade6c92904bc25efc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a997e15f35ecd74ade6c92904bc25efc3">&#9670;&#160;</a></span>_bind() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::invocable&lt; <a class="el" href="structcpptkinter_1_1Event.html">Event</a>&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt; &gt; Func&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string cpptkinter::Misc::_bind </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>what</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>sequence</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Func &amp;&amp;&#160;</td>
+          <td class="paramname"><em>func</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>add</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>needcleanup</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Internal function. </p>
+<p>Implements the second if statement with sequence != None. Creates a tcl command with func and binds it to sequence. </p><dl class="section return"><dt>Returns</dt><dd>An identifier for the created tcl command. </dd></dl>
+
+</div>
+</div>
 <a id="a9f35232a482b8c97d7967e9bbdc1942a" name="a9f35232a482b8c97d7967e9bbdc1942a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f35232a482b8c97d7967e9bbdc1942a">&#9670;&#160;</a></span>_bind() <span class="overload">[1/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f35232a482b8c97d7967e9bbdc1942a">&#9670;&#160;</a></span>_bind() <span class="overload">[2/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -515,7 +574,7 @@ template&lt;std::derived_from&lt; <a class="el" href="structcpptkinter_1_1Misc_1
 </div>
 </div>
 <a id="a0bf1dbd37b7b17e2e9cb869b099cf788" name="a0bf1dbd37b7b17e2e9cb869b099cf788"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0bf1dbd37b7b17e2e9cb869b099cf788">&#9670;&#160;</a></span>_bind() <span class="overload">[2/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bf1dbd37b7b17e2e9cb869b099cf788">&#9670;&#160;</a></span>_bind() <span class="overload">[3/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -554,7 +613,7 @@ template&lt;std::derived_from&lt; <a class="el" href="structcpptkinter_1_1Misc_1
 </div>
 </div>
 <a id="a89eec462942f2db0634d33b32daf028e" name="a89eec462942f2db0634d33b32daf028e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89eec462942f2db0634d33b32daf028e">&#9670;&#160;</a></span>_bind() <span class="overload">[3/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a89eec462942f2db0634d33b32daf028e">&#9670;&#160;</a></span>_bind() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -607,65 +666,6 @@ template&lt;std::derived_from&lt; <a class="el" href="structcpptkinter_1_1Misc_1
 
 <p>Internal function. </p>
 <p>Implements the first if statement. </p>
-
-</div>
-</div>
-<a id="afde02075fc23781890678be8681cebd3" name="afde02075fc23781890678be8681cebd3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afde02075fc23781890678be8681cebd3">&#9670;&#160;</a></span>_bind() <span class="overload">[4/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::invocable&lt; <a class="el" href="structcpptkinter_1_1Event.html">Event</a>&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt; &gt; Func&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string cpptkinter::Misc::_bind </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"><em>what</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>sequence</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Func &amp;&amp;&#160;</td>
-          <td class="paramname"><em>func</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>add</em> = <code>false</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>needcleanup</em> = <code>true</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Internal function. </p>
-<p>Implements the second if statement with sequence != None. Creates a tcl command with func and binds it to sequence. </p><dl class="section return"><dt>Returns</dt><dd>An identifier for the created tcl command. </dd></dl>
 
 </div>
 </div>
