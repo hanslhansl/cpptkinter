@@ -87,13 +87,13 @@ var NAVTREEINDEX =
 "structcpptkinter_1_1Toplevel.html#ab3a8d80c4f05414475a0670e3a933cff",
 "structcpptkinter_1_1Wm.html#acd7b1a31d332d63ef6f9cbd5d7261e24",
 "structcpptkinter_1_1cnfs_1_1Button.html#a0337a9a6fc7c8baa1edf8a18efca8e4f",
-"structcpptkinter_1_1cnfs_1_1Entry.html#a53a4536e0980c77233766481693f3562",
-"structcpptkinter_1_1cnfs_1_1Listbox.html",
-"structcpptkinter_1_1cnfs_1_1PanedWindow.html#a6513b94811d57a352184836933798497",
-"structcpptkinter_1_1cnfs_1_1Scrollbar.html#a1053f385b4d207936670e99a92f2d4f1",
-"structcpptkinter_1_1cnfs_1_1Text__dump.html#a10c2d6b8c1b2fa2fbb2badafe5514540",
-"structcpptkinter_1_1cnfs_1_1Toplevel.html#a751b0b6c60b923fbd028817f7b1e880d",
-"structcpptkinter_1_1cnfs_1_1grid__configure.html#a0ef913d3e5327b40b2aa4a51279ae22a"
+"structcpptkinter_1_1cnfs_1_1Checkbutton.html#ad22790a33bd22e15c524ab184c24576f",
+"structcpptkinter_1_1cnfs_1_1LabelFrame.html#a809a41235e4b65e9fb18ec6794d20c8d",
+"structcpptkinter_1_1cnfs_1_1Menu__add__radiobutton.html#a62da0fb0889c66b0547eca246b439fb6",
+"structcpptkinter_1_1cnfs_1_1PlaceInfo.html#aca539f89cd027cfd7a967dfe5357af97",
+"structcpptkinter_1_1cnfs_1_1Spinbox.html#a55271cb48fc18fdfd4bc296c2287af8d",
+"structcpptkinter_1_1cnfs_1_1Text__peer__create.html#a9bbabc247a3e7a98efcef0a0b7e144f1",
+"structcpptkinter_1_1cnfs_1_1grid__column__row__configure.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
