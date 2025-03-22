@@ -65,6 +65,7 @@ export namespace cpptkinter
     using _cpptkinter::TclError;
 
     class Variable;
+    class Misc;
     class Tk;
     struct Image;
 
@@ -360,7 +361,7 @@ export namespace cpptkinter
     /// Visibility, Unmap, Map, Expose, FocusIn, FocusOut, Circulate, Colormap, Gravity, Reparent, Property, Destroy, Activate, Deactivate - for window events
     /// 
     /// If a callback function for one of these events is registered using bind, bind_all, bind_class, or tag_bind, the callback is called with an Event as first argument.
-    template<typename T>
+    template<typename T = Misc>
     struct Event
     {
         /// serial number of event
