@@ -3606,18 +3606,18 @@ export namespace cpptkinter
             return this->_create("rectangle", { x1, y1, x2, y2 }, std::forward<CNF>(cnf));
         }
 
-        /// @brief Create text with coordinates x1,y1.
+        /// @brief Create text with coordinates x ,y.
         template<typename CNF = cnfs::create_text>
-        long long create_text(double x1, double y1, CNF&& cnf = {})
+        long long create_text(double x, double y, CNF&& cnf = {})
         {
-            return this->_create("text", { x1, y1 }, std::forward<CNF>(cnf));
+            return this->_create("text", { x, y }, std::forward<CNF>(cnf));
         }
 
-        /// @brief Create window with coordinates x1,y1,x2,y2.
+        /// @brief Create window with coordinates x, y.
         template<typename CNF = cnfs::create_window>
-        long long create_window(double x1, double y1, double x2, double y2, CNF&& cnf = {})
+        long long create_window(double x, double y, CNF&& cnf = {})
         {
-            return this->_create("window", { x1, y1, x2, y2 }, std::forward<CNF>(cnf));
+            return this->_create("window", { x, y }, std::forward<CNF>(cnf));
         }
     };
 
