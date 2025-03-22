@@ -94,7 +94,7 @@ int main(int argc, char* argv[])
         submit_button.grid();
 
 		auto check1 = tk::Checkbutton({ .master = root, .offvalue = 0, .onvalue = 1, .text = "Check 1", .tristatevalue = -1 });
-        auto toggle_checkbutton = [](tk::Event<tk::Misc> event) {
+        auto toggle_checkbutton = [](tk::Event event) {
             auto&& checkbutton = event.widget;
             auto varname = checkbutton.cget<std::string>("variable");
             auto current_value = checkbutton.tk->getvar<long long>(varname);

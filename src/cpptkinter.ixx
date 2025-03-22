@@ -65,7 +65,6 @@ export namespace cpptkinter
     using _cpptkinter::TclError;
 
     class Variable;
-    class Misc;
     class Tk;
     struct Image;
 
@@ -352,57 +351,7 @@ export namespace cpptkinter
 		MouseWheel = 38
     };
 
-    /// @brief Container for the properties of an event.
-    /// 
-    /// Instances of this type are generated if one of the following events occurs:
-    /// 
-    /// KeyPress, KeyRelease - for keyboard events\n
-    /// ButtonPress, ButtonRelease, Motion, Enter, Leave, MouseWheel - for mouse events\n
-    /// Visibility, Unmap, Map, Expose, FocusIn, FocusOut, Circulate, Colormap, Gravity, Reparent, Property, Destroy, Activate, Deactivate - for window events
-    /// 
-    /// If a callback function for one of these events is registered using bind, bind_all, bind_class, or tag_bind, the callback is called with an Event as first argument.
-    template<typename T = Misc>
-    struct Event
-    {
-        /// serial number of event
-        long long serial;
-        /// mouse button pressed(ButtonPress, ButtonRelease)
-		long long num;
-        /// whether the window has the focus (Enter, Leave), if invalid: false
-        bool focus;
-        /// height of the exposed window (Configure, Expose)
-        long long height;
-        /// width of the exposed window (Configure, Expose)
-		long long width;
-        /// keycode of the pressed key (KeyPress, KeyRelease)
-        long long keycode;
-        /// state of the event as a number (ButtonPress, ButtonRelease, Enter, KeyPress, KeyRelease, Leave, Motion) or as a string (Visibility)
-        std::variant<long long, std::string> state;
-        /// when the event occurred
-        long long time;
-        /// x - position of the mouse
-        long long x;
-        /// y - position of the mouse
-        long long y;
-        /// x - position of the mouse on the screen (ButtonPress, ButtonRelease, KeyPress, KeyRelease, Motion)
-        long long x_root;
-        /// y - position of the mouse on the screen (ButtonPress, ButtonRelease, KeyPress, KeyRelease, Motion)
-        long long y_root;
-        /// pressed character (KeyPress, KeyRelease)
-        std::string char_;
-        /// see X / Windows documentation, if invalid: false
-        bool send_event;
-        /// keysym of the event as a string (KeyPress, KeyRelease)
-        std::string keysym;
-        /// keysym of the event as a number (KeyPress, KeyRelease)
-		long long keysym_num;
-        /// type of the event as a number
-        EventType type;
-        /// widget in which the event occurred
-        T widget;
-        /// delta of wheel movement (MouseWheel)
-        long long delta;
-    };
+    struct Event;
 
     /// @brief Inhibit setting of default root window.
     /// 
@@ -1141,21 +1090,15 @@ export namespace cpptkinter
             this->tk->call(what | std::views::transform(_cpptkinter::AsObj), sequence, func);
         }
     private:
-        template<std::invocable<Event<Misc>> Func>
-        std::string _bind_if_2(Func&& func, bool needcleanup)
-        {
-            return this->_register(
-                [func = std::forward<Func>(func), self = utility::weak(*this)](MISC_SUBSTITUTE_PARAMETERS) { return func(self.lock()._substitute(MISC_SUBSTITUTE_ARGUMENTS)); },
-                needcleanup
-            );
-        }
+        template<std::invocable<Event> Func>
+        std::string _bind_if_2(Func&& func, bool needcleanup);
     public:
         /// @brief Internal function.
         /// 
 		/// Implements the second if statement with sequence != None.
 		/// Creates a tcl command with func and binds it to sequence.
         /// @returns An identifier for the created tcl command.
-        template<std::invocable<Event<Misc>> Func>
+        template<std::invocable<Event> Func>
         std::string _bind(const std::vector<std::string>& what, const std::string& sequence, Func&& func, bool add = false, bool needcleanup = true)
         {
 			auto funcid = this->_bind_if_2(std::forward<Func>(func), needcleanup);
@@ -1168,7 +1111,7 @@ export namespace cpptkinter
 		/// Implements the second if statement with sequence == None.
 		/// Creates a tcl command with func but doesn't bind it (i.e. does nothing with it).
         /// @returns An identifier for the created tcl command.
-        template<std::invocable<Event<Misc>> Func>
+        template<std::invocable<Event> Func>
         std::string _bind(std::vector<std::string>&& what, Func&& func, bool add = false, bool needcleanup = true)
         {
             auto funcid = this->_bind_if_2(std::forward<Func>(func), needcleanup);
@@ -1377,60 +1320,7 @@ export namespace cpptkinter
             "%E"sv, "%K"sv, "%N"sv, "%W"sv, "%T"sv, "%X"sv, "%Y"sv, "%D"sv };
         static const inline std::string _subst_format_str = hhh::misc::join_strings(_subst_format, " ");
         /// @brief Internal function.
-        Event<Misc> _substitute(MISC_SUBSTITUTE_PARAMETERS)
-        {
-            // print args
-            
-            // [&](auto&...args) { (utility::visit_or_invoke([](auto& a) { hhh::misc::printl(a); }, args), ...); }(MISC_SUBSTITUTE_ARGUMENTS);
-
-            static auto get_long_long = []<typename T>(const T& p, long long def = std::numeric_limits<long long>::min()) {
-                if constexpr (std::same_as<T, std::string>)
-                    return std::stoll(p);
-				else if constexpr (std::same_as<T, long long>)
-					return p;
-                else    // substitute_long_long
-                {
-                    if (std::holds_alternative<std::string>(p))
-                    {
-                        if (std::get<std::string>(p) == "??")
-                            return def;
-                        throw detail::construct_exception<std::runtime_error>(std::format("expected \"??\" but got {}", std::get<std::string>(p)));
-                    }
-                    return std::get<long long>(p);
-                }
-                };
-            static auto get_bool = [&]<typename T>(const T& p) {
-                auto ll = get_long_long(p, 0);
-				if (ll == 0)
-					return false;
-				else if (ll == 1)
-					return true;
-				else
-					throw detail::construct_exception<std::runtime_error>(std::format("expected 0 or 1 but got {}", ll));
-            };
-
-            return {
-                get_long_long(nsign),       // serial
-                get_long_long(b),           // num
-                get_bool(f),                // focus
-                get_long_long(h),           // height
-                get_long_long(w),           // width
-                get_long_long(k),           // keycode
-                get_long_long(s),           // state
-                get_long_long(t),           // time
-                get_long_long(x),           // x
-                get_long_long(y),           // y
-                get_long_long(X),           // x_root
-                get_long_long(Y),           // y_root
-                A,                          // char_
-                get_bool(E),                // send_event
-                K,                          // keysym
-                get_long_long(N),           // keysym_num
-                EventType(get_long_long(T)),// type
-                this->nametowidget(W),      // widget
-                get_long_long(D, 0)         // delta
-            };
-        }
+        Event _substitute(MISC_SUBSTITUTE_PARAMETERS);
 
         void _report_exception();
 
@@ -1844,6 +1734,57 @@ export namespace cpptkinter
             for (auto&& name : this->_tclCommands)
                 this->tk->deletecommand(name);
         }
+    };
+
+    /// @brief Container for the properties of an event.
+    /// 
+    /// Instances of this type are generated if one of the following events occurs:
+    /// 
+    /// KeyPress, KeyRelease - for keyboard events\n
+    /// ButtonPress, ButtonRelease, Motion, Enter, Leave, MouseWheel - for mouse events\n
+    /// Visibility, Unmap, Map, Expose, FocusIn, FocusOut, Circulate, Colormap, Gravity, Reparent, Property, Destroy, Activate, Deactivate - for window events
+    /// 
+    /// If a callback function for one of these events is registered using bind, bind_all, bind_class, or tag_bind, the callback is called with an Event as first argument.
+    struct Event
+    {
+        /// serial number of event
+        long long serial;
+        /// mouse button pressed(ButtonPress, ButtonRelease)
+        long long num;
+        /// whether the window has the focus (Enter, Leave), if invalid: false
+        bool focus;
+        /// height of the exposed window (Configure, Expose)
+        long long height;
+        /// width of the exposed window (Configure, Expose)
+        long long width;
+        /// keycode of the pressed key (KeyPress, KeyRelease)
+        long long keycode;
+        /// state of the event as a number (ButtonPress, ButtonRelease, Enter, KeyPress, KeyRelease, Leave, Motion) or as a string (Visibility)
+        std::variant<long long, std::string> state;
+        /// when the event occurred
+        long long time;
+        /// x - position of the mouse
+        long long x;
+        /// y - position of the mouse
+        long long y;
+        /// x - position of the mouse on the screen (ButtonPress, ButtonRelease, KeyPress, KeyRelease, Motion)
+        long long x_root;
+        /// y - position of the mouse on the screen (ButtonPress, ButtonRelease, KeyPress, KeyRelease, Motion)
+        long long y_root;
+        /// pressed character (KeyPress, KeyRelease)
+        std::string char_;
+        /// see X / Windows documentation, if invalid: false
+        bool send_event;
+        /// keysym of the event as a string (KeyPress, KeyRelease)
+        std::string keysym;
+        /// keysym of the event as a number (KeyPress, KeyRelease)
+        long long keysym_num;
+        /// type of the event as a number
+        EventType type;
+        /// widget in which the event occurred
+        Misc widget;
+        /// delta of wheel movement (MouseWheel)
+        long long delta;
     };
 
     /// @brief Mix-in class for querying and changing the horizontal position of a widget's window.
@@ -5221,7 +5162,7 @@ export namespace cpptkinter
 			this->_bind({ this->_w, "tag", "bind", tagName }, sequence, func, add);
         }
         /// @copydoc tag_bind
-        template<std::invocable<Event<Misc>> Func>
+        template<std::invocable<Event> Func>
         auto tag_bind(const std::string& tagName, const std::string& sequence, Func&& func, bool add = false)
         {
             this->_bind({ this->_w, "tag", "bind", tagName }, sequence, std::forward<Func>(func), add);
@@ -6223,6 +6164,70 @@ cpptkinter::Tk cpptkinter::Misc::_root() const
         w = w->master.value().pimpl;
 
     return std::static_pointer_cast<Tk::impl>(w);
+}
+
+template<std::invocable<cpptkinter::Event> Func>
+std::string cpptkinter::Misc::_bind_if_2(Func&& func, bool needcleanup)
+{
+    return this->_register(
+        [func = std::forward<Func>(func), self = utility::weak(*this)](MISC_SUBSTITUTE_PARAMETERS) { return func(self.lock()._substitute(MISC_SUBSTITUTE_ARGUMENTS)); },
+        needcleanup
+    );
+}
+
+cpptkinter::Event cpptkinter::Misc::_substitute(MISC_SUBSTITUTE_PARAMETERS)
+{
+    // print args
+
+    // [&](auto&...args) { (utility::visit_or_invoke([](auto& a) { hhh::misc::printl(a); }, args), ...); }(MISC_SUBSTITUTE_ARGUMENTS);
+
+    static auto get_long_long = []<typename T>(const T & p, long long def = std::numeric_limits<long long>::min()) {
+        if constexpr (std::same_as<T, std::string>)
+            return std::stoll(p);
+        else if constexpr (std::same_as<T, long long>)
+            return p;
+        else    // substitute_long_long
+        {
+            if (std::holds_alternative<std::string>(p))
+            {
+                if (std::get<std::string>(p) == "??")
+                    return def;
+                throw detail::construct_exception<std::runtime_error>(std::format("expected \"??\" but got {}", std::get<std::string>(p)));
+            }
+            return std::get<long long>(p);
+        }
+    };
+    static auto get_bool = [&]<typename T>(const T & p) {
+        auto ll = get_long_long(p, 0);
+        if (ll == 0)
+            return false;
+        else if (ll == 1)
+            return true;
+        else
+            throw detail::construct_exception<std::runtime_error>(std::format("expected 0 or 1 but got {}", ll));
+    };
+
+    return {
+        get_long_long(nsign),       // serial
+        get_long_long(b),           // num
+        get_bool(f),                // focus
+        get_long_long(h),           // height
+        get_long_long(w),           // width
+        get_long_long(k),           // keycode
+        get_long_long(s),           // state
+        get_long_long(t),           // time
+        get_long_long(x),           // x
+        get_long_long(y),           // y
+        get_long_long(X),           // x_root
+        get_long_long(Y),           // y_root
+        A,                          // char_
+        get_bool(E),                // send_event
+        K,                          // keysym
+        get_long_long(N),           // keysym_num
+        EventType(get_long_long(T)),// type
+        this->nametowidget(W),      // widget
+        get_long_long(D, 0)         // delta
+    };
 }
 
 void cpptkinter::Misc::_report_exception()
