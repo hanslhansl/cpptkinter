@@ -9,7 +9,7 @@ var searchData=
   ['first_6',['FIRST',['../namespacecpptkinter_1_1constants.html#abbb5a780da0cdaeac5d62f37753169d5',1,'cpptkinter::constants']]],
   ['flash_7',['flash',['../structcpptkinter_1_1Button.html#aa9f280aad22eb89a9d0c7691fe061281',1,'cpptkinter::Button::flash()'],['../structcpptkinter_1_1Checkbutton.html#abbbacdc518dd0270c171dddb7fdd30ba',1,'cpptkinter::Checkbutton::flash()'],['../structcpptkinter_1_1Radiobutton.html#ac23d38f39c324011f6a61690ddbfefec',1,'cpptkinter::Radiobutton::flash()']]],
   ['flat_8',['FLAT',['../namespacecpptkinter_1_1constants.html#acd11e24953315f0099e30378be8ce700',1,'cpptkinter::constants']]],
-  ['focus_9',['focus',['../structcpptkinter_1_1Event.html#a696c1be6f9b9ed465c4b70cc125748c9',1,'cpptkinter::Event']]],
+  ['focus_9',['focus',['../structcpptkinter_1_1Event.html#af611d141eaaded8863a5e67ab7de117f',1,'cpptkinter::Event']]],
   ['focusin_10',['FocusIn',['../namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa7e4b154beb74b6adb080843d5f22879b',1,'cpptkinter']]],
   ['focusmodel_11',['focusmodel',['../structcpptkinter_1_1Wm.html#a948ee298dab0c1f49abb01be24cc072e',1,'cpptkinter::Wm::focusmodel(this auto &amp;&amp;self, const std::string &amp;model)'],['../structcpptkinter_1_1Wm.html#a89d4507ada23a5d987f425b38da478cc',1,'cpptkinter::Wm::focusmodel(this auto &amp;&amp;self)']]],
   ['focusout_12',['FocusOut',['../namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73fa2241f0c0c7e396382705028677ac184e',1,'cpptkinter']]],

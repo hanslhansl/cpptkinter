@@ -38,7 +38,7 @@ var searchData=
   ['_5fsplitdict_5fto_5faggregate_35',['_splitdict_to_aggregate',['../namespacecpptkinter_1_1detail.html#a4025246af34d067adce0a714703f333f',1,'cpptkinter::detail']]],
   ['_5fsubst_5fformat_36',['_subst_format',['../classcpptkinter_1_1Misc.html#ad687654dfb9f40bfa2c12ab61e3197fa',1,'cpptkinter::Misc']]],
   ['_5fsubst_5fformat_5fstr_37',['_subst_format_str',['../classcpptkinter_1_1Misc.html#a1171fdf5ec1b0036a4346fa01ade2390',1,'cpptkinter::Misc']]],
-  ['_5fsubstitute_38',['_substitute',['../classcpptkinter_1_1Misc.html#a118edbb731345114e266bc329fa78958',1,'cpptkinter::Misc']]],
+  ['_5fsubstitute_38',['_substitute',['../classcpptkinter_1_1Misc.html#a8599dca6c0044fcff4525246e237a830',1,'cpptkinter::Misc']]],
   ['_5fsupport_5fdefault_5froot_39',['_support_default_root',['../namespacecpptkinter_1_1detail.html#ad0e153509f7b29be7873602abac3ec15',1,'cpptkinter::detail']]],
   ['_5ftag_5fbind_40',['_tag_bind',['../structcpptkinter_1_1Text.html#aedfb7c3fff125d0db83008eba8dc1ee1',1,'cpptkinter::Text']]],
   ['_5ftcl_5flib_5fpath_41',['_tcl_lib_path',['../namespacecpptkinter_1_1__cpptkinter_1_1detail.html#acfb6f4cca5d09482585adfad6aca2d5d',1,'cpptkinter::_cpptkinter::detail']]],

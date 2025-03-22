@@ -28,7 +28,7 @@ var hierarchy =
     [ "cpptkinter::cnfs::create_text", "structcpptkinter_1_1cnfs_1_1create__text.html", null ],
     [ "cpptkinter::cnfs::create_window", "structcpptkinter_1_1cnfs_1_1create__window.html", null ],
     [ "cpptkinter::cnfs::Entry", "structcpptkinter_1_1cnfs_1_1Entry.html", null ],
-    [ "cpptkinter::Event< T >", "structcpptkinter_1_1Event.html", null ],
+    [ "cpptkinter::Event", "structcpptkinter_1_1Event.html", null ],
     [ "cpptkinter::utility::extend_variants< V, Args >", "structcpptkinter_1_1utility_1_1extend__variants.html", null ],
     [ "cpptkinter::utility::extend_variants< std::variant< VArgs... >, Args... >", "structcpptkinter_1_1utility_1_1extend__variants_3_01std_1_1variant_3_01VArgs_8_8_8_01_4_00_01Args_8_8_8_01_4.html", null ],
     [ "hhh::misc::extended_enable_shared_from_this", null, [
