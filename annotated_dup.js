@@ -17,7 +17,6 @@ var annotated_dup =
         [ "TkappObject", "structcpptkinter_1_1__cpptkinter_1_1TkappObject.html", "structcpptkinter_1_1__cpptkinter_1_1TkappObject" ]
       ] ],
       [ "cnfs", "namespacecpptkinter_1_1cnfs.html", [
-        [ "add_cascade", "structcpptkinter_1_1cnfs_1_1add__cascade.html", "structcpptkinter_1_1cnfs_1_1add__cascade" ],
         [ "BitmapImage", "structcpptkinter_1_1cnfs_1_1BitmapImage.html", "structcpptkinter_1_1cnfs_1_1BitmapImage" ],
         [ "Button", "structcpptkinter_1_1cnfs_1_1Button.html", "structcpptkinter_1_1cnfs_1_1Button" ],
         [ "Canvas", "structcpptkinter_1_1cnfs_1_1Canvas.html", "structcpptkinter_1_1cnfs_1_1Canvas" ],
@@ -48,6 +47,7 @@ var annotated_dup =
         [ "Listbox", "structcpptkinter_1_1cnfs_1_1Listbox.html", "structcpptkinter_1_1cnfs_1_1Listbox" ],
         [ "Listbox_itemconfigure", "structcpptkinter_1_1cnfs_1_1Listbox__itemconfigure.html", "structcpptkinter_1_1cnfs_1_1Listbox__itemconfigure" ],
         [ "Menu", "structcpptkinter_1_1cnfs_1_1Menu.html", "structcpptkinter_1_1cnfs_1_1Menu" ],
+        [ "Menu_add_cascade", "structcpptkinter_1_1cnfs_1_1Menu__add__cascade.html", "structcpptkinter_1_1cnfs_1_1Menu__add__cascade" ],
         [ "Menu_add_checkbutton", "structcpptkinter_1_1cnfs_1_1Menu__add__checkbutton.html", "structcpptkinter_1_1cnfs_1_1Menu__add__checkbutton" ],
         [ "Menu_add_command", "structcpptkinter_1_1cnfs_1_1Menu__add__command.html", "structcpptkinter_1_1cnfs_1_1Menu__add__command" ],
         [ "Menu_add_radiobutton", "structcpptkinter_1_1cnfs_1_1Menu__add__radiobutton.html", "structcpptkinter_1_1cnfs_1_1Menu__add__radiobutton" ],

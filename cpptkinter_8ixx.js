@@ -41,7 +41,7 @@ var cpptkinter_8ixx =
     [ "cpptkinter::cnfs::Menu_add_radiobutton< T >", "structcpptkinter_1_1cnfs_1_1Menu__add__radiobutton.html", "structcpptkinter_1_1cnfs_1_1Menu__add__radiobutton" ],
     [ "cpptkinter::cnfs::Menu_add_separator", "structcpptkinter_1_1cnfs_1_1Menu__add__separator.html", "structcpptkinter_1_1cnfs_1_1Menu__add__separator" ],
     [ "cpptkinter::Menu", "structcpptkinter_1_1Menu.html", "structcpptkinter_1_1Menu" ],
-    [ "cpptkinter::cnfs::add_cascade", "structcpptkinter_1_1cnfs_1_1add__cascade.html", "structcpptkinter_1_1cnfs_1_1add__cascade" ],
+    [ "cpptkinter::cnfs::Menu_add_cascade", "structcpptkinter_1_1cnfs_1_1Menu__add__cascade.html", "structcpptkinter_1_1cnfs_1_1Menu__add__cascade" ],
     [ "cpptkinter::cnfs::Toplevel", "structcpptkinter_1_1cnfs_1_1Toplevel.html", "structcpptkinter_1_1cnfs_1_1Toplevel" ],
     [ "cpptkinter::Toplevel", "structcpptkinter_1_1Toplevel.html", "structcpptkinter_1_1Toplevel" ],
     [ "cpptkinter::cnfs::Button", "structcpptkinter_1_1cnfs_1_1Button.html", "structcpptkinter_1_1cnfs_1_1Button" ],

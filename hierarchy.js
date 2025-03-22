@@ -1,7 +1,6 @@
 var hierarchy =
 [
     [ "cpptkinter::detail::_setit", "structcpptkinter_1_1detail_1_1__setit.html", null ],
-    [ "cpptkinter::cnfs::add_cascade", "structcpptkinter_1_1cnfs_1_1add__cascade.html", null ],
     [ "cpptkinter::_cpptkinter::detail::AsObjFunctorType", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjFunctorType.html", null ],
     [ "cpptkinter::BitmapImage", "structcpptkinter_1_1BitmapImage.html", null ],
     [ "cpptkinter::cnfs::BitmapImage", "structcpptkinter_1_1cnfs_1_1BitmapImage.html", null ],
@@ -85,6 +84,7 @@ var hierarchy =
     [ "cpptkinter::cnfs::Listbox_itemconfigure", "structcpptkinter_1_1cnfs_1_1Listbox__itemconfigure.html", null ],
     [ "cpptkinter::utility::member_functor< T >", "classcpptkinter_1_1utility_1_1member__functor.html", null ],
     [ "cpptkinter::cnfs::Menu", "structcpptkinter_1_1cnfs_1_1Menu.html", null ],
+    [ "cpptkinter::cnfs::Menu_add_cascade", "structcpptkinter_1_1cnfs_1_1Menu__add__cascade.html", null ],
     [ "cpptkinter::cnfs::Menu_add_checkbutton< T >", "structcpptkinter_1_1cnfs_1_1Menu__add__checkbutton.html", null ],
     [ "cpptkinter::cnfs::Menu_add_command", "structcpptkinter_1_1cnfs_1_1Menu__add__command.html", null ],
     [ "cpptkinter::cnfs::Menu_add_radiobutton< T >", "structcpptkinter_1_1cnfs_1_1Menu__add__radiobutton.html", null ],
