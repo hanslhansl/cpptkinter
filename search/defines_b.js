@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['tcl_5fthreads_0',['TCL_THREADS',['../__cpptkinter_8ixx.html#a5e5e50da704bc2d063771d35766c6949',1,'_cpptkinter.ixx']]],
-  ['tkapp_5finterp_1',['Tkapp_Interp',['../__cpptkinter_8ixx.html#a455ac70f8c7ae447126ca40a2ea0db6b',1,'_cpptkinter.ixx']]],
-  ['trace_2',['TRACE',['../__cpptkinter_8ixx.html#a268a5497247469c43b9b16215342ffdf',1,'_cpptkinter.ixx']]]
+  ['string_5fconstant_0',['STRING_CONSTANT',['../constants_8ixx.html#a3aa6d3eb76677038c914f66c14b949c0',1,'constants.ixx']]],
+  ['string_5fconstant2_1',['STRING_CONSTANT2',['../constants_8ixx.html#a1ca6df05c1420cc1751f28b6b35af45d',1,'constants.ixx']]]
 ];

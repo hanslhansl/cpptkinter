@@ -51,7 +51,7 @@ var searchData=
   ['thread_5fid_48',['thread_id',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a177c912fa045ad304d84fbefe4839b15',1,'cpptkinter::_cpptkinter::TkappObject']]],
   ['threaded_49',['threaded',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a0c1e1442a223ed4237b559b3436fc5c0',1,'cpptkinter::_cpptkinter::TkappObject']]],
   ['tickinterval_50',['tickinterval',['../structcpptkinter_1_1cnfs_1_1Scale.html#a6cf50e3859dd9eed94d997fa093a03e1',1,'cpptkinter::cnfs::Scale']]],
-  ['time_51',['time',['../structcpptkinter_1_1Event.html#a0f925e845c1914217ecc9deff622e6eb',1,'cpptkinter::Event']]],
+  ['time_51',['time',['../structcpptkinter_1_1detail_1_1Event.html#abcc038dee8cc5ec603d1a1fddfaf7380',1,'cpptkinter::detail::Event']]],
   ['timer_5fevents_52',['TIMER_EVENTS',['../namespacecpptkinter_1_1__cpptkinter.html#aff4b64192d721a3953d38fa1b951b417',1,'cpptkinter::_cpptkinter']]],
   ['title_53',['title',['../structcpptkinter_1_1cnfs_1_1Menu.html#a63fc2ecfda0d06ab677baf0b6bf1936c',1,'cpptkinter::cnfs::Menu']]],
   ['tk_54',['tk',['../structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce',1,'cpptkinter::Image::tk()'],['../structcpptkinter_1_1Misc_1_1impl.html#ab822f9ef001f6013970c72aa57e26357',1,'cpptkinter::Misc::impl::tk()'],['../classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a',1,'cpptkinter::Misc::tk()']]],
@@ -70,5 +70,5 @@ var searchData=
   ['tristatevalue_67',['tristatevalue',['../structcpptkinter_1_1cnfs_1_1Radiobutton.html#a6b32cae42c2007fdcd53ba7ad4710f51',1,'cpptkinter::cnfs::Radiobutton::tristatevalue()'],['../structcpptkinter_1_1cnfs_1_1Checkbutton.html#a501ed8810968f205cf39ffd6cb806108',1,'cpptkinter::cnfs::Checkbutton::tristatevalue()']]],
   ['troughcolor_68',['troughcolor',['../structcpptkinter_1_1cnfs_1_1Scrollbar.html#aa8633a0d4e7ccc172ec95b85d4390b3d',1,'cpptkinter::cnfs::Scrollbar::troughcolor()'],['../structcpptkinter_1_1cnfs_1_1Scale.html#a6060977047f784aca2faab9df3f9a5a7',1,'cpptkinter::cnfs::Scale::troughcolor()']]],
   ['true_69',['TRUE',['../namespacecpptkinter_1_1constants.html#a10716a1fafc25546d4162bcfbf73bcdc',1,'cpptkinter::constants']]],
-  ['type_70',['type',['../structcpptkinter_1_1cnfs_1_1Menu.html#af475f7fdf47c6f1b05896eb932026118',1,'cpptkinter::cnfs::Menu::type()'],['../structcpptkinter_1_1Event.html#a5d2bddc16476706821943e9f77f40ac1',1,'cpptkinter::Event::type()']]]
+  ['type_70',['type',['../structcpptkinter_1_1cnfs_1_1Menu.html#af475f7fdf47c6f1b05896eb932026118',1,'cpptkinter::cnfs::Menu::type()'],['../structcpptkinter_1_1detail_1_1Event.html#a44c32c0210b17082e3888faf8466d8e7',1,'cpptkinter::detail::Event::type()']]]
 ];

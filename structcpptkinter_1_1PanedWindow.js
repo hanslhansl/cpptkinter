@@ -1,8 +1,9 @@
 var structcpptkinter_1_1PanedWindow =
 [
     [ "constructor_cnf", "structcpptkinter_1_1PanedWindow.html#abd1b77f3fa11993263bc7a77294255f3", null ],
-    [ "PanedWindow", "structcpptkinter_1_1PanedWindow.html#a93b9b23e68ff767281082432d557bb5b", null ],
+    [ "PanedWindow", "structcpptkinter_1_1PanedWindow.html#af9700f1b2f8a261cbaac2d0a06ac2a11", null ],
     [ "PanedWindow", "structcpptkinter_1_1PanedWindow.html#a75f95ac01e96e22ce24090e8ef075030", null ],
+    [ "PanedWindow", "structcpptkinter_1_1PanedWindow.html#a93b9b23e68ff767281082432d557bb5b", null ],
     [ "add", "structcpptkinter_1_1PanedWindow.html#a999147d787ec5ab5fc1fc5d3a8d729ba", null ],
     [ "forget", "structcpptkinter_1_1PanedWindow.html#a7853ce8ee294b691739a31121c62ab46", null ],
     [ "identify", "structcpptkinter_1_1PanedWindow.html#a58082270a3b744ff5d5b6517ac83d360", null ],

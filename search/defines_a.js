@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['string_5fconstant_0',['STRING_CONSTANT',['../constants_8ixx.html#a3aa6d3eb76677038c914f66c14b949c0',1,'constants.ixx']]],
-  ['string_5fconstant2_1',['STRING_CONSTANT2',['../constants_8ixx.html#a1ca6df05c1420cc1751f28b6b35af45d',1,'constants.ixx']]]
+  ['ref_5fto_5fimpl_0',['REF_TO_IMPL',['../cpptkinter_8ixx.html#a5495dad2a5ff5be64fe99cc54073a479',1,'cpptkinter.ixx']]]
 ];

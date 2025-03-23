@@ -78,6 +78,7 @@ var annotated_dup =
       [ "detail", "namespacecpptkinter_1_1detail.html", [
         [ "_setit", "structcpptkinter_1_1detail_1_1__setit.html", "structcpptkinter_1_1detail_1_1__setit" ],
         [ "CallWrapper", "structcpptkinter_1_1detail_1_1CallWrapper.html", "structcpptkinter_1_1detail_1_1CallWrapper" ],
+        [ "Event", "structcpptkinter_1_1detail_1_1Event.html", "structcpptkinter_1_1detail_1_1Event" ],
         [ "set_get_proxy", "structcpptkinter_1_1detail_1_1set__get__proxy.html", "structcpptkinter_1_1detail_1_1set__get__proxy" ],
         [ "Tk_impl", "structcpptkinter_1_1detail_1_1Tk__impl.html", "structcpptkinter_1_1detail_1_1Tk__impl" ]
       ] ],
@@ -87,7 +88,8 @@ var annotated_dup =
           [ "is_std_array< std::array< T, N > >", "structcpptkinter_1_1utility_1_1detail_1_1is__std__array_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html", null ],
           [ "range_or_tuple_to_string_visitor", "structcpptkinter_1_1utility_1_1detail_1_1range__or__tuple__to__string__visitor.html", "structcpptkinter_1_1utility_1_1detail_1_1range__or__tuple__to__string__visitor" ],
           [ "union_arg_overload", "structcpptkinter_1_1utility_1_1detail_1_1union__arg__overload.html", null ],
-          [ "union_arg_overload_base", "structcpptkinter_1_1utility_1_1detail_1_1union__arg__overload__base.html", null ]
+          [ "union_arg_overload_base", "structcpptkinter_1_1utility_1_1detail_1_1union__arg__overload__base.html", null ],
+          [ "widget_friend", "structcpptkinter_1_1utility_1_1detail_1_1widget__friend.html", "structcpptkinter_1_1utility_1_1detail_1_1widget__friend" ]
         ] ],
         [ "extend_variants", "structcpptkinter_1_1utility_1_1extend__variants.html", null ],
         [ "extend_variants< std::variant< VArgs... >, Args... >", "structcpptkinter_1_1utility_1_1extend__variants_3_01std_1_1variant_3_01VArgs_8_8_8_01_4_00_01Args_8_8_8_01_4.html", "structcpptkinter_1_1utility_1_1extend__variants_3_01std_1_1variant_3_01VArgs_8_8_8_01_4_00_01Args_8_8_8_01_4" ],
@@ -104,7 +106,6 @@ var annotated_dup =
       [ "Canvas", "structcpptkinter_1_1Canvas.html", "structcpptkinter_1_1Canvas" ],
       [ "Checkbutton", "structcpptkinter_1_1Checkbutton.html", "structcpptkinter_1_1Checkbutton" ],
       [ "Entry", "structcpptkinter_1_1Entry.html", "structcpptkinter_1_1Entry" ],
-      [ "Event", "structcpptkinter_1_1Event.html", "structcpptkinter_1_1Event" ],
       [ "Frame", "structcpptkinter_1_1Frame.html", "structcpptkinter_1_1Frame" ],
       [ "Grid", "structcpptkinter_1_1Grid.html", "structcpptkinter_1_1Grid" ],
       [ "Image", "structcpptkinter_1_1Image.html", "structcpptkinter_1_1Image" ],

@@ -23,7 +23,7 @@ var hierarchy =
     [ "cpptkinter::cnfs::Canvas_create_window", "structcpptkinter_1_1cnfs_1_1Canvas__create__window.html", null ],
     [ "cpptkinter::cnfs::Checkbutton< T >", "structcpptkinter_1_1cnfs_1_1Checkbutton.html", null ],
     [ "cpptkinter::cnfs::Entry", "structcpptkinter_1_1cnfs_1_1Entry.html", null ],
-    [ "cpptkinter::Event", "structcpptkinter_1_1Event.html", null ],
+    [ "cpptkinter::detail::Event< T >", "structcpptkinter_1_1detail_1_1Event.html", null ],
     [ "cpptkinter::utility::extend_variants< V, Args >", "structcpptkinter_1_1utility_1_1extend__variants.html", null ],
     [ "cpptkinter::utility::extend_variants< std::variant< VArgs... >, Args... >", "structcpptkinter_1_1utility_1_1extend__variants_3_01std_1_1variant_3_01VArgs_8_8_8_01_4_00_01Args_8_8_8_01_4.html", null ],
     [ "hhh::misc::extended_enable_shared_from_this", null, [
@@ -157,6 +157,7 @@ var hierarchy =
       [ "cpptkinter::TypedVariable< T >", "structcpptkinter_1_1TypedVariable.html", null ]
     ] ],
     [ "cpptkinter::utility::weak< T >", "classcpptkinter_1_1utility_1_1weak.html", null ],
+    [ "cpptkinter::utility::detail::widget_friend", "structcpptkinter_1_1utility_1_1detail_1_1widget__friend.html", null ],
     [ "cpptkinter::Wm", "structcpptkinter_1_1Wm.html", [
       [ "cpptkinter::Tk", "classcpptkinter_1_1Tk.html", null ],
       [ "cpptkinter::Toplevel", "structcpptkinter_1_1Toplevel.html", null ]

@@ -10,7 +10,7 @@ var searchData=
   ['normal_7',['NORMAL',['../namespacecpptkinter_1_1constants.html#ac90df0c200591b1a59aced56ed4c0c8e',1,'cpptkinter::constants']]],
   ['ns_8',['NS',['../namespacecpptkinter_1_1constants.html#ae0c15f86d580bb867e6071b882dd5bdd',1,'cpptkinter::constants']]],
   ['nsew_9',['NSEW',['../namespacecpptkinter_1_1constants.html#a1cfd8e67c32f076730cdb2f8df8a348f',1,'cpptkinter::constants']]],
-  ['num_10',['num',['../structcpptkinter_1_1Event.html#a630a353478c28ecc9857467c47d9c14a',1,'cpptkinter::Event']]],
+  ['num_10',['num',['../structcpptkinter_1_1detail_1_1Event.html#abc277ed1421e019c9a8c25604d32ca6f',1,'cpptkinter::detail::Event']]],
   ['numeric_11',['NUMERIC',['../namespacecpptkinter_1_1constants.html#aed8b982509c8f79e1ae689fde8c3db58',1,'cpptkinter::constants']]],
   ['nw_12',['NW',['../namespacecpptkinter_1_1constants.html#a8c1ef7edadf63384e4ef75e8e177d558',1,'cpptkinter::constants']]]
 ];

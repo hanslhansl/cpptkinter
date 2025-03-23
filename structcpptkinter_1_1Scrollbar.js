@@ -2,8 +2,9 @@ var structcpptkinter_1_1Scrollbar =
 [
     [ "constructor_cnf", "structcpptkinter_1_1Scrollbar.html#a6c46b6db988cb15b8a8787be8d290e1c", null ],
     [ "decays_to", "structcpptkinter_1_1Scrollbar.html#a1fdd589869934cda6434b8ed3ba98c53", null ],
-    [ "Scrollbar", "structcpptkinter_1_1Scrollbar.html#a6a150cfbb005f7a5f5064a84d5b1280e", null ],
+    [ "Scrollbar", "structcpptkinter_1_1Scrollbar.html#aac65819e951a33d43fadb998b5364541", null ],
     [ "Scrollbar", "structcpptkinter_1_1Scrollbar.html#a5e868e050875604e9f9e382e40b7e5be", null ],
+    [ "Scrollbar", "structcpptkinter_1_1Scrollbar.html#a6a150cfbb005f7a5f5064a84d5b1280e", null ],
     [ "activate", "structcpptkinter_1_1Scrollbar.html#a5a7b2edb242a4544c769920c6716351f", null ],
     [ "activate", "structcpptkinter_1_1Scrollbar.html#a927f2c756e94962d9c60517c223de7cc", null ],
     [ "delta", "structcpptkinter_1_1Scrollbar.html#a36686abd8460a05edf48e8ac36a43ef7", null ],

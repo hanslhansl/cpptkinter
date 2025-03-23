@@ -1,8 +1,9 @@
 var structcpptkinter_1_1Text =
 [
     [ "constructor_cnf", "structcpptkinter_1_1Text.html#a175e99068c71497ebebf2bdd7b2fb5b3", null ],
-    [ "Text", "structcpptkinter_1_1Text.html#aadcfcad35e90b9cbf994dc437e01b9f9", null ],
+    [ "Text", "structcpptkinter_1_1Text.html#aeb1dcaea1d113e9e1f812efa83e8a774", null ],
     [ "Text", "structcpptkinter_1_1Text.html#ae6cea27e34bd14702083bd649263c3c6", null ],
+    [ "Text", "structcpptkinter_1_1Text.html#aadcfcad35e90b9cbf994dc437e01b9f9", null ],
     [ "_tag_bind", "structcpptkinter_1_1Text.html#aedfb7c3fff125d0db83008eba8dc1ee1", null ],
     [ "bbox", "structcpptkinter_1_1Text.html#a8a551acb5ba7fdb3238a85bac8b17f81", null ],
     [ "cget", "structcpptkinter_1_1Text.html#a0cd6bf1b090d6cf38be19c9102ad68cd", null ],

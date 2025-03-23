@@ -110,12 +110,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5f1ac5681453b003af9167b680f767ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcpptkinter_1_1utility_1_1member__functor.html">utility::member_functor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1YView.html#a5f1ac5681453b003af9167b680f767ff">Self</a> (this) -&gt; pimpl }</td></tr>
 <tr class="memdesc:a5f1ac5681453b003af9167b680f767ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Query or change the vertical position of the view.  <br /></td></tr>
 <tr class="separator:a5f1ac5681453b003af9167b680f767ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a897f4ad63d4d3a04188921e9ae622ebb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1YView.html#a897f4ad63d4d3a04188921e9ae622ebb">yview_moveto</a> (double fraction)</td></tr>
-<tr class="memdesc:a897f4ad63d4d3a04188921e9ae622ebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjusts the view in the window so that FRACTION of the total height of the canvas is off - screen to the top.  <br /></td></tr>
-<tr class="separator:a897f4ad63d4d3a04188921e9ae622ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a807a81ec967114a445dcfeb267b5889a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1YView.html#a807a81ec967114a445dcfeb267b5889a">yview_scroll</a> (detail::screenunits_arg auto &amp;&amp;number, const std::string &amp;what)</td></tr>
-<tr class="memdesc:a807a81ec967114a445dcfeb267b5889a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shift the y-view according to NUMBER which is measured in "units" or "pages" (WHAT).  <br /></td></tr>
-<tr class="separator:a807a81ec967114a445dcfeb267b5889a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a966616da91f805f980f6bd9a90dff78c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1YView.html#a966616da91f805f980f6bd9a90dff78c">yview_moveto</a> (double fraction) const</td></tr>
+<tr class="memdesc:a966616da91f805f980f6bd9a90dff78c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjusts the view in the window so that FRACTION of the total height of the canvas is off - screen to the top.  <br /></td></tr>
+<tr class="separator:a966616da91f805f980f6bd9a90dff78c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81c2f31e8724bd1e66b45b0d0a4831fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1YView.html#a81c2f31e8724bd1e66b45b0d0a4831fa">yview_scroll</a> (detail::screenunits_arg auto &amp;&amp;number, const std::string &amp;what) const</td></tr>
+<tr class="memdesc:a81c2f31e8724bd1e66b45b0d0a4831fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shift the y-view according to NUMBER which is measured in "units" or "pages" (WHAT).  <br /></td></tr>
+<tr class="separator:a81c2f31e8724bd1e66b45b0d0a4831fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename <a class="el" href="structcpptkinter_1_1YView.html#a5f1ac5681453b003af9167b680f767ff">Self</a>&gt;<br />
@@ -161,8 +161,8 @@ template&lt;typename Self &gt; </div>
 
 </div>
 </div>
-<a id="a897f4ad63d4d3a04188921e9ae622ebb" name="a897f4ad63d4d3a04188921e9ae622ebb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a897f4ad63d4d3a04188921e9ae622ebb">&#9670;&#160;</a></span>yview_moveto()</h2>
+<a id="a966616da91f805f980f6bd9a90dff78c" name="a966616da91f805f980f6bd9a90dff78c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a966616da91f805f980f6bd9a90dff78c">&#9670;&#160;</a></span>yview_moveto()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -177,7 +177,7 @@ template&lt;typename <a class="el" href="structcpptkinter_1_1YView.html#a5f1ac56
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>fraction</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -191,8 +191,8 @@ template&lt;typename <a class="el" href="structcpptkinter_1_1YView.html#a5f1ac56
 
 </div>
 </div>
-<a id="a807a81ec967114a445dcfeb267b5889a" name="a807a81ec967114a445dcfeb267b5889a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a807a81ec967114a445dcfeb267b5889a">&#9670;&#160;</a></span>yview_scroll()</h2>
+<a id="a81c2f31e8724bd1e66b45b0d0a4831fa" name="a81c2f31e8724bd1e66b45b0d0a4831fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81c2f31e8724bd1e66b45b0d0a4831fa">&#9670;&#160;</a></span>yview_scroll()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -217,7 +217,7 @@ template&lt;typename <a class="el" href="structcpptkinter_1_1YView.html#a5f1ac56
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>

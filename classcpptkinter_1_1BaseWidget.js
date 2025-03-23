@@ -1,10 +1,10 @@
 var classcpptkinter_1_1BaseWidget =
 [
     [ "impl", "structcpptkinter_1_1BaseWidget_1_1impl.html", "structcpptkinter_1_1BaseWidget_1_1impl" ],
+    [ "BaseWidget", "classcpptkinter_1_1BaseWidget.html#aa3178ee67807135e75777ab2e366a913", null ],
     [ "_init_", "classcpptkinter_1_1BaseWidget.html#a8fdac24c566cee8e853286c18739ce57", null ],
     [ "_setup", "classcpptkinter_1_1BaseWidget.html#a15d388b03eb18905d545f96d4eee860b", null ],
-    [ "Misc", "classcpptkinter_1_1BaseWidget.html#af229c69075ddac49b5d058f813292699", null ],
-    [ "utility::weak", "classcpptkinter_1_1BaseWidget.html#a34ffc36964fcfa046c2b869258c0f0aa", null ],
+    [ "operator=", "classcpptkinter_1_1BaseWidget.html#ad7242177e5d6a691266ced6ea771153d", null ],
     [ "_name", "classcpptkinter_1_1BaseWidget.html#adc64cc0fb6a41525c7537dd493d2e339", null ],
     [ "widgetName", "classcpptkinter_1_1BaseWidget.html#ac9625a20a2ba4519d6de9af79dbfaf1d", null ]
 ];

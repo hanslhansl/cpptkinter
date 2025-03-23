@@ -77,14 +77,14 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "__cpptkinter_8ixx.html",
-"classcpptkinter_1_1Misc.html#aa2b0b477aec36bcd034d05f897b35edc",
-"conceptcpptkinter_1_1__cpptkinter_1_1detail_1_1createcommand__concept.html",
-"files.html",
-"namespacecpptkinter_1_1cnfs.html#a141eec9ec3612e6f92bb05baf82bac9f",
+"classcpptkinter_1_1Misc.html#aabb5954ed4f55855db5b636de5f0ae9c",
+"conceptcpptkinter_1_1cnfs_1_1is__cnf__member.html",
+"functions_a.html",
+"namespacecpptkinter_1_1cnfs.html#a3fb5f2b66da98d1a827b2df78714cac1",
 "structcpptkinter_1_1Canvas.html#a99ba70245195a78d8228ee9b8af01e55",
-"structcpptkinter_1_1Listbox.html#a8099747e35748028af7c3a6b94e25001",
-"structcpptkinter_1_1Radiobutton.html#adafb7c882b806f7be4068042e39f9f5f",
-"structcpptkinter_1_1Toplevel.html#ab3a8d80c4f05414475a0670e3a933cff",
+"structcpptkinter_1_1Listbox.html#aef4d3130861600fb29156d41e0eabdad",
+"structcpptkinter_1_1Scale.html#ab8d39623662e8de7fa41d7d6102ae922",
+"structcpptkinter_1_1TypedCheckbutton.html",
 "structcpptkinter_1_1Wm.html#acd7b1a31d332d63ef6f9cbd5d7261e24",
 "structcpptkinter_1_1cnfs_1_1Button.html#a0337a9a6fc7c8baa1edf8a18efca8e4f",
 "structcpptkinter_1_1cnfs_1_1Checkbutton.html#ad22790a33bd22e15c524ab184c24576f",
@@ -93,7 +93,8 @@ var NAVTREEINDEX =
 "structcpptkinter_1_1cnfs_1_1PhotoImage.html#a08b594e65aeaf48ee91badb6dd01acd1",
 "structcpptkinter_1_1cnfs_1_1Scrollbar.html#af794d2e3025f088554173c6bdedd075d",
 "structcpptkinter_1_1cnfs_1_1Text__peer__create.html#a212695711b35803cc6134b0d69b1e26c",
-"structcpptkinter_1_1cnfs_1_1grid__column__row__configure.html"
+"structcpptkinter_1_1cnfs_1_1grid__column__row__configure.html",
+"todo.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -89,7 +89,6 @@ var namespacecpptkinter =
     [ "Canvas", "structcpptkinter_1_1Canvas.html", "structcpptkinter_1_1Canvas" ],
     [ "Checkbutton", "structcpptkinter_1_1Checkbutton.html", "structcpptkinter_1_1Checkbutton" ],
     [ "Entry", "structcpptkinter_1_1Entry.html", "structcpptkinter_1_1Entry" ],
-    [ "Event", "structcpptkinter_1_1Event.html", "structcpptkinter_1_1Event" ],
     [ "Frame", "structcpptkinter_1_1Frame.html", "structcpptkinter_1_1Frame" ],
     [ "Grid", "structcpptkinter_1_1Grid.html", "structcpptkinter_1_1Grid" ],
     [ "Image", "structcpptkinter_1_1Image.html", "structcpptkinter_1_1Image" ],
@@ -122,6 +121,7 @@ var namespacecpptkinter =
     [ "YView", "structcpptkinter_1_1YView.html", "structcpptkinter_1_1YView" ],
     [ "BooleanVar", "namespacecpptkinter.html#acdb50861ebb752780f5d79c707116eec", null ],
     [ "DoubleVar", "namespacecpptkinter.html#ad43a0343bd9525c51432f54729c00f0a", null ],
+    [ "Event", "namespacecpptkinter.html#a7682b59864b2b74b08d4172cc99d66c1", null ],
     [ "IntVar", "namespacecpptkinter.html#a856a22d889edd3190007d5463ced565b", null ],
     [ "StringVar", "namespacecpptkinter.html#a03cf501b92e7c70762e62e4ad1596c43", null ],
     [ "EventType", "namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73f", [
@@ -167,10 +167,10 @@ var namespacecpptkinter =
     ] ],
     [ "image_names", "namespacecpptkinter.html#a78096e6ba5fe2e171f41fc8e56f4e990", null ],
     [ "image_types", "namespacecpptkinter.html#a0e5ad5e0b5329df43f812ea62ed99816", null ],
-    [ "init", "namespacecpptkinter.html#a60f7cd611c9731ab744ab74fac958dc4", null ],
+    [ "init", "namespacecpptkinter.html#a26c3c3c71f4ba3e50698e51933b6589e", null ],
     [ "mainloop", "namespacecpptkinter.html#ad9f0f9d6e00ea177804e476e30ff8fa9", null ],
     [ "NoDefaultRoot", "namespacecpptkinter.html#a2698e430ac047fce1d72f2a7bfc44766", null ],
-    [ "Tcl", "namespacecpptkinter.html#a82a4577283285a6ba412f0649b5b3580", null ],
+    [ "Tcl", "namespacecpptkinter.html#a524d2e96bac8fb203d9d6e582f33c465", null ],
     [ "TCL_CORE_LIBRARY_IS_EMBEDDED", "namespacecpptkinter.html#a1647a8cbe08ae686b7c93fd45db41028", null ],
     [ "TclVersion", "namespacecpptkinter.html#a8ad4de4135e1fc7cf592eda012b06e8c", null ],
     [ "TkVersion", "namespacecpptkinter.html#a00397ebcdc2b3688239b54e95e49dd25", null ]

@@ -5,6 +5,7 @@ var namespacecpptkinter_1_1utility_1_1detail =
     [ "range_or_tuple_to_string_visitor", "structcpptkinter_1_1utility_1_1detail_1_1range__or__tuple__to__string__visitor.html", "structcpptkinter_1_1utility_1_1detail_1_1range__or__tuple__to__string__visitor" ],
     [ "union_arg_overload", "structcpptkinter_1_1utility_1_1detail_1_1union__arg__overload.html", null ],
     [ "union_arg_overload_base", "structcpptkinter_1_1utility_1_1detail_1_1union__arg__overload__base.html", null ],
+    [ "widget_friend", "structcpptkinter_1_1utility_1_1detail_1_1widget__friend.html", "structcpptkinter_1_1utility_1_1detail_1_1widget__friend" ],
     [ "check_trait_for_all_aggregate_members", "namespacecpptkinter_1_1utility_1_1detail.html#a135afae8d758afed0e7b812dbc5f235f", null ],
     [ "invokeable_with_variant_types", "namespacecpptkinter_1_1utility_1_1detail.html#a1803b10fa31fb0798ede1f750a8db603", null ]
 ];

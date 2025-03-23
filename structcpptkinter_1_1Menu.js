@@ -1,8 +1,9 @@
 var structcpptkinter_1_1Menu =
 [
     [ "constructor_cnf", "structcpptkinter_1_1Menu.html#a562ff4c6cf646936579753fc0705151e", null ],
-    [ "Menu", "structcpptkinter_1_1Menu.html#a26f2bd05f7ec3a35d749e6cb2ce38c5c", null ],
+    [ "Menu", "structcpptkinter_1_1Menu.html#a92c94b8a66dae2236d22ab99eb282102", null ],
     [ "Menu", "structcpptkinter_1_1Menu.html#a074f73bbffbd0bbd8f10c50f7b948bdc", null ],
+    [ "Menu", "structcpptkinter_1_1Menu.html#a26f2bd05f7ec3a35d749e6cb2ce38c5c", null ],
     [ "activate", "structcpptkinter_1_1Menu.html#a30b8506f7d805fd3405e5308458c7671", null ],
     [ "add", "structcpptkinter_1_1Menu.html#a687927a1d92ae8a84ea1c9edc057d1ad", null ],
     [ "add_cascade", "structcpptkinter_1_1Menu.html#ab8bf298efc0766c7ea9e50a48e66ce6c", null ],

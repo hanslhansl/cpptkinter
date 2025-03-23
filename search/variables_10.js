@@ -8,7 +8,7 @@ var searchData=
   ['parsedvarname_5',['ParsedVarName',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a1464ba5822a84cfb19acfe5e2e366fce',1,'cpptkinter::_cpptkinter::TkappObject']]],
   ['pattern_6',['pattern',['../structcpptkinter_1_1cnfs_1_1Text__search.html#a8087e3b122616fde014f913121417c72',1,'cpptkinter::cnfs::Text_search']]],
   ['pieslice_7',['PIESLICE',['../namespacecpptkinter_1_1constants.html#a6c45a23fd0a3582aadd793833c869968',1,'cpptkinter::constants']]],
-  ['pimpl_8',['pimpl',['../classcpptkinter_1_1Misc.html#afe1bb4e9789aefd1fd0fd48b557b1de9',1,'cpptkinter::Misc::pimpl()'],['../classcpptkinter_1_1utility_1_1weak.html#af3d77c7dc1f6ec58ec3a317fdce0246e',1,'cpptkinter::utility::weak::pimpl()'],['../classcpptkinter_1_1Variable.html#ad48eb247a9b9a5016a10ce2288fe7db5',1,'cpptkinter::Variable::pimpl()']]],
+  ['pimpl_8',['pimpl',['../classcpptkinter_1_1Misc.html#afe1bb4e9789aefd1fd0fd48b557b1de9',1,'cpptkinter::Misc::pimpl()'],['../classcpptkinter_1_1utility_1_1weak.html#a1ea3891affaa05895bcb9107ac0bf8ae',1,'cpptkinter::utility::weak::pimpl()'],['../classcpptkinter_1_1Variable.html#ad48eb247a9b9a5016a10ce2288fe7db5',1,'cpptkinter::Variable::pimpl()']]],
   ['postcommand_9',['postcommand',['../structcpptkinter_1_1cnfs_1_1Menu.html#a97fa764fe018ecf4909ce0dfdd447777',1,'cpptkinter::cnfs::Menu']]],
   ['projecting_10',['PROJECTING',['../namespacecpptkinter_1_1constants.html#a8ef46c74ee3a1cb2e551643b8060ccbf',1,'cpptkinter::constants']]],
   ['proxybackground_11',['proxybackground',['../structcpptkinter_1_1cnfs_1_1PanedWindow.html#a388855f1864295c5a9ccb90fb7f04fb0',1,'cpptkinter::cnfs::PanedWindow']]],

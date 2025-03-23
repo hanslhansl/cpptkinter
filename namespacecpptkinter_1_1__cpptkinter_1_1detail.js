@@ -47,7 +47,5 @@ var namespacecpptkinter_1_1__cpptkinter_1_1detail =
     [ "Tkapp_Trace_to_string", "namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a251663365ff8a2df1c994317a6b7fc5d", null ],
     [ "_tcl_lib_path", "namespacecpptkinter_1_1__cpptkinter_1_1detail.html#acfb6f4cca5d09482585adfad6aca2d5d", null ],
     [ "_TCL_VERSION", "namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a1aec895f5e87207873c45fe0ce97c547", null ],
-    [ "_TK_VERSION", "namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a69cddb2d7075905075194928760e68be", null ],
-    [ "argc", "namespacecpptkinter_1_1__cpptkinter_1_1detail.html#ad80b2aaa00737e684b10e6fdf78ef7e9", null ],
-    [ "argv", "namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a7d543dc1a564409c1f310d098c36d82c", null ]
+    [ "_TK_VERSION", "namespacecpptkinter_1_1__cpptkinter_1_1detail.html#a69cddb2d7075905075194928760e68be", null ]
 ];

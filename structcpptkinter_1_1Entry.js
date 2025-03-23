@@ -1,8 +1,9 @@
 var structcpptkinter_1_1Entry =
 [
     [ "constructor_cnf", "structcpptkinter_1_1Entry.html#a4cce4f3c31975e2e6ee94cb2d9c4ab64", null ],
-    [ "Entry", "structcpptkinter_1_1Entry.html#a212b9e724c061349f7c8d59e95873248", null ],
+    [ "Entry", "structcpptkinter_1_1Entry.html#a02e2dc8a59ac4465b20e96d3d7b9215f", null ],
     [ "Entry", "structcpptkinter_1_1Entry.html#a59538d4a51edc4c243632a330ac7875e", null ],
+    [ "Entry", "structcpptkinter_1_1Entry.html#a212b9e724c061349f7c8d59e95873248", null ],
     [ "delete_", "structcpptkinter_1_1Entry.html#a8fde50b8bda7cfbbd71c378c88d835bc", null ],
     [ "delete_", "structcpptkinter_1_1Entry.html#a9913de4b297b8f19ac19708995146d77", null ],
     [ "get", "structcpptkinter_1_1Entry.html#aa96c325fd23a5c31cdb404383aa62af9", null ],

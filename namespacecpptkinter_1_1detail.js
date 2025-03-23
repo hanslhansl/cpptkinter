@@ -2,6 +2,7 @@ var namespacecpptkinter_1_1detail =
 [
     [ "_setit", "structcpptkinter_1_1detail_1_1__setit.html", "structcpptkinter_1_1detail_1_1__setit" ],
     [ "CallWrapper", "structcpptkinter_1_1detail_1_1CallWrapper.html", "structcpptkinter_1_1detail_1_1CallWrapper" ],
+    [ "Event", "structcpptkinter_1_1detail_1_1Event.html", "structcpptkinter_1_1detail_1_1Event" ],
     [ "set_get_proxy", "structcpptkinter_1_1detail_1_1set__get__proxy.html", "structcpptkinter_1_1detail_1_1set__get__proxy" ],
     [ "Tk_impl", "structcpptkinter_1_1detail_1_1Tk__impl.html", "structcpptkinter_1_1detail_1_1Tk__impl" ],
     [ "range_of_AsObj", "conceptcpptkinter_1_1detail_1_1range__of__AsObj.html", null ],

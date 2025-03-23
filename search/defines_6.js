@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['misc_5fsubstitute_5farguments_0',['MISC_SUBSTITUTE_ARGUMENTS',['../cpptkinter_8ixx.html#abca93c39d31d0caa5e972396a43f79b1',1,'cpptkinter.ixx']]],
-  ['misc_5fsubstitute_5fparameters_1',['MISC_SUBSTITUTE_PARAMETERS',['../cpptkinter_8ixx.html#ad5909af3c11e3c4b01126f26a8671d7b',1,'cpptkinter.ixx']]]
+  ['leave_5foverlap_5ftcl_0',['LEAVE_OVERLAP_TCL',['../__cpptkinter_8ixx.html#a6aa17d5bb404eb5421f6582b8e026156',1,'_cpptkinter.ixx']]],
+  ['leave_5fpython_1',['LEAVE_PYTHON',['../__cpptkinter_8ixx.html#aa2b08a860e96dc7f6d1cba578dfbf2fe',1,'_cpptkinter.ixx']]],
+  ['leave_5ftcl_2',['LEAVE_TCL',['../__cpptkinter_8ixx.html#a689d409af4ec1cf2f7c35460dc53dba6',1,'_cpptkinter.ixx']]]
 ];

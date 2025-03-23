@@ -110,12 +110,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aed1888c48071d3738c07e95bdbb4895d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcpptkinter_1_1utility_1_1member__functor.html">utility::member_functor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1XView.html#aed1888c48071d3738c07e95bdbb4895d">Self</a> (this) -&gt; pimpl }</td></tr>
 <tr class="memdesc:aed1888c48071d3738c07e95bdbb4895d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Query or change the horizontal position of the view.  <br /></td></tr>
 <tr class="separator:aed1888c48071d3738c07e95bdbb4895d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8697ce1623ef786bf74dff54e64300ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1XView.html#a8697ce1623ef786bf74dff54e64300ca">xview_moveto</a> (double fraction)</td></tr>
-<tr class="memdesc:a8697ce1623ef786bf74dff54e64300ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjusts the view in the window so that FRACTION of the total width of the canvas is off - screen to the left.  <br /></td></tr>
-<tr class="separator:a8697ce1623ef786bf74dff54e64300ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac20ca5999f0514d539c980b1d3fa89f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1XView.html#ac20ca5999f0514d539c980b1d3fa89f9">xview_scroll</a> (detail::screenunits_arg auto &amp;&amp;number, const std::string &amp;what)</td></tr>
-<tr class="memdesc:ac20ca5999f0514d539c980b1d3fa89f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shift the x-view according to NUMBER which is measured in "units" or "pages" (WHAT).  <br /></td></tr>
-<tr class="separator:ac20ca5999f0514d539c980b1d3fa89f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09a5db8c63ba14e1e733ded38d7a04a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1XView.html#a09a5db8c63ba14e1e733ded38d7a04a6">xview_moveto</a> (double fraction) const</td></tr>
+<tr class="memdesc:a09a5db8c63ba14e1e733ded38d7a04a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjusts the view in the window so that FRACTION of the total width of the canvas is off - screen to the left.  <br /></td></tr>
+<tr class="separator:a09a5db8c63ba14e1e733ded38d7a04a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe20e18d4bc6d6ed4845fe6664ee8669"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1XView.html#abe20e18d4bc6d6ed4845fe6664ee8669">xview_scroll</a> (detail::screenunits_arg auto &amp;&amp;number, const std::string &amp;what) const</td></tr>
+<tr class="memdesc:abe20e18d4bc6d6ed4845fe6664ee8669"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shift the x-view according to NUMBER which is measured in "units" or "pages" (WHAT).  <br /></td></tr>
+<tr class="separator:abe20e18d4bc6d6ed4845fe6664ee8669"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename <a class="el" href="structcpptkinter_1_1XView.html#aed1888c48071d3738c07e95bdbb4895d">Self</a>&gt;<br />
@@ -161,8 +161,8 @@ template&lt;typename Self &gt; </div>
 
 </div>
 </div>
-<a id="a8697ce1623ef786bf74dff54e64300ca" name="a8697ce1623ef786bf74dff54e64300ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8697ce1623ef786bf74dff54e64300ca">&#9670;&#160;</a></span>xview_moveto()</h2>
+<a id="a09a5db8c63ba14e1e733ded38d7a04a6" name="a09a5db8c63ba14e1e733ded38d7a04a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09a5db8c63ba14e1e733ded38d7a04a6">&#9670;&#160;</a></span>xview_moveto()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -177,7 +177,7 @@ template&lt;typename <a class="el" href="structcpptkinter_1_1XView.html#aed1888c
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>fraction</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -191,8 +191,8 @@ template&lt;typename <a class="el" href="structcpptkinter_1_1XView.html#aed1888c
 
 </div>
 </div>
-<a id="ac20ca5999f0514d539c980b1d3fa89f9" name="ac20ca5999f0514d539c980b1d3fa89f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac20ca5999f0514d539c980b1d3fa89f9">&#9670;&#160;</a></span>xview_scroll()</h2>
+<a id="abe20e18d4bc6d6ed4845fe6664ee8669" name="abe20e18d4bc6d6ed4845fe6664ee8669"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe20e18d4bc6d6ed4845fe6664ee8669">&#9670;&#160;</a></span>xview_scroll()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -217,7 +217,7 @@ template&lt;typename <a class="el" href="structcpptkinter_1_1XView.html#aed1888c
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>

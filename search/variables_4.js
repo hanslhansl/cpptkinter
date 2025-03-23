@@ -2,7 +2,7 @@ var searchData=
 [
   ['data_0',['data',['../structcpptkinter_1_1cnfs_1_1PhotoImage.html#a491e69fab0ec1ff2e2fa35e6d03d49cd',1,'cpptkinter::cnfs::PhotoImage::data()'],['../structcpptkinter_1_1cnfs_1_1BitmapImage.html#a81d38b40d25b19a5c36c2485145919a2',1,'cpptkinter::cnfs::BitmapImage::data()'],['../structcpptkinter_1_1__cpptkinter_1_1CommandEvent.html#a1c2d1da979d9253defeebf2a598d755c',1,'cpptkinter::_cpptkinter::CommandEvent::data()']]],
   ['default_5f_1',['default_',['../structcpptkinter_1_1cnfs_1_1Button.html#a52cd1b448be46c79108a0e7ae98ca0df',1,'cpptkinter::cnfs::Button']]],
-  ['delta_2',['delta',['../structcpptkinter_1_1Event.html#a7982dd92444e75369d6faf71e97ea00f',1,'cpptkinter::Event']]],
+  ['delta_2',['delta',['../structcpptkinter_1_1detail_1_1Event.html#a76544af4572aced93c9fba44ffebc249',1,'cpptkinter::detail::Event']]],
   ['dicttype_3',['DictType',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a034f70294a30fefe10731ff0c01ae055',1,'cpptkinter::_cpptkinter::TkappObject']]],
   ['digits_4',['digits',['../structcpptkinter_1_1cnfs_1_1Scale.html#ab1b1c18295b79a62889046827acf206f',1,'cpptkinter::cnfs::Scale']]],
   ['direction_5',['direction',['../structcpptkinter_1_1cnfs_1_1Menubutton.html#afbc7abd153210ff10a91e102706c60d4',1,'cpptkinter::cnfs::Menubutton']]],

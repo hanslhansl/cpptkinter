@@ -122,6 +122,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1cnfs_1_1is__cnf__trait_3_01T_00_01std_1_1integer__sequence_3_01size__t_00_01I_8_8_8_01_4_01_4.html">cpptkinter::cnfs::is_cnf_trait&lt; T, std::integer_sequence&lt; size_t, I... &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1detail_1_1Event.html">cpptkinter::detail::Event&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Wm.html">cpptkinter::Wm</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides functions for the communication with the window manager.  <a href="structcpptkinter_1_1Wm.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,9 +140,6 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal class.  <a href="classcpptkinter_1_1Misc.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Misc_1_1impl.html">cpptkinter::Misc::impl</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Event.html">cpptkinter::Event</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container for the properties of an event.  <a href="structcpptkinter_1_1Event.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1XView.html">cpptkinter::XView&lt; Self &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mix-in class for querying and changing the horizontal position of a widget's window.  <a href="structcpptkinter_1_1XView.html#details">More...</a><br /></td></tr>
@@ -451,8 +450,12 @@ Macros</h2></td></tr>
 <tr class="separator:a5495dad2a5ff5be64fe99cc54073a479"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac389b0428f38a3a81c6d2980895d5835"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpptkinter_8ixx.html#ac389b0428f38a3a81c6d2980895d5835">DEFINE_ASSIGNMENT_OPERATOR</a>(cl)</td></tr>
 <tr class="separator:ac389b0428f38a3a81c6d2980895d5835"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79ffbc4a3c522d6e62b16830c420a339"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpptkinter_8ixx.html#a79ffbc4a3c522d6e62b16830c420a339">CNF_CONSTRUCTOR_AND_ASSIGNMENT</a>(cl,  cnf_type,  str,  base)</td></tr>
-<tr class="separator:a79ffbc4a3c522d6e62b16830c420a339"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ea152cdea84f54f2e9e7af023022bc0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpptkinter_8ixx.html#a2ea152cdea84f54f2e9e7af023022bc0">IMPL_CTOR</a>(cl,  base)</td></tr>
+<tr class="separator:a2ea152cdea84f54f2e9e7af023022bc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b0c410d403e87302d27872946a48db7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpptkinter_8ixx.html#a2b0c410d403e87302d27872946a48db7">CNF_CONSTRUCTOR</a>(cl,  cnf_type,  str)</td></tr>
+<tr class="separator:a2b0c410d403e87302d27872946a48db7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2624f04e284e808f4ba305f256dbe2a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpptkinter_8ixx.html#a2624f04e284e808f4ba305f256dbe2a1">CONSTRUCTORS_AND_ASSIGNMENT</a>(cl,  cnf_type,  str,  base)</td></tr>
+<tr class="separator:a2624f04e284e808f4ba305f256dbe2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5909af3c11e3c4b01126f26a8671d7b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpptkinter_8ixx.html#ad5909af3c11e3c4b01126f26a8671d7b">MISC_SUBSTITUTE_PARAMETERS</a></td></tr>
 <tr class="separator:ad5909af3c11e3c4b01126f26a8671d7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abca93c39d31d0caa5e972396a43f79b1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpptkinter_8ixx.html#abca93c39d31d0caa5e972396a43f79b1">MISC_SUBSTITUTE_ARGUMENTS</a>&#160;&#160;&#160;nsign, b, f, h, k, s, t, w, x, y, A, E, K, N, W, T, X, Y, D</td></tr>
@@ -523,6 +526,9 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a2fc1361e2846dda0d05f8ddfe5b473c3"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a2fc1361e2846dda0d05f8ddfe5b473c3"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1cnfs.html#a2fc1361e2846dda0d05f8ddfe5b473c3">cpptkinter::cnfs::get_constructor_cnf</a> = typename std::remove_cvref_t&lt; T &gt;::constructor_cnf</td></tr>
 <tr class="separator:a2fc1361e2846dda0d05f8ddfe5b473c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7682b59864b2b74b08d4172cc99d66c1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter.html#a7682b59864b2b74b08d4172cc99d66c1">cpptkinter::Event</a> = detail::Event&lt; Misc &gt;</td></tr>
+<tr class="memdesc:a7682b59864b2b74b08d4172cc99d66c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container for the properties of an event.  <br /></td></tr>
+<tr class="separator:a7682b59864b2b74b08d4172cc99d66c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a008f29843e0395730df3e8a39e80e809"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpptkinter_8ixx.html#a008f29843e0395730df3e8a39e80e809">decays_to</a> = void(const std::vector&lt; Tcl_Obj &gt; &amp;)</td></tr>
 <tr class="separator:a008f29843e0395730df3e8a39e80e809"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e0d563e8890af60f3871b538218ed64"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter_1_1cnfs.html#a0e0d563e8890af60f3871b538218ed64">cpptkinter::cnfs::opt_master</a> = opt&lt; Misc &gt;</td></tr>
@@ -629,15 +635,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a2698e430ac047fce1d72f2a7bfc44766"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter.html#a2698e430ac047fce1d72f2a7bfc44766">cpptkinter::NoDefaultRoot</a> ()</td></tr>
 <tr class="memdesc:a2698e430ac047fce1d72f2a7bfc44766"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inhibit setting of default root window.  <br /></td></tr>
 <tr class="separator:a2698e430ac047fce1d72f2a7bfc44766"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60f7cd611c9731ab744ab74fac958dc4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter.html#a60f7cd611c9731ab744ab74fac958dc4">cpptkinter::init</a> (int argc, char *argv[], const std::string &amp;tcl_library={})</td></tr>
-<tr class="memdesc:a60f7cd611c9731ab744ab74fac958dc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize cpptkinter.  <br /></td></tr>
-<tr class="separator:a60f7cd611c9731ab744ab74fac958dc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26c3c3c71f4ba3e50698e51933b6589e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter.html#a26c3c3c71f4ba3e50698e51933b6589e">cpptkinter::init</a> (const std::string &amp;executable_path, const std::string &amp;tcl_library={})</td></tr>
+<tr class="memdesc:a26c3c3c71f4ba3e50698e51933b6589e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize cpptkinter.  <br /></td></tr>
+<tr class="separator:a26c3c3c71f4ba3e50698e51933b6589e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a705a120ec341a1b5510f552176f6d2ae"><td class="memItemLeft" align="right" valign="top">std::array&lt; double, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpptkinter_8ixx.html#a705a120ec341a1b5510f552176f6d2ae">operator()</a> ()</td></tr>
 <tr class="separator:a705a120ec341a1b5510f552176f6d2ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf41d9eee734339f74804cbee81378fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpptkinter_8ixx.html#aaf41d9eee734339f74804cbee81378fa">operator()</a> (const std::vector&lt; Tcl_Obj &gt; &amp;args)</td></tr>
 <tr class="separator:aaf41d9eee734339f74804cbee81378fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82a4577283285a6ba412f0649b5b3580"><td class="memItemLeft" align="right" valign="top">Tk&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter.html#a82a4577283285a6ba412f0649b5b3580">cpptkinter::Tcl</a> (const std::string &amp;screenName={}, const std::string &amp;baseName={}, const std::string &amp;className=&quot;Tk&quot;, bool useTk=true)</td></tr>
-<tr class="separator:a82a4577283285a6ba412f0649b5b3580"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a524d2e96bac8fb203d9d6e582f33c465"><td class="memItemLeft" align="right" valign="top">Tk&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter.html#a524d2e96bac8fb203d9d6e582f33c465">cpptkinter::Tcl</a> (const std::string &amp;screenName={}, const std::string &amp;className=&quot;Tk&quot;, bool useTk=true)</td></tr>
+<tr class="separator:a524d2e96bac8fb203d9d6e582f33c465"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9f0f9d6e00ea177804e476e30ff8fa9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter.html#ad9f0f9d6e00ea177804e476e30ff8fa9">cpptkinter::mainloop</a> (int n=0)</td></tr>
 <tr class="separator:ad9f0f9d6e00ea177804e476e30ff8fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af78b3243b9551605de5f37bb66a925ef"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
@@ -704,14 +710,55 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements <b>init</b>.py. </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a79ffbc4a3c522d6e62b16830c420a339" name="a79ffbc4a3c522d6e62b16830c420a339"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79ffbc4a3c522d6e62b16830c420a339">&#9670;&#160;</a></span>CNF_CONSTRUCTOR_AND_ASSIGNMENT</h2>
+<a id="a2b0c410d403e87302d27872946a48db7" name="a2b0c410d403e87302d27872946a48db7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b0c410d403e87302d27872946a48db7">&#9670;&#160;</a></span>CNF_CONSTRUCTOR</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define CNF_CONSTRUCTOR_AND_ASSIGNMENT</td>
+          <td class="memname">#define CNF_CONSTRUCTOR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cl, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cnf_type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">str&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">using </span>constructor_cnf = cnf_type;   \</div>
+<div class="line">    cl() : cl(constructor_cnf{}) { }    \</div>
+<div class="line">    template&lt;cnfs::is_cnf CNF = constructor_cnf&gt; \</div>
+<div class="line">    cl(CNF&amp;&amp; cnf = {}) : cl(std::make_shared&lt;impl&gt;()) \</div>
+<div class="line">    {   \</div>
+<div class="line">        this-&gt;_init_(str, std::forward&lt;CNF&gt;(cnf));  \</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a2624f04e284e808f4ba305f256dbe2a1" name="a2624f04e284e808f4ba305f256dbe2a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2624f04e284e808f4ba305f256dbe2a1">&#9670;&#160;</a></span>CONSTRUCTORS_AND_ASSIGNMENT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CONSTRUCTORS_AND_ASSIGNMENT</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">cl, </td>
@@ -741,15 +788,11 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">using </span>constructor_cnf = cnf_type;   \</div>
-<div class="line">    template&lt;cnfs::is_cnf CNF = constructor_cnf&gt; \</div>
-<div class="line">    cl(CNF&amp;&amp; cnf = {}) : cl(std::make_shared&lt;impl&gt;()) \</div>
-<div class="line">    {   \</div>
-<div class="line">        this-&gt;_init_(str, std::forward&lt;CNF&gt;(cnf));  \</div>
-<div class="line">    }   \</div>
-<div class="line">    cl() : cl(constructor_cnf{}) { }   \</div>
-<div class="line">    DEFINE_ASSIGNMENT_OPERATOR(cl)   \</div>
-<div class="line">    <span class="keyword">using </span>base::base</div>
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">protected</span>:  \</div>
+<div class="line">    IMPL_CTOR(cl, base) \</div>
+<div class="line">    <span class="keyword">public</span>: \</div>
+<div class="line">    CNF_CONSTRUCTOR(cl, cnf_type, str)   \</div>
+<div class="line">    DEFINE_ASSIGNMENT_OPERATOR(cl)</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -773,6 +816,36 @@ Variables</h2></td></tr>
 <div class="line">        std::destroy_at(<span class="keyword">this</span>); \</div>
 <div class="line">        <span class="keywordflow">return</span> *std::construct_at(<span class="keyword">this</span>, other); \</div>
 <div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a2ea152cdea84f54f2e9e7af023022bc0" name="a2ea152cdea84f54f2e9e7af023022bc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ea152cdea84f54f2e9e7af023022bc0">&#9670;&#160;</a></span>IMPL_CTOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IMPL_CTOR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cl, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">base&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">friend</span> utility::detail::widget_friend; \</div>
+<div class="line">    <span class="keyword">template</span>&lt;std::derived_from&lt;impl&gt; I&gt; cl(<span class="keyword">const</span> std::shared_ptr&lt;I&gt;&amp; pimpl) : base(pimpl) { }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -805,7 +878,7 @@ Variables</h2></td></tr>
 <div class="line">                                    <span class="keyword">const</span> std::string&amp; t, <a class="code hl_typedef" href="cpptkinter_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb">substitute_long_long</a> w, <a class="code hl_typedef" href="cpptkinter_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb">substitute_long_long</a> x, <a class="code hl_typedef" href="cpptkinter_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb">substitute_long_long</a> y, <span class="keyword">const</span> std::string&amp; A, <a class="code hl_typedef" href="cpptkinter_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb">substitute_long_long</a> E, \</div>
 <div class="line">                                    <span class="keyword">const</span> std::string&amp; K, <a class="code hl_typedef" href="cpptkinter_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb">substitute_long_long</a> N, <span class="keyword">const</span> std::string&amp; W, <a class="code hl_typedef" href="cpptkinter_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb">substitute_long_long</a> T, <span class="keyword">const</span> std::string&amp; X, <span class="keyword">const</span> std::string&amp; Y, \</div>
 <div class="line">                                    <a class="code hl_typedef" href="cpptkinter_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb">substitute_long_long</a> D</div>
-<div class="ttc" id="acpptkinter_8ixx_html_a48a77af540ef5a4f9da8e0ec72acabdb"><div class="ttname"><a href="cpptkinter_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb">substitute_long_long</a></div><div class="ttdeci">const std::variant&lt; long long, std::string &gt; &amp; substitute_long_long</div><div class="ttdef"><b>Definition:</b> cpptkinter.ixx:38</div></div>
+<div class="ttc" id="acpptkinter_8ixx_html_a48a77af540ef5a4f9da8e0ec72acabdb"><div class="ttname"><a href="cpptkinter_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb">substitute_long_long</a></div><div class="ttdeci">const std::variant&lt; long long, std::string &gt; &amp; substitute_long_long</div><div class="ttdef"><b>Definition:</b> cpptkinter.ixx:46</div></div>
 </div><!-- fragment -->
 </div>
 </div>

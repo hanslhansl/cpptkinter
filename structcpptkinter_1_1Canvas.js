@@ -1,8 +1,9 @@
 var structcpptkinter_1_1Canvas =
 [
     [ "constructor_cnf", "structcpptkinter_1_1Canvas.html#af06138ab1d598d21d94617efdb08c9df", null ],
-    [ "Canvas", "structcpptkinter_1_1Canvas.html#a227bf33d2e2e7ebc2092618561e81209", null ],
+    [ "Canvas", "structcpptkinter_1_1Canvas.html#a2ed4c9d71df23c5f896563f2788d2466", null ],
     [ "Canvas", "structcpptkinter_1_1Canvas.html#a68d957855432830594e9719885583c16", null ],
+    [ "Canvas", "structcpptkinter_1_1Canvas.html#a227bf33d2e2e7ebc2092618561e81209", null ],
     [ "_create", "structcpptkinter_1_1Canvas.html#a07c314288e95aeef4d2c7d1d9e4a8318", null ],
     [ "addtag", "structcpptkinter_1_1Canvas.html#a180a3441fd5aad63f357e63a8f6ecc20", null ],
     [ "addtag_above", "structcpptkinter_1_1Canvas.html#a673c192bdb83087cad2dd7df8229de3a", null ],
@@ -14,7 +15,7 @@ var structcpptkinter_1_1Canvas =
     [ "addtag_enclosed", "structcpptkinter_1_1Canvas.html#afc8ee5b7325b9370df32cebc515d77f3", null ],
     [ "addtag_overlapping", "structcpptkinter_1_1Canvas.html#a617b75aa9036f214ba96b66e146d8cab", null ],
     [ "addtag_withtag", "structcpptkinter_1_1Canvas.html#ab0f0220f22b3415209a5fd4fb5d75e1d", null ],
-    [ "bbox", "structcpptkinter_1_1Canvas.html#a56af180e8dfacf2fe6d0f13091a6a989", null ],
+    [ "bbox", "structcpptkinter_1_1Canvas.html#ae313eee189d9c5870a6677f8dafdf9fd", null ],
     [ "canvasx", "structcpptkinter_1_1Canvas.html#a585fd818adb75228612b2c7af62c6aaa", null ],
     [ "canvasy", "structcpptkinter_1_1Canvas.html#a85e99a2d712dc726b7f71ab79a13c8c4", null ],
     [ "coords", "structcpptkinter_1_1Canvas.html#a8c1ce6080e73d94ff511613fd75bf752", null ],
