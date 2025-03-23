@@ -8,6 +8,11 @@ export module cpptkinter:utility;
 import std;
 import hhh;
 
+export namespace cpptkinter
+{
+    class Misc;
+}
+
 namespace cpptkinter::utility::detail
 {
     template<typename T>
@@ -58,6 +63,39 @@ namespace cpptkinter::utility::detail
     struct union_arg_overload : union_arg_overload_base<Args>...
     {
         using union_arg_overload_base<Args>::operator()...;
+    };
+
+    /// @brief Befriended by all widget classes.
+    /// 
+	/// Used to implement many utility functions that require access to private/protected widget members.
+    struct widget_friend
+    {
+		template<typename T>
+		using impl_type = typename T::impl;
+
+        template<typename T>
+        static const auto& get_widget_pimpl(const T& widget)
+        {
+			return widget.pimpl;
+        }
+
+		template<typename T>
+        static T construct_widget_from_weak_pimpl(const std::weak_ptr<typename T::impl>& pimpl)
+        {
+            return std::shared_ptr(pimpl);
+        }
+
+        template<typename To, typename From>
+        static To static_widget_cast_down(const From& from) requires requires { static_cast<typename To::impl*>(from.pimpl.get()); }
+        {
+            return std::static_pointer_cast<typename To::impl>(from.pimpl);
+        }
+
+        template<typename To, typename From>
+        static To dynamic_widget_cast_down(const From& from) requires requires { dynamic_cast<typename To::impl*>(from.pimpl.get()); }
+        {
+            return std::dynamic_pointer_cast<typename To::impl>(from.pimpl);
+        }
     };
 }
 
@@ -160,23 +198,24 @@ export namespace cpptkinter::utility
 	/// @brief A weak reference to a widget.
     ///
 	/// Holds a weak reference to a widget of type T (e.g. Tk, Button, etc.). Basically works like std::weak_ptr.
-    template<typename T>
+    template<std::derived_from<Misc> T>
     class weak
     {
-        std::weak_ptr<typename T::impl> pimpl;
+		using impl_type = typename detail::widget_friend::impl_type<T>;
+        std::weak_ptr<impl_type> pimpl;
     public:
         weak() = default;
-        weak(const T& obj) : pimpl(std::static_pointer_cast<typename T::impl>(obj.pimpl))
+        weak(const T& obj) : pimpl(std::static_pointer_cast<impl_type>(detail::widget_friend::get_widget_pimpl(obj)))
         {
 
         }
 
 		/// @brief Creates a strong reference to the widget.
         /// 
-		/// Eequivalent to std::weak_ptr::lock except that this function throws if the widget has already been destroyed.
+		/// Equivalent to std::weak_ptr::lock except that this function throws if the widget has already been destroyed.
         T lock() const
         {
-            return std::shared_ptr(pimpl);
+            return detail::widget_friend::construct_widget_from_weak_pimpl<T>(this->pimpl);
         }
         bool expired() const noexcept
         {
@@ -340,6 +379,20 @@ export namespace cpptkinter::utility
 
 	template<typename T, typename...Args>
 	concept union_arg = requires(T&& t) { to_union_arg<Args...>(std::forward<T>(t)); };
+
+    /// @brief static_cast a widget to a child (or base) class.
+    template<std::derived_from<Misc> To, std::derived_from<Misc> From>
+    To static_widget_cast(const From& from) requires requires { detail::widget_friend::static_widget_cast_down<To>(from); }
+    {
+        return detail::widget_friend::static_widget_cast_down<To>(from);
+    }
+
+    /// @brief dynamic_cast a widget to a child (or base) class.
+    template<std::derived_from<Misc> To, std::derived_from<Misc> From>
+    To dynamic_widget_cast(const From& from) requires requires { detail::widget_friend::dynamic_widget_cast_down<To>(from); }
+    {
+        return detail::widget_friend::dynamic_widget_cast_down<To>(from);
+    }
 }
 
 template<typename T>

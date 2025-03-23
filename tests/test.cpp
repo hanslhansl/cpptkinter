@@ -9,10 +9,74 @@ using namespace hhh;
 namespace tk = cpptkinter;
 
 
-/*
-to-do
 
-*/
+class MainFrame : public tk::Frame
+{
+    static tk::Canvas create_canvas(const tk::Misc& root)
+    {
+        // Create outer frame to hold canvas + scrollbars
+        auto outer_frame = tk::Frame({ root });
+        outer_frame.pack({ .expand = true, .fill = "both" });
+
+        // Create a canvas
+        auto canvas = tk::Canvas({ outer_frame });
+
+        // Add a vertical scrollbar to the canvas
+        auto v_scrollbar = tk::Scrollbar({ .master = outer_frame, .command = canvas.yview, .orient = "vertical" });
+
+        // Add a horizontal scrollbar to the canvas
+        auto h_scrollbar = tk::Scrollbar({ .master = outer_frame, .command = canvas.xview, .orient = "horizontal" });
+
+        h_scrollbar.pack({ .fill = "x", .side = "bottom" });
+        canvas.pack({ .expand = true, .fill = "both", .side = "left" });
+        v_scrollbar.pack({ .fill = "y", .side = "right" });
+
+        // Configure the canvas to work with the scrollbars
+        canvas["yscrollcommand"] = v_scrollbar.set;
+        canvas["xscrollcommand"] = h_scrollbar.set;
+
+        return canvas;
+    }
+
+    MainFrame(tk::Canvas canvas, int) : tk::Frame({ canvas })
+    {
+        auto&& scrollable_frame = *this;
+
+        // Add the frame to the canvas's window
+        auto canvas_window = canvas.create_window(0, 0, { .anchor = "nw", .window = scrollable_frame });
+
+        // Configure scrolling
+        auto on_frame_configure = [=](tk::Event event) {
+            canvas["scrollregion"] = canvas.bbox("all");
+            //canvas.itemconfig(canvas_window, width=scrollable_frame.winfo_reqwidth())
+            };
+        scrollable_frame.bind("<Configure>", on_frame_configure);
+
+        auto on_canvas_resize = [](tk::Event event) {
+            //canvas.itemconfig(canvas_window, width = event.width);
+            };
+        canvas.bind("<Configure>", on_canvas_resize);
+
+        // Enable scrolling with the mouse wheel (Windows/Linux)
+        auto _on_mouse_wheel = [=](tk::Event event) {
+            canvas.yview_scroll(-1 * (event.delta / 120), "units");
+            };
+
+        auto _on_shift_mouse_wheel = [=](tk::Event event) {
+			canvas.xview_scroll(-1 * (event.delta / 120), "units");
+            };
+
+        canvas.bind_all("<MouseWheel>", _on_mouse_wheel);
+        canvas.bind_all("<Shift-MouseWheel>", _on_shift_mouse_wheel);
+    }
+
+public:
+    MainFrame(const tk::Misc& master) : MainFrame(create_canvas(master), 0)
+    {
+
+    }
+};
+
 
 int main(int argc, char* argv[])
 {
@@ -22,16 +86,15 @@ int main(int argc, char* argv[])
 
     try
     {
-        tk::init(argc, argv);
+        tk::init(argv[0]);
 
         auto root = tk::Tk();
         wroot = root;
 
         root.title("Welcome to GeeksForGeeks");
-        root.geometry("700x500");
+        //root.geometry("700x500");
 
-
-		auto donothing = [&]() { misc::printl("do_nothing was called"); };
+        /*auto donothing = [&]() { misc::printl("do_nothing was called"); };
 
         auto menubar = tk::Menu({ root });
         auto filemenu = tk::Menu({ .master = menubar, .tearoff = 0 });
@@ -74,8 +137,8 @@ int main(int argc, char* argv[])
             .textvariable = var });
         b1.grid({ .column = 0, .row = 0 });
 
-		auto frame = tk::Frame({ .master = root, .bg = "red", .padx = 5, });
-		frame.grid({ .column = 1, .row = 1 });
+        auto frame = tk::Frame({ .master = root, .bg = "red", .padx = 5, });
+        frame.grid({ .column = 1, .row = 1 });
 
         auto b2 = tk::Button({ .master = frame, .text = "other b" });
         b2["command"] = [&]() { b2["text"] = "bar"; };
@@ -93,7 +156,7 @@ int main(int argc, char* argv[])
         auto submit_button = tk::Button({ .master = root, .command = print_answers, .text = "Submit" });
         submit_button.grid();
 
-		auto check1 = tk::Checkbutton({ .master = root, .offvalue = 0, .onvalue = 1, .text = "Check 1", .tristatevalue = -1 });
+        auto check1 = tk::Checkbutton({ .master = root, .offvalue = 0, .onvalue = 1, .text = "Check 1", .tristatevalue = -1 });
         auto toggle_checkbutton = [](tk::Event event) {
             auto&& checkbutton = event.widget;
             auto varname = checkbutton.cget<std::string>("variable");
@@ -131,7 +194,13 @@ int main(int argc, char* argv[])
             auto b = tk::Button({ .master = text, .command = [i]() { misc::printl("button ", i); }, .text = std::to_string(i) });
             text.window_create({ .index="end", .window = b });
             text.insert("end", "\n");
-        }
+        }*/
+
+        
+        auto scrollable_frame = MainFrame(root);
+
+        for (auto i = 0; i < 50; i++)
+            tk::Label({ .master = scrollable_frame, .text = std::format("Label {}", i + 1) }).pack({ .anchor = "w" });
 
         tk::mainloop();
     }

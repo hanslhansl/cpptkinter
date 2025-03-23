@@ -171,11 +171,6 @@ export namespace cpptkinter::_cpptkinter::detail
 			throw construct_exception<std::runtime_error>("tcl_library must be specified with tkinter::init because");
 	}
 
-	/// Set by cpptkinter::init()
-	int argc;
-	/// Set by cpptkinter::init()
-	char** argv;
-
 	void log_error(const std::string& message, const std::source_location location = std::source_location::current())
 	{
 		std::cerr << "file: "
@@ -504,7 +499,7 @@ export namespace cpptkinter::_cpptkinter
 		return TCL_OK;
 	}
 
-	void init(const std::string& tcl_library)
+	void init(const std::string& executable_path, const std::string& tcl_library)
 	{
 		DEVIATING_IMPLEMENTATION_WARNING("original is called PyInit__tkinter");
 
@@ -513,32 +508,24 @@ export namespace cpptkinter::_cpptkinter
 
 		tcl_lock.emplace();
 
-		auto uexe = detail::argv[0];
-		if (uexe)
-		{
-			auto cexe = uexe;
-			if (cexe)
-			{
 #ifdef _WIN32
-				bool set_var = false;
-				if constexpr (!TCL_CORE_LIBRARY_IS_EMBEDDED)
-				{
-					DWORD ret = GetEnvironmentVariableA("TCL_LIBRARY", NULL, 0);
-					if (!ret && GetLastError() == ERROR_ENVVAR_NOT_FOUND) {
-						auto str_path = detail::_get_tcl_lib_path();
-						SetEnvironmentVariableA("TCL_LIBRARY", str_path.data());
-						set_var = true;
-					}
-				}
-				Tcl_FindExecutable(cexe);
-
-				if (set_var)
-					SetEnvironmentVariableW(L"TCL_LIBRARY", NULL);
-#else
-				Tcl_FindExecutable(PyBytes_AS_STRING(cexe));
-#endif	// _WIN32
+		bool set_var = false;
+		if constexpr (!TCL_CORE_LIBRARY_IS_EMBEDDED)
+		{
+			DWORD ret = GetEnvironmentVariableA("TCL_LIBRARY", NULL, 0);
+			if (!ret && GetLastError() == ERROR_ENVVAR_NOT_FOUND) {
+				auto str_path = detail::_get_tcl_lib_path();
+				SetEnvironmentVariableA("TCL_LIBRARY", str_path.data());
+				set_var = true;
 			}
 		}
+		Tcl_FindExecutable(executable_path.data());
+
+		if (set_var)
+			SetEnvironmentVariableW(L"TCL_LIBRARY", NULL);
+#else
+		Tcl_FindExecutable(executable_path.data());
+#endif	// _WIN32
 	}
 
 	int Tcl_EvalObjv(Tcl_Interp* interp, const std::vector<Tcl_Obj>& objects, int flags)
@@ -599,8 +586,7 @@ export namespace cpptkinter::_cpptkinter
 	}
 	int WaitForMainloop(TkappObject* self);
 
-	std::shared_ptr<TkappObject> create(const std::string& screenName = {}, const std::string& baseName = {}, const std::string& className = "Tk",
-		bool interactive = false, bool wantTk = true, bool sync = false, const std::string& use = "")
+	std::shared_ptr<TkappObject> create(const std::string& screenName, const std::string& className, bool interactive, bool wantTk, bool sync, const std::string& use)
 	{
 		return std::make_shared<TkappObject>(screenName, className, interactive, wantTk, sync, use);
 	}

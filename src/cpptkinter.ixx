@@ -24,16 +24,24 @@ using namespace std::literals;
         std::destroy_at(this); \
         return *std::construct_at(this, other); \
     }
-#define CNF_CONSTRUCTOR_AND_ASSIGNMENT(cl, cnf_type, str, base) \
+
+#define IMPL_CTOR(cl, base) friend utility::detail::widget_friend; \
+    template<std::derived_from<impl> I> cl(const std::shared_ptr<I>& pimpl) : base(pimpl) { }
+#define CNF_CONSTRUCTOR(cl, cnf_type, str) \
     using constructor_cnf = cnf_type;   \
+    cl() : cl(constructor_cnf{}) { }    \
     template<cnfs::is_cnf CNF = constructor_cnf> \
     cl(CNF&& cnf = {}) : cl(std::make_shared<impl>()) \
     {   \
         this->_init_(str, std::forward<CNF>(cnf));  \
-    }   \
-    cl() : cl(constructor_cnf{}) { }   \
-    DEFINE_ASSIGNMENT_OPERATOR(cl)   \
-    using base::base
+    }
+
+#define CONSTRUCTORS_AND_ASSIGNMENT(cl, cnf_type, str, base) \
+    protected:  \
+    IMPL_CTOR(cl, base) \
+    public: \
+    CNF_CONSTRUCTOR(cl, cnf_type, str)   \
+    DEFINE_ASSIGNMENT_OPERATOR(cl)
 
 using substitute_long_long = const std::variant<long long, std::string>&;
 #define MISC_SUBSTITUTE_PARAMETERS  const std::string& nsign, substitute_long_long b, substitute_long_long f, substitute_long_long h, substitute_long_long k, const std::string& s, \
@@ -67,6 +75,7 @@ export namespace cpptkinter
 
     class Variable;
     class Tk;
+    class Misc;
     struct Image;
 
     const auto TkVersion = std::atof(_cpptkinter::TK_VERSION.data());
@@ -352,7 +361,62 @@ export namespace cpptkinter
 		MouseWheel = 38
     };
 
-    struct Event;
+    namespace detail
+    {
+        template<std::derived_from<Misc> T>
+        struct Event
+        {
+            /// serial number of event
+            long long serial;
+            /// mouse button pressed(ButtonPress, ButtonRelease)
+            long long num;
+            /// whether the window has the focus (Enter, Leave), if invalid: false
+            bool focus;
+            /// height of the exposed window (Configure, Expose)
+            long long height;
+            /// width of the exposed window (Configure, Expose)
+            long long width;
+            /// keycode of the pressed key (KeyPress, KeyRelease)
+            long long keycode;
+            /// state of the event as a number (ButtonPress, ButtonRelease, Enter, KeyPress, KeyRelease, Leave, Motion) or as a string (Visibility)
+            std::variant<long long, std::string> state;
+            /// when the event occurred
+            long long time;
+            /// x - position of the mouse
+            long long x;
+            /// y - position of the mouse
+            long long y;
+            /// x - position of the mouse on the screen (ButtonPress, ButtonRelease, KeyPress, KeyRelease, Motion)
+            long long x_root;
+            /// y - position of the mouse on the screen (ButtonPress, ButtonRelease, KeyPress, KeyRelease, Motion)
+            long long y_root;
+            /// pressed character (KeyPress, KeyRelease)
+            std::string char_;
+            /// see X / Windows documentation, if invalid: false
+            bool send_event;
+            /// keysym of the event as a string (KeyPress, KeyRelease)
+            std::string keysym;
+            /// keysym of the event as a number (KeyPress, KeyRelease)
+            long long keysym_num;
+            /// type of the event as a number
+            EventType type;
+            /// widget in which the event occurred
+            T widget;
+            /// delta of wheel movement (MouseWheel)
+            long long delta;
+        };
+    }
+
+    /// @brief Container for the properties of an event.
+    /// 
+    /// Instances of this type are generated if one of the following events occurs:
+    /// 
+    /// KeyPress, KeyRelease - for keyboard events\n
+    /// ButtonPress, ButtonRelease, Motion, Enter, Leave, MouseWheel - for mouse events\n
+    /// Visibility, Unmap, Map, Expose, FocusIn, FocusOut, Circulate, Colormap, Gravity, Reparent, Property, Destroy, Activate, Deactivate - for window events
+    /// 
+    /// If a callback function for one of these events is registered using bind, bind_all, bind_class, or tag_bind, the callback is called with an Event as first argument.
+    using Event = detail::Event<Misc>;
 
     /// @brief Inhibit setting of default root window.
     /// 
@@ -366,15 +430,11 @@ export namespace cpptkinter
     /// @brief Initialize cpptkinter.
     /// 
     /// This function must be called before doing anything else.
-    /// @param argc: the first argument of startup function main().
-    /// @param argv: the second argument of startup function main().
-    /// @param tcl_library: Path to the Tcl library. Only used if TCL_CORE_LIBRARY_IS_EMBEDDED is false.
-    void init(int argc, char* argv[], const std::string& tcl_library = {})
+    /// @param executable_path: usually arg[0].
+    /// @param tcl_library: Path to the Tcl library. Necessary only used if TCL_CORE_LIBRARY_IS_EMBEDDED is false.
+    void init(const std::string& executable_path, const std::string& tcl_library = {})
     {
-        _cpptkinter::detail::argc = argc;
-        _cpptkinter::detail::argv = argv;
-
-        _cpptkinter::init(tcl_library);
+        _cpptkinter::init(executable_path, tcl_library);
     }
 
     /// @brief Provides functions for the communication with the window manager.
@@ -1023,11 +1083,10 @@ export namespace cpptkinter
         friend class BaseWidget;
         friend Variable;
         friend detail::Tk_impl;
-        template<typename T>
-        friend class utility::weak;
-        friend Tk detail::_get_default_root(const std::string&);
+        friend utility::detail::widget_friend;
 
     protected:
+    public:
         struct impl;
 
         std::shared_ptr<impl> pimpl;
@@ -1052,8 +1111,8 @@ export namespace cpptkinter
         {
 
         }
-    public:
 
+    public:
         DEFINE_ASSIGNMENT_OPERATOR(Misc);
 
         /// @brief Calls this->pimpl->destroy().
@@ -1067,6 +1126,22 @@ export namespace cpptkinter
             this->tk->deletecommand(name);
             this->_tclCommands.erase(name);
         }
+
+    protected:
+        Tk _root() const;
+
+    public:
+		/// @brief Return requested height of this widget.
+        long long winfo_reqheight()
+        {
+			return this->tk->template call<long long>("winfo", "reqheight", this->_w);
+        }
+
+		/// @brief Return requested width of this widget.
+		long long winfo_reqwidth()
+		{
+			return this->tk->template call<long long>("winfo", "reqwidth", this->_w);
+		}
 
         /// @brief Set the list of bindtags for this widget.
         /// 
@@ -1100,7 +1175,7 @@ export namespace cpptkinter
 		/// Implements the second if statement with sequence != None.
 		/// Creates a tcl command with func and binds it to sequence.
         /// @returns An identifier for the created tcl command.
-        template<std::invocable<Event> Func>
+		template<std::invocable<Event> Func>
         std::string _bind(const std::vector<std::string>& what, const std::string& sequence, Func&& func, bool add = false, bool needcleanup = true)
         {
 			auto funcid = this->_bind_if_2(std::forward<Func>(func), needcleanup);
@@ -1208,12 +1283,22 @@ export namespace cpptkinter
             this->deletecommand(funcid);
         }
 
+        /// @brief Bind to widgets with bindtag CLASSNAME at event SEQUENCE a call of function FUNC.
+        /// 
+        /// An additional boolean parameter ADD specifies whether FUNC will be called additionally to the other bound function or whether it will replace the previous function.
+        /// @see bind for the return value.
+        template<typename...Args>
+        auto bind_class(const std::string& className, Args&&...args) requires requires { this->_bind({}, std::forward<Args>(args)..., true); };
+
+        /// @brief Unbind for all widgets with bindtag CLASSNAME for event SEQUENCE all functions.
+        void unbind_class(const std::string& className, const std::string& sequence);
+
         /// @brief Bind to all widgets at an event SEQUENCE a call to function FUNC.
         /// 
         /// An additional boolean parameter ADD specifies whether FUNC will be called additionally to the other bound function or whether it will replace the previous function.
         /// @see bind for the return value.
         template<typename...Args>
-        auto bind_all(Args&&...args) requires requires { this->_bind({}, std::forward<Args>(args)..., true); }
+        auto bind_all(Args&&...args) requires requires { this->bind_class("", std::forward<Args>(args)...); }
         {
             return this->bind_class("all", std::forward<Args>(args)...);
         }
@@ -1223,16 +1308,6 @@ export namespace cpptkinter
         {
 			this->unbind_class("all", sequence);
         }
-
-        /// @brief Bind to widgets with bindtag CLASSNAME at event SEQUENCE a call of function FUNC.
-        /// 
-        /// An additional boolean parameter ADD specifies whether FUNC will be called additionally to the other bound function or whether it will replace the previous function.
-        /// @see bind for the return value.
-        template<typename...Args>
-        auto bind_class(const std::string& className, Args&&...args) requires requires { this->_bind({}, std::forward<Args>(args)..., true); };
-
-		/// @brief Unbind for all widgets with bindtag CLASSNAME for event SEQUENCE all functions.
-        void unbind_class(const std::string& className, const std::string& sequence);
 
         /// @brief Call the mainloop of Tk.
         void mainloop(int n = 0)
@@ -1316,13 +1391,94 @@ export namespace cpptkinter
             return name;
         }
 
-        Tk _root() const;
-
 		static constexpr std::array _subst_format = { "%#"sv, "%b"sv, "%f"sv, "%h"sv, "%k"sv, "%s"sv, "%t"sv, "%w"sv, "%x"sv, "%y"sv, "%A"sv,
             "%E"sv, "%K"sv, "%N"sv, "%W"sv, "%T"sv, "%X"sv, "%Y"sv, "%D"sv };
         static const inline std::string _subst_format_str = hhh::misc::join_strings(_subst_format, " ");
         /// @brief Internal function.
-        Event _substitute(MISC_SUBSTITUTE_PARAMETERS);
+        Event _substitute(MISC_SUBSTITUTE_PARAMETERS)
+        {
+            // print args
+
+            // [&](auto&...args) { (utility::visit_or_invoke([](auto& a) { std::println("{}", a); }, args), ...); }(MISC_SUBSTITUTE_ARGUMENTS);
+
+            static auto get_long_long = [](auto&& p, long long def = std::numeric_limits<long long>::min()) {
+
+                auto inner = [&]<typename T>(const T & arg)->long long {
+                    if constexpr (std::same_as<T, std::string>)
+                    {
+                        if (arg == "??")
+                            return def;
+
+                        try
+                        {
+                            return std::stoll(arg);
+                        }
+                        catch (const std::invalid_argument& e)
+                        {
+                            throw detail::construct_exception<std::runtime_error>(std::format("{} on argument {}", e.what(), arg));
+                        }
+                    }
+                    else
+                    {
+                        return arg;
+                    }
+                };
+
+                return utility::visit_or_invoke(inner, p);
+                };
+
+            static auto get_bool = [&]<typename T>(const T & p) {
+                auto ll = get_long_long(p, 0);
+                if (ll == 0)
+                    return false;
+                else if (ll == 1)
+                    return true;
+                else
+                    throw detail::construct_exception<std::runtime_error>(std::format("expected 0 or 1 but got {}", ll));
+            };
+
+            auto serial = get_long_long(nsign);
+            auto num = get_long_long(b);
+            auto focus = get_bool(f);
+            auto height = get_long_long(h);
+            auto width = get_long_long(w);
+            auto keycode = get_long_long(k);
+            auto state = get_long_long(s);
+            auto time = get_long_long(t);
+            auto x_ = get_long_long(x);
+            auto y_ = get_long_long(y);
+            auto x_root = get_long_long(X);
+            auto y_root = get_long_long(Y);
+            auto char_ = A;
+            auto send_event = get_bool(E);
+            auto keysym = K;
+            auto keysym_num = get_long_long(N);
+            auto type = EventType(get_long_long(T));
+            auto widget = this->nametowidget(W);
+            auto delta = get_long_long(D, 0);
+
+            return {
+                    serial,
+                    num,
+                    focus,
+                    height,
+                    width,
+                    keycode,
+                    state,
+                    time,
+                    x_,
+                    y_,
+                    x_root,
+                    y_root,
+                    char_,
+                    send_event,
+                    keysym,
+                    keysym_num,
+                    type,
+                    widget,
+                    delta
+            };
+        }
 
         void _report_exception();
 
@@ -1738,57 +1894,6 @@ export namespace cpptkinter
         }
     };
 
-    /// @brief Container for the properties of an event.
-    /// 
-    /// Instances of this type are generated if one of the following events occurs:
-    /// 
-    /// KeyPress, KeyRelease - for keyboard events\n
-    /// ButtonPress, ButtonRelease, Motion, Enter, Leave, MouseWheel - for mouse events\n
-    /// Visibility, Unmap, Map, Expose, FocusIn, FocusOut, Circulate, Colormap, Gravity, Reparent, Property, Destroy, Activate, Deactivate - for window events
-    /// 
-    /// If a callback function for one of these events is registered using bind, bind_all, bind_class, or tag_bind, the callback is called with an Event as first argument.
-    struct Event
-    {
-        /// serial number of event
-        long long serial;
-        /// mouse button pressed(ButtonPress, ButtonRelease)
-        long long num;
-        /// whether the window has the focus (Enter, Leave), if invalid: false
-        bool focus;
-        /// height of the exposed window (Configure, Expose)
-        long long height;
-        /// width of the exposed window (Configure, Expose)
-        long long width;
-        /// keycode of the pressed key (KeyPress, KeyRelease)
-        long long keycode;
-        /// state of the event as a number (ButtonPress, ButtonRelease, Enter, KeyPress, KeyRelease, Leave, Motion) or as a string (Visibility)
-        std::variant<long long, std::string> state;
-        /// when the event occurred
-        long long time;
-        /// x - position of the mouse
-        long long x;
-        /// y - position of the mouse
-        long long y;
-        /// x - position of the mouse on the screen (ButtonPress, ButtonRelease, KeyPress, KeyRelease, Motion)
-        long long x_root;
-        /// y - position of the mouse on the screen (ButtonPress, ButtonRelease, KeyPress, KeyRelease, Motion)
-        long long y_root;
-        /// pressed character (KeyPress, KeyRelease)
-        std::string char_;
-        /// see X / Windows documentation, if invalid: false
-        bool send_event;
-        /// keysym of the event as a string (KeyPress, KeyRelease)
-        std::string keysym;
-        /// keysym of the event as a number (KeyPress, KeyRelease)
-        long long keysym_num;
-        /// type of the event as a number
-        EventType type;
-        /// widget in which the event occurred
-        Misc widget;
-        /// delta of wheel movement (MouseWheel)
-        long long delta;
-    };
-
     /// @brief Mix-in class for querying and changing the horizontal position of a widget's window.
     /// 
 	/// Implemented as crtp to enable the use of utility::member_functor.
@@ -1813,15 +1918,15 @@ export namespace cpptkinter
         xview{ *static_cast<Self*>(this)->pimpl };
 
         /// @brief Adjusts the view in the window so that FRACTION of the total width of the canvas is off - screen to the left.
-        void xview_moveto(double fraction)
+        void xview_moveto(double fraction) const
         {
-            static_cast<Self*>(this)->tk->call(static_cast<Self*>(this)->_w, "xview", "moveto", fraction);
+            static_cast<const Self*>(this)->tk->call(static_cast<const Self*>(this)->_w, "xview", "moveto", fraction);
         }
 
         /// @brief Shift the x-view according to NUMBER which is measured in "units" or "pages" (WHAT).
-        void xview_scroll(detail::screenunits_arg auto&& number, const std::string& what)
+        void xview_scroll(detail::screenunits_arg auto&& number, const std::string& what) const
         {
-            static_cast<Self*>(this)->tk->call(static_cast<Self*>(this)->_w, "xview", "scroll", detail::to_screenunits_arg(number), what);
+            static_cast<const Self*>(this)->tk->call(static_cast<const Self*>(this)->_w, "xview", "scroll", detail::to_screenunits_arg(number), what);
         }
     };
 
@@ -1849,15 +1954,15 @@ export namespace cpptkinter
         yview{ *static_cast<Self*>(this)->pimpl };
 
         /// @brief Adjusts the view in the window so that FRACTION of the total height of the canvas is off - screen to the top.
-        void yview_moveto(double fraction)
+        void yview_moveto(double fraction) const
         {
-            static_cast<Self*>(this)->tk->call(static_cast<Self*>(this)->_w, "yview", "moveto", fraction);
+            static_cast<const Self*>(this)->tk->call(static_cast<const Self*>(this)->_w, "yview", "moveto", fraction);
         }
 
         /// @brief Shift the y-view according to NUMBER which is measured in "units" or "pages" (WHAT).
-        void yview_scroll(detail::screenunits_arg auto&& number, const std::string& what)
+        void yview_scroll(detail::screenunits_arg auto&& number, const std::string& what) const
         {
-            static_cast<Self*>(this)->tk->call(static_cast<Self*>(this)->_w, "yview", "scroll", detail::to_screenunits_arg(number), what);
+            static_cast<const Self*>(this)->tk->call(static_cast<const Self*>(this)->_w, "yview", "scroll", detail::to_screenunits_arg(number), what);
         }
     };
 
@@ -1910,29 +2015,26 @@ export namespace cpptkinter
     {
         friend Wm;
         friend Misc;
-        template<typename T>
-        friend class utility::weak;
         friend Tk detail::_get_default_root(const std::string&);
 
     protected:
         using impl = detail::Tk_impl;
         REF_TO_IMPL(_tkloaded);
 
-        void _init_(const std::string& screenName, const std::string& baseName_, const std::string& className, bool useTk, bool sync, const std::string& use)
+        void _init_(const std::string& screenName, const std::string& className, bool useTk, bool sync, const std::string& use)
         {
             this->_w = ".";
 
-            auto baseName = baseName_.empty() ? std::filesystem::path(_cpptkinter::detail::argv[0]).string() : baseName_;
             auto interactive = false;
-            this->tk = _cpptkinter::create(screenName, baseName, className, interactive, useTk, sync, use);
+            this->tk = _cpptkinter::create(screenName, className, interactive, useTk, sync, use);
             if (detail::_debug)
                 this->tk->settrace(detail::_print_command);
             if (useTk)
                 this->_loadtk();
-            this->readprofile(baseName, className);
+            this->readprofile(className);
         }
 
-        using Misc::Misc;
+        IMPL_CTOR(Tk, Misc);
     public:
         DEFINE_ASSIGNMENT_OPERATOR(Tk);
 
@@ -1943,10 +2045,9 @@ export namespace cpptkinter
         /// It is constructed from @ref detail::argv[0] without extensions if none is given.
         /// @param className is the name of the widget class.
         /// @return A shared pointer to the newly created detail::Tk object.
-        Tk(const std::string& screenName = {}, const std::string& baseName = {}, const std::string& className = "Tk", bool useTk = true, bool sync = false, const std::string& use = {}) :
-            Tk(std::make_shared<impl>())
+        Tk(const std::string& screenName = {}, const std::string& className = "Tk", bool useTk = true, bool sync = false, const std::string& use = {}) : Tk(std::make_shared<impl>())
         {
-            this->_init_(screenName, baseName, className, useTk, sync, use);
+            this->_init_(screenName, className, useTk, sync, use);
         }
 
         void loadtk()
@@ -2005,7 +2106,7 @@ export namespace cpptkinter
         /// @brief Internal function.
         /// 
         /// It reads .BASENAME.tcl and .CLASSNAME.tcl into the Tcl Interpreter.
-        void readprofile(const std::string& baseName, const std::string& className)
+        void readprofile(const std::string& className)
         {
             auto _home = std::getenv("HOME");
             std::string home = _home != nullptr ? _home : ".";
@@ -2035,9 +2136,9 @@ export namespace cpptkinter
         void __getattr__() = delete;
     };
 
-    Tk Tcl(const std::string& screenName = {}, const std::string& baseName = {}, const std::string& className = "Tk", bool useTk = true)
+    Tk Tcl(const std::string& screenName = {}, const std::string& className = "Tk", bool useTk = true)
     {
-        return Tk(screenName, baseName, className, useTk);
+        return Tk(screenName, className, useTk);
     }
 
     void mainloop(int n = 0)
@@ -2539,9 +2640,6 @@ export namespace cpptkinter
     /// @brief Internal class.
     class BaseWidget : public Misc
     {
-        template<typename T>
-        friend class utility::weak;
-
     protected:
         struct impl : Misc::impl
         {
@@ -2567,7 +2665,8 @@ export namespace cpptkinter
     protected:
         REF_TO_IMPL(_name);
 
-        using Misc::Misc;
+        IMPL_CTOR(BaseWidget, Misc);
+        DEFINE_ASSIGNMENT_OPERATOR(BaseWidget)
 
         /// @brief Internal function. Sets up information about children.
         ///
@@ -2649,7 +2748,9 @@ export namespace cpptkinter
     /// Base class for a widget which can be positioned with the geometry managers Pack, Place or Grid.
     struct Widget : BaseWidget, Pack, Grid, Place
     {
-        using BaseWidget::BaseWidget;
+    protected:
+        IMPL_CTOR(Widget, BaseWidget);
+    public:
 
         /// @brief Exists only to make reflect work.
         Widget() : BaseWidget(std::make_shared<impl>()) { ANNOTATION_WARNING("Exists only to make reflect work."); }
@@ -2891,7 +2992,7 @@ export namespace cpptkinter
         friend class OptionMenu;
 
         /// @brief Construct a menu widget.
-        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Menu, cnfs::Menu, "menu", Widget);
+        CONSTRUCTORS_AND_ASSIGNMENT(Menu, cnfs::Menu, "menu", Widget);
 
         /// @brief Post the menu at position X,Y.
         void tk_popup(long long x, long long y)
@@ -3205,7 +3306,7 @@ export namespace cpptkinter
         }
     public:
         /// @brief Create a new Toplevel widget.
-        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Toplevel, cnfs::Toplevel, "toplevel", BaseWidget);
+        CONSTRUCTORS_AND_ASSIGNMENT(Toplevel, cnfs::Toplevel, "toplevel", BaseWidget);
     };
 
     namespace cnfs
@@ -3260,7 +3361,7 @@ export namespace cpptkinter
     struct Button : Widget
     {
         /// @brief Construct a new Button widget.
-        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Button, cnfs::Button, "button", Widget);
+        CONSTRUCTORS_AND_ASSIGNMENT(Button, cnfs::Button, "button", Widget);
 
         /// @brief Flash the button.
         /// 
@@ -3390,7 +3491,7 @@ export namespace cpptkinter
     struct Canvas : Widget, XView<Canvas>, YView<Canvas>
     {
         /// @brief Construct a canvas widget.
-        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Canvas, cnfs::Canvas, "canvas", Widget);
+        CONSTRUCTORS_AND_ASSIGNMENT(Canvas, cnfs::Canvas, "canvas", Widget);
 
     private:
 		/// @brief Internal function.
@@ -3459,7 +3560,7 @@ export namespace cpptkinter
         }
 
         /// @brief Return a tuple of X1,Y1,X2,Y2 coordinates for a rectangle which encloses all items with tags specified as arguments.
-        std::array<long long, 4> bbox(detail::tag_or_id_arg auto&&...args)
+        std::array<long long, 4> bbox(detail::tag_or_id_arg auto&&...args) const
         {
 			return this->tk->call<std::array<long long, 4>>(this->_w, "bbox", detail::to_tag_or_id_arg_arg(args)...);
         }
@@ -3646,7 +3747,7 @@ export namespace cpptkinter
 
     public:
         /// @brief Construct a new Button widget.
-        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Checkbutton, cnfs::Checkbutton<long long>, "checkbutton", Widget);
+        CONSTRUCTORS_AND_ASSIGNMENT(Checkbutton, cnfs::Checkbutton<long long>, "checkbutton", Widget);
 
         /// @brief Put the button in off-state.
         void deselect()
@@ -3690,7 +3791,7 @@ export namespace cpptkinter
         using value_type = T;
 
         /// @brief Construct a new TypedCheckbutton widget.
-        CNF_CONSTRUCTOR_AND_ASSIGNMENT(TypedCheckbutton, cnfs::Checkbutton<value_type>, "radiobutton", Checkbutton);
+        CONSTRUCTORS_AND_ASSIGNMENT(TypedCheckbutton, cnfs::Checkbutton<value_type>, "radiobutton", Checkbutton);
     };
 
     namespace cnfs
@@ -3746,7 +3847,7 @@ export namespace cpptkinter
     struct Entry : Widget, XView<Entry>
     {
         /// @brief Construct a new Entry widget.
-        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Entry, cnfs::Entry, "entry", Widget);
+        CONSTRUCTORS_AND_ASSIGNMENT(Entry, cnfs::Entry, "entry", Widget);
 
         /// @brief Delete a character.
         void delete_(detail::index auto&& index)
@@ -3920,7 +4021,7 @@ export namespace cpptkinter
 
     public:
         /// @brief Construct a frame widget.
-        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Frame, cnfs::Frame, "frame", Widget);
+        CONSTRUCTORS_AND_ASSIGNMENT(Frame, cnfs::Frame, "frame", Widget);
     };
 
     namespace cnfs
@@ -3968,7 +4069,7 @@ export namespace cpptkinter
     struct Label : Widget
     {
         /// @brief Construct a label widget.
-        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Label, cnfs::Label, "label", Widget);
+        CONSTRUCTORS_AND_ASSIGNMENT(Label, cnfs::Label, "label", Widget);
     };
 
     namespace cnfs
@@ -4025,7 +4126,7 @@ export namespace cpptkinter
     struct Listbox : Widget
     {
         /// @brief Construct a listbox widget.
-        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Listbox, cnfs::Listbox, "listbox", Widget);
+        CONSTRUCTORS_AND_ASSIGNMENT(Listbox, cnfs::Listbox, "listbox", Widget);
 
         /// @brief Activate item identified by INDEX.
         void activate(detail::index auto&& index)
@@ -4259,7 +4360,7 @@ export namespace cpptkinter
         using value_type = T;
 
         /// @brief Construct a new TypedListbox widget.
-        CNF_CONSTRUCTOR_AND_ASSIGNMENT(TypedListbox, cnfs::Listbox, "listbox", Listbox);
+        CONSTRUCTORS_AND_ASSIGNMENT(TypedListbox, cnfs::Listbox, "listbox", Listbox);
 
         /// @copydoc Listbox::get(const detail::index auto&)
         value_type get(detail::index auto&& index)
@@ -4332,7 +4433,7 @@ export namespace cpptkinter
     struct Menubutton : Widget
     {
         /// @brief Construct a menubutton widget.
-        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Menubutton, cnfs::Menubutton, "menubutton", Widget);
+        CONSTRUCTORS_AND_ASSIGNMENT(Menubutton, cnfs::Menubutton, "menubutton", Widget);
     };
 
     /// @brief %Message widget to display multiline text. Obsolete since Label does it too.
@@ -4394,7 +4495,7 @@ export namespace cpptkinter
     struct Radiobutton : Widget
     {
         /// @brief Construct a radiobutton widget.
-        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Radiobutton, cnfs::Radiobutton<long long>, "radiobutton", Widget);
+        CONSTRUCTORS_AND_ASSIGNMENT(Radiobutton, cnfs::Radiobutton<long long>, "radiobutton", Widget);
 
         /// @brief Put the button in off-state.
         void deselect()
@@ -4432,7 +4533,7 @@ export namespace cpptkinter
         using value_type = T;
 
         /// @brief Construct a new TypedRadiobutton widget.
-        CNF_CONSTRUCTOR_AND_ASSIGNMENT(TypedRadiobutton, cnfs::Radiobutton<T>, "radiobutton", Button);
+        CONSTRUCTORS_AND_ASSIGNMENT(TypedRadiobutton, cnfs::Radiobutton<T>, "radiobutton", Button);
     };
 
     namespace cnfs
@@ -4483,7 +4584,7 @@ export namespace cpptkinter
     struct Scale : Widget
     {
         /// @brief Construct a scale widget.
-        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Scale, cnfs::Scale, "scale", Widget);
+        CONSTRUCTORS_AND_ASSIGNMENT(Scale, cnfs::Scale, "scale", Widget);
 
         /// @brief Get the current value as integer or float.
         double get()
@@ -4550,7 +4651,7 @@ export namespace cpptkinter
     struct Scrollbar : Widget
     {
 		/// @brief Construct a scrollbar widget.
-		CNF_CONSTRUCTOR_AND_ASSIGNMENT(Scrollbar, cnfs::Scrollbar, "scrollbar", Widget);
+		CONSTRUCTORS_AND_ASSIGNMENT(Scrollbar, cnfs::Scrollbar, "scrollbar", Widget);
 
 		/// @brief Get the active element.
         /// 
@@ -4571,7 +4672,7 @@ export namespace cpptkinter
         /// @brief Return the fractional change of the scrollbar setting if it would be moved by DELTAX or DELTAY pixels.
         double delta(long long deltax, long long deltay)
         {
-			this->tk->call<double>(this->_w, "delta", deltax, deltay);
+			return this->tk->call<double>(this->_w, "delta", deltax, deltay);
         }
 
         /// @brief Return the fractional value which corresponds to a slider position of X, Y.
@@ -4830,7 +4931,7 @@ export namespace cpptkinter
     struct Text : Widget, XView<Text>, YView<Text>
     {
         /// @brief Construct a text widget.
-        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Text, cnfs::Text, "text", Widget);
+        CONSTRUCTORS_AND_ASSIGNMENT(Text, cnfs::Text, "text", Widget);
 
         /// @brief Return a tuple of (x, y, width, height) which gives the bounding box of the visible part of the character at the given index.
         std::array<long long, 4> bbox(detail::text_index auto&& index)
@@ -5367,8 +5468,6 @@ export namespace cpptkinter
     /// @brief %OptionMenu which allows the user to select a value from a menu.
     class OptionMenu : public Menubutton
     {
-        template<typename T>
-        friend class utility::weak;
     protected:
         struct impl : Menubutton::impl
         {
@@ -5411,7 +5510,7 @@ export namespace cpptkinter
             (*this)["menu"] = menu;
         }
 
-		using Menubutton::Menubutton;
+        IMPL_CTOR(OptionMenu, Menubutton);
     public:
         /// @brief Construct an optionmenu widget.
         OptionMenu(const Misc& master, const StringVar& variable, const detail::sized_range_of_string auto& values, const std::function<void(const StringVar&)>& command = {}) :
@@ -5678,7 +5777,7 @@ export namespace cpptkinter
     struct Spinbox : Widget
     {
         /// @brief Construct a spinbox widget.
-        CNF_CONSTRUCTOR_AND_ASSIGNMENT(Spinbox, cnfs::Spinbox, "spinbox", Widget);
+        CONSTRUCTORS_AND_ASSIGNMENT(Spinbox, cnfs::Spinbox, "spinbox", Widget);
 
         /// @brief Return a tuple of X1,Y1,X2,Y2 coordinates for a rectangle which encloses the character given by index.
         /// 
@@ -5863,7 +5962,7 @@ export namespace cpptkinter
     struct LabelFrame : Widget
     {
         /// @brief Construct a labelframe widget.
-        CNF_CONSTRUCTOR_AND_ASSIGNMENT(LabelFrame, cnfs::LabelFrame, "labelframe", Widget);
+        CONSTRUCTORS_AND_ASSIGNMENT(LabelFrame, cnfs::LabelFrame, "labelframe", Widget);
     };
 
     namespace cnfs
@@ -5931,7 +6030,7 @@ export namespace cpptkinter
     struct PanedWindow : Widget
     {
         /// @brief Construct a panedwindow widget.
-        CNF_CONSTRUCTOR_AND_ASSIGNMENT(PanedWindow, cnfs::PanedWindow, "panedwindow", Widget);
+        CONSTRUCTORS_AND_ASSIGNMENT(PanedWindow, cnfs::PanedWindow, "panedwindow", Widget);
 
         /// @brief Add a child widget to the panedwindow in a new pane.
         /// 
@@ -6172,95 +6271,11 @@ template<typename Func>
 std::string cpptkinter::Misc::_bind_if_2(Func&& func, bool needcleanup)
 {
     return this->_register(
-        [func = std::forward<Func>(func), self = utility::weak(*this)](MISC_SUBSTITUTE_PARAMETERS) { return func(self.lock()._substitute(MISC_SUBSTITUTE_ARGUMENTS)); },
+        [func = std::forward<Func>(func), self = utility::weak(*this)](MISC_SUBSTITUTE_PARAMETERS) {
+            return func(self.lock()._substitute(MISC_SUBSTITUTE_ARGUMENTS));
+        },
         needcleanup
     );
-}
-
-cpptkinter::Event cpptkinter::Misc::_substitute(MISC_SUBSTITUTE_PARAMETERS)
-{
-    // print args
-
-    // [&](auto&...args) { (utility::visit_or_invoke([](auto& a) { std::println("{}", a); }, args), ...); }(MISC_SUBSTITUTE_ARGUMENTS);
-
-    static auto get_long_long = [](auto&& p, long long def = std::numeric_limits<long long>::min()) {
-
-        auto inner = [&]<typename T>(const T & arg)->long long {
-            if constexpr (std::same_as<T, std::string>)
-            {
-                if (arg == "??")
-                    return def;
-
-                try
-                {
-                    return std::stoll(arg);
-                }
-                catch (const std::invalid_argument& e)
-                {
-                    throw detail::construct_exception<std::runtime_error>(std::format("{} on argument {}", e.what(), arg));
-                }
-            }
-            else
-            {
-                return arg;
-            }
-        };
-
-        return utility::visit_or_invoke(inner, p);
-    };
-
-    static auto get_bool = [&]<typename T>(const T & p) {
-        auto ll = get_long_long(p, 0);
-        if (ll == 0)
-            return false;
-        else if (ll == 1)
-            return true;
-        else
-            throw detail::construct_exception<std::runtime_error>(std::format("expected 0 or 1 but got {}", ll));
-    };
-
-    
-    auto serial = get_long_long(nsign);
-    auto num = get_long_long(b);
-    auto focus = get_bool(f);
-    auto height = get_long_long(h);
-    auto width = get_long_long(w);
-    auto keycode = get_long_long(k);
-    auto state = get_long_long(s);
-    auto time = get_long_long(t);
-    auto x_ = get_long_long(x);
-    auto y_ = get_long_long(y);
-    auto x_root = get_long_long(X);
-    auto y_root = get_long_long(Y);
-    auto char_ = A;
-    auto send_event = get_bool(E);
-    auto keysym = K;
-    auto keysym_num = get_long_long(N);
-    auto type = EventType(get_long_long(T));
-    auto widget = this->nametowidget(W);
-    auto delta = get_long_long(D, 0);
-
-    return {
-            serial,
-            num,
-            focus,
-            height,
-            width,
-            keycode,
-            state,
-            time,
-            x_,
-            y_,
-            x_root,
-            y_root,
-            char_,
-            send_event,
-            keysym,
-            keysym_num,
-            type,
-            widget,
-            delta
-    };
 }
 
 void cpptkinter::Misc::_report_exception()
