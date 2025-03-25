@@ -85,7 +85,7 @@
 /// Because the shared_ptr isn't exposed to the outside the library can guarantee that no reference ever points to null (solving problem 2).
 ///
 /// Problem 3 isn't solved as of yet.
-/// See [this issue](/../../issues/1) for further information.
+/// See [this issue](https://github.com/hanslhansl/cpptkinter/issues/1) for further information.
 /// `cpptkinter::utility::weak` provides a weak reference mechanism much like `std::weak_ptr` which can be used to break reference cycles.
 /// 
 /// @section converting converting objects from and to tcl
@@ -129,6 +129,9 @@
 /// Currently, the functors hold a simple reference to the impl struct. If this should ever lead to dangling references the functors can easily be adjusted to hold weak references instead.
 
 /// @page threads thread safety
+/// <div style="color: red; font-weight: bold;">Currently all mutexes/locks in cpptkinter are disabled.
+/// Therefor, cpptkinter is currently not thread-safe. The below documentation will apply again once cpptkinter's threading has been reviewed.
+/// See [this issue](https://github.com/hanslhansl/cpptkinter/issues/9).</div>
 /// In _tcl_ execution revolves around _interpreters_. _Tkinter_ adheres to this structure and so does _cpptkinter_.
 /// In _cpptkinter_ a _tcl_ interpreter is represented by an instance of `cpptkinter::Tk`.
 /// Every instance has its own _tcl_ interpreter.
@@ -235,12 +238,12 @@ namespace cpptkinter
 /// If Tcl is compiled for threads, we must also define TCL_THREAD. We define it always; if Tcl is not threaded, the thread functions in Tcl are empty.
 #define TCL_THREADS
 
-#define ENTER_TCL				{ auto _opt_mutex_adapter = utility::optional_mutex_adaptor(tcl_lock); auto _temp_tcl_lock = std::scoped_lock(_opt_mutex_adapter)
+#define ENTER_TCL				{ //auto _opt_mutex_adapter = utility::optional_mutex_adaptor(tcl_lock); auto _temp_tcl_lock = std::scoped_lock(_opt_mutex_adapter)
 #define LEAVE_TCL				}
 #define ENTER_OVERLAP			// nothing
 #define LEAVE_OVERLAP_TCL		}
 
-#define ENTER_PYTHON			{ auto _opt_inv_mutex_adapter = utility::optional_inverse_mutex_adaptor(tcl_lock); auto _temp_tcl_inv_lock = std::scoped_lock(_opt_inv_mutex_adapter)
+#define ENTER_PYTHON			{ //auto _opt_inv_mutex_adapter = utility::optional_inverse_mutex_adaptor(tcl_lock); auto _temp_tcl_inv_lock = std::scoped_lock(_opt_inv_mutex_adapter)
 #define LEAVE_PYTHON			}
 
 #define Py_BuildValue(fmt_str, ...) __VA_ARGS__

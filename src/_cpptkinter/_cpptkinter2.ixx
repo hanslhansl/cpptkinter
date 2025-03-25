@@ -426,7 +426,7 @@ export namespace cpptkinter::_cpptkinter
 			}
 			catch (...)
 			{
-				hhh::misc::printl("=================================================================>caught");
+				//hhh::misc::printl("=================================================================>caught");
 				errorInCmd = 1;
 				excInCmd = std::current_exception();
 			}
