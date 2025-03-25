@@ -1,20 +1,20 @@
 ﻿/// @file cpptkinter.ixx
 /// @brief Implements __init__.py.
-
 module;
-#include "global.hpp"
-#include <reflect/reflect.hpp>
+#include "../global.hpp"
 #include <range/v3/all.hpp>
 #undef TK_VERSION
 #undef TCL_VERSION
 export module cpptkinter;
 export import :constants;
+import :reflect;
 export import :utility;
 export import :_cpptkinter;
 import std;
 import hhh;
 
 using namespace std::literals;
+
 
 #define REF_TO_IMPL(member) decltype(impl::member)& member = static_cast<impl*>(this->pimpl.get())->member
 
@@ -25,7 +25,7 @@ using namespace std::literals;
         return *std::construct_at(this, other); \
     }
 
-#define IMPL_CTOR(cl, base) friend utility::detail::widget_friend; \
+#define IMPL_CTOR(cl, base) friend detail::widget_friend; \
     template<std::derived_from<impl> I> cl(const std::shared_ptr<I>& pimpl) : base(pimpl) { }
 #define CNF_CONSTRUCTOR(cl, cnf_type, str) \
     using constructor_cnf = cnf_type;   \
@@ -50,7 +50,6 @@ using substitute_long_long = const std::variant<long long, std::string>&;
                                     substitute_long_long D
 #define MISC_SUBSTITUTE_ARGUMENTS nsign, b, f, h, k, s, t, w, x, y, A, E, K, N, W, T, X, Y, D
 
-
 #if defined(__cpp_lib_ranges_stride) && defined(__cpp_lib_ranges_to_container) && defined(__cpp_lib_ranges) && defined(__cpp_lib_ranges_zip) && defined(__cpp_lib_ranges_join_with)
 using std::views::stride;
 using std::ranges::to;
@@ -65,13 +64,15 @@ using ranges::views::zip;
 using ranges::join_with_view;
 #endif
 
+/// @brief Implementation of the Python module tkinter in C++.
 export namespace cpptkinter
 {
-    using _cpptkinter::Tcl_Obj;
-
     using namespace constants;
 
+    using _cpptkinter::Tcl_Obj;
     using _cpptkinter::TclError;
+
+
 
     class Variable;
     class Tk;
@@ -91,8 +92,6 @@ export namespace cpptkinter
     /// This namespace contains implementation details of cpptkinter as well as the implementation of tkinter entities prefixed with an underscore (e.g. tk._print_command()).
     namespace detail
     {
-        using namespace _cpptkinter::detail;
-
         struct Tk_impl;
         template<typename W>
         struct set_get_proxy
@@ -187,7 +186,7 @@ export namespace cpptkinter
         /// Internal function. Calling it will throw std::runtime_error.
         void _exit()
         {
-            throw detail::construct_exception<std::runtime_error>("");
+            throw utility::construct_exception<std::runtime_error>("");
         }
 
         /// @brief Check if a weak_ptr is empty.
@@ -204,7 +203,7 @@ export namespace cpptkinter
         A _splitdict_to_aggregate(std::map<std::string, V>&& v, bool cut_minus = true, Conv&& conv = std::nullopt)
         {
             if (v.size() != reflect::size<A>())
-                throw detail::construct_exception<std::invalid_argument>(std::format("map has {} elements but type {} has {} members", v.size(), reflect::type_name<A>(), reflect::size<A>()));
+                throw utility::construct_exception<std::invalid_argument>(std::format("map has {} elements but type {} has {} members", v.size(), reflect::type_name<A>(), reflect::size<A>()));
 
             if (cut_minus)
             {
@@ -226,7 +225,7 @@ export namespace cpptkinter
                 auto key = /*rfl::fields<A>()[I].name()*/reflect::member_name<I, A>();
                 auto&& node = v.extract(std::string(key));
                 if (node.empty())
-                    throw detail::construct_exception<std::invalid_argument>(std::format("key '{}' not found", key));
+                    throw utility::construct_exception<std::invalid_argument>(std::format("key '{}' not found", key));
                 auto&& mapped = node.mapped();
 
                 if constexpr (std::same_as<Conv, const std::nullopt_t&>)
@@ -1068,7 +1067,7 @@ export namespace cpptkinter
     /// @brief Internal class.
     /// 
     /// Base class which defines methods common for interior widgets.
-    class Misc
+    class Misc : public utility::enable_operator_string_formatting
     {
         template<typename R, typename...Args>
         friend struct detail::CallWrapper;
@@ -1083,7 +1082,7 @@ export namespace cpptkinter
         friend class BaseWidget;
         friend Variable;
         friend detail::Tk_impl;
-        friend utility::detail::widget_friend;
+        friend detail::widget_friend;
 
     protected:
     public:
@@ -1363,9 +1362,9 @@ export namespace cpptkinter
         /// @brief Return the Tkinter instance of a widget identified by its Tcl name NAME.
         Misc nametowidget(std::string_view name);
         /// @brief Return the Tkinter instance of a widget.
-        Misc nametowidget(_cpptkinter::tk_window_type window)
+        Misc nametowidget(const _cpptkinter::tk_window_type& window)
         {
-            return this->nametowidget(window.to_string());
+            return this->nametowidget((std::string)window);
         }
 
     protected:
@@ -1415,7 +1414,7 @@ export namespace cpptkinter
                         }
                         catch (const std::invalid_argument& e)
                         {
-                            throw detail::construct_exception<std::runtime_error>(std::format("{} on argument {}", e.what(), arg));
+                            throw utility::construct_exception<std::runtime_error>(std::format("{} on argument {}", e.what(), arg));
                         }
                     }
                     else
@@ -1434,7 +1433,7 @@ export namespace cpptkinter
                 else if (ll == 1)
                     return true;
                 else
-                    throw detail::construct_exception<std::runtime_error>(std::format("expected 0 or 1 but got {}", ll));
+                    throw utility::construct_exception<std::runtime_error>(std::format("expected 0 or 1 but got {}", ll));
             };
 
             auto serial = get_long_long(nsign);
@@ -1562,7 +1561,7 @@ export namespace cpptkinter
         auto configure(this Self&& self, CNF&& cnf)
         {
             if (cnf.master.has_value())
-				throw detail::construct_exception<std::invalid_argument>("master cannot be set in configure");
+				throw utility::construct_exception<std::invalid_argument>("master cannot be set in configure");
             self._configure({ "configure" }, std::forward<CNF>(cnf), { "name" });
         }
         /// @brief Configure a resource of a widget.
@@ -1750,11 +1749,13 @@ export namespace cpptkinter
                 std::string, long long,
                 std::string, std::string,
                 std::string, long long>>("grid", command, this->_w, index);
+
             if (std::get<0>(temp) != "-minsize"
                 || std::get<2>(temp) != "-pad"
                 || std::get<4>(temp) != "-uniform"
                 || std::get<6>(temp) != "-weight")
-                throw detail::construct_exception<TclError>("unexpected return value " + utility::range_or_tuple_to_string(temp));
+                throw utility::construct_exception<TclError>("unexpected return value " + detail::format_tuple(temp));
+
             return { std::get<1>(temp), std::get<3>(temp), std::get<5>(temp), std::get<7>(temp) };
         }
     public:
@@ -2026,7 +2027,7 @@ export namespace cpptkinter
             this->_w = ".";
 
             auto interactive = false;
-            this->tk = _cpptkinter::create(screenName, className, interactive, useTk, sync, use);
+            this->tk = _cpptkinter::TkappObject::create(screenName, className, interactive, useTk, sync, use);
             if (detail::_debug)
                 this->tk->settrace(detail::_print_command);
             if (useTk)
@@ -2066,12 +2067,12 @@ export namespace cpptkinter
             // Version sanity checks
             auto tk_version = this->tk->getvar<std::string>("tk_version");
             if (tk_version != _cpptkinter::TK_VERSION)
-                throw detail::construct_exception<std::runtime_error>(std::format("tk.h version {} doesn't match libtk.a version {}", _cpptkinter::TK_VERSION, tk_version));
+                throw utility::construct_exception<std::runtime_error>(std::format("tk.h version {} doesn't match libtk.a version {}", _cpptkinter::TK_VERSION, tk_version));
 
             // Under unknown circumstances, tcl_version gets coerced to float
             auto tcl_version = this->tk->getvar<std::string>("tcl_version");
             if (tcl_version != _cpptkinter::TCL_VERSION)
-                throw detail::construct_exception<std::runtime_error>(std::format("tcl.h version {} doesn't match libtcl.a version {}", _cpptkinter::TCL_VERSION, tcl_version));
+                throw utility::construct_exception<std::runtime_error>(std::format("tcl.h version {} doesn't match libtcl.a version {}", _cpptkinter::TCL_VERSION, tcl_version));
 
             // Create and register the tkerror and exit commands. We need to parts of _register here, _ register would register differently-named commands.
             this->tk->createcommand("tkerror", detail::_tkerror);
@@ -2158,7 +2159,7 @@ export namespace cpptkinter
             auto map = self.tk->template call<std::map<std::string, V>>(a1, a2, a3);
 
             if (map.size() != reflect::size<T>())
-                throw detail::construct_exception<std::invalid_argument>(std::format("map has {} elements but type {} has {} members", map.size(), reflect::type_name<T>(), reflect::size<T>()));
+                throw utility::construct_exception<std::invalid_argument>(std::format("map has {} elements but type {} has {} members", map.size(), reflect::type_name<T>(), reflect::size<T>()));
 
             auto converter = [&self]<typename T2>(V&& v)->T2
             {
@@ -4171,9 +4172,9 @@ export namespace cpptkinter
                 else
                 {
                     if (std::get<std::string>(res).empty())
-                        throw detail::construct_exception<std::invalid_argument>(std::format("index {} was out of bounds", detail::to_index(index)));
+                        throw utility::construct_exception<std::invalid_argument>(std::format("index {} was out of bounds", detail::to_index(index)));
                     else
-                        throw detail::construct_exception<std::invalid_argument>(std::format("expected type {} but got std::string", reflect::type_name<R>()));
+                        throw utility::construct_exception<std::invalid_argument>(std::format("expected type {} but got std::string", reflect::type_name<R>()));
                 }
             }
         }
@@ -5456,6 +5457,11 @@ export namespace cpptkinter
             std::string _value;
             std::function<void(const StringVar&)> _callback;
 
+			_setit(StringVar var, std::string value, const std::function<void(const StringVar&)>& callback) : _var(std::move(var)), _value(std::move(value)), _callback(callback)
+            {
+
+            }
+
             void operator()()
             {
                 this->_var.set(this->_value);
@@ -5495,7 +5501,7 @@ export namespace cpptkinter
         void _init_(const Misc& master, const StringVar& variable, const detail::sized_range_of_string auto& values, const std::function<void(const StringVar&)>& command)
         {
             if (values.size() == 0)
-                throw detail::construct_exception<std::invalid_argument>("values must be non-empty");
+                throw utility::construct_exception<std::invalid_argument>("values must be non-empty");
 
             this->Menubutton::_init_("menubutton",
                 cnfs::Menubutton{ .master = master, .anchor = "c", .borderwidth = 2, .highlightthickness = 2, .indicatoron = 1, .relief = constants::RAISED, .textvariable = variable });
@@ -5538,7 +5544,7 @@ export namespace cpptkinter
                     return this->Menubutton::_getitem_(name, std::type_identity<R>{});
             }
 
-            throw detail::construct_exception<std::invalid_argument>(std::format("requested type {} not compatible with provided ressource name {}", reflect::type_name<R>, name));
+            throw utility::construct_exception<std::invalid_argument>(std::format("requested type {} not compatible with provided ressource name {}", reflect::type_name<R>, name));
         }
     };
 
@@ -6200,15 +6206,15 @@ export namespace cpptkinter
 cpptkinter::Tk cpptkinter::detail::_get_default_root(const std::string& what)
 {
     if (!_support_default_root)
-        throw detail::construct_exception<std::runtime_error>("No master specified and tkinter is configured to not support default root");
+        throw utility::construct_exception<std::runtime_error>("No master specified and tkinter is configured to not support default root");
 
     if (_default_root.get() == nullptr)
     {
         if (!what.empty())
-            throw detail::construct_exception<std::runtime_error>(std::format("Too early to {}: no default root window", what));
+            throw utility::construct_exception<std::runtime_error>(std::format("Too early to {}: no default root window", what));
         auto root = cpptkinter::Tk();
         if (_default_root != root.pimpl)
-            throw detail::construct_exception<std::runtime_error>("?");
+            throw utility::construct_exception<std::runtime_error>("?");
         return root;
     }
     else

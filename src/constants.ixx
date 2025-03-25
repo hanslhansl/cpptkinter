@@ -1,7 +1,6 @@
 ﻿/// @file constants.ixx
 /// @brief Implements constants.py.
-
-
+module;
 export module cpptkinter:constants;
 import std;
 import hhh;
@@ -9,7 +8,6 @@ import hhh;
 #define BOOL_CONSTANT(name) constexpr int name = 0
 #define STRING_CONSTANT(name) const std::string name = hhh::misc::to_lower(#name)
 #define STRING_CONSTANT2(name, value) const std::string name = value
-
 
 export namespace cpptkinter::constants
 {

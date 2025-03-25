@@ -2,101 +2,21 @@
 /// @brief Contains utility functions and classes which are not present in tkinter or _tkinter.
 
 module;
-#include "global.hpp"
-#include <reflect/reflect.hpp>
+#include "../global.hpp"
+//#include <reflect/reflect.hpp>
 export module cpptkinter:utility;
 import std;
 import hhh;
+import :reflect;
+import :utility.detail;
+import aggregate_formatter;
+import variant_formatter;
+import optional_formatter;
+
 
 export namespace cpptkinter
 {
     class Misc;
-}
-
-namespace cpptkinter::utility::detail
-{
-    template<typename T>
-    struct is_std_array : std::false_type
-    {
-
-    };
-    template<typename T, size_t N>
-    struct is_std_array<std::array<T, N>> : std::true_type
-    {
-
-    };
-
-    template<typename Aggr, template<typename...> typename Trait, typename...Args, std::size_t...I>
-        requires std::is_aggregate_v<Aggr>
-    consteval bool check_trait_for_all_aggregate_members(std::index_sequence<I...>) {
-        return (Trait<decltype(reflect::get<I>(std::declval<Aggr>())), Args...>::value && ...);
-    }
-
-    template<typename Visitor, typename Variant, size_t...I>
-    consteval bool invokeable_with_variant_types(std::index_sequence<I...>)
-    {
-        return (std::invocable<Visitor, decltype(std::get<I>(std::declval<Variant>()))> && ...);
-    }
-
-    struct range_or_tuple_to_string_visitor
-    {
-        std::ostringstream oss{};
-
-        template<typename T>
-        void operator()(const T& val);
-    };
-
-    template<typename T>
-    struct union_arg_overload_base
-    {
-        static constexpr const T& operator()(const T& t)
-        {
-            return t;
-        }
-        static constexpr T& operator()(T& t)
-        {
-            return t;
-        }
-    };
-
-    template<typename...Args>
-    struct union_arg_overload : union_arg_overload_base<Args>...
-    {
-        using union_arg_overload_base<Args>::operator()...;
-    };
-
-    /// @brief Befriended by all widget classes.
-    /// 
-	/// Used to implement many utility functions that require access to private/protected widget members.
-    struct widget_friend
-    {
-		template<typename T>
-		using impl_type = typename T::impl;
-
-        template<typename T>
-        static const auto& get_widget_pimpl(const T& widget)
-        {
-			return widget.pimpl;
-        }
-
-		template<typename T>
-        static T construct_widget_from_weak_pimpl(const std::weak_ptr<typename T::impl>& pimpl)
-        {
-            return std::shared_ptr(pimpl);
-        }
-
-        template<typename To, typename From>
-        static To static_widget_cast_down(const From& from) requires requires { static_cast<typename To::impl*>(from.pimpl.get()); }
-        {
-            return std::static_pointer_cast<typename To::impl>(from.pimpl);
-        }
-
-        template<typename To, typename From>
-        static To dynamic_widget_cast_down(const From& from) requires requires { dynamic_cast<typename To::impl*>(from.pimpl.get()); }
-        {
-            return std::dynamic_pointer_cast<typename To::impl>(from.pimpl);
-        }
-    };
 }
 
 /// @brief Utilities that aren't related to Python's tkinter or _tkinter.
@@ -110,28 +30,38 @@ export namespace cpptkinter::utility
     template<typename R, typename To>
     concept range_of_convertible_to = std::ranges::range<R> && std::convertible_to<std::ranges::range_value_t<R>, To>;
 
-    template<typename Aggr, template<typename...> typename Trait, typename...Args>
-    concept aggregate_members_satisfy = std::is_aggregate_v<Aggr> && detail::check_trait_for_all_aggregate_members<Aggr, Trait, Args...>(std::make_index_sequence<reflect::size<Aggr>()>{});
-
-	/// @brief Invokes a callable with a variant's currently held alternative (equal to std::visit).
-	/// 
-	/// @param callable a functor.
-	/// @param variant a variant.
-	template<typename Callable, typename Variant>
-        requires (hhh::meta::is_template_instance<std::remove_cvref_t<Variant>, std::variant> && detail::invokeable_with_variant_types<Callable, Variant>(std::make_index_sequence<std::variant_size_v<std::remove_cvref_t<Variant>>>{}))
-    decltype(auto) visit_or_invoke(Callable&& callable, Variant&& variant)
+#if !defined(NDEBUG) && defined(__cpp_lib_stacktrace)
+    template<typename T>
+    T construct_exception(const std::string& str, const std::stacktrace& tr = std::stacktrace::current())
     {
-        return std::visit(std::forward<Callable>(callable), std::forward<Variant>(variant));
+        return T(std::format("{}\nat:\n{}", str, tr));
     }
-    /// @brief Invokes a callable with a value (equal to std::invoke).
+#else
+    template<typename T>
+    T construct_exception(const std::string& str, const std::source_location& loc = std::source_location::current())
+    {
+        return T(std::format("{}\nin file {}, at line {} in function {}", str, loc.file_name(), loc.line(), loc.function_name()));
+    }
+#endif
+
+    /// @brief Invokes a callable with a value (like std::invoke) or a variant's currently held alternative (like std::visit).
     /// 
     /// @param callable a functor.
-    /// @param value a value.
+    /// @param value a variant or an arbitrary value.
     template<typename Callable, typename T>
-        requires (!hhh::meta::is_template_instance<std::remove_cvref_t<T>, std::variant> && std::invocable<Callable, T>)
+        requires requires { detail::visit_or_invoke_impl(std::declval<Callable>(), std::declval<T>()); }
     decltype(auto) visit_or_invoke(Callable&& callable, T&& value)
     {
-        return std::invoke(std::forward<Callable>(callable), std::forward<T>(value));
+        return detail::visit_or_invoke_impl(std::forward<Callable>(callable), std::forward<T>(value));
+    }
+
+    /// @brief Calls a callable on every element of a range or a tuple-like.
+    ///
+    /// @tparam T Needs to satisfy @ref container or @ref is_tuple.
+    template<typename Visitor, typename T> requires std::ranges::range<T> || hhh::meta::tuple_like<T>
+    void visit_range_or_tuple(Visitor && vis, T&& value)
+    {
+        return detail::visit_range_or_tuple_impl(std::forward<Visitor>(vis), std::forward<T>(value));
     }
 
     /// @brief Invokes a callable with an optional's value (if present).
@@ -156,43 +86,6 @@ export namespace cpptkinter::utility
     void invoke_or_and_then(Callable&& callable, T&& value, Args&&...args)
     {
         std::invoke(std::forward<Callable>(callable), std::forward<T>(value), std::forward<Args>(args)...);
-    }
-
-	/// @brief Calls *vis* on every element of *val*.
-    ///
-	/// @tparam T Needs to satisfy @ref container or @ref is_tuple.
-    template<typename Visitor, typename T>
-        requires std::ranges::range<T> || hhh::meta::tuple_like<T>
-    void visit_range_or_tuple(Visitor&& vis, T&& val)
-    {
-        if constexpr (std::ranges::range<T>)
-        {
-            for (auto begin = hhh::misc::forward_begin<T>(val), end = hhh::misc::forward_end<T>(val); begin != end; ++begin)
-                std::invoke(std::forward<Visitor>(vis), *begin);
-        }
-        else if constexpr (hhh::meta::tuple_like<T>)
-            std::apply([&]<typename...Args>(Args&&...elem) { (std::invoke(std::forward<Visitor>(vis), std::forward<Args>(elem)), ...); }, std::forward<T>(val));
-    }
-
-    template<typename T>
-        requires std::ranges::range<T> || hhh::meta::tuple_like<T>
-    std::string range_or_tuple_to_string(const T& val)
-    {
-        detail::range_or_tuple_to_string_visitor vis{};
-        vis(val);
-        return vis.oss.str();
-    }
-
-    template<typename T>
-        requires std::is_aggregate_v<T>
-    std::string aggregate_to_string(const T & val)
-    {
-        detail::range_or_tuple_to_string_visitor vis{};
-
-        vis.oss << "{ ";
-        reflect::for_each<T>([&vis, &val](auto I) { vis.oss << /*rfl::fields<T>()[I].name()*/reflect::member_name<I, T>() << " : "; vis(reflect::get<I>(val)); });
-        vis.oss << "}";
-        return vis.oss.str();
     }
 
 	/// @brief A weak reference to a widget.
@@ -226,45 +119,6 @@ export namespace cpptkinter::utility
             return this->pimpl.use_count();
         }
     };
-
-	/// @brief Like std::reference_wrapper but can be constructed from rvalues (temporaries).
-    ///
-	/// Use with caution, as this can easily lead to dangling references.
-    template<typename T>
-		requires std::same_as<T, std::remove_cvref_t<T>>
-    class ref_wrapper
-    {
-    public:
-        using type = const T;
-    private:
-        const type* ptr;
-
-        static void FUN(type&) noexcept;
-    public:
-
-        template<class U>
-            requires (!std::same_as<typename std::decay<U>::type, ref_wrapper>)
-        ref_wrapper(U&& x) noexcept(noexcept(FUN(std::declval<U>())))
-        {
-            type& t = std::forward<U>(x);
-			this->ptr = &t;
-        }
-        ref_wrapper(const ref_wrapper& other) noexcept : ptr(&other.get())
-        {
-
-        }
-
-        operator type& () const noexcept
-        {
-            return *this->ptr;
-        }
-        type& get() const noexcept
-        {
-            return *this->ptr;
-        }
-    };
-    template<typename T>
-    ref_wrapper(T&&) -> ref_wrapper<std::conditional_t<std::same_as<T, std::remove_cvref_t<T>&>, std::remove_cvref_t<T>, const std::remove_cvref_t<T>>>;
 
     template<typename...Args>
     struct reference_variant
@@ -393,30 +247,11 @@ export namespace cpptkinter::utility
     {
         return detail::widget_friend::dynamic_widget_cast_down<To>(from);
     }
+
+    /// @brief Publicly inerihiting this struct enables formatting based on operator string().
+    struct enable_operator_string_formatting : detail::enable_operator_string_formatting_impl
+    {
+
+    };
 }
 
-template<typename T>
-void cpptkinter::utility::detail::range_or_tuple_to_string_visitor::operator()(const T& val)
-{
-    if constexpr ((std::ranges::range<T> && !std::same_as<T, std::string>) || hhh::meta::tuple_like<T>)
-    {
-        this->oss << "(";
-        cpptkinter::utility::visit_range_or_tuple(*this, val);
-        if (!oss.view().ends_with("(")) // if the container is not empty
-            this->oss.seekp(-2, std::ios_base::cur);
-        this->oss << ")";
-    }
-    else
-    {
-        this->oss << "'";
-        cpptkinter::utility::visit_or_invoke([this](const auto& val)
-            {
-                if constexpr (requires { val.to_string(); })
-					this->oss << val.to_string();
-				else
-					this->oss << val;
-            }, val);
-        this->oss << "'";
-    }
-    this->oss << ", ";
-}

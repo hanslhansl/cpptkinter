@@ -12,10 +12,10 @@ namespace tk = cpptkinter;
 
 class MainFrame : public tk::Frame
 {
-    static tk::Canvas create_canvas(const tk::Misc& root)
+    static tk::Canvas create_canvas(const tk::Misc& master)
     {
         // Create outer frame to hold canvas + scrollbars
-        auto outer_frame = tk::Frame({ root });
+        auto outer_frame = tk::Frame({ master });
         outer_frame.pack({ .expand = true, .fill = "both" });
 
         // Create a canvas
@@ -78,6 +78,7 @@ public:
 };
 
 
+
 int main(int argc, char* argv[])
 {
     tk::detail::_debug = false;
@@ -91,10 +92,13 @@ int main(int argc, char* argv[])
         auto root = tk::Tk();
         wroot = root;
 
-        root.title("Welcome to GeeksForGeeks");
-        //root.geometry("700x500");
 
-        /*auto donothing = [&]() { misc::printl("do_nothing was called"); };
+        tk::detail::Tkapp_Trace_to_string(root);
+
+        root.title("Welcome to GeeksForGeeks");
+        root.geometry("700x500");
+
+        auto donothing = [&]() { misc::printl("do_nothing was called"); };
 
         auto menubar = tk::Menu({ root });
         auto filemenu = tk::Menu({ .master = menubar, .tearoff = 0 });
@@ -194,13 +198,20 @@ int main(int argc, char* argv[])
             auto b = tk::Button({ .master = text, .command = [i]() { misc::printl("button ", i); }, .text = std::to_string(i) });
             text.window_create({ .index="end", .window = b });
             text.insert("end", "\n");
-        }*/
+        }
 
-        
-        auto scrollable_frame = MainFrame(root);
-
+        /*auto tempframe = tk::Frame({ root });
+        tempframe.grid();
+        auto scrollable_frame = MainFrame(tempframe);
         for (auto i = 0; i < 50; i++)
-            tk::Label({ .master = scrollable_frame, .text = std::format("Label {}", i + 1) }).pack({ .anchor = "w" });
+            tk::Label({ .master = scrollable_frame, .text = std::format("Label {}", i + 1) }).pack({ .anchor = "w" });*/
+
+        {
+            auto value_inside = tk::StringVar();
+            value_inside.set("Select an Option");
+            auto question_menu = tk::OptionMenu(root, value_inside, std::vector{ "Opt 1", "Opt 2", "Opt 3" });
+            question_menu.grid();
+        }
 
         tk::mainloop();
     }

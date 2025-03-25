@@ -93,7 +93,7 @@
 /// The conversion from and to _tcl_ is done by `cpptkinter::_cpptkinter::FromObj()` and `cpptkinter::_cpptkinter::AsObj()` respectively.
 /// To allow for maximum flexibility these functions are heavily templated and guarded by concepts.
 ///
-/// `cpptkinter::_cpptkinter::detail::FromObjImpl()` and `cpptkinter::_cpptkinter::detail::AsObjImpl()` can be overloaded to add support for additional types.
+/// `cpptkinter::detail::FromObjImpl()` and `cpptkinter::detail::AsObjImpl()` can be overloaded to add support for additional types.
 /// However, if added overloads change the outcome of argument-dependent lookup at existing call sites the library might break.
 /// 
 /// @section callbacks registering callbacks
@@ -229,6 +229,27 @@ namespace cpptkinter
 #define NOT_IMPLEMENTED_ERROR static_assert(false, "not implemented")
 #define ANNOTATION_ERROR(msg) static_assert(false, msg)
 #else
-#define NOT_IMPLEMENTED_ERROR throw std::exception("not implemented")
-#define ANNOTATION_ERROR(msg) throw std::exception(msg)
+#define NOT_IMPLEMENTED_ERROR throw utility::construct_exception<std::exception>("not implemented")
+#define ANNOTATION_ERROR(msg) throw utility::construct_exception<std::exception>(msg)
 #endif
+
+/// If Tcl is compiled for threads, we must also define TCL_THREAD. We define it always; if Tcl is not threaded, the thread functions in Tcl are empty.
+#define TCL_THREADS
+
+#define ENTER_TCL				{ auto _opt_mutex_adapter = utility::optional_mutex_adaptor(tcl_lock); auto _temp_tcl_lock = std::scoped_lock(_opt_mutex_adapter)
+#define LEAVE_TCL				}
+#define ENTER_OVERLAP			// nothing
+#define LEAVE_OVERLAP_TCL		}
+
+#define ENTER_PYTHON			{ auto _opt_inv_mutex_adapter = utility::optional_inverse_mutex_adaptor(tcl_lock); auto _temp_tcl_inv_lock = std::scoped_lock(_opt_inv_mutex_adapter)
+#define LEAVE_PYTHON			}
+
+#define Py_BuildValue(fmt_str, ...) __VA_ARGS__
+#define TRACE(_self, ARGS) do {                 \
+        if ((_self)->trace) {  \
+            Tkapp_Trace((_self), Py_BuildValue ARGS);   \
+        }   \
+    } while (0)
+
+
+

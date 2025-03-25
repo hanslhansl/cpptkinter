@@ -56,8 +56,12 @@ add_library(cpptkinter)
 target_sources(cpptkinter 
     PUBLIC FILE_SET CXX_MODULES
         BASE_DIRS ${SRC_DIR}
-        FILES ${SRC_DIR}/cpptkinter.ixx ${SRC_DIR}/_cpptkinter.ixx ${SRC_DIR}/utility.ixx ${SRC_DIR}/constants.ixx ${SRC_DIR}/tk.ixx
+        FILES ${SRC_DIR}/reflect.ixx ${SRC_DIR}/constants.ixx ${SRC_DIR}/tk.ixx
+        ${SRC_DIR}/utility/utility.detail.ixx ${SRC_DIR}/utility/utility.ixx
+        ${SRC_DIR}/_cpptkinter/_cpptkinter1.ixx ${SRC_DIR}/_cpptkinter/_cpptkinter.tcl_obj.ixx ${SRC_DIR}/_cpptkinter/_cpptkinter2.ixx ${SRC_DIR}/_cpptkinter/_cpptkinter.ixx
+        ${SRC_DIR}/cpptkinter/cpptkinter.misc.ixx ${SRC_DIR}/cpptkinter/cpptkinter.ixx 
 )
+
 if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     target_compile_options(cpptkinter PUBLIC "/translateInclude")
 endif()
