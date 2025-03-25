@@ -234,6 +234,7 @@ var menudata={children:[
 {text:"i",url:"globals_vars.html#index_i"},
 {text:"m",url:"globals_vars.html#index_m"},
 {text:"o",url:"globals_vars.html#index_o"},
+{text:"r",url:"globals_vars.html#index_r"},
 {text:"s",url:"globals_vars.html#index_s"},
 {text:"t",url:"globals_vars.html#index_t"},
 {text:"v",url:"globals_vars.html#index_v"}]},

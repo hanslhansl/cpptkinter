@@ -232,18 +232,17 @@ template&lt;typename R , typename... Args&gt; </div>
 <div class="fragment"><div class="line"><span class="lineno">  404</span>        {</div>
 <div class="line"><span class="lineno">  405</span>            <span class="keywordflow">try</span></div>
 <div class="line"><span class="lineno">  406</span>            {</div>
-<div class="line"><span class="lineno">  407</span>                hhh::misc::printl(<span class="stringliteral">&quot;std::this_thread::get_id(): &quot;</span>, std::this_thread::get_id());</div>
-<div class="line"><span class="lineno">  408</span>                <span class="keyword">static_cast&lt;</span>PythonCmd_ClientData*<span class="keyword">&gt;</span>(clientData)-&gt;<a class="code hl_function" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#a373a74df0b555f3b9e393d377f7995ff">PythonCmdImpl</a>(interp, objc, objv);</div>
-<div class="line"><span class="lineno">  409</span>            }</div>
-<div class="line"><span class="lineno">  410</span>            <span class="keywordflow">catch</span> (...)</div>
-<div class="line"><span class="lineno">  411</span>            {</div>
-<div class="line"><span class="lineno">  412</span>                <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#ad124c09b4de0ba801bf49a3c7c002894">errorInCmd</a> = 1;</div>
-<div class="line"><span class="lineno">  413</span>                <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#aaf7cbb354663af677e27cf51c23ae863">excInCmd</a> = std::current_exception();</div>
-<div class="line"><span class="lineno">  414</span>                <span class="keywordflow">return</span> <a class="code hl_variable" href="tk_8ixx.html#a03bdb8340283213666d770d940fc57a0">TCL_ERROR</a>;</div>
-<div class="line"><span class="lineno">  415</span>            }</div>
-<div class="line"><span class="lineno">  416</span> </div>
-<div class="line"><span class="lineno">  417</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="tk_8ixx.html#aacf187dba9e59d4efc1d406ad6932106">TCL_OK</a>;</div>
-<div class="line"><span class="lineno">  418</span>        }</div>
+<div class="line"><span class="lineno">  407</span>                <span class="keyword">static_cast&lt;</span>PythonCmd_ClientData*<span class="keyword">&gt;</span>(clientData)-&gt;<a class="code hl_function" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#a373a74df0b555f3b9e393d377f7995ff">PythonCmdImpl</a>(interp, objc, objv);</div>
+<div class="line"><span class="lineno">  408</span>            }</div>
+<div class="line"><span class="lineno">  409</span>            <span class="keywordflow">catch</span> (...)</div>
+<div class="line"><span class="lineno">  410</span>            {</div>
+<div class="line"><span class="lineno">  411</span>                <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#ad124c09b4de0ba801bf49a3c7c002894">errorInCmd</a> = 1;</div>
+<div class="line"><span class="lineno">  412</span>                <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#aaf7cbb354663af677e27cf51c23ae863">excInCmd</a> = std::current_exception();</div>
+<div class="line"><span class="lineno">  413</span>                <span class="keywordflow">return</span> <a class="code hl_variable" href="tk_8ixx.html#a03bdb8340283213666d770d940fc57a0">TCL_ERROR</a>;</div>
+<div class="line"><span class="lineno">  414</span>            }</div>
+<div class="line"><span class="lineno">  415</span> </div>
+<div class="line"><span class="lineno">  416</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="tk_8ixx.html#aacf187dba9e59d4efc1d406ad6932106">TCL_OK</a>;</div>
+<div class="line"><span class="lineno">  417</span>        }</div>
 <div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_aaf7cbb354663af677e27cf51c23ae863"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#aaf7cbb354663af677e27cf51c23ae863">cpptkinter::_cpptkinter::excInCmd</a></div><div class="ttdeci">std::exception_ptr excInCmd</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00040">_cpptkinter1.ixx:40</a></div></div>
 <div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_ad124c09b4de0ba801bf49a3c7c002894"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#ad124c09b4de0ba801bf49a3c7c002894">cpptkinter::_cpptkinter::errorInCmd</a></div><div class="ttdeci">int errorInCmd</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00039">_cpptkinter1.ixx:39</a></div></div>
 <div class="ttc" id="astructcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData_html_a373a74df0b555f3b9e393d377f7995ff"><div class="ttname"><a href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#a373a74df0b555f3b9e393d377f7995ff">cpptkinter::_cpptkinter::PythonCmd_ClientData::PythonCmdImpl</a></div><div class="ttdeci">void PythonCmdImpl(Tcl_Interp *interp, int objc, ::Tcl_Obj *const objv[])</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter2_8ixx_source.html#l00344">_cpptkinter2.ixx:344</a></div></div>
@@ -280,19 +279,18 @@ template&lt;typename R , typename... Args&gt; </div>
 
 <p>Call delete on this. </p>
 
-<p class="definition">Definition at line <a class="el" href="__cpptkinter2_8ixx_source.html#l00421">421</a> of file <a class="el" href="__cpptkinter2_8ixx_source.html">_cpptkinter2.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  422</span>        {</div>
-<div class="line"><span class="lineno">  423</span>            <span class="keywordflow">try</span></div>
-<div class="line"><span class="lineno">  424</span>            {</div>
-<div class="line"><span class="lineno">  425</span>                <span class="keyword">delete</span> <span class="keyword">static_cast&lt;</span>PythonCmd_ClientData*<span class="keyword">&gt;</span>(clientData);</div>
-<div class="line"><span class="lineno">  426</span>            }</div>
-<div class="line"><span class="lineno">  427</span>            <span class="keywordflow">catch</span> (...)</div>
-<div class="line"><span class="lineno">  428</span>            {</div>
-<div class="line"><span class="lineno">  429</span>                <span class="comment">//hhh::misc::printl(&quot;=================================================================&gt;caught&quot;);</span></div>
-<div class="line"><span class="lineno">  430</span>                <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#ad124c09b4de0ba801bf49a3c7c002894">errorInCmd</a> = 1;</div>
-<div class="line"><span class="lineno">  431</span>                <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#aaf7cbb354663af677e27cf51c23ae863">excInCmd</a> = std::current_exception();</div>
-<div class="line"><span class="lineno">  432</span>            }</div>
-<div class="line"><span class="lineno">  433</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="__cpptkinter2_8ixx_source.html#l00420">420</a> of file <a class="el" href="__cpptkinter2_8ixx_source.html">_cpptkinter2.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  421</span>        {</div>
+<div class="line"><span class="lineno">  422</span>            <span class="keywordflow">try</span></div>
+<div class="line"><span class="lineno">  423</span>            {</div>
+<div class="line"><span class="lineno">  424</span>                <span class="keyword">delete</span> <span class="keyword">static_cast&lt;</span>PythonCmd_ClientData*<span class="keyword">&gt;</span>(clientData);</div>
+<div class="line"><span class="lineno">  425</span>            }</div>
+<div class="line"><span class="lineno">  426</span>            <span class="keywordflow">catch</span> (...)</div>
+<div class="line"><span class="lineno">  427</span>            {</div>
+<div class="line"><span class="lineno">  428</span>                <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#ad124c09b4de0ba801bf49a3c7c002894">errorInCmd</a> = 1;</div>
+<div class="line"><span class="lineno">  429</span>                <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#aaf7cbb354663af677e27cf51c23ae863">excInCmd</a> = std::current_exception();</div>
+<div class="line"><span class="lineno">  430</span>            }</div>
+<div class="line"><span class="lineno">  431</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -443,22 +441,22 @@ template&lt;typename R , typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="__cpptkinter2_8ixx_source.html#l00435">435</a> of file <a class="el" href="__cpptkinter2_8ixx_source.html">_cpptkinter2.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  436</span>        {</div>
-<div class="line"><span class="lineno">  437</span>            <span class="keyword">auto</span>&amp;&amp; ev = *<span class="keyword">static_cast&lt;</span>CommandEvent*<span class="keyword">&gt;</span>(evPtr);</div>
-<div class="line"><span class="lineno">  438</span>            <span class="keywordflow">if</span> (ev.create)</div>
-<div class="line"><span class="lineno">  439</span>                *ev.status = Tcl_CreateObjCommand(ev.interp, ev.name.data(), <a class="code hl_function" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#a8af108172c4786acffa79d8a14b96ea2">PythonCmd_ClientData::PythonCmd</a>, ev.data, <a class="code hl_function" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#a0a27b54d75b6aa56893c90ee5bb5fa0d">PythonCmd_ClientData::PythonCmdDelete</a>) == <span class="keyword">nullptr</span>;</div>
-<div class="line"><span class="lineno">  440</span>            <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  441</span>                *ev.status = Tcl_DeleteCommand(ev.interp, ev.name.data());</div>
-<div class="line"><span class="lineno">  442</span>            <span class="keyword">auto</span> done = ev.done;</div>
-<div class="line"><span class="lineno">  443</span>            std::destroy_at(&amp;ev);</div>
-<div class="line"><span class="lineno">  444</span>            Tcl_MutexLock(&amp;<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#abccad04ff01c5a335fbd663725a79934">command_mutex</a>);</div>
-<div class="line"><span class="lineno">  445</span>            Tcl_ConditionNotify(done);</div>
-<div class="line"><span class="lineno">  446</span>            Tcl_MutexUnlock(&amp;<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#abccad04ff01c5a335fbd663725a79934">command_mutex</a>);</div>
-<div class="line"><span class="lineno">  447</span>            <span class="keywordflow">return</span> 1;</div>
-<div class="line"><span class="lineno">  448</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="__cpptkinter2_8ixx_source.html#l00433">433</a> of file <a class="el" href="__cpptkinter2_8ixx_source.html">_cpptkinter2.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  434</span>        {</div>
+<div class="line"><span class="lineno">  435</span>            <span class="keyword">auto</span>&amp;&amp; ev = *<span class="keyword">static_cast&lt;</span>CommandEvent*<span class="keyword">&gt;</span>(evPtr);</div>
+<div class="line"><span class="lineno">  436</span>            <span class="keywordflow">if</span> (ev.create)</div>
+<div class="line"><span class="lineno">  437</span>                *ev.status = Tcl_CreateObjCommand(ev.interp, ev.name.data(), <a class="code hl_function" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#a8af108172c4786acffa79d8a14b96ea2">PythonCmd_ClientData::PythonCmd</a>, ev.data, <a class="code hl_function" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#a0a27b54d75b6aa56893c90ee5bb5fa0d">PythonCmd_ClientData::PythonCmdDelete</a>) == <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="lineno">  438</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  439</span>                *ev.status = Tcl_DeleteCommand(ev.interp, ev.name.data());</div>
+<div class="line"><span class="lineno">  440</span>            <span class="keyword">auto</span> done = ev.done;</div>
+<div class="line"><span class="lineno">  441</span>            std::destroy_at(&amp;ev);</div>
+<div class="line"><span class="lineno">  442</span>            Tcl_MutexLock(&amp;<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#abccad04ff01c5a335fbd663725a79934">command_mutex</a>);</div>
+<div class="line"><span class="lineno">  443</span>            Tcl_ConditionNotify(done);</div>
+<div class="line"><span class="lineno">  444</span>            Tcl_MutexUnlock(&amp;<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#abccad04ff01c5a335fbd663725a79934">command_mutex</a>);</div>
+<div class="line"><span class="lineno">  445</span>            <span class="keywordflow">return</span> 1;</div>
+<div class="line"><span class="lineno">  446</span>        }</div>
 <div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_abccad04ff01c5a335fbd663725a79934"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#abccad04ff01c5a335fbd663725a79934">cpptkinter::_cpptkinter::command_mutex</a></div><div class="ttdeci">Tcl_Mutex command_mutex</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00035">_cpptkinter1.ixx:35</a></div></div>
-<div class="ttc" id="astructcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData_html_a0a27b54d75b6aa56893c90ee5bb5fa0d"><div class="ttname"><a href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#a0a27b54d75b6aa56893c90ee5bb5fa0d">cpptkinter::_cpptkinter::PythonCmd_ClientData::PythonCmdDelete</a></div><div class="ttdeci">static void PythonCmdDelete(ClientData clientData) noexcept</div><div class="ttdoc">Call delete on this.</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter2_8ixx_source.html#l00421">_cpptkinter2.ixx:421</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData_html_a0a27b54d75b6aa56893c90ee5bb5fa0d"><div class="ttname"><a href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#a0a27b54d75b6aa56893c90ee5bb5fa0d">cpptkinter::_cpptkinter::PythonCmd_ClientData::PythonCmdDelete</a></div><div class="ttdeci">static void PythonCmdDelete(ClientData clientData) noexcept</div><div class="ttdoc">Call delete on this.</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter2_8ixx_source.html#l00420">_cpptkinter2.ixx:420</a></div></div>
 <div class="ttc" id="astructcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData_html_a8af108172c4786acffa79d8a14b96ea2"><div class="ttname"><a href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#a8af108172c4786acffa79d8a14b96ea2">cpptkinter::_cpptkinter::PythonCmd_ClientData::PythonCmd</a></div><div class="ttdeci">static int PythonCmd(ClientData clientData, Tcl_Interp *interp, int objc, ::Tcl_Obj *const objv[]) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter2_8ixx_source.html#l00403">_cpptkinter2.ixx:403</a></div></div>
 </div><!-- fragment -->
 </div>

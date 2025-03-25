@@ -1916,17 +1916,17 @@ template&lt;typename Func &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="__cpptkinter2_8ixx_source.html#l00455">455</a> of file <a class="el" href="__cpptkinter2_8ixx_source.html">_cpptkinter2.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  455</span>                                                                                                                             { std::forward&lt;Func&gt;(func) })*</div>
-<div class="line"><span class="lineno">  456</span>    {</div>
-<div class="line"><span class="lineno">  457</span>        <span class="keywordflow">return</span> <span class="keyword">new</span> <span class="keyword">decltype</span>(PythonCmd_ClientData{ std::function(std::forward&lt;Func&gt;(func)) }){</div>
-<div class="line"><span class="lineno">  458</span>            std::forward&lt;Func&gt;(func),</div>
-<div class="line"><span class="lineno">  459</span>            self</div>
-<div class="line"><span class="lineno">  460</span><span class="preprocessor">#ifndef NDEBUG </span></div>
-<div class="line"><span class="lineno">  461</span>                ,name</div>
-<div class="line"><span class="lineno">  462</span><span class="preprocessor">#endif</span></div>
-<div class="line"><span class="lineno">  463</span>        };</div>
-<div class="line"><span class="lineno">  464</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="__cpptkinter2_8ixx_source.html#l00453">453</a> of file <a class="el" href="__cpptkinter2_8ixx_source.html">_cpptkinter2.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  453</span>                                                                                                                             { std::forward&lt;Func&gt;(func) })*</div>
+<div class="line"><span class="lineno">  454</span>    {</div>
+<div class="line"><span class="lineno">  455</span>        <span class="keywordflow">return</span> <span class="keyword">new</span> <span class="keyword">decltype</span>(PythonCmd_ClientData{ std::function(std::forward&lt;Func&gt;(func)) }){</div>
+<div class="line"><span class="lineno">  456</span>            std::forward&lt;Func&gt;(func),</div>
+<div class="line"><span class="lineno">  457</span>            self</div>
+<div class="line"><span class="lineno">  458</span><span class="preprocessor">#ifndef NDEBUG </span></div>
+<div class="line"><span class="lineno">  459</span>                ,name</div>
+<div class="line"><span class="lineno">  460</span><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="lineno">  461</span>        };</div>
+<div class="line"><span class="lineno">  462</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
