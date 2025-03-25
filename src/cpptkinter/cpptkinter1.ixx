@@ -4,7 +4,7 @@ export module cpptkinter:cpptkinter1;
 import :utility;
 import :_cpptkinter;
 import :cpptkinter.detail;
-import :cpptkinter.misc;
+export import :cpptkinter.misc;
 import std;
 
 
@@ -516,10 +516,17 @@ export namespace cpptkinter
     };
 }
 
+
 template<typename...Args>
-auto cpptkinter::Misc::bind_class(const std::string& className, Args&&...args) requires requires { this->_bind({}, std::forward<Args>(args)..., true); }
+auto cpptkinter::Misc::bind_class(const std::string& className, Args&&...args) /*-> decltype(this->_bind({}, std::forward<Args>(args)..., true));*/
 {
     return this->_root()._bind({ "bind", className }, std::forward<Args>(args)..., true);
+}
+
+template<typename...Args>
+auto cpptkinter::Misc::bind_all(Args&&...args) /*-> decltype(this->_bind({}, std::forward<Args>(args)..., true));*/
+{
+    return this->_root()._bind({ "bind", "all" }, std::forward<Args>(args)..., true);
 }
 
 void cpptkinter::Misc::unbind_class(const std::string& className, const std::string& sequence)

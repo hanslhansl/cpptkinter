@@ -2,7 +2,6 @@
 /// @brief Implements _tkinter.c, _tkinter.c.h and tkappinit.c.
 module;
 #include "../global.hpp"
-#include <reflect/reflect.hpp>
 #include <tk.h>
 #ifdef _WIN32
 #include <windows.h>

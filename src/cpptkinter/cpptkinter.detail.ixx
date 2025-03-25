@@ -1,10 +1,30 @@
 module;
 #include "../global.hpp"
+#include <range/v3/all.hpp>
 export module cpptkinter:cpptkinter.detail;
 import :utility;
 import :_cpptkinter;
 import std;
 
+
+export {
+#if defined(__cpp_lib_ranges_stride) && defined(__cpp_lib_ranges_to_container) && defined(__cpp_lib_ranges) && defined(__cpp_lib_ranges_zip) && defined(__cpp_lib_ranges_join_with)
+    using std::views::stride;
+    using std::ranges::to;
+    using std::views::drop;
+    using std::views::zip;
+    using std::ranges::join_with_view;
+#ifdef __clang__
+    static_assert(false, "this means that clang/libc++ finally supports all these and range v3 can be remoed from the project");
+#endif
+#else
+    using ranges::views::stride;
+    using ranges::to;
+    using ranges::views::drop;
+    using ranges::views::zip;
+    using ranges::join_with_view;
+#endif
+}
 
 export namespace cpptkinter
 {

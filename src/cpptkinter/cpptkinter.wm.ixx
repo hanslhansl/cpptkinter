@@ -1,24 +1,11 @@
 module;
 #include "../global.hpp"
-#include <range/v3/all.hpp>
 export module cpptkinter:cpptkinter.wm;
 import :_cpptkinter;
+import :cpptkinter.detail;
 import std;
 
 
-#if defined(__cpp_lib_ranges_stride) && defined(__cpp_lib_ranges_to_container) && defined(__cpp_lib_ranges) && defined(__cpp_lib_ranges_zip) && defined(__cpp_lib_ranges_join_with)
-using std::views::stride;
-using std::ranges::to;
-using std::views::drop;
-using std::views::zip;
-using std::ranges::join_with_view;
-#else
-using ranges::views::stride;
-using ranges::to;
-using ranges::views::drop;
-using ranges::views::zip;
-using ranges::join_with_view;
-#endif
 
 export namespace cpptkinter
 {

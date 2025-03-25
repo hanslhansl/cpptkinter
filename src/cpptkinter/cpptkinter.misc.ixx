@@ -300,7 +300,7 @@ export namespace cpptkinter
         /// An additional boolean parameter ADD specifies whether FUNC will be called additionally to the other bound function or whether it will replace the previous function.
         /// @see bind for the return value.
         template<typename...Args>
-        auto bind_class(const std::string& className, Args&&...args) requires requires { this->_bind({}, std::forward<Args>(args)..., true); };
+        auto bind_class(const std::string& className, Args&&...args) /*-> decltype(this->_bind({}, std::forward<Args>(args)..., true))*/;
 
         /// @brief Unbind for all widgets with bindtag CLASSNAME for event SEQUENCE all functions.
         void unbind_class(const std::string& className, const std::string& sequence);
@@ -310,10 +310,7 @@ export namespace cpptkinter
         /// An additional boolean parameter ADD specifies whether FUNC will be called additionally to the other bound function or whether it will replace the previous function.
         /// @see bind for the return value.
         template<typename...Args>
-        auto bind_all(Args&&...args) requires requires { this->bind_class("", std::forward<Args>(args)...); }
-        {
-            return this->bind_class("all", std::forward<Args>(args)...);
-        }
+        auto bind_all(Args&&...args) /*-> decltype(this->_bind({}, std::forward<Args>(args)..., true))*/;
 
         /// @brief Unbind for all widgets for event SEQUENCE all functions.
         void unbind_all(const std::string& sequence)
