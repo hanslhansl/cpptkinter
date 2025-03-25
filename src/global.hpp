@@ -209,9 +209,8 @@
 
 namespace cpptkinter
 {
-	/// true/false
-	/// whether the Tcl core library scripts are embedded into the executable (dll or static lib).
-	/// if false the path to the Tcl core library must be specified with cpptkinter::init.
+	/// @brief true/false, whether the Tcl core library scripts are embedded into the executable (dll or static lib).
+    /// if false the path to the Tcl core library must be specified with cpptkinter::init.
 	constexpr auto TCL_CORE_LIBRARY_IS_EMBEDDED = true;
 }
 
@@ -251,5 +250,29 @@ namespace cpptkinter
         }   \
     } while (0)
 
+#define REF_TO_IMPL(member) decltype(impl::member)& member = static_cast<impl*>(this->pimpl.get())->member
 
+#define DEFINE_ASSIGNMENT_OPERATOR(cl) \
+    cl& operator=(const cl& other) \
+    { \
+        std::destroy_at(this); \
+        return *std::construct_at(this, other); \
+    }
 
+#define IMPL_CTOR(cl, base) friend detail::widget_friend; \
+    template<std::derived_from<impl> I> cl(const std::shared_ptr<I>& pimpl) : base(pimpl) { }
+#define CNF_CONSTRUCTOR(cl, cnf_type, str) \
+    using constructor_cnf = cnf_type;   \
+    cl() : cl(constructor_cnf{}) { }    \
+    template<cnfs::is_cnf CNF = constructor_cnf> \
+    cl(CNF&& cnf = {}) : cl(std::make_shared<impl>()) \
+    {   \
+        this->_init_(str, std::forward<CNF>(cnf));  \
+    }
+
+#define CONSTRUCTORS_AND_ASSIGNMENT(cl, cnf_type, str, base) \
+    protected:  \
+    IMPL_CTOR(cl, base) \
+    public: \
+    CNF_CONSTRUCTOR(cl, cnf_type, str)   \
+    DEFINE_ASSIGNMENT_OPERATOR(cl)

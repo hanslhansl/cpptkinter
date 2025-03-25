@@ -59,7 +59,9 @@ target_sources(cpptkinter
         FILES ${SRC_DIR}/reflect.ixx ${SRC_DIR}/constants.ixx ${SRC_DIR}/tk.ixx
         ${SRC_DIR}/utility/utility.detail.ixx ${SRC_DIR}/utility/utility.ixx
         ${SRC_DIR}/_cpptkinter/_cpptkinter1.ixx ${SRC_DIR}/_cpptkinter/_cpptkinter.tcl_obj.ixx ${SRC_DIR}/_cpptkinter/_cpptkinter2.ixx ${SRC_DIR}/_cpptkinter/_cpptkinter.ixx
-        ${SRC_DIR}/cpptkinter/cpptkinter.misc.ixx ${SRC_DIR}/cpptkinter/cpptkinter.ixx 
+        ${SRC_DIR}/cpptkinter/cpptkinter.detail.ixx ${SRC_DIR}/cpptkinter/cpptkinter.wm.ixx ${SRC_DIR}/cpptkinter/cpptkinter.misc.ixx ${SRC_DIR}/cpptkinter/cpptkinter1.ixx
+        ${SRC_DIR}/cpptkinter/cpptkinter.cnfs.ixx ${SRC_DIR}/cpptkinter/cpptkinter.widget.base.ixx ${SRC_DIR}/cpptkinter/cpptkinter.widget1.ixx
+        ${SRC_DIR}/cpptkinter/cpptkinter.widget2.ixx ${SRC_DIR}/cpptkinter/cpptkinter.ixx 
 )
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
