@@ -253,7 +253,7 @@ export namespace cpptkinter
 
             if (cnf.value.has_value())
                 this->initialize(cnf.value.value());
-            else if (this->_tk->call<long long>("info", "exists", this->_name))
+            else if (!this->_tk->call<long long>("info", "exists", this->_name))
                 this->initialize(T{});
             DEVIATING_IMPLEMENTATION_WARNING("original uses self.tk.getboolean to convert to bool");
         }
