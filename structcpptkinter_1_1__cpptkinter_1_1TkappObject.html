@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('structcpptkinter_1_1__cpptkinter_1_1Tk
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="structcpptkinter_1_1__cpptkinter_1_1TkappObject-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">cpptkinter::_cpptkinter::TkappObject Struct Reference</div></div>
 </div><!--header-->
@@ -99,6 +99,15 @@ $(document).ready(function(){initNavTree('structcpptkinter_1_1__cpptkinter_1_1Tk
 
 <p>This class allows running Tcl code. Cpptkinter uses it internally a lot.  
  <a href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#details">More...</a></p>
+<div class="dynheader">
+Inheritance diagram for cpptkinter::_cpptkinter::TkappObject:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="structcpptkinter_1_1__cpptkinter_1_1TkappObject.png" usemap="#cpptkinter::_5Fcpptkinter::TkappObject_map" alt=""/>
+  <map id="cpptkinter::_5Fcpptkinter::TkappObject_map" name="cpptkinter::_5Fcpptkinter::TkappObject_map">
+<area href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html" alt="cpptkinter::detail::TkappObjectImpl" shape="rect" coords="0,0,212,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -107,10 +116,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7c6471be5987d5c4c2c8d63bb2c65c4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a7c6471be5987d5c4c2c8d63bb2c65c4a">wilddispatch</a> ()</td></tr>
 <tr class="separator:a7c6471be5987d5c4c2c8d63bb2c65c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87e4403cba87ef46243b3c042b15ac29"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; <br />
-requires requires (Func&amp;&amp; func) { <a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a59d6cbdc94e2415d46b97476b6d64dcc">trace</a> = std::forward&lt;Func&gt;(func); }</td></tr>
+requires requires (Func&amp;&amp; func) { <a class="el" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a00769e11eba048c3f7e4e9057c36ca13">trace</a> = std::forward&lt;Func&gt;(func); }</td></tr>
 <tr class="memitem:a87e4403cba87ef46243b3c042b15ac29"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a87e4403cba87ef46243b3c042b15ac29">settrace</a> (Func &amp;&amp;func)</td></tr>
 <tr class="separator:a87e4403cba87ef46243b3c042b15ac29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56c7c3595fdc8c3edbf0276d50d7599e"><td class="memItemLeft" align="right" valign="top">decltype(<a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a59d6cbdc94e2415d46b97476b6d64dcc">trace</a>) &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a56c7c3595fdc8c3edbf0276d50d7599e">gettrace</a> ()</td></tr>
+<tr class="memitem:a56c7c3595fdc8c3edbf0276d50d7599e"><td class="memItemLeft" align="right" valign="top">decltype(<a class="el" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a00769e11eba048c3f7e4e9057c36ca13">trace</a>) &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a56c7c3595fdc8c3edbf0276d50d7599e">gettrace</a> ()</td></tr>
 <tr class="separator:a56c7c3595fdc8c3edbf0276d50d7599e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82ab859e37c139f6bdb85596a7a2b026"><td class="memTemplParams" colspan="2">template&lt;detail::FromObjConcept R = void, detail::call_argument_concept... Args&gt; </td></tr>
 <tr class="memitem:a82ab859e37c139f6bdb85596a7a2b026"><td class="memTemplItemLeft" align="right" valign="top">R&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a82ab859e37c139f6bdb85596a7a2b026">call</a> (Args &amp;&amp;...args)</td></tr>
@@ -186,48 +195,56 @@ requires requires (Func&amp;&amp; func) { <a class="el" href="structcpptkinter_1
 <tr class="memitem:ac1e50c5e2d832f536595244ae8ca2fc6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#ac1e50c5e2d832f536595244ae8ca2fc6">loadtk</a> ()</td></tr>
 <tr class="separator:ac1e50c5e2d832f536595244ae8ca2fc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a8a8e24aab13603547088f96f2fb8879c"><td class="memItemLeft" align="right" valign="top">Tcl_Interp *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a8a8e24aab13603547088f96f2fb8879c">interp</a></td></tr>
-<tr class="separator:a8a8e24aab13603547088f96f2fb8879c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c1e1442a223ed4237b559b3436fc5c0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a0c1e1442a223ed4237b559b3436fc5c0">threaded</a></td></tr>
-<tr class="memdesc:a0c1e1442a223ed4237b559b3436fc5c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if tcl_platform[threaded]  <br /></td></tr>
-<tr class="separator:a0c1e1442a223ed4237b559b3436fc5c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a177c912fa045ad304d84fbefe4839b15"><td class="memItemLeft" align="right" valign="top">Tcl_ThreadId&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a177c912fa045ad304d84fbefe4839b15">thread_id</a></td></tr>
-<tr class="separator:a177c912fa045ad304d84fbefe4839b15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac08df274c7e9beb6e0f0245671801b27"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#ac08df274c7e9beb6e0f0245671801b27">dispatching</a> {}</td></tr>
-<tr class="separator:ac08df274c7e9beb6e0f0245671801b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59d6cbdc94e2415d46b97476b6d64dcc"><td class="memItemLeft" align="right" valign="top">std::function&lt; void(std::vector&lt; std::string &gt;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a59d6cbdc94e2415d46b97476b6d64dcc">trace</a> {}</td></tr>
-<tr class="separator:a59d6cbdc94e2415d46b97476b6d64dcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3779df25e60fbed7d0d7d57f0a57e162"><td class="memItemLeft" align="right" valign="top">const Tcl_ObjType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a3779df25e60fbed7d0d7d57f0a57e162">BooleanType</a></td></tr>
-<tr class="separator:a3779df25e60fbed7d0d7d57f0a57e162"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10fa988977cf8cd296c13081e229106e"><td class="memItemLeft" align="right" valign="top">const Tcl_ObjType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a10fa988977cf8cd296c13081e229106e">ByteArrayType</a></td></tr>
-<tr class="separator:a10fa988977cf8cd296c13081e229106e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa37d032ca5a8b332a7ba0afb07bd351e"><td class="memItemLeft" align="right" valign="top">const Tcl_ObjType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#aa37d032ca5a8b332a7ba0afb07bd351e">DoubleType</a></td></tr>
-<tr class="separator:aa37d032ca5a8b332a7ba0afb07bd351e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03d974dd50a4f3ace5455e19fcf5f7ff"><td class="memItemLeft" align="right" valign="top">const Tcl_ObjType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a03d974dd50a4f3ace5455e19fcf5f7ff">IntType</a></td></tr>
-<tr class="separator:a03d974dd50a4f3ace5455e19fcf5f7ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb67bbb235bacfbc9e4b30a94c633f73"><td class="memItemLeft" align="right" valign="top">const Tcl_ObjType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#adb67bbb235bacfbc9e4b30a94c633f73">ListType</a></td></tr>
-<tr class="separator:adb67bbb235bacfbc9e4b30a94c633f73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a034f70294a30fefe10731ff0c01ae055"><td class="memItemLeft" align="right" valign="top">const Tcl_ObjType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a034f70294a30fefe10731ff0c01ae055">DictType</a></td></tr>
-<tr class="separator:a034f70294a30fefe10731ff0c01ae055"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab666036d2183aae45af2eb51c6eca733"><td class="memItemLeft" align="right" valign="top">const Tcl_ObjType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#ab666036d2183aae45af2eb51c6eca733">StringType</a></td></tr>
-<tr class="separator:ab666036d2183aae45af2eb51c6eca733"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb76fbe3c9a5e894b9ca4bb1b1c86731"><td class="memItemLeft" align="right" valign="top">const Tcl_ObjType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#adb76fbe3c9a5e894b9ca4bb1b1c86731">WindowType</a></td></tr>
-<tr class="separator:adb76fbe3c9a5e894b9ca4bb1b1c86731"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1464ba5822a84cfb19acfe5e2e366fce"><td class="memItemLeft" align="right" valign="top">const Tcl_ObjType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a1464ba5822a84cfb19acfe5e2e366fce">ParsedVarName</a></td></tr>
-<tr class="separator:a1464ba5822a84cfb19acfe5e2e366fce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60fab429ff432735d5893b8f40167e31"><td class="memItemLeft" align="right" valign="top">const Tcl_ObjType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a60fab429ff432735d5893b8f40167e31">OldBooleanType</a></td></tr>
-<tr class="separator:a60fab429ff432735d5893b8f40167e31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0d581b252a98718576128200650a41a"><td class="memItemLeft" align="right" valign="top">const Tcl_ObjType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#ac0d581b252a98718576128200650a41a">WideIntType</a></td></tr>
-<tr class="separator:ac0d581b252a98718576128200650a41a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73df22679f21d520c4ce43763afe0daf"><td class="memItemLeft" align="right" valign="top">const Tcl_ObjType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a73df22679f21d520c4ce43763afe0daf">BignumType</a></td></tr>
-<tr class="separator:a73df22679f21d520c4ce43763afe0daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37cfb45fe948fc758bc3f66cd43407bf"><td class="memItemLeft" align="right" valign="top">const Tcl_ObjType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a37cfb45fe948fc758bc3f66cd43407bf">UTF32StringType</a></td></tr>
-<tr class="separator:a37cfb45fe948fc758bc3f66cd43407bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a71632802e3349eaedbd47079a1a71abf"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html">TkappObject</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a71632802e3349eaedbd47079a1a71abf">create</a> (const std::string &amp;screenName, const std::string &amp;className, bool interactive, bool wantTk, bool sync, const std::string &amp;use)</td></tr>
+<tr class="separator:a71632802e3349eaedbd47079a1a71abf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html">cpptkinter::detail::TkappObjectImpl</a></td></tr>
+<tr class="memitem:a3288c7145d78c7f8abc73dd89b8cfcbc inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memItemLeft" align="right" valign="top">Tcl_Interp *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a3288c7145d78c7f8abc73dd89b8cfcbc">interp</a></td></tr>
+<tr class="separator:a3288c7145d78c7f8abc73dd89b8cfcbc inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84b7ea9cb86c3779ad69121b976294d4 inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a84b7ea9cb86c3779ad69121b976294d4">threaded</a></td></tr>
+<tr class="memdesc:a84b7ea9cb86c3779ad69121b976294d4 inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if tcl_platform[threaded]  <br /></td></tr>
+<tr class="separator:a84b7ea9cb86c3779ad69121b976294d4 inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f0b908259ee7e07cb570e7e33881fc1 inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memItemLeft" align="right" valign="top">Tcl_ThreadId&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a2f0b908259ee7e07cb570e7e33881fc1">thread_id</a></td></tr>
+<tr class="separator:a2f0b908259ee7e07cb570e7e33881fc1 inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade8a9344bca89d318120d0a4f9aba86f inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#ade8a9344bca89d318120d0a4f9aba86f">dispatching</a> {}</td></tr>
+<tr class="separator:ade8a9344bca89d318120d0a4f9aba86f inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00769e11eba048c3f7e4e9057c36ca13 inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memItemLeft" align="right" valign="top">std::function&lt; void(std::vector&lt; std::string &gt;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a00769e11eba048c3f7e4e9057c36ca13">trace</a> {}</td></tr>
+<tr class="separator:a00769e11eba048c3f7e4e9057c36ca13 inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc0e49e16ee6bf2e44efa5038bf2ea9d inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memItemLeft" align="right" valign="top">const Tcl_ObjType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#abc0e49e16ee6bf2e44efa5038bf2ea9d">BooleanType</a></td></tr>
+<tr class="separator:abc0e49e16ee6bf2e44efa5038bf2ea9d inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3e63edbb9b84400f58a320d400174fc inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memItemLeft" align="right" valign="top">const Tcl_ObjType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#aa3e63edbb9b84400f58a320d400174fc">ByteArrayType</a></td></tr>
+<tr class="separator:aa3e63edbb9b84400f58a320d400174fc inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf4124cbc8fd53d19f649dd4888ae3c4 inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memItemLeft" align="right" valign="top">const Tcl_ObjType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#abf4124cbc8fd53d19f649dd4888ae3c4">DoubleType</a></td></tr>
+<tr class="separator:abf4124cbc8fd53d19f649dd4888ae3c4 inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbe2de3706db3448d2c7e8ccf2ece89d inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memItemLeft" align="right" valign="top">const Tcl_ObjType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#afbe2de3706db3448d2c7e8ccf2ece89d">IntType</a></td></tr>
+<tr class="separator:afbe2de3706db3448d2c7e8ccf2ece89d inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9233d9fe56c821e4857c72237d75a9a inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memItemLeft" align="right" valign="top">const Tcl_ObjType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#ab9233d9fe56c821e4857c72237d75a9a">ListType</a></td></tr>
+<tr class="separator:ab9233d9fe56c821e4857c72237d75a9a inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42f02b99f9f73acd92847a3b58221f37 inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memItemLeft" align="right" valign="top">const Tcl_ObjType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a42f02b99f9f73acd92847a3b58221f37">DictType</a></td></tr>
+<tr class="separator:a42f02b99f9f73acd92847a3b58221f37 inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bfac8928064c9cf10d07cfbbb781b02 inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memItemLeft" align="right" valign="top">const Tcl_ObjType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a9bfac8928064c9cf10d07cfbbb781b02">StringType</a></td></tr>
+<tr class="separator:a9bfac8928064c9cf10d07cfbbb781b02 inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a867711c0008f5b5ff752df5d5ec99c99 inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memItemLeft" align="right" valign="top">const Tcl_ObjType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a867711c0008f5b5ff752df5d5ec99c99">WindowType</a></td></tr>
+<tr class="separator:a867711c0008f5b5ff752df5d5ec99c99 inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d3112bb4ee77593ae40ec78b8864cdd inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memItemLeft" align="right" valign="top">const Tcl_ObjType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a6d3112bb4ee77593ae40ec78b8864cdd">ParsedVarName</a></td></tr>
+<tr class="separator:a6d3112bb4ee77593ae40ec78b8864cdd inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b73699e18a98932e6dd1cb9f32885fa inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memItemLeft" align="right" valign="top">const Tcl_ObjType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a1b73699e18a98932e6dd1cb9f32885fa">OldBooleanType</a></td></tr>
+<tr class="separator:a1b73699e18a98932e6dd1cb9f32885fa inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdfc9534dfb350fa29d74eab890e8372 inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memItemLeft" align="right" valign="top">const Tcl_ObjType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#acdfc9534dfb350fa29d74eab890e8372">WideIntType</a></td></tr>
+<tr class="separator:acdfc9534dfb350fa29d74eab890e8372 inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6002cd18d15668a21e0a8cfaffc6ff3 inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memItemLeft" align="right" valign="top">const Tcl_ObjType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#ac6002cd18d15668a21e0a8cfaffc6ff3">BignumType</a></td></tr>
+<tr class="separator:ac6002cd18d15668a21e0a8cfaffc6ff3 inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4db15917cb267e0d49bb4c7e5e092e1 inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memItemLeft" align="right" valign="top">const Tcl_ObjType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#ae4db15917cb267e0d49bb4c7e5e092e1">UTF32StringType</a></td></tr>
+<tr class="separator:ae4db15917cb267e0d49bb4c7e5e092e1 inherit pub_attribs_structcpptkinter_1_1detail_1_1TkappObjectImpl"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class allows running Tcl code. Cpptkinter uses it internally a lot. </p>
+
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8ixx_source.html#l00028">28</a> of file <a class="el" href="__cpptkinter_8ixx_source.html">_cpptkinter.ixx</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5eb85c318d043ca005762a329627c5ba" name="a5eb85c318d043ca005762a329627c5ba"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5eb85c318d043ca005762a329627c5ba">&#9670;&#160;</a></span>TkappObject()</h2>
@@ -287,6 +304,128 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8ixx_source.html#l00030">30</a> of file <a class="el" href="__cpptkinter_8ixx_source.html">_cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   31</span>        {</div>
+<div class="line"><span class="lineno">   32</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a3288c7145d78c7f8abc73dd89b8cfcbc">interp</a> = Tcl_CreateInterp();</div>
+<div class="line"><span class="lineno">   33</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a84b7ea9cb86c3779ad69121b976294d4">threaded</a> = Tcl_GetVar2Ex(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a3288c7145d78c7f8abc73dd89b8cfcbc">interp</a>, <span class="stringliteral">&quot;tcl_platform&quot;</span>, <span class="stringliteral">&quot;threaded&quot;</span>, <a class="code hl_variable" href="tk_8ixx.html#a82cfbec08a42f98782d44a45004a8f5c">TCL_GLOBAL_ONLY</a>) != <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="lineno">   34</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a2f0b908259ee7e07cb570e7e33881fc1">thread_id</a> = Tcl_GetCurrentThread();</div>
+<div class="line"><span class="lineno">   35</span> </div>
+<div class="line"><span class="lineno">   36</span><span class="preprocessor">#ifndef TCL_THREADS</span></div>
+<div class="line"><span class="lineno">   37</span>            <span class="keywordflow">if</span> (this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a84b7ea9cb86c3779ad69121b976294d4">threaded</a>)</div>
+<div class="line"><span class="lineno">   38</span>                <span class="keywordflow">throw</span> utility::construct_exception&lt;TclError&gt;(<span class="stringliteral">&quot;Tcl is threaded but _tkinter is not&quot;</span>);</div>
+<div class="line"><span class="lineno">   39</span><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="lineno">   40</span> </div>
+<div class="line"><span class="lineno">   41</span>            <span class="comment">/* If Tcl is threaded, we don&#39;t need the lock. */</span></div>
+<div class="line"><span class="lineno">   42</span>            <span class="keywordflow">if</span> (this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a84b7ea9cb86c3779ad69121b976294d4">threaded</a> &amp;&amp; <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a5657e0cdfc73b673686cddc7d5b0c543">tcl_lock</a>.has_value())</div>
+<div class="line"><span class="lineno">   43</span>                <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a5657e0cdfc73b673686cddc7d5b0c543">tcl_lock</a>.reset();</div>
+<div class="line"><span class="lineno">   44</span> </div>
+<div class="line"><span class="lineno">   45</span>            <span class="comment">// Tcl 8.5 &quot;booleanString&quot; type is not registered and is renamed to &quot;boolean&quot; in Tcl 9.0. Based on approach suggested at https://core.tcl-lang.org/tcl/info/3bb3bcf2da5b</span></div>
+<div class="line"><span class="lineno">   46</span>            <span class="keyword">auto</span> value = Tcl_NewStringObj(<span class="stringliteral">&quot;true&quot;</span>, -1);</div>
+<div class="line"><span class="lineno">   47</span>            <span class="keywordtype">int</span> boolValue{};</div>
+<div class="line"><span class="lineno">   48</span>            Tcl_GetBooleanFromObj(NULL, value, &amp;boolValue);</div>
+<div class="line"><span class="lineno">   49</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#abc0e49e16ee6bf2e44efa5038bf2ea9d">BooleanType</a> = value-&gt;typePtr;</div>
+<div class="line"><span class="lineno">   50</span> </div>
+<div class="line"><span class="lineno">   51</span>            <span class="comment">// &quot;bytearray&quot; type is not registered in Tcl 9.0</span></div>
+<div class="line"><span class="lineno">   52</span>            value = Tcl_NewByteArrayObj(NULL, 0);</div>
+<div class="line"><span class="lineno">   53</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#aa3e63edbb9b84400f58a320d400174fc">ByteArrayType</a> = value-&gt;typePtr;</div>
+<div class="line"><span class="lineno">   54</span> </div>
+<div class="line"><span class="lineno">   55</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#abf4124cbc8fd53d19f649dd4888ae3c4">DoubleType</a> = Tcl_GetObjType(<span class="stringliteral">&quot;double&quot;</span>);</div>
+<div class="line"><span class="lineno">   56</span>            <span class="comment">/* TIP 484 suggests retrieving the &quot;int&quot; type without Tcl_GetObjType(&quot;int&quot;) since it is no longer registered in Tcl 9.0. But even though Tcl 8.7</span></div>
+<div class="line"><span class="lineno">   57</span><span class="comment">               only uses the &quot;wideInt&quot; type on platforms with 32-bit long, it still has a registered &quot;int&quot; type, which FromObj() should recognize just in case.*/</span></div>
+<div class="line"><span class="lineno">   58</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#afbe2de3706db3448d2c7e8ccf2ece89d">IntType</a> = Tcl_GetObjType(<span class="stringliteral">&quot;int&quot;</span>);</div>
+<div class="line"><span class="lineno">   59</span>            <span class="keywordflow">if</span> (this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#afbe2de3706db3448d2c7e8ccf2ece89d">IntType</a> == <span class="keyword">nullptr</span>)</div>
+<div class="line"><span class="lineno">   60</span>            {</div>
+<div class="line"><span class="lineno">   61</span>                <span class="keyword">auto</span> value = Tcl_Obj(Tcl_NewIntObj(0));</div>
+<div class="line"><span class="lineno">   62</span>                this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#afbe2de3706db3448d2c7e8ccf2ece89d">IntType</a> = value-&gt;typePtr;</div>
+<div class="line"><span class="lineno">   63</span>            }</div>
+<div class="line"><span class="lineno">   64</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a42f02b99f9f73acd92847a3b58221f37">DictType</a> = Tcl_GetObjType(<span class="stringliteral">&quot;dict&quot;</span>);</div>
+<div class="line"><span class="lineno">   65</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#ab9233d9fe56c821e4857c72237d75a9a">ListType</a> = Tcl_GetObjType(<span class="stringliteral">&quot;list&quot;</span>);</div>
+<div class="line"><span class="lineno">   66</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a9bfac8928064c9cf10d07cfbbb781b02">StringType</a> = Tcl_GetObjType(<span class="stringliteral">&quot;string&quot;</span>);</div>
+<div class="line"><span class="lineno">   67</span> </div>
+<div class="line"><span class="lineno">   68</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a1b73699e18a98932e6dd1cb9f32885fa">OldBooleanType</a> = Tcl_GetObjType(<span class="stringliteral">&quot;boolean&quot;</span>);</div>
+<div class="line"><span class="lineno">   69</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#acdfc9534dfb350fa29d74eab890e8372">WideIntType</a> = Tcl_GetObjType(<span class="stringliteral">&quot;wideInt&quot;</span>);</div>
+<div class="line"><span class="lineno">   70</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#ac6002cd18d15668a21e0a8cfaffc6ff3">BignumType</a> = Tcl_GetObjType(<span class="stringliteral">&quot;bignum&quot;</span>);</div>
+<div class="line"><span class="lineno">   71</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#ae4db15917cb267e0d49bb4c7e5e092e1">UTF32StringType</a> = Tcl_GetObjType(<span class="stringliteral">&quot;utf32string&quot;</span>);</div>
+<div class="line"><span class="lineno">   72</span> </div>
+<div class="line"><span class="lineno">   73</span> </div>
+<div class="line"><span class="lineno">   74</span>            Tcl_DeleteCommand(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a3288c7145d78c7f8abc73dd89b8cfcbc">interp</a>, <span class="stringliteral">&quot;exit&quot;</span>);</div>
+<div class="line"><span class="lineno">   75</span> </div>
+<div class="line"><span class="lineno">   76</span>            <span class="keywordflow">if</span> (!screenName.empty())</div>
+<div class="line"><span class="lineno">   77</span>                Tcl_SetVar2(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a3288c7145d78c7f8abc73dd89b8cfcbc">interp</a>, <span class="stringliteral">&quot;env&quot;</span>, <span class="stringliteral">&quot;DISPLAY&quot;</span>, screenName.data(), <a class="code hl_variable" href="tk_8ixx.html#a82cfbec08a42f98782d44a45004a8f5c">TCL_GLOBAL_ONLY</a>);</div>
+<div class="line"><span class="lineno">   78</span> </div>
+<div class="line"><span class="lineno">   79</span>            <span class="keywordflow">if</span> (interactive)</div>
+<div class="line"><span class="lineno">   80</span>                Tcl_SetVar(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a3288c7145d78c7f8abc73dd89b8cfcbc">interp</a>, <span class="stringliteral">&quot;tcl_interactive&quot;</span>, <span class="stringliteral">&quot;1&quot;</span>, <a class="code hl_variable" href="tk_8ixx.html#a82cfbec08a42f98782d44a45004a8f5c">TCL_GLOBAL_ONLY</a>);</div>
+<div class="line"><span class="lineno">   81</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   82</span>                Tcl_SetVar(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a3288c7145d78c7f8abc73dd89b8cfcbc">interp</a>, <span class="stringliteral">&quot;tcl_interactive&quot;</span>, <span class="stringliteral">&quot;0&quot;</span>, <a class="code hl_variable" href="tk_8ixx.html#a82cfbec08a42f98782d44a45004a8f5c">TCL_GLOBAL_ONLY</a>);</div>
+<div class="line"><span class="lineno">   83</span> </div>
+<div class="line"><span class="lineno">   84</span>            <span class="keywordflow">if</span> (std::isupper(className.at(0)))</div>
+<div class="line"><span class="lineno">   85</span>                className.at(0) = std::toupper(className.at(0));</div>
+<div class="line"><span class="lineno">   86</span>            Tcl_SetVar(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a3288c7145d78c7f8abc73dd89b8cfcbc">interp</a>, <span class="stringliteral">&quot;argv0&quot;</span>, className.c_str(), <a class="code hl_variable" href="tk_8ixx.html#a82cfbec08a42f98782d44a45004a8f5c">TCL_GLOBAL_ONLY</a>);</div>
+<div class="line"><span class="lineno">   87</span> </div>
+<div class="line"><span class="lineno">   88</span>            <span class="keywordflow">if</span> (!wantTk)</div>
+<div class="line"><span class="lineno">   89</span>                Tcl_SetVar(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a3288c7145d78c7f8abc73dd89b8cfcbc">interp</a>, <span class="stringliteral">&quot;_tkinter_skip_tk_init&quot;</span>, <span class="stringliteral">&quot;1&quot;</span>, <a class="code hl_variable" href="tk_8ixx.html#a82cfbec08a42f98782d44a45004a8f5c">TCL_GLOBAL_ONLY</a>);</div>
+<div class="line"><span class="lineno">   90</span> </div>
+<div class="line"><span class="lineno">   91</span>            <span class="comment">// some initial arguments need to be in argv</span></div>
+<div class="line"><span class="lineno">   92</span>            <span class="keywordflow">if</span> (sync || !use.empty())</div>
+<div class="line"><span class="lineno">   93</span>            {</div>
+<div class="line"><span class="lineno">   94</span>                std::string args{};</div>
+<div class="line"><span class="lineno">   95</span>                <span class="keywordflow">if</span> (sync)</div>
+<div class="line"><span class="lineno">   96</span>                    args += <span class="stringliteral">&quot;-sync&quot;</span>;</div>
+<div class="line"><span class="lineno">   97</span>                <span class="keywordflow">if</span> (!use.empty())</div>
+<div class="line"><span class="lineno">   98</span>                {</div>
+<div class="line"><span class="lineno">   99</span>                    <span class="keywordflow">if</span> (sync)</div>
+<div class="line"><span class="lineno">  100</span>                        args += <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><span class="lineno">  101</span>                    args += <span class="stringliteral">&quot;-use &quot;</span>;</div>
+<div class="line"><span class="lineno">  102</span>                    args += use;</div>
+<div class="line"><span class="lineno">  103</span>                }</div>
+<div class="line"><span class="lineno">  104</span> </div>
+<div class="line"><span class="lineno">  105</span>                Tcl_SetVar(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a3288c7145d78c7f8abc73dd89b8cfcbc">interp</a>, <span class="stringliteral">&quot;argv&quot;</span>, args.c_str(), <a class="code hl_variable" href="tk_8ixx.html#a82cfbec08a42f98782d44a45004a8f5c">TCL_GLOBAL_ONLY</a>);</div>
+<div class="line"><span class="lineno">  106</span>            }</div>
+<div class="line"><span class="lineno">  107</span> </div>
+<div class="line"><span class="lineno">  108</span><span class="preprocessor">#ifdef _WIN32</span></div>
+<div class="line"><span class="lineno">  109</span>            <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (!<a class="code hl_variable" href="namespacecpptkinter.html#a1647a8cbe08ae686b7c93fd45db41028">TCL_CORE_LIBRARY_IS_EMBEDDED</a>)</div>
+<div class="line"><span class="lineno">  110</span>            {</div>
+<div class="line"><span class="lineno">  111</span>                DWORD ret = GetEnvironmentVariableA(<span class="stringliteral">&quot;TCL_LIBRARY&quot;</span>, NULL, 0);</div>
+<div class="line"><span class="lineno">  112</span>                <span class="keywordflow">if</span> (!ret &amp;&amp; GetLastError() == ERROR_ENVVAR_NOT_FOUND)</div>
+<div class="line"><span class="lineno">  113</span>                {</div>
+<div class="line"><span class="lineno">  114</span>                    <span class="keyword">auto</span> str_path = <a class="code hl_function" href="namespacecpptkinter_1_1detail.html#a7e6c985f12095e003f19816617fca31c">detail::_get_tcl_lib_path</a>();</div>
+<div class="line"><span class="lineno">  115</span>                    Tcl_SetVar(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a3288c7145d78c7f8abc73dd89b8cfcbc">interp</a>, <span class="stringliteral">&quot;tcl_library&quot;</span>, str_path.c_str(), <a class="code hl_variable" href="tk_8ixx.html#a82cfbec08a42f98782d44a45004a8f5c">TCL_GLOBAL_ONLY</a>);</div>
+<div class="line"><span class="lineno">  116</span>                }</div>
+<div class="line"><span class="lineno">  117</span>            }</div>
+<div class="line"><span class="lineno">  118</span><span class="preprocessor">#endif  </span><span class="comment">// _WIN32</span></div>
+<div class="line"><span class="lineno">  119</span> </div>
+<div class="line"><span class="lineno">  120</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#a899a78ac15406fd7ea3316844eafe8af">Tcl_AppInit</a>(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a3288c7145d78c7f8abc73dd89b8cfcbc">interp</a>) != <a class="code hl_variable" href="tk_8ixx.html#aacf187dba9e59d4efc1d406ad6932106">TCL_OK</a>)</div>
+<div class="line"><span class="lineno">  121</span>                <span class="keywordflow">throw</span> <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#a42e884096c8af22e90a5b6178df9b0c2">Tkinter_Error</a>(<span class="keyword">this</span>);</div>
+<div class="line"><span class="lineno">  122</span> </div>
+<div class="line"><span class="lineno">  123</span>            <span class="comment">// get the &quot;window&quot; type ptr</span></div>
+<div class="line"><span class="lineno">  124</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a867711c0008f5b5ff752df5d5ec99c99">WindowType</a> = Tcl_GetObjType(<span class="stringliteral">&quot;window&quot;</span>);</div>
+<div class="line"><span class="lineno">  125</span> </div>
+<div class="line"><span class="lineno">  126</span>            <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#a3d1fd89322f20528ab5118bdffb2d7af">EnableEventHook</a>();</div>
+<div class="line"><span class="lineno">  127</span>        }</div>
+<div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_a3d1fd89322f20528ab5118bdffb2d7af"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#a3d1fd89322f20528ab5118bdffb2d7af">cpptkinter::_cpptkinter::EnableEventHook</a></div><div class="ttdeci">void EnableEventHook()</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00229">_cpptkinter1.ixx:229</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_a42e884096c8af22e90a5b6178df9b0c2"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#a42e884096c8af22e90a5b6178df9b0c2">cpptkinter::_cpptkinter::Tkinter_Error</a></div><div class="ttdeci">TclError Tkinter_Error(TkappObjectImpl *self)</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00207">_cpptkinter1.ixx:207</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_a5657e0cdfc73b673686cddc7d5b0c543"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#a5657e0cdfc73b673686cddc7d5b0c543">cpptkinter::_cpptkinter::tcl_lock</a></div><div class="ttdeci">std::optional&lt; std::mutex &gt; tcl_lock</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00032">_cpptkinter1.ixx:32</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_a899a78ac15406fd7ea3316844eafe8af"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#a899a78ac15406fd7ea3316844eafe8af">cpptkinter::_cpptkinter::Tcl_AppInit</a></div><div class="ttdeci">int Tcl_AppInit(Tcl_Interp *interp)</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00139">_cpptkinter1.ixx:139</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1detail_html_a7e6c985f12095e003f19816617fca31c"><div class="ttname"><a href="namespacecpptkinter_1_1detail.html#a7e6c985f12095e003f19816617fca31c">cpptkinter::detail::_get_tcl_lib_path</a></div><div class="ttdeci">std::string _get_tcl_lib_path()</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00097">_cpptkinter1.ixx:97</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_html_a1647a8cbe08ae686b7c93fd45db41028"><div class="ttname"><a href="namespacecpptkinter.html#a1647a8cbe08ae686b7c93fd45db41028">cpptkinter::TCL_CORE_LIBRARY_IS_EMBEDDED</a></div><div class="ttdeci">constexpr auto TCL_CORE_LIBRARY_IS_EMBEDDED</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00215">global.hpp:215</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1detail_1_1TkappObjectImpl_html_a1b73699e18a98932e6dd1cb9f32885fa"><div class="ttname"><a href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a1b73699e18a98932e6dd1cb9f32885fa">cpptkinter::detail::TkappObjectImpl::OldBooleanType</a></div><div class="ttdeci">const Tcl_ObjType * OldBooleanType</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00076">_cpptkinter1.ixx:76</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1detail_1_1TkappObjectImpl_html_a2f0b908259ee7e07cb570e7e33881fc1"><div class="ttname"><a href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a2f0b908259ee7e07cb570e7e33881fc1">cpptkinter::detail::TkappObjectImpl::thread_id</a></div><div class="ttdeci">Tcl_ThreadId thread_id</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00063">_cpptkinter1.ixx:63</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1detail_1_1TkappObjectImpl_html_a3288c7145d78c7f8abc73dd89b8cfcbc"><div class="ttname"><a href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a3288c7145d78c7f8abc73dd89b8cfcbc">cpptkinter::detail::TkappObjectImpl::interp</a></div><div class="ttdeci">Tcl_Interp * interp</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00058">_cpptkinter1.ixx:58</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1detail_1_1TkappObjectImpl_html_a42f02b99f9f73acd92847a3b58221f37"><div class="ttname"><a href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a42f02b99f9f73acd92847a3b58221f37">cpptkinter::detail::TkappObjectImpl::DictType</a></div><div class="ttdeci">const Tcl_ObjType * DictType</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00072">_cpptkinter1.ixx:72</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1detail_1_1TkappObjectImpl_html_a84b7ea9cb86c3779ad69121b976294d4"><div class="ttname"><a href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a84b7ea9cb86c3779ad69121b976294d4">cpptkinter::detail::TkappObjectImpl::threaded</a></div><div class="ttdeci">int threaded</div><div class="ttdoc">true if tcl_platform[threaded]</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00062">_cpptkinter1.ixx:62</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1detail_1_1TkappObjectImpl_html_a867711c0008f5b5ff752df5d5ec99c99"><div class="ttname"><a href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a867711c0008f5b5ff752df5d5ec99c99">cpptkinter::detail::TkappObjectImpl::WindowType</a></div><div class="ttdeci">const Tcl_ObjType * WindowType</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00074">_cpptkinter1.ixx:74</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1detail_1_1TkappObjectImpl_html_a9bfac8928064c9cf10d07cfbbb781b02"><div class="ttname"><a href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a9bfac8928064c9cf10d07cfbbb781b02">cpptkinter::detail::TkappObjectImpl::StringType</a></div><div class="ttdeci">const Tcl_ObjType * StringType</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00073">_cpptkinter1.ixx:73</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1detail_1_1TkappObjectImpl_html_aa3e63edbb9b84400f58a320d400174fc"><div class="ttname"><a href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#aa3e63edbb9b84400f58a320d400174fc">cpptkinter::detail::TkappObjectImpl::ByteArrayType</a></div><div class="ttdeci">const Tcl_ObjType * ByteArrayType</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00068">_cpptkinter1.ixx:68</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1detail_1_1TkappObjectImpl_html_ab9233d9fe56c821e4857c72237d75a9a"><div class="ttname"><a href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#ab9233d9fe56c821e4857c72237d75a9a">cpptkinter::detail::TkappObjectImpl::ListType</a></div><div class="ttdeci">const Tcl_ObjType * ListType</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00071">_cpptkinter1.ixx:71</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1detail_1_1TkappObjectImpl_html_abc0e49e16ee6bf2e44efa5038bf2ea9d"><div class="ttname"><a href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#abc0e49e16ee6bf2e44efa5038bf2ea9d">cpptkinter::detail::TkappObjectImpl::BooleanType</a></div><div class="ttdeci">const Tcl_ObjType * BooleanType</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00067">_cpptkinter1.ixx:67</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1detail_1_1TkappObjectImpl_html_abf4124cbc8fd53d19f649dd4888ae3c4"><div class="ttname"><a href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#abf4124cbc8fd53d19f649dd4888ae3c4">cpptkinter::detail::TkappObjectImpl::DoubleType</a></div><div class="ttdeci">const Tcl_ObjType * DoubleType</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00069">_cpptkinter1.ixx:69</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1detail_1_1TkappObjectImpl_html_ac6002cd18d15668a21e0a8cfaffc6ff3"><div class="ttname"><a href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#ac6002cd18d15668a21e0a8cfaffc6ff3">cpptkinter::detail::TkappObjectImpl::BignumType</a></div><div class="ttdeci">const Tcl_ObjType * BignumType</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00078">_cpptkinter1.ixx:78</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1detail_1_1TkappObjectImpl_html_acdfc9534dfb350fa29d74eab890e8372"><div class="ttname"><a href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#acdfc9534dfb350fa29d74eab890e8372">cpptkinter::detail::TkappObjectImpl::WideIntType</a></div><div class="ttdeci">const Tcl_ObjType * WideIntType</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00077">_cpptkinter1.ixx:77</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1detail_1_1TkappObjectImpl_html_ae4db15917cb267e0d49bb4c7e5e092e1"><div class="ttname"><a href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#ae4db15917cb267e0d49bb4c7e5e092e1">cpptkinter::detail::TkappObjectImpl::UTF32StringType</a></div><div class="ttdeci">const Tcl_ObjType * UTF32StringType</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00079">_cpptkinter1.ixx:79</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1detail_1_1TkappObjectImpl_html_afbe2de3706db3448d2c7e8ccf2ece89d"><div class="ttname"><a href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#afbe2de3706db3448d2c7e8ccf2ece89d">cpptkinter::detail::TkappObjectImpl::IntType</a></div><div class="ttdeci">const Tcl_ObjType * IntType</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00070">_cpptkinter1.ixx:70</a></div></div>
+<div class="ttc" id="atk_8ixx_html_a82cfbec08a42f98782d44a45004a8f5c"><div class="ttname"><a href="tk_8ixx.html#a82cfbec08a42f98782d44a45004a8f5c">TCL_GLOBAL_ONLY</a></div><div class="ttdeci">constexpr auto TCL_GLOBAL_ONLY</div><div class="ttdef"><b>Definition:</b> <a href="tk_8ixx_source.html#l00108">tk.ixx:108</a></div></div>
+<div class="ttc" id="atk_8ixx_html_aacf187dba9e59d4efc1d406ad6932106"><div class="ttname"><a href="tk_8ixx.html#aacf187dba9e59d4efc1d406ad6932106">TCL_OK</a></div><div class="ttdeci">constexpr auto TCL_OK</div><div class="ttdef"><b>Definition:</b> <a href="tk_8ixx_source.html#l00109">tk.ixx:109</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -341,6 +480,139 @@ template&lt;detail::FromObjConcept R = void, detail::call_argument_concept... Ar
 <li>Tcl is threaded, caller is in a different thread: Must queue an event to the interpreter thread. Allocation of Tcl objects needs to occur in the interpreter thread, so we ship the PyObject* args to the target thread, and perform processing there. </li>
 </ol>
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8ixx_source.html#l00161">161</a> of file <a class="el" href="__cpptkinter_8ixx_source.html">_cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  162</span>        {</div>
+<div class="line"><span class="lineno">  163</span>            <a class="code hl_define" href="global_8hpp.html#ad08e1eaa565f8afcb49eded8d6cd9f4c">DEVIATING_IMPLEMENTATION_WARNING</a>(<span class="stringliteral">&quot;major changes&quot;</span>);</div>
+<div class="line"><span class="lineno">  164</span> </div>
+<div class="line"><span class="lineno">  165</span>            <span class="keyword">auto</span> self = <span class="keyword">this</span>;</div>
+<div class="line"><span class="lineno">  166</span>            <span class="keywordtype">int</span> flags = <a class="code hl_variable" href="tk_8ixx.html#ad7a53e87c79ee81262622bda7083f263">TCL_EVAL_DIRECT</a> | <a class="code hl_variable" href="tk_8ixx.html#a29d10162b275fec4ab6b393347283a89">TCL_EVAL_GLOBAL</a>;</div>
+<div class="line"><span class="lineno">  167</span> </div>
+<div class="line"><span class="lineno">  168</span>            <span class="keywordflow">if</span> (self-&gt;threaded &amp;&amp; self-&gt;thread_id != Tcl_GetCurrentThread())</div>
+<div class="line"><span class="lineno">  169</span>            {</div>
+<div class="line"><span class="lineno">  170</span>                hhh::misc::printl(<span class="stringliteral">&quot;call if 1&quot;</span>);</div>
+<div class="line"><span class="lineno">  171</span>                <a class="code hl_define" href="global_8hpp.html#ad08e1eaa565f8afcb49eded8d6cd9f4c">DEVIATING_IMPLEMENTATION_WARNING</a>(<span class="stringliteral">&quot;original: flags isnt actually passed, probably a bug in tkinter&quot;</span>);</div>
+<div class="line"><span class="lineno">  172</span>                <span class="keyword">auto</span> lambda = [&amp;]() { <span class="keywordflow">return</span> Tkapp_CallProc&lt;R&gt;(<span class="keyword">this</span>, flags, std::forward&lt;Args&gt;(args)...); };</div>
+<div class="line"><span class="lineno">  173</span>                <span class="keyword">using </span>FuncType = std::invoke_result_t&lt;decltype(lambda)&gt;();</div>
+<div class="line"><span class="lineno">  174</span>                <span class="keyword">using </span>CallEventType = Tkapp_CallEvent&lt;FuncType&gt;;</div>
+<div class="line"><span class="lineno">  175</span> </div>
+<div class="line"><span class="lineno">  176</span>                <span class="keywordflow">if</span> (!<a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#a2c538f1ca0843f0107f580b4ff6329a5">WaitForMainloop</a>(self))</div>
+<div class="line"><span class="lineno">  177</span>                    <span class="keywordflow">throw</span> utility::construct_exception&lt;std::runtime_error&gt;(<span class="stringliteral">&quot;impossible&quot;</span>);</div>
+<div class="line"><span class="lineno">  178</span> </div>
+<div class="line"><span class="lineno">  179</span>                <span class="keyword">auto</span> buffer = attemptckalloc(<span class="keyword">sizeof</span>(CallEventType));</div>
+<div class="line"><span class="lineno">  180</span>                <span class="keywordflow">if</span> (buffer == <span class="keyword">nullptr</span>)</div>
+<div class="line"><span class="lineno">  181</span>                    <span class="keywordflow">throw</span> utility::construct_exception&lt;TclError&gt;(<span class="stringliteral">&quot;attemptckalloc failed to allocate memory&quot;</span>);</div>
+<div class="line"><span class="lineno">  182</span> </div>
+<div class="line"><span class="lineno">  183</span>                Tcl_Condition cond = NULL;</div>
+<div class="line"><span class="lineno">  184</span>                <span class="keyword">auto</span>&amp;&amp; ev = *std::construct_at(<span class="keyword">static_cast&lt;</span>CallEventType*<span class="keyword">&gt;</span>(buffer), call_proc&lt;FuncType&gt;, std::packaged_task(std::move(lambda)), &amp;cond);</div>
+<div class="line"><span class="lineno">  185</span>                <span class="keyword">auto</span> future = ev.task.get_future();</div>
+<div class="line"><span class="lineno">  186</span> </div>
+<div class="line"><span class="lineno">  187</span>                <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#ab9d70d1830337b1feca83dbe4a1265bd">Tkapp_ThreadSend</a>(self, &amp;ev, ev.cond, &amp;<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a5bd72c10ed7e86e3f5d306be678edffc">call_mutex</a>);</div>
+<div class="line"><span class="lineno">  188</span>                Tcl_ConditionFinalize(&amp;cond);</div>
+<div class="line"><span class="lineno">  189</span> </div>
+<div class="line"><span class="lineno">  190</span>                <a class="code hl_define" href="global_8hpp.html#ad092689f9ce64d6dbacd6e78e77f983c">ANNOTATION_WARNING</a>(<span class="stringliteral">&quot;maybe the usage of Tcl_Condition and mutex is unnecessary because future.get() waits anyways&quot;</span>);</div>
+<div class="line"><span class="lineno">  191</span>                <span class="keywordflow">return</span> future.get();</div>
+<div class="line"><span class="lineno">  192</span>            }</div>
+<div class="line"><span class="lineno">  193</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  194</span>            {</div>
+<div class="line"><span class="lineno">  195</span>                <a class="code hl_define" href="global_8hpp.html#a268a5497247469c43b9b16215342ffdf">TRACE</a>(self, (<span class="stringliteral">&quot;(O)&quot;</span>, args...));</div>
+<div class="line"><span class="lineno">  196</span>                <span class="keyword">auto</span> raii = <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#a38f63e7812a8c2a84bd056e327368dbe">Tkapp_CallArgs</a>(std::forward&lt;Args&gt;(args)...);</div>
+<div class="line"><span class="lineno">  197</span> </div>
+<div class="line"><span class="lineno">  198</span>                <a class="code hl_define" href="global_8hpp.html#a5740d90a62ad35d3e21869a8d43e01fd">ENTER_TCL</a>;</div>
+<div class="line"><span class="lineno">  199</span> </div>
+<div class="line"><span class="lineno">  200</span>                <span class="keyword">auto</span> i = <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#a4bafbd6fd6705ccc116288737bdcb94a">Tcl_EvalObjv</a>(self-&gt;interp, raii, flags);</div>
+<div class="line"><span class="lineno">  201</span> </div>
+<div class="line"><span class="lineno">  202</span>                <a class="code hl_define" href="global_8hpp.html#a20c9eb000917eae55f7e66b8585fce82">ENTER_OVERLAP</a>;</div>
+<div class="line"><span class="lineno">  203</span> </div>
+<div class="line"><span class="lineno">  204</span>                <span class="keywordflow">if</span> (i == <a class="code hl_variable" href="tk_8ixx.html#a03bdb8340283213666d770d940fc57a0">TCL_ERROR</a>)</div>
+<div class="line"><span class="lineno">  205</span>                    <span class="keywordflow">throw</span> <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#a42e884096c8af22e90a5b6178df9b0c2">Tkinter_Error</a>(self);</div>
+<div class="line"><span class="lineno">  206</span>                <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  207</span>                    <span class="keywordflow">return</span> Tkapp_ObjectResult&lt;R&gt;(self);</div>
+<div class="line"><span class="lineno">  208</span> </div>
+<div class="line"><span class="lineno">  209</span>                <a class="code hl_define" href="global_8hpp.html#a6aa17d5bb404eb5421f6582b8e026156">LEAVE_OVERLAP_TCL</a>;</div>
+<div class="line"><span class="lineno">  210</span> </div>
+<div class="line"><span class="lineno">  211</span>                <a class="code hl_define" href="global_8hpp.html#ad08e1eaa565f8afcb49eded8d6cd9f4c">DEVIATING_IMPLEMENTATION_WARNING</a>(<span class="stringliteral">&quot;original calls Tkapp_CallDeallocArgs, raii&#39;s dtor handles that for us&quot;</span>);</div>
+<div class="line"><span class="lineno">  212</span>            }</div>
+<div class="line"><span class="lineno">  213</span>        }</div>
+<div class="ttc" id="aglobal_8hpp_html_a20c9eb000917eae55f7e66b8585fce82"><div class="ttname"><a href="global_8hpp.html#a20c9eb000917eae55f7e66b8585fce82">ENTER_OVERLAP</a></div><div class="ttdeci">#define ENTER_OVERLAP</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00241">global.hpp:241</a></div></div>
+<div class="ttc" id="aglobal_8hpp_html_a268a5497247469c43b9b16215342ffdf"><div class="ttname"><a href="global_8hpp.html#a268a5497247469c43b9b16215342ffdf">TRACE</a></div><div class="ttdeci">#define TRACE(_self, ARGS)</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00248">global.hpp:248</a></div></div>
+<div class="ttc" id="aglobal_8hpp_html_a5740d90a62ad35d3e21869a8d43e01fd"><div class="ttname"><a href="global_8hpp.html#a5740d90a62ad35d3e21869a8d43e01fd">ENTER_TCL</a></div><div class="ttdeci">#define ENTER_TCL</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00239">global.hpp:239</a></div></div>
+<div class="ttc" id="aglobal_8hpp_html_a6aa17d5bb404eb5421f6582b8e026156"><div class="ttname"><a href="global_8hpp.html#a6aa17d5bb404eb5421f6582b8e026156">LEAVE_OVERLAP_TCL</a></div><div class="ttdeci">#define LEAVE_OVERLAP_TCL</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00242">global.hpp:242</a></div></div>
+<div class="ttc" id="aglobal_8hpp_html_ad08e1eaa565f8afcb49eded8d6cd9f4c"><div class="ttname"><a href="global_8hpp.html#ad08e1eaa565f8afcb49eded8d6cd9f4c">DEVIATING_IMPLEMENTATION_WARNING</a></div><div class="ttdeci">#define DEVIATING_IMPLEMENTATION_WARNING(msg)</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00226">global.hpp:226</a></div></div>
+<div class="ttc" id="aglobal_8hpp_html_ad092689f9ce64d6dbacd6e78e77f983c"><div class="ttname"><a href="global_8hpp.html#ad092689f9ce64d6dbacd6e78e77f983c">ANNOTATION_WARNING</a></div><div class="ttdeci">#define ANNOTATION_WARNING(msg)</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00225">global.hpp:225</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_a2c538f1ca0843f0107f580b4ff6329a5"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#a2c538f1ca0843f0107f580b4ff6329a5">cpptkinter::_cpptkinter::WaitForMainloop</a></div><div class="ttdeci">int WaitForMainloop(TkappObjectImpl *self)</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00213">_cpptkinter1.ixx:213</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_a38f63e7812a8c2a84bd056e327368dbe"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#a38f63e7812a8c2a84bd056e327368dbe">cpptkinter::_cpptkinter::Tkapp_CallArgs</a></div><div class="ttdeci">std::vector&lt; Tcl_Obj &gt; Tkapp_CallArgs(Args &amp;&amp;...args)</div><div class="ttdoc">Convert c++ values to a std::vector&lt;Tcl_Obj&gt;.</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter2_8ixx_source.html#l00171">_cpptkinter2.ixx:171</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_a4bafbd6fd6705ccc116288737bdcb94a"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#a4bafbd6fd6705ccc116288737bdcb94a">cpptkinter::_cpptkinter::Tcl_EvalObjv</a></div><div class="ttdeci">int Tcl_EvalObjv(Tcl_Interp *interp, const std::vector&lt; Tcl_Obj &gt; &amp;objects, int flags)</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter_8tcl__obj_8ixx_source.html#l00120">_cpptkinter.tcl_obj.ixx:120</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_a5bd72c10ed7e86e3f5d306be678edffc"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#a5bd72c10ed7e86e3f5d306be678edffc">cpptkinter::_cpptkinter::call_mutex</a></div><div class="ttdeci">Tcl_Mutex call_mutex</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00034">_cpptkinter1.ixx:34</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_ab9d70d1830337b1feca83dbe4a1265bd"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#ab9d70d1830337b1feca83dbe4a1265bd">cpptkinter::_cpptkinter::Tkapp_ThreadSend</a></div><div class="ttdeci">void Tkapp_ThreadSend(TkappObjectImpl *self, Tcl_Event *ev, Tcl_Condition *cond, Tcl_Mutex *mutex) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00238">_cpptkinter1.ixx:238</a></div></div>
+<div class="ttc" id="atk_8ixx_html_a03bdb8340283213666d770d940fc57a0"><div class="ttname"><a href="tk_8ixx.html#a03bdb8340283213666d770d940fc57a0">TCL_ERROR</a></div><div class="ttdeci">constexpr auto TCL_ERROR</div><div class="ttdef"><b>Definition:</b> <a href="tk_8ixx_source.html#l00107">tk.ixx:107</a></div></div>
+<div class="ttc" id="atk_8ixx_html_a29d10162b275fec4ab6b393347283a89"><div class="ttname"><a href="tk_8ixx.html#a29d10162b275fec4ab6b393347283a89">TCL_EVAL_GLOBAL</a></div><div class="ttdeci">constexpr auto TCL_EVAL_GLOBAL</div><div class="ttdef"><b>Definition:</b> <a href="tk_8ixx_source.html#l00111">tk.ixx:111</a></div></div>
+<div class="ttc" id="atk_8ixx_html_ad7a53e87c79ee81262622bda7083f263"><div class="ttname"><a href="tk_8ixx.html#ad7a53e87c79ee81262622bda7083f263">TCL_EVAL_DIRECT</a></div><div class="ttdeci">constexpr auto TCL_EVAL_DIRECT</div><div class="ttdef"><b>Definition:</b> <a href="tk_8ixx_source.html#l00110">tk.ixx:110</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a71632802e3349eaedbd47079a1a71abf" name="a71632802e3349eaedbd47079a1a71abf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71632802e3349eaedbd47079a1a71abf">&#9670;&#160;</a></span>create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::shared_ptr&lt; <a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html">TkappObject</a> &gt; cpptkinter::_cpptkinter::TkappObject::create </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>screenName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>className</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>interactive</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>wantTk</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>use</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8ixx_source.html#l00129">129</a> of file <a class="el" href="__cpptkinter_8ixx_source.html">_cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  130</span>        {</div>
+<div class="line"><span class="lineno">  131</span>            <span class="keywordflow">return</span> std::make_shared&lt;TkappObject&gt;(screenName, className, interactive, wantTk, sync, use);</div>
+<div class="line"><span class="lineno">  132</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="aeddb3e95c96093b931dc25a46b6f7ae8" name="aeddb3e95c96093b931dc25a46b6f7ae8"></a>
@@ -379,6 +651,56 @@ template&lt;detail::createcommand_concept Func&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8ixx_source.html#l00289">289</a> of file <a class="el" href="__cpptkinter_8ixx_source.html">_cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  290</span>        {</div>
+<div class="line"><span class="lineno">  291</span>            <a class="code hl_define" href="global_8hpp.html#ad08e1eaa565f8afcb49eded8d6cd9f4c">DEVIATING_IMPLEMENTATION_WARNING</a>(<span class="stringliteral">&quot;merges _tkinter_tkapp_createcommand and _tkinter_tkapp_createcommand_impl&quot;</span>);</div>
+<div class="line"><span class="lineno">  292</span> </div>
+<div class="line"><span class="lineno">  293</span>            <span class="keyword">auto</span> self = <span class="keyword">this</span>;</div>
+<div class="line"><span class="lineno">  294</span> </div>
+<div class="line"><span class="lineno">  295</span>            <span class="keywordflow">if</span> (self-&gt;threaded &amp;&amp; self-&gt;thread_id != Tcl_GetCurrentThread() &amp;&amp; !<a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#a2c538f1ca0843f0107f580b4ff6329a5">WaitForMainloop</a>(self))</div>
+<div class="line"><span class="lineno">  296</span>                <span class="keywordflow">throw</span> utility::construct_exception&lt;TclError&gt;(<span class="stringliteral">&quot;an unknown error occured&quot;</span>);</div>
+<div class="line"><span class="lineno">  297</span> </div>
+<div class="line"><span class="lineno">  298</span>            <a class="code hl_define" href="global_8hpp.html#a268a5497247469c43b9b16215342ffdf">TRACE</a>(self, (<span class="stringliteral">&quot;((ss()O))&quot;</span>, <span class="stringliteral">&quot;proc&quot;</span>, name, func));</div>
+<div class="line"><span class="lineno">  299</span> </div>
+<div class="line"><span class="lineno">  300</span>            <span class="keyword">auto</span> data = <a class="code hl_function" href="namespacecpptkinter_1_1detail.html#a5bc3353468986595b19297bd9b889ec0">detail::new_PythonCmd_ClientData</a>(<a class="code hl_function" href="namespacecpptkinter_1_1utility.html#a8a59ce8de106b1e460b5fe39fd4ad569">utility::callable_to_std_function</a>(std::forward&lt;Func&gt;(func)), self, name);</div>
+<div class="line"><span class="lineno">  301</span>            <a class="code hl_define" href="global_8hpp.html#ad08e1eaa565f8afcb49eded8d6cd9f4c">DEVIATING_IMPLEMENTATION_WARNING</a>(<span class="stringliteral">&quot;in the original data &#39;holds a reference&#39; to self keeping it from being destructed. i doubt that this is actually necessary&quot;</span>);</div>
+<div class="line"><span class="lineno">  302</span> </div>
+<div class="line"><span class="lineno">  303</span>            <span class="keywordflow">if</span> (self-&gt;threaded &amp;&amp; self-&gt;thread_id != Tcl_GetCurrentThread())</div>
+<div class="line"><span class="lineno">  304</span>            {</div>
+<div class="line"><span class="lineno">  305</span>                <span class="keyword">auto</span> buffer = (CommandEvent*)attemptckalloc(<span class="keyword">sizeof</span>(CommandEvent));</div>
+<div class="line"><span class="lineno">  306</span>                <span class="keywordflow">if</span> (buffer == <span class="keyword">nullptr</span>)</div>
+<div class="line"><span class="lineno">  307</span>                    <span class="keywordflow">throw</span> utility::construct_exception&lt;TclError&gt;(<span class="stringliteral">&quot;attemptckalloc failed to allocate memory&quot;</span>);</div>
+<div class="line"><span class="lineno">  308</span> </div>
+<div class="line"><span class="lineno">  309</span>                <span class="keywordtype">int</span> err = 0;</div>
+<div class="line"><span class="lineno">  310</span>                Tcl_Condition cond = NULL;</div>
+<div class="line"><span class="lineno">  311</span>                <span class="keyword">auto</span>&amp;&amp; ev = *std::construct_at(<span class="keyword">static_cast&lt;</span>CommandEvent*<span class="keyword">&gt;</span>(buffer));</div>
+<div class="line"><span class="lineno">  312</span> </div>
+<div class="line"><span class="lineno">  313</span>                ev.proc = data-&gt;Tkapp_CommandProc;</div>
+<div class="line"><span class="lineno">  314</span>                ev.interp = self-&gt;interp;</div>
+<div class="line"><span class="lineno">  315</span>                ev.create = 1;</div>
+<div class="line"><span class="lineno">  316</span>                ev.name = name;</div>
+<div class="line"><span class="lineno">  317</span>                ev.data = data;</div>
+<div class="line"><span class="lineno">  318</span>                ev.status = &amp;err;</div>
+<div class="line"><span class="lineno">  319</span>                ev.done = &amp;cond;</div>
+<div class="line"><span class="lineno">  320</span>                <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#ab9d70d1830337b1feca83dbe4a1265bd">Tkapp_ThreadSend</a>(self, &amp;ev, &amp;cond, &amp;<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#abccad04ff01c5a335fbd663725a79934">command_mutex</a>);</div>
+<div class="line"><span class="lineno">  321</span>                Tcl_ConditionFinalize(&amp;cond);</div>
+<div class="line"><span class="lineno">  322</span> </div>
+<div class="line"><span class="lineno">  323</span>                <span class="keywordflow">if</span> (err)</div>
+<div class="line"><span class="lineno">  324</span>                    <span class="keywordflow">throw</span> utility::construct_exception&lt;TclError&gt;(<span class="stringliteral">&quot;can&#39;t create Tcl command&quot;</span>);</div>
+<div class="line"><span class="lineno">  325</span>            }</div>
+<div class="line"><span class="lineno">  326</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  327</span>            {</div>
+<div class="line"><span class="lineno">  328</span>                <a class="code hl_define" href="global_8hpp.html#a5740d90a62ad35d3e21869a8d43e01fd">ENTER_TCL</a>;</div>
+<div class="line"><span class="lineno">  329</span>                <span class="keywordflow">if</span> (Tcl_CreateObjCommand(self-&gt;interp, name.data(), data-&gt;PythonCmd, data, data-&gt;PythonCmdDelete) == <span class="keyword">nullptr</span>)</div>
+<div class="line"><span class="lineno">  330</span>                    <span class="keywordflow">throw</span> utility::construct_exception&lt;TclError&gt;(<span class="stringliteral">&quot;can&#39;t create Tcl command&quot;</span>);</div>
+<div class="line"><span class="lineno">  331</span>                <a class="code hl_define" href="global_8hpp.html#a689d409af4ec1cf2f7c35460dc53dba6">LEAVE_TCL</a>;</div>
+<div class="line"><span class="lineno">  332</span>            }</div>
+<div class="line"><span class="lineno">  333</span>        }</div>
+<div class="ttc" id="aglobal_8hpp_html_a689d409af4ec1cf2f7c35460dc53dba6"><div class="ttname"><a href="global_8hpp.html#a689d409af4ec1cf2f7c35460dc53dba6">LEAVE_TCL</a></div><div class="ttdeci">#define LEAVE_TCL</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00240">global.hpp:240</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_abccad04ff01c5a335fbd663725a79934"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#abccad04ff01c5a335fbd663725a79934">cpptkinter::_cpptkinter::command_mutex</a></div><div class="ttdeci">Tcl_Mutex command_mutex</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00035">_cpptkinter1.ixx:35</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1detail_html_a5bc3353468986595b19297bd9b889ec0"><div class="ttname"><a href="namespacecpptkinter_1_1detail.html#a5bc3353468986595b19297bd9b889ec0">cpptkinter::detail::new_PythonCmd_ClientData</a></div><div class="ttdeci">auto new_PythonCmd_ClientData(Func &amp;&amp;func, TkappObjectImpl *self, const std::string &amp;name) -&gt; decltype(PythonCmd_ClientData{ std::forward&lt; Func &gt;(func) }) *</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter2_8ixx_source.html#l00455">_cpptkinter2.ixx:455</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1utility_html_a8a59ce8de106b1e460b5fe39fd4ad569"><div class="ttname"><a href="namespacecpptkinter_1_1utility.html#a8a59ce8de106b1e460b5fe39fd4ad569">cpptkinter::utility::callable_to_std_function</a></div><div class="ttdeci">decltype(std::function(std::declval&lt; Func &gt;())) callable_to_std_function(Func &amp;&amp;func)</div><div class="ttdef"><b>Definition:</b> <a href="utility_8ixx_source.html#l00217">utility.ixx:217</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a3c2ce3f5bdeb743cf6b02410dd34c59e" name="a3c2ce3f5bdeb743cf6b02410dd34c59e"></a>
@@ -439,6 +761,44 @@ template&lt;detail::createcommand_concept Func&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8ixx_source.html#l00334">334</a> of file <a class="el" href="__cpptkinter_8ixx_source.html">_cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  335</span>        {</div>
+<div class="line"><span class="lineno">  336</span>            <span class="keyword">auto</span> self = <span class="keyword">this</span>;</div>
+<div class="line"><span class="lineno">  337</span>            <span class="keywordtype">int</span> err = 0;</div>
+<div class="line"><span class="lineno">  338</span> </div>
+<div class="line"><span class="lineno">  339</span>            <a class="code hl_define" href="global_8hpp.html#a268a5497247469c43b9b16215342ffdf">TRACE</a>(self, (<span class="stringliteral">&quot;((sss))&quot;</span>, <span class="stringliteral">&quot;rename&quot;</span>, name, <span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><span class="lineno">  340</span> </div>
+<div class="line"><span class="lineno">  341</span>            <span class="keywordflow">if</span> (self-&gt;threaded &amp;&amp; self-&gt;thread_id != Tcl_GetCurrentThread())</div>
+<div class="line"><span class="lineno">  342</span>            {</div>
+<div class="line"><span class="lineno">  343</span>                <span class="keyword">auto</span> buffer = (CommandEvent*)attemptckalloc(<span class="keyword">sizeof</span>(CommandEvent));</div>
+<div class="line"><span class="lineno">  344</span>                <span class="keywordflow">if</span> (buffer == <span class="keyword">nullptr</span>)</div>
+<div class="line"><span class="lineno">  345</span>                    <span class="keywordflow">throw</span> utility::construct_exception&lt;TclError&gt;(<span class="stringliteral">&quot;attemptckalloc failed to allocate memory&quot;</span>);</div>
+<div class="line"><span class="lineno">  346</span> </div>
+<div class="line"><span class="lineno">  347</span>                Tcl_Condition cond = NULL;</div>
+<div class="line"><span class="lineno">  348</span>                <span class="keyword">auto</span>&amp;&amp; ev = *std::construct_at(<span class="keyword">static_cast&lt;</span>CommandEvent*<span class="keyword">&gt;</span>(buffer));</div>
+<div class="line"><span class="lineno">  349</span> </div>
+<div class="line"><span class="lineno">  350</span>                <span class="comment">// have to specify PythonCmd_ClientData&lt;...&gt;:: here because of how createcommand works</span></div>
+<div class="line"><span class="lineno">  351</span>                ev.proc = <a class="code hl_function" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#a656552a2d416d5fb2a0c46c89a23eb62">PythonCmd_ClientData&lt;void&gt;::Tkapp_CommandProc</a>;</div>
+<div class="line"><span class="lineno">  352</span>                ev.interp = self-&gt;interp;</div>
+<div class="line"><span class="lineno">  353</span>                ev.create = 0;</div>
+<div class="line"><span class="lineno">  354</span>                ev.name = name;</div>
+<div class="line"><span class="lineno">  355</span>                ev.status = &amp;err;</div>
+<div class="line"><span class="lineno">  356</span>                ev.done = &amp;cond;</div>
+<div class="line"><span class="lineno">  357</span>                <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#ab9d70d1830337b1feca83dbe4a1265bd">Tkapp_ThreadSend</a>(self, &amp;ev, &amp;cond, &amp;<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#abccad04ff01c5a335fbd663725a79934">command_mutex</a>);</div>
+<div class="line"><span class="lineno">  358</span>                Tcl_ConditionFinalize(&amp;cond);</div>
+<div class="line"><span class="lineno">  359</span>            }</div>
+<div class="line"><span class="lineno">  360</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  361</span>            {</div>
+<div class="line"><span class="lineno">  362</span>                <a class="code hl_define" href="global_8hpp.html#a5740d90a62ad35d3e21869a8d43e01fd">ENTER_TCL</a>;</div>
+<div class="line"><span class="lineno">  363</span>                err = Tcl_DeleteCommand(self-&gt;interp, name.data());</div>
+<div class="line"><span class="lineno">  364</span>                <a class="code hl_define" href="global_8hpp.html#a689d409af4ec1cf2f7c35460dc53dba6">LEAVE_TCL</a>;</div>
+<div class="line"><span class="lineno">  365</span>            }</div>
+<div class="line"><span class="lineno">  366</span> </div>
+<div class="line"><span class="lineno">  367</span>            <span class="keywordflow">if</span> (err == -1)</div>
+<div class="line"><span class="lineno">  368</span>                <span class="keywordflow">throw</span> utility::construct_exception&lt;TclError&gt;(std::format(<span class="stringliteral">&quot;can&#39;t delete Tcl command &#39;{}&#39;&quot;</span>, name));</div>
+<div class="line"><span class="lineno">  369</span>        }</div>
+<div class="ttc" id="astructcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData_html_a656552a2d416d5fb2a0c46c89a23eb62"><div class="ttname"><a href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#a656552a2d416d5fb2a0c46c89a23eb62">cpptkinter::_cpptkinter::PythonCmd_ClientData::Tkapp_CommandProc</a></div><div class="ttdeci">static int Tkapp_CommandProc(Tcl_Event *evPtr, int flags) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter2_8ixx_source.html#l00435">_cpptkinter2.ixx:435</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a95f81e5b938fb2d320172246f280552c" name="a95f81e5b938fb2d320172246f280552c"></a>
@@ -638,7 +998,7 @@ template&lt;detail::createcommand_concept Func&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">decltype(<a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a59d6cbdc94e2415d46b97476b6d64dcc">trace</a>) &amp; cpptkinter::_cpptkinter::TkappObject::gettrace </td>
+          <td class="memname">decltype(<a class="el" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a00769e11eba048c3f7e4e9057c36ca13">trace</a>) &amp; cpptkinter::_cpptkinter::TkappObject::gettrace </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -651,6 +1011,12 @@ template&lt;detail::createcommand_concept Func&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8ixx_source.html#l00143">143</a> of file <a class="el" href="__cpptkinter_8ixx_source.html">_cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  144</span>        {</div>
+<div class="line"><span class="lineno">  145</span>            <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a00769e11eba048c3f7e4e9057c36ca13">trace</a>;</div>
+<div class="line"><span class="lineno">  146</span>        }</div>
+<div class="ttc" id="astructcpptkinter_1_1detail_1_1TkappObjectImpl_html_a00769e11eba048c3f7e4e9057c36ca13"><div class="ttname"><a href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a00769e11eba048c3f7e4e9057c36ca13">cpptkinter::detail::TkappObjectImpl::trace</a></div><div class="ttdeci">std::function&lt; void(std::vector&lt; std::string &gt;)&gt; trace</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00065">_cpptkinter1.ixx:65</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a510c851e25f2db7aba5bc746ca3aa8c9" name="a510c851e25f2db7aba5bc746ca3aa8c9"></a>
@@ -689,6 +1055,14 @@ template&lt;detail::FromObjConcept R&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8ixx_source.html#l00236">236</a> of file <a class="el" href="__cpptkinter_8ixx_source.html">_cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  236</span>                                                                {})</div>
+<div class="line"><span class="lineno">  237</span>        {</div>
+<div class="line"><span class="lineno">  238</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#acabe93f6ee85e6b54926888e2883dec3">var_invoke</a>([&amp;]()-&gt;<span class="keyword">decltype</span>(<span class="keyword">auto</span>) { <span class="keywordflow">return</span> GetVar&lt;R&gt;(<span class="keyword">this</span>, arg1, arg2, <a class="code hl_variable" href="tk_8ixx.html#a2df77a1aa62b54fe4a82f8b59da42a5e">TCL_LEAVE_ERR_MSG</a>); }, <span class="keyword">this</span>);</div>
+<div class="line"><span class="lineno">  239</span>        }</div>
+<div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_acabe93f6ee85e6b54926888e2883dec3"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#acabe93f6ee85e6b54926888e2883dec3">cpptkinter::_cpptkinter::var_invoke</a></div><div class="ttdeci">std::invoke_result_t&lt; Func &amp;&amp; &gt; var_invoke(Func &amp;&amp;func, TkappObjectImpl *self)</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter2_8ixx_source.html#l00276">_cpptkinter2.ixx:276</a></div></div>
+<div class="ttc" id="atk_8ixx_html_a2df77a1aa62b54fe4a82f8b59da42a5e"><div class="ttname"><a href="tk_8ixx.html#a2df77a1aa62b54fe4a82f8b59da42a5e">TCL_LEAVE_ERR_MSG</a></div><div class="ttdeci">constexpr auto TCL_LEAVE_ERR_MSG</div><div class="ttdef"><b>Definition:</b> <a href="tk_8ixx_source.html#l00112">tk.ixx:112</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a49aa0a4a7d4c8fccce00c3e5a5fa6dde" name="a49aa0a4a7d4c8fccce00c3e5a5fa6dde"></a>
@@ -727,6 +1101,12 @@ template&lt;detail::FromObjConcept R&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8ixx_source.html#l00241">241</a> of file <a class="el" href="__cpptkinter_8ixx_source.html">_cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  241</span>                                                              {})</div>
+<div class="line"><span class="lineno">  242</span>        {</div>
+<div class="line"><span class="lineno">  243</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#acabe93f6ee85e6b54926888e2883dec3">var_invoke</a>([&amp;]()-&gt;<span class="keyword">decltype</span>(<span class="keyword">auto</span>) { <span class="keywordflow">return</span> GetVar&lt;R&gt;(<span class="keyword">this</span>, arg1, arg2, <a class="code hl_variable" href="tk_8ixx.html#a2df77a1aa62b54fe4a82f8b59da42a5e">TCL_LEAVE_ERR_MSG</a>); }, <span class="keyword">this</span>);</div>
+<div class="line"><span class="lineno">  244</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ac8a6852fe999d39ec93fdb0a34155bc9" name="ac8a6852fe999d39ec93fdb0a34155bc9"></a>
@@ -765,6 +1145,12 @@ template&lt;detail::FromObjConcept R&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8ixx_source.html#l00246">246</a> of file <a class="el" href="__cpptkinter_8ixx_source.html">_cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  246</span>                                                                      {})</div>
+<div class="line"><span class="lineno">  247</span>        {</div>
+<div class="line"><span class="lineno">  248</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#acabe93f6ee85e6b54926888e2883dec3">var_invoke</a>([&amp;]()-&gt;<span class="keyword">decltype</span>(<span class="keyword">auto</span>) { <span class="keywordflow">return</span> GetVar&lt;R&gt;(<span class="keyword">this</span>, arg1, arg2, <a class="code hl_variable" href="tk_8ixx.html#a2df77a1aa62b54fe4a82f8b59da42a5e">TCL_LEAVE_ERR_MSG</a> | <a class="code hl_variable" href="tk_8ixx.html#a82cfbec08a42f98782d44a45004a8f5c">TCL_GLOBAL_ONLY</a>); }, <span class="keyword">this</span>);</div>
+<div class="line"><span class="lineno">  249</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a687d2a9118f8ab5308212977045c0322" name="a687d2a9118f8ab5308212977045c0322"></a>
@@ -803,6 +1189,12 @@ template&lt;detail::FromObjConcept R&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8ixx_source.html#l00251">251</a> of file <a class="el" href="__cpptkinter_8ixx_source.html">_cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  251</span>                                                                    {})</div>
+<div class="line"><span class="lineno">  252</span>        {</div>
+<div class="line"><span class="lineno">  253</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#acabe93f6ee85e6b54926888e2883dec3">var_invoke</a>([&amp;]()-&gt;<span class="keyword">decltype</span>(<span class="keyword">auto</span>) { <span class="keywordflow">return</span> GetVar&lt;R&gt;(<span class="keyword">this</span>, arg1, arg2, <a class="code hl_variable" href="tk_8ixx.html#a2df77a1aa62b54fe4a82f8b59da42a5e">TCL_LEAVE_ERR_MSG</a> | <a class="code hl_variable" href="tk_8ixx.html#a82cfbec08a42f98782d44a45004a8f5c">TCL_GLOBAL_ONLY</a>); }, <span class="keyword">this</span>);</div>
+<div class="line"><span class="lineno">  254</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="af9fa2461aab90550637edb943acddccf" name="af9fa2461aab90550637edb943acddccf"></a>
@@ -839,6 +1231,12 @@ template&lt;detail::FromObjConcept R&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8ixx_source.html#l00227">227</a> of file <a class="el" href="__cpptkinter_8ixx_source.html">_cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  228</span>        {</div>
+<div class="line"><span class="lineno">  229</span>            <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#acabe93f6ee85e6b54926888e2883dec3">var_invoke</a>([&amp;]() { <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#a1669cb74cdcf344762c7e8a991495478">SetVar</a>(<span class="keyword">this</span>, arg1, arg2, <a class="code hl_variable" href="tk_8ixx.html#a2df77a1aa62b54fe4a82f8b59da42a5e">TCL_LEAVE_ERR_MSG</a> | <a class="code hl_variable" href="tk_8ixx.html#a82cfbec08a42f98782d44a45004a8f5c">TCL_GLOBAL_ONLY</a>); }, <span class="keyword">this</span>);</div>
+<div class="line"><span class="lineno">  230</span>        }</div>
+<div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_a1669cb74cdcf344762c7e8a991495478"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#a1669cb74cdcf344762c7e8a991495478">cpptkinter::_cpptkinter::SetVar</a></div><div class="ttdeci">void SetVar(TkappObjectImpl *self, const std::string &amp;arg1, const detail::AsObjConcept auto &amp;arg2, int flags)</div><div class="ttdoc">Modify the value of a tcl variable. If the variable doesn't exist, it will be created.</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter2_8ixx_source.html#l00089">_cpptkinter2.ixx:89</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a59ca3d44e98edb2d53ca7285c361be15" name="a59ca3d44e98edb2d53ca7285c361be15"></a>
@@ -881,6 +1279,11 @@ template&lt;detail::FromObjConcept R&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8ixx_source.html#l00231">231</a> of file <a class="el" href="__cpptkinter_8ixx_source.html">_cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  232</span>        {</div>
+<div class="line"><span class="lineno">  233</span>            <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#acabe93f6ee85e6b54926888e2883dec3">var_invoke</a>([&amp;]() { <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#a1669cb74cdcf344762c7e8a991495478">SetVar</a>(<span class="keyword">this</span>, arg1, arg2, arg3, <a class="code hl_variable" href="tk_8ixx.html#a2df77a1aa62b54fe4a82f8b59da42a5e">TCL_LEAVE_ERR_MSG</a> | <a class="code hl_variable" href="tk_8ixx.html#a82cfbec08a42f98782d44a45004a8f5c">TCL_GLOBAL_ONLY</a>); }, <span class="keyword">this</span>);</div>
+<div class="line"><span class="lineno">  234</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ad55152c9130d05148a937475a53643dc" name="ad55152c9130d05148a937475a53643dc"></a>
@@ -917,6 +1320,13 @@ template&lt;detail::FromObjConcept R&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8ixx_source.html#l00259">259</a> of file <a class="el" href="__cpptkinter_8ixx_source.html">_cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  259</span>                                                                           {})</div>
+<div class="line"><span class="lineno">  260</span>        {</div>
+<div class="line"><span class="lineno">  261</span>            <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#acabe93f6ee85e6b54926888e2883dec3">var_invoke</a>([&amp;]() { <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#a4e3732865bf570c4692b39d46ac18176">UnsetVar</a>(<span class="keyword">this</span>, arg1, arg2, <a class="code hl_variable" href="tk_8ixx.html#a2df77a1aa62b54fe4a82f8b59da42a5e">TCL_LEAVE_ERR_MSG</a> | <a class="code hl_variable" href="tk_8ixx.html#a82cfbec08a42f98782d44a45004a8f5c">TCL_GLOBAL_ONLY</a>); }, <span class="keyword">this</span>);</div>
+<div class="line"><span class="lineno">  262</span>        }</div>
+<div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_a4e3732865bf570c4692b39d46ac18176"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#a4e3732865bf570c4692b39d46ac18176">cpptkinter::_cpptkinter::UnsetVar</a></div><div class="ttdeci">void UnsetVar(TkappObjectImpl *self, const std::string &amp;arg1, const std::string &amp;arg2, int flags)</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter2_8ixx_source.html#l00134">_cpptkinter2.ixx:134</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a0fc8175b6c5e13ca601cd9843e90e0b3" name="a0fc8175b6c5e13ca601cd9843e90e0b3"></a>
@@ -959,6 +1369,31 @@ template&lt;detail::FromObjConcept R&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8ixx_source.html#l00427">427</a> of file <a class="el" href="__cpptkinter_8ixx_source.html">_cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  428</span>        {</div>
+<div class="line"><span class="lineno">  429</span>            <span class="keyword">auto</span> self = <span class="keyword">this</span>;</div>
+<div class="line"><span class="lineno">  430</span> </div>
+<div class="line"><span class="lineno">  431</span>            Tcl_Interp* <a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a3288c7145d78c7f8abc73dd89b8cfcbc">interp</a> = self-&gt;interp;</div>
+<div class="line"><span class="lineno">  432</span>            <span class="keyword">const</span> <span class="keywordtype">char</span>* _tk_exists;</div>
+<div class="line"><span class="lineno">  433</span> </div>
+<div class="line"><span class="lineno">  434</span>            <span class="comment">/* We want to guard against calling Tk_Init() multiple times */</span></div>
+<div class="line"><span class="lineno">  435</span>            <a class="code hl_define" href="__cpptkinter_8ixx.html#a4bb7628c59167b48410013ca74311168">CHECK_TCL_APPARTMENT</a>;</div>
+<div class="line"><span class="lineno">  436</span>            <a class="code hl_define" href="global_8hpp.html#a5740d90a62ad35d3e21869a8d43e01fd">ENTER_TCL</a>;</div>
+<div class="line"><span class="lineno">  437</span>            <span class="keywordtype">int</span> err = Tcl_Eval(self-&gt;interp, <span class="stringliteral">&quot;info exists     tk_version&quot;</span>);</div>
+<div class="line"><span class="lineno">  438</span>            <a class="code hl_define" href="global_8hpp.html#a20c9eb000917eae55f7e66b8585fce82">ENTER_OVERLAP</a>;</div>
+<div class="line"><span class="lineno">  439</span>            <span class="keywordflow">if</span> (err == <a class="code hl_variable" href="tk_8ixx.html#a03bdb8340283213666d770d940fc57a0">TCL_ERROR</a>)</div>
+<div class="line"><span class="lineno">  440</span>                <span class="keywordflow">throw</span> <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#a42e884096c8af22e90a5b6178df9b0c2">Tkinter_Error</a>(self);</div>
+<div class="line"><span class="lineno">  441</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  442</span>                _tk_exists = Tcl_GetStringResult(self-&gt;interp);</div>
+<div class="line"><span class="lineno">  443</span> </div>
+<div class="line"><span class="lineno">  444</span>            <a class="code hl_define" href="global_8hpp.html#a6aa17d5bb404eb5421f6582b8e026156">LEAVE_OVERLAP_TCL</a>;</div>
+<div class="line"><span class="lineno">  445</span> </div>
+<div class="line"><span class="lineno">  446</span>            <span class="keywordflow">if</span> (_tk_exists == <span class="keyword">nullptr</span> || _tk_exists != std::string_view(<span class="stringliteral">&quot;1&quot;</span>))</div>
+<div class="line"><span class="lineno">  447</span>                <span class="keywordflow">if</span> (Tk_Init(<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a3288c7145d78c7f8abc73dd89b8cfcbc">interp</a>) == <a class="code hl_variable" href="tk_8ixx.html#a03bdb8340283213666d770d940fc57a0">TCL_ERROR</a>)</div>
+<div class="line"><span class="lineno">  448</span>                    <span class="keywordflow">throw</span> <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#a42e884096c8af22e90a5b6178df9b0c2">Tkinter_Error</a>(self);</div>
+<div class="line"><span class="lineno">  449</span>        }</div>
+<div class="ttc" id="a__cpptkinter_8ixx_html_a4bb7628c59167b48410013ca74311168"><div class="ttname"><a href="__cpptkinter_8ixx.html#a4bb7628c59167b48410013ca74311168">CHECK_TCL_APPARTMENT</a></div><div class="ttdeci">#define CHECK_TCL_APPARTMENT</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter_8ixx_source.html#l00022">_cpptkinter.ixx:22</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="aec2a10fccc85b60d4a04f3283c4d55c5" name="aec2a10fccc85b60d4a04f3283c4d55c5"></a>
@@ -985,6 +1420,60 @@ template&lt;detail::FromObjConcept R&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8ixx_source.html#l00373">373</a> of file <a class="el" href="__cpptkinter_8ixx_source.html">_cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  374</span>        {</div>
+<div class="line"><span class="lineno">  375</span>            <span class="keyword">auto</span> self = <span class="keyword">this</span>;</div>
+<div class="line"><span class="lineno">  376</span> </div>
+<div class="line"><span class="lineno">  377</span>            <a class="code hl_define" href="__cpptkinter_8ixx.html#a4bb7628c59167b48410013ca74311168">CHECK_TCL_APPARTMENT</a>;</div>
+<div class="line"><span class="lineno">  378</span>            self-&gt;dispatching = 1;</div>
+<div class="line"><span class="lineno">  379</span> </div>
+<div class="line"><span class="lineno">  380</span>            <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#aa23cd1c70cae3f9758b865958df4547f">quitMainLoop</a> = 0;</div>
+<div class="line"><span class="lineno">  381</span>            <span class="keywordflow">while</span> (Tk_GetNumMainWindows() &gt; threshold &amp;&amp; !<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#aa23cd1c70cae3f9758b865958df4547f">quitMainLoop</a> &amp;&amp; !<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#ad124c09b4de0ba801bf49a3c7c002894">errorInCmd</a>)</div>
+<div class="line"><span class="lineno">  382</span>            {</div>
+<div class="line"><span class="lineno">  383</span>                <span class="keywordtype">int</span> result;</div>
+<div class="line"><span class="lineno">  384</span> </div>
+<div class="line"><span class="lineno">  385</span>                <span class="keywordflow">if</span> (self-&gt;threaded)</div>
+<div class="line"><span class="lineno">  386</span>                {</div>
+<div class="line"><span class="lineno">  387</span>                    <span class="comment">// Allow other Python threads to run.</span></div>
+<div class="line"><span class="lineno">  388</span>                    <a class="code hl_define" href="global_8hpp.html#a5740d90a62ad35d3e21869a8d43e01fd">ENTER_TCL</a>;</div>
+<div class="line"><span class="lineno">  389</span>                    result = Tcl_DoOneEvent(0);</div>
+<div class="line"><span class="lineno">  390</span>                    <a class="code hl_define" href="global_8hpp.html#a689d409af4ec1cf2f7c35460dc53dba6">LEAVE_TCL</a>;</div>
+<div class="line"><span class="lineno">  391</span>                }</div>
+<div class="line"><span class="lineno">  392</span>                <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  393</span>                {</div>
+<div class="line"><span class="lineno">  394</span>                    {</div>
+<div class="line"><span class="lineno">  395</span>                        <span class="keyword">auto</span> mutex_adapter = utility::optional_mutex_adaptor(<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a5657e0cdfc73b673686cddc7d5b0c543">tcl_lock</a>);</div>
+<div class="line"><span class="lineno">  396</span>                        <span class="keyword">auto</span> lock = std::scoped_lock(mutex_adapter);</div>
+<div class="line"><span class="lineno">  397</span> </div>
+<div class="line"><span class="lineno">  398</span>                        result = Tcl_DoOneEvent(<a class="code hl_variable" href="tk_8ixx.html#ac1181cece9f76c612433c240f4db2493">TCL_DONT_WAIT</a>);</div>
+<div class="line"><span class="lineno">  399</span>                    }</div>
+<div class="line"><span class="lineno">  400</span> </div>
+<div class="line"><span class="lineno">  401</span>                    <span class="keywordflow">if</span> (result == 0)</div>
+<div class="line"><span class="lineno">  402</span>                        std::this_thread::sleep_for(std::chrono::milliseconds(<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a235f23b395ff9f7aaca74d3fe6213032">Tkinter_busywaitinterval</a>));</div>
+<div class="line"><span class="lineno">  403</span>                }</div>
+<div class="line"><span class="lineno">  404</span> </div>
+<div class="line"><span class="lineno">  405</span>                <a class="code hl_define" href="global_8hpp.html#ad08e1eaa565f8afcb49eded8d6cd9f4c">DEVIATING_IMPLEMENTATION_WARNING</a>(<span class="stringliteral">&quot;original handles python signals with PyErr_CheckSignals&quot;</span>);</div>
+<div class="line"><span class="lineno">  406</span> </div>
+<div class="line"><span class="lineno">  407</span>                <span class="keywordflow">if</span> (result &lt; 0)</div>
+<div class="line"><span class="lineno">  408</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  409</span>            }</div>
+<div class="line"><span class="lineno">  410</span>            self-&gt;dispatching = 0;</div>
+<div class="line"><span class="lineno">  411</span>            <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#aa23cd1c70cae3f9758b865958df4547f">quitMainLoop</a> = 0;</div>
+<div class="line"><span class="lineno">  412</span> </div>
+<div class="line"><span class="lineno">  413</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#ad124c09b4de0ba801bf49a3c7c002894">errorInCmd</a>)</div>
+<div class="line"><span class="lineno">  414</span>            {</div>
+<div class="line"><span class="lineno">  415</span>                <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#ad124c09b4de0ba801bf49a3c7c002894">errorInCmd</a> = 0;</div>
+<div class="line"><span class="lineno">  416</span>                <span class="keyword">auto</span> intermediate = <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#aaf7cbb354663af677e27cf51c23ae863">excInCmd</a>;</div>
+<div class="line"><span class="lineno">  417</span>                <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#aaf7cbb354663af677e27cf51c23ae863">excInCmd</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="lineno">  418</span>                std::rethrow_exception(intermediate);</div>
+<div class="line"><span class="lineno">  419</span>            }</div>
+<div class="line"><span class="lineno">  420</span>        }</div>
+<div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_a235f23b395ff9f7aaca74d3fe6213032"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#a235f23b395ff9f7aaca74d3fe6213032">cpptkinter::_cpptkinter::Tkinter_busywaitinterval</a></div><div class="ttdeci">int Tkinter_busywaitinterval</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00041">_cpptkinter1.ixx:41</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_aa23cd1c70cae3f9758b865958df4547f"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#aa23cd1c70cae3f9758b865958df4547f">cpptkinter::_cpptkinter::quitMainLoop</a></div><div class="ttdeci">int quitMainLoop</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00038">_cpptkinter1.ixx:38</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_aaf7cbb354663af677e27cf51c23ae863"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#aaf7cbb354663af677e27cf51c23ae863">cpptkinter::_cpptkinter::excInCmd</a></div><div class="ttdeci">std::exception_ptr excInCmd</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00040">_cpptkinter1.ixx:40</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_ad124c09b4de0ba801bf49a3c7c002894"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#ad124c09b4de0ba801bf49a3c7c002894">cpptkinter::_cpptkinter::errorInCmd</a></div><div class="ttdeci">int errorInCmd</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00039">_cpptkinter1.ixx:39</a></div></div>
+<div class="ttc" id="atk_8ixx_html_ac1181cece9f76c612433c240f4db2493"><div class="ttname"><a href="tk_8ixx.html#ac1181cece9f76c612433c240f4db2493">TCL_DONT_WAIT</a></div><div class="ttdeci">constexpr auto TCL_DONT_WAIT</div><div class="ttdef"><b>Definition:</b> <a href="tk_8ixx_source.html#l00106">tk.ixx:106</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="aff3a73abcfa99f96ff9b1971202d1d97" name="aff3a73abcfa99f96ff9b1971202d1d97"></a>
@@ -1010,6 +1499,11 @@ template&lt;detail::FromObjConcept R&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8ixx_source.html#l00422">422</a> of file <a class="el" href="__cpptkinter_8ixx_source.html">_cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  423</span>        {</div>
+<div class="line"><span class="lineno">  424</span>            <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#aa23cd1c70cae3f9758b865958df4547f">quitMainLoop</a> = 1;</div>
+<div class="line"><span class="lineno">  425</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ad3b8be66557c9d4f03c5b0441df71153" name="ad3b8be66557c9d4f03c5b0441df71153"></a>
@@ -1036,7 +1530,7 @@ template&lt;detail::FromObjConcept R&gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename Func &gt; <br />
-requires requires (Func&amp;&amp; func) { <a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a59d6cbdc94e2415d46b97476b6d64dcc">trace</a> = std::forward&lt;Func&gt;(func); }</div>
+requires requires (Func&amp;&amp; func) { <a class="el" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a00769e11eba048c3f7e4e9057c36ca13">trace</a> = std::forward&lt;Func&gt;(func); }</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1056,6 +1550,11 @@ requires requires (Func&amp;&amp; func) { <a class="el" href="structcpptkinter_1
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8ixx_source.html#l00139">139</a> of file <a class="el" href="__cpptkinter_8ixx_source.html">_cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  140</span>        {</div>
+<div class="line"><span class="lineno">  141</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a00769e11eba048c3f7e4e9057c36ca13">trace</a> = std::forward&lt;Func&gt;(func);</div>
+<div class="line"><span class="lineno">  142</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a9e41bb8f738fe0099a07033b9f651f10" name="a9e41bb8f738fe0099a07033b9f651f10"></a>
@@ -1092,6 +1591,11 @@ requires requires (Func&amp;&amp; func) { <a class="el" href="structcpptkinter_1
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8ixx_source.html#l00219">219</a> of file <a class="el" href="__cpptkinter_8ixx_source.html">_cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  220</span>        {</div>
+<div class="line"><span class="lineno">  221</span>            <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#acabe93f6ee85e6b54926888e2883dec3">var_invoke</a>([&amp;]() { <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#a1669cb74cdcf344762c7e8a991495478">SetVar</a>(<span class="keyword">this</span>, arg1, arg2, <a class="code hl_variable" href="tk_8ixx.html#a2df77a1aa62b54fe4a82f8b59da42a5e">TCL_LEAVE_ERR_MSG</a>); }, <span class="keyword">this</span>);</div>
+<div class="line"><span class="lineno">  222</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ac36ad817b6d6f78de9c0d2fbbd22dc7b" name="ac36ad817b6d6f78de9c0d2fbbd22dc7b"></a>
@@ -1134,6 +1638,11 @@ requires requires (Func&amp;&amp; func) { <a class="el" href="structcpptkinter_1
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8ixx_source.html#l00223">223</a> of file <a class="el" href="__cpptkinter_8ixx_source.html">_cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  224</span>        {</div>
+<div class="line"><span class="lineno">  225</span>            <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#acabe93f6ee85e6b54926888e2883dec3">var_invoke</a>([&amp;]() { <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#a1669cb74cdcf344762c7e8a991495478">SetVar</a>(<span class="keyword">this</span>, arg1, arg2, arg3, <a class="code hl_variable" href="tk_8ixx.html#a2df77a1aa62b54fe4a82f8b59da42a5e">TCL_LEAVE_ERR_MSG</a>); }, <span class="keyword">this</span>);</div>
+<div class="line"><span class="lineno">  226</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="af02b853595c4a9bdd18db1ae65baf28b" name="af02b853595c4a9bdd18db1ae65baf28b"></a>
@@ -1160,6 +1669,23 @@ requires requires (Func&amp;&amp; func) { <a class="el" href="structcpptkinter_1
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8ixx_source.html#l00272">272</a> of file <a class="el" href="__cpptkinter_8ixx_source.html">_cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  273</span>        {</div>
+<div class="line"><span class="lineno">  274</span>            <span class="keyword">auto</span> self = <span class="keyword">this</span>;</div>
+<div class="line"><span class="lineno">  275</span>            Tcl_Size argc{};</div>
+<div class="line"><span class="lineno">  276</span>            <span class="keyword">const</span> <span class="keywordtype">char</span>** argv{};</div>
+<div class="line"><span class="lineno">  277</span> </div>
+<div class="line"><span class="lineno">  278</span>            <span class="keyword">auto</span> del = [](<span class="keyword">const</span> <span class="keywordtype">char</span>*** argv) { ckfree(*argv); };</div>
+<div class="line"><span class="lineno">  279</span>            std::unique_ptr&lt;<span class="keyword">const</span> <span class="keywordtype">char</span>**, <span class="keyword">decltype</span>(del)&gt; ptr{ <span class="keyword">nullptr</span>, del };</div>
+<div class="line"><span class="lineno">  280</span> </div>
+<div class="line"><span class="lineno">  281</span>            <span class="keywordflow">if</span> (Tcl_SplitList(self-&gt;interp, s.c_str(), &amp;argc, &amp;argv) == <a class="code hl_variable" href="tk_8ixx.html#a03bdb8340283213666d770d940fc57a0">TCL_ERROR</a>)</div>
+<div class="line"><span class="lineno">  282</span>                <span class="keywordflow">throw</span> <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#a42e884096c8af22e90a5b6178df9b0c2">Tkinter_Error</a>(self);</div>
+<div class="line"><span class="lineno">  283</span> </div>
+<div class="line"><span class="lineno">  284</span>            ptr.reset(&amp;argv);</div>
+<div class="line"><span class="lineno">  285</span> </div>
+<div class="line"><span class="lineno">  286</span>            <span class="keywordflow">return</span> std::vector&lt;std::string&gt;(argv, argv + argc);</div>
+<div class="line"><span class="lineno">  287</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ab2da6b411ebb66583e8fad71c8c58aba" name="ab2da6b411ebb66583e8fad71c8c58aba"></a>
@@ -1196,6 +1722,12 @@ requires requires (Func&amp;&amp; func) { <a class="el" href="structcpptkinter_1
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8ixx_source.html#l00255">255</a> of file <a class="el" href="__cpptkinter_8ixx_source.html">_cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  255</span>                                                                     {})</div>
+<div class="line"><span class="lineno">  256</span>        {</div>
+<div class="line"><span class="lineno">  257</span>            <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#acabe93f6ee85e6b54926888e2883dec3">var_invoke</a>([&amp;]() { <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#a4e3732865bf570c4692b39d46ac18176">UnsetVar</a>(<span class="keyword">this</span>, arg1, arg2, <a class="code hl_variable" href="tk_8ixx.html#a2df77a1aa62b54fe4a82f8b59da42a5e">TCL_LEAVE_ERR_MSG</a>); }, <span class="keyword">this</span>);</div>
+<div class="line"><span class="lineno">  258</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a7c6471be5987d5c4c2c8d63bb2c65c4a" name="a7c6471be5987d5c4c2c8d63bb2c65c4a"></a>
@@ -1215,263 +1747,8 @@ requires requires (Func&amp;&amp; func) { <a class="el" href="structcpptkinter_1
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a73df22679f21d520c4ce43763afe0daf" name="a73df22679f21d520c4ce43763afe0daf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73df22679f21d520c4ce43763afe0daf">&#9670;&#160;</a></span>BignumType</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const Tcl_ObjType* cpptkinter::_cpptkinter::TkappObject::BignumType</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3779df25e60fbed7d0d7d57f0a57e162" name="a3779df25e60fbed7d0d7d57f0a57e162"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3779df25e60fbed7d0d7d57f0a57e162">&#9670;&#160;</a></span>BooleanType</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const Tcl_ObjType* cpptkinter::_cpptkinter::TkappObject::BooleanType</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a10fa988977cf8cd296c13081e229106e" name="a10fa988977cf8cd296c13081e229106e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10fa988977cf8cd296c13081e229106e">&#9670;&#160;</a></span>ByteArrayType</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const Tcl_ObjType* cpptkinter::_cpptkinter::TkappObject::ByteArrayType</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a034f70294a30fefe10731ff0c01ae055" name="a034f70294a30fefe10731ff0c01ae055"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a034f70294a30fefe10731ff0c01ae055">&#9670;&#160;</a></span>DictType</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const Tcl_ObjType* cpptkinter::_cpptkinter::TkappObject::DictType</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac08df274c7e9beb6e0f0245671801b27" name="ac08df274c7e9beb6e0f0245671801b27"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac08df274c7e9beb6e0f0245671801b27">&#9670;&#160;</a></span>dispatching</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int cpptkinter::_cpptkinter::TkappObject::dispatching {}</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa37d032ca5a8b332a7ba0afb07bd351e" name="aa37d032ca5a8b332a7ba0afb07bd351e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa37d032ca5a8b332a7ba0afb07bd351e">&#9670;&#160;</a></span>DoubleType</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const Tcl_ObjType* cpptkinter::_cpptkinter::TkappObject::DoubleType</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8a8e24aab13603547088f96f2fb8879c" name="a8a8e24aab13603547088f96f2fb8879c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a8e24aab13603547088f96f2fb8879c">&#9670;&#160;</a></span>interp</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Tcl_Interp* cpptkinter::_cpptkinter::TkappObject::interp</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a03d974dd50a4f3ace5455e19fcf5f7ff" name="a03d974dd50a4f3ace5455e19fcf5f7ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03d974dd50a4f3ace5455e19fcf5f7ff">&#9670;&#160;</a></span>IntType</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const Tcl_ObjType* cpptkinter::_cpptkinter::TkappObject::IntType</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="adb67bbb235bacfbc9e4b30a94c633f73" name="adb67bbb235bacfbc9e4b30a94c633f73"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb67bbb235bacfbc9e4b30a94c633f73">&#9670;&#160;</a></span>ListType</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const Tcl_ObjType* cpptkinter::_cpptkinter::TkappObject::ListType</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a60fab429ff432735d5893b8f40167e31" name="a60fab429ff432735d5893b8f40167e31"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60fab429ff432735d5893b8f40167e31">&#9670;&#160;</a></span>OldBooleanType</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const Tcl_ObjType* cpptkinter::_cpptkinter::TkappObject::OldBooleanType</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1464ba5822a84cfb19acfe5e2e366fce" name="a1464ba5822a84cfb19acfe5e2e366fce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1464ba5822a84cfb19acfe5e2e366fce">&#9670;&#160;</a></span>ParsedVarName</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const Tcl_ObjType* cpptkinter::_cpptkinter::TkappObject::ParsedVarName</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab666036d2183aae45af2eb51c6eca733" name="ab666036d2183aae45af2eb51c6eca733"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab666036d2183aae45af2eb51c6eca733">&#9670;&#160;</a></span>StringType</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const Tcl_ObjType* cpptkinter::_cpptkinter::TkappObject::StringType</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a177c912fa045ad304d84fbefe4839b15" name="a177c912fa045ad304d84fbefe4839b15"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a177c912fa045ad304d84fbefe4839b15">&#9670;&#160;</a></span>thread_id</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Tcl_ThreadId cpptkinter::_cpptkinter::TkappObject::thread_id</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0c1e1442a223ed4237b559b3436fc5c0" name="a0c1e1442a223ed4237b559b3436fc5c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c1e1442a223ed4237b559b3436fc5c0">&#9670;&#160;</a></span>threaded</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int cpptkinter::_cpptkinter::TkappObject::threaded</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>true if tcl_platform[threaded] </p>
-
-</div>
-</div>
-<a id="a59d6cbdc94e2415d46b97476b6d64dcc" name="a59d6cbdc94e2415d46b97476b6d64dcc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59d6cbdc94e2415d46b97476b6d64dcc">&#9670;&#160;</a></span>trace</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::function&lt;void(std::vector&lt;std::string&gt;)&gt; cpptkinter::_cpptkinter::TkappObject::trace {}</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a37cfb45fe948fc758bc3f66cd43407bf" name="a37cfb45fe948fc758bc3f66cd43407bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a37cfb45fe948fc758bc3f66cd43407bf">&#9670;&#160;</a></span>UTF32StringType</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const Tcl_ObjType* cpptkinter::_cpptkinter::TkappObject::UTF32StringType</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac0d581b252a98718576128200650a41a" name="ac0d581b252a98718576128200650a41a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0d581b252a98718576128200650a41a">&#9670;&#160;</a></span>WideIntType</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const Tcl_ObjType* cpptkinter::_cpptkinter::TkappObject::WideIntType</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="adb76fbe3c9a5e894b9ca4bb1b1c86731" name="adb76fbe3c9a5e894b9ca4bb1b1c86731"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb76fbe3c9a5e894b9ca4bb1b1c86731">&#9670;&#160;</a></span>WindowType</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const Tcl_ObjType* cpptkinter::_cpptkinter::TkappObject::WindowType</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/<a class="el" href="__cpptkinter_8ixx.html">_cpptkinter.ixx</a></li>
+<li>src/_cpptkinter/<a class="el" href="__cpptkinter_8ixx_source.html">_cpptkinter.ixx</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

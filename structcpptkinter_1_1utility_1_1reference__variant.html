@@ -118,7 +118,11 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a5e415a7120282ebab566ebaeb8e7dbbf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcpptkinter_1_1utility_1_1reference__variant.html#a6de556904dd820f253fabb2baa981864">variant_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1utility_1_1reference__variant.html#a5e415a7120282ebab566ebaeb8e7dbbf">v</a></td></tr>
 <tr class="separator:a5e415a7120282ebab566ebaeb8e7dbbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename... Args&gt;<br />
+struct cpptkinter::utility::reference_variant&lt; Args &gt;</div>
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00124">124</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a6de556904dd820f253fabb2baa981864" name="a6de556904dd820f253fabb2baa981864"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6de556904dd820f253fabb2baa981864">&#9670;&#160;</a></span>variant_type</h2>
 
@@ -132,6 +136,8 @@ template&lt;typename... Args&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00126">126</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
 
 </div>
 </div>
@@ -165,6 +171,13 @@ requires requires (T&amp; ref) { <a class="el" href="structcpptkinter_1_1utility
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00131">131</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  131</span>                                  : <a class="code hl_variable" href="structcpptkinter_1_1utility_1_1reference__variant.html#a5e415a7120282ebab566ebaeb8e7dbbf">v</a>(std::in_place_type_t&lt;std::reference_wrapper&lt;T&gt;&gt;(), std::reference_wrapper&lt;T&gt;(ref))</div>
+<div class="line"><span class="lineno">  132</span>        {</div>
+<div class="line"><span class="lineno">  133</span> </div>
+<div class="line"><span class="lineno">  134</span>        }</div>
+<div class="ttc" id="astructcpptkinter_1_1utility_1_1reference__variant_html_a5e415a7120282ebab566ebaeb8e7dbbf"><div class="ttname"><a href="structcpptkinter_1_1utility_1_1reference__variant.html#a5e415a7120282ebab566ebaeb8e7dbbf">cpptkinter::utility::reference_variant::v</a></div><div class="ttdeci">variant_type v</div><div class="ttdef"><b>Definition:</b> <a href="utility_8ixx_source.html#l00127">utility.ixx:127</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -196,6 +209,20 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00137">137</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  138</span>        {</div>
+<div class="line"><span class="lineno">  139</span>            <span class="keyword">auto</span> lambda = [&amp;t](<span class="keyword">auto</span>&amp; val) {</div>
+<div class="line"><span class="lineno">  140</span>                <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (<span class="keyword">requires</span> { val.get() = std::forward&lt;T&gt;(t); })</div>
+<div class="line"><span class="lineno">  141</span>                    val.get() = std::forward&lt;T&gt;(t);</div>
+<div class="line"><span class="lineno">  142</span>                <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  143</span>                    <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Invalid assignment&quot;</span>);</div>
+<div class="line"><span class="lineno">  144</span>                };</div>
+<div class="line"><span class="lineno">  145</span> </div>
+<div class="line"><span class="lineno">  146</span>            std::visit(lambda, this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1utility_1_1reference__variant.html#a5e415a7120282ebab566ebaeb8e7dbbf">v</a>);</div>
+<div class="line"><span class="lineno">  147</span> </div>
+<div class="line"><span class="lineno">  148</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><span class="lineno">  149</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -213,10 +240,12 @@ template&lt;typename... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00127">127</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/<a class="el" href="utility_8ixx.html">utility.ixx</a></li>
+<li>src/utility/<a class="el" href="utility_8ixx_source.html">utility.ixx</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

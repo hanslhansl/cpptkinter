@@ -144,6 +144,8 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Geometry manager <a class="el" href="structcpptkinter_1_1Pack.html" title="Geometry manager Pack.">Pack</a>. </p>
 <p>Base class to use the methods pack_* in every widget. </p>
+
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02440">2440</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a89f85b1b069fda3ba81ae8ce212da23e" name="a89f85b1b069fda3ba81ae8ce212da23e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a89f85b1b069fda3ba81ae8ce212da23e">&#9670;&#160;</a></span>pack()</h2>
@@ -183,6 +185,12 @@ template&lt;cnfs::is_cnf CNF = cnfs::pack_configure&gt; </div>
 
 <p>Pack a widget in the parent widget.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02450">2450</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 2450</span>                                                {})</div>
+<div class="line"><span class="lineno"> 2451</span>        {</div>
+<div class="line"><span class="lineno"> 2452</span>            <span class="keywordflow">return</span> self.pack_configure(std::forward&lt;CNF&gt;(cnf));</div>
+<div class="line"><span class="lineno"> 2453</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ac1887ee1093045313118a68843865ac5" name="ac1887ee1093045313118a68843865ac5"></a>
@@ -223,6 +231,12 @@ template&lt;cnfs::is_cnf CNF = cnfs::pack_configure&gt; </div>
 
 <p>Pack a widget in the parent widget. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02444">2444</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 2444</span>                                                          {})</div>
+<div class="line"><span class="lineno"> 2445</span>        {</div>
+<div class="line"><span class="lineno"> 2446</span>            self.tk-&gt;call(<span class="stringliteral">&quot;pack&quot;</span>, <span class="stringliteral">&quot;configure&quot;</span>, self._w, self._options(std::forward&lt;CNF&gt;(cnf)));</div>
+<div class="line"><span class="lineno"> 2447</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a6730397aa2c68c8ad4f305ac3fe0fab9" name="a6730397aa2c68c8ad4f305ac3fe0fab9"></a>
@@ -251,6 +265,11 @@ template&lt;cnfs::is_cnf CNF = cnfs::pack_configure&gt; </div>
 
 <p>Unmap this widget and do not use it for the packing order. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02456">2456</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 2457</span>        {</div>
+<div class="line"><span class="lineno"> 2458</span>            self.tk-&gt;template call&lt;void&gt;(<span class="stringliteral">&quot;pack&quot;</span>, <span class="stringliteral">&quot;forget&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno"> 2459</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="aa3eba3ba8a43fde8775fd8ecb8bf2cee" name="aa3eba3ba8a43fde8775fd8ecb8bf2cee"></a>
@@ -279,10 +298,15 @@ template&lt;cnfs::is_cnf CNF = cnfs::pack_configure&gt; </div>
 
 <p>Return information about the packing options for this widget. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02462">2462</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 2463</span>        {</div>
+<div class="line"><span class="lineno"> 2464</span>            <span class="keywordflow">return</span> detail::pack_grid_info&lt;cnfs::PackInfo&gt;(self, <span class="stringliteral">&quot;pack&quot;</span>, <span class="stringliteral">&quot;info&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno"> 2465</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/<a class="el" href="cpptkinter_8ixx.html">cpptkinter.ixx</a></li>
+<li>src/cpptkinter/<a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

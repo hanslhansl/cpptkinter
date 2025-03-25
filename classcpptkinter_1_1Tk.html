@@ -112,8 +112,10 @@ Inheritance diagram for cpptkinter::Tk:</div>
  <div class="center">
   <img src="classcpptkinter_1_1Tk.png" usemap="#cpptkinter::Tk_map" alt=""/>
   <map id="cpptkinter::Tk_map" name="cpptkinter::Tk_map">
-<area href="classcpptkinter_1_1Misc.html" title="Internal class." alt="cpptkinter::Misc" shape="rect" coords="0,0,100,24"/>
-<area href="structcpptkinter_1_1Wm.html" title="Provides functions for the communication with the window manager." alt="cpptkinter::Wm" shape="rect" coords="110,0,210,24"/>
+<area href="classcpptkinter_1_1Misc.html" title="Internal class." alt="cpptkinter::Misc" shape="rect" coords="0,112,331,136"/>
+<area href="structcpptkinter_1_1Wm.html" title="Provides functions for the communication with the window manager." alt="cpptkinter::Wm" shape="rect" coords="341,112,672,136"/>
+<area href="structcpptkinter_1_1utility_1_1enable__operator__string__formatting.html" title="Publicly inerihiting this struct enables formatting based on operator string()." alt="cpptkinter::utility::enable_operator_string_formatting" shape="rect" coords="0,56,331,80"/>
+<area href="structcpptkinter_1_1detail_1_1enable__operator__string__formatting__impl.html" alt="cpptkinter::detail::enable_operator_string_formatting_impl" shape="rect" coords="0,0,331,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -212,9 +214,9 @@ requires requires { this-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#af
 <tr class="memitem:a4fb0c53d8ae5fafb298d3193487bd11f inherit pub_methods_classcpptkinter_1_1Misc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcpptkinter_1_1Misc.html">Misc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a4fb0c53d8ae5fafb298d3193487bd11f">nametowidget</a> (std::string_view name)</td></tr>
 <tr class="memdesc:a4fb0c53d8ae5fafb298d3193487bd11f inherit pub_methods_classcpptkinter_1_1Misc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the Tkinter instance of a widget identified by its Tcl name NAME.  <br /></td></tr>
 <tr class="separator:a4fb0c53d8ae5fafb298d3193487bd11f inherit pub_methods_classcpptkinter_1_1Misc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58f2988bb80138c96a4a2b3217c523b1 inherit pub_methods_classcpptkinter_1_1Misc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcpptkinter_1_1Misc.html">Misc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a58f2988bb80138c96a4a2b3217c523b1">nametowidget</a> (<a class="el" href="structcpptkinter_1_1__cpptkinter_1_1tk__window__type.html">_cpptkinter::tk_window_type</a> window)</td></tr>
-<tr class="memdesc:a58f2988bb80138c96a4a2b3217c523b1 inherit pub_methods_classcpptkinter_1_1Misc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the Tkinter instance of a widget.  <br /></td></tr>
-<tr class="separator:a58f2988bb80138c96a4a2b3217c523b1 inherit pub_methods_classcpptkinter_1_1Misc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8d9aa02745a9b075f6c6b97f029fd6f inherit pub_methods_classcpptkinter_1_1Misc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcpptkinter_1_1Misc.html">Misc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#aa8d9aa02745a9b075f6c6b97f029fd6f">nametowidget</a> (const <a class="el" href="structcpptkinter_1_1__cpptkinter_1_1tk__window__type.html">_cpptkinter::tk_window_type</a> &amp;window)</td></tr>
+<tr class="memdesc:aa8d9aa02745a9b075f6c6b97f029fd6f inherit pub_methods_classcpptkinter_1_1Misc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the Tkinter instance of a widget.  <br /></td></tr>
+<tr class="separator:aa8d9aa02745a9b075f6c6b97f029fd6f inherit pub_methods_classcpptkinter_1_1Misc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8d79991e0d67a4c05c60eeadc65ed71 inherit pub_methods_classcpptkinter_1_1Misc"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#ab8d79991e0d67a4c05c60eeadc65ed71">configure</a> (const std::string &amp;cnf)</td></tr>
 <tr class="memdesc:ab8d79991e0d67a4c05c60eeadc65ed71 inherit pub_methods_classcpptkinter_1_1Misc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure resources of a widget.  <br /></td></tr>
 <tr class="separator:ab8d79991e0d67a4c05c60eeadc65ed71 inherit pub_methods_classcpptkinter_1_1Misc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -767,6 +769,8 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Toplevel widget of Tk which represents mostly the main window of an application. </p>
 <p>It has an associated Tcl interpreter. </p>
+
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02015">2015</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a1102c326fe586f3847a9c184d2c9285d" name="a1102c326fe586f3847a9c184d2c9285d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1102c326fe586f3847a9c184d2c9285d">&#9670;&#160;</a></span>impl</h2>
@@ -787,6 +791,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02022">2022</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
 
 </div>
 </div>
@@ -816,6 +822,8 @@ template&lt;std::derived_from&lt; <a class="el" href="classcpptkinter_1_1Tk.html
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02038">2038</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
 
 </div>
 </div>
@@ -881,6 +889,14 @@ template&lt;std::derived_from&lt; <a class="el" href="classcpptkinter_1_1Tk.html
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A shared pointer to the newly created detail::Tk object. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02049">2049</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 2049</span>                                         {}, <span class="keyword">const</span> std::string&amp; className = <span class="stringliteral">&quot;Tk&quot;</span>, <span class="keywordtype">bool</span> useTk = <span class="keyword">true</span>, <span class="keywordtype">bool</span> sync = <span class="keyword">false</span>, <span class="keyword">const</span> std::string&amp; use = {}) : <a class="code hl_function" href="classcpptkinter_1_1Tk.html#a7cf80430938577483b414c3bbab3123f">Tk</a>(std::make_shared&lt;impl&gt;())</div>
+<div class="line"><span class="lineno"> 2050</span>        {</div>
+<div class="line"><span class="lineno"> 2051</span>            this-&gt;<a class="code hl_function" href="classcpptkinter_1_1Tk.html#a9b760baec7b992278a34eef36746d4ff">_init_</a>(screenName, className, useTk, sync, use);</div>
+<div class="line"><span class="lineno"> 2052</span>        }</div>
+<div class="ttc" id="aclasscpptkinter_1_1Tk_html_a7cf80430938577483b414c3bbab3123f"><div class="ttname"><a href="classcpptkinter_1_1Tk.html#a7cf80430938577483b414c3bbab3123f">cpptkinter::Tk::Tk</a></div><div class="ttdeci">Tk(const std::shared_ptr&lt; I &gt; &amp;pimpl)</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l02038">cpptkinter.ixx:2038</a></div></div>
+<div class="ttc" id="aclasscpptkinter_1_1Tk_html_a9b760baec7b992278a34eef36746d4ff"><div class="ttname"><a href="classcpptkinter_1_1Tk.html#a9b760baec7b992278a34eef36746d4ff">cpptkinter::Tk::_init_</a></div><div class="ttdeci">void _init_(const std::string &amp;screenName, const std::string &amp;className, bool useTk, bool sync, const std::string &amp;use)</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l02025">cpptkinter.ixx:2025</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -963,6 +979,26 @@ template&lt;std::derived_from&lt; <a class="el" href="classcpptkinter_1_1Tk.html
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02025">2025</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 2026</span>        {</div>
+<div class="line"><span class="lineno"> 2027</span>            this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a209dad39c06f5da9a5843111013fb69a">_w</a> = <span class="stringliteral">&quot;.&quot;</span>;</div>
+<div class="line"><span class="lineno"> 2028</span> </div>
+<div class="line"><span class="lineno"> 2029</span>            <span class="keyword">auto</span> interactive = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno"> 2030</span>            this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a">tk</a> = <a class="code hl_function" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a71632802e3349eaedbd47079a1a71abf">_cpptkinter::TkappObject::create</a>(screenName, className, interactive, useTk, sync, use);</div>
+<div class="line"><span class="lineno"> 2031</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespacecpptkinter_1_1detail.html#a3c8a0d1f7e4913b7ea8d26da2c2c349a">detail::_debug</a>)</div>
+<div class="line"><span class="lineno"> 2032</span>                this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a">tk</a>-&gt;settrace(<a class="code hl_function" href="namespacecpptkinter_1_1detail.html#a36a78e7e8c441012be56c03a322d6278">detail::_print_command</a>);</div>
+<div class="line"><span class="lineno"> 2033</span>            <span class="keywordflow">if</span> (useTk)</div>
+<div class="line"><span class="lineno"> 2034</span>                this-&gt;<a class="code hl_function" href="classcpptkinter_1_1Tk.html#a6f6a1472cf36b777da2bce2baaa68fb3">_loadtk</a>();</div>
+<div class="line"><span class="lineno"> 2035</span>            this-&gt;<a class="code hl_function" href="classcpptkinter_1_1Tk.html#a0764e063e97fabcf842196d585989006">readprofile</a>(className);</div>
+<div class="line"><span class="lineno"> 2036</span>        }</div>
+<div class="ttc" id="aclasscpptkinter_1_1Misc_html_a209dad39c06f5da9a5843111013fb69a"><div class="ttname"><a href="classcpptkinter_1_1Misc.html#a209dad39c06f5da9a5843111013fb69a">cpptkinter::Misc::_w</a></div><div class="ttdeci">std::string &amp; _w</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l01095">cpptkinter.ixx:1095</a></div></div>
+<div class="ttc" id="aclasscpptkinter_1_1Misc_html_a689ee457ea75000ba41e15a0041b335a"><div class="ttname"><a href="classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a">cpptkinter::Misc::tk</a></div><div class="ttdeci">std::shared_ptr&lt; _cpptkinter::TkappObject &gt; &amp; tk</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l01098">cpptkinter.ixx:1098</a></div></div>
+<div class="ttc" id="aclasscpptkinter_1_1Tk_html_a0764e063e97fabcf842196d585989006"><div class="ttname"><a href="classcpptkinter_1_1Tk.html#a0764e063e97fabcf842196d585989006">cpptkinter::Tk::readprofile</a></div><div class="ttdeci">void readprofile(const std::string &amp;className)</div><div class="ttdoc">Internal function.</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l02110">cpptkinter.ixx:2110</a></div></div>
+<div class="ttc" id="aclasscpptkinter_1_1Tk_html_a6f6a1472cf36b777da2bce2baaa68fb3"><div class="ttname"><a href="classcpptkinter_1_1Tk.html#a6f6a1472cf36b777da2bce2baaa68fb3">cpptkinter::Tk::_loadtk</a></div><div class="ttdeci">void _loadtk()</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l02063">cpptkinter.ixx:2063</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1detail_html_a36a78e7e8c441012be56c03a322d6278"><div class="ttname"><a href="namespacecpptkinter_1_1detail.html#a36a78e7e8c441012be56c03a322d6278">cpptkinter::detail::_print_command</a></div><div class="ttdeci">void _print_command(std::vector&lt; std::string &gt; cmd)</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l00173">cpptkinter.ixx:173</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1detail_html_a3c8a0d1f7e4913b7ea8d26da2c2c349a"><div class="ttname"><a href="namespacecpptkinter_1_1detail.html#a3c8a0d1f7e4913b7ea8d26da2c2c349a">cpptkinter::detail::_debug</a></div><div class="ttdeci">bool _debug</div><div class="ttdoc">set to true to print executed Tcl / Tk commands</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l00153">cpptkinter.ixx:153</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1__cpptkinter_1_1TkappObject_html_a71632802e3349eaedbd47079a1a71abf"><div class="ttname"><a href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a71632802e3349eaedbd47079a1a71abf">cpptkinter::_cpptkinter::TkappObject::create</a></div><div class="ttdeci">static std::shared_ptr&lt; TkappObject &gt; create(const std::string &amp;screenName, const std::string &amp;className, bool interactive, bool wantTk, bool sync, const std::string &amp;use)</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter_8ixx_source.html#l00129">_cpptkinter.ixx:129</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a6f6a1472cf36b777da2bce2baaa68fb3" name="a6f6a1472cf36b777da2bce2baaa68fb3"></a>
@@ -988,6 +1024,41 @@ template&lt;std::derived_from&lt; <a class="el" href="classcpptkinter_1_1Tk.html
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02063">2063</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 2064</span>        {</div>
+<div class="line"><span class="lineno"> 2065</span>            this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Tk.html#ab8658fcc0fb65233bcc2b4c9868562d5">_tkloaded</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno"> 2066</span> </div>
+<div class="line"><span class="lineno"> 2067</span>            <span class="comment">// Version sanity checks</span></div>
+<div class="line"><span class="lineno"> 2068</span>            <span class="keyword">auto</span> tk_version = this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a">tk</a>-&gt;getvar&lt;std::string&gt;(<span class="stringliteral">&quot;tk_version&quot;</span>);</div>
+<div class="line"><span class="lineno"> 2069</span>            <span class="keywordflow">if</span> (tk_version != <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#ab5047381528d43339df204cb5c420f15">_cpptkinter::TK_VERSION</a>)</div>
+<div class="line"><span class="lineno"> 2070</span>                <span class="keywordflow">throw</span> utility::construct_exception&lt;std::runtime_error&gt;(std::format(<span class="stringliteral">&quot;tk.h version {} doesn&#39;t match libtk.a version {}&quot;</span>, <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#ab5047381528d43339df204cb5c420f15">_cpptkinter::TK_VERSION</a>, tk_version));</div>
+<div class="line"><span class="lineno"> 2071</span> </div>
+<div class="line"><span class="lineno"> 2072</span>            <span class="comment">// Under unknown circumstances, tcl_version gets coerced to float</span></div>
+<div class="line"><span class="lineno"> 2073</span>            <span class="keyword">auto</span> tcl_version = this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a">tk</a>-&gt;getvar&lt;std::string&gt;(<span class="stringliteral">&quot;tcl_version&quot;</span>);</div>
+<div class="line"><span class="lineno"> 2074</span>            <span class="keywordflow">if</span> (tcl_version != <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#ad96227d1990a3d5753bba93c7cad196b">_cpptkinter::TCL_VERSION</a>)</div>
+<div class="line"><span class="lineno"> 2075</span>                <span class="keywordflow">throw</span> utility::construct_exception&lt;std::runtime_error&gt;(std::format(<span class="stringliteral">&quot;tcl.h version {} doesn&#39;t match libtcl.a version {}&quot;</span>, <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#ad96227d1990a3d5753bba93c7cad196b">_cpptkinter::TCL_VERSION</a>, tcl_version));</div>
+<div class="line"><span class="lineno"> 2076</span> </div>
+<div class="line"><span class="lineno"> 2077</span>            <span class="comment">// Create and register the tkerror and exit commands. We need to parts of _register here, _ register would register differently-named commands.</span></div>
+<div class="line"><span class="lineno"> 2078</span>            this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a">tk</a>-&gt;createcommand(<span class="stringliteral">&quot;tkerror&quot;</span>, <a class="code hl_function" href="namespacecpptkinter_1_1detail.html#ad58ef7017e478990f9e9f9a0bcd3ef9b">detail::_tkerror</a>);</div>
+<div class="line"><span class="lineno"> 2079</span>            this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a">tk</a>-&gt;createcommand(<span class="stringliteral">&quot;exit&quot;</span>, <a class="code hl_function" href="namespacecpptkinter_1_1detail.html#ac38a50f86e7f5c627b87ddc715488b4f">detail::_exit</a>);</div>
+<div class="line"><span class="lineno"> 2080</span>            this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a82eaa6a70694c943f622602df28bf232">_tclCommands</a>.insert(<span class="stringliteral">&quot;tkerror&quot;</span>);</div>
+<div class="line"><span class="lineno"> 2081</span>            this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a82eaa6a70694c943f622602df28bf232">_tclCommands</a>.insert(<span class="stringliteral">&quot;exit&quot;</span>);</div>
+<div class="line"><span class="lineno"> 2082</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespacecpptkinter_1_1detail.html#ad0e153509f7b29be7873602abac3ec15">detail::_support_default_root</a> &amp;&amp; <a class="code hl_variable" href="namespacecpptkinter_1_1detail.html#a953eeb455fc57f0968d19433d0748fed">detail::_default_root</a>.get() == <span class="keyword">nullptr</span>)</div>
+<div class="line"><span class="lineno"> 2083</span>                <a class="code hl_variable" href="namespacecpptkinter_1_1detail.html#a953eeb455fc57f0968d19433d0748fed">detail::_default_root</a> = std::static_pointer_cast&lt;impl&gt;(this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#afe1bb4e9789aefd1fd0fd48b557b1de9">pimpl</a>);</div>
+<div class="line"><span class="lineno"> 2084</span>            this-&gt;<a class="code hl_function" href="structcpptkinter_1_1Wm.html#adc3658aafab4d0f93dbd68a3ddb9129e">protocol</a>(<span class="stringliteral">&quot;WM_DELETE_WINDOW&quot;</span>, std::function&lt;<span class="keywordtype">void</span>()&gt;(std::bind_front(&amp;<a class="code hl_function" href="classcpptkinter_1_1Misc.html#a34a33b51a95322f8700f9eccd6068a77">Tk::destroy</a>, *<span class="keyword">this</span>)));</div>
+<div class="line"><span class="lineno"> 2085</span>        }</div>
+<div class="ttc" id="aclasscpptkinter_1_1Misc_html_a34a33b51a95322f8700f9eccd6068a77"><div class="ttname"><a href="classcpptkinter_1_1Misc.html#a34a33b51a95322f8700f9eccd6068a77">cpptkinter::Misc::destroy</a></div><div class="ttdeci">void destroy()</div><div class="ttdoc">Calls this-&gt;pimpl-&gt;destroy().</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l06224">cpptkinter.ixx:6224</a></div></div>
+<div class="ttc" id="aclasscpptkinter_1_1Misc_html_a82eaa6a70694c943f622602df28bf232"><div class="ttname"><a href="classcpptkinter_1_1Misc.html#a82eaa6a70694c943f622602df28bf232">cpptkinter::Misc::_tclCommands</a></div><div class="ttdeci">std::set&lt; std::string &gt; &amp; _tclCommands</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l01093">cpptkinter.ixx:1093</a></div></div>
+<div class="ttc" id="aclasscpptkinter_1_1Misc_html_afe1bb4e9789aefd1fd0fd48b557b1de9"><div class="ttname"><a href="classcpptkinter_1_1Misc.html#afe1bb4e9789aefd1fd0fd48b557b1de9">cpptkinter::Misc::pimpl</a></div><div class="ttdeci">std::shared_ptr&lt; impl &gt; pimpl</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l01091">cpptkinter.ixx:1091</a></div></div>
+<div class="ttc" id="aclasscpptkinter_1_1Tk_html_ab8658fcc0fb65233bcc2b4c9868562d5"><div class="ttname"><a href="classcpptkinter_1_1Tk.html#ab8658fcc0fb65233bcc2b4c9868562d5">cpptkinter::Tk::_tkloaded</a></div><div class="ttdeci">decltype(impl::_tkloaded) &amp; _tkloaded</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l02023">cpptkinter.ixx:2023</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_ab5047381528d43339df204cb5c420f15"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#ab5047381528d43339df204cb5c420f15">cpptkinter::_cpptkinter::TK_VERSION</a></div><div class="ttdeci">constexpr std::string_view TK_VERSION</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00020">_cpptkinter1.ixx:20</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_ad96227d1990a3d5753bba93c7cad196b"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#ad96227d1990a3d5753bba93c7cad196b">cpptkinter::_cpptkinter::TCL_VERSION</a></div><div class="ttdeci">constexpr std::string_view TCL_VERSION</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00021">_cpptkinter1.ixx:21</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1detail_html_a953eeb455fc57f0968d19433d0748fed"><div class="ttname"><a href="namespacecpptkinter_1_1detail.html#a953eeb455fc57f0968d19433d0748fed">cpptkinter::detail::_default_root</a></div><div class="ttdeci">std::shared_ptr&lt; Tk_impl &gt; _default_root</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l00160">cpptkinter.ixx:160</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1detail_html_ac38a50f86e7f5c627b87ddc715488b4f"><div class="ttname"><a href="namespacecpptkinter_1_1detail.html#ac38a50f86e7f5c627b87ddc715488b4f">cpptkinter::detail::_exit</a></div><div class="ttdeci">void _exit()</div><div class="ttdoc">Internal function. Calling it will throw std::runtime_error.</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l00187">cpptkinter.ixx:187</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1detail_html_ad0e153509f7b29be7873602abac3ec15"><div class="ttname"><a href="namespacecpptkinter_1_1detail.html#ad0e153509f7b29be7873602abac3ec15">cpptkinter::detail::_support_default_root</a></div><div class="ttdeci">bool _support_default_root</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l00159">cpptkinter.ixx:159</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1detail_html_ad58ef7017e478990f9e9f9a0bcd3ef9b"><div class="ttname"><a href="namespacecpptkinter_1_1detail.html#ad58ef7017e478990f9e9f9a0bcd3ef9b">cpptkinter::detail::_tkerror</a></div><div class="ttdeci">void _tkerror(std::string)</div><div class="ttdoc">Internal function.</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l00181">cpptkinter.ixx:181</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1Wm_html_adc3658aafab4d0f93dbd68a3ddb9129e"><div class="ttname"><a href="structcpptkinter_1_1Wm.html#adc3658aafab4d0f93dbd68a3ddb9129e">cpptkinter::Wm::protocol</a></div><div class="ttdeci">R protocol(this auto &amp;&amp;self, const std::string &amp;name, Func &amp;&amp;func)</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l00923">cpptkinter.ixx:923</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a0685b444954f49be2e42d4ff63b08f82" name="a0685b444954f49be2e42d4ff63b08f82"></a>
@@ -1027,6 +1098,24 @@ template&lt;std::derived_from&lt; <a class="el" href="classcpptkinter_1_1Tk.html
 <p>This function prints the exception to stderr. </p>
 <p>It is the default callback registered in <a class="el" href="classcpptkinter_1_1Tk.html#a02a97732526bf95fbe093ff290e860c5">report_callback_exception</a>. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02090">2090</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 2091</span>        {</div>
+<div class="line"><span class="lineno"> 2092</span>            <a class="code hl_define" href="global_8hpp.html#ad08e1eaa565f8afcb49eded8d6cd9f4c">DEVIATING_IMPLEMENTATION_WARNING</a>(<span class="stringliteral">&quot;original catches exceptions and prints them to stderr&quot;</span>);</div>
+<div class="line"><span class="lineno"> 2093</span>            <span class="comment">/*try</span></div>
+<div class="line"><span class="lineno"> 2094</span><span class="comment">            {*/</span></div>
+<div class="line"><span class="lineno"> 2095</span>            std::rethrow_exception(exc_ptr);</div>
+<div class="line"><span class="lineno"> 2096</span>            <span class="comment">/*}</span></div>
+<div class="line"><span class="lineno"> 2097</span><span class="comment">            catch (const std::exception&amp; ex)</span></div>
+<div class="line"><span class="lineno"> 2098</span><span class="comment">            {</span></div>
+<div class="line"><span class="lineno"> 2099</span><span class="comment">                std::cerr &lt;&lt; &quot;Exception in Tk callback: &quot; &lt;&lt; ex.what() &lt;&lt; std::endl;</span></div>
+<div class="line"><span class="lineno"> 2100</span><span class="comment">            }</span></div>
+<div class="line"><span class="lineno"> 2101</span><span class="comment">            catch (...)</span></div>
+<div class="line"><span class="lineno"> 2102</span><span class="comment">            {</span></div>
+<div class="line"><span class="lineno"> 2103</span><span class="comment">                std::cerr &lt;&lt; &quot;Unknown exception in Tk callback&quot; &lt;&lt; std::endl;</span></div>
+<div class="line"><span class="lineno"> 2104</span><span class="comment">            }*/</span></div>
+<div class="line"><span class="lineno"> 2105</span>        }</div>
+<div class="ttc" id="aglobal_8hpp_html_ad08e1eaa565f8afcb49eded8d6cd9f4c"><div class="ttname"><a href="global_8hpp.html#ad08e1eaa565f8afcb49eded8d6cd9f4c">DEVIATING_IMPLEMENTATION_WARNING</a></div><div class="ttdeci">#define DEVIATING_IMPLEMENTATION_WARNING(msg)</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00226">global.hpp:226</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a99cf78c6bd0ae0b43724a9ec4c195d0c" name="a99cf78c6bd0ae0b43724a9ec4c195d0c"></a>
@@ -1052,6 +1141,16 @@ template&lt;std::derived_from&lt; <a class="el" href="classcpptkinter_1_1Tk.html
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02054">2054</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 2055</span>        {</div>
+<div class="line"><span class="lineno"> 2056</span>            <span class="keywordflow">if</span> (!this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Tk.html#ab8658fcc0fb65233bcc2b4c9868562d5">_tkloaded</a>)</div>
+<div class="line"><span class="lineno"> 2057</span>            {</div>
+<div class="line"><span class="lineno"> 2058</span>                this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a">tk</a>-&gt;loadtk();</div>
+<div class="line"><span class="lineno"> 2059</span>                this-&gt;<a class="code hl_function" href="classcpptkinter_1_1Tk.html#a99cf78c6bd0ae0b43724a9ec4c195d0c">loadtk</a>();</div>
+<div class="line"><span class="lineno"> 2060</span>            }</div>
+<div class="line"><span class="lineno"> 2061</span>        }</div>
+<div class="ttc" id="aclasscpptkinter_1_1Tk_html_a99cf78c6bd0ae0b43724a9ec4c195d0c"><div class="ttname"><a href="classcpptkinter_1_1Tk.html#a99cf78c6bd0ae0b43724a9ec4c195d0c">cpptkinter::Tk::loadtk</a></div><div class="ttdeci">void loadtk()</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l02054">cpptkinter.ixx:2054</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ac0f926addf17264d12bc5e7da6ac85bf" name="ac0f926addf17264d12bc5e7da6ac85bf"></a>
@@ -1077,6 +1176,8 @@ template&lt;std::derived_from&lt; <a class="el" href="classcpptkinter_1_1Tk.html
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02040">2040</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
 
 </div>
 </div>
@@ -1107,6 +1208,27 @@ template&lt;std::derived_from&lt; <a class="el" href="classcpptkinter_1_1Tk.html
 <p>Internal function. </p>
 <p>It reads .BASENAME.tcl and .CLASSNAME.tcl into the Tcl Interpreter. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02110">2110</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 2111</span>        {</div>
+<div class="line"><span class="lineno"> 2112</span>            <span class="keyword">auto</span> _home = std::getenv(<span class="stringliteral">&quot;HOME&quot;</span>);</div>
+<div class="line"><span class="lineno"> 2113</span>            std::string home = _home != <span class="keyword">nullptr</span> ? _home : <span class="stringliteral">&quot;.&quot;</span>;</div>
+<div class="line"><span class="lineno"> 2114</span>            <span class="keyword">auto</span> class_tcl = std::filesystem::path(home) / std::format(<span class="stringliteral">&quot;.{}.tcl&quot;</span>, className);</div>
+<div class="line"><span class="lineno"> 2115</span>            <span class="keyword">auto</span> class_py = std::filesystem::path(home) / std::format(<span class="stringliteral">&quot;.{}.py&quot;</span>, className);</div>
+<div class="line"><span class="lineno"> 2116</span>            <span class="keyword">auto</span> base_tcl = std::filesystem::path(home) / std::format(<span class="stringliteral">&quot;.{}.tcl&quot;</span>, className);</div>
+<div class="line"><span class="lineno"> 2117</span>            <span class="keyword">auto</span> base_py = std::filesystem::path(home) / std::format(<span class="stringliteral">&quot;.{}.py&quot;</span>, className);</div>
+<div class="line"><span class="lineno"> 2118</span> </div>
+<div class="line"><span class="lineno"> 2119</span>            <span class="keywordflow">if</span> (std::filesystem::is_regular_file(class_tcl))</div>
+<div class="line"><span class="lineno"> 2120</span>                this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a">tk</a>-&gt;call(<span class="stringliteral">&quot;source&quot;</span>, <span class="stringliteral">&quot;\&quot;&quot;</span> + class_tcl.string() + <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
+<div class="line"><span class="lineno"> 2121</span>            <span class="comment">//if os.path.isfile(class_py):</span></div>
+<div class="line"><span class="lineno"> 2122</span>            <span class="comment">//  exec(open(class_py).read(), dir)</span></div>
+<div class="line"><span class="lineno"> 2123</span>            <span class="keywordflow">if</span> (std::filesystem::is_regular_file(base_tcl))</div>
+<div class="line"><span class="lineno"> 2124</span>                this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a">tk</a>-&gt;call(<span class="stringliteral">&quot;source&quot;</span>, <span class="stringliteral">&quot;\&quot;&quot;</span> + base_tcl.string() + <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
+<div class="line"><span class="lineno"> 2125</span>            <span class="comment">//if os.path.isfile(base_py) :</span></div>
+<div class="line"><span class="lineno"> 2126</span>            <span class="comment">//  exec(open(base_py).read(), dir)</span></div>
+<div class="line"><span class="lineno"> 2127</span> </div>
+<div class="line"><span class="lineno"> 2128</span>            <a class="code hl_define" href="global_8hpp.html#ad08e1eaa565f8afcb49eded8d6cd9f4c">DEVIATING_IMPLEMENTATION_WARNING</a>(<span class="stringliteral">&quot;original executes class_py and base_py with python&#39;s exec()&quot;</span>);</div>
+<div class="line"><span class="lineno"> 2129</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
@@ -1157,6 +1279,8 @@ template&lt;std::derived_from&lt; <a class="el" href="classcpptkinter_1_1Tk.html
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02023">2023</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+
 </div>
 </div>
 <a id="a313309a0a705329349da205ad230dfdf" name="a313309a0a705329349da205ad230dfdf"></a>
@@ -1179,6 +1303,8 @@ template&lt;std::derived_from&lt; <a class="el" href="classcpptkinter_1_1Tk.html
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02018">2018</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+
 </div>
 </div>
 <a id="a02a97732526bf95fbe093ff290e860c5" name="a02a97732526bf95fbe093ff290e860c5"></a>
@@ -1195,6 +1321,8 @@ template&lt;std::derived_from&lt; <a class="el" href="classcpptkinter_1_1Tk.html
 
 <p>Report callback exception on stderr. </p>
 <p>Applications may want to override this internal function. Default value is _report_callback_exception- </p>
+
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02134">2134</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
 
 </div>
 </div>
@@ -1218,10 +1346,12 @@ template&lt;std::derived_from&lt; <a class="el" href="classcpptkinter_1_1Tk.html
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02017">2017</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>src/<a class="el" href="cpptkinter_8ixx.html">cpptkinter.ixx</a></li>
+<li>src/cpptkinter/<a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

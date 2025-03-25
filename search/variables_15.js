@@ -8,5 +8,5 @@ var searchData=
   ['uniform_5',['uniform',['../structcpptkinter_1_1cnfs_1_1grid__column__row__configure.html#ac56147df347b61036c8958b104086b72',1,'cpptkinter::cnfs::grid_column_row_configure::uniform()'],['../structcpptkinter_1_1cnfs_1_1grid__column__row__configure__return.html#ab31e4523af74223efe0a156550093782',1,'cpptkinter::cnfs::grid_column_row_configure_return::uniform()']]],
   ['units_6',['UNITS',['../namespacecpptkinter_1_1constants.html#a41ea957208ba9ca7fac850df6ca55b30',1,'cpptkinter::constants']]],
   ['use_7',['use',['../structcpptkinter_1_1cnfs_1_1Toplevel.html#a426797018387069d90379eb8094d0aca',1,'cpptkinter::cnfs::Toplevel']]],
-  ['utf32stringtype_8',['UTF32StringType',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a37cfb45fe948fc758bc3f66cd43407bf',1,'cpptkinter::_cpptkinter::TkappObject']]]
+  ['utf32stringtype_8',['UTF32StringType',['../structcpptkinter_1_1detail_1_1TkappObjectImpl.html#ae4db15917cb267e0d49bb4c7e5e092e1',1,'cpptkinter::detail::TkappObjectImpl']]]
 ];

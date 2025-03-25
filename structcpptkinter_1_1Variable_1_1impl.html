@@ -122,7 +122,10 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a1a5d6635f8f0bc0d3988eac1545b8349"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Variable_1_1impl.html#a1a5d6635f8f0bc0d3988eac1545b8349">_name</a></td></tr>
 <tr class="separator:a1a5d6635f8f0bc0d3988eac1545b8349"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02197">2197</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab4a17d806dae6d6d4a971b87bb2d2c8d" name="ab4a17d806dae6d6d4a971b87bb2d2c8d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab4a17d806dae6d6d4a971b87bb2d2c8d">&#9670;&#160;</a></span>impl()</h2>
 
@@ -147,6 +150,13 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02204">2204</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 2204</span>                                 : <a class="code hl_variable" href="structcpptkinter_1_1Variable_1_1impl.html#a1e477ef2d48f3e6632c06bf9139f1452">_root</a>(root)</div>
+<div class="line"><span class="lineno"> 2205</span>            {</div>
+<div class="line"><span class="lineno"> 2206</span> </div>
+<div class="line"><span class="lineno"> 2207</span>            }</div>
+<div class="ttc" id="astructcpptkinter_1_1Variable_1_1impl_html_a1e477ef2d48f3e6632c06bf9139f1452"><div class="ttname"><a href="structcpptkinter_1_1Variable_1_1impl.html#a1e477ef2d48f3e6632c06bf9139f1452">cpptkinter::Variable::impl::_root</a></div><div class="ttdeci">Tk _root</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l02200">cpptkinter.ixx:2200</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ac3b8058e8c1ae3513f08d174ebd22918" name="ac3b8058e8c1ae3513f08d174ebd22918"></a>
@@ -174,6 +184,21 @@ Public Attributes</h2></td></tr>
 
 <p>Unset the variable in Tcl. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02209">2209</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 2210</span>            {</div>
+<div class="line"><span class="lineno"> 2211</span>                <span class="keywordflow">if</span> (this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Variable_1_1impl.html#aa5e7658276beaca031f945c97f0d42a4">_tk</a> == <span class="keyword">nullptr</span>)</div>
+<div class="line"><span class="lineno"> 2212</span>                    <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno"> 2213</span>                <a class="code hl_define" href="global_8hpp.html#ad08e1eaa565f8afcb49eded8d6cd9f4c">DEVIATING_IMPLEMENTATION_WARNING</a>(<span class="stringliteral">&quot;original uses self.tk.getboolean to convert to bool&quot;</span>);</div>
+<div class="line"><span class="lineno"> 2214</span>                <span class="keywordflow">if</span> (this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Variable_1_1impl.html#aa5e7658276beaca031f945c97f0d42a4">_tk</a>-&gt;call&lt;<span class="keywordtype">long</span> <span class="keywordtype">long</span>&gt;(<span class="stringliteral">&quot;info&quot;</span>, <span class="stringliteral">&quot;exists&quot;</span>, this-&gt;_name))</div>
+<div class="line"><span class="lineno"> 2215</span>                    this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Variable_1_1impl.html#aa5e7658276beaca031f945c97f0d42a4">_tk</a>-&gt;globalunsetvar(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Variable_1_1impl.html#a1a5d6635f8f0bc0d3988eac1545b8349">_name</a>);</div>
+<div class="line"><span class="lineno"> 2216</span>                <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp;&amp; name : this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Variable_1_1impl.html#af1c04f5139ef7c848d36346032ca10e2">_tclCommands</a>)</div>
+<div class="line"><span class="lineno"> 2217</span>                    this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Variable_1_1impl.html#aa5e7658276beaca031f945c97f0d42a4">_tk</a>-&gt;deletecommand(name);</div>
+<div class="line"><span class="lineno"> 2218</span>            }</div>
+<div class="ttc" id="aglobal_8hpp_html_ad08e1eaa565f8afcb49eded8d6cd9f4c"><div class="ttname"><a href="global_8hpp.html#ad08e1eaa565f8afcb49eded8d6cd9f4c">DEVIATING_IMPLEMENTATION_WARNING</a></div><div class="ttdeci">#define DEVIATING_IMPLEMENTATION_WARNING(msg)</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00226">global.hpp:226</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1Variable_1_1impl_html_a1a5d6635f8f0bc0d3988eac1545b8349"><div class="ttname"><a href="structcpptkinter_1_1Variable_1_1impl.html#a1a5d6635f8f0bc0d3988eac1545b8349">cpptkinter::Variable::impl::_name</a></div><div class="ttdeci">std::string _name</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l02202">cpptkinter.ixx:2202</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1Variable_1_1impl_html_aa5e7658276beaca031f945c97f0d42a4"><div class="ttname"><a href="structcpptkinter_1_1Variable_1_1impl.html#aa5e7658276beaca031f945c97f0d42a4">cpptkinter::Variable::impl::_tk</a></div><div class="ttdeci">std::shared_ptr&lt; _cpptkinter::TkappObject &gt; _tk</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l02201">cpptkinter.ixx:2201</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1Variable_1_1impl_html_af1c04f5139ef7c848d36346032ca10e2"><div class="ttname"><a href="structcpptkinter_1_1Variable_1_1impl.html#af1c04f5139ef7c848d36346032ca10e2">cpptkinter::Variable::impl::_tclCommands</a></div><div class="ttdeci">std::set&lt; std::string &gt; _tclCommands</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l02199">cpptkinter.ixx:2199</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -189,6 +214,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02202">2202</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+
 </div>
 </div>
 <a id="a1e477ef2d48f3e6632c06bf9139f1452" name="a1e477ef2d48f3e6632c06bf9139f1452"></a>
@@ -202,6 +229,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02200">2200</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
 
 </div>
 </div>
@@ -217,6 +246,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02199">2199</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+
 </div>
 </div>
 <a id="aa5e7658276beaca031f945c97f0d42a4" name="aa5e7658276beaca031f945c97f0d42a4"></a>
@@ -231,10 +262,12 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02201">2201</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/<a class="el" href="cpptkinter_8ixx.html">cpptkinter.ixx</a></li>
+<li>src/cpptkinter/<a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -2,13 +2,6 @@ var annotated_dup =
 [
     [ "cpptkinter", "namespacecpptkinter.html", [
       [ "_cpptkinter", "namespacecpptkinter_1_1__cpptkinter.html", [
-        [ "detail", "namespacecpptkinter_1_1__cpptkinter_1_1detail.html", [
-          [ "AsObjFunctorType", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjFunctorType.html", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjFunctorType" ],
-          [ "AsObjImplTrait", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1AsObjImplTrait.html", null ],
-          [ "FromObjImplTrait", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1FromObjImplTrait.html", null ],
-          [ "ignore", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1ignore.html", null ],
-          [ "TclBaseEvent", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1TclBaseEvent.html", "structcpptkinter_1_1__cpptkinter_1_1detail_1_1TclBaseEvent" ]
-        ] ],
         [ "CommandEvent", "structcpptkinter_1_1__cpptkinter_1_1CommandEvent.html", "structcpptkinter_1_1__cpptkinter_1_1CommandEvent" ],
         [ "PythonCmd_ClientData", "structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html", "structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData" ],
         [ "Tcl_Obj", "classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html", "classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj" ],
@@ -77,26 +70,30 @@ var annotated_dup =
       ] ],
       [ "detail", "namespacecpptkinter_1_1detail.html", [
         [ "_setit", "structcpptkinter_1_1detail_1_1__setit.html", "structcpptkinter_1_1detail_1_1__setit" ],
+        [ "AsObjFunctorType", "structcpptkinter_1_1detail_1_1AsObjFunctorType.html", "structcpptkinter_1_1detail_1_1AsObjFunctorType" ],
+        [ "AsObjImplTrait", "structcpptkinter_1_1detail_1_1AsObjImplTrait.html", null ],
         [ "CallWrapper", "structcpptkinter_1_1detail_1_1CallWrapper.html", "structcpptkinter_1_1detail_1_1CallWrapper" ],
+        [ "enable_operator_string_formatting_impl", "structcpptkinter_1_1detail_1_1enable__operator__string__formatting__impl.html", null ],
         [ "Event", "structcpptkinter_1_1detail_1_1Event.html", "structcpptkinter_1_1detail_1_1Event" ],
+        [ "FromObjImplTrait", "structcpptkinter_1_1detail_1_1FromObjImplTrait.html", null ],
+        [ "ignore", "structcpptkinter_1_1detail_1_1ignore.html", null ],
+        [ "is_std_array", "structcpptkinter_1_1detail_1_1is__std__array.html", null ],
+        [ "is_std_array< std::array< T, N > >", "structcpptkinter_1_1detail_1_1is__std__array_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html", null ],
         [ "set_get_proxy", "structcpptkinter_1_1detail_1_1set__get__proxy.html", "structcpptkinter_1_1detail_1_1set__get__proxy" ],
-        [ "Tk_impl", "structcpptkinter_1_1detail_1_1Tk__impl.html", "structcpptkinter_1_1detail_1_1Tk__impl" ]
+        [ "TclBaseEvent", "structcpptkinter_1_1detail_1_1TclBaseEvent.html", "structcpptkinter_1_1detail_1_1TclBaseEvent" ],
+        [ "Tk_impl", "structcpptkinter_1_1detail_1_1Tk__impl.html", "structcpptkinter_1_1detail_1_1Tk__impl" ],
+        [ "TkappObjectImpl", "structcpptkinter_1_1detail_1_1TkappObjectImpl.html", "structcpptkinter_1_1detail_1_1TkappObjectImpl" ],
+        [ "union_arg_overload", "structcpptkinter_1_1detail_1_1union__arg__overload.html", null ],
+        [ "union_arg_overload_base", "structcpptkinter_1_1detail_1_1union__arg__overload__base.html", null ],
+        [ "widget_friend", "structcpptkinter_1_1detail_1_1widget__friend.html", "structcpptkinter_1_1detail_1_1widget__friend" ]
       ] ],
       [ "utility", "namespacecpptkinter_1_1utility.html", [
-        [ "detail", "namespacecpptkinter_1_1utility_1_1detail.html", [
-          [ "is_std_array", "structcpptkinter_1_1utility_1_1detail_1_1is__std__array.html", null ],
-          [ "is_std_array< std::array< T, N > >", "structcpptkinter_1_1utility_1_1detail_1_1is__std__array_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html", null ],
-          [ "range_or_tuple_to_string_visitor", "structcpptkinter_1_1utility_1_1detail_1_1range__or__tuple__to__string__visitor.html", "structcpptkinter_1_1utility_1_1detail_1_1range__or__tuple__to__string__visitor" ],
-          [ "union_arg_overload", "structcpptkinter_1_1utility_1_1detail_1_1union__arg__overload.html", null ],
-          [ "union_arg_overload_base", "structcpptkinter_1_1utility_1_1detail_1_1union__arg__overload__base.html", null ],
-          [ "widget_friend", "structcpptkinter_1_1utility_1_1detail_1_1widget__friend.html", "structcpptkinter_1_1utility_1_1detail_1_1widget__friend" ]
-        ] ],
+        [ "enable_operator_string_formatting", "structcpptkinter_1_1utility_1_1enable__operator__string__formatting.html", null ],
         [ "extend_variants", "structcpptkinter_1_1utility_1_1extend__variants.html", null ],
         [ "extend_variants< std::variant< VArgs... >, Args... >", "structcpptkinter_1_1utility_1_1extend__variants_3_01std_1_1variant_3_01VArgs_8_8_8_01_4_00_01Args_8_8_8_01_4.html", "structcpptkinter_1_1utility_1_1extend__variants_3_01std_1_1variant_3_01VArgs_8_8_8_01_4_00_01Args_8_8_8_01_4" ],
         [ "member_functor", "classcpptkinter_1_1utility_1_1member__functor.html", "classcpptkinter_1_1utility_1_1member__functor" ],
         [ "optional_inverse_mutex_adaptor", "classcpptkinter_1_1utility_1_1optional__inverse__mutex__adaptor.html", "classcpptkinter_1_1utility_1_1optional__inverse__mutex__adaptor" ],
         [ "optional_mutex_adaptor", "classcpptkinter_1_1utility_1_1optional__mutex__adaptor.html", "classcpptkinter_1_1utility_1_1optional__mutex__adaptor" ],
-        [ "ref_wrapper", "classcpptkinter_1_1utility_1_1ref__wrapper.html", "classcpptkinter_1_1utility_1_1ref__wrapper" ],
         [ "reference_variant", "structcpptkinter_1_1utility_1_1reference__variant.html", "structcpptkinter_1_1utility_1_1reference__variant" ],
         [ "weak", "classcpptkinter_1_1utility_1_1weak.html", "classcpptkinter_1_1utility_1_1weak" ]
       ] ],
@@ -136,5 +133,8 @@ var annotated_dup =
       [ "Wm", "structcpptkinter_1_1Wm.html", "structcpptkinter_1_1Wm" ],
       [ "XView", "structcpptkinter_1_1XView.html", "structcpptkinter_1_1XView" ],
       [ "YView", "structcpptkinter_1_1YView.html", "structcpptkinter_1_1YView" ]
+    ] ],
+    [ "std", null, [
+      [ "formatter< T >", "structstd_1_1formatter_3_01T_01_4.html", "structstd_1_1formatter_3_01T_01_4" ]
     ] ]
 ];

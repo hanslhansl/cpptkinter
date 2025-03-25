@@ -142,6 +142,8 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Geometry manager <a class="el" href="structcpptkinter_1_1Place.html" title="Geometry manager Place.">Place</a>. </p>
 <p>Base class to use the methods place_* in every widget. </p>
+
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02518">2518</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="adce9c9a36521649d07b9e0c45d50a1fc" name="adce9c9a36521649d07b9e0c45d50a1fc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adce9c9a36521649d07b9e0c45d50a1fc">&#9670;&#160;</a></span>place()</h2>
@@ -181,6 +183,12 @@ template&lt;cnfs::is_cnf CNF = cnfs::place_configure&gt; </div>
 
 <p>Place a widget in the parent widget.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02528">2528</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 2528</span>                                                 {})</div>
+<div class="line"><span class="lineno"> 2529</span>        {</div>
+<div class="line"><span class="lineno"> 2530</span>            self.place_configure(std::forward&lt;CNF&gt;(cnf));</div>
+<div class="line"><span class="lineno"> 2531</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a029f67274cf84a9f78e4bb926ed7e053" name="a029f67274cf84a9f78e4bb926ed7e053"></a>
@@ -221,6 +229,12 @@ template&lt;cnfs::is_cnf CNF = cnfs::place_configure&gt; </div>
 
 <p>Place a widget in the parent widget. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02522">2522</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 2522</span>                                                           {})</div>
+<div class="line"><span class="lineno"> 2523</span>        {</div>
+<div class="line"><span class="lineno"> 2524</span>            self.tk-&gt;call(<span class="stringliteral">&quot;place&quot;</span>, <span class="stringliteral">&quot;configure&quot;</span>, self._w, self._options(std::forward&lt;CNF&gt;(cnf)));</div>
+<div class="line"><span class="lineno"> 2525</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a9b938a2c29b37319e9b19cf665f16bbd" name="a9b938a2c29b37319e9b19cf665f16bbd"></a>
@@ -247,6 +261,11 @@ template&lt;cnfs::is_cnf CNF = cnfs::place_configure&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02534">2534</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 2535</span>        {</div>
+<div class="line"><span class="lineno"> 2536</span>            self.tk-&gt;call(<span class="stringliteral">&quot;place&quot;</span>, <span class="stringliteral">&quot;forget&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno"> 2537</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a65b7512c3f44d99e7ddba2811ab09b2c" name="a65b7512c3f44d99e7ddba2811ab09b2c"></a>
@@ -273,10 +292,30 @@ template&lt;cnfs::is_cnf CNF = cnfs::place_configure&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02539">2539</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 2540</span>        {</div>
+<div class="line"><span class="lineno"> 2541</span>            <span class="keyword">auto</span> str = self.tk-&gt;template call&lt;std::string&gt;(<span class="stringliteral">&quot;place&quot;</span>, <span class="stringliteral">&quot;info&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno"> 2542</span>            std::vector&lt;std::string&gt; vec = self.tk-&gt;splitlist(str);</div>
+<div class="line"><span class="lineno"> 2543</span>            std::map&lt;std::string, std::string&gt; map(std::from_range, std::views::zip(</div>
+<div class="line"><span class="lineno"> 2544</span>                vec | <span class="comment">/*std::views::*/</span>stride(2),</div>
+<div class="line"><span class="lineno"> 2545</span>                vec | <span class="comment">/*std::views::*/</span>drop(1) | <span class="comment">/*std::views::*/</span>stride(2)</div>
+<div class="line"><span class="lineno"> 2546</span>            ));</div>
+<div class="line"><span class="lineno"> 2547</span> </div>
+<div class="line"><span class="lineno"> 2548</span>            <span class="keyword">auto</span> converter = [&amp;self]&lt;<span class="keyword">typename</span> T2&gt;(std::string&amp;&amp; v)-&gt;T2</div>
+<div class="line"><span class="lineno"> 2549</span>            {</div>
+<div class="line"><span class="lineno"> 2550</span>                <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (std::same_as&lt;T2, Misc&gt;)</div>
+<div class="line"><span class="lineno"> 2551</span>                    <span class="keywordflow">return</span> self.Misc::nametowidget(std::move(v));</div>
+<div class="line"><span class="lineno"> 2552</span>                <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno"> 2553</span>                    <span class="keywordflow">return</span> std::move(v);</div>
+<div class="line"><span class="lineno"> 2554</span>            };</div>
+<div class="line"><span class="lineno"> 2555</span> </div>
+<div class="line"><span class="lineno"> 2556</span>            <span class="keywordflow">return</span> detail::_splitdict_to_aggregate&lt;cnfs::PlaceInfo&gt;(std::move(map), <span class="keyword">true</span>, converter);</div>
+<div class="line"><span class="lineno"> 2557</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/<a class="el" href="cpptkinter_8ixx.html">cpptkinter.ixx</a></li>
+<li>src/cpptkinter/<a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

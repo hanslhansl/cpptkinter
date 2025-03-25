@@ -14,5 +14,5 @@ var searchData=
   ['dooneevent_11',['dooneevent',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#ae2309ab7f1f254ad2f00e426bf2f1562',1,'cpptkinter::_cpptkinter::TkappObject']]],
   ['dump_12',['dump',['../structcpptkinter_1_1Text.html#a4e310b5557b75f5eefe8db7dbf3eea5f',1,'cpptkinter::Text']]],
   ['dynamic_5fwidget_5fcast_13',['dynamic_widget_cast',['../namespacecpptkinter_1_1utility.html#a570e61e91886a75273aba76ba6d3b4e0',1,'cpptkinter::utility']]],
-  ['dynamic_5fwidget_5fcast_5fdown_14',['dynamic_widget_cast_down',['../structcpptkinter_1_1utility_1_1detail_1_1widget__friend.html#aa7041cadc44f65cbd01dfd4b0ee7a07f',1,'cpptkinter::utility::detail::widget_friend']]]
+  ['dynamic_5fwidget_5fcast_5fdown_14',['dynamic_widget_cast_down',['../structcpptkinter_1_1detail_1_1widget__friend.html#ad3aeef2cea716a6564fe07f88abdb611',1,'cpptkinter::detail::widget_friend']]]
 ];

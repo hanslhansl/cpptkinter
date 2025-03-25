@@ -111,7 +111,10 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a63f35c4274501a6a889433f179a9513d"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::mutex &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1utility_1_1optional__mutex__adaptor.html#a63f35c4274501a6a889433f179a9513d">m</a></td></tr>
 <tr class="separator:a63f35c4274501a6a889433f179a9513d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00152">152</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ada33ce23aaac105798a88fbfc5aa43d8" name="ada33ce23aaac105798a88fbfc5aa43d8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ada33ce23aaac105798a88fbfc5aa43d8">&#9670;&#160;</a></span>optional_mutex_adaptor()</h2>
 
@@ -136,6 +139,13 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00157">157</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  157</span>                                                                  : <a class="code hl_variable" href="classcpptkinter_1_1utility_1_1optional__mutex__adaptor.html#a63f35c4274501a6a889433f179a9513d">m</a>(<a class="code hl_variable" href="classcpptkinter_1_1utility_1_1optional__mutex__adaptor.html#a63f35c4274501a6a889433f179a9513d">m</a>)</div>
+<div class="line"><span class="lineno">  158</span>        {</div>
+<div class="line"><span class="lineno">  159</span> </div>
+<div class="line"><span class="lineno">  160</span>        }</div>
+<div class="ttc" id="aclasscpptkinter_1_1utility_1_1optional__mutex__adaptor_html_a63f35c4274501a6a889433f179a9513d"><div class="ttname"><a href="classcpptkinter_1_1utility_1_1optional__mutex__adaptor.html#a63f35c4274501a6a889433f179a9513d">cpptkinter::utility::optional_mutex_adaptor::m</a></div><div class="ttdeci">std::optional&lt; std::mutex &gt; &amp; m</div><div class="ttdef"><b>Definition:</b> <a href="utility_8ixx_source.html#l00154">utility.ixx:154</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -162,6 +172,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00161">161</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  162</span>        {</div>
+<div class="line"><span class="lineno">  163</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcpptkinter_1_1utility_1_1optional__mutex__adaptor.html#a63f35c4274501a6a889433f179a9513d">m</a>.has_value())</div>
+<div class="line"><span class="lineno">  164</span>                <a class="code hl_variable" href="classcpptkinter_1_1utility_1_1optional__mutex__adaptor.html#a63f35c4274501a6a889433f179a9513d">m</a>.value().lock();</div>
+<div class="line"><span class="lineno">  165</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a2f54d056821ea1b2599fc36defd2a369" name="a2f54d056821ea1b2599fc36defd2a369"></a>
@@ -187,6 +203,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00166">166</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  167</span>        {</div>
+<div class="line"><span class="lineno">  168</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="classcpptkinter_1_1utility_1_1optional__mutex__adaptor.html#a63f35c4274501a6a889433f179a9513d">m</a>.has_value())</div>
+<div class="line"><span class="lineno">  169</span>                <a class="code hl_variable" href="classcpptkinter_1_1utility_1_1optional__mutex__adaptor.html#a63f35c4274501a6a889433f179a9513d">m</a>.value().unlock();</div>
+<div class="line"><span class="lineno">  170</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -210,10 +232,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00154">154</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>src/<a class="el" href="utility_8ixx.html">utility.ixx</a></li>
+<li>src/utility/<a class="el" href="utility_8ixx_source.html">utility.ixx</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

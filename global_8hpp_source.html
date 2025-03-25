@@ -126,11 +126,31 @@ $(document).ready(function(){initNavTree('global_8hpp_source.html',''); initResi
 <div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="preprocessor">#define NOT_IMPLEMENTED_ERROR static_assert(false, &quot;not implemented&quot;</span>)</div>
 <div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span><span class="preprocessor">#define ANNOTATION_ERROR(msg) static_assert(false, msg)</span></div>
 <div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno"><a class="line" href="global_8hpp.html#ad35291fcc3be0ae39a6d67259dadfe98">  232</a></span><span class="preprocessor">#define NOT_IMPLEMENTED_ERROR throw std::exception(&quot;not implemented&quot;</span>)</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno"><a class="line" href="global_8hpp.html#a16921e6e5c63c3524eb9a915cbbfe42a">  233</a></span><span class="preprocessor">#define ANNOTATION_ERROR(msg) throw std::exception(msg)</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno"><a class="line" href="global_8hpp.html#ad35291fcc3be0ae39a6d67259dadfe98">  232</a></span><span class="preprocessor">#define NOT_IMPLEMENTED_ERROR throw utility::construct_exception&lt;std::exception&gt;(&quot;not implemented&quot;</span>)</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno"><a class="line" href="global_8hpp.html#a16921e6e5c63c3524eb9a915cbbfe42a">  233</a></span><span class="preprocessor">#define ANNOTATION_ERROR(msg) throw utility::construct_exception&lt;std::exception&gt;(msg)</span></div>
 <div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="anamespacecpptkinter_html"><div class="ttname"><a href="namespacecpptkinter.html">cpptkinter</a></div><div class="ttdoc">Implementation of the Python module tkinter in C++.</div><div class="ttdef"><b>Definition:</b> _cpptkinter.ixx:54</div></div>
-<div class="ttc" id="anamespacecpptkinter_html_a1647a8cbe08ae686b7c93fd45db41028"><div class="ttname"><a href="namespacecpptkinter.html#a1647a8cbe08ae686b7c93fd45db41028">cpptkinter::TCL_CORE_LIBRARY_IS_EMBEDDED</a></div><div class="ttdeci">constexpr auto TCL_CORE_LIBRARY_IS_EMBEDDED</div><div class="ttdef"><b>Definition:</b> global.hpp:215</div></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno"><a class="line" href="global_8hpp.html#a5e5e50da704bc2d063771d35766c6949">  237</a></span><span class="preprocessor">#define TCL_THREADS</span></div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno"><a class="line" href="global_8hpp.html#a5740d90a62ad35d3e21869a8d43e01fd">  239</a></span><span class="preprocessor">#define ENTER_TCL               { auto _opt_mutex_adapter = utility::optional_mutex_adaptor(tcl_lock); auto _temp_tcl_lock = std::scoped_lock(_opt_mutex_adapter)</span></div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno"><a class="line" href="global_8hpp.html#a689d409af4ec1cf2f7c35460dc53dba6">  240</a></span><span class="preprocessor">#define LEAVE_TCL               }</span></div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno"><a class="line" href="global_8hpp.html#a20c9eb000917eae55f7e66b8585fce82">  241</a></span><span class="preprocessor">#define ENTER_OVERLAP           </span><span class="comment">// nothing</span></div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno"><a class="line" href="global_8hpp.html#a6aa17d5bb404eb5421f6582b8e026156">  242</a></span><span class="preprocessor">#define LEAVE_OVERLAP_TCL       }</span></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno"><a class="line" href="global_8hpp.html#a15fd3839e74ee8d9b54d637f016b4ea6">  244</a></span><span class="preprocessor">#define ENTER_PYTHON            { auto _opt_inv_mutex_adapter = utility::optional_inverse_mutex_adaptor(tcl_lock); auto _temp_tcl_inv_lock = std::scoped_lock(_opt_inv_mutex_adapter)</span></div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno"><a class="line" href="global_8hpp.html#aa2b08a860e96dc7f6d1cba578dfbf2fe">  245</a></span><span class="preprocessor">#define LEAVE_PYTHON            }</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno"><a class="line" href="global_8hpp.html#ae260bdd94c8cc1657557300b973a10f5">  247</a></span><span class="preprocessor">#define Py_BuildValue(fmt_str, ...) __VA_ARGS__</span></div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno"><a class="line" href="global_8hpp.html#a268a5497247469c43b9b16215342ffdf">  248</a></span><span class="preprocessor">#define TRACE(_self, ARGS) do {                 \</span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span><span class="preprocessor">        if ((_self)-&gt;trace) {  \</span></div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span><span class="preprocessor">            Tkapp_Trace((_self), Py_BuildValue ARGS);   \</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span><span class="preprocessor">        }   \</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span><span class="preprocessor">    } while (0)</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
+<div class="ttc" id="anamespacecpptkinter_html"><div class="ttname"><a href="namespacecpptkinter.html">cpptkinter</a></div><div class="ttdoc">Implementation of the Python module tkinter in C++.</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter_8ixx_source.html#l00025">_cpptkinter.ixx:26</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_html_a1647a8cbe08ae686b7c93fd45db41028"><div class="ttname"><a href="namespacecpptkinter.html#a1647a8cbe08ae686b7c93fd45db41028">cpptkinter::TCL_CORE_LIBRARY_IS_EMBEDDED</a></div><div class="ttdeci">constexpr auto TCL_CORE_LIBRARY_IS_EMBEDDED</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00215">global.hpp:215</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

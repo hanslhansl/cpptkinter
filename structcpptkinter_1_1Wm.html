@@ -432,6 +432,8 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Provides functions for the communication with the window manager. </p>
+
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00440">440</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ad97846053a0dd2b1d676d1ba9306e0e2" name="ad97846053a0dd2b1d676d1ba9306e0e2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad97846053a0dd2b1d676d1ba9306e0e2">&#9670;&#160;</a></span>aspect() <span class="overload">[1/3]</span></h2>
@@ -459,6 +461,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Returns the current aspect ratio restriction (if any).   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00473">473</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  474</span>        {</div>
+<div class="line"><span class="lineno">  475</span>            <span class="keywordflow">return</span> self.wm_aspect();</div>
+<div class="line"><span class="lineno">  476</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a3df5032316e8a0279c69b55c334fedf9" name="a3df5032316e8a0279c69b55c334fedf9"></a>
@@ -516,6 +523,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 <p>Removes any aspect ratio restrictions.   </p>
 <p>Should only be called with 4 empty strings.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00468">468</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  469</span>        {</div>
+<div class="line"><span class="lineno">  470</span>            self.wm_aspect(minNumer, minDenom, maxNumer, maxDenom);</div>
+<div class="line"><span class="lineno">  471</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a47721d328d8b856d6e2fc299164c6541" name="a47721d328d8b856d6e2fc299164c6541"></a>
@@ -572,6 +584,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Instruct the window manager to set the aspect ratio (width/height) of this widget to be between MINNUMER / MINDENOM and MAXNUMER / MAXDENOM.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00463">463</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  464</span>        {</div>
+<div class="line"><span class="lineno">  465</span>            self.wm_aspect(minNumer, minDenom, maxNumer, maxDenom);</div>
+<div class="line"><span class="lineno">  466</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ac74784958acc25d8ed8e2160231cec8d" name="ac74784958acc25d8ed8e2160231cec8d"></a>
@@ -608,6 +625,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 <p>On Macintosh, XXXXX</p>
 <p>On Unix, there are currently no special attribute values.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00510">510</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  511</span>        {</div>
+<div class="line"><span class="lineno">  512</span>            <span class="keywordflow">return</span> self.wm_attributes();</div>
+<div class="line"><span class="lineno">  513</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a3a82ac57f0d0b033664185a383ff19b0" name="a3a82ac57f0d0b033664185a383ff19b0"></a>
@@ -636,6 +658,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Get the last name set in a wm client command.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00531">531</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  532</span>        {</div>
+<div class="line"><span class="lineno">  533</span>            <span class="keywordflow">return</span> self.wm_client();</div>
+<div class="line"><span class="lineno">  534</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a74bda5ae1e487e15e66fa4fc50279691" name="a74bda5ae1e487e15e66fa4fc50279691"></a>
@@ -674,6 +701,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Store NAME in WM_CLIENT_MACHINE property of this widget. Return current value.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00526">526</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  527</span>        {</div>
+<div class="line"><span class="lineno">  528</span>            self.wm_client(name);</div>
+<div class="line"><span class="lineno">  529</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a58dd8b20d214a97e4f0f62350ed7f3fb" name="a58dd8b20d214a97e4f0f62350ed7f3fb"></a>
@@ -744,6 +776,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 <p>Deiconify this widget.   </p>
 <p>If it was never mapped it will not be mapped. On Windows it will raise this widget and give it the focus.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00558">558</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  559</span>        {</div>
+<div class="line"><span class="lineno">  560</span>            self.wm_deiconify();</div>
+<div class="line"><span class="lineno">  561</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a89d4507ada23a5d987f425b38da478cc" name="a89d4507ada23a5d987f425b38da478cc"></a>
@@ -772,6 +809,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return current focus model.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00581">581</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  582</span>        {</div>
+<div class="line"><span class="lineno">  583</span>            <span class="keywordflow">return</span> self.wm_focusmodel();</div>
+<div class="line"><span class="lineno">  584</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a948ee298dab0c1f49abb01be24cc072e" name="a948ee298dab0c1f49abb01be24cc072e"></a>
@@ -811,6 +853,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 <p>Set focus model.   </p>
 <p>"active" means that this widget will claim the focus itself, "passive" means that the window manager shall give the focus.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00576">576</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  577</span>        {</div>
+<div class="line"><span class="lineno">  578</span>            <span class="keywordflow">return</span> self.wm_focusmodel(model);</div>
+<div class="line"><span class="lineno">  579</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a12d19f5cb927523b909c55756735b3a3" name="a12d19f5cb927523b909c55756735b3a3"></a>
@@ -850,6 +897,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 <p>The window will be unmapped from the screen and will no longer be managed by wm.   </p>
 <p><a class="el" href="structcpptkinter_1_1Toplevel.html" title="Toplevel widget, e.g. for dialogs.">Toplevel</a> windows will be treated like frame windows once they are no longer managed by wm, however, the menu option configuration will be remembered and the menus will return once the widget is managed again.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00595">595</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  596</span>        {</div>
+<div class="line"><span class="lineno">  597</span>            self.wm_forget(window);</div>
+<div class="line"><span class="lineno">  598</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a4cf7b204c6446b785aad6f7042f05a7d" name="a4cf7b204c6446b785aad6f7042f05a7d"></a>
@@ -878,6 +930,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return identifier for decorative frame of this widget if present.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00606">606</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  607</span>        {</div>
+<div class="line"><span class="lineno">  608</span>            self.wm_frame();</div>
+<div class="line"><span class="lineno">  609</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a270555398a43ffa8ea929ea964f13327" name="a270555398a43ffa8ea929ea964f13327"></a>
@@ -906,6 +963,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Get current geometry.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00627">627</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  628</span>        {</div>
+<div class="line"><span class="lineno">  629</span>            <span class="keywordflow">return</span> self.wm_geometry();</div>
+<div class="line"><span class="lineno">  630</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ac38e699817b75ee590550645320796de" name="ac38e699817b75ee590550645320796de"></a>
@@ -944,6 +1006,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Set geometry to NEWGEOMETRY of the form =widthxheight+x+y.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00622">622</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  623</span>        {</div>
+<div class="line"><span class="lineno">  624</span>            <span class="keywordflow">return</span> self.wm_geometry(newGeometry);</div>
+<div class="line"><span class="lineno">  625</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a29cda096259813c7cecd7ada3729ecdf" name="a29cda096259813c7cecd7ada3729ecdf"></a>
@@ -972,6 +1039,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return grid information for this widget.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00665">665</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  666</span>        {</div>
+<div class="line"><span class="lineno">  667</span>            <span class="keywordflow">return</span> self.wm_grid();</div>
+<div class="line"><span class="lineno">  668</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ae6e70d4a6ce9e6831cb06c873b6ac0ac" name="ae6e70d4a6ce9e6831cb06c873b6ac0ac"></a>
@@ -1029,6 +1101,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 <p>Window will no longer be managed as a gridded window.   </p>
 <p>Should only be called with 4 empty strings.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00660">660</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  661</span>        {</div>
+<div class="line"><span class="lineno">  662</span>            self.wm_grid(baseWidth, baseHeight, widthInc, heightInc);</div>
+<div class="line"><span class="lineno">  663</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a529f4cd9252e4d48ea2d2c6ca5488fba" name="a529f4cd9252e4d48ea2d2c6ca5488fba"></a>
@@ -1086,6 +1163,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 <p>Manage window as a gridded window.   </p>
 <p>WIDTHINC and HEIGHTINC are the width and height of a grid unit in pixels. BASEWIDTH and BASEHEIGHT are the number of grid units requested in Tk_GeometryRequest.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00655">655</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  656</span>        {</div>
+<div class="line"><span class="lineno">  657</span>            self.wm_grid(baseWidth, baseHeight, widthInc, heightInc);</div>
+<div class="line"><span class="lineno">  658</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a52fa4f139adc846413fbbb3dfcf71465" name="a52fa4f139adc846413fbbb3dfcf71465"></a>
@@ -1114,6 +1196,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Get the current group leader.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00686">686</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  687</span>        {</div>
+<div class="line"><span class="lineno">  688</span>            <span class="keywordflow">return</span> self.wm_group();</div>
+<div class="line"><span class="lineno">  689</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a3421e0135e90fa409e0a3b3425020762" name="a3421e0135e90fa409e0a3b3425020762"></a>
@@ -1152,6 +1239,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Set the group leader widgets for related widgets to PATHNAME.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00681">681</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  682</span>        {</div>
+<div class="line"><span class="lineno">  683</span>            self.wm_group(pathName);</div>
+<div class="line"><span class="lineno">  684</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a130be91f1b245994eb01ce667c714ba5" name="a130be91f1b245994eb01ce667c714ba5"></a>
@@ -1180,6 +1272,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Get name of the current icon bitmap associated with window.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00713">713</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  714</span>        {</div>
+<div class="line"><span class="lineno">  715</span>            <span class="keywordflow">return</span> self.wm_iconbitmap();</div>
+<div class="line"><span class="lineno">  716</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a3651f97d20c3367a79d7776bb3b410ca" name="a3651f97d20c3367a79d7776bb3b410ca"></a>
@@ -1225,6 +1322,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 <p>Set bitmap for the iconified widget to BITMAP.   </p>
 <p>Under Windows, the DEFAULT parameter can be used to set the icon for the widget and any descendants that don't have an icon set explicitly. See <a class="el" href="classcpptkinter_1_1Tk.html" title="Toplevel widget of Tk which represents mostly the main window of an application.">Tk</a> documentation for more information.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00708">708</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  709</span>        {</div>
+<div class="line"><span class="lineno">  710</span>            self.wm_iconbitmap(bitmap, default_);</div>
+<div class="line"><span class="lineno">  711</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="af38e8a24827556f519aaec34844aa7ef" name="af38e8a24827556f519aaec34844aa7ef"></a>
@@ -1253,6 +1355,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Display widget as icon.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00724">724</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  725</span>        {</div>
+<div class="line"><span class="lineno">  726</span>            self.wm_iconify();</div>
+<div class="line"><span class="lineno">  727</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a296fca4207445177a66fdefa8ed63ee2" name="a296fca4207445177a66fdefa8ed63ee2"></a>
@@ -1281,6 +1388,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Get the current mask for the icon bitmap.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00745">745</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  746</span>        {</div>
+<div class="line"><span class="lineno">  747</span>            <span class="keywordflow">return</span> self.wm_iconmask();</div>
+<div class="line"><span class="lineno">  748</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ad1ad2025baea1e323a5aedcde5d07e25" name="ad1ad2025baea1e323a5aedcde5d07e25"></a>
@@ -1319,6 +1431,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Set mask for the icon bitmap of this widget.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00740">740</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  741</span>        {</div>
+<div class="line"><span class="lineno">  742</span>            <span class="keywordflow">return</span> self.wm_iconmask(bitmap);</div>
+<div class="line"><span class="lineno">  743</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="aae92dab1cecf799c9232d6abc9964b37" name="aae92dab1cecf799c9232d6abc9964b37"></a>
@@ -1347,6 +1464,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return the name of the icon for this widget.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00766">766</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  767</span>        {</div>
+<div class="line"><span class="lineno">  768</span>            <span class="keywordflow">return</span> self.wm_iconname();</div>
+<div class="line"><span class="lineno">  769</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="adc8a573a953b164a91905f38a3f70c41" name="adc8a573a953b164a91905f38a3f70c41"></a>
@@ -1385,6 +1507,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Set the name of the icon for this widget.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00761">761</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  762</span>        {</div>
+<div class="line"><span class="lineno">  763</span>            <span class="keywordflow">return</span> self.wm_iconname(newName);</div>
+<div class="line"><span class="lineno">  764</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a723390d41fe61586685fa62fd404606c" name="a723390d41fe61586685fa62fd404606c"></a>
@@ -1430,6 +1557,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return the current position of the icon of this widget.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00791">791</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  792</span>        {</div>
+<div class="line"><span class="lineno">  793</span>            <span class="keywordflow">return</span> self.wm_iconposition();</div>
+<div class="line"><span class="lineno">  794</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a4d473c70a827dd57bcf491de98b5b423" name="a4d473c70a827dd57bcf491de98b5b423"></a>
@@ -1474,6 +1606,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Set the position of the icon of this widget to X and Y.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00786">786</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  787</span>        {</div>
+<div class="line"><span class="lineno">  788</span>            <span class="keywordflow">return</span> self.wm_iconposition(x, y);</div>
+<div class="line"><span class="lineno">  789</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a31d6894f7e06bb6f0ba49aa60f9ca674" name="a31d6894f7e06bb6f0ba49aa60f9ca674"></a>
@@ -1494,6 +1631,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return the current value of the icon window.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l06299">6299</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 6300</span>{</div>
+<div class="line"><span class="lineno"> 6301</span>    <span class="keywordflow">return</span> self.wm_iconwindow();</div>
+<div class="line"><span class="lineno"> 6302</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a811e0ec1ab198682cd272311ba6525b0" name="a811e0ec1ab198682cd272311ba6525b0"></a>
@@ -1532,6 +1674,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Set widget PATHNAME to be displayed instead of icon.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00804">804</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  805</span>        {</div>
+<div class="line"><span class="lineno">  806</span>            <span class="keywordflow">return</span> self.wm_iconwindow(pathName);</div>
+<div class="line"><span class="lineno">  807</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ab811968ff9e06b691cc90d489b847b00" name="ab811968ff9e06b691cc90d489b847b00"></a>
@@ -1571,6 +1718,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 <p>The widget specified will become a stand alone top-level window.   </p>
 <p>The window will be decorated with the window managers title bar, etc.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00819">819</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  820</span>        {</div>
+<div class="line"><span class="lineno">  821</span>            <span class="keywordflow">return</span> self.wm_manage(widget);</div>
+<div class="line"><span class="lineno">  822</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a412a9b7832a5c8dfa55c4a5e59f0ae52" name="a412a9b7832a5c8dfa55c4a5e59f0ae52"></a>
@@ -1599,6 +1751,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return the current max WIDTH and HEIGHT for this widget.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00840">840</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  841</span>        {</div>
+<div class="line"><span class="lineno">  842</span>            <span class="keywordflow">return</span> self.wm_maxsize();</div>
+<div class="line"><span class="lineno">  843</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a60db4ff93ced3d5a12785b0b2b24dd28" name="a60db4ff93ced3d5a12785b0b2b24dd28"></a>
@@ -1643,6 +1800,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Set max WIDTH and HEIGHT for this widget. If the window is gridded the values are given in grid units.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00835">835</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  836</span>        {</div>
+<div class="line"><span class="lineno">  837</span>            <span class="keywordflow">return</span> self.wm_maxsize(width, height);</div>
+<div class="line"><span class="lineno">  838</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="af2961fa600a2ad15aa3f1f05fb8f2aa9" name="af2961fa600a2ad15aa3f1f05fb8f2aa9"></a>
@@ -1671,6 +1833,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return the current min WIDTH and HEIGHT for this widget.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00861">861</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  862</span>        {</div>
+<div class="line"><span class="lineno">  863</span>            <span class="keywordflow">return</span> self.wm_minsize();</div>
+<div class="line"><span class="lineno">  864</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ad710c9b0d2516f28f405157aef6f38cb" name="ad710c9b0d2516f28f405157aef6f38cb"></a>
@@ -1715,6 +1882,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Set min WIDTH and HEIGHT for this widget. If the window is gridded the values are given in grid units.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00856">856</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  857</span>        {</div>
+<div class="line"><span class="lineno">  858</span>            <span class="keywordflow">return</span> self.wm_minsize(width, height);</div>
+<div class="line"><span class="lineno">  859</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="af0fbe4a7d8d4771278c6e1a28cd3447f" name="af0fbe4a7d8d4771278c6e1a28cd3447f"></a>
@@ -1743,6 +1915,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return the current value of the overrideredirect flag.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00882">882</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  883</span>        {</div>
+<div class="line"><span class="lineno">  884</span>            <span class="keywordflow">return</span> self.wm_overrideredirect();</div>
+<div class="line"><span class="lineno">  885</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a10f4e9e2c415e85395eb3de9d14e3c20" name="a10f4e9e2c415e85395eb3de9d14e3c20"></a>
@@ -1781,6 +1958,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Instruct the window manager to ignore this widget if BOOLEAN is true.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00877">877</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  878</span>        {</div>
+<div class="line"><span class="lineno">  879</span>            <span class="keywordflow">return</span> self.wm_overrideredirect(<span class="keywordtype">boolean</span>);</div>
+<div class="line"><span class="lineno">  880</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a1166eef532ed2caff5155af2c547dae5" name="a1166eef532ed2caff5155af2c547dae5"></a>
@@ -1809,6 +1991,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return the current positionfrom setting.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00903">903</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  904</span>        {</div>
+<div class="line"><span class="lineno">  905</span>            <span class="keywordflow">return</span> self.wm_positionfrom();</div>
+<div class="line"><span class="lineno">  906</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a8cd1a9aeee9c02f1c8154665383d27bc" name="a8cd1a9aeee9c02f1c8154665383d27bc"></a>
@@ -1847,6 +2034,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Instruct the window manager that the position of this widget shall be defined by the user if WHO is "user", and by its own policy if WHO is "program".   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00898">898</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  899</span>        {</div>
+<div class="line"><span class="lineno">  900</span>            <span class="keywordflow">return</span> self.wm_positionfrom(who);</div>
+<div class="line"><span class="lineno">  901</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="adc3658aafab4d0f93dbd68a3ddb9129e" name="adc3658aafab4d0f93dbd68a3ddb9129e"></a>
@@ -1896,6 +2088,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 <p>Bind function FUNC to command NAME for this widget.</p>
 <p>Return the function bound to NAME if None is given. NAME could be e.g. "WM_SAVE_YOURSELF" or "WM_DELETE_WINDOW".   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00923">923</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  924</span>        {</div>
+<div class="line"><span class="lineno">  925</span>            <span class="keywordflow">return</span> self.template wm_protocol&lt;R&gt;(name, std::forward&lt;Func&gt;(func));</div>
+<div class="line"><span class="lineno">  926</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a59ee74c97da2f0bacede2e43bdf01c57" name="a59ee74c97da2f0bacede2e43bdf01c57"></a>
@@ -1924,6 +2121,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return the current resizable settings.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00944">944</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  945</span>        {</div>
+<div class="line"><span class="lineno">  946</span>            <span class="keywordflow">return</span> self.wm_resizable();</div>
+<div class="line"><span class="lineno">  947</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a4236d8fcd475b783b57d7fadc5ba11cd" name="a4236d8fcd475b783b57d7fadc5ba11cd"></a>
@@ -1968,6 +2170,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Instruct the window manager whether this width can be resized in WIDTH or HEIGHT.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00939">939</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  940</span>        {</div>
+<div class="line"><span class="lineno">  941</span>            <span class="keywordflow">return</span> self.wm_resizable(width, height);</div>
+<div class="line"><span class="lineno">  942</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a932acc32ab220813a93c19a06046d423" name="a932acc32ab220813a93c19a06046d423"></a>
@@ -1996,6 +2203,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return the current sizefrom setting.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00965">965</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  966</span>        {</div>
+<div class="line"><span class="lineno">  967</span>            <span class="keywordflow">return</span> self.wm_sizefrom();</div>
+<div class="line"><span class="lineno">  968</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a7e751200d5c37ae2fb8e1bf31d5af211" name="a7e751200d5c37ae2fb8e1bf31d5af211"></a>
@@ -2034,6 +2246,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Instruct the window manager that the size of this widget shall be defined by the user if WHO is "user", and by its own policy if WHO is "program".   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00960">960</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  961</span>        {</div>
+<div class="line"><span class="lineno">  962</span>            <span class="keywordflow">return</span> self.wm_sizefrom(who);</div>
+<div class="line"><span class="lineno">  963</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="af36747d136755928ae474951e1f8b683" name="af36747d136755928ae474951e1f8b683"></a>
@@ -2062,6 +2279,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return the current state of this widget.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00986">986</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  987</span>        {</div>
+<div class="line"><span class="lineno">  988</span>            <span class="keywordflow">return</span> self.wm_state();</div>
+<div class="line"><span class="lineno">  989</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a43eddabf4b14a551bc889348aea81cba" name="a43eddabf4b14a551bc889348aea81cba"></a>
@@ -2100,6 +2322,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Set the state of this widget as one of normal, icon, iconic (see wm_iconwindow), withdrawn, or zoomed (Windows only).   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00981">981</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  982</span>        {</div>
+<div class="line"><span class="lineno">  983</span>            <span class="keywordflow">return</span> self.wm_state(newstate);</div>
+<div class="line"><span class="lineno">  984</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a1782b4bf507222c555d84efb988d8508" name="a1782b4bf507222c555d84efb988d8508"></a>
@@ -2128,6 +2355,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Get the title of this widget.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l01007">1007</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1008</span>        {</div>
+<div class="line"><span class="lineno"> 1009</span>            <span class="keywordflow">return</span> self.wm_title();</div>
+<div class="line"><span class="lineno"> 1010</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="acb26b5248afde2669746c66e84fef164" name="acb26b5248afde2669746c66e84fef164"></a>
@@ -2166,6 +2398,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Set the title of this widget.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l01002">1002</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1003</span>        {</div>
+<div class="line"><span class="lineno"> 1004</span>            <span class="keywordflow">return</span> self.wm_title(<span class="keywordtype">string</span>);</div>
+<div class="line"><span class="lineno"> 1005</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="afe885c707fdff982bd5afb3e2f2908c8" name="afe885c707fdff982bd5afb3e2f2908c8"></a>
@@ -2186,6 +2423,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return the current transient master.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l06309">6309</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 6310</span>{</div>
+<div class="line"><span class="lineno"> 6311</span>    <span class="keywordflow">return</span> self.wm_transient();</div>
+<div class="line"><span class="lineno"> 6312</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ab1b93ba7282dafc79a58b2b0e0a06783" name="ab1b93ba7282dafc79a58b2b0e0a06783"></a>
@@ -2224,6 +2466,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Instruct the window manager that this widget is transient with regard to widget MASTER.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l01020">1020</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1021</span>        {</div>
+<div class="line"><span class="lineno"> 1022</span>            <span class="keywordflow">return</span> self.wm_transient(master);</div>
+<div class="line"><span class="lineno"> 1023</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a665a8985159f019a225fcfad375375d5" name="a665a8985159f019a225fcfad375375d5"></a>
@@ -2253,6 +2500,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 <p>Withdraw this widget from the screen such that it is unmapped and forgotten by the window manager.   </p>
 <p>Re - draw it with wm_deiconify.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l01035">1035</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1036</span>        {</div>
+<div class="line"><span class="lineno"> 1037</span>            <span class="keywordflow">return</span> self.wm_withdraw();</div>
+<div class="line"><span class="lineno"> 1038</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="afe9e20ae9651247f9bd955afb6ba175b" name="afe9e20ae9651247f9bd955afb6ba175b"></a>
@@ -2281,6 +2533,14 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Returns the current aspect ratio restriction (if any). </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00455">455</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  456</span>        {</div>
+<div class="line"><span class="lineno">  457</span>            <span class="keyword">auto</span> res = self.tk-&gt;template call&lt;std::variant&lt;std::array&lt;long long, 4&gt;, std::string&gt;&gt;(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;aspect&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno">  458</span>            <span class="keywordflow">if</span> (std::holds_alternative&lt;std::string&gt;(res))</div>
+<div class="line"><span class="lineno">  459</span>                <span class="keywordflow">return</span> {};</div>
+<div class="line"><span class="lineno">  460</span>            <span class="keywordflow">return</span> std::get&lt;std::array&lt;long long, 4&gt;&gt;(res);</div>
+<div class="line"><span class="lineno">  461</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a8b6983f72d92bd125d4d18a0210b634d" name="a8b6983f72d92bd125d4d18a0210b634d"></a>
@@ -2338,6 +2598,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 <p>Removes any aspect ratio restrictions. </p>
 <p>Should only be called with 4 empty strings. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00450">450</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  451</span>        {</div>
+<div class="line"><span class="lineno">  452</span>            self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;aspect&quot;</span>, self._w, minNumer, minDenom, maxNumer, maxDenom);</div>
+<div class="line"><span class="lineno">  453</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a6a459420d6a5b00fe0231285c11bf277" name="a6a459420d6a5b00fe0231285c11bf277"></a>
@@ -2394,6 +2659,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Instruct the window manager to set the aspect ratio (width/height) of this widget to be between MINNUMER / MINDENOM and MAXNUMER / MAXDENOM. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00443">443</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  444</span>        {</div>
+<div class="line"><span class="lineno">  445</span>            self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;aspect&quot;</span>, self._w, minNumer, minDenom, maxNumer, maxDenom);</div>
+<div class="line"><span class="lineno">  446</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a278a5385177ca7f380e1fbcdfcfb1005" name="a278a5385177ca7f380e1fbcdfcfb1005"></a>
@@ -2430,6 +2700,24 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 <p>On Macintosh, XXXXX</p>
 <p>On Unix, there are currently no special attribute values. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00492">492</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  493</span>        {</div>
+<div class="line"><span class="lineno">  494</span>            <span class="keyword">using </span>V = std::variant&lt;std::string, double, long long&gt;;</div>
+<div class="line"><span class="lineno">  495</span>            <span class="keyword">auto</span> data = self.tk-&gt;template call&lt;std::vector&lt;V&gt;&gt;(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;attributes&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno">  496</span> </div>
+<div class="line"><span class="lineno">  497</span>            <span class="keyword">auto</span> lambda = [](V&amp; var) { </div>
+<div class="line"><span class="lineno">  498</span>                <span class="keyword">auto</span>&amp;&amp; key = std::get&lt;std::string&gt;(std::move(var));</div>
+<div class="line"><span class="lineno">  499</span>                <span class="keywordflow">if</span> (key.starts_with(<span class="charliteral">&#39;-&#39;</span>))</div>
+<div class="line"><span class="lineno">  500</span>                    key = key.substr(1);</div>
+<div class="line"><span class="lineno">  501</span>                <span class="keywordflow">return</span> key;</div>
+<div class="line"><span class="lineno">  502</span>                };</div>
+<div class="line"><span class="lineno">  503</span> </div>
+<div class="line"><span class="lineno">  504</span>            <span class="keywordflow">return</span> std::map&lt;std::string, V&gt;(std::from_range, std::views::zip(</div>
+<div class="line"><span class="lineno">  505</span>                data | <span class="comment">/*std::views::*/</span>stride(2) | std::views::transform(lambda),</div>
+<div class="line"><span class="lineno">  506</span>                data | std::views::drop(1) | <span class="comment">/*std::views::*/</span>stride(2)</div>
+<div class="line"><span class="lineno">  507</span>            ));</div>
+<div class="line"><span class="lineno">  508</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a68954345cf6e3572781d0b855117602c" name="a68954345cf6e3572781d0b855117602c"></a>
@@ -2458,6 +2746,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Get the last name set in a wm client command. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00521">521</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  522</span>        {</div>
+<div class="line"><span class="lineno">  523</span>            <span class="keywordflow">return</span> self.tk-&gt;template call&lt;std::string&gt;(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;client&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno">  524</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a25e88dd98a3f10351de16c561a83b4e2" name="a25e88dd98a3f10351de16c561a83b4e2"></a>
@@ -2496,6 +2789,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Store NAME in WM_CLIENT_MACHINE property of this widget. Return current value. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00516">516</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  517</span>        {</div>
+<div class="line"><span class="lineno">  518</span>            self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;client&quot;</span>, self._w, name);</div>
+<div class="line"><span class="lineno">  519</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a0be303745ffb87fff8c7a2f1237d4bbf" name="a0be303745ffb87fff8c7a2f1237d4bbf"></a>
@@ -2566,6 +2864,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 <p>Deiconify this widget. </p>
 <p>If it was never mapped it will not be mapped. On Windows it will raise this widget and give it the focus. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00553">553</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  554</span>        {</div>
+<div class="line"><span class="lineno">  555</span>            self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;deiconify&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno">  556</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ad9cd941ccdb52629b45b84e9d6087627" name="ad9cd941ccdb52629b45b84e9d6087627"></a>
@@ -2594,6 +2897,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return current focus model. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00571">571</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  572</span>        {</div>
+<div class="line"><span class="lineno">  573</span>            <span class="keywordflow">return</span> self.tk-&gt;template call&lt;std::string&gt;(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;focusmodel&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno">  574</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a9806147baefd512d372d627f3c68d3cb" name="a9806147baefd512d372d627f3c68d3cb"></a>
@@ -2633,6 +2941,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 <p>Set focus model. </p>
 <p>"active" means that this widget will claim the focus itself, "passive" means that the window manager shall give the focus. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00566">566</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  567</span>        {</div>
+<div class="line"><span class="lineno">  568</span>            self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;focusmodel&quot;</span>, self._w, model);</div>
+<div class="line"><span class="lineno">  569</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a2567d80aec6a2967239ef9aad0bab374" name="a2567d80aec6a2967239ef9aad0bab374"></a>
@@ -2672,6 +2985,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 <p>The window will be unmapped from the screen and will no longer be managed by wm. </p>
 <p><a class="el" href="structcpptkinter_1_1Toplevel.html" title="Toplevel widget, e.g. for dialogs.">Toplevel</a> windows will be treated like frame windows once they are no longer managed by wm, however, the menu option configuration will be remembered and the menus will return once the widget is managed again. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00590">590</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  591</span>        {</div>
+<div class="line"><span class="lineno">  592</span>            self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;forget&quot;</span>, window);</div>
+<div class="line"><span class="lineno">  593</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a9ed2e440c4b13916d5e3eaa3171f344e" name="a9ed2e440c4b13916d5e3eaa3171f344e"></a>
@@ -2700,6 +3018,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return identifier for decorative frame of this widget if present. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00601">601</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  602</span>        {</div>
+<div class="line"><span class="lineno">  603</span>            self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;frame&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno">  604</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ae744440b8977d7defe861ea624312cff" name="ae744440b8977d7defe861ea624312cff"></a>
@@ -2728,6 +3051,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Get current geometry. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00617">617</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  618</span>        {</div>
+<div class="line"><span class="lineno">  619</span>            <span class="keywordflow">return</span> self.tk-&gt;template call&lt;std::string&gt;(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;geometry&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno">  620</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a5feb07cb6251b0b34c46bb7f7215f114" name="a5feb07cb6251b0b34c46bb7f7215f114"></a>
@@ -2766,6 +3094,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Set geometry to NEWGEOMETRY of the form =widthxheight+x+y. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00612">612</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  613</span>        {</div>
+<div class="line"><span class="lineno">  614</span>            self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;geometry&quot;</span>, self._w, newGeometry);</div>
+<div class="line"><span class="lineno">  615</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a5e9ebc4df94d47e94ec40a3083852374" name="a5e9ebc4df94d47e94ec40a3083852374"></a>
@@ -2794,6 +3127,14 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return grid information for this widget. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00647">647</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  648</span>        {</div>
+<div class="line"><span class="lineno">  649</span>            <span class="keyword">auto</span> res = self.tk-&gt;template call&lt;std::variant&lt;std::array&lt;long long, 4&gt;, std::string&gt;&gt;(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;grid&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno">  650</span>            <span class="keywordflow">if</span> (std::holds_alternative&lt;std::string&gt;(res))</div>
+<div class="line"><span class="lineno">  651</span>                <span class="keywordflow">return</span> {};</div>
+<div class="line"><span class="lineno">  652</span>            <span class="keywordflow">return</span> std::get&lt;std::array&lt;long long, 4&gt;&gt;(res);</div>
+<div class="line"><span class="lineno">  653</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a5c3a426f8305e5f27b0c181b6c20ca90" name="a5c3a426f8305e5f27b0c181b6c20ca90"></a>
@@ -2851,6 +3192,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 <p>Window will no longer be managed as a gridded window. </p>
 <p>Should only be called with 4 empty strings. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00642">642</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  643</span>        {</div>
+<div class="line"><span class="lineno">  644</span>            self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;grid&quot;</span>, self._w, baseWidth, baseHeight, widthInc, heightInc);</div>
+<div class="line"><span class="lineno">  645</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ab5a10dacdbba140b9b55554af0f71a0f" name="ab5a10dacdbba140b9b55554af0f71a0f"></a>
@@ -2908,6 +3254,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 <p>Manage window as a gridded window. </p>
 <p>WIDTHINC and HEIGHTINC are the width and height of a grid unit in pixels. BASEWIDTH and BASEHEIGHT are the number of grid units requested in Tk_GeometryRequest. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00635">635</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  636</span>        {</div>
+<div class="line"><span class="lineno">  637</span>            self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;grid&quot;</span>, self._w, baseWidth, baseHeight, widthInc, heightInc);</div>
+<div class="line"><span class="lineno">  638</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a2e6b46947ad0e2047f879d5b0ba3dcbe" name="a2e6b46947ad0e2047f879d5b0ba3dcbe"></a>
@@ -2936,6 +3287,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Get the current group leader. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00676">676</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  677</span>        {</div>
+<div class="line"><span class="lineno">  678</span>            <span class="keywordflow">return</span> self.tk-&gt;template call&lt;std::string&gt;(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;group&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno">  679</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="af9482f2781abd299b8472791d147bc56" name="af9482f2781abd299b8472791d147bc56"></a>
@@ -2974,6 +3330,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Set the group leader widgets for related widgets to PATHNAME. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00671">671</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  672</span>        {</div>
+<div class="line"><span class="lineno">  673</span>            self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;group&quot;</span>, self._w, pathName);</div>
+<div class="line"><span class="lineno">  674</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ae24365879ca680d5b404117fa5f01ce6" name="ae24365879ca680d5b404117fa5f01ce6"></a>
@@ -3002,6 +3363,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Get name of the current icon bitmap associated with window. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00703">703</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  704</span>        {</div>
+<div class="line"><span class="lineno">  705</span>            <span class="keywordflow">return</span> self.tk-&gt;template call&lt;std::string&gt;(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;iconmask&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno">  706</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a4841c8b215ae9f45296c043deb7d8850" name="a4841c8b215ae9f45296c043deb7d8850"></a>
@@ -3047,6 +3413,14 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 <p>Set bitmap for the iconified widget to BITMAP. </p>
 <p>Under Windows, the DEFAULT parameter can be used to set the icon for the widget and any descendants that don't have an icon set explicitly. See <a class="el" href="classcpptkinter_1_1Tk.html" title="Toplevel widget of Tk which represents mostly the main window of an application.">Tk</a> documentation for more information. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00695">695</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  696</span>        {</div>
+<div class="line"><span class="lineno">  697</span>            <span class="keywordflow">if</span> (default_)</div>
+<div class="line"><span class="lineno">  698</span>                self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;iconmask&quot;</span>, self._w, <span class="stringliteral">&quot;-default&quot;</span>, bitmap);</div>
+<div class="line"><span class="lineno">  699</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  700</span>                self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;iconmask&quot;</span>, self._w, bitmap);</div>
+<div class="line"><span class="lineno">  701</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a6dc8f8297bc9b028499d120f251e1cd2" name="a6dc8f8297bc9b028499d120f251e1cd2"></a>
@@ -3075,6 +3449,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Display widget as icon. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00719">719</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  720</span>        {</div>
+<div class="line"><span class="lineno">  721</span>            self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;iconify&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno">  722</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a2b861098c1e91062b253afe29ea9d709" name="a2b861098c1e91062b253afe29ea9d709"></a>
@@ -3103,6 +3482,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Get the current mask for the icon bitmap. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00735">735</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  736</span>        {</div>
+<div class="line"><span class="lineno">  737</span>            <span class="keywordflow">return</span> self.tk-&gt;template call&lt;std::string&gt;(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;iconmask&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno">  738</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a6db05624f1b9cee57ad3cdcd1fba6944" name="a6db05624f1b9cee57ad3cdcd1fba6944"></a>
@@ -3141,6 +3525,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Set mask for the icon bitmap of this widget. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00730">730</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  731</span>        {</div>
+<div class="line"><span class="lineno">  732</span>            self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;iconmask&quot;</span>, self._w, bitmap);</div>
+<div class="line"><span class="lineno">  733</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a8aa943100d313d40969003a8d628c180" name="a8aa943100d313d40969003a8d628c180"></a>
@@ -3169,6 +3558,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return the name of the icon for this widget. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00756">756</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  757</span>        {</div>
+<div class="line"><span class="lineno">  758</span>            <span class="keywordflow">return</span> self.tk-&gt;template call&lt;std::string&gt;(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;iconname&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno">  759</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="af49c35c7ce73b3d2da58d5cc07396772" name="af49c35c7ce73b3d2da58d5cc07396772"></a>
@@ -3207,6 +3601,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Set the name of the icon for this widget. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00751">751</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  752</span>        {</div>
+<div class="line"><span class="lineno">  753</span>            self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;iconname&quot;</span>, self._w, newName);</div>
+<div class="line"><span class="lineno">  754</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="aaa3560e80d6975dfd044ff8708f424f6" name="aaa3560e80d6975dfd044ff8708f424f6"></a>
@@ -3252,6 +3651,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return the current position of the icon of this widget. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00781">781</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  782</span>        {</div>
+<div class="line"><span class="lineno">  783</span>            <span class="keywordflow">return</span> self.tk-&gt;template call&lt;std::array&lt;long long, 2&gt;&gt;(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;iconposition&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno">  784</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a36ba7dc3d48182c6ee1cd75d4f1d9f1f" name="a36ba7dc3d48182c6ee1cd75d4f1d9f1f"></a>
@@ -3296,6 +3700,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Set the position of the icon of this widget to X and Y. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00776">776</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  777</span>        {</div>
+<div class="line"><span class="lineno">  778</span>            self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;iconposition&quot;</span>, self._w, x, y);</div>
+<div class="line"><span class="lineno">  779</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a5122ecd1ff28ca810898fea8cc9674fa" name="a5122ecd1ff28ca810898fea8cc9674fa"></a>
@@ -3316,6 +3725,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return the current value of the icon window. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l06294">6294</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 6295</span>{</div>
+<div class="line"><span class="lineno"> 6296</span>    <span class="keywordflow">return</span> self.nametowidget(self.tk-&gt;template call&lt;std::string&gt;(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;wm_iconwindow&quot;</span>, self._w));</div>
+<div class="line"><span class="lineno"> 6297</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a9adcd251d38eed21c98824954012223e" name="a9adcd251d38eed21c98824954012223e"></a>
@@ -3354,6 +3768,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Set widget PATHNAME to be displayed instead of icon. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00797">797</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  798</span>        {</div>
+<div class="line"><span class="lineno">  799</span>            self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;wm_iconwindow&quot;</span>, self._w, pathName);</div>
+<div class="line"><span class="lineno">  800</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a512772d0d8a470e02c4377dd598ef971" name="a512772d0d8a470e02c4377dd598ef971"></a>
@@ -3393,6 +3812,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 <p>The widget specified will become a stand alone top-level window. </p>
 <p>The window will be decorated with the window managers title bar, etc. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00814">814</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  815</span>        {</div>
+<div class="line"><span class="lineno">  816</span>            self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;manage&quot;</span>, widget);</div>
+<div class="line"><span class="lineno">  817</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a115d59de2c4c8c3d5a7bf9e2b29e9622" name="a115d59de2c4c8c3d5a7bf9e2b29e9622"></a>
@@ -3421,6 +3845,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return the current max WIDTH and HEIGHT for this widget. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00830">830</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  831</span>        {</div>
+<div class="line"><span class="lineno">  832</span>            <span class="keywordflow">return</span> self.tk-&gt;template call&lt;std::array&lt;long long, 2&gt;&gt;(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;maxsize&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno">  833</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="af6bc4b0828efa51412e4bbbeacee6522" name="af6bc4b0828efa51412e4bbbeacee6522"></a>
@@ -3465,6 +3894,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Set max WIDTH and HEIGHT for this widget. If the window is gridded the values are given in grid units. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00825">825</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  826</span>        {</div>
+<div class="line"><span class="lineno">  827</span>            self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;maxsize&quot;</span>, self._w, width, height);</div>
+<div class="line"><span class="lineno">  828</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a4bd2328819012ded58be284d77fb69e5" name="a4bd2328819012ded58be284d77fb69e5"></a>
@@ -3493,6 +3927,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return the current min WIDTH and HEIGHT for this widget. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00851">851</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  852</span>        {</div>
+<div class="line"><span class="lineno">  853</span>            <span class="keywordflow">return</span> self.tk-&gt;template call&lt;std::array&lt;long long, 2&gt;&gt;(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;minsize&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno">  854</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="aca0eff7a86b034e9a0cfddc9db4371c5" name="aca0eff7a86b034e9a0cfddc9db4371c5"></a>
@@ -3537,6 +3976,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Set min WIDTH and HEIGHT for this widget. If the window is gridded the values are given in grid units. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00846">846</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  847</span>        {</div>
+<div class="line"><span class="lineno">  848</span>            self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;minsize&quot;</span>, self._w, width, height);</div>
+<div class="line"><span class="lineno">  849</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a46ce1d8a7c125707a6672825d6dbee3c" name="a46ce1d8a7c125707a6672825d6dbee3c"></a>
@@ -3565,6 +4009,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return the current value of the overrideredirect flag. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00872">872</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  873</span>        {</div>
+<div class="line"><span class="lineno">  874</span>            <span class="keywordflow">return</span> self.tk-&gt;template call&lt;bool&gt;(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;overrideredirect&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno">  875</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="af314b49b623e17c7698e369b1d1a2790" name="af314b49b623e17c7698e369b1d1a2790"></a>
@@ -3603,6 +4052,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Instruct the window manager to ignore this widget if BOOLEAN is true. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00867">867</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  868</span>        {</div>
+<div class="line"><span class="lineno">  869</span>            self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;overrideredirect&quot;</span>, self._w, <span class="keywordtype">boolean</span>);</div>
+<div class="line"><span class="lineno">  870</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a4c5de821809fb4316e4673a40960a4af" name="a4c5de821809fb4316e4673a40960a4af"></a>
@@ -3631,6 +4085,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return the current positionfrom setting. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00893">893</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  894</span>        {</div>
+<div class="line"><span class="lineno">  895</span>            <span class="keywordflow">return</span> self.tk-&gt;template call&lt;std::string&gt;(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;positionfrom&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno">  896</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a5562833c66a2f025f9b2b6fdc96e09a8" name="a5562833c66a2f025f9b2b6fdc96e09a8"></a>
@@ -3669,6 +4128,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Instruct the window manager that the position of this widget shall be defined by the user if WHO is "user", and by its own policy if WHO is "program". </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00888">888</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  889</span>        {</div>
+<div class="line"><span class="lineno">  890</span>            self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;positionfrom&quot;</span>, self._w, who);</div>
+<div class="line"><span class="lineno">  891</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ad4a458c0162181e14fb0d0084db49a4d" name="ad4a458c0162181e14fb0d0084db49a4d"></a>
@@ -3716,6 +4180,14 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 <p>Bind function FUNC to command NAME for this widget.</p>
 <p>Return the function bound to NAME if None is given. NAME could be e.g. "WM_SAVE_YOURSELF" or "WM_DELETE_WINDOW". </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00913">913</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  914</span>        {</div>
+<div class="line"><span class="lineno">  915</span>            <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (detail::createcommand_concept&lt;Func&gt;)</div>
+<div class="line"><span class="lineno">  916</span>                <span class="keywordflow">return</span> self.tk-&gt;template call&lt;R&gt;(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;protocol&quot;</span>, self._w, name, self._register(std::forward&lt;Func&gt;(func)));</div>
+<div class="line"><span class="lineno">  917</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  918</span>                <span class="keywordflow">return</span> self.tk-&gt;template call&lt;R&gt;(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;protocol&quot;</span>, self._w, name, std::forward&lt;Func&gt;(func));</div>
+<div class="line"><span class="lineno">  919</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a5fa1e6df2b6b4244edfd61c155dfc7e9" name="a5fa1e6df2b6b4244edfd61c155dfc7e9"></a>
@@ -3744,6 +4216,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return the current resizable settings. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00934">934</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  935</span>        {</div>
+<div class="line"><span class="lineno">  936</span>            <span class="keywordflow">return</span> self.tk-&gt;template call&lt;std::array&lt;bool, 2&gt;&gt;(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;resizable&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno">  937</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a8764b9ad167878d61ddb5d4e8d6c23d3" name="a8764b9ad167878d61ddb5d4e8d6c23d3"></a>
@@ -3788,6 +4265,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Instruct the window manager whether this width can be resized in WIDTH or HEIGHT. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00929">929</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  930</span>        {</div>
+<div class="line"><span class="lineno">  931</span>            self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;resizable&quot;</span>, self._w, width, height);</div>
+<div class="line"><span class="lineno">  932</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a447092d4a911f57b10b302fdfbd8c452" name="a447092d4a911f57b10b302fdfbd8c452"></a>
@@ -3816,6 +4298,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return the current sizefrom setting. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00955">955</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  956</span>        {</div>
+<div class="line"><span class="lineno">  957</span>            <span class="keywordflow">return</span> self.tk-&gt;template call&lt;std::string&gt;(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;sizefrom&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno">  958</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ab8702a019d934ebac84cc1fd13ea2f8e" name="ab8702a019d934ebac84cc1fd13ea2f8e"></a>
@@ -3854,6 +4341,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Instruct the window manager that the size of this widget shall be defined by the user if WHO is "user", and by its own policy if WHO is "program". </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00950">950</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  951</span>        {</div>
+<div class="line"><span class="lineno">  952</span>            self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;sizefrom&quot;</span>, self._w, who);</div>
+<div class="line"><span class="lineno">  953</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ae066a13d395daff1c7274f8152be828e" name="ae066a13d395daff1c7274f8152be828e"></a>
@@ -3882,6 +4374,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return the current state of this widget. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00976">976</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  977</span>        {</div>
+<div class="line"><span class="lineno">  978</span>            <span class="keywordflow">return</span> self.tk-&gt;template call&lt;std::string&gt;(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;state&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno">  979</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a67a45fdc93b8b054056922deff949cb6" name="a67a45fdc93b8b054056922deff949cb6"></a>
@@ -3920,6 +4417,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Set the state of this widget as one of normal, icon, iconic (see wm_iconwindow), withdrawn, or zoomed (Windows only). </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00971">971</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  972</span>        {</div>
+<div class="line"><span class="lineno">  973</span>            self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;state&quot;</span>, self._w, newstate);</div>
+<div class="line"><span class="lineno">  974</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a2833376c5fdbfdb384afcb08d25f7071" name="a2833376c5fdbfdb384afcb08d25f7071"></a>
@@ -3948,6 +4450,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Get the title of this widget. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00997">997</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  998</span>        {</div>
+<div class="line"><span class="lineno">  999</span>            <span class="keywordflow">return</span> self.tk-&gt;template call&lt;std::string&gt;(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;title&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno"> 1000</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="aa9e61511153096d945dcc32eb3206140" name="aa9e61511153096d945dcc32eb3206140"></a>
@@ -3986,6 +4493,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Set the title of this widget. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00992">992</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  993</span>        {</div>
+<div class="line"><span class="lineno">  994</span>            <span class="keywordflow">return</span> self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;title&quot;</span>, self._w, <span class="keywordtype">string</span>);</div>
+<div class="line"><span class="lineno">  995</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a16ccde8c74ded505580f051892dc3a2c" name="a16ccde8c74ded505580f051892dc3a2c"></a>
@@ -4006,6 +4518,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Return the current transient master. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l06304">6304</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 6305</span>{</div>
+<div class="line"><span class="lineno"> 6306</span>    <span class="keywordflow">return</span> self.nametowidget(self.tk-&gt;template call&lt;std::string &gt;(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;transient&quot;</span>, self._w));</div>
+<div class="line"><span class="lineno"> 6307</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a01dd893f9a22ab773fd236ffa5d7c009" name="a01dd893f9a22ab773fd236ffa5d7c009"></a>
@@ -4044,6 +4561,11 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 
 <p>Instruct the window manager that this widget is transient with regard to widget MASTER. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l01013">1013</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1014</span>        {</div>
+<div class="line"><span class="lineno"> 1015</span>            self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;transient&quot;</span>, self._w, master);</div>
+<div class="line"><span class="lineno"> 1016</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ab8114ff85482a0e8826cb4fcd89b9849" name="ab8114ff85482a0e8826cb4fcd89b9849"></a>
@@ -4073,10 +4595,15 @@ requires detail::createcommand_concept&lt;Func&gt; || detail::AsObjConcept&lt;st
 <p>Withdraw this widget from the screen such that it is unmapped and forgotten by the window manager. </p>
 <p>Re - draw it with wm_deiconify. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l01030">1030</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1031</span>        {</div>
+<div class="line"><span class="lineno"> 1032</span>            self.tk-&gt;call(<span class="stringliteral">&quot;wm&quot;</span>, <span class="stringliteral">&quot;withdraw&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno"> 1033</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/<a class="el" href="cpptkinter_8ixx.html">cpptkinter.ixx</a></li>
+<li>src/cpptkinter/<a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

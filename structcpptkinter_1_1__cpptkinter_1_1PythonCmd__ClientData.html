@@ -122,8 +122,8 @@ Static Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a2cf6147edf1f6adf5bbb000947d667f8"><td class="memItemLeft" align="right" valign="top">std::function&lt; R(Args...)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#a2cf6147edf1f6adf5bbb000947d667f8">func</a></td></tr>
 <tr class="separator:a2cf6147edf1f6adf5bbb000947d667f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3615b340e98932d0e76b8ae69089e22a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html">TkappObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#a3615b340e98932d0e76b8ae69089e22a">self</a></td></tr>
-<tr class="separator:a3615b340e98932d0e76b8ae69089e22a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca36235a0251c36706350e2a01d45d85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="__cpptkinter1_8ixx.html#a9be52bf13108ec422ba9297665d49f3a">TkappObjectImpl</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#aca36235a0251c36706350e2a01d45d85">self</a></td></tr>
+<tr class="separator:aca36235a0251c36706350e2a01d45d85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acce9ce350d847f5bd27890bea822e116"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#acce9ce350d847f5bd27890bea822e116">name</a></td></tr>
 <tr class="separator:acce9ce350d847f5bd27890bea822e116"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -138,6 +138,8 @@ struct cpptkinter::_cpptkinter::PythonCmd_ClientData&lt; R, Args &gt;</div><p>A 
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="__cpptkinter2_8ixx_source.html#l00326">326</a> of file <a class="el" href="__cpptkinter2_8ixx_source.html">_cpptkinter2.ixx</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a4fbbc5b72ce0d82fded6c1747b6ff3dc" name="a4fbbc5b72ce0d82fded6c1747b6ff3dc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4fbbc5b72ce0d82fded6c1747b6ff3dc">&#9670;&#160;</a></span>get_error_string_header()</h2>
@@ -165,6 +167,17 @@ template&lt;typename R , typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter2_8ixx_source.html#l00334">334</a> of file <a class="el" href="__cpptkinter2_8ixx_source.html">_cpptkinter2.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  335</span>        {</div>
+<div class="line"><span class="lineno">  336</span>            std::string tcl_invocation_name = Tcl_Obj(objv0);</div>
+<div class="line"><span class="lineno">  337</span>            std::string error_string = std::format(<span class="stringliteral">&quot;In tcl procedure {}&quot;</span>, tcl_invocation_name);</div>
+<div class="line"><span class="lineno">  338</span><span class="preprocessor">#ifndef NDEBUG </span></div>
+<div class="line"><span class="lineno">  339</span>            error_string += std::format(<span class="stringliteral">&quot; ({})&quot;</span>, this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#acce9ce350d847f5bd27890bea822e116">name</a>);</div>
+<div class="line"><span class="lineno">  340</span><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="lineno">  341</span>            <span class="keywordflow">return</span> error_string;</div>
+<div class="line"><span class="lineno">  342</span>        }</div>
+<div class="ttc" id="astructcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData_html_acce9ce350d847f5bd27890bea822e116"><div class="ttname"><a href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#acce9ce350d847f5bd27890bea822e116">cpptkinter::_cpptkinter::PythonCmd_ClientData::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter2_8ixx_source.html#l00331">_cpptkinter2.ixx:331</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a8af108172c4786acffa79d8a14b96ea2" name="a8af108172c4786acffa79d8a14b96ea2"></a>
@@ -215,6 +228,28 @@ template&lt;typename R , typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter2_8ixx_source.html#l00403">403</a> of file <a class="el" href="__cpptkinter2_8ixx_source.html">_cpptkinter2.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  404</span>        {</div>
+<div class="line"><span class="lineno">  405</span>            <span class="keywordflow">try</span></div>
+<div class="line"><span class="lineno">  406</span>            {</div>
+<div class="line"><span class="lineno">  407</span>                hhh::misc::printl(<span class="stringliteral">&quot;std::this_thread::get_id(): &quot;</span>, std::this_thread::get_id());</div>
+<div class="line"><span class="lineno">  408</span>                <span class="keyword">static_cast&lt;</span>PythonCmd_ClientData*<span class="keyword">&gt;</span>(clientData)-&gt;<a class="code hl_function" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#a373a74df0b555f3b9e393d377f7995ff">PythonCmdImpl</a>(interp, objc, objv);</div>
+<div class="line"><span class="lineno">  409</span>            }</div>
+<div class="line"><span class="lineno">  410</span>            <span class="keywordflow">catch</span> (...)</div>
+<div class="line"><span class="lineno">  411</span>            {</div>
+<div class="line"><span class="lineno">  412</span>                <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#ad124c09b4de0ba801bf49a3c7c002894">errorInCmd</a> = 1;</div>
+<div class="line"><span class="lineno">  413</span>                <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#aaf7cbb354663af677e27cf51c23ae863">excInCmd</a> = std::current_exception();</div>
+<div class="line"><span class="lineno">  414</span>                <span class="keywordflow">return</span> <a class="code hl_variable" href="tk_8ixx.html#a03bdb8340283213666d770d940fc57a0">TCL_ERROR</a>;</div>
+<div class="line"><span class="lineno">  415</span>            }</div>
+<div class="line"><span class="lineno">  416</span> </div>
+<div class="line"><span class="lineno">  417</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="tk_8ixx.html#aacf187dba9e59d4efc1d406ad6932106">TCL_OK</a>;</div>
+<div class="line"><span class="lineno">  418</span>        }</div>
+<div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_aaf7cbb354663af677e27cf51c23ae863"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#aaf7cbb354663af677e27cf51c23ae863">cpptkinter::_cpptkinter::excInCmd</a></div><div class="ttdeci">std::exception_ptr excInCmd</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00040">_cpptkinter1.ixx:40</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_ad124c09b4de0ba801bf49a3c7c002894"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#ad124c09b4de0ba801bf49a3c7c002894">cpptkinter::_cpptkinter::errorInCmd</a></div><div class="ttdeci">int errorInCmd</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00039">_cpptkinter1.ixx:39</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData_html_a373a74df0b555f3b9e393d377f7995ff"><div class="ttname"><a href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#a373a74df0b555f3b9e393d377f7995ff">cpptkinter::_cpptkinter::PythonCmd_ClientData::PythonCmdImpl</a></div><div class="ttdeci">void PythonCmdImpl(Tcl_Interp *interp, int objc, ::Tcl_Obj *const objv[])</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter2_8ixx_source.html#l00344">_cpptkinter2.ixx:344</a></div></div>
+<div class="ttc" id="atk_8ixx_html_a03bdb8340283213666d770d940fc57a0"><div class="ttname"><a href="tk_8ixx.html#a03bdb8340283213666d770d940fc57a0">TCL_ERROR</a></div><div class="ttdeci">constexpr auto TCL_ERROR</div><div class="ttdef"><b>Definition:</b> <a href="tk_8ixx_source.html#l00107">tk.ixx:107</a></div></div>
+<div class="ttc" id="atk_8ixx_html_aacf187dba9e59d4efc1d406ad6932106"><div class="ttname"><a href="tk_8ixx.html#aacf187dba9e59d4efc1d406ad6932106">TCL_OK</a></div><div class="ttdeci">constexpr auto TCL_OK</div><div class="ttdef"><b>Definition:</b> <a href="tk_8ixx_source.html#l00109">tk.ixx:109</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a0a27b54d75b6aa56893c90ee5bb5fa0d" name="a0a27b54d75b6aa56893c90ee5bb5fa0d"></a>
@@ -245,6 +280,20 @@ template&lt;typename R , typename... Args&gt; </div>
 
 <p>Call delete on this. </p>
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter2_8ixx_source.html#l00421">421</a> of file <a class="el" href="__cpptkinter2_8ixx_source.html">_cpptkinter2.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  422</span>        {</div>
+<div class="line"><span class="lineno">  423</span>            <span class="keywordflow">try</span></div>
+<div class="line"><span class="lineno">  424</span>            {</div>
+<div class="line"><span class="lineno">  425</span>                <span class="keyword">delete</span> <span class="keyword">static_cast&lt;</span>PythonCmd_ClientData*<span class="keyword">&gt;</span>(clientData);</div>
+<div class="line"><span class="lineno">  426</span>            }</div>
+<div class="line"><span class="lineno">  427</span>            <span class="keywordflow">catch</span> (...)</div>
+<div class="line"><span class="lineno">  428</span>            {</div>
+<div class="line"><span class="lineno">  429</span>                hhh::misc::printl(<span class="stringliteral">&quot;=================================================================&gt;caught&quot;</span>);</div>
+<div class="line"><span class="lineno">  430</span>                <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#ad124c09b4de0ba801bf49a3c7c002894">errorInCmd</a> = 1;</div>
+<div class="line"><span class="lineno">  431</span>                <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#aaf7cbb354663af677e27cf51c23ae863">excInCmd</a> = std::current_exception();</div>
+<div class="line"><span class="lineno">  432</span>            }</div>
+<div class="line"><span class="lineno">  433</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a373a74df0b555f3b9e393d377f7995ff" name="a373a74df0b555f3b9e393d377f7995ff"></a>
@@ -289,6 +338,73 @@ template&lt;typename R , typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter2_8ixx_source.html#l00344">344</a> of file <a class="el" href="__cpptkinter2_8ixx_source.html">_cpptkinter2.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  345</span>        {</div>
+<div class="line"><span class="lineno">  346</span>            <span class="keywordflow">if</span> (objc &lt; 1)</div>
+<div class="line"><span class="lineno">  347</span>                <span class="keywordflow">throw</span> utility::construct_exception&lt;TclError&gt;(<span class="stringliteral">&quot;this should never get triggered. objc should never be &lt; 1 but is &quot;</span> + std::to_string(objc));</div>
+<div class="line"><span class="lineno">  348</span> </div>
+<div class="line"><span class="lineno">  349</span>            <span class="keyword">auto</span> args = std::ranges::subrange(objv + 1, objv + objc) | std::views::transform([](<span class="keyword">const</span> <span class="keyword">auto</span>&amp; a) { <span class="keywordflow">return</span> Tcl_Obj(a); }) | std::ranges::to&lt;std::vector&gt;();</div>
+<div class="line"><span class="lineno">  350</span> </div>
+<div class="line"><span class="lineno">  351</span>            <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (detail::PythonCmd_ClientDataArgsConcept2&lt;Args...&gt;)</div>
+<div class="line"><span class="lineno">  352</span>                ;<span class="comment">//pass</span></div>
+<div class="line"><span class="lineno">  353</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  354</span>            {</div>
+<div class="line"><span class="lineno">  355</span>                <span class="keywordflow">if</span> (<span class="keyword">sizeof</span>...(Args) != args.size())</div>
+<div class="line"><span class="lineno">  356</span>                {</div>
+<div class="line"><span class="lineno">  357</span>                    std::string error_string = std::format(<span class="stringliteral">&quot;{}\ngot {} tcl arguments:&quot;</span>, this-&gt;<a class="code hl_function" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#a4fbbc5b72ce0d82fded6c1747b6ff3dc">get_error_string_header</a>(objv[0]), args.size());</div>
+<div class="line"><span class="lineno">  358</span>                    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp;&amp; arg : args)</div>
+<div class="line"><span class="lineno">  359</span>                        error_string += <span class="stringliteral">&quot;\n\t- &quot;</span> + <a class="code hl_function" href="namespacecpptkinter_1_1detail.html#a97f8cb0a6d4ee3a182c644e8266eb306">detail::Tcl_Obj_to_string</a>(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#aca36235a0251c36706350e2a01d45d85">self</a>, arg);</div>
+<div class="line"><span class="lineno">  360</span>                    error_string += std::format(<span class="stringliteral">&quot;\nexpected {} c++ arguments:&quot;</span>, <span class="keyword">sizeof</span>...(Args));</div>
+<div class="line"><span class="lineno">  361</span>                    error_string += (<span class="stringliteral">&quot;&quot;</span> + ... + (<span class="stringliteral">&quot;\n\t- &quot;</span> + std::string(reflect::type_name&lt;Args&gt;())));</div>
+<div class="line"><span class="lineno">  362</span>                    <span class="keywordflow">throw</span> utility::construct_exception&lt;TclError&gt;(error_string);</div>
+<div class="line"><span class="lineno">  363</span>                }</div>
+<div class="line"><span class="lineno">  364</span>            }</div>
+<div class="line"><span class="lineno">  365</span> </div>
+<div class="line"><span class="lineno">  366</span>            <a class="code hl_define" href="global_8hpp.html#a15fd3839e74ee8d9b54d637f016b4ea6">ENTER_PYTHON</a>;</div>
+<div class="line"><span class="lineno">  367</span> </div>
+<div class="line"><span class="lineno">  368</span>            <span class="keyword">auto</span> inner_caller = [&amp;]&lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> I&gt;() {</div>
+<div class="line"><span class="lineno">  369</span>                <span class="keyword">auto</span> opt_result = <a class="code hl_function" href="namespacecpptkinter_1_1detail.html#acf7c2bb5744942c2ed57f5226b6a023c">detail::FromObjImpl</a>(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#aca36235a0251c36706350e2a01d45d85">self</a>, args[I], std::type_identity&lt;std::remove_cvref_t&lt;T&gt;&gt;{});</div>
+<div class="line"><span class="lineno">  370</span>                <span class="keywordflow">if</span> (opt_result.has_value())</div>
+<div class="line"><span class="lineno">  371</span>                    <span class="keywordflow">return</span> std::move(*opt_result);</div>
+<div class="line"><span class="lineno">  372</span> </div>
+<div class="line"><span class="lineno">  373</span>                std::string error_string = std::format(<span class="stringliteral">&quot;{}\ntcl argument at position {} was {}\nexpected c++ argument type {}&quot;</span>,</div>
+<div class="line"><span class="lineno">  374</span>                    this-&gt;<a class="code hl_function" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#a4fbbc5b72ce0d82fded6c1747b6ff3dc">get_error_string_header</a>(objv[0]),</div>
+<div class="line"><span class="lineno">  375</span>                    I + 1,</div>
+<div class="line"><span class="lineno">  376</span>                    <a class="code hl_function" href="namespacecpptkinter_1_1detail.html#a97f8cb0a6d4ee3a182c644e8266eb306">detail::Tcl_Obj_to_string</a>(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#aca36235a0251c36706350e2a01d45d85">self</a>, args[I]),</div>
+<div class="line"><span class="lineno">  377</span>                    reflect::type_name&lt;T&gt;());</div>
+<div class="line"><span class="lineno">  378</span>                <span class="keywordflow">throw</span> utility::construct_exception&lt;TclError&gt;(error_string);</div>
+<div class="line"><span class="lineno">  379</span>            };</div>
+<div class="line"><span class="lineno">  380</span> </div>
+<div class="line"><span class="lineno">  381</span>            <span class="comment">// necessary bc c++ doesn&#39;t define function argument evaluation order :(</span></div>
+<div class="line"><span class="lineno">  382</span>            <span class="keyword">auto</span> caller = [&amp;]&lt;<span class="keywordtype">size_t</span>...I&gt;(std::index_sequence&lt;I...&gt;) {</div>
+<div class="line"><span class="lineno">  383</span>                <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (detail::PythonCmd_ClientDataArgsConcept2&lt;Args...&gt;)    <span class="comment">// pass std::vector&lt;Tcl_Obj&gt;</span></div>
+<div class="line"><span class="lineno">  384</span>                    this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#a2cf6147edf1f6adf5bbb000947d667f8">func</a>(std::move(args));</div>
+<div class="line"><span class="lineno">  385</span>                <span class="keywordflow">else</span>    <span class="comment">// pass c++ args</span></div>
+<div class="line"><span class="lineno">  386</span>                    <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#a2cf6147edf1f6adf5bbb000947d667f8">func</a>(inner_caller.template <span class="keyword">operator</span>() &lt; Args, I &gt; ()...);</div>
+<div class="line"><span class="lineno">  387</span>            };</div>
+<div class="line"><span class="lineno">  388</span> </div>
+<div class="line"><span class="lineno">  389</span>            <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (std::same_as&lt;R, void&gt;)</div>
+<div class="line"><span class="lineno">  390</span>            {</div>
+<div class="line"><span class="lineno">  391</span>                caller(std::make_index_sequence&lt;<span class="keyword">sizeof</span>...(Args)&gt;{});</div>
+<div class="line"><span class="lineno">  392</span>                Tcl_ResetResult(interp);</div>
+<div class="line"><span class="lineno">  393</span>            }</div>
+<div class="line"><span class="lineno">  394</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  395</span>            {</div>
+<div class="line"><span class="lineno">  396</span>                <span class="keyword">auto</span> obj_res = <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">AsObj</a>(caller(std::make_index_sequence&lt;<span class="keyword">sizeof</span>...(Args)&gt;{}));</div>
+<div class="line"><span class="lineno">  397</span>                Tcl_SetObjResult(interp, obj_res);</div>
+<div class="line"><span class="lineno">  398</span>            }</div>
+<div class="line"><span class="lineno">  399</span> </div>
+<div class="line"><span class="lineno">  400</span>            <a class="code hl_define" href="global_8hpp.html#aa2b08a860e96dc7f6d1cba578dfbf2fe">LEAVE_PYTHON</a>;</div>
+<div class="line"><span class="lineno">  401</span>        }</div>
+<div class="ttc" id="aglobal_8hpp_html_a15fd3839e74ee8d9b54d637f016b4ea6"><div class="ttname"><a href="global_8hpp.html#a15fd3839e74ee8d9b54d637f016b4ea6">ENTER_PYTHON</a></div><div class="ttdeci">#define ENTER_PYTHON</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00244">global.hpp:244</a></div></div>
+<div class="ttc" id="aglobal_8hpp_html_aa2b08a860e96dc7f6d1cba578dfbf2fe"><div class="ttname"><a href="global_8hpp.html#aa2b08a860e96dc7f6d1cba578dfbf2fe">LEAVE_PYTHON</a></div><div class="ttdeci">#define LEAVE_PYTHON</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00245">global.hpp:245</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_a67240db275ca02da5d34c882ee7c8957"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">cpptkinter::_cpptkinter::AsObj</a></div><div class="ttdeci">constexpr detail::AsObjFunctorType AsObj</div><div class="ttdoc">Convert a c++ value to a tcl object.</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter_8tcl__obj_8ixx_source.html#l00485">_cpptkinter.tcl_obj.ixx:485</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1detail_html_a97f8cb0a6d4ee3a182c644e8266eb306"><div class="ttname"><a href="namespacecpptkinter_1_1detail.html#a97f8cb0a6d4ee3a182c644e8266eb306">cpptkinter::detail::Tcl_Obj_to_string</a></div><div class="ttdeci">std::string Tcl_Obj_to_string(TkappObjectImpl *self, ::Tcl_Obj *value)</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00272">_cpptkinter1.ixx:272</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1detail_html_acf7c2bb5744942c2ed57f5226b6a023c"><div class="ttname"><a href="namespacecpptkinter_1_1detail.html#acf7c2bb5744942c2ed57f5226b6a023c">cpptkinter::detail::FromObjImpl</a></div><div class="ttdeci">std::optional&lt; ignore &gt; FromObjImpl(TkappObjectImpl *self, const Tcl_Obj &amp;value, std::type_identity&lt; ignore &gt;)</div><div class="ttdoc">Do nothing with Tcl_Obj.</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter_8tcl__obj_8ixx_source.html#l00222">_cpptkinter.tcl_obj.ixx:222</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData_html_a2cf6147edf1f6adf5bbb000947d667f8"><div class="ttname"><a href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#a2cf6147edf1f6adf5bbb000947d667f8">cpptkinter::_cpptkinter::PythonCmd_ClientData::func</a></div><div class="ttdeci">std::function&lt; R(Args...)&gt; func</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter2_8ixx_source.html#l00328">_cpptkinter2.ixx:328</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData_html_a4fbbc5b72ce0d82fded6c1747b6ff3dc"><div class="ttname"><a href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#a4fbbc5b72ce0d82fded6c1747b6ff3dc">cpptkinter::_cpptkinter::PythonCmd_ClientData::get_error_string_header</a></div><div class="ttdeci">std::string get_error_string_header(::Tcl_Obj *objv0)</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter2_8ixx_source.html#l00334">_cpptkinter2.ixx:334</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData_html_aca36235a0251c36706350e2a01d45d85"><div class="ttname"><a href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#aca36235a0251c36706350e2a01d45d85">cpptkinter::_cpptkinter::PythonCmd_ClientData::self</a></div><div class="ttdeci">TkappObjectImpl * self</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter2_8ixx_source.html#l00329">_cpptkinter2.ixx:329</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a656552a2d416d5fb2a0c46c89a23eb62" name="a656552a2d416d5fb2a0c46c89a23eb62"></a>
@@ -327,6 +443,24 @@ template&lt;typename R , typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter2_8ixx_source.html#l00435">435</a> of file <a class="el" href="__cpptkinter2_8ixx_source.html">_cpptkinter2.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  436</span>        {</div>
+<div class="line"><span class="lineno">  437</span>            <span class="keyword">auto</span>&amp;&amp; ev = *<span class="keyword">static_cast&lt;</span>CommandEvent*<span class="keyword">&gt;</span>(evPtr);</div>
+<div class="line"><span class="lineno">  438</span>            <span class="keywordflow">if</span> (ev.create)</div>
+<div class="line"><span class="lineno">  439</span>                *ev.status = Tcl_CreateObjCommand(ev.interp, ev.name.data(), <a class="code hl_function" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#a8af108172c4786acffa79d8a14b96ea2">PythonCmd_ClientData::PythonCmd</a>, ev.data, <a class="code hl_function" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#a0a27b54d75b6aa56893c90ee5bb5fa0d">PythonCmd_ClientData::PythonCmdDelete</a>) == <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="lineno">  440</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  441</span>                *ev.status = Tcl_DeleteCommand(ev.interp, ev.name.data());</div>
+<div class="line"><span class="lineno">  442</span>            <span class="keyword">auto</span> done = ev.done;</div>
+<div class="line"><span class="lineno">  443</span>            std::destroy_at(&amp;ev);</div>
+<div class="line"><span class="lineno">  444</span>            Tcl_MutexLock(&amp;<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#abccad04ff01c5a335fbd663725a79934">command_mutex</a>);</div>
+<div class="line"><span class="lineno">  445</span>            Tcl_ConditionNotify(done);</div>
+<div class="line"><span class="lineno">  446</span>            Tcl_MutexUnlock(&amp;<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#abccad04ff01c5a335fbd663725a79934">command_mutex</a>);</div>
+<div class="line"><span class="lineno">  447</span>            <span class="keywordflow">return</span> 1;</div>
+<div class="line"><span class="lineno">  448</span>        }</div>
+<div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_abccad04ff01c5a335fbd663725a79934"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#abccad04ff01c5a335fbd663725a79934">cpptkinter::_cpptkinter::command_mutex</a></div><div class="ttdeci">Tcl_Mutex command_mutex</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter1_8ixx_source.html#l00035">_cpptkinter1.ixx:35</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData_html_a0a27b54d75b6aa56893c90ee5bb5fa0d"><div class="ttname"><a href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#a0a27b54d75b6aa56893c90ee5bb5fa0d">cpptkinter::_cpptkinter::PythonCmd_ClientData::PythonCmdDelete</a></div><div class="ttdeci">static void PythonCmdDelete(ClientData clientData) noexcept</div><div class="ttdoc">Call delete on this.</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter2_8ixx_source.html#l00421">_cpptkinter2.ixx:421</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData_html_a8af108172c4786acffa79d8a14b96ea2"><div class="ttname"><a href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html#a8af108172c4786acffa79d8a14b96ea2">cpptkinter::_cpptkinter::PythonCmd_ClientData::PythonCmd</a></div><div class="ttdeci">static int PythonCmd(ClientData clientData, Tcl_Interp *interp, int objc, ::Tcl_Obj *const objv[]) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter2_8ixx_source.html#l00403">_cpptkinter2.ixx:403</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -344,6 +478,8 @@ template&lt;typename R , typename... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter2_8ixx_source.html#l00328">328</a> of file <a class="el" href="__cpptkinter2_8ixx_source.html">_cpptkinter2.ixx</a>.</p>
+
 </div>
 </div>
 <a id="acce9ce350d847f5bd27890bea822e116" name="acce9ce350d847f5bd27890bea822e116"></a>
@@ -360,10 +496,12 @@ template&lt;typename R , typename... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter2_8ixx_source.html#l00331">331</a> of file <a class="el" href="__cpptkinter2_8ixx_source.html">_cpptkinter2.ixx</a>.</p>
+
 </div>
 </div>
-<a id="a3615b340e98932d0e76b8ae69089e22a" name="a3615b340e98932d0e76b8ae69089e22a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3615b340e98932d0e76b8ae69089e22a">&#9670;&#160;</a></span>self</h2>
+<a id="aca36235a0251c36706350e2a01d45d85" name="aca36235a0251c36706350e2a01d45d85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca36235a0251c36706350e2a01d45d85">&#9670;&#160;</a></span>self</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -371,15 +509,17 @@ template&lt;typename R , typename... Args&gt; </div>
 template&lt;typename R , typename... Args&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structcpptkinter_1_1__cpptkinter_1_1TkappObject.html">TkappObject</a>* <a class="el" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html">cpptkinter::_cpptkinter::PythonCmd_ClientData</a>&lt; R, Args &gt;::self</td>
+          <td class="memname"><a class="el" href="__cpptkinter1_8ixx.html#a9be52bf13108ec422ba9297665d49f3a">TkappObjectImpl</a>* <a class="el" href="structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html">cpptkinter::_cpptkinter::PythonCmd_ClientData</a>&lt; R, Args &gt;::self</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter2_8ixx_source.html#l00329">329</a> of file <a class="el" href="__cpptkinter2_8ixx_source.html">_cpptkinter2.ixx</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/<a class="el" href="__cpptkinter_8ixx.html">_cpptkinter.ixx</a></li>
+<li>src/_cpptkinter/<a class="el" href="__cpptkinter2_8ixx_source.html">_cpptkinter2.ixx</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

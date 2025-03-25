@@ -39,6 +39,7 @@ var constants_8ixx =
     [ "LAST", "constants_8ixx.html#a8c4de2a16efd97630d418f7763b9e9e6", null ],
     [ "LEFT", "constants_8ixx.html#a81b0185011ce1a108a9d6e0f637838a7", null ],
     [ "MITER", "constants_8ixx.html#a4b8dd3de04e3fb8c3b1a3b489ff8dc3d", null ],
+    [ "module", "constants_8ixx.html#a96e5f0eca87c2426370e0897ac7b8ca6", null ],
     [ "MOVETO", "constants_8ixx.html#afd203da75c29f7966f13eb73d83d9d05", null ],
     [ "MULTIPLE", "constants_8ixx.html#a66b7f10a66a23572547e0c8cd1611f30", null ],
     [ "N", "constants_8ixx.html#a057403caa6b0dfa7abc9631f8ebf74d8", null ],

@@ -123,7 +123,11 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:abd1ddcc27b83cb81e830ca32ce1335e1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1detail_1_1set__get__proxy.html#abd1ddcc27b83cb81e830ca32ce1335e1">key</a></td></tr>
 <tr class="separator:abd1ddcc27b83cb81e830ca32ce1335e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename <a class="el" href="namespacecpptkinter_1_1constants.html#a80afa61b7670fff64f620e06c6d590d2">W</a>&gt;<br />
+struct cpptkinter::detail::set_get_proxy&lt; W &gt;</div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00097">97</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a2da48173d24d1336667553f79c6b1f45" name="a2da48173d24d1336667553f79c6b1f45"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2da48173d24d1336667553f79c6b1f45">&#9670;&#160;</a></span>get()</h2>
 
@@ -152,6 +156,13 @@ requires requires { widget._getitem_(<a class="el" href="structcpptkinter_1_1det
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00117">117</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  118</span>            {</div>
+<div class="line"><span class="lineno">  119</span>                <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1set__get__proxy.html#a9f665090a1b1740a7a98176fddf58963">widget</a>._getitem_(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1set__get__proxy.html#abd1ddcc27b83cb81e830ca32ce1335e1">key</a>, std::type_identity&lt;R&gt;{});</div>
+<div class="line"><span class="lineno">  120</span>            }</div>
+<div class="ttc" id="astructcpptkinter_1_1detail_1_1set__get__proxy_html_a9f665090a1b1740a7a98176fddf58963"><div class="ttname"><a href="structcpptkinter_1_1detail_1_1set__get__proxy.html#a9f665090a1b1740a7a98176fddf58963">cpptkinter::detail::set_get_proxy::widget</a></div><div class="ttdeci">W widget</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l00099">cpptkinter.ixx:99</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1detail_1_1set__get__proxy_html_abd1ddcc27b83cb81e830ca32ce1335e1"><div class="ttname"><a href="structcpptkinter_1_1detail_1_1set__get__proxy.html#abd1ddcc27b83cb81e830ca32ce1335e1">cpptkinter::detail::set_get_proxy::key</a></div><div class="ttdeci">std::string key</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l00100">cpptkinter.ixx:100</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a94470c83738fb440cad7582dd8aa9c25" name="a94470c83738fb440cad7582dd8aa9c25"></a>
@@ -182,6 +193,11 @@ requires requires { widget._getitem_(<a class="el" href="structcpptkinter_1_1det
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00123">123</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  124</span>            {</div>
+<div class="line"><span class="lineno">  125</span>                <span class="keywordflow">return</span> this-&gt;get&lt;R&gt;();</div>
+<div class="line"><span class="lineno">  126</span>            }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="abe9df2cd9753ff70053a1227b0a107ee" name="abe9df2cd9753ff70053a1227b0a107ee"></a>
@@ -213,6 +229,12 @@ requires requires { widget._setitem_(<a class="el" href="structcpptkinter_1_1det
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00110">110</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  111</span>            {</div>
+<div class="line"><span class="lineno">  112</span>                this-&gt;<a class="code hl_function" href="structcpptkinter_1_1detail_1_1set__get__proxy.html#aa3b90cf5c2915d32ee16ce4ed33f5621">set</a>(std::forward&lt;T&gt;(value));</div>
+<div class="line"><span class="lineno">  113</span>            }</div>
+<div class="ttc" id="astructcpptkinter_1_1detail_1_1set__get__proxy_html_aa3b90cf5c2915d32ee16ce4ed33f5621"><div class="ttname"><a href="structcpptkinter_1_1detail_1_1set__get__proxy.html#aa3b90cf5c2915d32ee16ce4ed33f5621">cpptkinter::detail::set_get_proxy::set</a></div><div class="ttdeci">void set(T &amp;&amp;value)</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l00104">cpptkinter.ixx:104</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="aa3b90cf5c2915d32ee16ce4ed33f5621" name="aa3b90cf5c2915d32ee16ce4ed33f5621"></a>
@@ -244,6 +266,11 @@ requires requires { widget._setitem_(<a class="el" href="structcpptkinter_1_1det
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00104">104</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  105</span>            {</div>
+<div class="line"><span class="lineno">  106</span>                this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1set__get__proxy.html#a9f665090a1b1740a7a98176fddf58963">widget</a>._setitem_(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1set__get__proxy.html#abd1ddcc27b83cb81e830ca32ce1335e1">key</a>, std::forward&lt;T&gt;(value));</div>
+<div class="line"><span class="lineno">  107</span>            }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -261,6 +288,8 @@ template&lt;typename <a class="el" href="namespacecpptkinter_1_1constants.html#a
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00100">100</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+
 </div>
 </div>
 <a id="a9f665090a1b1740a7a98176fddf58963" name="a9f665090a1b1740a7a98176fddf58963"></a>
@@ -277,10 +306,12 @@ template&lt;typename <a class="el" href="namespacecpptkinter_1_1constants.html#a
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l00099">99</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/<a class="el" href="cpptkinter_8ixx.html">cpptkinter.ixx</a></li>
+<li>src/cpptkinter/<a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

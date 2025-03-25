@@ -104,7 +104,9 @@ Inheritance diagram for cpptkinter::_cpptkinter::tk_window_type:</div>
  <div class="center">
   <img src="structcpptkinter_1_1__cpptkinter_1_1tk__window__type.png" usemap="#cpptkinter::_5Fcpptkinter::tk_5Fwindow_5Ftype_map" alt=""/>
   <map id="cpptkinter::_5Fcpptkinter::tk_5Fwindow_5Ftype_map" name="cpptkinter::_5Fcpptkinter::tk_5Fwindow_5Ftype_map">
-<area href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html" title="Represents a Tcl object." alt="cpptkinter::_cpptkinter::Tcl_Obj" shape="rect" coords="0,0,230,24"/>
+<area href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html" title="Represents a Tcl object." alt="cpptkinter::_cpptkinter::Tcl_Obj" shape="rect" coords="0,112,331,136"/>
+<area href="structcpptkinter_1_1utility_1_1enable__operator__string__formatting.html" title="Publicly inerihiting this struct enables formatting based on operator string()." alt="cpptkinter::utility::enable_operator_string_formatting" shape="rect" coords="0,56,331,80"/>
+<area href="structcpptkinter_1_1detail_1_1enable__operator__string__formatting__impl.html" alt="cpptkinter::detail::enable_operator_string_formatting_impl" shape="rect" coords="0,0,331,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -131,11 +133,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3fe0c33ca41e631c526f810be1259cc0 inherit pub_methods_classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd42bb443d2d95f9b9f393bce3c6ee7f inherit pub_methods_classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html#acd42bb443d2d95f9b9f393bce3c6ee7f">_repr_</a> () const</td></tr>
 <tr class="separator:acd42bb443d2d95f9b9f393bce3c6ee7f inherit pub_methods_classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab36a68aecaf7ceb33417b7c2aaa092e8 inherit pub_methods_classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html#ab36a68aecaf7ceb33417b7c2aaa092e8">to_string</a> () const</td></tr>
-<tr class="separator:ab36a68aecaf7ceb33417b7c2aaa092e8 inherit pub_methods_classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a051136b5f70db421ee84eb0e982a2dda inherit pub_methods_classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html#a051136b5f70db421ee84eb0e982a2dda">operator std::string</a> () const</td></tr>
+<tr class="separator:a051136b5f70db421ee84eb0e982a2dda inherit pub_methods_classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a tcl object of type 'window' which is a type introduced by <a class="el" href="classcpptkinter_1_1Tk.html" title="Toplevel widget of Tk which represents mostly the main window of an application.">Tk</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8tcl__obj_8ixx_source.html#l00073">73</a> of file <a class="el" href="__cpptkinter_8tcl__obj_8ixx_source.html">_cpptkinter.tcl_obj.ixx</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a66ad89915d8d3fa045e3c246d3574795" name="a66ad89915d8d3fa045e3c246d3574795"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a66ad89915d8d3fa045e3c246d3574795">&#9670;&#160;</a></span>Tcl_Obj() <span class="overload">[1/2]</span></h2>
@@ -156,11 +160,20 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8tcl__obj_8ixx_source.html#l00021">21</a> of file <a class="el" href="__cpptkinter_8tcl__obj_8ixx_source.html">_cpptkinter.tcl_obj.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   21</span>                                       : <a class="code hl_variable" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html#a01e6336af827f3d347a3d53b12e940ca">ptr</a>{ <a class="code hl_variable" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html#a01e6336af827f3d347a3d53b12e940ca">ptr</a> }</div>
+<div class="line"><span class="lineno">   22</span>        {</div>
+<div class="line"><span class="lineno">   23</span>            <span class="keywordflow">if</span> (!this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html#a01e6336af827f3d347a3d53b12e940ca">ptr</a>)</div>
+<div class="line"><span class="lineno">   24</span>                <span class="keywordflow">throw</span> utility::construct_exception&lt;std::invalid_argument&gt;(<span class="stringliteral">&quot;nullptr in Tcl_Obj&quot;</span>);</div>
+<div class="line"><span class="lineno">   25</span>            Tcl_IncrRefCount(this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html#a01e6336af827f3d347a3d53b12e940ca">ptr</a>);</div>
+<div class="line"><span class="lineno">   26</span>        }</div>
+<div class="ttc" id="aclasscpptkinter_1_1__cpptkinter_1_1Tcl__Obj_html_a01e6336af827f3d347a3d53b12e940ca"><div class="ttname"><a href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html#a01e6336af827f3d347a3d53b12e940ca">cpptkinter::_cpptkinter::Tcl_Obj::ptr</a></div><div class="ttdeci">::Tcl_Obj * ptr</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter_8tcl__obj_8ixx_source.html#l00018">_cpptkinter.tcl_obj.ixx:18</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a04785a95167f6e39ea556633ee64232a" name="a04785a95167f6e39ea556633ee64232a"></a>
@@ -187,10 +200,16 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8tcl__obj_8ixx_source.html#l00027">27</a> of file <a class="el" href="__cpptkinter_8tcl__obj_8ixx_source.html">_cpptkinter.tcl_obj.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   27</span>                                               : <a class="code hl_variable" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html#a01e6336af827f3d347a3d53b12e940ca">ptr</a>{ other.<a class="code hl_variable" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html#a01e6336af827f3d347a3d53b12e940ca">ptr</a> }</div>
+<div class="line"><span class="lineno">   28</span>        {</div>
+<div class="line"><span class="lineno">   29</span>            Tcl_IncrRefCount(this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html#a01e6336af827f3d347a3d53b12e940ca">ptr</a>);</div>
+<div class="line"><span class="lineno">   30</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/<a class="el" href="__cpptkinter_8ixx.html">_cpptkinter.ixx</a></li>
+<li>src/_cpptkinter/<a class="el" href="__cpptkinter_8tcl__obj_8ixx_source.html">_cpptkinter.tcl_obj.ixx</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

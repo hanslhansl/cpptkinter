@@ -185,7 +185,12 @@ requires detail::AsObjConcept&lt;T&gt; &amp;&amp; std::default_initializable&lt;
 <tr class="memitem:add0835bdeb07db02c970ccb2991460b6 inherit pro_attribs_classcpptkinter_1_1Variable"><td class="memItemLeft" align="right" valign="top">decltype(impl::_name) &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Variable.html#add0835bdeb07db02c970ccb2991460b6">_name</a> = static_cast&lt;<a class="el" href="structcpptkinter_1_1Variable_1_1impl.html">impl</a>*&gt;(this-&gt;pimpl.get())-&gt; _name</td></tr>
 <tr class="separator:add0835bdeb07db02c970ccb2991460b6 inherit pro_attribs_classcpptkinter_1_1Variable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T&gt;<br />
+requires detail::AsObjConcept&lt;T&gt; &amp;&amp; detail::FromObjConcept&lt;T&gt; &amp;&amp; std::default_initializable&lt;T&gt;<br />
+struct cpptkinter::TypedVariable&lt; T &gt;</div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02353">2353</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a91ee3f17207ac95b4ffe9ddab9a33751" name="a91ee3f17207ac95b4ffe9ddab9a33751"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a91ee3f17207ac95b4ffe9ddab9a33751">&#9670;&#160;</a></span>value_type</h2>
 
@@ -199,6 +204,8 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02355">2355</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
 
 </div>
 </div>
@@ -231,6 +238,13 @@ template&lt;typename T &gt; </div>
 
 <p></p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02358">2358</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 2358</span>                                                   {}) : <a class="code hl_function" href="classcpptkinter_1_1Variable.html#a04a9766809fffb85cbaf8ac2f1bcdb11">Variable</a>(cnf)</div>
+<div class="line"><span class="lineno"> 2359</span>        {</div>
+<div class="line"><span class="lineno"> 2360</span> </div>
+<div class="line"><span class="lineno"> 2361</span>        }</div>
+<div class="ttc" id="aclasscpptkinter_1_1Variable_html_a04a9766809fffb85cbaf8ac2f1bcdb11"><div class="ttname"><a href="classcpptkinter_1_1Variable.html#a04a9766809fffb85cbaf8ac2f1bcdb11">cpptkinter::Variable::Variable</a></div><div class="ttdeci">Variable(const std::shared_ptr&lt; I &gt; &amp;pimpl)</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l02251">cpptkinter.ixx:2251</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -261,6 +275,11 @@ template&lt;typename T &gt; </div>
 
 <p>Return value of variable.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02375">2375</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 2376</span>        {</div>
+<div class="line"><span class="lineno"> 2377</span>            <span class="keywordflow">return</span> this-&gt;Variable::get&lt;T&gt;();</div>
+<div class="line"><span class="lineno"> 2378</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a297e60838ebea6a9d746fe44d4a253a1" name="a297e60838ebea6a9d746fe44d4a253a1"></a>
@@ -291,6 +310,12 @@ template&lt;typename T &gt; </div>
 
 <p>Set the variable to VALUE.     </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02369">2369</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 2370</span>        {</div>
+<div class="line"><span class="lineno"> 2371</span>            this-&gt;<a class="code hl_function" href="structcpptkinter_1_1TypedVariable.html#a6c38aba03213faf7f4f0fe3757aaf6a5">set</a>(value);</div>
+<div class="line"><span class="lineno"> 2372</span>        }</div>
+<div class="ttc" id="astructcpptkinter_1_1TypedVariable_html_a6c38aba03213faf7f4f0fe3757aaf6a5"><div class="ttname"><a href="structcpptkinter_1_1TypedVariable.html#a6c38aba03213faf7f4f0fe3757aaf6a5">cpptkinter::TypedVariable::set</a></div><div class="ttdeci">void set(const T &amp;value)</div><div class="ttdoc">Set the variable to VALUE.</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l02364">cpptkinter.ixx:2364</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a6c38aba03213faf7f4f0fe3757aaf6a5" name="a6c38aba03213faf7f4f0fe3757aaf6a5"></a>
@@ -321,10 +346,16 @@ template&lt;typename T &gt; </div>
 
 <p>Set the variable to VALUE.   </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02364">2364</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 2365</span>        {</div>
+<div class="line"><span class="lineno"> 2366</span>            this-&gt;<a class="code hl_function" href="classcpptkinter_1_1Variable.html#aaf083660c7da5dae17c97c8b8efb163d">Variable::set</a>(value);</div>
+<div class="line"><span class="lineno"> 2367</span>        }</div>
+<div class="ttc" id="aclasscpptkinter_1_1Variable_html_aaf083660c7da5dae17c97c8b8efb163d"><div class="ttname"><a href="classcpptkinter_1_1Variable.html#aaf083660c7da5dae17c97c8b8efb163d">cpptkinter::Variable::set</a></div><div class="ttdeci">void set(const detail::AsObjConcept auto &amp;value)</div><div class="ttdoc">Set the variable to VALUE.</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l02275">cpptkinter.ixx:2275</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/<a class="el" href="cpptkinter_8ixx.html">cpptkinter.ixx</a></li>
+<li>src/cpptkinter/<a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

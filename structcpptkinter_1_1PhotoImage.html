@@ -198,6 +198,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Widget which can display images in PGM, PPM, GIF, PNG format. </p>
+
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l05569">5569</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a24ad3f4c20f0e75dda6deb5477c6d212" name="a24ad3f4c20f0e75dda6deb5477c6d212"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a24ad3f4c20f0e75dda6deb5477c6d212">&#9670;&#160;</a></span>constructor_cnf</h2>
@@ -210,6 +212,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l05571">5571</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
 
 </div>
 </div>
@@ -243,6 +247,13 @@ template&lt;typename CNF  = constructor_cnf&gt; </div>
 <p>Create an image with NAME. </p>
 <p>Valid resource names : data, format, file, gamma, height, palette, width. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l05577">5577</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 5577</span>                               {}) : <a class="code hl_function" href="structcpptkinter_1_1Image.html#af4616de2baa1e0639c5b676c581c62ba">Image</a>(<span class="stringliteral">&quot;photo&quot;</span>, std::forward&lt;CNF&gt;(cnf))</div>
+<div class="line"><span class="lineno"> 5578</span>        {</div>
+<div class="line"><span class="lineno"> 5579</span> </div>
+<div class="line"><span class="lineno"> 5580</span>        }</div>
+<div class="ttc" id="astructcpptkinter_1_1Image_html_af4616de2baa1e0639c5b676c581c62ba"><div class="ttname"><a href="structcpptkinter_1_1Image.html#af4616de2baa1e0639c5b676c581c62ba">cpptkinter::Image::Image</a></div><div class="ttdeci">Image(const std::string &amp;imgtype, CNF &amp;&amp;cnf)</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l02770">cpptkinter.ixx:2770</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -282,6 +293,13 @@ template&lt;detail::FromObjConcept R&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l05595">5595</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 5596</span>        {</div>
+<div class="line"><span class="lineno"> 5597</span>            <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a>-&gt;call&lt;R&gt;(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>, <span class="stringliteral">&quot;cget&quot;</span>, <span class="stringliteral">&quot;-&quot;</span> + key);</div>
+<div class="line"><span class="lineno"> 5598</span>        }</div>
+<div class="ttc" id="astructcpptkinter_1_1Image_html_a0b6bdb1e6c0373b275f6d548c587f9ce"><div class="ttname"><a href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">cpptkinter::Image::tk</a></div><div class="ttdeci">std::shared_ptr&lt; _cpptkinter::TkappObject &gt; tk</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l02767">cpptkinter.ixx:2767</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1Image_html_a3c386dad1c20289c7775a14514f74d65"><div class="ttname"><a href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">cpptkinter::Image::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l02766">cpptkinter.ixx:2766</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="adcf8fa45135bae044928d351d6811ce3" name="adcf8fa45135bae044928d351d6811ce3"></a>
@@ -309,6 +327,11 @@ template&lt;detail::FromObjConcept R&gt; </div>
 
 <p>Display a transparent image. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l05583">5583</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 5584</span>        {</div>
+<div class="line"><span class="lineno"> 5585</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a>-&gt;call(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>, <span class="stringliteral">&quot;blank&quot;</span>);</div>
+<div class="line"><span class="lineno"> 5586</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ac809e778ebdf4e10ee2c9403e48af95b" name="ac809e778ebdf4e10ee2c9403e48af95b"></a>
@@ -337,6 +360,11 @@ template&lt;detail::FromObjConcept R&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l05589">5589</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 5590</span>        {</div>
+<div class="line"><span class="lineno"> 5591</span>            <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a>-&gt;call&lt;R&gt;(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>, <span class="stringliteral">&quot;cget&quot;</span>, <span class="stringliteral">&quot;-&quot;</span> + key);</div>
+<div class="line"><span class="lineno"> 5592</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ad179e09f5ddfbb498d7d1197fe1e6684" name="ad179e09f5ddfbb498d7d1197fe1e6684"></a>
@@ -364,6 +392,14 @@ template&lt;detail::FromObjConcept R&gt; </div>
 
 <p>Return a new <a class="el" href="structcpptkinter_1_1PhotoImage.html" title="Widget which can display images in PGM, PPM, GIF, PNG format.">PhotoImage</a> with the same image as this widget. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l05601">5601</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 5602</span>        {</div>
+<div class="line"><span class="lineno"> 5603</span>            <span class="keyword">auto</span> destImage = <a class="code hl_function" href="structcpptkinter_1_1PhotoImage.html#a90089207c2fbe82761b21c8375c3884f">PhotoImage</a>({ .master = this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a> });</div>
+<div class="line"><span class="lineno"> 5604</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a>-&gt;call(destImage, <span class="stringliteral">&quot;copy&quot;</span>, this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>);</div>
+<div class="line"><span class="lineno"> 5605</span>            <span class="keywordflow">return</span> destImage;</div>
+<div class="line"><span class="lineno"> 5606</span>        }</div>
+<div class="ttc" id="astructcpptkinter_1_1PhotoImage_html_a90089207c2fbe82761b21c8375c3884f"><div class="ttname"><a href="structcpptkinter_1_1PhotoImage.html#a90089207c2fbe82761b21c8375c3884f">cpptkinter::PhotoImage::PhotoImage</a></div><div class="ttdeci">PhotoImage(CNF &amp;&amp;cnf={})</div><div class="ttdoc">Create an image with NAME.</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l05577">cpptkinter.ixx:5577</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a3c4ec27b316babc95c05751dfd0ee90c" name="a3c4ec27b316babc95c05751dfd0ee90c"></a>
@@ -402,6 +438,11 @@ template&lt;detail::FromObjConcept R&gt; </div>
 
 <p>Return the color (red, green, blue) of the pixel at X,Y. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l05633">5633</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 5634</span>        {</div>
+<div class="line"><span class="lineno"> 5635</span>            <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a>-&gt;call&lt;std::array&lt;long long, 3&gt;&gt;(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>, <span class="stringliteral">&quot;get&quot;</span>, x, y);</div>
+<div class="line"><span class="lineno"> 5636</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="aa3359bddc1b3ab788f6f3c86925f0063" name="aa3359bddc1b3ab788f6f3c86925f0063"></a>
@@ -441,6 +482,18 @@ template&lt;detail::FromObjConcept R&gt; </div>
 <p>Put row formatted colors to image starting from position TO. </p>
 <p>e.g. image.put("{red green} {blue yellow}", to = (4, 6)) </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l05641">5641</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 5642</span>        {</div>
+<div class="line"><span class="lineno"> 5643</span>            std::vector&lt;_cpptkinter::Tcl_Obj&gt; args{ <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>), <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>(<span class="stringliteral">&quot;put&quot;</span>), <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>(data) };</div>
+<div class="line"><span class="lineno"> 5644</span>            <span class="keywordflow">if</span> (to.has_value())</div>
+<div class="line"><span class="lineno"> 5645</span>            {</div>
+<div class="line"><span class="lineno"> 5646</span>                args.emplace_back(<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>(<span class="stringliteral">&quot;-to&quot;</span>));</div>
+<div class="line"><span class="lineno"> 5647</span>                args.emplace_back(<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>(to.value()));</div>
+<div class="line"><span class="lineno"> 5648</span>            }</div>
+<div class="line"><span class="lineno"> 5649</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a>-&gt;call(args);</div>
+<div class="line"><span class="lineno"> 5650</span>        }</div>
+<div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_a67240db275ca02da5d34c882ee7c8957"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">cpptkinter::_cpptkinter::AsObj</a></div><div class="ttdeci">constexpr detail::AsObjFunctorType AsObj</div><div class="ttdoc">Convert a c++ value to a tcl object.</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter_8tcl__obj_8ixx_source.html#l00485">_cpptkinter.tcl_obj.ixx:485</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a0ebcb3257955782b00dc3c63e0abe82b" name="a0ebcb3257955782b00dc3c63e0abe82b"></a>
@@ -480,6 +533,15 @@ template&lt;detail::FromObjConcept R&gt; </div>
 <p>Return a new <a class="el" href="structcpptkinter_1_1PhotoImage.html" title="Widget which can display images in PGM, PPM, GIF, PNG format.">PhotoImage</a> based on the same image as this widget but use only every Xth or Yth pixel. </p>
 <p>If y is not given, the default value is the same as x. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l05623">5623</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 5624</span>        {</div>
+<div class="line"><span class="lineno"> 5625</span>            <span class="keyword">auto</span> destImage = <a class="code hl_function" href="structcpptkinter_1_1PhotoImage.html#a90089207c2fbe82761b21c8375c3884f">PhotoImage</a>({ .master = this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a> });</div>
+<div class="line"><span class="lineno"> 5626</span>            <span class="keywordflow">if</span> (y == std::numeric_limits&lt;long long&gt;::min())</div>
+<div class="line"><span class="lineno"> 5627</span>                y = x;</div>
+<div class="line"><span class="lineno"> 5628</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a>-&gt;call(destImage, <span class="stringliteral">&quot;copy&quot;</span>, this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>, <span class="stringliteral">&quot;-subsample&quot;</span>, x, y);</div>
+<div class="line"><span class="lineno"> 5629</span>            <span class="keywordflow">return</span> destImage;</div>
+<div class="line"><span class="lineno"> 5630</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="afcbdbdad1083c340a8be4099b50140af" name="afcbdbdad1083c340a8be4099b50140af"></a>
@@ -518,6 +580,11 @@ template&lt;detail::FromObjConcept R&gt; </div>
 
 <p>Return True if the pixel at x,y is transparent. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l05667">5667</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 5668</span>        {</div>
+<div class="line"><span class="lineno"> 5669</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a>-&gt;call&lt;<span class="keywordtype">bool</span>&gt;(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>, <span class="stringliteral">&quot;transparency&quot;</span>, <span class="stringliteral">&quot;get&quot;</span>, x, y);</div>
+<div class="line"><span class="lineno"> 5670</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a68ca35c3c20148ddb06186471625d066" name="a68ca35c3c20148ddb06186471625d066"></a>
@@ -562,6 +629,11 @@ template&lt;detail::FromObjConcept R&gt; </div>
 
 <p>Set the transparency of the pixel at x,y. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l05673">5673</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 5674</span>        {</div>
+<div class="line"><span class="lineno"> 5675</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a>-&gt;call(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>, <span class="stringliteral">&quot;transparency&quot;</span>, <span class="stringliteral">&quot;set&quot;</span>, x, y, <span class="keywordtype">boolean</span>);</div>
+<div class="line"><span class="lineno"> 5676</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a13da2423b2e10c4388409a28a9f70594" name="a13da2423b2e10c4388409a28a9f70594"></a>
@@ -604,6 +676,20 @@ template&lt;detail::FromObjConcept R&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l05653">5653</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 5653</span>                                                                        {}, std::optional&lt;std::array&lt;long long, 2&gt;&gt; from_coords = std::nullopt)</div>
+<div class="line"><span class="lineno"> 5654</span>        {</div>
+<div class="line"><span class="lineno"> 5655</span>            std::vector&lt;_cpptkinter::Tcl_Obj&gt; args{ <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>), <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>(<span class="stringliteral">&quot;write&quot;</span>), <a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>(filename) };</div>
+<div class="line"><span class="lineno"> 5656</span>            <span class="keywordflow">if</span> (!format.empty())</div>
+<div class="line"><span class="lineno"> 5657</span>                args.emplace_back(<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>(format));</div>
+<div class="line"><span class="lineno"> 5658</span>            <span class="keywordflow">if</span> (from_coords.has_value())</div>
+<div class="line"><span class="lineno"> 5659</span>            {</div>
+<div class="line"><span class="lineno"> 5660</span>                args.emplace_back(<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>(<span class="stringliteral">&quot;-from&quot;</span>));</div>
+<div class="line"><span class="lineno"> 5661</span>                args.emplace_back(<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>(from_coords.value()));</div>
+<div class="line"><span class="lineno"> 5662</span>            }</div>
+<div class="line"><span class="lineno"> 5663</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a>-&gt;call(args);</div>
+<div class="line"><span class="lineno"> 5664</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a9fc40ed73ebd073c79c17da6f6b79975" name="a9fc40ed73ebd073c79c17da6f6b79975"></a>
@@ -643,10 +729,19 @@ template&lt;detail::FromObjConcept R&gt; </div>
 <p>Return a new <a class="el" href="structcpptkinter_1_1PhotoImage.html" title="Widget which can display images in PGM, PPM, GIF, PNG format.">PhotoImage</a> with the same image as this widget but zoom it with a factor of x in the X direction and y in the Y direction. </p>
 <p>If y is not given, the default value is the same as x. </p>
 
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l05611">5611</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 5612</span>        {</div>
+<div class="line"><span class="lineno"> 5613</span>            <span class="keyword">auto</span> destImage = <a class="code hl_function" href="structcpptkinter_1_1PhotoImage.html#a90089207c2fbe82761b21c8375c3884f">PhotoImage</a>({ .master = this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a> });</div>
+<div class="line"><span class="lineno"> 5614</span>            <span class="keywordflow">if</span> (y == std::numeric_limits&lt;long long&gt;::min())</div>
+<div class="line"><span class="lineno"> 5615</span>                y = x;</div>
+<div class="line"><span class="lineno"> 5616</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a>-&gt;call(destImage, <span class="stringliteral">&quot;copy&quot;</span>, this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>, <span class="stringliteral">&quot;-zoom&quot;</span>, x, y);</div>
+<div class="line"><span class="lineno"> 5617</span>            <span class="keywordflow">return</span> destImage;</div>
+<div class="line"><span class="lineno"> 5618</span>        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/<a class="el" href="cpptkinter_8ixx.html">cpptkinter.ixx</a></li>
+<li>src/cpptkinter/<a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
