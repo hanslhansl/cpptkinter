@@ -1,6 +1,6 @@
 module;
 #include <reflect/reflect.hpp>
-export module cpptkinter:reflect;
+export module reflect;
 
 export namespace reflect
 {

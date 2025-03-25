@@ -5,7 +5,7 @@ export module cpptkinter:_cpptkinter.tcl_obj;
 import std;
 import :utility;
 import :_cpptkinter1;
-import :reflect;
+import reflect;
 using namespace std::literals;
 
 export namespace cpptkinter::_cpptkinter

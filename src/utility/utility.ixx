@@ -7,7 +7,7 @@ module;
 export module cpptkinter:utility;
 import std;
 import hhh;
-import :reflect;
+import reflect;
 import :utility.detail;
 import aggregate_formatter;
 import variant_formatter;

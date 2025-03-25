@@ -3,7 +3,7 @@ module;
 export module cpptkinter:utility.detail;
 import std;
 import hhh;
-import :reflect;
+import reflect;
 
 
 namespace cpptkinter::detail

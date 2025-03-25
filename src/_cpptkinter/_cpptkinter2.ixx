@@ -6,7 +6,7 @@ import std;
 import :utility;
 import :_cpptkinter1;
 import :_cpptkinter.tcl_obj;
-import :reflect;
+import reflect;
 
 export namespace cpptkinter::detail
 {
@@ -404,7 +404,6 @@ export namespace cpptkinter::_cpptkinter
 		{
 			try
 			{
-				hhh::misc::printl("std::this_thread::get_id(): ", std::this_thread::get_id());
 				static_cast<PythonCmd_ClientData*>(clientData)->PythonCmdImpl(interp, objc, objv);
 			}
 			catch (...)
@@ -426,7 +425,6 @@ export namespace cpptkinter::_cpptkinter
 			}
 			catch (...)
 			{
-				//hhh::misc::printl("=================================================================>caught");
 				errorInCmd = 1;
 				excInCmd = std::current_exception();
 			}
