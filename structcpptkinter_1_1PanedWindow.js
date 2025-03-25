@@ -1,13 +1,9 @@
 var structcpptkinter_1_1PanedWindow =
 [
-    [ "constructor_cnf", "structcpptkinter_1_1PanedWindow.html#abd1b77f3fa11993263bc7a77294255f3", null ],
-    [ "PanedWindow", "structcpptkinter_1_1PanedWindow.html#af9700f1b2f8a261cbaac2d0a06ac2a11", null ],
-    [ "PanedWindow", "structcpptkinter_1_1PanedWindow.html#a75f95ac01e96e22ce24090e8ef075030", null ],
-    [ "PanedWindow", "structcpptkinter_1_1PanedWindow.html#a93b9b23e68ff767281082432d557bb5b", null ],
     [ "add", "structcpptkinter_1_1PanedWindow.html#a999147d787ec5ab5fc1fc5d3a8d729ba", null ],
+    [ "CONSTRUCTORS_AND_ASSIGNMENT", "structcpptkinter_1_1PanedWindow.html#ada07d966c769137376884b2433faeea8", null ],
     [ "forget", "structcpptkinter_1_1PanedWindow.html#a7853ce8ee294b691739a31121c62ab46", null ],
     [ "identify", "structcpptkinter_1_1PanedWindow.html#a58082270a3b744ff5d5b6517ac83d360", null ],
-    [ "operator=", "structcpptkinter_1_1PanedWindow.html#a42f7362fd21aa1458e410a3c7cfbe9dc", null ],
     [ "panecget", "structcpptkinter_1_1PanedWindow.html#ae83e0fe0f7cb9150fa9ff18c523690c7", null ],
     [ "paneconfig", "structcpptkinter_1_1PanedWindow.html#ab5c884cf0f8a900010c81f529d0a6719", null ],
     [ "paneconfig", "structcpptkinter_1_1PanedWindow.html#a2b826d17dc06c95eaf174a0f2f9f8515", null ],

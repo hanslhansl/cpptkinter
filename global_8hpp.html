@@ -136,10 +136,21 @@ Macros</h2></td></tr>
 <tr class="separator:ae260bdd94c8cc1657557300b973a10f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a268a5497247469c43b9b16215342ffdf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#a268a5497247469c43b9b16215342ffdf">TRACE</a>(_self,  ARGS)</td></tr>
 <tr class="separator:a268a5497247469c43b9b16215342ffdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5495dad2a5ff5be64fe99cc54073a479"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#a5495dad2a5ff5be64fe99cc54073a479">REF_TO_IMPL</a>(member)&#160;&#160;&#160;decltype(impl::member)&amp; member = static_cast&lt;impl*&gt;(this-&gt;pimpl.get())-&gt;member</td></tr>
+<tr class="separator:a5495dad2a5ff5be64fe99cc54073a479"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac389b0428f38a3a81c6d2980895d5835"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#ac389b0428f38a3a81c6d2980895d5835">DEFINE_ASSIGNMENT_OPERATOR</a>(cl)</td></tr>
+<tr class="separator:ac389b0428f38a3a81c6d2980895d5835"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ea152cdea84f54f2e9e7af023022bc0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#a2ea152cdea84f54f2e9e7af023022bc0">IMPL_CTOR</a>(cl,  base)</td></tr>
+<tr class="separator:a2ea152cdea84f54f2e9e7af023022bc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b0c410d403e87302d27872946a48db7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#a2b0c410d403e87302d27872946a48db7">CNF_CONSTRUCTOR</a>(cl,  cnf_type,  str)</td></tr>
+<tr class="separator:a2b0c410d403e87302d27872946a48db7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2624f04e284e808f4ba305f256dbe2a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#a2624f04e284e808f4ba305f256dbe2a1">CONSTRUCTORS_AND_ASSIGNMENT</a>(cl,  cnf_type,  str,  base)</td></tr>
+<tr class="separator:a2624f04e284e808f4ba305f256dbe2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a1647a8cbe08ae686b7c93fd45db41028"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecpptkinter.html#a1647a8cbe08ae686b7c93fd45db41028">cpptkinter::TCL_CORE_LIBRARY_IS_EMBEDDED</a> = true</td></tr>
+<tr class="memdesc:a1647a8cbe08ae686b7c93fd45db41028"><td class="mdescLeft">&#160;</td><td class="mdescRight">true/false, whether the Tcl core library scripts are embedded into the executable (dll or static lib). if false the path to the Tcl core library must be specified with <a class="el" href="namespacecpptkinter.html#a26c3c3c71f4ba3e50698e51933b6589e" title="Initialize cpptkinter.">cpptkinter::init</a>.  <br /></td></tr>
 <tr class="separator:a1647a8cbe08ae686b7c93fd45db41028"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -159,7 +170,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00233">233</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00232">232</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -179,7 +190,97 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00225">225</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00224">224</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a2b0c410d403e87302d27872946a48db7" name="a2b0c410d403e87302d27872946a48db7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b0c410d403e87302d27872946a48db7">&#9670;&#160;</a></span>CNF_CONSTRUCTOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CNF_CONSTRUCTOR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cl, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cnf_type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">str&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">using </span>constructor_cnf = cnf_type;   \</div>
+<div class="line">    cl() : cl(constructor_cnf{}) { }    \</div>
+<div class="line">    template&lt;cnfs::is_cnf CNF = constructor_cnf&gt; \</div>
+<div class="line">    cl(CNF&amp;&amp; cnf = {}) : cl(std::make_shared&lt;impl&gt;()) \</div>
+<div class="line">    {   \</div>
+<div class="line">        this-&gt;_init_(str, std::forward&lt;CNF&gt;(cnf));  \</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00264">264</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a2624f04e284e808f4ba305f256dbe2a1" name="a2624f04e284e808f4ba305f256dbe2a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2624f04e284e808f4ba305f256dbe2a1">&#9670;&#160;</a></span>CONSTRUCTORS_AND_ASSIGNMENT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CONSTRUCTORS_AND_ASSIGNMENT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cl, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cnf_type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">str, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">base&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">protected</span>:  \</div>
+<div class="line">    IMPL_CTOR(cl, base) \</div>
+<div class="line">    <span class="keyword">public</span>: \</div>
+<div class="line">    CNF_CONSTRUCTOR(cl, cnf_type, str)   \</div>
+<div class="line">    DEFINE_ASSIGNMENT_OPERATOR(cl)</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00273">273</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -199,7 +300,32 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00222">222</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00221">221</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ac389b0428f38a3a81c6d2980895d5835" name="ac389b0428f38a3a81c6d2980895d5835"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac389b0428f38a3a81c6d2980895d5835">&#9670;&#160;</a></span>DEFINE_ASSIGNMENT_OPERATOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEFINE_ASSIGNMENT_OPERATOR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cl</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    cl&amp; operator=(<span class="keyword">const</span> cl&amp; other) \</div>
+<div class="line">    { \</div>
+<div class="line">        std::destroy_at(<span class="keyword">this</span>); \</div>
+<div class="line">        <span class="keywordflow">return</span> *std::construct_at(<span class="keyword">this</span>, other); \</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00255">255</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -219,7 +345,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00226">226</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00225">225</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -235,7 +361,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00241">241</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00240">240</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -251,7 +377,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00244">244</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00243">243</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -267,7 +393,39 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00239">239</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00238">238</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a2ea152cdea84f54f2e9e7af023022bc0" name="a2ea152cdea84f54f2e9e7af023022bc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ea152cdea84f54f2e9e7af023022bc0">&#9670;&#160;</a></span>IMPL_CTOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IMPL_CTOR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cl, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">base&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">friend</span> detail::widget_friend; \</div>
+<div class="line">    <span class="keyword">template</span>&lt;std::derived_from&lt;impl&gt; I&gt; cl(<span class="keyword">const</span> std::shared_ptr&lt;I&gt;&amp; pimpl) : base(pimpl) { }</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00262">262</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -283,7 +441,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00242">242</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00241">241</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -299,7 +457,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00245">245</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00244">244</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -315,7 +473,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00240">240</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00239">239</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -331,7 +489,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00232">232</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00231">231</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -361,7 +519,27 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00247">247</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00246">246</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a5495dad2a5ff5be64fe99cc54073a479" name="a5495dad2a5ff5be64fe99cc54073a479"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5495dad2a5ff5be64fe99cc54073a479">&#9670;&#160;</a></span>REF_TO_IMPL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define REF_TO_IMPL</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">member</td><td>)</td>
+          <td>&#160;&#160;&#160;decltype(impl::member)&amp; member = static_cast&lt;impl*&gt;(this-&gt;pimpl.get())-&gt;member</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00253">253</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -379,7 +557,7 @@ Variables</h2></td></tr>
 
 <p>If Tcl is compiled for threads, we must also define TCL_THREAD. We define it always; if Tcl is not threaded, the thread functions in Tcl are empty. </p>
 
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00237">237</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00236">236</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -413,9 +591,9 @@ Variables</h2></td></tr>
 <div class="line">            Tkapp_Trace((_self), <a class="code hl_define" href="global_8hpp.html#ae260bdd94c8cc1657557300b973a10f5">Py_BuildValue</a> ARGS);   \</div>
 <div class="line">        }   \</div>
 <div class="line">    } <span class="keywordflow">while</span> (0)</div>
-<div class="ttc" id="aglobal_8hpp_html_ae260bdd94c8cc1657557300b973a10f5"><div class="ttname"><a href="global_8hpp.html#ae260bdd94c8cc1657557300b973a10f5">Py_BuildValue</a></div><div class="ttdeci">#define Py_BuildValue(fmt_str,...)</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00247">global.hpp:247</a></div></div>
+<div class="ttc" id="aglobal_8hpp_html_ae260bdd94c8cc1657557300b973a10f5"><div class="ttname"><a href="global_8hpp.html#ae260bdd94c8cc1657557300b973a10f5">Py_BuildValue</a></div><div class="ttdeci">#define Py_BuildValue(fmt_str,...)</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00246">global.hpp:246</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00248">248</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00247">247</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>

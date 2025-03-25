@@ -118,7 +118,7 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l05478">5478</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8widget2_8ixx_source.html#l00759">759</a> of file <a class="el" href="cpptkinter_8widget2_8ixx_source.html">cpptkinter.widget2.ixx</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a5b32193d01a77c0c3d909aeec9317c41" name="a5b32193d01a77c0c3d909aeec9317c41"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5b32193d01a77c0c3d909aeec9317c41">&#9670;&#160;</a></span>destroy()</h2>
@@ -145,17 +145,17 @@ Public Attributes</h2></td></tr>
 
 <p>Destroy this widget and the associated menu. </p>
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l05484">5484</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 5485</span>            {</div>
-<div class="line"><span class="lineno"> 5486</span>                <span class="comment">// keeps this from being destroyed before this function returns</span></div>
-<div class="line"><span class="lineno"> 5487</span>                <span class="keyword">auto</span> temp = this-&gt;shared_from_this();</div>
-<div class="line"><span class="lineno"> 5488</span> </div>
-<div class="line"><span class="lineno"> 5489</span>                this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1OptionMenu_1_1impl.html#a8d606a169e5b3461b18e1a2e58ab2766">_menu</a>.reset();</div>
-<div class="line"><span class="lineno"> 5490</span> </div>
-<div class="line"><span class="lineno"> 5491</span>                this-&gt;<a class="code hl_function" href="structcpptkinter_1_1BaseWidget_1_1impl.html#a1d429ff1cd2ae53e839673d1b56ed857">BaseWidget::impl::destroy</a>();</div>
-<div class="line"><span class="lineno"> 5492</span>            }</div>
-<div class="ttc" id="astructcpptkinter_1_1BaseWidget_1_1impl_html_a1d429ff1cd2ae53e839673d1b56ed857"><div class="ttname"><a href="structcpptkinter_1_1BaseWidget_1_1impl.html#a1d429ff1cd2ae53e839673d1b56ed857">cpptkinter::BaseWidget::impl::destroy</a></div><div class="ttdeci">void destroy() override</div><div class="ttdoc">Destroy this widget and all descendants.</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l02651">cpptkinter.ixx:2651</a></div></div>
-<div class="ttc" id="astructcpptkinter_1_1OptionMenu_1_1impl_html_a8d606a169e5b3461b18e1a2e58ab2766"><div class="ttname"><a href="structcpptkinter_1_1OptionMenu_1_1impl.html#a8d606a169e5b3461b18e1a2e58ab2766">cpptkinter::OptionMenu::impl::_menu</a></div><div class="ttdeci">std::optional&lt; Menu &gt; _menu</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l05480">cpptkinter.ixx:5480</a></div></div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8widget2_8ixx_source.html#l00765">765</a> of file <a class="el" href="cpptkinter_8widget2_8ixx_source.html">cpptkinter.widget2.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  766</span>            {</div>
+<div class="line"><span class="lineno">  767</span>                <span class="comment">// keeps this from being destroyed before this function returns</span></div>
+<div class="line"><span class="lineno">  768</span>                <span class="keyword">auto</span> temp = this-&gt;shared_from_this();</div>
+<div class="line"><span class="lineno">  769</span> </div>
+<div class="line"><span class="lineno">  770</span>                this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1OptionMenu_1_1impl.html#a8d606a169e5b3461b18e1a2e58ab2766">_menu</a>.reset();</div>
+<div class="line"><span class="lineno">  771</span> </div>
+<div class="line"><span class="lineno">  772</span>                this-&gt;<a class="code hl_function" href="structcpptkinter_1_1BaseWidget_1_1impl.html#a1d429ff1cd2ae53e839673d1b56ed857">BaseWidget::impl::destroy</a>();</div>
+<div class="line"><span class="lineno">  773</span>            }</div>
+<div class="ttc" id="astructcpptkinter_1_1BaseWidget_1_1impl_html_a1d429ff1cd2ae53e839673d1b56ed857"><div class="ttname"><a href="structcpptkinter_1_1BaseWidget_1_1impl.html#a1d429ff1cd2ae53e839673d1b56ed857">cpptkinter::BaseWidget::impl::destroy</a></div><div class="ttdeci">void destroy() override</div><div class="ttdoc">Destroy this widget and all descendants.</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8widget_8base_8ixx_source.html#l00262">cpptkinter.widget.base.ixx:262</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1OptionMenu_1_1impl_html_a8d606a169e5b3461b18e1a2e58ab2766"><div class="ttname"><a href="structcpptkinter_1_1OptionMenu_1_1impl.html#a8d606a169e5b3461b18e1a2e58ab2766">cpptkinter::OptionMenu::impl::_menu</a></div><div class="ttdeci">std::optional&lt; Menu &gt; _menu</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8widget2_8ixx_source.html#l00761">cpptkinter.widget2.ixx:761</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -172,7 +172,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l05480">5480</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8widget2_8ixx_source.html#l00761">761</a> of file <a class="el" href="cpptkinter_8widget2_8ixx_source.html">cpptkinter.widget2.ixx</a>.</p>
 
 </div>
 </div>
@@ -188,12 +188,12 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l05481">5481</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8widget2_8ixx_source.html#l00762">762</a> of file <a class="el" href="cpptkinter_8widget2_8ixx_source.html">cpptkinter.widget2.ixx</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/cpptkinter/<a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a></li>
+<li>src/cpptkinter/<a class="el" href="cpptkinter_8widget2_8ixx_source.html">cpptkinter.widget2.ixx</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

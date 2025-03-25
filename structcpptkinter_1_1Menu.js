@@ -1,9 +1,5 @@
 var structcpptkinter_1_1Menu =
 [
-    [ "constructor_cnf", "structcpptkinter_1_1Menu.html#a562ff4c6cf646936579753fc0705151e", null ],
-    [ "Menu", "structcpptkinter_1_1Menu.html#a92c94b8a66dae2236d22ab99eb282102", null ],
-    [ "Menu", "structcpptkinter_1_1Menu.html#a074f73bbffbd0bbd8f10c50f7b948bdc", null ],
-    [ "Menu", "structcpptkinter_1_1Menu.html#a26f2bd05f7ec3a35d749e6cb2ce38c5c", null ],
     [ "activate", "structcpptkinter_1_1Menu.html#a30b8506f7d805fd3405e5308458c7671", null ],
     [ "add", "structcpptkinter_1_1Menu.html#a687927a1d92ae8a84ea1c9edc057d1ad", null ],
     [ "add_cascade", "structcpptkinter_1_1Menu.html#ab8bf298efc0766c7ea9e50a48e66ce6c", null ],
@@ -11,6 +7,7 @@ var structcpptkinter_1_1Menu =
     [ "add_command", "structcpptkinter_1_1Menu.html#ab6f62bc3008565ece71d291dd0abbfdb", null ],
     [ "add_radiobutton", "structcpptkinter_1_1Menu.html#ac8cb691892163586c08ab0d64f5cbdf3", null ],
     [ "add_separator", "structcpptkinter_1_1Menu.html#a27017f91f3c430d3752c768ee0ddd8b4", null ],
+    [ "CONSTRUCTORS_AND_ASSIGNMENT", "structcpptkinter_1_1Menu.html#aaa9d40bc7390e405bf17fc6aacbc1f1d", null ],
     [ "delete_", "structcpptkinter_1_1Menu.html#ad0a8c5f2bba339401bf4a3bd67b81921", null ],
     [ "delete_", "structcpptkinter_1_1Menu.html#ac110e79fc6646918ad5482537e20cf5f", null ],
     [ "entrycget", "structcpptkinter_1_1Menu.html#ac75fbbe44d99e841d13ebd7004318593", null ],
@@ -26,7 +23,6 @@ var structcpptkinter_1_1Menu =
     [ "insert_radiobutton", "structcpptkinter_1_1Menu.html#afaa54e1f771bbe55d6833bc959da724a", null ],
     [ "insert_separator", "structcpptkinter_1_1Menu.html#a66d0cb169c665f4c5010b29bee80af07", null ],
     [ "invoke", "structcpptkinter_1_1Menu.html#ae5bfec81ba6087fe372eb3cbf0eaa505", null ],
-    [ "operator=", "structcpptkinter_1_1Menu.html#a1da74de7165b20d4e82b800066d8e26e", null ],
     [ "post", "structcpptkinter_1_1Menu.html#a97d0ef3c2864aeebfb45337a22bdc3c3", null ],
     [ "tk_popup", "structcpptkinter_1_1Menu.html#a05bf0f690e1b20a33c5b4e9bcbacc28f", null ],
     [ "tk_popup", "structcpptkinter_1_1Menu.html#a06802bd5dfdb4e4fbe1b23f68d6d1cff", null ],

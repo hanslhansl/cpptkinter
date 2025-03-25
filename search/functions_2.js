@@ -7,6 +7,5 @@ var searchData=
   ['bind_5fclass_4',['bind_class',['../classcpptkinter_1_1Misc.html#afc8373edcdff2f0b9e394a0539b5c3a0',1,'cpptkinter::Misc']]],
   ['bindtags_5',['bindtags',['../classcpptkinter_1_1Misc.html#a821b778ace151e96271b01fae99b4959',1,'cpptkinter::Misc::bindtags(const std::vector&lt; std::string &gt; &amp;tagList)'],['../classcpptkinter_1_1Misc.html#ac3504d63e1dbc8d54185c84e9bddd52d',1,'cpptkinter::Misc::bindtags()']]],
   ['bitmapimage_6',['BitmapImage',['../structcpptkinter_1_1BitmapImage.html#a68e09dbcee4a4ca3b1ddb4bbc4b300c8',1,'cpptkinter::BitmapImage']]],
-  ['blank_7',['blank',['../structcpptkinter_1_1PhotoImage.html#adcf8fa45135bae044928d351d6811ce3',1,'cpptkinter::PhotoImage']]],
-  ['button_8',['Button',['../structcpptkinter_1_1Button.html#ae68734e703341e866104093b3efddaba',1,'cpptkinter::Button::Button(const std::shared_ptr&lt; I &gt; &amp;pimpl)'],['../structcpptkinter_1_1Button.html#afb6be9a97548127bb05c08e93a4b9b3e',1,'cpptkinter::Button::Button()'],['../structcpptkinter_1_1Button.html#aa5cda1b3ce9d3153727685368ad55b61',1,'cpptkinter::Button::Button(CNF &amp;&amp;cnf={})']]]
+  ['blank_7',['blank',['../structcpptkinter_1_1PhotoImage.html#adcf8fa45135bae044928d351d6811ce3',1,'cpptkinter::PhotoImage']]]
 ];

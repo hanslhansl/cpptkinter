@@ -1,9 +1,5 @@
 var structcpptkinter_1_1Canvas =
 [
-    [ "constructor_cnf", "structcpptkinter_1_1Canvas.html#af06138ab1d598d21d94617efdb08c9df", null ],
-    [ "Canvas", "structcpptkinter_1_1Canvas.html#a2ed4c9d71df23c5f896563f2788d2466", null ],
-    [ "Canvas", "structcpptkinter_1_1Canvas.html#a68d957855432830594e9719885583c16", null ],
-    [ "Canvas", "structcpptkinter_1_1Canvas.html#a227bf33d2e2e7ebc2092618561e81209", null ],
     [ "_create", "structcpptkinter_1_1Canvas.html#a07c314288e95aeef4d2c7d1d9e4a8318", null ],
     [ "addtag", "structcpptkinter_1_1Canvas.html#a180a3441fd5aad63f357e63a8f6ecc20", null ],
     [ "addtag_above", "structcpptkinter_1_1Canvas.html#a673c192bdb83087cad2dd7df8229de3a", null ],
@@ -18,6 +14,7 @@ var structcpptkinter_1_1Canvas =
     [ "bbox", "structcpptkinter_1_1Canvas.html#ae313eee189d9c5870a6677f8dafdf9fd", null ],
     [ "canvasx", "structcpptkinter_1_1Canvas.html#a585fd818adb75228612b2c7af62c6aaa", null ],
     [ "canvasy", "structcpptkinter_1_1Canvas.html#a85e99a2d712dc726b7f71ab79a13c8c4", null ],
+    [ "CONSTRUCTORS_AND_ASSIGNMENT", "structcpptkinter_1_1Canvas.html#a96efb325ba943718847c65c097a32b30", null ],
     [ "coords", "structcpptkinter_1_1Canvas.html#a8c1ce6080e73d94ff511613fd75bf752", null ],
     [ "create_arc", "structcpptkinter_1_1Canvas.html#ab7790a54f809ef03058f444634f5cbdc", null ],
     [ "create_bitmap", "structcpptkinter_1_1Canvas.html#a0be17cca9469d809808d1d5495509025", null ],
@@ -28,7 +25,6 @@ var structcpptkinter_1_1Canvas =
     [ "create_rectangle", "structcpptkinter_1_1Canvas.html#ae3d234dd38fb857e7abca478ed37b98c", null ],
     [ "create_text", "structcpptkinter_1_1Canvas.html#a36784085c41fd15514646c4f5a29dcf5", null ],
     [ "create_window", "structcpptkinter_1_1Canvas.html#af9c9da2368adea02d318c107448687ef", null ],
-    [ "operator=", "structcpptkinter_1_1Canvas.html#ac71df104cf8f3a905906488656567025", null ],
     [ "tag_bind", "structcpptkinter_1_1Canvas.html#a91546ea8c91511017669d38f72589e2a", null ],
     [ "tag_unbind", "structcpptkinter_1_1Canvas.html#a9cc455ae9516fa6e3c08d425718f3bd2", null ],
     [ "tag_unbind", "structcpptkinter_1_1Canvas.html#af0f9c1c45e35bb247226c6e2b75aa14c", null ]

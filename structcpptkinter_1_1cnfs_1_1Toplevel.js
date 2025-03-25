@@ -21,7 +21,7 @@ var structcpptkinter_1_1cnfs_1_1Toplevel =
     [ "relief", "structcpptkinter_1_1cnfs_1_1Toplevel.html#a12051dcc8654eefbcaee23a37494ffc4", null ],
     [ "screen", "structcpptkinter_1_1cnfs_1_1Toplevel.html#aed078ae3757ee934da2ccb6c5da3ba3c", null ],
     [ "takefocus", "structcpptkinter_1_1cnfs_1_1Toplevel.html#a5ee3e7afaf1270fed6ddcc526290910f", null ],
-    [ "use", "structcpptkinter_1_1cnfs_1_1Toplevel.html#a426797018387069d90379eb8094d0aca", null ],
+    [ "use", "structcpptkinter_1_1cnfs_1_1Toplevel.html#a38258d328d79780f98a179b38f0895dc", null ],
     [ "visual", "structcpptkinter_1_1cnfs_1_1Toplevel.html#acdb0a347953c22e15cff809c74473fd0", null ],
     [ "width", "structcpptkinter_1_1cnfs_1_1Toplevel.html#a790ed7e57333506e8d5c71826c17260b", null ]
 ];

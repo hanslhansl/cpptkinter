@@ -33,7 +33,7 @@ var structcpptkinter_1_1cnfs_1_1Menubutton =
     [ "takefocus", "structcpptkinter_1_1cnfs_1_1Menubutton.html#aa6133cf8ca18422f4c137fa4f82bfb5c", null ],
     [ "text", "structcpptkinter_1_1cnfs_1_1Menubutton.html#a5e444904c624f9079267f8d1098a7a32", null ],
     [ "textvariable", "structcpptkinter_1_1cnfs_1_1Menubutton.html#a36df8bbc99864f4d0ead3367cda7d7cd", null ],
-    [ "underline", "structcpptkinter_1_1cnfs_1_1Menubutton.html#a13806d4421cd8bbe1f0e9e5bbced846b", null ],
+    [ "underline", "structcpptkinter_1_1cnfs_1_1Menubutton.html#ac6d49498f1361929729d40af3361b18f", null ],
     [ "width", "structcpptkinter_1_1cnfs_1_1Menubutton.html#a314cabb51daedc68e90ce83e6776576b", null ],
     [ "wraplength", "structcpptkinter_1_1cnfs_1_1Menubutton.html#a7c60ec6a89ffe619ffc02945f85534ea", null ]
 ];

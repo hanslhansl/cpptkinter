@@ -29,13 +29,13 @@ var structcpptkinter_1_1cnfs_1_1Button =
     [ "padx", "structcpptkinter_1_1cnfs_1_1Button.html#ac962ab88e6c4d6eb0e8df17db52c1bd1", null ],
     [ "pady", "structcpptkinter_1_1cnfs_1_1Button.html#a82ee194314d30f4f45994dd5459f3438", null ],
     [ "relief", "structcpptkinter_1_1cnfs_1_1Button.html#aa7ce9b9247433339b8d23bf2b25f4ed2", null ],
-    [ "repeatdelay", "structcpptkinter_1_1cnfs_1_1Button.html#a940e863852c3dfbdda521819e3539c37", null ],
-    [ "repeatinterval", "structcpptkinter_1_1cnfs_1_1Button.html#a4725ecb7082fb71f90c3ad6bfb8c8fc5", null ],
+    [ "repeatdelay", "structcpptkinter_1_1cnfs_1_1Button.html#ab5c3bc713683d14702dc48973d4e256e", null ],
+    [ "repeatinterval", "structcpptkinter_1_1cnfs_1_1Button.html#a2a33fff967caaece127b3b2bc1932fc2", null ],
     [ "state", "structcpptkinter_1_1cnfs_1_1Button.html#a106a6e3c4308a2dd267548a9d7768cdb", null ],
     [ "takefocus", "structcpptkinter_1_1cnfs_1_1Button.html#ae180bf8ccb6f9525b86132be36ccc616", null ],
     [ "text", "structcpptkinter_1_1cnfs_1_1Button.html#a63f9c13e268c776c017528823a8597c3", null ],
     [ "textvariable", "structcpptkinter_1_1cnfs_1_1Button.html#a28b89f7a7100d9154feccd34e074f0b2", null ],
-    [ "underline", "structcpptkinter_1_1cnfs_1_1Button.html#a114f559ec23f5717474d12996b25c51d", null ],
+    [ "underline", "structcpptkinter_1_1cnfs_1_1Button.html#ac5c633aedfe8601b8f5a0860cfd898a0", null ],
     [ "width", "structcpptkinter_1_1cnfs_1_1Button.html#a81ce80326c74d3c40443c5eebf18114a", null ],
     [ "wraplength", "structcpptkinter_1_1cnfs_1_1Button.html#ae1b4ae60a74dd6d07db6cb48ffc2064e", null ]
 ];

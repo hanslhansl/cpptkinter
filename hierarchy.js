@@ -83,9 +83,9 @@ var hierarchy =
     ] ],
     [ "cpptkinter::cnfs::grid_bbox", "structcpptkinter_1_1cnfs_1_1grid__bbox.html", null ],
     [ "cpptkinter::cnfs::grid_column_row_configure", "structcpptkinter_1_1cnfs_1_1grid__column__row__configure.html", null ],
-    [ "cpptkinter::cnfs::grid_column_row_configure_return", "structcpptkinter_1_1cnfs_1_1grid__column__row__configure__return.html", null ],
+    [ "cpptkinter::detail::grid_column_row_configure_return", "structcpptkinter_1_1detail_1_1grid__column__row__configure__return.html", null ],
     [ "cpptkinter::cnfs::grid_configure", "structcpptkinter_1_1cnfs_1_1grid__configure.html", null ],
-    [ "cpptkinter::cnfs::GridInfo", "structcpptkinter_1_1cnfs_1_1GridInfo.html", null ],
+    [ "cpptkinter::detail::GridInfo", "structcpptkinter_1_1detail_1_1GridInfo.html", null ],
     [ "cpptkinter::detail::ignore", "structcpptkinter_1_1detail_1_1ignore.html", null ],
     [ "cpptkinter::Image", "structcpptkinter_1_1Image.html", [
       [ "cpptkinter::PhotoImage", "structcpptkinter_1_1PhotoImage.html", null ]
@@ -111,7 +111,7 @@ var hierarchy =
       [ "cpptkinter::Widget", "structcpptkinter_1_1Widget.html", null ]
     ] ],
     [ "cpptkinter::cnfs::pack_configure", "structcpptkinter_1_1cnfs_1_1pack__configure.html", null ],
-    [ "cpptkinter::cnfs::PackInfo", "structcpptkinter_1_1cnfs_1_1PackInfo.html", null ],
+    [ "cpptkinter::detail::PackInfo", "structcpptkinter_1_1detail_1_1PackInfo.html", null ],
     [ "cpptkinter::cnfs::PanedWindow", "structcpptkinter_1_1cnfs_1_1PanedWindow.html", null ],
     [ "cpptkinter::cnfs::PanedWindow_add", "structcpptkinter_1_1cnfs_1_1PanedWindow__add.html", null ],
     [ "cpptkinter::cnfs::PanedWindow_paneconfigure", "structcpptkinter_1_1cnfs_1_1PanedWindow__paneconfigure.html", null ],
@@ -120,7 +120,7 @@ var hierarchy =
       [ "cpptkinter::Widget", "structcpptkinter_1_1Widget.html", null ]
     ] ],
     [ "cpptkinter::cnfs::place_configure", "structcpptkinter_1_1cnfs_1_1place__configure.html", null ],
-    [ "cpptkinter::cnfs::PlaceInfo", "structcpptkinter_1_1cnfs_1_1PlaceInfo.html", null ],
+    [ "cpptkinter::detail::PlaceInfo", "structcpptkinter_1_1detail_1_1PlaceInfo.html", null ],
     [ "cpptkinter::_cpptkinter::PythonCmd_ClientData< R, Args >", "structcpptkinter_1_1__cpptkinter_1_1PythonCmd__ClientData.html", null ],
     [ "cpptkinter::cnfs::Radiobutton< T >", "structcpptkinter_1_1cnfs_1_1Radiobutton.html", null ],
     [ "cpptkinter::utility::reference_variant< Args >", "structcpptkinter_1_1utility_1_1reference__variant.html", null ],
@@ -149,7 +149,7 @@ var hierarchy =
     [ "std::true_type", null, [
       [ "cpptkinter::cnfs::is_cnf_member_trait< std::optional< T > >", "structcpptkinter_1_1cnfs_1_1is__cnf__member__trait_3_01std_1_1optional_3_01T_01_4_01_4.html", null ],
       [ "cpptkinter::cnfs::is_cnf_member_trait< std::variant< Args... > >", "structcpptkinter_1_1cnfs_1_1is__cnf__member__trait_3_01std_1_1variant_3_01Args_8_8_8_01_4_01_4.html", null ],
-      [ "cpptkinter::cnfs::is_cnf_trait< T, std::integer_sequence< size_t, I... > >", "structcpptkinter_1_1cnfs_1_1is__cnf__trait_3_01T_00_01std_1_1integer__sequence_3_01size__t_00_01I_8_8_8_01_4_01_4.html", null ],
+      [ "cpptkinter::cnfs::is_cnf_trait< T, std::integer_sequence< std::size_t, I... > >", "structcpptkinter_1_1cnfs_1_1is__cnf__trait_3_01T_00_01std_1_1integer__sequence_3_01std_1_1size__t_00_01I_8_8_8_01_4_01_4.html", null ],
       [ "cpptkinter::detail::is_std_array< std::array< T, N > >", "structcpptkinter_1_1detail_1_1is__std__array_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html", null ]
     ] ],
     [ "cpptkinter::detail::union_arg_overload_base< T >", "structcpptkinter_1_1detail_1_1union__arg__overload__base.html", null ],

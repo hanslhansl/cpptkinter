@@ -1,13 +1,10 @@
 var structcpptkinter_1_1Text =
 [
-    [ "constructor_cnf", "structcpptkinter_1_1Text.html#a175e99068c71497ebebf2bdd7b2fb5b3", null ],
-    [ "Text", "structcpptkinter_1_1Text.html#aeb1dcaea1d113e9e1f812efa83e8a774", null ],
-    [ "Text", "structcpptkinter_1_1Text.html#ae6cea27e34bd14702083bd649263c3c6", null ],
-    [ "Text", "structcpptkinter_1_1Text.html#aadcfcad35e90b9cbf994dc437e01b9f9", null ],
     [ "_tag_bind", "structcpptkinter_1_1Text.html#aedfb7c3fff125d0db83008eba8dc1ee1", null ],
     [ "bbox", "structcpptkinter_1_1Text.html#a8a551acb5ba7fdb3238a85bac8b17f81", null ],
     [ "cget", "structcpptkinter_1_1Text.html#a0cd6bf1b090d6cf38be19c9102ad68cd", null ],
     [ "compare", "structcpptkinter_1_1Text.html#a4fe47c4337fdd3b3db518f524d8e47cb", null ],
+    [ "CONSTRUCTORS_AND_ASSIGNMENT", "structcpptkinter_1_1Text.html#aa51a7995f38deb9f901cc8239db426c2", null ],
     [ "count", "structcpptkinter_1_1Text.html#ac2341b89ad24d583596150941a3119b6", null ],
     [ "debug", "structcpptkinter_1_1Text.html#adedc9c7caf4741fe69d792e964b6d01d", null ],
     [ "debug", "structcpptkinter_1_1Text.html#acb5416ed6e78d1034de8b0a5427a6aec", null ],
@@ -37,7 +34,6 @@ var structcpptkinter_1_1Text =
     [ "mark_previous", "structcpptkinter_1_1Text.html#a7fc9d6ee00c2e365e1083063beb7dfd6", null ],
     [ "mark_set", "structcpptkinter_1_1Text.html#a499967e228f791fa0b36bf4f2923d562", null ],
     [ "mark_unset", "structcpptkinter_1_1Text.html#a4115dfc7743fd1ec1ee5c1f848c6d80b", null ],
-    [ "operator=", "structcpptkinter_1_1Text.html#a4f01eaeed08524ff2978008af3317b70", null ],
     [ "peer_create", "structcpptkinter_1_1Text.html#a9991707206af72ed17b021aa5a674562", null ],
     [ "peer_names", "structcpptkinter_1_1Text.html#a61eae26f83b096ab157804bcd02382e0", null ],
     [ "replace", "structcpptkinter_1_1Text.html#a55e73b7c7c0515b309117f53fff09fe9", null ],

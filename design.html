@@ -147,12 +147,12 @@ registering callbacks</h1>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">struct </span>{</div>
 <div class="line">        <span class="comment">/*...*/</span></div>
-<div class="line">        <span class="keywordtype">void</span> <a class="code hl_function" href="cpptkinter_8ixx.html#a705a120ec341a1b5510f552176f6d2ae">operator()</a>(<span class="comment">/*args*/</span>);</div>
+<div class="line">        <span class="keywordtype">void</span> <a class="code hl_function" href="cpptkinter_8widget_8base_8ixx.html#a705a120ec341a1b5510f552176f6d2ae">operator()</a>(<span class="comment">/*args*/</span>);</div>
 <div class="line">    } yview;</div>
 <div class="line">};</div>
 <div class="line"><span class="keyword">auto</span> text = tk::Text();</div>
 <div class="line"><span class="keyword">auto</span> sb = tk::Scrollbar({ .command = text.yview });</div>
-<div class="ttc" id="acpptkinter_8ixx_html_a705a120ec341a1b5510f552176f6d2ae"><div class="ttname"><a href="cpptkinter_8ixx.html#a705a120ec341a1b5510f552176f6d2ae">operator()</a></div><div class="ttdeci">std::array&lt; double, 2 &gt; operator()()</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l00002">cpptkinter.ixx:2</a></div></div>
+<div class="ttc" id="acpptkinter_8widget_8base_8ixx_html_a705a120ec341a1b5510f552176f6d2ae"><div class="ttname"><a href="cpptkinter_8widget_8base_8ixx.html#a705a120ec341a1b5510f552176f6d2ae">operator()</a></div><div class="ttdeci">std::array&lt; double, 2 &gt; operator()()</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8widget_8base_8ixx_source.html#l00002">cpptkinter.widget.base.ixx:2</a></div></div>
 </div><!-- fragment --><p> Because a member functor has to hold a reference to the impl struct it belongs to every member functor increases the size of the widget class by 8 bytes. Therefor, only functions which are actually used as callbacks are implemented like this.</p>
 <p>Currently, the functors hold a simple reference to the impl struct. If this should ever lead to dangling references the functors can easily be adjusted to hold weak references instead. </p>
 </div></div><!-- contents -->

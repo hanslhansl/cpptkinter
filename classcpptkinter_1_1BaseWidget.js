@@ -6,5 +6,6 @@ var classcpptkinter_1_1BaseWidget =
     [ "_setup", "classcpptkinter_1_1BaseWidget.html#a15d388b03eb18905d545f96d4eee860b", null ],
     [ "operator=", "classcpptkinter_1_1BaseWidget.html#ad7242177e5d6a691266ced6ea771153d", null ],
     [ "_name", "classcpptkinter_1_1BaseWidget.html#adc64cc0fb6a41525c7537dd493d2e339", null ],
+    [ "Self", "classcpptkinter_1_1BaseWidget.html#a87f3ee66c48482ea801fb597738214ae", null ],
     [ "widgetName", "classcpptkinter_1_1BaseWidget.html#ac9625a20a2ba4519d6de9af79dbfaf1d", null ]
 ];

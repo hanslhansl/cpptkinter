@@ -123,6 +123,8 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:a2624f04e284e808f4ba305f256dbe2a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="__cpptkinter_8ixx.html#a2624f04e284e808f4ba305f256dbe2a1">CONSTRUCTORS_AND_ASSIGNMENT</a>(cl,  cnf_type,  str,  base)</td></tr>
+<tr class="separator:a2624f04e284e808f4ba305f256dbe2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bb7628c59167b48410013ca74311168"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="__cpptkinter_8ixx.html#a4bb7628c59167b48410013ca74311168">CHECK_TCL_APPARTMENT</a>&#160;&#160;&#160;if (self-&gt;threaded &amp;&amp; self-&gt;thread_id != Tcl_GetCurrentThread()) throw utility::construct_exception&lt;std::runtime_error&gt;(&quot;Calling Tcl from different apartment&quot;)</td></tr>
 <tr class="separator:a4bb7628c59167b48410013ca74311168"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -160,6 +162,51 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="__cpptkinter_8ixx_source.html#l00022">22</a> of file <a class="el" href="__cpptkinter_8ixx_source.html">_cpptkinter.ixx</a>.</p>
 
+</div>
+</div>
+<a id="a2624f04e284e808f4ba305f256dbe2a1" name="a2624f04e284e808f4ba305f256dbe2a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2624f04e284e808f4ba305f256dbe2a1">&#9670;&#160;</a></span>CONSTRUCTORS_AND_ASSIGNMENT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CONSTRUCTORS_AND_ASSIGNMENT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cl, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cnf_type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">str, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">base&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">protected</span>:  \</div>
+<div class="line">    IMPL_CTOR(cl, base) \</div>
+<div class="line">    <span class="keyword">public</span>: \</div>
+<div class="line">    CNF_CONSTRUCTOR(cl, cnf_type, str)   \</div>
+<div class="line">    DEFINE_ASSIGNMENT_OPERATOR(cl)</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>

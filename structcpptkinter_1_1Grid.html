@@ -140,15 +140,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acb7532e5dad2dcf943a022a98c7a7460"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Grid.html#acb7532e5dad2dcf943a022a98c7a7460">grid_remove</a> (this auto &amp;&amp;self)</td></tr>
 <tr class="memdesc:acb7532e5dad2dcf943a022a98c7a7460"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unmap this widget but remember the grid options.  <br /></td></tr>
 <tr class="separator:acb7532e5dad2dcf943a022a98c7a7460"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4d6a8f739d150e0992fbc703cbb596a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcpptkinter_1_1cnfs_1_1GridInfo.html">cnfs::GridInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Grid.html#af4d6a8f739d150e0992fbc703cbb596a">grid_info</a> (this auto &amp;&amp;self)</td></tr>
-<tr class="memdesc:af4d6a8f739d150e0992fbc703cbb596a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return information about the options for positioning this widget in a grid.  <br /></td></tr>
-<tr class="separator:af4d6a8f739d150e0992fbc703cbb596a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36c0645e8734880cb03a3ced97262bbe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcpptkinter_1_1detail_1_1GridInfo.html">detail::GridInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1Grid.html#a36c0645e8734880cb03a3ced97262bbe">grid_info</a> (this auto &amp;&amp;self)</td></tr>
+<tr class="memdesc:a36c0645e8734880cb03a3ced97262bbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return information about the options for positioning this widget in a grid.  <br /></td></tr>
+<tr class="separator:a36c0645e8734880cb03a3ced97262bbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Geometry manager <a class="el" href="structcpptkinter_1_1Grid.html" title="Geometry manager Grid.">Grid</a>. </p>
 <p>Base class to use the methods grid_* in every widget. </p>
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02607">2607</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html#l00218">218</a> of file <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html">cpptkinter.widget.base.ixx</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="acf8b789f203605373de49e9dc6100d1b" name="acf8b789f203605373de49e9dc6100d1b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acf8b789f203605373de49e9dc6100d1b">&#9670;&#160;</a></span>grid()</h2>
@@ -188,11 +188,11 @@ template&lt;cnfs::is_cnf CNF = cnfs::grid_configure&gt; </div>
 
 <p>Position a widget in the parent widget in a grid.   </p>
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02617">2617</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 2617</span>                                                {})</div>
-<div class="line"><span class="lineno"> 2618</span>        {</div>
-<div class="line"><span class="lineno"> 2619</span>            self.grid_configure(std::forward&lt;CNF&gt;(cnf));</div>
-<div class="line"><span class="lineno"> 2620</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html#l00228">228</a> of file <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html">cpptkinter.widget.base.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  228</span>                                                {})</div>
+<div class="line"><span class="lineno">  229</span>        {</div>
+<div class="line"><span class="lineno">  230</span>            self.grid_configure(std::forward&lt;CNF&gt;(cnf));</div>
+<div class="line"><span class="lineno">  231</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -234,11 +234,11 @@ template&lt;cnfs::is_cnf CNF = cnfs::grid_configure&gt; </div>
 
 <p>Position a widget in the parent widget in a grid. </p>
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02611">2611</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 2611</span>                                                          {})</div>
-<div class="line"><span class="lineno"> 2612</span>        {</div>
-<div class="line"><span class="lineno"> 2613</span>            self.tk-&gt;call(<span class="stringliteral">&quot;grid&quot;</span>, <span class="stringliteral">&quot;configure&quot;</span>, self._w, self._options(std::forward&lt;CNF&gt;(cnf)));</div>
-<div class="line"><span class="lineno"> 2614</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html#l00222">222</a> of file <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html">cpptkinter.widget.base.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  222</span>                                                          {})</div>
+<div class="line"><span class="lineno">  223</span>        {</div>
+<div class="line"><span class="lineno">  224</span>            self.tk-&gt;call(<span class="stringliteral">&quot;grid&quot;</span>, <span class="stringliteral">&quot;configure&quot;</span>, self._w, self._options(std::forward&lt;CNF&gt;(cnf)));</div>
+<div class="line"><span class="lineno">  225</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -268,15 +268,15 @@ template&lt;cnfs::is_cnf CNF = cnfs::grid_configure&gt; </div>
 
 <p>Unmap this widget. </p>
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02623">2623</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 2624</span>        {</div>
-<div class="line"><span class="lineno"> 2625</span>            self.tk-&gt;call(<span class="stringliteral">&quot;grid&quot;</span>, <span class="stringliteral">&quot;forget&quot;</span>, self._w);</div>
-<div class="line"><span class="lineno"> 2626</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html#l00234">234</a> of file <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html">cpptkinter.widget.base.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  235</span>        {</div>
+<div class="line"><span class="lineno">  236</span>            self.tk-&gt;call(<span class="stringliteral">&quot;grid&quot;</span>, <span class="stringliteral">&quot;forget&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno">  237</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="af4d6a8f739d150e0992fbc703cbb596a" name="af4d6a8f739d150e0992fbc703cbb596a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4d6a8f739d150e0992fbc703cbb596a">&#9670;&#160;</a></span>grid_info()</h2>
+<a id="a36c0645e8734880cb03a3ced97262bbe" name="a36c0645e8734880cb03a3ced97262bbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36c0645e8734880cb03a3ced97262bbe">&#9670;&#160;</a></span>grid_info()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -285,7 +285,7 @@ template&lt;cnfs::is_cnf CNF = cnfs::grid_configure&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structcpptkinter_1_1cnfs_1_1GridInfo.html">cnfs::GridInfo</a> cpptkinter::Grid::grid_info </td>
+          <td class="memname"><a class="el" href="structcpptkinter_1_1detail_1_1GridInfo.html">detail::GridInfo</a> cpptkinter::Grid::grid_info </td>
           <td>(</td>
           <td class="paramtype">this auto &amp;&amp;&#160;</td>
           <td class="paramname"><em>self</em></td><td>)</td>
@@ -301,10 +301,10 @@ template&lt;cnfs::is_cnf CNF = cnfs::grid_configure&gt; </div>
 
 <p>Return information about the options for positioning this widget in a grid. </p>
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02635">2635</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 2636</span>        {</div>
-<div class="line"><span class="lineno"> 2637</span>            <span class="keywordflow">return</span> detail::pack_grid_info&lt;cnfs::GridInfo&gt;(self, <span class="stringliteral">&quot;grid&quot;</span>, <span class="stringliteral">&quot;info&quot;</span>, self._w);</div>
-<div class="line"><span class="lineno"> 2638</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html#l00246">246</a> of file <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html">cpptkinter.widget.base.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  247</span>        {</div>
+<div class="line"><span class="lineno">  248</span>            <span class="keywordflow">return</span> detail::pack_grid_info&lt;detail::GridInfo&gt;(self, <span class="stringliteral">&quot;grid&quot;</span>, <span class="stringliteral">&quot;info&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno">  249</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -334,15 +334,15 @@ template&lt;cnfs::is_cnf CNF = cnfs::grid_configure&gt; </div>
 
 <p>Unmap this widget but remember the grid options. </p>
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l02629">2629</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 2630</span>        {</div>
-<div class="line"><span class="lineno"> 2631</span>            self.tk-&gt;call(<span class="stringliteral">&quot;grid&quot;</span>, <span class="stringliteral">&quot;remove&quot;</span>, self._w);</div>
-<div class="line"><span class="lineno"> 2632</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html#l00240">240</a> of file <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html">cpptkinter.widget.base.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  241</span>        {</div>
+<div class="line"><span class="lineno">  242</span>            self.tk-&gt;call(<span class="stringliteral">&quot;grid&quot;</span>, <span class="stringliteral">&quot;remove&quot;</span>, self._w);</div>
+<div class="line"><span class="lineno">  243</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/cpptkinter/<a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a></li>
+<li>src/cpptkinter/<a class="el" href="cpptkinter_8widget_8base_8ixx_source.html">cpptkinter.widget.base.ixx</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

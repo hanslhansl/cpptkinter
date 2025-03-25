@@ -122,7 +122,7 @@ Public Member Functions</h2></td></tr>
 struct cpptkinter::YView&lt; Self &gt;</div><p>Mix-in class for querying and changing the vertical position of a widget's window. </p>
 <p>Implemented as crtp to enable the use of <a class="el" href="classcpptkinter_1_1utility_1_1member__functor.html" title="Base class for member functors.">utility::member_functor</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l01938">1938</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html#l00107">107</a> of file <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html">cpptkinter.widget.base.ixx</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="ac9f62e038e2c77c955312050c071f94e" name="ac9f62e038e2c77c955312050c071f94e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac9f62e038e2c77c955312050c071f94e">&#9670;&#160;</a></span>decays_to</h2>
@@ -133,12 +133,12 @@ struct cpptkinter::YView&lt; Self &gt;</div><p>Mix-in class for querying and cha
 template&lt;typename <a class="el" href="structcpptkinter_1_1YView.html#a5f1ac5681453b003af9167b680f767ff">Self</a> &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structcpptkinter_1_1YView.html">cpptkinter::YView</a>&lt; <a class="el" href="structcpptkinter_1_1YView.html#a5f1ac5681453b003af9167b680f767ff">Self</a> &gt;<a class="el" href="cpptkinter_8ixx.html#a008f29843e0395730df3e8a39e80e809">::decays_to</a> =  void(const std::vector&lt;<a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">Tcl_Obj</a>&gt;&amp;)</td>
+          <td class="memname">using <a class="el" href="structcpptkinter_1_1YView.html">cpptkinter::YView</a>&lt; <a class="el" href="structcpptkinter_1_1YView.html#a5f1ac5681453b003af9167b680f767ff">Self</a> &gt;<a class="el" href="cpptkinter_8widget_8base_8ixx.html#a39345d6795348f650c2b0527ae236d68">::decays_to</a> =  void(const std::vector&lt;<a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">Tcl_Obj</a>&gt;&amp;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l01942">1942</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html#l00111">111</a> of file <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html">cpptkinter.widget.base.ixx</a>.</p>
 
 </div>
 </div>
@@ -193,10 +193,10 @@ template&lt;typename <a class="el" href="structcpptkinter_1_1YView.html#a5f1ac56
 
 <p>Adjusts the view in the window so that FRACTION of the total height of the canvas is off - screen to the top. </p>
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l01958">1958</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 1959</span>        {</div>
-<div class="line"><span class="lineno"> 1960</span>            <span class="keyword">static_cast&lt;</span><span class="keyword">const </span><a class="code hl_function" href="structcpptkinter_1_1YView.html#a5f1ac5681453b003af9167b680f767ff">Self</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;tk-&gt;call(<span class="keyword">static_cast&lt;</span><span class="keyword">const </span><a class="code hl_function" href="structcpptkinter_1_1YView.html#a5f1ac5681453b003af9167b680f767ff">Self</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;_w, <span class="stringliteral">&quot;yview&quot;</span>, <span class="stringliteral">&quot;moveto&quot;</span>, fraction);</div>
-<div class="line"><span class="lineno"> 1961</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html#l00127">127</a> of file <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html">cpptkinter.widget.base.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  128</span>        {</div>
+<div class="line"><span class="lineno">  129</span>            <span class="keyword">static_cast&lt;</span><span class="keyword">const </span><a class="code hl_function" href="structcpptkinter_1_1YView.html#a5f1ac5681453b003af9167b680f767ff">Self</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;tk-&gt;call(<span class="keyword">static_cast&lt;</span><span class="keyword">const </span><a class="code hl_function" href="structcpptkinter_1_1YView.html#a5f1ac5681453b003af9167b680f767ff">Self</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;_w, <span class="stringliteral">&quot;yview&quot;</span>, <span class="stringliteral">&quot;moveto&quot;</span>, fraction);</div>
+<div class="line"><span class="lineno">  130</span>        }</div>
 <div class="ttc" id="astructcpptkinter_1_1YView_html_a5f1ac5681453b003af9167b680f767ff"><div class="ttname"><a href="structcpptkinter_1_1YView.html#a5f1ac5681453b003af9167b680f767ff">cpptkinter::YView::Self</a></div><div class="ttdeci">utility::member_functor Self(this) -&gt; pimpl }</div><div class="ttdoc">Query or change the vertical position of the view.</div></div>
 </div><!-- fragment -->
 </div>
@@ -239,16 +239,16 @@ template&lt;typename <a class="el" href="structcpptkinter_1_1YView.html#a5f1ac56
 
 <p>Shift the y-view according to NUMBER which is measured in "units" or "pages" (WHAT). </p>
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8ixx_source.html#l01964">1964</a> of file <a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 1965</span>        {</div>
-<div class="line"><span class="lineno"> 1966</span>            <span class="keyword">static_cast&lt;</span><span class="keyword">const </span><a class="code hl_function" href="structcpptkinter_1_1YView.html#a5f1ac5681453b003af9167b680f767ff">Self</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;tk-&gt;call(<span class="keyword">static_cast&lt;</span><span class="keyword">const </span><a class="code hl_function" href="structcpptkinter_1_1YView.html#a5f1ac5681453b003af9167b680f767ff">Self</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;_w, <span class="stringliteral">&quot;yview&quot;</span>, <span class="stringliteral">&quot;scroll&quot;</span>, <a class="code hl_variable" href="namespacecpptkinter_1_1detail.html#a72698205db4c3e4cadaa35da35c86897">detail::to_screenunits_arg</a>(number), what);</div>
-<div class="line"><span class="lineno"> 1967</span>        }</div>
-<div class="ttc" id="anamespacecpptkinter_1_1detail_html_a72698205db4c3e4cadaa35da35c86897"><div class="ttname"><a href="namespacecpptkinter_1_1detail.html#a72698205db4c3e4cadaa35da35c86897">cpptkinter::detail::to_screenunits_arg</a></div><div class="ttdeci">constexpr auto to_screenunits_arg</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8ixx_source.html#l00265">cpptkinter.ixx:265</a></div></div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html#l00133">133</a> of file <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html">cpptkinter.widget.base.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  134</span>        {</div>
+<div class="line"><span class="lineno">  135</span>            <span class="keyword">static_cast&lt;</span><span class="keyword">const </span><a class="code hl_function" href="structcpptkinter_1_1YView.html#a5f1ac5681453b003af9167b680f767ff">Self</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;tk-&gt;call(<span class="keyword">static_cast&lt;</span><span class="keyword">const </span><a class="code hl_function" href="structcpptkinter_1_1YView.html#a5f1ac5681453b003af9167b680f767ff">Self</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;_w, <span class="stringliteral">&quot;yview&quot;</span>, <span class="stringliteral">&quot;scroll&quot;</span>, <a class="code hl_variable" href="namespacecpptkinter_1_1detail.html#a72698205db4c3e4cadaa35da35c86897">detail::to_screenunits_arg</a>(number), what);</div>
+<div class="line"><span class="lineno">  136</span>        }</div>
+<div class="ttc" id="anamespacecpptkinter_1_1detail_html_a72698205db4c3e4cadaa35da35c86897"><div class="ttname"><a href="namespacecpptkinter_1_1detail.html#a72698205db4c3e4cadaa35da35c86897">cpptkinter::detail::to_screenunits_arg</a></div><div class="ttdeci">constexpr auto to_screenunits_arg</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8detail_8ixx_source.html#l00259">cpptkinter.detail.ixx:259</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/cpptkinter/<a class="el" href="cpptkinter_8ixx_source.html">cpptkinter.ixx</a></li>
+<li>src/cpptkinter/<a class="el" href="cpptkinter_8widget_8base_8ixx_source.html">cpptkinter.widget.base.ixx</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

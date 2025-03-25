@@ -40,7 +40,7 @@ var structcpptkinter_1_1cnfs_1_1Checkbutton =
     [ "textvariable", "structcpptkinter_1_1cnfs_1_1Checkbutton.html#a4d99bed3158814900da5f9ac28c070ad", null ],
     [ "tristateimage", "structcpptkinter_1_1cnfs_1_1Checkbutton.html#afaeb5b6993b2f3a3d1bb10d3234991ee", null ],
     [ "tristatevalue", "structcpptkinter_1_1cnfs_1_1Checkbutton.html#a501ed8810968f205cf39ffd6cb806108", null ],
-    [ "underline", "structcpptkinter_1_1cnfs_1_1Checkbutton.html#a77a678402fb3b2457e84c1b8d4029958", null ],
+    [ "underline", "structcpptkinter_1_1cnfs_1_1Checkbutton.html#ad27b3004cf4dae38ea6a487c8463f6e9", null ],
     [ "variable", "structcpptkinter_1_1cnfs_1_1Checkbutton.html#ab1b6db1eabc47606744546d4304e598a", null ],
     [ "width", "structcpptkinter_1_1cnfs_1_1Checkbutton.html#ad22790a33bd22e15c524ab184c24576f", null ],
     [ "wraplength", "structcpptkinter_1_1cnfs_1_1Checkbutton.html#a5ef133da5d5fa91ed39fb56096a1305f", null ]
