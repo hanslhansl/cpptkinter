@@ -93,7 +93,6 @@ $(document).ready(function(){initNavTree('__cpptkinter_8tkappobj_8ixx.html','');
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">_cpptkinter.tkappobj.ixx File Reference</div></div>
 </div><!--header-->
@@ -122,11 +121,6 @@ Namespaces</h2></td></tr>
 Macros</h2></td></tr>
 <tr class="memitem:a4bb7628c59167b48410013ca74311168"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="__cpptkinter_8tkappobj_8ixx.html#a4bb7628c59167b48410013ca74311168">CHECK_TCL_APPARTMENT</a>&#160;&#160;&#160;if (self-&gt;threaded &amp;&amp; self-&gt;thread_id != Tcl_GetCurrentThread()) throw utility::construct_exception&lt;std::runtime_error&gt;(&quot;Calling Tcl from different apartment&quot;)</td></tr>
 <tr class="separator:a4bb7628c59167b48410013ca74311168"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a68a954fff3aacbb7cb06bd7bd83f62e4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="__cpptkinter_8tkappobj_8ixx.html#a68a954fff3aacbb7cb06bd7bd83f62e4">TraceProc</a> (ClientData clientData, Tcl_Interp *interp, int level, const char *command, Tcl_Command token, int objc, Tcl_Obj *const objv[])</td></tr>
-<tr class="separator:a68a954fff3aacbb7cb06bd7bd83f62e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -158,78 +152,6 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="__cpptkinter_8tkappobj_8ixx_source.html#l00014">14</a> of file <a class="el" href="__cpptkinter_8tkappobj_8ixx_source.html">_cpptkinter.tkappobj.ixx</a>.</p>
 
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a68a954fff3aacbb7cb06bd7bd83f62e4" name="a68a954fff3aacbb7cb06bd7bd83f62e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68a954fff3aacbb7cb06bd7bd83f62e4">&#9670;&#160;</a></span>TraceProc()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int TraceProc </td>
-          <td>(</td>
-          <td class="paramtype">ClientData&#160;</td>
-          <td class="paramname"><em>clientData</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Tcl_Interp *&#160;</td>
-          <td class="paramname"><em>interp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>level</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>command</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Tcl_Command&#160;</td>
-          <td class="paramname"><em>token</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>objc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Tcl_Obj *const&#160;</td>
-          <td class="paramname"><em>objv</em>[]&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="__cpptkinter_8tkappobj_8ixx_source.html#l00016">16</a> of file <a class="el" href="__cpptkinter_8tkappobj_8ixx_source.html">_cpptkinter.tkappobj.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   18</span>{</div>
-<div class="line"><span class="lineno">   19</span>    std::string cmd(command);</div>
-<div class="line"><span class="lineno">   20</span> </div>
-<div class="line"><span class="lineno">   21</span>    <span class="comment">// Nur Tk-Befehle loggen (tk, ttk oder wm)</span></div>
-<div class="line"><span class="lineno">   22</span>    <span class="keywordflow">if</span> (cmd.find(<span class="stringliteral">&quot;tk&quot;</span>) == 0 || cmd.find(<span class="stringliteral">&quot;ttk&quot;</span>) == 0 || cmd.find(<span class="stringliteral">&quot;wm&quot;</span>) == 0) {</div>
-<div class="line"><span class="lineno">   23</span>        std::cout &lt;&lt; command &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">   24</span>    }</div>
-<div class="line"><span class="lineno">   25</span> </div>
-<div class="line"><span class="lineno">   26</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="tk_8ixx.html#aacf187dba9e59d4efc1d406ad6932106">TCL_OK</a>; <span class="comment">// Continue execution normally</span></div>
-<div class="line"><span class="lineno">   27</span>}</div>
-<div class="ttc" id="atk_8ixx_html_aacf187dba9e59d4efc1d406ad6932106"><div class="ttname"><a href="tk_8ixx.html#aacf187dba9e59d4efc1d406ad6932106">TCL_OK</a></div><div class="ttdeci">constexpr auto TCL_OK</div><div class="ttdef"><b>Definition:</b> <a href="tk_8ixx_source.html#l00109">tk.ixx:109</a></div></div>
-</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>

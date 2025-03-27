@@ -77,23 +77,24 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "__cpptkinter_8functions_8ixx.html",
-"classcpptkinter_1_1Misc.html#a95416e873c4117483ade79e046d14dbc",
+"classcpptkinter_1_1Misc.html#a993e786ef22a4996c43a1daa2633e918",
 "conceptcpptkinter_1_1detail_1_1Variable__mode__concept.html",
-"cpptkinter_8misc_8ixx.html#a141eec9ec3612e6f92bb05baf82bac9f",
-"namespacecpptkinter_1_1__cpptkinter.html#a2c538f1ca0843f0107f580b4ff6329a5",
-"namespacemembers_u.html",
-"structcpptkinter_1_1Listbox.html#a8d5f8d75a7118d61d294eba1f86624e0",
-"structcpptkinter_1_1Scrollbar.html#a927f2c756e94962d9c60517c223de7cc",
-"structcpptkinter_1_1Widget.html",
-"structcpptkinter_1_1__cpptkinter_1_1CommandEvent.html#a8f9b2a77c6689a5e0f16cdfef64b7bc3",
-"structcpptkinter_1_1cnfs_1_1Canvas.html#ad8d15aaac6e3717065fcfedc8861816c",
-"structcpptkinter_1_1cnfs_1_1Frame.html#ac7298548eefd7a260d702e8e56003328",
-"structcpptkinter_1_1cnfs_1_1Menu.html#af475f7fdf47c6f1b05896eb932026118",
-"structcpptkinter_1_1cnfs_1_1PanedWindow.html#a388855f1864295c5a9ccb90fb7f04fb0",
-"structcpptkinter_1_1cnfs_1_1Scale.html#adc1f9c15e746067bdac120584fe3dd62",
-"structcpptkinter_1_1cnfs_1_1Text.html#add0a0217edd34389582a66ba4ff36437",
-"structcpptkinter_1_1cnfs_1_1Toplevel.html#a45815d0d5d84c5193f0c96434fc60aa7",
-"structcpptkinter_1_1detail_1_1PlaceInfo.html#a88cb128fa8b8abb7ae9f11b7f3b6205b"
+"cpptkinter_8ixx.html#aff55674fa41a3a4ef62434c039b6c32d",
+"namespacecpptkinter_1_1__cpptkinter.html#a1669cb74cdcf344762c7e8a991495478",
+"namespacemembers_n.html",
+"structcpptkinter_1_1Listbox.html#a6117d1231c8a83dddc6e3e56b5d03af3",
+"structcpptkinter_1_1Scrollbar.html#a480222858a187a34a7d29618c30480df",
+"structcpptkinter_1_1Variable_1_1impl.html#aa5e7658276beaca031f945c97f0d42a4",
+"structcpptkinter_1_1__cpptkinter_1_1CommandEvent.html#a1c2d1da979d9253defeebf2a598d755c",
+"structcpptkinter_1_1cnfs_1_1Canvas.html#ad1ebb76035bfbad4ccb80a784f6b6e71",
+"structcpptkinter_1_1cnfs_1_1Frame.html#a79aea4b9776e2ded66e48ab25a259037",
+"structcpptkinter_1_1cnfs_1_1Menu.html#ac19713bf784f6a0951ffbf64ee1e94e9",
+"structcpptkinter_1_1cnfs_1_1Notebook.html#a96091fcaf34e2536353124769318cd1b",
+"structcpptkinter_1_1cnfs_1_1Radiobutton.html#aeb1d2af246d8b86d2d6f1539b66c195b",
+"structcpptkinter_1_1cnfs_1_1Text.html#a0409ff7a22db2aa841593dd26d87f2fc",
+"structcpptkinter_1_1cnfs_1_1Text__tag__configure.html#a19e481fc741433e8ea4915cd11b959b4",
+"structcpptkinter_1_1detail_1_1Event.html#a20466b200d7e3ae5b5753035a65834ba",
+"structcpptkinter_1_1ttk_1_1Widget.html#a38a956044d438935cedad117523fdd13"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

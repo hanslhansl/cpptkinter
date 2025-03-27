@@ -130,7 +130,7 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00892">892</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00891">891</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ab21f1ba43ad71becf298bd9c5611c590" name="ab21f1ba43ad71becf298bd9c5611c590"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab21f1ba43ad71becf298bd9c5611c590">&#9670;&#160;</a></span>destroy()</h2>
@@ -160,16 +160,16 @@ Public Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="structcpptkinter_1_1BaseWidget_1_1impl.html#a1d429ff1cd2ae53e839673d1b56ed857">cpptkinter::BaseWidget::impl</a>, and <a class="el" href="structcpptkinter_1_1detail_1_1Tk__impl.html#a0112f1b38464a7baa96e7e3892827859">cpptkinter::detail::Tk_impl</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00904">904</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  905</span>        {</div>
-<div class="line"><span class="lineno">  906</span>            <span class="comment">// keeps this from being destroyed before this function returns</span></div>
-<div class="line"><span class="lineno">  907</span>            <span class="keyword">auto</span> temp = this-&gt;shared_from_this();</div>
-<div class="line"><span class="lineno">  908</span> </div>
-<div class="line"><span class="lineno">  909</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp;&amp; name : this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Misc_1_1impl.html#abc9c640a87b98e17b3de830fdd243e52">_tclCommands</a>)</div>
-<div class="line"><span class="lineno">  910</span>                this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Misc_1_1impl.html#ab822f9ef001f6013970c72aa57e26357">tk</a>-&gt;deletecommand(name);</div>
-<div class="line"><span class="lineno">  911</span>        }</div>
-<div class="ttc" id="astructcpptkinter_1_1Misc_1_1impl_html_ab822f9ef001f6013970c72aa57e26357"><div class="ttname"><a href="structcpptkinter_1_1Misc_1_1impl.html#ab822f9ef001f6013970c72aa57e26357">cpptkinter::Misc::impl::tk</a></div><div class="ttdeci">std::shared_ptr&lt; _cpptkinter::TkappObject &gt; tk</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8misc_8ixx_source.html#l00898">cpptkinter.misc.ixx:898</a></div></div>
-<div class="ttc" id="astructcpptkinter_1_1Misc_1_1impl_html_abc9c640a87b98e17b3de830fdd243e52"><div class="ttname"><a href="structcpptkinter_1_1Misc_1_1impl.html#abc9c640a87b98e17b3de830fdd243e52">cpptkinter::Misc::impl::_tclCommands</a></div><div class="ttdeci">std::set&lt; std::string &gt; _tclCommands</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8misc_8ixx_source.html#l00894">cpptkinter.misc.ixx:894</a></div></div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00903">903</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  904</span>        {</div>
+<div class="line"><span class="lineno">  905</span>            <span class="comment">// keeps this from being destroyed before this function returns</span></div>
+<div class="line"><span class="lineno">  906</span>            <span class="keyword">auto</span> temp = this-&gt;shared_from_this();</div>
+<div class="line"><span class="lineno">  907</span> </div>
+<div class="line"><span class="lineno">  908</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp;&amp; name : this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Misc_1_1impl.html#abc9c640a87b98e17b3de830fdd243e52">_tclCommands</a>)</div>
+<div class="line"><span class="lineno">  909</span>                this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Misc_1_1impl.html#ab822f9ef001f6013970c72aa57e26357">tk</a>-&gt;deletecommand(name);</div>
+<div class="line"><span class="lineno">  910</span>        }</div>
+<div class="ttc" id="astructcpptkinter_1_1Misc_1_1impl_html_ab822f9ef001f6013970c72aa57e26357"><div class="ttname"><a href="structcpptkinter_1_1Misc_1_1impl.html#ab822f9ef001f6013970c72aa57e26357">cpptkinter::Misc::impl::tk</a></div><div class="ttdeci">std::shared_ptr&lt; _cpptkinter::TkappObject &gt; tk</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8misc_8ixx_source.html#l00897">cpptkinter.misc.ixx:897</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1Misc_1_1impl_html_abc9c640a87b98e17b3de830fdd243e52"><div class="ttname"><a href="structcpptkinter_1_1Misc_1_1impl.html#abc9c640a87b98e17b3de830fdd243e52">cpptkinter::Misc::impl::_tclCommands</a></div><div class="ttdeci">std::set&lt; std::string &gt; _tclCommands</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8misc_8ixx_source.html#l00893">cpptkinter.misc.ixx:893</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -186,7 +186,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00895">895</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00894">894</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
 
 </div>
 </div>
@@ -202,7 +202,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00894">894</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00893">893</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
 
 </div>
 </div>
@@ -218,7 +218,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00896">896</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00895">895</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
 
 </div>
 </div>
@@ -234,7 +234,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00899">899</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00898">898</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
 
 </div>
 </div>
@@ -250,7 +250,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00897">897</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00896">896</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
 
 </div>
 </div>
@@ -266,7 +266,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00898">898</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00897">897</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
 
 </div>
 </div>

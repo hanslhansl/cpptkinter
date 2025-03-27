@@ -44,6 +44,10 @@ var annotated_dup =
         [ "Menu_add_radiobutton", "structcpptkinter_1_1cnfs_1_1Menu__add__radiobutton.html", "structcpptkinter_1_1cnfs_1_1Menu__add__radiobutton" ],
         [ "Menu_add_separator", "structcpptkinter_1_1cnfs_1_1Menu__add__separator.html", "structcpptkinter_1_1cnfs_1_1Menu__add__separator" ],
         [ "Menubutton", "structcpptkinter_1_1cnfs_1_1Menubutton.html", "structcpptkinter_1_1cnfs_1_1Menubutton" ],
+        [ "Notebook", "structcpptkinter_1_1cnfs_1_1Notebook.html", "structcpptkinter_1_1cnfs_1_1Notebook" ],
+        [ "Notebook_add", "structcpptkinter_1_1cnfs_1_1Notebook__add.html", "structcpptkinter_1_1cnfs_1_1Notebook__add" ],
+        [ "Notebook_insert", "structcpptkinter_1_1cnfs_1_1Notebook__insert.html", "structcpptkinter_1_1cnfs_1_1Notebook__insert" ],
+        [ "Notebook_tab", "structcpptkinter_1_1cnfs_1_1Notebook__tab.html", "structcpptkinter_1_1cnfs_1_1Notebook__tab" ],
         [ "pack_configure", "structcpptkinter_1_1cnfs_1_1pack__configure.html", "structcpptkinter_1_1cnfs_1_1pack__configure" ],
         [ "PanedWindow", "structcpptkinter_1_1cnfs_1_1PanedWindow.html", "structcpptkinter_1_1cnfs_1_1PanedWindow" ],
         [ "PanedWindow_add", "structcpptkinter_1_1cnfs_1_1PanedWindow__add.html", "structcpptkinter_1_1cnfs_1_1PanedWindow__add" ],
@@ -77,6 +81,7 @@ var annotated_dup =
         [ "ignore", "structcpptkinter_1_1detail_1_1ignore.html", null ],
         [ "is_std_array", "structcpptkinter_1_1detail_1_1is__std__array.html", null ],
         [ "is_std_array< std::array< T, N > >", "structcpptkinter_1_1detail_1_1is__std__array_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html", null ],
+        [ "Notebook_tab_return", "structcpptkinter_1_1detail_1_1Notebook__tab__return.html", "structcpptkinter_1_1detail_1_1Notebook__tab__return" ],
         [ "PackInfo", "structcpptkinter_1_1detail_1_1PackInfo.html", "structcpptkinter_1_1detail_1_1PackInfo" ],
         [ "PlaceInfo", "structcpptkinter_1_1detail_1_1PlaceInfo.html", "structcpptkinter_1_1detail_1_1PlaceInfo" ],
         [ "set_get_proxy", "structcpptkinter_1_1detail_1_1set__get__proxy.html", "structcpptkinter_1_1detail_1_1set__get__proxy" ],
@@ -88,7 +93,7 @@ var annotated_dup =
         [ "widget_friend", "structcpptkinter_1_1detail_1_1widget__friend.html", "structcpptkinter_1_1detail_1_1widget__friend" ]
       ] ],
       [ "ttk", "namespacecpptkinter_1_1ttk.html", [
-        [ "Notebook", "structcpptkinter_1_1ttk_1_1Notebook.html", null ],
+        [ "Notebook", "structcpptkinter_1_1ttk_1_1Notebook.html", "structcpptkinter_1_1ttk_1_1Notebook" ],
         [ "Widget", "structcpptkinter_1_1ttk_1_1Widget.html", "structcpptkinter_1_1ttk_1_1Widget" ]
       ] ],
       [ "utility", "namespacecpptkinter_1_1utility.html", [

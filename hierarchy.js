@@ -108,6 +108,11 @@ var hierarchy =
     [ "cpptkinter::cnfs::Menu_add_radiobutton< T >", "structcpptkinter_1_1cnfs_1_1Menu__add__radiobutton.html", null ],
     [ "cpptkinter::cnfs::Menu_add_separator", "structcpptkinter_1_1cnfs_1_1Menu__add__separator.html", null ],
     [ "cpptkinter::cnfs::Menubutton", "structcpptkinter_1_1cnfs_1_1Menubutton.html", null ],
+    [ "cpptkinter::cnfs::Notebook", "structcpptkinter_1_1cnfs_1_1Notebook.html", null ],
+    [ "cpptkinter::cnfs::Notebook_add", "structcpptkinter_1_1cnfs_1_1Notebook__add.html", null ],
+    [ "cpptkinter::cnfs::Notebook_insert", "structcpptkinter_1_1cnfs_1_1Notebook__insert.html", null ],
+    [ "cpptkinter::cnfs::Notebook_tab", "structcpptkinter_1_1cnfs_1_1Notebook__tab.html", null ],
+    [ "cpptkinter::detail::Notebook_tab_return", "structcpptkinter_1_1detail_1_1Notebook__tab__return.html", null ],
     [ "cpptkinter::utility::optional_inverse_mutex_adaptor", "classcpptkinter_1_1utility_1_1optional__inverse__mutex__adaptor.html", null ],
     [ "cpptkinter::utility::optional_mutex_adaptor", "classcpptkinter_1_1utility_1_1optional__mutex__adaptor.html", null ],
     [ "cpptkinter::Pack", "structcpptkinter_1_1Pack.html", [

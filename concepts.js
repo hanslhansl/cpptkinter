@@ -21,7 +21,8 @@ var concepts =
         [ "screenunits_arg", "conceptcpptkinter_1_1detail_1_1screenunits__arg.html", null ],
         [ "tag_or_id_arg", "conceptcpptkinter_1_1detail_1_1tag__or__id__arg.html", null ],
         [ "text_index", "conceptcpptkinter_1_1detail_1_1text__index.html", null ],
-        [ "Variable_mode_concept", "conceptcpptkinter_1_1detail_1_1Variable__mode__concept.html", null ]
+        [ "Variable_mode_concept", "conceptcpptkinter_1_1detail_1_1Variable__mode__concept.html", null ],
+        [ "tab_id_arg", "conceptcpptkinter_1_1detail_1_1tab__id__arg.html", null ]
       ] ],
       [ "utility", "namespacecpptkinter_1_1utility.html", [
         [ "is_vector", "conceptcpptkinter_1_1utility_1_1is__vector.html", null ],

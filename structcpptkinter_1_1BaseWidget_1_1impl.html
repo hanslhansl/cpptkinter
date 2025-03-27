@@ -137,7 +137,7 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html#l00256">256</a> of file <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html">cpptkinter.widget.base.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html#l00253">253</a> of file <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html">cpptkinter.widget.base.ixx</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a1d429ff1cd2ae53e839673d1b56ed857" name="a1d429ff1cd2ae53e839673d1b56ed857"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1d429ff1cd2ae53e839673d1b56ed857">&#9670;&#160;</a></span>destroy()</h2>
@@ -166,23 +166,23 @@ Public Attributes</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="structcpptkinter_1_1Misc_1_1impl.html#ab21f1ba43ad71becf298bd9c5611c590">cpptkinter::Misc::impl</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html#l00262">262</a> of file <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html">cpptkinter.widget.base.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  263</span>            {</div>
-<div class="line"><span class="lineno">  264</span>                <span class="comment">// keeps this from being destroyed before this function returns</span></div>
-<div class="line"><span class="lineno">  265</span>                <span class="keyword">auto</span> temp = this-&gt;shared_from_this();</div>
-<div class="line"><span class="lineno">  266</span> </div>
-<div class="line"><span class="lineno">  267</span>                <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp;&amp; child : std::vector(std::from_range, std::views::values(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Misc_1_1impl.html#a4985b5647527c3497b39505e44d40a1b">children</a>)))</div>
-<div class="line"><span class="lineno">  268</span>                    child.destroy();</div>
-<div class="line"><span class="lineno">  269</span>                this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Misc_1_1impl.html#ab822f9ef001f6013970c72aa57e26357">tk</a>-&gt;call(<span class="stringliteral">&quot;destroy&quot;</span>, this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Misc_1_1impl.html#ae488323ded862e9be37a69347b5b2f72">_w</a>);</div>
-<div class="line"><span class="lineno">  270</span>                this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Misc_1_1impl.html#a0cbadc0d1353ee86c0eb7b818e55f7d0">master</a>.value().children.erase(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1BaseWidget_1_1impl.html#a0f37a0fa62c39a9ecf3a43d6d443db7a">_name</a>);</div>
-<div class="line"><span class="lineno">  271</span>                this-&gt;<a class="code hl_function" href="structcpptkinter_1_1Misc_1_1impl.html#ab21f1ba43ad71becf298bd9c5611c590">Misc::impl::destroy</a>();</div>
-<div class="line"><span class="lineno">  272</span>            }</div>
-<div class="ttc" id="astructcpptkinter_1_1BaseWidget_1_1impl_html_a0f37a0fa62c39a9ecf3a43d6d443db7a"><div class="ttname"><a href="structcpptkinter_1_1BaseWidget_1_1impl.html#a0f37a0fa62c39a9ecf3a43d6d443db7a">cpptkinter::BaseWidget::impl::_name</a></div><div class="ttdeci">std::string _name</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8widget_8base_8ixx_source.html#l00259">cpptkinter.widget.base.ixx:259</a></div></div>
-<div class="ttc" id="astructcpptkinter_1_1Misc_1_1impl_html_a0cbadc0d1353ee86c0eb7b818e55f7d0"><div class="ttname"><a href="structcpptkinter_1_1Misc_1_1impl.html#a0cbadc0d1353ee86c0eb7b818e55f7d0">cpptkinter::Misc::impl::master</a></div><div class="ttdeci">std::optional&lt; Misc &gt; master</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8misc_8ixx_source.html#l00897">cpptkinter.misc.ixx:897</a></div></div>
-<div class="ttc" id="astructcpptkinter_1_1Misc_1_1impl_html_a4985b5647527c3497b39505e44d40a1b"><div class="ttname"><a href="structcpptkinter_1_1Misc_1_1impl.html#a4985b5647527c3497b39505e44d40a1b">cpptkinter::Misc::impl::children</a></div><div class="ttdeci">std::map&lt; std::string, Misc &gt; children</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8misc_8ixx_source.html#l00899">cpptkinter.misc.ixx:899</a></div></div>
-<div class="ttc" id="astructcpptkinter_1_1Misc_1_1impl_html_ab21f1ba43ad71becf298bd9c5611c590"><div class="ttname"><a href="structcpptkinter_1_1Misc_1_1impl.html#ab21f1ba43ad71becf298bd9c5611c590">cpptkinter::Misc::impl::destroy</a></div><div class="ttdeci">virtual void destroy()</div><div class="ttdoc">Internal function.</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8misc_8ixx_source.html#l00904">cpptkinter.misc.ixx:904</a></div></div>
-<div class="ttc" id="astructcpptkinter_1_1Misc_1_1impl_html_ab822f9ef001f6013970c72aa57e26357"><div class="ttname"><a href="structcpptkinter_1_1Misc_1_1impl.html#ab822f9ef001f6013970c72aa57e26357">cpptkinter::Misc::impl::tk</a></div><div class="ttdeci">std::shared_ptr&lt; _cpptkinter::TkappObject &gt; tk</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8misc_8ixx_source.html#l00898">cpptkinter.misc.ixx:898</a></div></div>
-<div class="ttc" id="astructcpptkinter_1_1Misc_1_1impl_html_ae488323ded862e9be37a69347b5b2f72"><div class="ttname"><a href="structcpptkinter_1_1Misc_1_1impl.html#ae488323ded862e9be37a69347b5b2f72">cpptkinter::Misc::impl::_w</a></div><div class="ttdeci">std::string _w</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8misc_8ixx_source.html#l00896">cpptkinter.misc.ixx:896</a></div></div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html#l00259">259</a> of file <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html">cpptkinter.widget.base.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  260</span>            {</div>
+<div class="line"><span class="lineno">  261</span>                <span class="comment">// keeps this from being destroyed before this function returns</span></div>
+<div class="line"><span class="lineno">  262</span>                <span class="keyword">auto</span> temp = this-&gt;shared_from_this();</div>
+<div class="line"><span class="lineno">  263</span> </div>
+<div class="line"><span class="lineno">  264</span>                <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp;&amp; child : std::vector(std::from_range, std::views::values(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Misc_1_1impl.html#a4985b5647527c3497b39505e44d40a1b">children</a>)))</div>
+<div class="line"><span class="lineno">  265</span>                    child.destroy();</div>
+<div class="line"><span class="lineno">  266</span>                this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Misc_1_1impl.html#ab822f9ef001f6013970c72aa57e26357">tk</a>-&gt;call(<span class="stringliteral">&quot;destroy&quot;</span>, this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Misc_1_1impl.html#ae488323ded862e9be37a69347b5b2f72">_w</a>);</div>
+<div class="line"><span class="lineno">  267</span>                this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Misc_1_1impl.html#a0cbadc0d1353ee86c0eb7b818e55f7d0">master</a>.value().children.erase(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1BaseWidget_1_1impl.html#a0f37a0fa62c39a9ecf3a43d6d443db7a">_name</a>);</div>
+<div class="line"><span class="lineno">  268</span>                this-&gt;<a class="code hl_function" href="structcpptkinter_1_1Misc_1_1impl.html#ab21f1ba43ad71becf298bd9c5611c590">Misc::impl::destroy</a>();</div>
+<div class="line"><span class="lineno">  269</span>            }</div>
+<div class="ttc" id="astructcpptkinter_1_1BaseWidget_1_1impl_html_a0f37a0fa62c39a9ecf3a43d6d443db7a"><div class="ttname"><a href="structcpptkinter_1_1BaseWidget_1_1impl.html#a0f37a0fa62c39a9ecf3a43d6d443db7a">cpptkinter::BaseWidget::impl::_name</a></div><div class="ttdeci">std::string _name</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8widget_8base_8ixx_source.html#l00256">cpptkinter.widget.base.ixx:256</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1Misc_1_1impl_html_a0cbadc0d1353ee86c0eb7b818e55f7d0"><div class="ttname"><a href="structcpptkinter_1_1Misc_1_1impl.html#a0cbadc0d1353ee86c0eb7b818e55f7d0">cpptkinter::Misc::impl::master</a></div><div class="ttdeci">std::optional&lt; Misc &gt; master</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8misc_8ixx_source.html#l00896">cpptkinter.misc.ixx:896</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1Misc_1_1impl_html_a4985b5647527c3497b39505e44d40a1b"><div class="ttname"><a href="structcpptkinter_1_1Misc_1_1impl.html#a4985b5647527c3497b39505e44d40a1b">cpptkinter::Misc::impl::children</a></div><div class="ttdeci">std::map&lt; std::string, Misc &gt; children</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8misc_8ixx_source.html#l00898">cpptkinter.misc.ixx:898</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1Misc_1_1impl_html_ab21f1ba43ad71becf298bd9c5611c590"><div class="ttname"><a href="structcpptkinter_1_1Misc_1_1impl.html#ab21f1ba43ad71becf298bd9c5611c590">cpptkinter::Misc::impl::destroy</a></div><div class="ttdeci">virtual void destroy()</div><div class="ttdoc">Internal function.</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8misc_8ixx_source.html#l00903">cpptkinter.misc.ixx:903</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1Misc_1_1impl_html_ab822f9ef001f6013970c72aa57e26357"><div class="ttname"><a href="structcpptkinter_1_1Misc_1_1impl.html#ab822f9ef001f6013970c72aa57e26357">cpptkinter::Misc::impl::tk</a></div><div class="ttdeci">std::shared_ptr&lt; _cpptkinter::TkappObject &gt; tk</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8misc_8ixx_source.html#l00897">cpptkinter.misc.ixx:897</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1Misc_1_1impl_html_ae488323ded862e9be37a69347b5b2f72"><div class="ttname"><a href="structcpptkinter_1_1Misc_1_1impl.html#ae488323ded862e9be37a69347b5b2f72">cpptkinter::Misc::impl::_w</a></div><div class="ttdeci">std::string _w</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8misc_8ixx_source.html#l00895">cpptkinter.misc.ixx:895</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -199,7 +199,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html#l00259">259</a> of file <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html">cpptkinter.widget.base.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html#l00256">256</a> of file <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html">cpptkinter.widget.base.ixx</a>.</p>
 
 </div>
 </div>
@@ -215,7 +215,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html#l00258">258</a> of file <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html">cpptkinter.widget.base.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html#l00255">255</a> of file <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html">cpptkinter.widget.base.ixx</a>.</p>
 
 </div>
 </div>

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['activate_0',['activate',['../structcpptkinter_1_1Listbox.html#a1bb2dddbbf58a353402c183ff5bb5d3c',1,'cpptkinter::Listbox::activate()'],['../structcpptkinter_1_1Menu.html#a30b8506f7d805fd3405e5308458c7671',1,'cpptkinter::Menu::activate()'],['../structcpptkinter_1_1Scrollbar.html#a927f2c756e94962d9c60517c223de7cc',1,'cpptkinter::Scrollbar::activate(const std::string &amp;index)'],['../structcpptkinter_1_1Scrollbar.html#a5a7b2edb242a4544c769920c6716351f',1,'cpptkinter::Scrollbar::activate()']]],
-  ['add_1',['add',['../structcpptkinter_1_1Menu.html#a687927a1d92ae8a84ea1c9edc057d1ad',1,'cpptkinter::Menu::add()'],['../structcpptkinter_1_1PanedWindow.html#a999147d787ec5ab5fc1fc5d3a8d729ba',1,'cpptkinter::PanedWindow::add()']]],
+  ['add_1',['add',['../structcpptkinter_1_1Menu.html#a687927a1d92ae8a84ea1c9edc057d1ad',1,'cpptkinter::Menu::add()'],['../structcpptkinter_1_1PanedWindow.html#a999147d787ec5ab5fc1fc5d3a8d729ba',1,'cpptkinter::PanedWindow::add()'],['../structcpptkinter_1_1ttk_1_1Notebook.html#a5c7ff033cbb343cca568cb6f18fa88c3',1,'cpptkinter::ttk::Notebook::add()']]],
   ['add_5fcascade_2',['add_cascade',['../structcpptkinter_1_1Menu.html#ab8bf298efc0766c7ea9e50a48e66ce6c',1,'cpptkinter::Menu']]],
   ['add_5fcheckbutton_3',['add_checkbutton',['../structcpptkinter_1_1Menu.html#a4ab9cf86407a6642fb2257e2e00a3c5a',1,'cpptkinter::Menu']]],
   ['add_5fcommand_4',['add_command',['../structcpptkinter_1_1Menu.html#ab6f62bc3008565ece71d291dd0abbfdb',1,'cpptkinter::Menu']]],

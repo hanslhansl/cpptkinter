@@ -71,6 +71,8 @@ var cpptkinter_8detail_8ixx =
     [ "_splitdict_to_aggregate", "cpptkinter_8detail_8ixx.html#a4025246af34d067adce0a714703f333f", null ],
     [ "_tkerror", "cpptkinter_8detail_8ixx.html#ad58ef7017e478990f9e9f9a0bcd3ef9b", null ],
     [ "pack_grid_info", "cpptkinter_8detail_8ixx.html#af78b3243b9551605de5f37bb66a925ef", null ],
+    [ "vector_to_map", "cpptkinter_8detail_8ixx.html#a3fb5990153a20379f5d42bc61a527356", null ],
+    [ "vector_to_map", "cpptkinter_8detail_8ixx.html#af09cf94ed6e65e2fd24389391ccd4e6a", null ],
     [ "weak_ptr_is_empty", "cpptkinter_8detail_8ixx.html#a39ee2e9892a8b1aaf60095d0d39ba82e", null ],
     [ "__pad0__", "cpptkinter_8detail_8ixx.html#acadcd9c7c4790b089dcbbc02cfc69587", null ],
     [ "__pad1__", "cpptkinter_8detail_8ixx.html#a29bf73bedf4e20dbd09ab99bd6ed6d8f", null ],

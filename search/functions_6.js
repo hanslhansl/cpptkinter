@@ -2,7 +2,7 @@ var searchData=
 [
   ['flash_0',['flash',['../structcpptkinter_1_1Checkbutton.html#abbbacdc518dd0270c171dddb7fdd30ba',1,'cpptkinter::Checkbutton::flash()'],['../structcpptkinter_1_1Radiobutton.html#ac23d38f39c324011f6a61690ddbfefec',1,'cpptkinter::Radiobutton::flash()'],['../structcpptkinter_1_1Button.html#aa9f280aad22eb89a9d0c7691fe061281',1,'cpptkinter::Button::flash()']]],
   ['focusmodel_1',['focusmodel',['../structcpptkinter_1_1Wm.html#a948ee298dab0c1f49abb01be24cc072e',1,'cpptkinter::Wm::focusmodel(this auto &amp;&amp;self, const std::string &amp;model)'],['../structcpptkinter_1_1Wm.html#a89d4507ada23a5d987f425b38da478cc',1,'cpptkinter::Wm::focusmodel(this auto &amp;&amp;self)']]],
-  ['forget_2',['forget',['../structcpptkinter_1_1PanedWindow.html#a7853ce8ee294b691739a31121c62ab46',1,'cpptkinter::PanedWindow::forget()'],['../structcpptkinter_1_1Wm.html#a12d19f5cb927523b909c55756735b3a3',1,'cpptkinter::Wm::forget()']]],
+  ['forget_2',['forget',['../structcpptkinter_1_1PanedWindow.html#a7853ce8ee294b691739a31121c62ab46',1,'cpptkinter::PanedWindow::forget()'],['../structcpptkinter_1_1Wm.html#a12d19f5cb927523b909c55756735b3a3',1,'cpptkinter::Wm::forget()'],['../structcpptkinter_1_1ttk_1_1Notebook.html#ad63e6744d55e24cbd98da46568120286',1,'cpptkinter::ttk::Notebook::forget()']]],
   ['format_3',['format',['../structstd_1_1formatter_3_01T_01_4.html#ad1972220421d8252caff91921ab16736',1,'std::formatter&lt; T &gt;']]],
   ['format_5ftuple_4',['format_tuple',['../namespacecpptkinter_1_1detail.html#a67f7e09ff933a8d72dadeb347aead3d9',1,'cpptkinter::detail']]],
   ['fraction_5',['fraction',['../structcpptkinter_1_1Scrollbar.html#a49aac648a325818a43cdcffb8e14f478',1,'cpptkinter::Scrollbar']]],
