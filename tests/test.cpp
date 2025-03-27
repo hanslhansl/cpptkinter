@@ -4,6 +4,7 @@
 import std;
 import hhh;
 import cpptkinter;
+import aggregate_formatter;
 
 using namespace hhh;
 namespace tk = cpptkinter;
@@ -90,14 +91,13 @@ int main(int argc, char* argv[])
         auto root = tk::Tk();
         wroot = root;
 
-        root.title("Welcome to GeeksForGeeks");
-        root.geometry("700x500");
+        root.title("Welcome");
 
-        /*auto donothing = [&]() { misc::printl("do_nothing was called"); };
+        auto donothing = [&]() { misc::printl("do_nothing was called"); };
 
         auto menubar = tk::Menu({ root });
         auto filemenu = tk::Menu({ .master = menubar, .tearoff = 0 });
-        filemenu.add_checkbutton({ .label = "1"});
+        filemenu.add_checkbutton({ .label = "1" });
         filemenu.add_checkbutton({ .label = "xfgj" });
         filemenu.add_checkbutton({ .label = "3" });
         filemenu.add_command({ .command = donothing, .label = "New" });
@@ -116,7 +116,7 @@ int main(int argc, char* argv[])
         editmenu.add_command({ .command = donothing, .label = "Copy" });
         editmenu.add_command({ .command = donothing, .label = "Paste" });
         editmenu.add_command({ .command = donothing, .label = "Delete" });
-        editmenu.add_command({ .command = donothing, .label = "Select All",});
+        editmenu.add_command({ .command = donothing, .label = "Select All", });
 
         menubar.add_cascade({ .label = "Edit", .menu = editmenu });
         auto helpmenu = tk::Menu({ .master = menubar, .tearoff = 0 });
@@ -129,12 +129,11 @@ int main(int argc, char* argv[])
         filemenu.delete_(1);
 
         tk::StringVar var({ .value = "Hello, World!" });
-
         auto b1 = tk::Button({
             .master = root,
             .command = [&var]() { var.set("foo"); return 1; },
             .textvariable = var });
-        b1.grid({ .column = 0, .row = 0 });
+        b1.grid({ .column = 3, .row = 2 });
 
         auto frame = tk::Frame({ .master = root, .bg = "red", .padx = 5, });
         frame.grid({ .column = 1, .row = 1 });
@@ -150,10 +149,10 @@ int main(int argc, char* argv[])
         auto value_inside = tk::StringVar();
         value_inside.set("Select an Option");
         auto question_menu = tk::OptionMenu(root, value_inside, options_list);
-        question_menu.grid();
+        question_menu.grid({ .column = 2, .row = 3 });
         auto print_answers = [&]() { misc::printl("Selected Option: ", value_inside.get()); };
         auto submit_button = tk::Button({ .master = root, .command = print_answers, .text = "Submit" });
-        submit_button.grid();
+        submit_button.grid({ .column = 2, .row = 4 });
 
         auto check1 = tk::Checkbutton({ .master = root, .offvalue = 0, .onvalue = 1, .text = "Check 1", .tristatevalue = -1 });
         auto toggle_checkbutton = [](tk::Event event) {
@@ -171,15 +170,15 @@ int main(int argc, char* argv[])
             return std::string("break");
             };
         check1.bind("<1>", toggle_checkbutton);
-        check1.grid();
+        check1.grid({ .column = 2, .row = 0 });
 
 
         auto listbox = tk::Listbox();
         listbox.insert(0, 1, 2, 3, 4);
-        listbox.grid();
+        listbox.grid({ .column = 3, .row = 0 });
 
         auto pw = tk::PanedWindow();
-        pw.grid();
+        pw.grid({ .column = 3, .row = 1 });
         auto pwb = tk::Button({ .text = "pwb" });
         pw.add({ .child = pwb, .minsize = 100 });
 
@@ -197,13 +196,20 @@ int main(int argc, char* argv[])
         }
 
         auto tempframe = tk::Frame({ root });
-        tempframe.grid();
+        tempframe.grid({ .column = 0, .columnspan = 1, .row = 1, .sticky = "ns" });
         auto scrollable_frame = MainFrame(tempframe);
         for (auto i = 0; i < 50; i++)
             tk::Label({ .master = scrollable_frame, .text = std::format("Label {}", i + 1) }).pack({ .anchor = "w" });
-        */
+        
 
-        ttk::Notebook();
+        auto nb = ttk::Notebook({ .master = root });
+        nb.add({ tk::Button({ .text = "fxjcghcgkh" }), .text = "1" });
+        nb.add({ tk::Button({ .text = "cc bnkvhjl" }), .text = "2" });
+        nb.grid({ .column = 0, .columnspan = 1, .row = 2, .sticky = "nswe" });
+
+        auto tab = nb.tab(0);
+        std::println("{}", tab);
+
 
         tk::mainloop();
     }

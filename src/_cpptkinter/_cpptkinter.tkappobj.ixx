@@ -13,19 +13,6 @@ import std;
 
 #define CHECK_TCL_APPARTMENT  if (self->threaded && self->thread_id != Tcl_GetCurrentThread()) throw utility::construct_exception<std::runtime_error>("Calling Tcl from different apartment")
 
-int TraceProc(ClientData clientData, Tcl_Interp * interp, int level,
-	const char* command, Tcl_Command token, int objc, Tcl_Obj* const objv[])
-{
-	std::string cmd(command);
-
-	// Nur Tk-Befehle loggen (tk, ttk oder wm)
-	if (cmd.find("tk") == 0 || cmd.find("ttk") == 0 || cmd.find("wm") == 0) {
-		std::cout << command << std::endl;
-	}
-
-	return TCL_OK; // Continue execution normally
-}
-
 export namespace cpptkinter::_cpptkinter
 {
 	/// @brief This class allows running Tcl code. Cpptkinter uses it internally a lot.
@@ -34,10 +21,6 @@ export namespace cpptkinter::_cpptkinter
 		TkappObject(const std::string& screenName, std::string className, int interactive, int wantTk, int sync, const std::string& use)
 		{
 			this->interp = Tcl_CreateInterp();
-
-			Tcl_CreateObjTrace(this->interp, 0, 0, TraceProc, nullptr, nullptr);
-
-
 			this->threaded = Tcl_GetVar2Ex(this->interp, "tcl_platform", "threaded", TCL_GLOBAL_ONLY) != nullptr;
 			this->thread_id = Tcl_GetCurrentThread();
 

@@ -90,7 +90,6 @@ export namespace cpptkinter
         friend detail::widget_friend;
 
     protected:
-    public:
         struct impl;
 
         std::shared_ptr<impl> pimpl;

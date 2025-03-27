@@ -213,7 +213,9 @@ export namespace cpptkinter::detail
         }
 
         auto inner_visitor = [&v, &conv]<std::size_t I>()->reflect::member_type<I, A> {
-            auto key = /*rfl::fields<A>()[I].name()*/reflect::member_name<I, A>();
+			using member_type = reflect::member_type<I, A>;
+            static const auto key = /*rfl::fields<A>()[I].name()*/reflect::member_name<I, A>();
+
             auto&& node = v.extract(std::string(key));
             if (node.empty())
                 throw utility::construct_exception<std::invalid_argument>(std::format("key '{}' not found", key));
@@ -222,7 +224,11 @@ export namespace cpptkinter::detail
             if constexpr (std::same_as<Conv, const std::nullopt_t&>)
             {
                 if constexpr (hhh::meta::is_template_instance<V, std::variant>)
-                    return std::get<reflect::member_type<I, A>>(std::move(mapped));
+                {
+                    if (std::holds_alternative<member_type>(mapped))
+                        return std::get<member_type>(std::move(mapped));
+                    throw utility::construct_exception<std::invalid_argument>(std::format("expected {} for key {} but got {}", reflect::type_name<member_type>(), key, mapped));
+                }
                 else
                     return std::move(mapped);
             }
@@ -239,14 +245,31 @@ export namespace cpptkinter::detail
         return visitor(std::make_index_sequence<reflect::size<A>()>{});/**/
     }
 
+    std::map<std::string, std::string> vector_to_map(std::vector<std::string>&& vec)
+    {
+        return std::map<std::string, std::string>(std::from_range, std::views::zip(
+            vec | /*std::views::*/stride(2),
+            vec | /*std::views::*/drop(1) | /*std::views::*/stride(2)
+        ));
+    }
+    template<typename MP, typename...Args>
+    std::map<std::string, MP> vector_to_map(std::vector<std::variant<Args...>> && vec)
+    {
+        return std::map<std::string, MP>(std::from_range, std::views::zip(
+            vec | /*std::views::*/stride(2) | std::views::transform([](auto& val) {
+                if (std::holds_alternative<std::string>(val))
+                    return std::get<std::string>(val);
+				throw utility::construct_exception<std::invalid_argument>("expected string");
+                }),
+            vec | /*std::views::*/drop(1) | /*std::views::*/stride(2)
+        ));
+    }
+
     template<typename T>
     T pack_grid_info(auto&& self, const std::string& a1, const std::string& a2, const std::string& a3)
     {
         using V = std::variant<long long, std::string, _cpptkinter::tk_window_type>;
         auto map = self.tk->template call<std::map<std::string, V>>(a1, a2, a3);
-
-        if (map.size() != reflect::size<T>())
-            throw utility::construct_exception<std::invalid_argument>(std::format("map has {} elements but type {} has {} members", map.size(), reflect::type_name<T>(), reflect::size<T>()));
 
         auto converter = [&self]<typename T2>(V && v)->T2
         {

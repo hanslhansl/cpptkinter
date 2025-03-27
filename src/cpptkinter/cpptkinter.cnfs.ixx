@@ -11,7 +11,7 @@ import std;
 
 export namespace cpptkinter::detail
 {
-    using pad_type = utility::extend_variants<detail::ScreenUnits, std::array<detail::ScreenUnits, 2>>::type;
+    using pad_type = utility::extend_variants<ScreenUnits, std::array<ScreenUnits, 2>>::type;
     using visual_type = std::variant<std::string, std::tuple<std::string, long long>>;
 }
 
@@ -1021,4 +1021,6 @@ export namespace cpptkinter::cnfs
         opt_bool showhandle;
         opt_string width;
     };
+
+
 }

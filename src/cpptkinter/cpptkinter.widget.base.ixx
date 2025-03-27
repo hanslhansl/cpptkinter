@@ -195,10 +195,7 @@ export namespace cpptkinter
         {
             auto str = self.tk->template call<std::string>("place", "info", self._w);
             std::vector<std::string> vec = self.tk->splitlist(str);
-            std::map<std::string, std::string> map(std::from_range, std::views::zip(
-                vec | /*std::views::*/stride(2),
-                vec | /*std::views::*/drop(1) | /*std::views::*/stride(2)
-            ));
+            auto map = detail::vector_to_map(std::move(vec));
 
             auto converter = [&self]<typename T2>(std::string && v)->T2
             {
