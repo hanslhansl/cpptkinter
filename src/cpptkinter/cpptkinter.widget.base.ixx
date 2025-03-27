@@ -365,6 +365,6 @@ export namespace cpptkinter
     public:
 
         /// @brief Exists only to make reflect work.
-        Widget() : BaseWidget(std::make_shared<impl>()) { ANNOTATION_WARNING("Exists only to make reflect work."); }
+        Widget() : Widget(std::make_shared<impl>()) { ANNOTATION_WARNING("Exists only to make reflect work."); }
     };
 }

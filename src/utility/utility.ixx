@@ -1,6 +1,5 @@
 ﻿/// @file utility.ixx
 /// @brief Contains utility functions and classes which are not present in tkinter or _tkinter.
-
 module;
 #include "../global.hpp"
 export module cpptkinter:utility;
@@ -13,10 +12,6 @@ import variant_formatter;
 import optional_formatter;
 
 
-export namespace cpptkinter
-{
-    class Misc;
-}
 
 /// @brief Utilities that aren't related to Python's tkinter or _tkinter.
 export namespace cpptkinter::utility

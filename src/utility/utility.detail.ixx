@@ -6,6 +6,11 @@ import hhh;
 import reflect;
 
 
+export namespace cpptkinter
+{
+    class Misc;
+}
+
 namespace cpptkinter::detail
 {
     template<typename T>
@@ -103,6 +108,12 @@ namespace cpptkinter::detail
         static To dynamic_widget_cast_down(const From& from) requires requires { dynamic_cast<typename To::impl*>(from.pimpl.get()); }
         {
             return std::dynamic_pointer_cast<typename To::impl>(from.pimpl);
+        }
+
+        template<std::same_as<Misc> Misc, typename...Args>
+        static auto misc_bind_class_impl(Misc* self, const std::string& className, Args&&...args)
+        {
+            return self->_root()._bind({ "bind", className }, std::forward<Args>(args)..., true);
         }
     };
 

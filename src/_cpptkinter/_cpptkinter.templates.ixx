@@ -1,10 +1,10 @@
 module;
 #include <tk.h>
 #include "../global.hpp"
-export module cpptkinter:_cpptkinter2;
+export module cpptkinter:_cpptkinter.templates;
 import std;
 import :utility;
-import :_cpptkinter1;
+import :_cpptkinter.functions;
 import :_cpptkinter.tcl_obj;
 import reflect;
 

@@ -164,27 +164,6 @@ export namespace cpptkinter
         return Tk(screenName, className, useTk);
     }
 
-    template<typename R, typename...Args>
-    struct detail::CallWrapper
-    {
-        std::function<R(Args...)> func;
-        Misc/*utility::weak<Misc>*/ widget;
-
-        /// Apply FUNC to arguments.
-        R operator()(Args...args)
-        {
-            try
-            {
-                return this->func(std::forward<Args>(args)...);
-            }
-            catch (...)
-            {
-                this->widget/*.lock()*/._report_exception();
-                throw;
-            }
-        }
-    };
-
     namespace cnfs
     {
         using opt_master = opt<Misc>;
@@ -514,19 +493,6 @@ export namespace cpptkinter
             return this->tk->call<long long>("image", "width", this->name);
         }
     };
-}
-
-
-template<typename...Args>
-auto cpptkinter::Misc::bind_class(const std::string& className, Args&&...args) /*-> decltype(this->_bind({}, std::forward<Args>(args)..., true));*/
-{
-    return this->_root()._bind({ "bind", className }, std::forward<Args>(args)..., true);
-}
-
-template<typename...Args>
-auto cpptkinter::Misc::bind_all(Args&&...args) /*-> decltype(this->_bind({}, std::forward<Args>(args)..., true));*/
-{
-    return this->_root()._bind({ "bind", "all" }, std::forward<Args>(args)..., true);
 }
 
 void cpptkinter::Misc::unbind_class(const std::string& className, const std::string& sequence)

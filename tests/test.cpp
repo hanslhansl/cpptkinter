@@ -7,7 +7,7 @@ import cpptkinter;
 
 using namespace hhh;
 namespace tk = cpptkinter;
-
+namespace ttk = tk::ttk;
 
 
 class MainFrame : public tk::Frame
@@ -77,8 +77,6 @@ public:
     }
 };
 
-
-
 int main(int argc, char* argv[])
 {
     tk::detail::_debug = false;
@@ -92,13 +90,10 @@ int main(int argc, char* argv[])
         auto root = tk::Tk();
         wroot = root;
 
-
-        tk::detail::Tkapp_Trace_to_string(root);
-
         root.title("Welcome to GeeksForGeeks");
         root.geometry("700x500");
 
-        auto donothing = [&]() { misc::printl("do_nothing was called"); };
+        /*auto donothing = [&]() { misc::printl("do_nothing was called"); };
 
         auto menubar = tk::Menu({ root });
         auto filemenu = tk::Menu({ .master = menubar, .tearoff = 0 });
@@ -188,11 +183,12 @@ int main(int argc, char* argv[])
         auto pwb = tk::Button({ .text = "pwb" });
         pw.add({ .child = pwb, .minsize = 100 });
 
-        auto text = tk::Text({.master= root, .height = 10, .width=40, .wrap="none"});
-        auto ys = tk::Scrollbar({ .master = root, .command = text.yview, .orient = "vertical" });
-        text["yscrollcommand"] = ys.set;
-        text.grid({ .column = 0, .row = 0, .sticky = "nwes" });
+        auto ys = tk::Scrollbar({ .master = root, .orient = "vertical" });
         ys.grid({ .column = 1, .row = 0, .sticky = "ns" });
+        auto text = tk::Text({.master= root, .height = 10, .width=40, .wrap="none"});
+        text["yscrollcommand"] = ys.set;
+        ys["command"] = text.yview;
+        text.grid({ .column = 0, .row = 0, .sticky = "nwes" });
         for (int i = 0; i<105;i++)
         {
             auto b = tk::Button({ .master = text, .command = [i]() { misc::printl("button ", i); }, .text = std::to_string(i) });
@@ -200,18 +196,14 @@ int main(int argc, char* argv[])
             text.insert("end", "\n");
         }
 
-        /*auto tempframe = tk::Frame({ root });
+        auto tempframe = tk::Frame({ root });
         tempframe.grid();
         auto scrollable_frame = MainFrame(tempframe);
         for (auto i = 0; i < 50; i++)
-            tk::Label({ .master = scrollable_frame, .text = std::format("Label {}", i + 1) }).pack({ .anchor = "w" });*/
+            tk::Label({ .master = scrollable_frame, .text = std::format("Label {}", i + 1) }).pack({ .anchor = "w" });
+        */
 
-        {
-            auto value_inside = tk::StringVar();
-            value_inside.set("Select an Option");
-            auto question_menu = tk::OptionMenu(root, value_inside, std::vector{ "Opt 1", "Opt 2", "Opt 3" });
-            question_menu.grid();
-        }
+        ttk::Notebook();
 
         tk::mainloop();
     }

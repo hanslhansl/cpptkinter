@@ -4,7 +4,7 @@ module;
 #ifdef _WIN32
 #include <windows.h>
 #endif
-export module cpptkinter:_cpptkinter1;
+export module cpptkinter:_cpptkinter.functions;
 import std;
 import :utility;
 
@@ -138,7 +138,7 @@ export namespace cpptkinter::_cpptkinter
 {
 	int Tcl_AppInit(Tcl_Interp* interp)
 	{
-		if (Tcl_Init(interp) == TCL_ERROR)
+		if (Tcl_Init(interp) != TCL_OK)
 		{
 			std::cerr << "Tcl_Init error: " << Tcl_GetStringResult(interp) << std::endl;
 			return TCL_ERROR;
@@ -148,7 +148,7 @@ export namespace cpptkinter::_cpptkinter
 		if (_tkinter_skip_tk_init != nullptr && _tkinter_skip_tk_init == std::string_view("1"))
 			return TCL_OK;
 
-		if (Tk_Init(interp) == TCL_ERROR)
+		if (Tk_Init(interp) != TCL_OK)
 		{
 			std::cerr << "Tk_Init error: " << Tcl_GetStringResult(interp) << std::endl;
 			return TCL_ERROR;

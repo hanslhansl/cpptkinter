@@ -14,6 +14,7 @@ export import :cpptkinter1;
 export import :cpptkinter.widget.base;
 export import :cpptkinter.widget1;
 export import :cpptkinter.widget2;
+export import :ttk;
 import std;
 import hhh;
 
