@@ -162,7 +162,7 @@ Static Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base class for images. </p>
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00402">402</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00381">381</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af4616de2baa1e0639c5b676c581c62ba" name="af4616de2baa1e0639c5b676c581c62ba"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af4616de2baa1e0639c5b676c581c62ba">&#9670;&#160;</a></span>Image()</h2>
@@ -200,41 +200,41 @@ template&lt;typename CNF &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00411">411</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  411</span>                                                   : <a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a>{ !cnf.master.has_value() ?</div>
-<div class="line"><span class="lineno">  412</span>                <a class="code hl_function" href="namespacecpptkinter_1_1detail.html#ac0b4eb6697fa1756cf5b389b468740c6">detail::_get_default_root</a>(<span class="stringliteral">&quot;create image&quot;</span>).<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a">tk</a> :</div>
-<div class="line"><span class="lineno">  413</span>            (std::holds_alternative&lt;Misc&gt;(cnf.master.value()) ?</div>
-<div class="line"><span class="lineno">  414</span>                std::get&lt;Misc&gt;(cnf.master.value()).tk :</div>
-<div class="line"><span class="lineno">  415</span>                std::get&lt;std::shared_ptr&lt;_cpptkinter::TkappObject&gt;&gt;(cnf.master.value())) }</div>
-<div class="line"><span class="lineno">  416</span>        {</div>
-<div class="line"><span class="lineno">  417</span>            <span class="keyword">const</span> <span class="keyword">static</span> std::set&lt;std::string&gt; ignore = { <span class="stringliteral">&quot;name&quot;</span>, <span class="stringliteral">&quot;master&quot;</span> };</div>
-<div class="line"><span class="lineno">  418</span>            <span class="keywordflow">if</span> (cnf.name.empty())</div>
-<div class="line"><span class="lineno">  419</span>            {</div>
-<div class="line"><span class="lineno">  420</span>                <a class="code hl_variable" href="structcpptkinter_1_1Image.html#a4c68baf9fc78b5e8c3877e7b446699f0">Image::_last_id</a>++;</div>
-<div class="line"><span class="lineno">  421</span>                this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a> = std::format(<span class="stringliteral">&quot;cppimage{}&quot;</span>, <a class="code hl_variable" href="structcpptkinter_1_1Image.html#a4c68baf9fc78b5e8c3877e7b446699f0">Image::_last_id</a>);</div>
-<div class="line"><span class="lineno">  422</span>            }</div>
-<div class="line"><span class="lineno">  423</span> </div>
-<div class="line"><span class="lineno">  424</span>            std::vector&lt;_cpptkinter::Tcl_Obj&gt; options{};</div>
-<div class="line"><span class="lineno">  425</span>            <span class="keyword">auto</span> visitor = [&amp;]&lt;<span class="keyword">typename</span> T&gt;(T &amp;&amp; value, <span class="keyword">auto</span> I) {</div>
-<div class="line"><span class="lineno">  426</span>                <span class="keyword">constexpr</span> <span class="keyword">auto</span> k = reflect::member_name&lt;I, CNF&gt;();</div>
-<div class="line"><span class="lineno">  427</span> </div>
-<div class="line"><span class="lineno">  428</span>                <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (k != <span class="stringliteral">&quot;name&quot;</span> &amp;&amp; k != <span class="stringliteral">&quot;master&quot;</span>)</div>
-<div class="line"><span class="lineno">  429</span>                {</div>
-<div class="line"><span class="lineno">  430</span>                    options.emplace_back(<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>(<span class="stringliteral">&quot;-&quot;</span> + std::string(k)));</div>
-<div class="line"><span class="lineno">  431</span>                    options.emplace_back(<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>(std::forward&lt;T&gt;(value)));</div>
-<div class="line"><span class="lineno">  432</span>                }</div>
-<div class="line"><span class="lineno">  433</span>            };</div>
-<div class="line"><span class="lineno">  434</span>            reflect::for_each&lt;CNF&gt;([&amp;](<span class="keyword">auto</span> I) { <a class="code hl_function" href="namespacecpptkinter_1_1utility.html#aa39d16517e944408c448c375f1ce91f2">utility::invoke_or_and_then</a>(visitor, reflect::get&lt;I&gt;(std::forward&lt;CNF&gt;(cnf)), I); });</div>
-<div class="line"><span class="lineno">  435</span> </div>
-<div class="line"><span class="lineno">  436</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a>-&gt;call(<span class="stringliteral">&quot;image&quot;</span>, <span class="stringliteral">&quot;create&quot;</span>, imgtype, this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>, options);</div>
-<div class="line"><span class="lineno">  437</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00390">390</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  390</span>                                                   : <a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a>{ !cnf.master.has_value() ?</div>
+<div class="line"><span class="lineno">  391</span>                <a class="code hl_function" href="namespacecpptkinter_1_1detail.html#ac0b4eb6697fa1756cf5b389b468740c6">detail::_get_default_root</a>(<span class="stringliteral">&quot;create image&quot;</span>).<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a">tk</a> :</div>
+<div class="line"><span class="lineno">  392</span>            (std::holds_alternative&lt;Misc&gt;(cnf.master.value()) ?</div>
+<div class="line"><span class="lineno">  393</span>                std::get&lt;Misc&gt;(cnf.master.value()).tk :</div>
+<div class="line"><span class="lineno">  394</span>                std::get&lt;std::shared_ptr&lt;_cpptkinter::TkappObject&gt;&gt;(cnf.master.value())) }</div>
+<div class="line"><span class="lineno">  395</span>        {</div>
+<div class="line"><span class="lineno">  396</span>            <span class="keyword">const</span> <span class="keyword">static</span> std::set&lt;std::string&gt; ignore = { <span class="stringliteral">&quot;name&quot;</span>, <span class="stringliteral">&quot;master&quot;</span> };</div>
+<div class="line"><span class="lineno">  397</span>            <span class="keywordflow">if</span> (cnf.name.empty())</div>
+<div class="line"><span class="lineno">  398</span>            {</div>
+<div class="line"><span class="lineno">  399</span>                <a class="code hl_variable" href="structcpptkinter_1_1Image.html#a4c68baf9fc78b5e8c3877e7b446699f0">Image::_last_id</a>++;</div>
+<div class="line"><span class="lineno">  400</span>                this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a> = std::format(<span class="stringliteral">&quot;cppimage{}&quot;</span>, <a class="code hl_variable" href="structcpptkinter_1_1Image.html#a4c68baf9fc78b5e8c3877e7b446699f0">Image::_last_id</a>);</div>
+<div class="line"><span class="lineno">  401</span>            }</div>
+<div class="line"><span class="lineno">  402</span> </div>
+<div class="line"><span class="lineno">  403</span>            std::vector&lt;_cpptkinter::Tcl_Obj&gt; options{};</div>
+<div class="line"><span class="lineno">  404</span>            <span class="keyword">auto</span> visitor = [&amp;]&lt;<span class="keyword">typename</span> T&gt;(T &amp;&amp; value, <span class="keyword">auto</span> I) {</div>
+<div class="line"><span class="lineno">  405</span>                <span class="keyword">constexpr</span> <span class="keyword">auto</span> k = reflect::member_name&lt;I, CNF&gt;();</div>
+<div class="line"><span class="lineno">  406</span> </div>
+<div class="line"><span class="lineno">  407</span>                <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (k != <span class="stringliteral">&quot;name&quot;</span> &amp;&amp; k != <span class="stringliteral">&quot;master&quot;</span>)</div>
+<div class="line"><span class="lineno">  408</span>                {</div>
+<div class="line"><span class="lineno">  409</span>                    options.emplace_back(<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>(<span class="stringliteral">&quot;-&quot;</span> + std::string(k)));</div>
+<div class="line"><span class="lineno">  410</span>                    options.emplace_back(<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>(std::forward&lt;T&gt;(value)));</div>
+<div class="line"><span class="lineno">  411</span>                }</div>
+<div class="line"><span class="lineno">  412</span>            };</div>
+<div class="line"><span class="lineno">  413</span>            reflect::for_each&lt;CNF&gt;([&amp;](<span class="keyword">auto</span> I) { <a class="code hl_function" href="namespacecpptkinter_1_1utility.html#aa39d16517e944408c448c375f1ce91f2">utility::invoke_or_and_then</a>(visitor, reflect::get&lt;I&gt;(std::forward&lt;CNF&gt;(cnf)), I); });</div>
+<div class="line"><span class="lineno">  414</span> </div>
+<div class="line"><span class="lineno">  415</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a>-&gt;call(<span class="stringliteral">&quot;image&quot;</span>, <span class="stringliteral">&quot;create&quot;</span>, imgtype, this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>, options);</div>
+<div class="line"><span class="lineno">  416</span>        }</div>
 <div class="ttc" id="aclasscpptkinter_1_1Misc_html_a689ee457ea75000ba41e15a0041b335a"><div class="ttname"><a href="classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a">cpptkinter::Misc::tk</a></div><div class="ttdeci">std::shared_ptr&lt; _cpptkinter::TkappObject &gt; &amp; tk</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8misc_8ixx_source.html#l00103">cpptkinter.misc.ixx:103</a></div></div>
 <div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_a67240db275ca02da5d34c882ee7c8957"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">cpptkinter::_cpptkinter::AsObj</a></div><div class="ttdeci">constexpr detail::AsObjFunctorType AsObj</div><div class="ttdoc">Convert a c++ value to a tcl object.</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter_8tcl__obj_8ixx_source.html#l00485">_cpptkinter.tcl_obj.ixx:485</a></div></div>
-<div class="ttc" id="anamespacecpptkinter_1_1detail_html_ac0b4eb6697fa1756cf5b389b468740c6"><div class="ttname"><a href="namespacecpptkinter_1_1detail.html#ac0b4eb6697fa1756cf5b389b468740c6">cpptkinter::detail::_get_default_root</a></div><div class="ttdeci">Tk _get_default_root(const std::string &amp;what={})</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter1_8ixx_source.html#l00556">cpptkinter1.ixx:556</a></div></div>
-<div class="ttc" id="anamespacecpptkinter_1_1utility_html_aa39d16517e944408c448c375f1ce91f2"><div class="ttname"><a href="namespacecpptkinter_1_1utility.html#aa39d16517e944408c448c375f1ce91f2">cpptkinter::utility::invoke_or_and_then</a></div><div class="ttdeci">void invoke_or_and_then(Callable &amp;&amp;callable, Optional &amp;&amp;optional, Args &amp;&amp;...args)</div><div class="ttdoc">Invokes a callable with an optional's value (if present).</div><div class="ttdef"><b>Definition:</b> <a href="utility_8ixx_source.html#l00074">utility.ixx:74</a></div></div>
-<div class="ttc" id="astructcpptkinter_1_1Image_html_a0b6bdb1e6c0373b275f6d548c587f9ce"><div class="ttname"><a href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">cpptkinter::Image::tk</a></div><div class="ttdeci">std::shared_ptr&lt; _cpptkinter::TkappObject &gt; tk</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter1_8ixx_source.html#l00408">cpptkinter1.ixx:408</a></div></div>
-<div class="ttc" id="astructcpptkinter_1_1Image_html_a3c386dad1c20289c7775a14514f74d65"><div class="ttname"><a href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">cpptkinter::Image::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter1_8ixx_source.html#l00407">cpptkinter1.ixx:407</a></div></div>
-<div class="ttc" id="astructcpptkinter_1_1Image_html_a4c68baf9fc78b5e8c3877e7b446699f0"><div class="ttname"><a href="structcpptkinter_1_1Image.html#a4c68baf9fc78b5e8c3877e7b446699f0">cpptkinter::Image::_last_id</a></div><div class="ttdeci">static long long _last_id</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter1_8ixx_source.html#l00405">cpptkinter1.ixx:405</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1detail_html_ac0b4eb6697fa1756cf5b389b468740c6"><div class="ttname"><a href="namespacecpptkinter_1_1detail.html#ac0b4eb6697fa1756cf5b389b468740c6">cpptkinter::detail::_get_default_root</a></div><div class="ttdeci">Tk _get_default_root(const std::string &amp;what={})</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter1_8ixx_source.html#l00529">cpptkinter1.ixx:529</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1utility_html_aa39d16517e944408c448c375f1ce91f2"><div class="ttname"><a href="namespacecpptkinter_1_1utility.html#aa39d16517e944408c448c375f1ce91f2">cpptkinter::utility::invoke_or_and_then</a></div><div class="ttdeci">void invoke_or_and_then(Callable &amp;&amp;callable, Optional &amp;&amp;optional, Args &amp;&amp;...args)</div><div class="ttdoc">Invokes a callable with an optional's value (if present).</div><div class="ttdef"><b>Definition:</b> <a href="utility_8ixx_source.html#l00068">utility.ixx:68</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1Image_html_a0b6bdb1e6c0373b275f6d548c587f9ce"><div class="ttname"><a href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">cpptkinter::Image::tk</a></div><div class="ttdeci">std::shared_ptr&lt; _cpptkinter::TkappObject &gt; tk</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter1_8ixx_source.html#l00387">cpptkinter1.ixx:387</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1Image_html_a3c386dad1c20289c7775a14514f74d65"><div class="ttname"><a href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">cpptkinter::Image::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter1_8ixx_source.html#l00386">cpptkinter1.ixx:386</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1Image_html_a4c68baf9fc78b5e8c3877e7b446699f0"><div class="ttname"><a href="structcpptkinter_1_1Image.html#a4c68baf9fc78b5e8c3877e7b446699f0">cpptkinter::Image::_last_id</a></div><div class="ttdeci">static long long _last_id</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter1_8ixx_source.html#l00384">cpptkinter1.ixx:384</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -261,13 +261,13 @@ template&lt;typename CNF &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00439">439</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  440</span>        {</div>
-<div class="line"><span class="lineno">  441</span>            <span class="keywordflow">if</span> (!this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>.empty())</div>
-<div class="line"><span class="lineno">  442</span>            {</div>
-<div class="line"><span class="lineno">  443</span>                this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a>-&gt;call(<span class="stringliteral">&quot;image&quot;</span>, <span class="stringliteral">&quot;delete&quot;</span>, this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>);</div>
-<div class="line"><span class="lineno">  444</span>            }</div>
-<div class="line"><span class="lineno">  445</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00418">418</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  419</span>        {</div>
+<div class="line"><span class="lineno">  420</span>            <span class="keywordflow">if</span> (!this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>.empty())</div>
+<div class="line"><span class="lineno">  421</span>            {</div>
+<div class="line"><span class="lineno">  422</span>                this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a>-&gt;call(<span class="stringliteral">&quot;image&quot;</span>, <span class="stringliteral">&quot;delete&quot;</span>, this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>);</div>
+<div class="line"><span class="lineno">  423</span>            }</div>
+<div class="line"><span class="lineno">  424</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -308,10 +308,10 @@ template&lt;detail::FromObjConcept R&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00459">459</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  460</span>        {</div>
-<div class="line"><span class="lineno">  461</span>            <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a>-&gt;call&lt;R&gt;(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>, <span class="stringliteral">&quot;configure&quot;</span>, <span class="stringliteral">&quot;-&quot;</span> + key);</div>
-<div class="line"><span class="lineno">  462</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00438">438</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  439</span>        {</div>
+<div class="line"><span class="lineno">  440</span>            <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a>-&gt;call&lt;R&gt;(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>, <span class="stringliteral">&quot;configure&quot;</span>, <span class="stringliteral">&quot;-&quot;</span> + key);</div>
+<div class="line"><span class="lineno">  441</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -351,10 +351,10 @@ template&lt;detail::AsObjConcept T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00453">453</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  454</span>        {</div>
-<div class="line"><span class="lineno">  455</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a>-&gt;call(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>, <span class="stringliteral">&quot;configure&quot;</span>, <span class="stringliteral">&quot;-&quot;</span> + key, std::forward&lt;T&gt;(value));</div>
-<div class="line"><span class="lineno">  456</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00432">432</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  433</span>        {</div>
+<div class="line"><span class="lineno">  434</span>            this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a>-&gt;call(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>, <span class="stringliteral">&quot;configure&quot;</span>, <span class="stringliteral">&quot;-&quot;</span> + key, std::forward&lt;T&gt;(value));</div>
+<div class="line"><span class="lineno">  435</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -396,10 +396,10 @@ template&lt;typename Self , cnfs::is_cnf CNF = cnfs::get_constructor_cnf&lt;Self
 
 <p>Configure the image.   </p>
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00494">494</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  495</span>        {</div>
-<div class="line"><span class="lineno">  496</span>            self.configure(std::forward&lt;CNF&gt;(cnf));</div>
-<div class="line"><span class="lineno">  497</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00473">473</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  474</span>        {</div>
+<div class="line"><span class="lineno">  475</span>            self.configure(std::forward&lt;CNF&gt;(cnf));</div>
+<div class="line"><span class="lineno">  476</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -441,25 +441,25 @@ template&lt;typename Self , cnfs::is_cnf CNF = cnfs::get_constructor_cnf&lt;Self
 
 <p>Configure the image. </p>
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00473">473</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  474</span>        {</div>
-<div class="line"><span class="lineno">  475</span>            std::vector&lt;_cpptkinter::Tcl_Obj&gt; options{};</div>
-<div class="line"><span class="lineno">  476</span>            <span class="keyword">auto</span> visitor = [&amp;]&lt;<span class="keyword">typename</span> T&gt;(T &amp;&amp; value, <span class="keyword">auto</span> I) {</div>
-<div class="line"><span class="lineno">  477</span>                <span class="keyword">constexpr</span> <span class="keyword">auto</span> k = reflect::member_name&lt;I, CNF&gt;();</div>
-<div class="line"><span class="lineno">  478</span> </div>
-<div class="line"><span class="lineno">  479</span>                <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (k != <span class="stringliteral">&quot;name&quot;</span> &amp;&amp; k != <span class="stringliteral">&quot;master&quot;</span>)</div>
-<div class="line"><span class="lineno">  480</span>                {</div>
-<div class="line"><span class="lineno">  481</span>                    <span class="keyword">auto</span> key = std::string(k);</div>
-<div class="line"><span class="lineno">  482</span>                    <span class="keywordflow">if</span> (key.ends_with(<span class="charliteral">&#39;_&#39;</span>))</div>
-<div class="line"><span class="lineno">  483</span>                        key.pop_back();</div>
-<div class="line"><span class="lineno">  484</span>                    options.emplace_back(<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>(<span class="stringliteral">&quot;-&quot;</span> + key));</div>
-<div class="line"><span class="lineno">  485</span>                    options.emplace_back(<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>(std::forward&lt;T&gt;(value)));</div>
-<div class="line"><span class="lineno">  486</span>                }</div>
-<div class="line"><span class="lineno">  487</span>            };</div>
-<div class="line"><span class="lineno">  488</span>            reflect::for_each&lt;CNF&gt;([&amp;](<span class="keyword">auto</span> I) { <a class="code hl_function" href="namespacecpptkinter_1_1utility.html#aa39d16517e944408c448c375f1ce91f2">utility::invoke_or_and_then</a>(visitor, reflect::get&lt;I&gt;(std::forward&lt;CNF&gt;(cnf)), I); });</div>
-<div class="line"><span class="lineno">  489</span> </div>
-<div class="line"><span class="lineno">  490</span>            self.tk-&gt;call(self.name, <span class="stringliteral">&quot;config&quot;</span>, options);</div>
-<div class="line"><span class="lineno">  491</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00452">452</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  453</span>        {</div>
+<div class="line"><span class="lineno">  454</span>            std::vector&lt;_cpptkinter::Tcl_Obj&gt; options{};</div>
+<div class="line"><span class="lineno">  455</span>            <span class="keyword">auto</span> visitor = [&amp;]&lt;<span class="keyword">typename</span> T&gt;(T &amp;&amp; value, <span class="keyword">auto</span> I) {</div>
+<div class="line"><span class="lineno">  456</span>                <span class="keyword">constexpr</span> <span class="keyword">auto</span> k = reflect::member_name&lt;I, CNF&gt;();</div>
+<div class="line"><span class="lineno">  457</span> </div>
+<div class="line"><span class="lineno">  458</span>                <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (k != <span class="stringliteral">&quot;name&quot;</span> &amp;&amp; k != <span class="stringliteral">&quot;master&quot;</span>)</div>
+<div class="line"><span class="lineno">  459</span>                {</div>
+<div class="line"><span class="lineno">  460</span>                    <span class="keyword">auto</span> key = std::string(k);</div>
+<div class="line"><span class="lineno">  461</span>                    <span class="keywordflow">if</span> (key.ends_with(<span class="charliteral">&#39;_&#39;</span>))</div>
+<div class="line"><span class="lineno">  462</span>                        key.pop_back();</div>
+<div class="line"><span class="lineno">  463</span>                    options.emplace_back(<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>(<span class="stringliteral">&quot;-&quot;</span> + key));</div>
+<div class="line"><span class="lineno">  464</span>                    options.emplace_back(<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>(std::forward&lt;T&gt;(value)));</div>
+<div class="line"><span class="lineno">  465</span>                }</div>
+<div class="line"><span class="lineno">  466</span>            };</div>
+<div class="line"><span class="lineno">  467</span>            reflect::for_each&lt;CNF&gt;([&amp;](<span class="keyword">auto</span> I) { <a class="code hl_function" href="namespacecpptkinter_1_1utility.html#aa39d16517e944408c448c375f1ce91f2">utility::invoke_or_and_then</a>(visitor, reflect::get&lt;I&gt;(std::forward&lt;CNF&gt;(cnf)), I); });</div>
+<div class="line"><span class="lineno">  468</span> </div>
+<div class="line"><span class="lineno">  469</span>            self.tk-&gt;call(self.name, <span class="stringliteral">&quot;config&quot;</span>, options);</div>
+<div class="line"><span class="lineno">  470</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -488,10 +488,10 @@ template&lt;typename Self , cnfs::is_cnf CNF = cnfs::get_constructor_cnf&lt;Self
 
 <p>Return the height of the image. </p>
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00500">500</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  501</span>        {</div>
-<div class="line"><span class="lineno">  502</span>            <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a>-&gt;call&lt;<span class="keywordtype">long</span> <span class="keywordtype">long</span>&gt;(<span class="stringliteral">&quot;image&quot;</span>, <span class="stringliteral">&quot;height&quot;</span>, this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>);</div>
-<div class="line"><span class="lineno">  503</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00479">479</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  480</span>        {</div>
+<div class="line"><span class="lineno">  481</span>            <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a>-&gt;call&lt;<span class="keywordtype">long</span> <span class="keywordtype">long</span>&gt;(<span class="stringliteral">&quot;image&quot;</span>, <span class="stringliteral">&quot;height&quot;</span>, this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>);</div>
+<div class="line"><span class="lineno">  482</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -518,10 +518,10 @@ template&lt;typename Self , cnfs::is_cnf CNF = cnfs::get_constructor_cnf&lt;Self
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00447">447</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  448</span>        {</div>
-<div class="line"><span class="lineno">  449</span>            <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>;</div>
-<div class="line"><span class="lineno">  450</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00426">426</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  427</span>        {</div>
+<div class="line"><span class="lineno">  428</span>            <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>;</div>
+<div class="line"><span class="lineno">  429</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -563,10 +563,10 @@ template&lt;typename Self &gt; </div>
 
 <p>Returns a proxy object which can be used to set/get resources of a widget. </p>
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00466">466</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  467</span>        {</div>
-<div class="line"><span class="lineno">  468</span>            <span class="keywordflow">return</span> { std::forward&lt;Self&gt;(self), key };</div>
-<div class="line"><span class="lineno">  469</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00445">445</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  446</span>        {</div>
+<div class="line"><span class="lineno">  447</span>            <span class="keywordflow">return</span> { std::forward&lt;Self&gt;(self), key };</div>
+<div class="line"><span class="lineno">  448</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -595,10 +595,10 @@ template&lt;typename Self &gt; </div>
 
 <p>Return the type of the image, e.g. "photo" or "bitmap". </p>
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00506">506</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  507</span>        {</div>
-<div class="line"><span class="lineno">  508</span>            <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a>-&gt;call&lt;std::string&gt;(<span class="stringliteral">&quot;image&quot;</span>, <span class="stringliteral">&quot;type&quot;</span>, this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>);</div>
-<div class="line"><span class="lineno">  509</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00485">485</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  486</span>        {</div>
+<div class="line"><span class="lineno">  487</span>            <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a>-&gt;call&lt;std::string&gt;(<span class="stringliteral">&quot;image&quot;</span>, <span class="stringliteral">&quot;type&quot;</span>, this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>);</div>
+<div class="line"><span class="lineno">  488</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -627,10 +627,10 @@ template&lt;typename Self &gt; </div>
 
 <p>Return the width of the image. </p>
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00512">512</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  513</span>        {</div>
-<div class="line"><span class="lineno">  514</span>            <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a>-&gt;call&lt;<span class="keywordtype">long</span> <span class="keywordtype">long</span>&gt;(<span class="stringliteral">&quot;image&quot;</span>, <span class="stringliteral">&quot;width&quot;</span>, this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>);</div>
-<div class="line"><span class="lineno">  515</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00491">491</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  492</span>        {</div>
+<div class="line"><span class="lineno">  493</span>            <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a0b6bdb1e6c0373b275f6d548c587f9ce">tk</a>-&gt;call&lt;<span class="keywordtype">long</span> <span class="keywordtype">long</span>&gt;(<span class="stringliteral">&quot;image&quot;</span>, <span class="stringliteral">&quot;width&quot;</span>, this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Image.html#a3c386dad1c20289c7775a14514f74d65">name</a>);</div>
+<div class="line"><span class="lineno">  494</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -655,7 +655,7 @@ template&lt;typename Self &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00405">405</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00384">384</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
 
 </div>
 </div>
@@ -671,7 +671,7 @@ template&lt;typename Self &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00407">407</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00386">386</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
 
 </div>
 </div>
@@ -687,7 +687,7 @@ template&lt;typename Self &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00408">408</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00387">387</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
 
 </div>
 </div>

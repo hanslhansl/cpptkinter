@@ -82,6 +82,7 @@ var namespacecpptkinter =
       [ "YES", "namespacecpptkinter_1_1constants.html#a9b22af8425fa934bf9b5c70359b2dbdf", null ]
     ] ],
     [ "detail", "namespacecpptkinter_1_1detail.html", "namespacecpptkinter_1_1detail" ],
+    [ "ttk", "namespacecpptkinter_1_1ttk.html", "namespacecpptkinter_1_1ttk" ],
     [ "utility", "namespacecpptkinter_1_1utility.html", "namespacecpptkinter_1_1utility" ],
     [ "BaseWidget", "classcpptkinter_1_1BaseWidget.html", "classcpptkinter_1_1BaseWidget" ],
     [ "BitmapImage", "structcpptkinter_1_1BitmapImage.html", "structcpptkinter_1_1BitmapImage" ],

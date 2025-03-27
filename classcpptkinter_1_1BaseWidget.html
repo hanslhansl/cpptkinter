@@ -128,6 +128,7 @@ Inheritance diagram for cpptkinter::BaseWidget:</div>
 <area href="structcpptkinter_1_1Scrollbar.html" title="Scrollbar widget which displays a slider at a certain position." alt="cpptkinter::Scrollbar" shape="rect" coords="682,1008,1013,1032"/>
 <area href="structcpptkinter_1_1Spinbox.html" title="Spinbox widget." alt="cpptkinter::Spinbox" shape="rect" coords="682,1064,1013,1088"/>
 <area href="structcpptkinter_1_1Text.html" title="Text widget which can display text in various forms." alt="cpptkinter::Text" shape="rect" coords="682,1120,1013,1144"/>
+<area href="structcpptkinter_1_1ttk_1_1Widget.html" title="Base class for Tk themed widgets." alt="cpptkinter::ttk::Widget" shape="rect" coords="682,1176,1013,1200"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -276,11 +277,11 @@ requires requires { this-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#a8
 <tr class="memitem:a05c582150538de8d653b941dda6c5cc8 inherit pub_methods_classcpptkinter_1_1Misc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a05c582150538de8d653b941dda6c5cc8">unbind_class</a> (const std::string &amp;className, const std::string &amp;sequence)</td></tr>
 <tr class="memdesc:a05c582150538de8d653b941dda6c5cc8 inherit pub_methods_classcpptkinter_1_1Misc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unbind for all widgets with bindtag CLASSNAME for event SEQUENCE all functions.  <br /></td></tr>
 <tr class="separator:a05c582150538de8d653b941dda6c5cc8 inherit pub_methods_classcpptkinter_1_1Misc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcba80b3f15a95d201a7bb9edc5823bd inherit pub_methods_classcpptkinter_1_1Misc"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; <br />
-requires requires { this-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#afc8373edcdff2f0b9e394a0539b5c3a0">bind_class</a>(&quot;&quot;, std::forward&lt;Args&gt;(args)...); }</td></tr>
-<tr class="memitem:adcba80b3f15a95d201a7bb9edc5823bd inherit pub_methods_classcpptkinter_1_1Misc"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#adcba80b3f15a95d201a7bb9edc5823bd">bind_all</a> (Args &amp;&amp;...args)</td></tr>
-<tr class="memdesc:adcba80b3f15a95d201a7bb9edc5823bd inherit pub_methods_classcpptkinter_1_1Misc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bind to all widgets at an event SEQUENCE a call to function FUNC.  <br /></td></tr>
-<tr class="separator:adcba80b3f15a95d201a7bb9edc5823bd inherit pub_methods_classcpptkinter_1_1Misc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30ee3c45ee9c08e870268f890e3af7ab inherit pub_methods_classcpptkinter_1_1Misc"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; <br />
+requires requires { this-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#a89eec462942f2db0634d33b32daf028e">_bind</a>({}, std::forward&lt;Args&gt;(args)..., true); }</td></tr>
+<tr class="memitem:a30ee3c45ee9c08e870268f890e3af7ab inherit pub_methods_classcpptkinter_1_1Misc"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a30ee3c45ee9c08e870268f890e3af7ab">bind_all</a> (Args &amp;&amp;...args)</td></tr>
+<tr class="memdesc:a30ee3c45ee9c08e870268f890e3af7ab inherit pub_methods_classcpptkinter_1_1Misc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bind to all widgets at an event SEQUENCE a call to function FUNC.  <br /></td></tr>
+<tr class="separator:a30ee3c45ee9c08e870268f890e3af7ab inherit pub_methods_classcpptkinter_1_1Misc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabb5954ed4f55855db5b636de5f0ae9c inherit pub_methods_classcpptkinter_1_1Misc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#aabb5954ed4f55855db5b636de5f0ae9c">unbind_all</a> (const std::string &amp;sequence)</td></tr>
 <tr class="memdesc:aabb5954ed4f55855db5b636de5f0ae9c inherit pub_methods_classcpptkinter_1_1Misc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unbind for all widgets for event SEQUENCE all functions.  <br /></td></tr>
 <tr class="separator:aabb5954ed4f55855db5b636de5f0ae9c inherit pub_methods_classcpptkinter_1_1Misc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -551,7 +552,7 @@ template&lt;cnfs::is_cnf CNF&gt; </div>
 <div class="ttc" id="aclasscpptkinter_1_1BaseWidget_html_ac9625a20a2ba4519d6de9af79dbfaf1d"><div class="ttname"><a href="classcpptkinter_1_1BaseWidget.html#ac9625a20a2ba4519d6de9af79dbfaf1d">cpptkinter::BaseWidget::widgetName</a></div><div class="ttdeci">decltype(impl::widgetName) &amp; widgetName</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8widget_8base_8ixx_source.html#l00276">cpptkinter.widget.base.ixx:276</a></div></div>
 <div class="ttc" id="aclasscpptkinter_1_1Misc_html_abe382d5d690d971ab7a590b0966740a0"><div class="ttname"><a href="classcpptkinter_1_1Misc.html#abe382d5d690d971ab7a590b0966740a0">cpptkinter::Misc::master</a></div><div class="ttdeci">std::optional&lt; Misc &gt; &amp; master</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8misc_8ixx_source.html#l00102">cpptkinter.misc.ixx:102</a></div></div>
 <div class="ttc" id="aglobal_8hpp_html_ad08e1eaa565f8afcb49eded8d6cd9f4c"><div class="ttname"><a href="global_8hpp.html#ad08e1eaa565f8afcb49eded8d6cd9f4c">DEVIATING_IMPLEMENTATION_WARNING</a></div><div class="ttdeci">#define DEVIATING_IMPLEMENTATION_WARNING(msg)</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00228">global.hpp:228</a></div></div>
-<div class="ttc" id="anamespacecpptkinter_1_1utility_html_aa39d16517e944408c448c375f1ce91f2"><div class="ttname"><a href="namespacecpptkinter_1_1utility.html#aa39d16517e944408c448c375f1ce91f2">cpptkinter::utility::invoke_or_and_then</a></div><div class="ttdeci">void invoke_or_and_then(Callable &amp;&amp;callable, Optional &amp;&amp;optional, Args &amp;&amp;...args)</div><div class="ttdoc">Invokes a callable with an optional's value (if present).</div><div class="ttdef"><b>Definition:</b> <a href="utility_8ixx_source.html#l00074">utility.ixx:74</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1utility_html_aa39d16517e944408c448c375f1ce91f2"><div class="ttname"><a href="namespacecpptkinter_1_1utility.html#aa39d16517e944408c448c375f1ce91f2">cpptkinter::utility::invoke_or_and_then</a></div><div class="ttdeci">void invoke_or_and_then(Callable &amp;&amp;callable, Optional &amp;&amp;optional, Args &amp;&amp;...args)</div><div class="ttdoc">Invokes a callable with an optional's value (if present).</div><div class="ttdef"><b>Definition:</b> <a href="utility_8ixx_source.html#l00068">utility.ixx:68</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -660,7 +661,7 @@ template&lt;typename <a class="el" href="classcpptkinter_1_1BaseWidget.html#a87f
 <div class="line"><span class="lineno">  327</span>                it-&gt;second = self;</div>
 <div class="line"><span class="lineno">  328</span>            }</div>
 <div class="line"><span class="lineno">  329</span>        }</div>
-<div class="ttc" id="anamespacecpptkinter_1_1detail_html_ac0b4eb6697fa1756cf5b389b468740c6"><div class="ttname"><a href="namespacecpptkinter_1_1detail.html#ac0b4eb6697fa1756cf5b389b468740c6">cpptkinter::detail::_get_default_root</a></div><div class="ttdeci">Tk _get_default_root(const std::string &amp;what={})</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter1_8ixx_source.html#l00556">cpptkinter1.ixx:556</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1detail_html_ac0b4eb6697fa1756cf5b389b468740c6"><div class="ttname"><a href="namespacecpptkinter_1_1detail.html#ac0b4eb6697fa1756cf5b389b468740c6">cpptkinter::detail::_get_default_root</a></div><div class="ttdeci">Tk _get_default_root(const std::string &amp;what={})</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter1_8ixx_source.html#l00529">cpptkinter1.ixx:529</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

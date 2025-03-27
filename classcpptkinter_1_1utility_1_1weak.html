@@ -130,7 +130,7 @@ Private Attributes</h2></td></tr>
 class cpptkinter::utility::weak&lt; T &gt;</div><p>A weak reference to a widget. </p>
 <p>Holds a weak reference to a widget of type T (e.g. <a class="el" href="classcpptkinter_1_1Tk.html" title="Toplevel widget of Tk which represents mostly the main window of an application.">Tk</a>, <a class="el" href="structcpptkinter_1_1Button.html" title="Button widget.">Button</a>, etc.). Basically works like std::weak_ptr. </p>
 
-<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00095">95</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00089">89</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a04b473854e964b30b3c3f73f04f6c28f" name="a04b473854e964b30b3c3f73f04f6c28f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a04b473854e964b30b3c3f73f04f6c28f">&#9670;&#160;</a></span>impl_type</h2>
@@ -154,7 +154,7 @@ template&lt;std::derived_from&lt; <a class="el" href="classcpptkinter_1_1Misc.ht
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00097">97</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00091">91</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
 
 </div>
 </div>
@@ -212,13 +212,13 @@ template&lt;std::derived_from&lt; <a class="el" href="classcpptkinter_1_1Misc.ht
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00101">101</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  101</span>                           : <a class="code hl_variable" href="classcpptkinter_1_1utility_1_1weak.html#a1ea3891affaa05895bcb9107ac0bf8ae">pimpl</a>(std::static_pointer_cast&lt;impl_type&gt;(<a class="code hl_function" href="structcpptkinter_1_1detail_1_1widget__friend.html#ae1b6f3aa3e032f1d5a0d2b6d122c493a">detail::widget_friend::get_widget_pimpl</a>(obj)))</div>
-<div class="line"><span class="lineno">  102</span>        {</div>
-<div class="line"><span class="lineno">  103</span> </div>
-<div class="line"><span class="lineno">  104</span>        }</div>
-<div class="ttc" id="aclasscpptkinter_1_1utility_1_1weak_html_a1ea3891affaa05895bcb9107ac0bf8ae"><div class="ttname"><a href="classcpptkinter_1_1utility_1_1weak.html#a1ea3891affaa05895bcb9107ac0bf8ae">cpptkinter::utility::weak::pimpl</a></div><div class="ttdeci">std::weak_ptr&lt; impl_type &gt; pimpl</div><div class="ttdef"><b>Definition:</b> <a href="utility_8ixx_source.html#l00098">utility.ixx:98</a></div></div>
-<div class="ttc" id="astructcpptkinter_1_1detail_1_1widget__friend_html_ae1b6f3aa3e032f1d5a0d2b6d122c493a"><div class="ttname"><a href="structcpptkinter_1_1detail_1_1widget__friend.html#ae1b6f3aa3e032f1d5a0d2b6d122c493a">cpptkinter::detail::widget_friend::get_widget_pimpl</a></div><div class="ttdeci">static const auto &amp; get_widget_pimpl(const T &amp;widget)</div><div class="ttdef"><b>Definition:</b> <a href="utility_8detail_8ixx_source.html#l00085">utility.detail.ixx:85</a></div></div>
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00095">95</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   95</span>                           : <a class="code hl_variable" href="classcpptkinter_1_1utility_1_1weak.html#a1ea3891affaa05895bcb9107ac0bf8ae">pimpl</a>(std::static_pointer_cast&lt;impl_type&gt;(<a class="code hl_function" href="structcpptkinter_1_1detail_1_1widget__friend.html#ae1b6f3aa3e032f1d5a0d2b6d122c493a">detail::widget_friend::get_widget_pimpl</a>(obj)))</div>
+<div class="line"><span class="lineno">   96</span>        {</div>
+<div class="line"><span class="lineno">   97</span> </div>
+<div class="line"><span class="lineno">   98</span>        }</div>
+<div class="ttc" id="aclasscpptkinter_1_1utility_1_1weak_html_a1ea3891affaa05895bcb9107ac0bf8ae"><div class="ttname"><a href="classcpptkinter_1_1utility_1_1weak.html#a1ea3891affaa05895bcb9107ac0bf8ae">cpptkinter::utility::weak::pimpl</a></div><div class="ttdeci">std::weak_ptr&lt; impl_type &gt; pimpl</div><div class="ttdef"><b>Definition:</b> <a href="utility_8ixx_source.html#l00092">utility.ixx:92</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1detail_1_1widget__friend_html_ae1b6f3aa3e032f1d5a0d2b6d122c493a"><div class="ttname"><a href="structcpptkinter_1_1detail_1_1widget__friend.html#ae1b6f3aa3e032f1d5a0d2b6d122c493a">cpptkinter::detail::widget_friend::get_widget_pimpl</a></div><div class="ttdeci">static const auto &amp; get_widget_pimpl(const T &amp;widget)</div><div class="ttdef"><b>Definition:</b> <a href="utility_8detail_8ixx_source.html#l00090">utility.detail.ixx:90</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -248,10 +248,10 @@ template&lt;std::derived_from&lt; <a class="el" href="classcpptkinter_1_1Misc.ht
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00113">113</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  114</span>        {</div>
-<div class="line"><span class="lineno">  115</span>            <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1utility_1_1weak.html#a1ea3891affaa05895bcb9107ac0bf8ae">pimpl</a>.expired();</div>
-<div class="line"><span class="lineno">  116</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00107">107</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  108</span>        {</div>
+<div class="line"><span class="lineno">  109</span>            <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1utility_1_1weak.html#a1ea3891affaa05895bcb9107ac0bf8ae">pimpl</a>.expired();</div>
+<div class="line"><span class="lineno">  110</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -283,10 +283,10 @@ template&lt;std::derived_from&lt; <a class="el" href="classcpptkinter_1_1Misc.ht
 <p>Creates a strong reference to the widget. </p>
 <p>Equivalent to std::weak_ptr::lock except that this function throws if the widget has already been destroyed. </p>
 
-<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00109">109</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  110</span>        {</div>
-<div class="line"><span class="lineno">  111</span>            <span class="keywordflow">return</span> detail::widget_friend::construct_widget_from_weak_pimpl&lt;T&gt;(this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1utility_1_1weak.html#a1ea3891affaa05895bcb9107ac0bf8ae">pimpl</a>);</div>
-<div class="line"><span class="lineno">  112</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00103">103</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  104</span>        {</div>
+<div class="line"><span class="lineno">  105</span>            <span class="keywordflow">return</span> detail::widget_friend::construct_widget_from_weak_pimpl&lt;T&gt;(this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1utility_1_1weak.html#a1ea3891affaa05895bcb9107ac0bf8ae">pimpl</a>);</div>
+<div class="line"><span class="lineno">  106</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -315,10 +315,10 @@ template&lt;std::derived_from&lt; <a class="el" href="classcpptkinter_1_1Misc.ht
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00117">117</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  118</span>        {</div>
-<div class="line"><span class="lineno">  119</span>            <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1utility_1_1weak.html#a1ea3891affaa05895bcb9107ac0bf8ae">pimpl</a>.use_count();</div>
-<div class="line"><span class="lineno">  120</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00111">111</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  112</span>        {</div>
+<div class="line"><span class="lineno">  113</span>            <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1utility_1_1weak.html#a1ea3891affaa05895bcb9107ac0bf8ae">pimpl</a>.use_count();</div>
+<div class="line"><span class="lineno">  114</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -345,7 +345,7 @@ template&lt;std::derived_from&lt; <a class="el" href="classcpptkinter_1_1Misc.ht
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00098">98</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00092">92</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
 
 </div>
 </div>

@@ -51,7 +51,10 @@ var hierarchy =
               [ "cpptkinter::Scale", "structcpptkinter_1_1Scale.html", null ],
               [ "cpptkinter::Scrollbar", "structcpptkinter_1_1Scrollbar.html", null ],
               [ "cpptkinter::Spinbox", "structcpptkinter_1_1Spinbox.html", null ],
-              [ "cpptkinter::Text", "structcpptkinter_1_1Text.html", null ]
+              [ "cpptkinter::Text", "structcpptkinter_1_1Text.html", null ],
+              [ "cpptkinter::ttk::Widget", "structcpptkinter_1_1ttk_1_1Widget.html", [
+                [ "cpptkinter::ttk::Notebook", "structcpptkinter_1_1ttk_1_1Notebook.html", null ]
+              ] ]
             ] ]
           ] ],
           [ "cpptkinter::Tk", "classcpptkinter_1_1Tk.html", null ]

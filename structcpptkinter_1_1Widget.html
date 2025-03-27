@@ -128,6 +128,7 @@ Inheritance diagram for cpptkinter::Widget:</div>
 <area href="structcpptkinter_1_1Scrollbar.html" title="Scrollbar widget which displays a slider at a certain position." alt="cpptkinter::Scrollbar" shape="rect" coords="852,1008,1183,1032"/>
 <area href="structcpptkinter_1_1Spinbox.html" title="Spinbox widget." alt="cpptkinter::Spinbox" shape="rect" coords="852,1064,1183,1088"/>
 <area href="structcpptkinter_1_1Text.html" title="Text widget which can display text in various forms." alt="cpptkinter::Text" shape="rect" coords="852,1120,1183,1144"/>
+<area href="structcpptkinter_1_1ttk_1_1Widget.html" title="Base class for Tk themed widgets." alt="cpptkinter::ttk::Widget" shape="rect" coords="852,1176,1183,1200"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -199,11 +200,11 @@ requires requires { this-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#a8
 <tr class="memitem:a05c582150538de8d653b941dda6c5cc8 inherit pub_methods_classcpptkinter_1_1Misc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a05c582150538de8d653b941dda6c5cc8">unbind_class</a> (const std::string &amp;className, const std::string &amp;sequence)</td></tr>
 <tr class="memdesc:a05c582150538de8d653b941dda6c5cc8 inherit pub_methods_classcpptkinter_1_1Misc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unbind for all widgets with bindtag CLASSNAME for event SEQUENCE all functions.  <br /></td></tr>
 <tr class="separator:a05c582150538de8d653b941dda6c5cc8 inherit pub_methods_classcpptkinter_1_1Misc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcba80b3f15a95d201a7bb9edc5823bd inherit pub_methods_classcpptkinter_1_1Misc"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; <br />
-requires requires { this-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#afc8373edcdff2f0b9e394a0539b5c3a0">bind_class</a>(&quot;&quot;, std::forward&lt;Args&gt;(args)...); }</td></tr>
-<tr class="memitem:adcba80b3f15a95d201a7bb9edc5823bd inherit pub_methods_classcpptkinter_1_1Misc"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#adcba80b3f15a95d201a7bb9edc5823bd">bind_all</a> (Args &amp;&amp;...args)</td></tr>
-<tr class="memdesc:adcba80b3f15a95d201a7bb9edc5823bd inherit pub_methods_classcpptkinter_1_1Misc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bind to all widgets at an event SEQUENCE a call to function FUNC.  <br /></td></tr>
-<tr class="separator:adcba80b3f15a95d201a7bb9edc5823bd inherit pub_methods_classcpptkinter_1_1Misc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30ee3c45ee9c08e870268f890e3af7ab inherit pub_methods_classcpptkinter_1_1Misc"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; <br />
+requires requires { this-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#a89eec462942f2db0634d33b32daf028e">_bind</a>({}, std::forward&lt;Args&gt;(args)..., true); }</td></tr>
+<tr class="memitem:a30ee3c45ee9c08e870268f890e3af7ab inherit pub_methods_classcpptkinter_1_1Misc"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a30ee3c45ee9c08e870268f890e3af7ab">bind_all</a> (Args &amp;&amp;...args)</td></tr>
+<tr class="memdesc:a30ee3c45ee9c08e870268f890e3af7ab inherit pub_methods_classcpptkinter_1_1Misc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bind to all widgets at an event SEQUENCE a call to function FUNC.  <br /></td></tr>
+<tr class="separator:a30ee3c45ee9c08e870268f890e3af7ab inherit pub_methods_classcpptkinter_1_1Misc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabb5954ed4f55855db5b636de5f0ae9c inherit pub_methods_classcpptkinter_1_1Misc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#aabb5954ed4f55855db5b636de5f0ae9c">unbind_all</a> (const std::string &amp;sequence)</td></tr>
 <tr class="memdesc:aabb5954ed4f55855db5b636de5f0ae9c inherit pub_methods_classcpptkinter_1_1Misc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unbind for all widgets for event SEQUENCE all functions.  <br /></td></tr>
 <tr class="separator:aabb5954ed4f55855db5b636de5f0ae9c inherit pub_methods_classcpptkinter_1_1Misc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -538,9 +539,9 @@ template&lt;std::derived_from&lt; <a class="el" href="structcpptkinter_1_1Misc_1
 <p>Exists only to make reflect work. </p>
 
 <p class="definition">Definition at line <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html#l00368">368</a> of file <a class="el" href="cpptkinter_8widget_8base_8ixx_source.html">cpptkinter.widget.base.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  368</span>: <a class="code hl_function" href="classcpptkinter_1_1BaseWidget.html#aa3178ee67807135e75777ab2e366a913">BaseWidget</a>(std::make_shared&lt;impl&gt;()) { <a class="code hl_define" href="global_8hpp.html#ad092689f9ce64d6dbacd6e78e77f983c">ANNOTATION_WARNING</a>(<span class="stringliteral">&quot;Exists only to make reflect work.&quot;</span>); }</div>
-<div class="ttc" id="aclasscpptkinter_1_1BaseWidget_html_aa3178ee67807135e75777ab2e366a913"><div class="ttname"><a href="classcpptkinter_1_1BaseWidget.html#aa3178ee67807135e75777ab2e366a913">cpptkinter::BaseWidget::BaseWidget</a></div><div class="ttdeci">BaseWidget(const std::shared_ptr&lt; I &gt; &amp;pimpl)</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8widget_8base_8ixx_source.html#l00280">cpptkinter.widget.base.ixx:280</a></div></div>
+<div class="fragment"><div class="line"><span class="lineno">  368</span>: <a class="code hl_function" href="structcpptkinter_1_1Widget.html#aab19394868bdb0745c9950f06b626fd9">Widget</a>(std::make_shared&lt;impl&gt;()) { <a class="code hl_define" href="global_8hpp.html#ad092689f9ce64d6dbacd6e78e77f983c">ANNOTATION_WARNING</a>(<span class="stringliteral">&quot;Exists only to make reflect work.&quot;</span>); }</div>
 <div class="ttc" id="aglobal_8hpp_html_ad092689f9ce64d6dbacd6e78e77f983c"><div class="ttname"><a href="global_8hpp.html#ad092689f9ce64d6dbacd6e78e77f983c">ANNOTATION_WARNING</a></div><div class="ttdeci">#define ANNOTATION_WARNING(msg)</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00227">global.hpp:227</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1Widget_html_aab19394868bdb0745c9950f06b626fd9"><div class="ttname"><a href="structcpptkinter_1_1Widget.html#aab19394868bdb0745c9950f06b626fd9">cpptkinter::Widget::Widget</a></div><div class="ttdeci">Widget()</div><div class="ttdoc">Exists only to make reflect work.</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8widget_8base_8ixx_source.html#l00368">cpptkinter.widget.base.ixx:368</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

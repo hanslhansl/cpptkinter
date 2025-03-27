@@ -87,6 +87,10 @@ var annotated_dup =
         [ "union_arg_overload_base", "structcpptkinter_1_1detail_1_1union__arg__overload__base.html", null ],
         [ "widget_friend", "structcpptkinter_1_1detail_1_1widget__friend.html", "structcpptkinter_1_1detail_1_1widget__friend" ]
       ] ],
+      [ "ttk", "namespacecpptkinter_1_1ttk.html", [
+        [ "Notebook", "structcpptkinter_1_1ttk_1_1Notebook.html", null ],
+        [ "Widget", "structcpptkinter_1_1ttk_1_1Widget.html", "structcpptkinter_1_1ttk_1_1Widget" ]
+      ] ],
       [ "utility", "namespacecpptkinter_1_1utility.html", [
         [ "enable_operator_string_formatting", "structcpptkinter_1_1utility_1_1enable__operator__string__formatting.html", null ],
         [ "extend_variants", "structcpptkinter_1_1utility_1_1extend__variants.html", null ],

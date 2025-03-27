@@ -80,6 +80,7 @@ var cpptkinter_8detail_8ixx =
     [ "_support_default_root", "cpptkinter_8detail_8ixx.html#ad0e153509f7b29be7873602abac3ec15", null ],
     [ "_varnum", "cpptkinter_8detail_8ixx.html#a3be8e7ded72389f552f47c0e36cf4a77", null ],
     [ "cpptkinter", "cpptkinter_8detail_8ixx.html#ac6a666df714a8ea283ff40996c1f4669", null ],
+    [ "export", "cpptkinter_8detail_8ixx.html#af44e2d3afd4e0e4d03f637dbb2bce3cd", null ],
     [ "module", "cpptkinter_8detail_8ixx.html#a96e5f0eca87c2426370e0897ac7b8ca6", null ],
     [ "std", "cpptkinter_8detail_8ixx.html#a2f42581b64a695b89aba6966398fc784", null ],
     [ "tcl_command_name_counter", "cpptkinter_8detail_8ixx.html#a5bc524840e8f0087f13524dda0d261bb", null ],

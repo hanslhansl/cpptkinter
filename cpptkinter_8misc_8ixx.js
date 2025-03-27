@@ -9,6 +9,7 @@ var cpptkinter_8misc_8ixx =
     [ "cpptkinter::cnfs::grid_bbox", "structcpptkinter_1_1cnfs_1_1grid__bbox.html", "structcpptkinter_1_1cnfs_1_1grid__bbox" ],
     [ "cpptkinter::Misc", "classcpptkinter_1_1Misc.html", "classcpptkinter_1_1Misc" ],
     [ "cpptkinter::Misc::impl", "structcpptkinter_1_1Misc_1_1impl.html", "structcpptkinter_1_1Misc_1_1impl" ],
+    [ "cpptkinter::detail::CallWrapper< R, Args >", "structcpptkinter_1_1detail_1_1CallWrapper.html", "structcpptkinter_1_1detail_1_1CallWrapper" ],
     [ "cpptkinter::cnfs::is_cnf_member", "conceptcpptkinter_1_1cnfs_1_1is__cnf__member.html", null ],
     [ "cpptkinter::cnfs::is_cnf", "conceptcpptkinter_1_1cnfs_1_1is__cnf.html", null ],
     [ "MISC_SUBSTITUTE_ARGUMENTS", "cpptkinter_8misc_8ixx.html#abca93c39d31d0caa5e972396a43f79b1", null ],

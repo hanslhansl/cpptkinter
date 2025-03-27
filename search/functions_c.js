@@ -11,5 +11,6 @@ var searchData=
   ['maxsize_8',['maxsize',['../structcpptkinter_1_1Wm.html#a60db4ff93ced3d5a12785b0b2b24dd28',1,'cpptkinter::Wm::maxsize(this auto &amp;&amp;self, long long width, long long height)'],['../structcpptkinter_1_1Wm.html#a412a9b7832a5c8dfa55c4a5e59f0ae52',1,'cpptkinter::Wm::maxsize(this auto &amp;&amp;self)']]],
   ['member_5ffunctor_9',['member_functor',['../classcpptkinter_1_1utility_1_1member__functor.html#aadfb7463efae981f67cc966cbb406759',1,'cpptkinter::utility::member_functor']]],
   ['minsize_10',['minsize',['../structcpptkinter_1_1Wm.html#ad710c9b0d2516f28f405157aef6f38cb',1,'cpptkinter::Wm::minsize(this auto &amp;&amp;self, long long width, long long height)'],['../structcpptkinter_1_1Wm.html#af2961fa600a2ad15aa3f1f05fb8f2aa9',1,'cpptkinter::Wm::minsize(this auto &amp;&amp;self)']]],
-  ['misc_11',['Misc',['../classcpptkinter_1_1Misc.html#af229c69075ddac49b5d058f813292699',1,'cpptkinter::Misc']]]
+  ['misc_11',['Misc',['../classcpptkinter_1_1Misc.html#af229c69075ddac49b5d058f813292699',1,'cpptkinter::Misc']]],
+  ['misc_5fbind_5fclass_5fimpl_12',['misc_bind_class_impl',['../structcpptkinter_1_1detail_1_1widget__friend.html#ac097f231453c48a64335f90acfd9c9c4',1,'cpptkinter::detail::widget_friend']]]
 ];

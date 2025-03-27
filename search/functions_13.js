@@ -38,9 +38,10 @@ var searchData=
   ['trace_5fadd_35',['trace_add',['../classcpptkinter_1_1Variable.html#aa8675c30fee9065b577d3c86654bebd8',1,'cpptkinter::Variable']]],
   ['trace_5finfo_36',['trace_info',['../classcpptkinter_1_1Variable.html#ad7f4151ba157fccd51afbae8af8db1a0',1,'cpptkinter::Variable']]],
   ['trace_5fremove_37',['trace_remove',['../classcpptkinter_1_1Variable.html#a4ee6802831ecc3dae71d7670650a8a1c',1,'cpptkinter::Variable']]],
-  ['transient_38',['transient',['../structcpptkinter_1_1Wm.html#afe885c707fdff982bd5afb3e2f2908c8',1,'cpptkinter::Wm::transient(this auto &amp;&amp;self)'],['../structcpptkinter_1_1Wm.html#ab1b93ba7282dafc79a58b2b0e0a06783',1,'cpptkinter::Wm::transient(this auto &amp;&amp;self, const std::string &amp;master)']]],
-  ['transparency_5fget_39',['transparency_get',['../structcpptkinter_1_1PhotoImage.html#afcbdbdad1083c340a8be4099b50140af',1,'cpptkinter::PhotoImage']]],
-  ['transparency_5fset_40',['transparency_set',['../structcpptkinter_1_1PhotoImage.html#a68ca35c3c20148ddb06186471625d066',1,'cpptkinter::PhotoImage']]],
-  ['type_41',['type',['../structcpptkinter_1_1Image.html#a4c30f4b539a7f7b143bd153e935b8926',1,'cpptkinter::Image::type()'],['../structcpptkinter_1_1Menu.html#afdad3f691252cba8c834c9022c2be74d',1,'cpptkinter::Menu::type()']]],
-  ['typedvariable_42',['TypedVariable',['../structcpptkinter_1_1TypedVariable.html#af301561f43ff8a5b5b9a90151aa22cf7',1,'cpptkinter::TypedVariable']]]
+  ['traceproc_38',['TraceProc',['../__cpptkinter_8tkappobj_8ixx.html#a68a954fff3aacbb7cb06bd7bd83f62e4',1,'_cpptkinter.tkappobj.ixx']]],
+  ['transient_39',['transient',['../structcpptkinter_1_1Wm.html#afe885c707fdff982bd5afb3e2f2908c8',1,'cpptkinter::Wm::transient(this auto &amp;&amp;self)'],['../structcpptkinter_1_1Wm.html#ab1b93ba7282dafc79a58b2b0e0a06783',1,'cpptkinter::Wm::transient(this auto &amp;&amp;self, const std::string &amp;master)']]],
+  ['transparency_5fget_40',['transparency_get',['../structcpptkinter_1_1PhotoImage.html#afcbdbdad1083c340a8be4099b50140af',1,'cpptkinter::PhotoImage']]],
+  ['transparency_5fset_41',['transparency_set',['../structcpptkinter_1_1PhotoImage.html#a68ca35c3c20148ddb06186471625d066',1,'cpptkinter::PhotoImage']]],
+  ['type_42',['type',['../structcpptkinter_1_1Image.html#a4c30f4b539a7f7b143bd153e935b8926',1,'cpptkinter::Image::type()'],['../structcpptkinter_1_1Menu.html#afdad3f691252cba8c834c9022c2be74d',1,'cpptkinter::Menu::type()']]],
+  ['typedvariable_43',['TypedVariable',['../structcpptkinter_1_1TypedVariable.html#af301561f43ff8a5b5b9a90151aa22cf7',1,'cpptkinter::TypedVariable']]]
 ];

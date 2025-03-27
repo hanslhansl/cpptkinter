@@ -122,12 +122,15 @@ requires requires { static_cast&lt;typename To::impl*&gt;(from.pimpl.get()); }</
 requires requires { dynamic_cast&lt;typename To::impl*&gt;(from.pimpl.get()); }</td></tr>
 <tr class="memitem:ad3aeef2cea716a6564fe07f88abdb611"><td class="memTemplItemLeft" align="right" valign="top">static To&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1detail_1_1widget__friend.html#ad3aeef2cea716a6564fe07f88abdb611">dynamic_widget_cast_down</a> (const From &amp;from)</td></tr>
 <tr class="separator:ad3aeef2cea716a6564fe07f88abdb611"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac097f231453c48a64335f90acfd9c9c4"><td class="memTemplParams" colspan="2">template&lt;std::same_as&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt; Misc, typename... Args&gt; </td></tr>
+<tr class="memitem:ac097f231453c48a64335f90acfd9c9c4"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1detail_1_1widget__friend.html#ac097f231453c48a64335f90acfd9c9c4">misc_bind_class_impl</a> (<a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> *self, const std::string &amp;className, Args &amp;&amp;...args)</td></tr>
+<tr class="separator:ac097f231453c48a64335f90acfd9c9c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Befriended by all widget classes. </p>
 <p>Used to implement many utility functions that require access to private/protected widget members. </p>
 
-<p class="definition">Definition at line <a class="el" href="utility_8detail_8ixx_source.html#l00079">79</a> of file <a class="el" href="utility_8detail_8ixx_source.html">utility.detail.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="utility_8detail_8ixx_source.html#l00084">84</a> of file <a class="el" href="utility_8detail_8ixx_source.html">utility.detail.ixx</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a3753fecb2871718dc0f527ee5d58219f" name="a3753fecb2871718dc0f527ee5d58219f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3753fecb2871718dc0f527ee5d58219f">&#9670;&#160;</a></span>impl_type</h2>
@@ -143,7 +146,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utility_8detail_8ixx_source.html#l00082">82</a> of file <a class="el" href="utility_8detail_8ixx_source.html">utility.detail.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="utility_8detail_8ixx_source.html#l00087">87</a> of file <a class="el" href="utility_8detail_8ixx_source.html">utility.detail.ixx</a>.</p>
 
 </div>
 </div>
@@ -174,10 +177,10 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utility_8detail_8ixx_source.html#l00091">91</a> of file <a class="el" href="utility_8detail_8ixx_source.html">utility.detail.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   92</span>        {</div>
-<div class="line"><span class="lineno">   93</span>            <span class="keywordflow">return</span> std::shared_ptr(pimpl);</div>
-<div class="line"><span class="lineno">   94</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="utility_8detail_8ixx_source.html#l00096">96</a> of file <a class="el" href="utility_8detail_8ixx_source.html">utility.detail.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   97</span>        {</div>
+<div class="line"><span class="lineno">   98</span>            <span class="keywordflow">return</span> std::shared_ptr(pimpl);</div>
+<div class="line"><span class="lineno">   99</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -208,11 +211,11 @@ requires requires { dynamic_cast&lt;typename To::impl*&gt;(from.pimpl.get()); }<
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utility_8detail_8ixx_source.html#l00103">103</a> of file <a class="el" href="utility_8detail_8ixx_source.html">utility.detail.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  103</span>                                                                               { <span class="keyword">dynamic_cast&lt;</span>typename To::impl*<span class="keyword">&gt;</span>(from.pimpl.get()); }</div>
-<div class="line"><span class="lineno">  104</span>        {</div>
-<div class="line"><span class="lineno">  105</span>            <span class="keywordflow">return</span> std::dynamic_pointer_cast&lt;typename To::impl&gt;(from.pimpl);</div>
-<div class="line"><span class="lineno">  106</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="utility_8detail_8ixx_source.html#l00108">108</a> of file <a class="el" href="utility_8detail_8ixx_source.html">utility.detail.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  108</span>                                                                               { <span class="keyword">dynamic_cast&lt;</span>typename To::impl*<span class="keyword">&gt;</span>(from.pimpl.get()); }</div>
+<div class="line"><span class="lineno">  109</span>        {</div>
+<div class="line"><span class="lineno">  110</span>            <span class="keywordflow">return</span> std::dynamic_pointer_cast&lt;typename To::impl&gt;(from.pimpl);</div>
+<div class="line"><span class="lineno">  111</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -242,10 +245,59 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utility_8detail_8ixx_source.html#l00085">85</a> of file <a class="el" href="utility_8detail_8ixx_source.html">utility.detail.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   86</span>        {</div>
-<div class="line"><span class="lineno">   87</span>            <span class="keywordflow">return</span> widget.pimpl;</div>
-<div class="line"><span class="lineno">   88</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="utility_8detail_8ixx_source.html#l00090">90</a> of file <a class="el" href="utility_8detail_8ixx_source.html">utility.detail.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   91</span>        {</div>
+<div class="line"><span class="lineno">   92</span>            <span class="keywordflow">return</span> widget.pimpl;</div>
+<div class="line"><span class="lineno">   93</span>        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ac097f231453c48a64335f90acfd9c9c4" name="ac097f231453c48a64335f90acfd9c9c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac097f231453c48a64335f90acfd9c9c4">&#9670;&#160;</a></span>misc_bind_class_impl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::same_as&lt; <a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> &gt; Misc, typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static auto cpptkinter::detail::widget_friend::misc_bind_class_impl </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcpptkinter_1_1Misc.html">Misc</a> *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>className</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="utility_8detail_8ixx_source.html#l00114">114</a> of file <a class="el" href="utility_8detail_8ixx_source.html">utility.detail.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  115</span>        {</div>
+<div class="line"><span class="lineno">  116</span>            <span class="keywordflow">return</span> self-&gt;_root()._bind({ <span class="stringliteral">&quot;bind&quot;</span>, className }, std::forward&lt;Args&gt;(args)..., <span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">  117</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -276,11 +328,11 @@ requires requires { static_cast&lt;typename To::impl*&gt;(from.pimpl.get()); }</
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utility_8detail_8ixx_source.html#l00097">97</a> of file <a class="el" href="utility_8detail_8ixx_source.html">utility.detail.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   97</span>                                                                              { <span class="keyword">static_cast&lt;</span>typename To::impl*<span class="keyword">&gt;</span>(from.pimpl.get()); }</div>
-<div class="line"><span class="lineno">   98</span>        {</div>
-<div class="line"><span class="lineno">   99</span>            <span class="keywordflow">return</span> std::static_pointer_cast&lt;typename To::impl&gt;(from.pimpl);</div>
-<div class="line"><span class="lineno">  100</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="utility_8detail_8ixx_source.html#l00102">102</a> of file <a class="el" href="utility_8detail_8ixx_source.html">utility.detail.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  102</span>                                                                              { <span class="keyword">static_cast&lt;</span>typename To::impl*<span class="keyword">&gt;</span>(from.pimpl.get()); }</div>
+<div class="line"><span class="lineno">  103</span>        {</div>
+<div class="line"><span class="lineno">  104</span>            <span class="keywordflow">return</span> std::static_pointer_cast&lt;typename To::impl&gt;(from.pimpl);</div>
+<div class="line"><span class="lineno">  105</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
