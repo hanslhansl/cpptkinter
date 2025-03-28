@@ -101,9 +101,10 @@ export namespace cpptkinter
         std::optional<Misc>& master;
         std::shared_ptr<_cpptkinter::TkappObject>& tk;
         std::map<std::string, Misc>& children;
+
     protected:
         template<std::derived_from<impl> I>
-        Misc(const std::shared_ptr<I>& pimpl) :
+        Misc(const std::shared_ptr<I>& pimpl) noexcept :
             pimpl(pimpl),
             _tclCommands(pimpl->_tclCommands),
             _last_child_ids(pimpl->_last_child_ids),
@@ -116,7 +117,7 @@ export namespace cpptkinter
         }
 
     public:
-        DEFINE_ASSIGNMENT_OPERATOR(Misc);
+        DEFINE_COPY_MOVE_CONSTRUCTORS_AND_ASSIGNMENT(Misc);
 
         /// @brief Calls this->pimpl->destroy().
         void destroy();
@@ -128,6 +129,55 @@ export namespace cpptkinter
         {
             this->tk->deletecommand(name);
             this->_tclCommands.erase(name);
+        }
+
+	private:
+		template<typename T, std::invocable Func>
+        std::string after_impl(const T& ms, Func&& func)
+        {
+            struct callit
+            {
+                Func func;
+                std::shared_ptr<std::string> name;
+                Misc self_;
+
+				void operator()()
+				{
+                    // self.deletecommand() destructs this so therefor we need to prevent name and self from destruction
+                    auto name = *this->name;
+					auto self = this->self_;
+                    try
+                    {
+                        this->func();
+                    }
+					catch (...)
+					{
+
+					}
+
+                    try
+                    {
+                        self.deletecommand(name);
+                    }
+                    catch (const TclError&)
+                    {
+
+                    }
+				}
+            } callit{ std::forward<Func>(func), std::make_shared<std::string>(), *this };
+
+			auto& name = *callit.name;
+			name = this->_register(std::move(callit));
+			return this->tk->call<std::string>("after", ms, name);
+        }
+    public:
+        std::string after(long long ms, std::invocable auto&& func)
+        {
+			return this->after_impl(ms, std::forward<decltype(func)>(func));
+        }
+        std::string after(const std::string& ms, std::invocable auto&& func)
+        {
+			return this->after_impl(ms, std::forward<decltype(func)>(func));
         }
 
     protected:

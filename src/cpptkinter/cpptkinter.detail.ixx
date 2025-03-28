@@ -5,7 +5,9 @@ export module cpptkinter:cpptkinter.detail;
 import :utility;
 import :_cpptkinter;
 import std;
-
+import aggregate_formatter;
+import variant_formatter;
+import optional_formatter;
 
 export {
 #if defined(__cpp_lib_ranges_stride) && defined(__cpp_lib_ranges_to_container) && defined(__cpp_lib_ranges) && defined(__cpp_lib_ranges_zip) && defined(__cpp_lib_ranges_join_with)
@@ -227,7 +229,10 @@ export namespace cpptkinter::detail
                 {
                     if (std::holds_alternative<member_type>(mapped))
                         return std::get<member_type>(std::move(mapped));
-                    throw utility::construct_exception<std::invalid_argument>(std::format("expected {} for key {} but got {}", reflect::type_name<member_type>(), key, mapped));
+                    throw utility::construct_exception<std::invalid_argument>(std::format("expected {} for key {} but got {}",
+                        reflect::type_name<member_type>(),
+                        key,
+                        reflect::type_name<decltype(mapped)>()));
                 }
                 else
                     return std::move(mapped);

@@ -478,39 +478,42 @@ T cpptkinter::detail::FromObjImplListQuery(Tcl_Interp* interp, TkappObjectImpl* 
 	return FromObj<T>(self, Tcl_Obj(tcl_elem));
 }
 
-template<hhh::meta::is_template_instance<std::map> T>
-	requires cpptkinter::detail::FromObjImplTrait<typename T::key_type>::value && cpptkinter::detail::FromObjImplTrait<typename T::mapped_type>::value
-std::optional<T> cpptkinter::detail::FromObjImpl(TkappObjectImpl* self, const Tcl_Obj& value, std::type_identity<T>)
+namespace cpptkinter::detail
 {
-	using key_type = typename T::key_type;
-	using mapped_type = typename T::mapped_type;
-
-	if (value->typePtr == nullptr)
-		return std::optional<T>{ std::in_place };
-	else if (value->typePtr == self->DictType && self->DictType)
+	template<hhh::meta::is_template_instance<std::map> T>
+		requires FromObjImplTrait<typename T::key_type>::value&& FromObjImplTrait<typename T::mapped_type>::value
+	std::optional<T> FromObjImpl(TkappObjectImpl* self, const Tcl_Obj& value, std::type_identity<T>)
 	{
-		std::optional<T> result{ std::in_place };
-		auto&& map = *result;
+		using key_type = typename T::key_type;
+		using mapped_type = typename T::mapped_type;
 
-		Tcl_Interp* interp = self->interp;
-		Tcl_DictSearch search{};
-		::Tcl_Obj* keyPtr, * valuePtr;
-		int done{};
-
-		if (Tcl_DictObjFirst(interp, value, &search, &keyPtr, &valuePtr, &done) != TCL_OK)
-			throw Tkinter_Error(self);
-
-		while (!done)
+		if (value->typePtr == nullptr)
+			return std::optional<T>{ std::in_place };
+		else if (value->typePtr == self->DictType && self->DictType)
 		{
-			auto&& [it, success] = map.emplace(FromObj<key_type>(self, Tcl_Obj(keyPtr)), FromObj<mapped_type>(self, Tcl_Obj(valuePtr)));
-			if (!success)
-				throw utility::construct_exception<TclError>("duplicate key in dict");
+			std::optional<T> result{ std::in_place };
+			auto&& map = *result;
 
-			Tcl_DictObjNext(&search, &keyPtr, &valuePtr, &done);
+			Tcl_Interp* interp = self->interp;
+			Tcl_DictSearch search{};
+			::Tcl_Obj* keyPtr, * valuePtr;
+			int done{};
+
+			if (Tcl_DictObjFirst(interp, value, &search, &keyPtr, &valuePtr, &done) != TCL_OK)
+				throw Tkinter_Error(self);
+
+			while (!done)
+			{
+				auto&& [it, success] = map.emplace(FromObj<key_type>(self, Tcl_Obj(keyPtr)), FromObj<mapped_type>(self, Tcl_Obj(valuePtr)));
+				if (!success)
+					throw utility::construct_exception<TclError>("duplicate key in dict");
+
+				Tcl_DictObjNext(&search, &keyPtr, &valuePtr, &done);
+			}
+
+			Tcl_DictObjDone(&search);
+			return result;
 		}
-
-		Tcl_DictObjDone(&search);
-		return result;
+		return {};
 	}
-	return {};
 }

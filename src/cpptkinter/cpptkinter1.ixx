@@ -57,9 +57,8 @@ export namespace cpptkinter
             this->readprofile(className);
         }
 
-        IMPL_CTOR(Tk, Misc);
-    public:
-        DEFINE_ASSIGNMENT_OPERATOR(Tk);
+        DEFINE_IMPL_CONSTRUCTOR(Tk, Misc);
+        DEFINE_COPY_MOVE_CONSTRUCTORS_AND_ASSIGNMENT(Tk);
 
         /// @brief Create a new Tk object.
         ///
@@ -253,7 +252,7 @@ export namespace cpptkinter
             this->_init_(cnf);
         }
 
-        DEFINE_ASSIGNMENT_OPERATOR(Variable);
+        DEFINE_COPY_MOVE_CONSTRUCTORS_AND_ASSIGNMENT(Variable);
 
         /// @brief Return the name of the variable in Tcl.
         operator std::string() const

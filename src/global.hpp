@@ -255,27 +255,24 @@ namespace cpptkinter
 
 #define REF_TO_IMPL(member) decltype(impl::member)& member = static_cast<impl*>(this->pimpl.get())->member
 
-#define DEFINE_ASSIGNMENT_OPERATOR(cl) \
-    cl& operator=(const cl& other) \
-    { \
-        std::destroy_at(this); \
-        return *std::construct_at(this, other); \
-    }
 
-#define IMPL_CTOR(cl, base) friend detail::widget_friend; \
+#define DEFINE_IMPL_CONSTRUCTOR(cl, base) friend detail::widget_friend; protected:  \
     template<std::derived_from<impl> I> cl(const std::shared_ptr<I>& pimpl) : base(pimpl) { }
-#define CNF_CONSTRUCTOR(cl, cnf_type, str) \
+
+#define DEFINE_CNF_CONSTRUCTOR(cl, cnf_type, str) public: \
     using constructor_cnf = cnf_type;   \
     cl() : cl(constructor_cnf{}) { }    \
     template<cnfs::is_cnf CNF = constructor_cnf> \
     cl(CNF&& cnf = {}) : cl(std::make_shared<impl>()) \
-    {   \
-        this->_init_(str, std::forward<CNF>(cnf));  \
-    }
+    { this->_init_(str, std::forward<CNF>(cnf)); }
+
+#define DEFINE_COPY_MOVE_CONSTRUCTORS_AND_ASSIGNMENT(cl) public: \
+    cl(const cl& other) noexcept : cl(std::static_pointer_cast<impl>(other.pimpl)) { } \
+    cl(cl&& other)      noexcept : cl(std::static_pointer_cast<impl>(other.pimpl)) { } \
+    cl& operator=(const cl& other) { std::destroy_at(this); return *std::construct_at(this, other); } \
+    cl& operator=(cl&& other) { std::destroy_at(this); return *std::construct_at(this, std::move(other)); }
 
 #define CONSTRUCTORS_AND_ASSIGNMENT(cl, cnf_type, str, base) \
-    protected:  \
-    IMPL_CTOR(cl, base) \
-    public: \
-    CNF_CONSTRUCTOR(cl, cnf_type, str)   \
-    DEFINE_ASSIGNMENT_OPERATOR(cl)
+    DEFINE_IMPL_CONSTRUCTOR(cl, base) \
+    DEFINE_CNF_CONSTRUCTOR(cl, cnf_type, str)   \
+    DEFINE_COPY_MOVE_CONSTRUCTORS_AND_ASSIGNMENT(cl)

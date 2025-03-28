@@ -91,6 +91,8 @@ int main(int argc, char* argv[])
         auto root = tk::Tk();
         wroot = root;
 
+        tk::Misc root2 = root;
+
         root.title("Welcome");
 
         auto donothing = [&]() { misc::printl("do_nothing was called"); };
@@ -203,15 +205,13 @@ int main(int argc, char* argv[])
         
 
         auto nb = ttk::Notebook({ .master = root });
-        nb.add({ tk::Button({ .text = "fxjcghcgkh" }), .text = "1" });
-        nb.add({ tk::Button({ .text = "cc bnkvhjl" }), .text = "2" });
+        nb.add({ .child = tk::Button({ .text = "fxjcghcgkh" }), .text = "1" });
+        nb.add({ .child = tk::Button({ .text = "cc bnkvhjl" }), .text = "2" });
         nb.grid({ .column = 0, .columnspan = 1, .row = 2, .sticky = "nswe" });
 
-        auto tab = nb.tab(0);
-        std::println("{}", tab);
+        root.after(3000, []() { misc::printl("after 3000ms"); });
 
-
-        tk::mainloop();
+        root.mainloop();
     }
     catch (const std::exception& ex)
     //catch (const std::logic_error& ex)

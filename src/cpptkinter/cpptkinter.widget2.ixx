@@ -797,7 +797,7 @@ export namespace cpptkinter
             (*this)["menu"] = menu;
         }
 
-        IMPL_CTOR(OptionMenu, Menubutton);
+        DEFINE_IMPL_CONSTRUCTOR(OptionMenu, Menubutton);
     public:
         /// @brief Construct an optionmenu widget.
         OptionMenu(const Misc& master, const StringVar& variable, const detail::sized_range_convertible_to_string auto& values, const std::function<void(const StringVar&)>& command = {}) :
@@ -806,7 +806,7 @@ export namespace cpptkinter
             this->_init_(master, variable, values, command);
         }
 
-        DEFINE_ASSIGNMENT_OPERATOR(OptionMenu);
+        DEFINE_COPY_MOVE_CONSTRUCTORS_AND_ASSIGNMENT(OptionMenu);
 
         template<typename R>
             requires detail::FromObjConcept<R> || std::same_as<R, Menu> || std::same_as<R, std::optional<Menu>>

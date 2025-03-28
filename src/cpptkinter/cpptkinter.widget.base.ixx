@@ -274,13 +274,14 @@ export namespace cpptkinter
     protected:
         REF_TO_IMPL(_name);
 
-        IMPL_CTOR(BaseWidget, Misc);
-        DEFINE_ASSIGNMENT_OPERATOR(BaseWidget)
+        DEFINE_IMPL_CONSTRUCTOR(BaseWidget, Misc);
+        DEFINE_COPY_MOVE_CONSTRUCTORS_AND_ASSIGNMENT(BaseWidget);
 
-            /// @brief Internal function. Sets up information about children.
-            ///
-            /// @param override_name only used by Checkbutton.
-            template<typename Self>
+    protected:
+        /// @brief Internal function. Sets up information about children.
+        ///
+        /// @param override_name only used by Checkbutton.
+        template<typename Self>
         void _setup(this Self&& self, const std::optional<Misc>& master_, auto& cnf, std::set<std::string>& ignore_fields, const std::optional<std::string>& override_name = std::nullopt)
         {
             auto&& master = master_.has_value() ? master_.value() : detail::_get_default_root();
@@ -358,7 +359,7 @@ export namespace cpptkinter
     struct Widget : BaseWidget, Pack, Grid, Place
     {
     protected:
-        IMPL_CTOR(Widget, BaseWidget);
+        DEFINE_IMPL_CONSTRUCTOR(Widget, BaseWidget);
     public:
 
         /// @brief Exists only to make reflect work.
