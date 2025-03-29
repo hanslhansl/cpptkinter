@@ -164,12 +164,10 @@ export namespace cpptkinter
 			return this->tk->call<std::string>("after", ms, name);
         }
     public:
-        template<typename Func>
         std::string after(long long ms, std::function<void()> func)
         {
 			return this->after_impl(ms, std::move(func));
         }
-        template<typename Func>
         std::string after(const std::string& ms, std::function<void()> func)
         {
 			return this->after_impl(ms, std::move(func));
