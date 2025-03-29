@@ -149,30 +149,27 @@ $(document).ready(function(){initNavTree('global_8hpp_source.html',''); initResi
 <div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
 <div class="line"><a id="l00256" name="l00256"></a><span class="lineno"><a class="line" href="global_8hpp.html#a5495dad2a5ff5be64fe99cc54073a479">  256</a></span><span class="preprocessor">#define REF_TO_IMPL(member) decltype(impl::member)&amp; member = static_cast&lt;impl*&gt;(this-&gt;pimpl.get())-&gt;member</span></div>
 <div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno"><a class="line" href="global_8hpp.html#ac389b0428f38a3a81c6d2980895d5835">  258</a></span><span class="preprocessor">#define DEFINE_ASSIGNMENT_OPERATOR(cl) \</span></div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span><span class="preprocessor">    cl&amp; operator=(const cl&amp; other) \</span></div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span><span class="preprocessor">    { \</span></div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span><span class="preprocessor">        std::destroy_at(this); \</span></div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span><span class="preprocessor">        return *std::construct_at(this, other); \</span></div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span><span class="preprocessor">    }</span></div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno"><a class="line" href="global_8hpp.html#a2ea152cdea84f54f2e9e7af023022bc0">  265</a></span><span class="preprocessor">#define IMPL_CTOR(cl, base) friend detail::widget_friend; \</span></div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span><span class="preprocessor">    template&lt;std::derived_from&lt;impl&gt; I&gt; cl(const std::shared_ptr&lt;I&gt;&amp; pimpl) : base(pimpl) { }</span></div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno"><a class="line" href="global_8hpp.html#a2b0c410d403e87302d27872946a48db7">  267</a></span><span class="preprocessor">#define CNF_CONSTRUCTOR(cl, cnf_type, str) \</span></div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span><span class="preprocessor">    using constructor_cnf = cnf_type;   \</span></div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span><span class="preprocessor">    cl() : cl(constructor_cnf{}) { }    \</span></div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span><span class="preprocessor">    template&lt;cnfs::is_cnf CNF = constructor_cnf&gt; \</span></div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span><span class="preprocessor">    cl(CNF&amp;&amp; cnf = {}) : cl(std::make_shared&lt;impl&gt;()) \</span></div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span><span class="preprocessor">    {   \</span></div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span><span class="preprocessor">        this-&gt;_init_(str, std::forward&lt;CNF&gt;(cnf));  \</span></div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span><span class="preprocessor">    }</span></div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span> </div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno"><a class="line" href="global_8hpp.html#a2624f04e284e808f4ba305f256dbe2a1">  276</a></span><span class="preprocessor">#define CONSTRUCTORS_AND_ASSIGNMENT(cl, cnf_type, str, base) \</span></div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span><span class="preprocessor">    protected:  \</span></div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span><span class="preprocessor">    IMPL_CTOR(cl, base) \</span></div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span><span class="preprocessor">    public: \</span></div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span><span class="preprocessor">    CNF_CONSTRUCTOR(cl, cnf_type, str)   \</span></div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span><span class="preprocessor">    DEFINE_ASSIGNMENT_OPERATOR(cl)</span></div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno"><a class="line" href="global_8hpp.html#ad28caed06926aec7fb8c8b9f26817b66">  259</a></span><span class="preprocessor">#define DEFINE_IMPL_CONSTRUCTOR(cl, base) friend detail::widget_friend; protected:  \</span></div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span><span class="preprocessor">    template&lt;std::derived_from&lt;impl&gt; I&gt; cl(const std::shared_ptr&lt;I&gt;&amp; pimpl) : base(pimpl) { }</span></div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno"><a class="line" href="global_8hpp.html#a6ab18412b395577a2efe69f8c634b026">  262</a></span><span class="preprocessor">#define DEFINE_CNF_CONSTRUCTOR(cl, cnf_type, str) public: \</span></div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span><span class="preprocessor">    using constructor_cnf = cnf_type;   \</span></div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span><span class="preprocessor">    cl() : cl(constructor_cnf{}) { }    \</span></div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span><span class="preprocessor">    template&lt;cnfs::is_cnf CNF = constructor_cnf&gt; \</span></div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span><span class="preprocessor">    cl(CNF&amp;&amp; cnf = {}) : cl(std::make_shared&lt;impl&gt;()) \</span></div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span><span class="preprocessor">    { this-&gt;_init_(str, std::forward&lt;CNF&gt;(cnf)); }</span></div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno"><a class="line" href="global_8hpp.html#af22dc179672daead8e9da469e4a92fd0">  269</a></span><span class="preprocessor">#define DEFINE_COPY_MOVE_CONSTRUCTORS_AND_ASSIGNMENT(cl) public: \</span></div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span><span class="preprocessor">    cl(const cl&amp; other) noexcept : cl(std::static_pointer_cast&lt;impl&gt;(other.pimpl)) { } \</span></div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span><span class="preprocessor">    cl(cl&amp;&amp; other)      noexcept : cl(std::static_pointer_cast&lt;impl&gt;(other.pimpl)) { } \</span></div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span><span class="preprocessor">    cl&amp; operator=(const cl&amp; other) { std::destroy_at(this); return *std::construct_at(this, other); } \</span></div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span><span class="preprocessor">    cl&amp; operator=(cl&amp;&amp; other) { std::destroy_at(this); return *std::construct_at(this, std::move(other)); }</span></div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno"><a class="line" href="global_8hpp.html#a2624f04e284e808f4ba305f256dbe2a1">  275</a></span><span class="preprocessor">#define CONSTRUCTORS_AND_ASSIGNMENT(cl, cnf_type, str, base) \</span></div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span><span class="preprocessor">    DEFINE_IMPL_CONSTRUCTOR(cl, base) \</span></div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span><span class="preprocessor">    DEFINE_CNF_CONSTRUCTOR(cl, cnf_type, str)   \</span></div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span><span class="preprocessor">    DEFINE_COPY_MOVE_CONSTRUCTORS_AND_ASSIGNMENT(cl)</span></div>
 <div class="ttc" id="anamespacecpptkinter_html"><div class="ttname"><a href="namespacecpptkinter.html">cpptkinter</a></div><div class="ttdoc">Implementation of the Python module tkinter in C++.</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter_8functions_8ixx_source.html#l00018">_cpptkinter.functions.ixx:19</a></div></div>
 <div class="ttc" id="anamespacecpptkinter_html_a1647a8cbe08ae686b7c93fd45db41028"><div class="ttname"><a href="namespacecpptkinter.html#a1647a8cbe08ae686b7c93fd45db41028">cpptkinter::TCL_CORE_LIBRARY_IS_EMBEDDED</a></div><div class="ttdeci">constexpr auto TCL_CORE_LIBRARY_IS_EMBEDDED</div><div class="ttdoc">true/false, whether the Tcl core library scripts are embedded into the executable (dll or static lib)...</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00217">global.hpp:217</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

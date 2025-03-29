@@ -124,7 +124,7 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00187">187</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00186">186</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab4a17d806dae6d6d4a971b87bb2d2c8d" name="ab4a17d806dae6d6d4a971b87bb2d2c8d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab4a17d806dae6d6d4a971b87bb2d2c8d">&#9670;&#160;</a></span>impl()</h2>
@@ -150,12 +150,12 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00194">194</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  194</span>                                 : <a class="code hl_variable" href="structcpptkinter_1_1Variable_1_1impl.html#a1e477ef2d48f3e6632c06bf9139f1452">_root</a>(root)</div>
-<div class="line"><span class="lineno">  195</span>            {</div>
-<div class="line"><span class="lineno">  196</span> </div>
-<div class="line"><span class="lineno">  197</span>            }</div>
-<div class="ttc" id="astructcpptkinter_1_1Variable_1_1impl_html_a1e477ef2d48f3e6632c06bf9139f1452"><div class="ttname"><a href="structcpptkinter_1_1Variable_1_1impl.html#a1e477ef2d48f3e6632c06bf9139f1452">cpptkinter::Variable::impl::_root</a></div><div class="ttdeci">Tk _root</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter1_8ixx_source.html#l00190">cpptkinter1.ixx:190</a></div></div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00193">193</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  193</span>                                 : <a class="code hl_variable" href="structcpptkinter_1_1Variable_1_1impl.html#a1e477ef2d48f3e6632c06bf9139f1452">_root</a>(root)</div>
+<div class="line"><span class="lineno">  194</span>            {</div>
+<div class="line"><span class="lineno">  195</span> </div>
+<div class="line"><span class="lineno">  196</span>            }</div>
+<div class="ttc" id="astructcpptkinter_1_1Variable_1_1impl_html_a1e477ef2d48f3e6632c06bf9139f1452"><div class="ttname"><a href="structcpptkinter_1_1Variable_1_1impl.html#a1e477ef2d48f3e6632c06bf9139f1452">cpptkinter::Variable::impl::_root</a></div><div class="ttdeci">Tk _root</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter1_8ixx_source.html#l00189">cpptkinter1.ixx:189</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -184,20 +184,20 @@ Public Attributes</h2></td></tr>
 
 <p>Unset the variable in Tcl. </p>
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00199">199</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  200</span>            {</div>
-<div class="line"><span class="lineno">  201</span>                <span class="keywordflow">if</span> (this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Variable_1_1impl.html#aa5e7658276beaca031f945c97f0d42a4">_tk</a> == <span class="keyword">nullptr</span>)</div>
-<div class="line"><span class="lineno">  202</span>                    <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  203</span>                <a class="code hl_define" href="global_8hpp.html#ad08e1eaa565f8afcb49eded8d6cd9f4c">DEVIATING_IMPLEMENTATION_WARNING</a>(<span class="stringliteral">&quot;original uses self.tk.getboolean to convert to bool&quot;</span>);</div>
-<div class="line"><span class="lineno">  204</span>                <span class="keywordflow">if</span> (this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Variable_1_1impl.html#aa5e7658276beaca031f945c97f0d42a4">_tk</a>-&gt;call&lt;<span class="keywordtype">long</span> <span class="keywordtype">long</span>&gt;(<span class="stringliteral">&quot;info&quot;</span>, <span class="stringliteral">&quot;exists&quot;</span>, this-&gt;_name))</div>
-<div class="line"><span class="lineno">  205</span>                    this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Variable_1_1impl.html#aa5e7658276beaca031f945c97f0d42a4">_tk</a>-&gt;globalunsetvar(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Variable_1_1impl.html#a1a5d6635f8f0bc0d3988eac1545b8349">_name</a>);</div>
-<div class="line"><span class="lineno">  206</span>                <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp;&amp; name : this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Variable_1_1impl.html#af1c04f5139ef7c848d36346032ca10e2">_tclCommands</a>)</div>
-<div class="line"><span class="lineno">  207</span>                    this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Variable_1_1impl.html#aa5e7658276beaca031f945c97f0d42a4">_tk</a>-&gt;deletecommand(name);</div>
-<div class="line"><span class="lineno">  208</span>            }</div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00198">198</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  199</span>            {</div>
+<div class="line"><span class="lineno">  200</span>                <span class="keywordflow">if</span> (this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Variable_1_1impl.html#aa5e7658276beaca031f945c97f0d42a4">_tk</a> == <span class="keyword">nullptr</span>)</div>
+<div class="line"><span class="lineno">  201</span>                    <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  202</span>                <a class="code hl_define" href="global_8hpp.html#ad08e1eaa565f8afcb49eded8d6cd9f4c">DEVIATING_IMPLEMENTATION_WARNING</a>(<span class="stringliteral">&quot;original uses self.tk.getboolean to convert to bool&quot;</span>);</div>
+<div class="line"><span class="lineno">  203</span>                <span class="keywordflow">if</span> (this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Variable_1_1impl.html#aa5e7658276beaca031f945c97f0d42a4">_tk</a>-&gt;call&lt;<span class="keywordtype">long</span> <span class="keywordtype">long</span>&gt;(<span class="stringliteral">&quot;info&quot;</span>, <span class="stringliteral">&quot;exists&quot;</span>, this-&gt;_name))</div>
+<div class="line"><span class="lineno">  204</span>                    this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Variable_1_1impl.html#aa5e7658276beaca031f945c97f0d42a4">_tk</a>-&gt;globalunsetvar(this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Variable_1_1impl.html#a1a5d6635f8f0bc0d3988eac1545b8349">_name</a>);</div>
+<div class="line"><span class="lineno">  205</span>                <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp;&amp; name : this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Variable_1_1impl.html#af1c04f5139ef7c848d36346032ca10e2">_tclCommands</a>)</div>
+<div class="line"><span class="lineno">  206</span>                    this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1Variable_1_1impl.html#aa5e7658276beaca031f945c97f0d42a4">_tk</a>-&gt;deletecommand(name);</div>
+<div class="line"><span class="lineno">  207</span>            }</div>
 <div class="ttc" id="aglobal_8hpp_html_ad08e1eaa565f8afcb49eded8d6cd9f4c"><div class="ttname"><a href="global_8hpp.html#ad08e1eaa565f8afcb49eded8d6cd9f4c">DEVIATING_IMPLEMENTATION_WARNING</a></div><div class="ttdeci">#define DEVIATING_IMPLEMENTATION_WARNING(msg)</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00228">global.hpp:228</a></div></div>
-<div class="ttc" id="astructcpptkinter_1_1Variable_1_1impl_html_a1a5d6635f8f0bc0d3988eac1545b8349"><div class="ttname"><a href="structcpptkinter_1_1Variable_1_1impl.html#a1a5d6635f8f0bc0d3988eac1545b8349">cpptkinter::Variable::impl::_name</a></div><div class="ttdeci">std::string _name</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter1_8ixx_source.html#l00192">cpptkinter1.ixx:192</a></div></div>
-<div class="ttc" id="astructcpptkinter_1_1Variable_1_1impl_html_aa5e7658276beaca031f945c97f0d42a4"><div class="ttname"><a href="structcpptkinter_1_1Variable_1_1impl.html#aa5e7658276beaca031f945c97f0d42a4">cpptkinter::Variable::impl::_tk</a></div><div class="ttdeci">std::shared_ptr&lt; _cpptkinter::TkappObject &gt; _tk</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter1_8ixx_source.html#l00191">cpptkinter1.ixx:191</a></div></div>
-<div class="ttc" id="astructcpptkinter_1_1Variable_1_1impl_html_af1c04f5139ef7c848d36346032ca10e2"><div class="ttname"><a href="structcpptkinter_1_1Variable_1_1impl.html#af1c04f5139ef7c848d36346032ca10e2">cpptkinter::Variable::impl::_tclCommands</a></div><div class="ttdeci">std::set&lt; std::string &gt; _tclCommands</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter1_8ixx_source.html#l00189">cpptkinter1.ixx:189</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1Variable_1_1impl_html_a1a5d6635f8f0bc0d3988eac1545b8349"><div class="ttname"><a href="structcpptkinter_1_1Variable_1_1impl.html#a1a5d6635f8f0bc0d3988eac1545b8349">cpptkinter::Variable::impl::_name</a></div><div class="ttdeci">std::string _name</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter1_8ixx_source.html#l00191">cpptkinter1.ixx:191</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1Variable_1_1impl_html_aa5e7658276beaca031f945c97f0d42a4"><div class="ttname"><a href="structcpptkinter_1_1Variable_1_1impl.html#aa5e7658276beaca031f945c97f0d42a4">cpptkinter::Variable::impl::_tk</a></div><div class="ttdeci">std::shared_ptr&lt; _cpptkinter::TkappObject &gt; _tk</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter1_8ixx_source.html#l00190">cpptkinter1.ixx:190</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1Variable_1_1impl_html_af1c04f5139ef7c848d36346032ca10e2"><div class="ttname"><a href="structcpptkinter_1_1Variable_1_1impl.html#af1c04f5139ef7c848d36346032ca10e2">cpptkinter::Variable::impl::_tclCommands</a></div><div class="ttdeci">std::set&lt; std::string &gt; _tclCommands</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter1_8ixx_source.html#l00188">cpptkinter1.ixx:188</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -214,7 +214,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00192">192</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00191">191</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
 
 </div>
 </div>
@@ -230,7 +230,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00190">190</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00189">189</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
 
 </div>
 </div>
@@ -246,7 +246,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00189">189</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00188">188</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
 
 </div>
 </div>
@@ -262,7 +262,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00191">191</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00190">190</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
 
 </div>
 </div>

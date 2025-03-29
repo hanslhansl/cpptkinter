@@ -1,7 +1,9 @@
 var classcpptkinter_1_1Misc =
 [
     [ "impl", "structcpptkinter_1_1Misc_1_1impl.html", "structcpptkinter_1_1Misc_1_1impl" ],
-    [ "Misc", "classcpptkinter_1_1Misc.html#af229c69075ddac49b5d058f813292699", null ],
+    [ "Misc", "classcpptkinter_1_1Misc.html#aa8f5d86304606a1b88c05d4511517291", null ],
+    [ "Misc", "classcpptkinter_1_1Misc.html#a8a37094519cbaa1686ce7c122fd24848", null ],
+    [ "Misc", "classcpptkinter_1_1Misc.html#a0c09e51a54a789dbdb1f175fe6b28f01", null ],
     [ "_bind", "classcpptkinter_1_1Misc.html#a997e15f35ecd74ade6c92904bc25efc3", null ],
     [ "_bind", "classcpptkinter_1_1Misc.html#a9f35232a482b8c97d7967e9bbdc1942a", null ],
     [ "_bind", "classcpptkinter_1_1Misc.html#a0bf1dbd37b7b17e2e9cb869b099cf788", null ],
@@ -24,6 +26,9 @@ var classcpptkinter_1_1Misc =
     [ "_substitute", "classcpptkinter_1_1Misc.html#a0c3e643be59c52f7098ae9a9758ccfbe", null ],
     [ "_unbind", "classcpptkinter_1_1Misc.html#a993e786ef22a4996c43a1daa2633e918", null ],
     [ "_unbind", "classcpptkinter_1_1Misc.html#a65e8f43e002be2c9107931c4ee6c2ea3", null ],
+    [ "after", "classcpptkinter_1_1Misc.html#a7c8b07798b28b7b956b0d92f804a934b", null ],
+    [ "after", "classcpptkinter_1_1Misc.html#a4eef33b4d6c5b24a7ac21fa281920780", null ],
+    [ "after_impl", "classcpptkinter_1_1Misc.html#a39d04d6f7432c9fc60c06b7497f9afed", null ],
     [ "anchor", "classcpptkinter_1_1Misc.html#ae7a36fae7755eb2fc9fb24552e9733ea", null ],
     [ "bbox", "classcpptkinter_1_1Misc.html#ab1e4b7d196f92db6cab7ea51215f7315", null ],
     [ "bind", "classcpptkinter_1_1Misc.html#a3fe5995e5d53c85e8222206b311889d8", null ],
@@ -60,6 +65,7 @@ var classcpptkinter_1_1Misc =
     [ "nametowidget", "classcpptkinter_1_1Misc.html#a4fb0c53d8ae5fafb298d3193487bd11f", null ],
     [ "operator std::string", "classcpptkinter_1_1Misc.html#ade7170e0512fc21c1f6b9b14f1073f4d", null ],
     [ "operator=", "classcpptkinter_1_1Misc.html#a20e33e4dd583100707936dc380167324", null ],
+    [ "operator=", "classcpptkinter_1_1Misc.html#a6f4ce787f418bfc3df162f97da467e20", null ],
     [ "operator[]", "classcpptkinter_1_1Misc.html#ab2e7a95e9dee85a28bb78d7dc4eca089", null ],
     [ "pack_propagate", "classcpptkinter_1_1Misc.html#a11515ecf752c5c4d7d5500f511eb966b", null ],
     [ "pack_propagate", "classcpptkinter_1_1Misc.html#a806c885121d2743f8a63115e3f512f42", null ],

@@ -290,7 +290,7 @@ template&lt;typename Func &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="__cpptkinter_8templates_8ixx_source.html#l00167">167</a> of file <a class="el" href="__cpptkinter_8templates_8ixx_source.html">_cpptkinter.templates.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8templates_8ixx_source.html#l00166">166</a> of file <a class="el" href="__cpptkinter_8templates_8ixx_source.html">_cpptkinter.templates.ixx</a>.</p>
 
 </div>
 </div>
@@ -308,7 +308,7 @@ template&lt;typename Func &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="__cpptkinter_8templates_8ixx_source.html#l00247">247</a> of file <a class="el" href="__cpptkinter_8templates_8ixx_source.html">_cpptkinter.templates.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8templates_8ixx_source.html#l00245">245</a> of file <a class="el" href="__cpptkinter_8templates_8ixx_source.html">_cpptkinter.templates.ixx</a>.</p>
 
 </div>
 </div>
@@ -367,28 +367,28 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="__cpptkinter_8templates_8ixx_source.html#l00222">222</a> of file <a class="el" href="__cpptkinter_8templates_8ixx_source.html">_cpptkinter.templates.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  223</span>    {</div>
-<div class="line"><span class="lineno">  224</span>        <span class="keyword">auto</span>&amp;&amp; e = *<span class="keyword">static_cast&lt;</span><a class="code hl_struct" href="structcpptkinter_1_1detail_1_1TclBaseEvent.html">Tkapp_CallEvent&lt;T&gt;</a>*<span class="keyword">&gt;</span>(evPtr);</div>
-<div class="line"><span class="lineno">  225</span>        Tcl_Condition* cond = e.<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TclBaseEvent.html#a36ebdecee3b4a4f5df243827114a1e9d">cond</a>;</div>
-<div class="line"><span class="lineno">  226</span>        <span class="keywordflow">try</span></div>
-<div class="line"><span class="lineno">  227</span>        {</div>
-<div class="line"><span class="lineno">  228</span>            e.task();</div>
-<div class="line"><span class="lineno">  229</span>        }</div>
-<div class="line"><span class="lineno">  230</span>        <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::future_error&amp; ex)</div>
-<div class="line"><span class="lineno">  231</span>        {</div>
-<div class="line"><span class="lineno">  232</span>            detail::log_error(ex.what());</div>
-<div class="line"><span class="lineno">  233</span>        }</div>
-<div class="line"><span class="lineno">  234</span>        <span class="keywordflow">catch</span> (...)</div>
-<div class="line"><span class="lineno">  235</span>        {</div>
-<div class="line"><span class="lineno">  236</span>            detail::log_error(<span class="stringliteral">&quot;Unknown exception&quot;</span>);</div>
-<div class="line"><span class="lineno">  237</span>        }</div>
-<div class="line"><span class="lineno">  238</span>        std::destroy_at(&amp;e);</div>
-<div class="line"><span class="lineno">  239</span>        Tcl_MutexLock(&amp;call_mutex);</div>
-<div class="line"><span class="lineno">  240</span>        Tcl_ConditionNotify(cond);</div>
-<div class="line"><span class="lineno">  241</span>        Tcl_MutexUnlock(&amp;call_mutex);</div>
-<div class="line"><span class="lineno">  242</span>        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><span class="lineno">  243</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8templates_8ixx_source.html#l00221">221</a> of file <a class="el" href="__cpptkinter_8templates_8ixx_source.html">_cpptkinter.templates.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  222</span>    {</div>
+<div class="line"><span class="lineno">  223</span>        <span class="keyword">auto</span>&amp;&amp; e = *<span class="keyword">static_cast&lt;</span><a class="code hl_struct" href="structcpptkinter_1_1detail_1_1TclBaseEvent.html">Tkapp_CallEvent&lt;T&gt;</a>*<span class="keyword">&gt;</span>(evPtr);</div>
+<div class="line"><span class="lineno">  224</span>        Tcl_Condition* cond = e.<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TclBaseEvent.html#a36ebdecee3b4a4f5df243827114a1e9d">cond</a>;</div>
+<div class="line"><span class="lineno">  225</span>        <span class="keywordflow">try</span></div>
+<div class="line"><span class="lineno">  226</span>        {</div>
+<div class="line"><span class="lineno">  227</span>            e.task();</div>
+<div class="line"><span class="lineno">  228</span>        }</div>
+<div class="line"><span class="lineno">  229</span>        <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::future_error&amp; ex)</div>
+<div class="line"><span class="lineno">  230</span>        {</div>
+<div class="line"><span class="lineno">  231</span>            detail::log_error(ex.what());</div>
+<div class="line"><span class="lineno">  232</span>        }</div>
+<div class="line"><span class="lineno">  233</span>        <span class="keywordflow">catch</span> (...)</div>
+<div class="line"><span class="lineno">  234</span>        {</div>
+<div class="line"><span class="lineno">  235</span>            detail::log_error(<span class="stringliteral">&quot;Unknown exception&quot;</span>);</div>
+<div class="line"><span class="lineno">  236</span>        }</div>
+<div class="line"><span class="lineno">  237</span>        std::destroy_at(&amp;e);</div>
+<div class="line"><span class="lineno">  238</span>        Tcl_MutexLock(&amp;call_mutex);</div>
+<div class="line"><span class="lineno">  239</span>        Tcl_ConditionNotify(cond);</div>
+<div class="line"><span class="lineno">  240</span>        Tcl_MutexUnlock(&amp;call_mutex);</div>
+<div class="line"><span class="lineno">  241</span>        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><span class="lineno">  242</span>    }</div>
 <div class="ttc" id="astructcpptkinter_1_1detail_1_1TclBaseEvent_html"><div class="ttname"><a href="structcpptkinter_1_1detail_1_1TclBaseEvent.html">cpptkinter::detail::TclBaseEvent</a></div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter_8functions_8ixx_source.html#l00084">_cpptkinter.functions.ixx:85</a></div></div>
 <div class="ttc" id="astructcpptkinter_1_1detail_1_1TclBaseEvent_html_a36ebdecee3b4a4f5df243827114a1e9d"><div class="ttname"><a href="structcpptkinter_1_1detail_1_1TclBaseEvent.html#a36ebdecee3b4a4f5df243827114a1e9d">cpptkinter::detail::TclBaseEvent::cond</a></div><div class="ttdeci">Tcl_Condition * cond</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter_8functions_8ixx_source.html#l00087">_cpptkinter.functions.ixx:87</a></div></div>
 </div><!-- fragment -->
@@ -1041,24 +1041,24 @@ template&lt;detail::call_argument_concept... Args&gt; </div>
 
 <p>Convert c++ values to a std::vector&lt;Tcl_Obj&gt;. </p>
 
-<p class="definition">Definition at line <a class="el" href="__cpptkinter_8templates_8ixx_source.html#l00171">171</a> of file <a class="el" href="__cpptkinter_8templates_8ixx_source.html">_cpptkinter.templates.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  172</span>    {</div>
-<div class="line"><span class="lineno">  173</span>        <a class="code hl_define" href="global_8hpp.html#ad08e1eaa565f8afcb49eded8d6cd9f4c">DEVIATING_IMPLEMENTATION_WARNING</a>(<span class="stringliteral">&quot;major changes, original ignores None and any argument thereafter, not implementable in c++&quot;</span>);</div>
-<div class="line"><span class="lineno">  174</span> </div>
-<div class="line"><span class="lineno">  175</span>        std::vector&lt;Tcl_Obj&gt; raii{};</div>
-<div class="line"><span class="lineno">  176</span> </div>
-<div class="line"><span class="lineno">  177</span>        <span class="keyword">auto</span> lambda = [&amp;raii]&lt;<span class="keyword">typename</span> T&gt;(T &amp;&amp; arg)</div>
-<div class="line"><span class="lineno">  178</span>        {</div>
-<div class="line"><span class="lineno">  179</span>            <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (hhh::meta::range_of&lt;T, Tcl_Obj&gt;)</div>
-<div class="line"><span class="lineno">  180</span>                raii.append_range(std::forward&lt;T&gt;(arg));</div>
-<div class="line"><span class="lineno">  181</span>            <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  182</span>                raii.emplace_back(AsObj(std::forward&lt;T&gt;(arg)));</div>
-<div class="line"><span class="lineno">  183</span>        };</div>
-<div class="line"><span class="lineno">  184</span> </div>
-<div class="line"><span class="lineno">  185</span>        (lambda(std::forward&lt;Args&gt;(args)), ...);</div>
-<div class="line"><span class="lineno">  186</span> </div>
-<div class="line"><span class="lineno">  187</span>        <span class="keywordflow">return</span> raii;</div>
-<div class="line"><span class="lineno">  188</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8templates_8ixx_source.html#l00170">170</a> of file <a class="el" href="__cpptkinter_8templates_8ixx_source.html">_cpptkinter.templates.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  171</span>    {</div>
+<div class="line"><span class="lineno">  172</span>        <a class="code hl_define" href="global_8hpp.html#ad08e1eaa565f8afcb49eded8d6cd9f4c">DEVIATING_IMPLEMENTATION_WARNING</a>(<span class="stringliteral">&quot;major changes, original ignores None and any argument thereafter, not implementable in c++&quot;</span>);</div>
+<div class="line"><span class="lineno">  173</span> </div>
+<div class="line"><span class="lineno">  174</span>        std::vector&lt;Tcl_Obj&gt; raii{};</div>
+<div class="line"><span class="lineno">  175</span> </div>
+<div class="line"><span class="lineno">  176</span>        <span class="keyword">auto</span> lambda = [&amp;raii]&lt;<span class="keyword">typename</span> T&gt;(T &amp;&amp; arg)</div>
+<div class="line"><span class="lineno">  177</span>        {</div>
+<div class="line"><span class="lineno">  178</span>            <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (hhh::meta::range_of&lt;T, Tcl_Obj&gt;)</div>
+<div class="line"><span class="lineno">  179</span>                raii.append_range(std::forward&lt;T&gt;(arg));</div>
+<div class="line"><span class="lineno">  180</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  181</span>                raii.emplace_back(AsObj(std::forward&lt;T&gt;(arg)));</div>
+<div class="line"><span class="lineno">  182</span>        };</div>
+<div class="line"><span class="lineno">  183</span> </div>
+<div class="line"><span class="lineno">  184</span>        (lambda(std::forward&lt;Args&gt;(args)), ...);</div>
+<div class="line"><span class="lineno">  185</span> </div>
+<div class="line"><span class="lineno">  186</span>        <span class="keywordflow">return</span> raii;</div>
+<div class="line"><span class="lineno">  187</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1098,26 +1098,26 @@ template&lt;detail::FromObjConcept R, detail::call_argument_concept... Args&gt; 
 
 <p>Execute a tcl command represented by args. </p>
 
-<p class="definition">Definition at line <a class="el" href="__cpptkinter_8templates_8ixx_source.html#l00200">200</a> of file <a class="el" href="__cpptkinter_8templates_8ixx_source.html">_cpptkinter.templates.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  201</span>    {</div>
-<div class="line"><span class="lineno">  202</span>        std::vector&lt;Tcl_Obj&gt; raii{};</div>
-<div class="line"><span class="lineno">  203</span> </div>
-<div class="line"><span class="lineno">  204</span>        <a class="code hl_define" href="global_8hpp.html#a15fd3839e74ee8d9b54d637f016b4ea6">ENTER_PYTHON</a>;</div>
-<div class="line"><span class="lineno">  205</span>        Tkapp_Trace(self, args...);</div>
-<div class="line"><span class="lineno">  206</span>        raii = Tkapp_CallArgs(std::forward&lt;Args&gt;(args)...);</div>
-<div class="line"><span class="lineno">  207</span>        <a class="code hl_define" href="global_8hpp.html#aa2b08a860e96dc7f6d1cba578dfbf2fe">LEAVE_PYTHON</a>;</div>
-<div class="line"><span class="lineno">  208</span> </div>
-<div class="line"><span class="lineno">  209</span>        <span class="keyword">auto</span> i = Tcl_EvalObjv(self-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a3288c7145d78c7f8abc73dd89b8cfcbc">interp</a>, raii, flags);</div>
-<div class="line"><span class="lineno">  210</span> </div>
-<div class="line"><span class="lineno">  211</span>        <a class="code hl_define" href="global_8hpp.html#a15fd3839e74ee8d9b54d637f016b4ea6">ENTER_PYTHON</a>;</div>
-<div class="line"><span class="lineno">  212</span>        <span class="keywordflow">if</span> (i == <a class="code hl_variable" href="tk_8ixx.html#a03bdb8340283213666d770d940fc57a0">TCL_ERROR</a>)</div>
-<div class="line"><span class="lineno">  213</span>            <span class="keywordflow">throw</span> Tkinter_Error(self);</div>
-<div class="line"><span class="lineno">  214</span>        <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  215</span>            <span class="keywordflow">return</span> Tkapp_ObjectResult&lt;R&gt;(self);</div>
-<div class="line"><span class="lineno">  216</span>        <a class="code hl_define" href="global_8hpp.html#aa2b08a860e96dc7f6d1cba578dfbf2fe">LEAVE_PYTHON</a>;</div>
-<div class="line"><span class="lineno">  217</span> </div>
-<div class="line"><span class="lineno">  218</span>        <a class="code hl_define" href="global_8hpp.html#ad08e1eaa565f8afcb49eded8d6cd9f4c">DEVIATING_IMPLEMENTATION_WARNING</a>(<span class="stringliteral">&quot;original calls Tkapp_CallDeallocArgs, raii&#39;s dtor handles that for us&quot;</span>);</div>
-<div class="line"><span class="lineno">  219</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8templates_8ixx_source.html#l00199">199</a> of file <a class="el" href="__cpptkinter_8templates_8ixx_source.html">_cpptkinter.templates.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  200</span>    {</div>
+<div class="line"><span class="lineno">  201</span>        std::vector&lt;Tcl_Obj&gt; raii{};</div>
+<div class="line"><span class="lineno">  202</span> </div>
+<div class="line"><span class="lineno">  203</span>        <a class="code hl_define" href="global_8hpp.html#a15fd3839e74ee8d9b54d637f016b4ea6">ENTER_PYTHON</a>;</div>
+<div class="line"><span class="lineno">  204</span>        Tkapp_Trace(self, args...);</div>
+<div class="line"><span class="lineno">  205</span>        raii = Tkapp_CallArgs(std::forward&lt;Args&gt;(args)...);</div>
+<div class="line"><span class="lineno">  206</span>        <a class="code hl_define" href="global_8hpp.html#aa2b08a860e96dc7f6d1cba578dfbf2fe">LEAVE_PYTHON</a>;</div>
+<div class="line"><span class="lineno">  207</span> </div>
+<div class="line"><span class="lineno">  208</span>        <span class="keyword">auto</span> i = Tcl_EvalObjv(self-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a3288c7145d78c7f8abc73dd89b8cfcbc">interp</a>, raii, flags);</div>
+<div class="line"><span class="lineno">  209</span> </div>
+<div class="line"><span class="lineno">  210</span>        <a class="code hl_define" href="global_8hpp.html#a15fd3839e74ee8d9b54d637f016b4ea6">ENTER_PYTHON</a>;</div>
+<div class="line"><span class="lineno">  211</span>        <span class="keywordflow">if</span> (i == <a class="code hl_variable" href="tk_8ixx.html#a03bdb8340283213666d770d940fc57a0">TCL_ERROR</a>)</div>
+<div class="line"><span class="lineno">  212</span>            <span class="keywordflow">throw</span> Tkinter_Error(self);</div>
+<div class="line"><span class="lineno">  213</span>        <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  214</span>            <span class="keywordflow">return</span> Tkapp_ObjectResult&lt;R&gt;(self);</div>
+<div class="line"><span class="lineno">  215</span>        <a class="code hl_define" href="global_8hpp.html#aa2b08a860e96dc7f6d1cba578dfbf2fe">LEAVE_PYTHON</a>;</div>
+<div class="line"><span class="lineno">  216</span> </div>
+<div class="line"><span class="lineno">  217</span>        <a class="code hl_define" href="global_8hpp.html#ad08e1eaa565f8afcb49eded8d6cd9f4c">DEVIATING_IMPLEMENTATION_WARNING</a>(<span class="stringliteral">&quot;original calls Tkapp_CallDeallocArgs, raii&#39;s dtor handles that for us&quot;</span>);</div>
+<div class="line"><span class="lineno">  218</span>    }</div>
 <div class="ttc" id="aglobal_8hpp_html_a15fd3839e74ee8d9b54d637f016b4ea6"><div class="ttname"><a href="global_8hpp.html#a15fd3839e74ee8d9b54d637f016b4ea6">ENTER_PYTHON</a></div><div class="ttdeci">#define ENTER_PYTHON</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00246">global.hpp:246</a></div></div>
 <div class="ttc" id="aglobal_8hpp_html_aa2b08a860e96dc7f6d1cba578dfbf2fe"><div class="ttname"><a href="global_8hpp.html#aa2b08a860e96dc7f6d1cba578dfbf2fe">LEAVE_PYTHON</a></div><div class="ttdeci">#define LEAVE_PYTHON</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00247">global.hpp:247</a></div></div>
 </div><!-- fragment -->
@@ -1143,11 +1143,11 @@ template&lt;detail::FromObjConcept R&gt; </div>
 
 <p>Retrieve the interpreter's current result. </p>
 
-<p class="definition">Definition at line <a class="el" href="__cpptkinter_8templates_8ixx_source.html#l00192">192</a> of file <a class="el" href="__cpptkinter_8templates_8ixx_source.html">_cpptkinter.templates.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  193</span>    {</div>
-<div class="line"><span class="lineno">  194</span>        <span class="keyword">auto</span> ptr = <a class="code hl_class" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">Tcl_Obj</a>(Tcl_GetObjResult(self-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a3288c7145d78c7f8abc73dd89b8cfcbc">interp</a>));</div>
-<div class="line"><span class="lineno">  195</span>        <span class="keywordflow">return</span> FromObj&lt;R&gt;(self, ptr);</div>
-<div class="line"><span class="lineno">  196</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8templates_8ixx_source.html#l00191">191</a> of file <a class="el" href="__cpptkinter_8templates_8ixx_source.html">_cpptkinter.templates.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  192</span>    {</div>
+<div class="line"><span class="lineno">  193</span>        <span class="keyword">auto</span> ptr = <a class="code hl_class" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html">Tcl_Obj</a>(Tcl_GetObjResult(self-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a3288c7145d78c7f8abc73dd89b8cfcbc">interp</a>));</div>
+<div class="line"><span class="lineno">  194</span>        <span class="keywordflow">return</span> FromObj&lt;R&gt;(self, ptr);</div>
+<div class="line"><span class="lineno">  195</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1443,38 +1443,38 @@ template&lt;typename Func &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="__cpptkinter_8templates_8ixx_source.html#l00276">276</a> of file <a class="el" href="__cpptkinter_8templates_8ixx_source.html">_cpptkinter.templates.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  277</span>    {</div>
-<div class="line"><span class="lineno">  278</span>        <a class="code hl_define" href="global_8hpp.html#ad08e1eaa565f8afcb49eded8d6cd9f4c">DEVIATING_IMPLEMENTATION_WARNING</a>(<span class="stringliteral">&quot;major changes&quot;</span>);</div>
-<div class="line"><span class="lineno">  279</span> </div>
-<div class="line"><span class="lineno">  280</span>        <span class="keywordflow">if</span> (self-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a84b7ea9cb86c3779ad69121b976294d4">threaded</a> &amp;&amp; self-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a2f0b908259ee7e07cb570e7e33881fc1">thread_id</a> != Tcl_GetCurrentThread())</div>
-<div class="line"><span class="lineno">  281</span>        {</div>
-<div class="line"><span class="lineno">  282</span>            <span class="keyword">using </span>FuncType = std::invoke_result_t&lt;Func&amp;&amp;&gt;();</div>
-<div class="line"><span class="lineno">  283</span>            <span class="keyword">using </span>VarEventType = <a class="code hl_struct" href="structcpptkinter_1_1detail_1_1TclBaseEvent.html">VarEvent&lt;FuncType&gt;</a>;</div>
-<div class="line"><span class="lineno">  284</span> </div>
-<div class="line"><span class="lineno">  285</span>            <span class="comment">// The current thread is not the interpreter thread. Marshal the call to the interpreter thread, then wait for completion.</span></div>
-<div class="line"><span class="lineno">  286</span>            <span class="keywordflow">if</span> (!<a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#a2c538f1ca0843f0107f580b4ff6329a5">WaitForMainloop</a>(self))</div>
-<div class="line"><span class="lineno">  287</span>                <span class="keywordflow">throw</span> utility::construct_exception&lt;std::runtime_error&gt;(<span class="stringliteral">&quot;impossible&quot;</span>);</div>
-<div class="line"><span class="lineno">  288</span> </div>
-<div class="line"><span class="lineno">  289</span>            <span class="keyword">auto</span> buffer = attemptckalloc(<span class="keyword">sizeof</span>(VarEventType));</div>
-<div class="line"><span class="lineno">  290</span>            <span class="keywordflow">if</span> (buffer == NULL)</div>
-<div class="line"><span class="lineno">  291</span>                <span class="keywordflow">throw</span> utility::construct_exception&lt;TclError&gt;(<span class="stringliteral">&quot;attemptckalloc failed to allocate memory&quot;</span>);</div>
-<div class="line"><span class="lineno">  292</span> </div>
-<div class="line"><span class="lineno">  293</span>            Tcl_Condition cond = NULL;</div>
-<div class="line"><span class="lineno">  294</span>            <span class="keyword">auto</span>&amp;&amp; ev = *std::construct_at(<span class="keyword">static_cast&lt;</span>VarEventType*<span class="keyword">&gt;</span>(buffer), var_proc&lt;FuncType&gt;, std::packaged_task(std::move(func)), &amp;cond);</div>
-<div class="line"><span class="lineno">  295</span>            <span class="keyword">auto</span> future = ev.task.get_future();</div>
-<div class="line"><span class="lineno">  296</span> </div>
-<div class="line"><span class="lineno">  297</span>            <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#ab9d70d1830337b1feca83dbe4a1265bd">Tkapp_ThreadSend</a>(self, &amp;ev, ev.cond, &amp;var_mutex);</div>
-<div class="line"><span class="lineno">  298</span>            Tcl_ConditionFinalize(ev.cond);</div>
-<div class="line"><span class="lineno">  299</span> </div>
-<div class="line"><span class="lineno">  300</span>            <a class="code hl_define" href="global_8hpp.html#ad092689f9ce64d6dbacd6e78e77f983c">ANNOTATION_WARNING</a>(<span class="stringliteral">&quot;maybe the usage of Tcl_Condition and mutex is unnecessary because future.get() waits anyways&quot;</span>);</div>
-<div class="line"><span class="lineno">  301</span>            <span class="keywordflow">return</span> future.get();</div>
-<div class="line"><span class="lineno">  302</span>        }</div>
-<div class="line"><span class="lineno">  303</span>        <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  304</span>        {</div>
-<div class="line"><span class="lineno">  305</span>            <span class="keywordflow">return</span> func();</div>
-<div class="line"><span class="lineno">  306</span>        }</div>
-<div class="line"><span class="lineno">  307</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8templates_8ixx_source.html#l00274">274</a> of file <a class="el" href="__cpptkinter_8templates_8ixx_source.html">_cpptkinter.templates.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  275</span>    {</div>
+<div class="line"><span class="lineno">  276</span>        <a class="code hl_define" href="global_8hpp.html#ad08e1eaa565f8afcb49eded8d6cd9f4c">DEVIATING_IMPLEMENTATION_WARNING</a>(<span class="stringliteral">&quot;major changes&quot;</span>);</div>
+<div class="line"><span class="lineno">  277</span> </div>
+<div class="line"><span class="lineno">  278</span>        <span class="keywordflow">if</span> (self-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a84b7ea9cb86c3779ad69121b976294d4">threaded</a> &amp;&amp; self-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TkappObjectImpl.html#a2f0b908259ee7e07cb570e7e33881fc1">thread_id</a> != Tcl_GetCurrentThread())</div>
+<div class="line"><span class="lineno">  279</span>        {</div>
+<div class="line"><span class="lineno">  280</span>            <span class="keyword">using </span>FuncType = std::invoke_result_t&lt;Func&amp;&amp;&gt;();</div>
+<div class="line"><span class="lineno">  281</span>            <span class="keyword">using </span>VarEventType = <a class="code hl_struct" href="structcpptkinter_1_1detail_1_1TclBaseEvent.html">VarEvent&lt;FuncType&gt;</a>;</div>
+<div class="line"><span class="lineno">  282</span> </div>
+<div class="line"><span class="lineno">  283</span>            <span class="comment">// The current thread is not the interpreter thread. Marshal the call to the interpreter thread, then wait for completion.</span></div>
+<div class="line"><span class="lineno">  284</span>            <span class="keywordflow">if</span> (!<a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#a2c538f1ca0843f0107f580b4ff6329a5">WaitForMainloop</a>(self))</div>
+<div class="line"><span class="lineno">  285</span>                <span class="keywordflow">throw</span> utility::construct_exception&lt;std::runtime_error&gt;(<span class="stringliteral">&quot;impossible&quot;</span>);</div>
+<div class="line"><span class="lineno">  286</span> </div>
+<div class="line"><span class="lineno">  287</span>            <span class="keyword">auto</span> buffer = attemptckalloc(<span class="keyword">sizeof</span>(VarEventType));</div>
+<div class="line"><span class="lineno">  288</span>            <span class="keywordflow">if</span> (buffer == NULL)</div>
+<div class="line"><span class="lineno">  289</span>                <span class="keywordflow">throw</span> utility::construct_exception&lt;TclError&gt;(<span class="stringliteral">&quot;attemptckalloc failed to allocate memory&quot;</span>);</div>
+<div class="line"><span class="lineno">  290</span> </div>
+<div class="line"><span class="lineno">  291</span>            Tcl_Condition cond = NULL;</div>
+<div class="line"><span class="lineno">  292</span>            <span class="keyword">auto</span>&amp;&amp; ev = *std::construct_at(<span class="keyword">static_cast&lt;</span>VarEventType*<span class="keyword">&gt;</span>(buffer), var_proc&lt;FuncType&gt;, std::packaged_task(std::move(func)), &amp;cond);</div>
+<div class="line"><span class="lineno">  293</span>            <span class="keyword">auto</span> future = ev.task.get_future();</div>
+<div class="line"><span class="lineno">  294</span> </div>
+<div class="line"><span class="lineno">  295</span>            <a class="code hl_function" href="namespacecpptkinter_1_1__cpptkinter.html#ab9d70d1830337b1feca83dbe4a1265bd">Tkapp_ThreadSend</a>(self, &amp;ev, ev.cond, &amp;var_mutex);</div>
+<div class="line"><span class="lineno">  296</span>            Tcl_ConditionFinalize(ev.cond);</div>
+<div class="line"><span class="lineno">  297</span> </div>
+<div class="line"><span class="lineno">  298</span>            <a class="code hl_define" href="global_8hpp.html#ad092689f9ce64d6dbacd6e78e77f983c">ANNOTATION_WARNING</a>(<span class="stringliteral">&quot;maybe the usage of Tcl_Condition and mutex is unnecessary because future.get() waits anyways&quot;</span>);</div>
+<div class="line"><span class="lineno">  299</span>            <span class="keywordflow">return</span> future.get();</div>
+<div class="line"><span class="lineno">  300</span>        }</div>
+<div class="line"><span class="lineno">  301</span>        <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  302</span>        {</div>
+<div class="line"><span class="lineno">  303</span>            <span class="keywordflow">return</span> func();</div>
+<div class="line"><span class="lineno">  304</span>        }</div>
+<div class="line"><span class="lineno">  305</span>    }</div>
 <div class="ttc" id="aglobal_8hpp_html_ad092689f9ce64d6dbacd6e78e77f983c"><div class="ttname"><a href="global_8hpp.html#ad092689f9ce64d6dbacd6e78e77f983c">ANNOTATION_WARNING</a></div><div class="ttdeci">#define ANNOTATION_WARNING(msg)</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00227">global.hpp:227</a></div></div>
 <div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_a2c538f1ca0843f0107f580b4ff6329a5"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#a2c538f1ca0843f0107f580b4ff6329a5">cpptkinter::_cpptkinter::WaitForMainloop</a></div><div class="ttdeci">int WaitForMainloop(TkappObjectImpl *self)</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter_8functions_8ixx_source.html#l00213">_cpptkinter.functions.ixx:213</a></div></div>
 <div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_ab9d70d1830337b1feca83dbe4a1265bd"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#ab9d70d1830337b1feca83dbe4a1265bd">cpptkinter::_cpptkinter::Tkapp_ThreadSend</a></div><div class="ttdeci">void Tkapp_ThreadSend(TkappObjectImpl *self, Tcl_Event *ev, Tcl_Condition *cond, Tcl_Mutex *mutex) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter_8functions_8ixx_source.html#l00238">_cpptkinter.functions.ixx:238</a></div></div>
@@ -1518,30 +1518,30 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="__cpptkinter_8templates_8ixx_source.html#l00250">250</a> of file <a class="el" href="__cpptkinter_8templates_8ixx_source.html">_cpptkinter.templates.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  251</span>    {</div>
-<div class="line"><span class="lineno">  252</span>        <span class="keyword">auto</span>&amp;&amp; ev = *<span class="keyword">static_cast&lt;</span><a class="code hl_struct" href="structcpptkinter_1_1detail_1_1TclBaseEvent.html">VarEvent&lt;T&gt;</a>*<span class="keyword">&gt;</span>(evPtr);</div>
-<div class="line"><span class="lineno">  253</span>        Tcl_Condition* cond = ev.<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TclBaseEvent.html#a36ebdecee3b4a4f5df243827114a1e9d">cond</a>;</div>
-<div class="line"><span class="lineno">  254</span>        <a class="code hl_define" href="global_8hpp.html#a15fd3839e74ee8d9b54d637f016b4ea6">ENTER_PYTHON</a>;</div>
-<div class="line"><span class="lineno">  255</span>        <span class="keywordflow">try</span></div>
-<div class="line"><span class="lineno">  256</span>        {</div>
-<div class="line"><span class="lineno">  257</span>            ev.task();</div>
-<div class="line"><span class="lineno">  258</span>        }</div>
-<div class="line"><span class="lineno">  259</span>        <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::future_error&amp; e)</div>
-<div class="line"><span class="lineno">  260</span>        {</div>
-<div class="line"><span class="lineno">  261</span>            detail::log_error(e.what());</div>
-<div class="line"><span class="lineno">  262</span>        }</div>
-<div class="line"><span class="lineno">  263</span>        <span class="keywordflow">catch</span> (...)</div>
-<div class="line"><span class="lineno">  264</span>        {</div>
-<div class="line"><span class="lineno">  265</span>            detail::log_error(<span class="stringliteral">&quot;Unknown exception&quot;</span>);</div>
-<div class="line"><span class="lineno">  266</span>        }</div>
-<div class="line"><span class="lineno">  267</span>        std::destroy_at(&amp;ev);</div>
-<div class="line"><span class="lineno">  268</span>        Tcl_MutexLock(&amp;var_mutex);</div>
-<div class="line"><span class="lineno">  269</span>        Tcl_ConditionNotify(cond);</div>
-<div class="line"><span class="lineno">  270</span>        Tcl_MutexUnlock(&amp;var_mutex);</div>
-<div class="line"><span class="lineno">  271</span>        <a class="code hl_define" href="global_8hpp.html#aa2b08a860e96dc7f6d1cba578dfbf2fe">LEAVE_PYTHON</a>;</div>
-<div class="line"><span class="lineno">  272</span>        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><span class="lineno">  273</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8templates_8ixx_source.html#l00248">248</a> of file <a class="el" href="__cpptkinter_8templates_8ixx_source.html">_cpptkinter.templates.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  249</span>    {</div>
+<div class="line"><span class="lineno">  250</span>        <span class="keyword">auto</span>&amp;&amp; ev = *<span class="keyword">static_cast&lt;</span><a class="code hl_struct" href="structcpptkinter_1_1detail_1_1TclBaseEvent.html">VarEvent&lt;T&gt;</a>*<span class="keyword">&gt;</span>(evPtr);</div>
+<div class="line"><span class="lineno">  251</span>        Tcl_Condition* cond = ev.<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1TclBaseEvent.html#a36ebdecee3b4a4f5df243827114a1e9d">cond</a>;</div>
+<div class="line"><span class="lineno">  252</span>        <a class="code hl_define" href="global_8hpp.html#a15fd3839e74ee8d9b54d637f016b4ea6">ENTER_PYTHON</a>;</div>
+<div class="line"><span class="lineno">  253</span>        <span class="keywordflow">try</span></div>
+<div class="line"><span class="lineno">  254</span>        {</div>
+<div class="line"><span class="lineno">  255</span>            ev.task();</div>
+<div class="line"><span class="lineno">  256</span>        }</div>
+<div class="line"><span class="lineno">  257</span>        <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::future_error&amp; e)</div>
+<div class="line"><span class="lineno">  258</span>        {</div>
+<div class="line"><span class="lineno">  259</span>            detail::log_error(e.what());</div>
+<div class="line"><span class="lineno">  260</span>        }</div>
+<div class="line"><span class="lineno">  261</span>        <span class="keywordflow">catch</span> (...)</div>
+<div class="line"><span class="lineno">  262</span>        {</div>
+<div class="line"><span class="lineno">  263</span>            detail::log_error(<span class="stringliteral">&quot;Unknown exception&quot;</span>);</div>
+<div class="line"><span class="lineno">  264</span>        }</div>
+<div class="line"><span class="lineno">  265</span>        std::destroy_at(&amp;ev);</div>
+<div class="line"><span class="lineno">  266</span>        Tcl_MutexLock(&amp;var_mutex);</div>
+<div class="line"><span class="lineno">  267</span>        Tcl_ConditionNotify(cond);</div>
+<div class="line"><span class="lineno">  268</span>        Tcl_MutexUnlock(&amp;var_mutex);</div>
+<div class="line"><span class="lineno">  269</span>        <a class="code hl_define" href="global_8hpp.html#aa2b08a860e96dc7f6d1cba578dfbf2fe">LEAVE_PYTHON</a>;</div>
+<div class="line"><span class="lineno">  270</span>        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><span class="lineno">  271</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>

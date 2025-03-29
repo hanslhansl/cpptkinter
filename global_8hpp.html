@@ -138,12 +138,12 @@ Macros</h2></td></tr>
 <tr class="separator:a268a5497247469c43b9b16215342ffdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5495dad2a5ff5be64fe99cc54073a479"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#a5495dad2a5ff5be64fe99cc54073a479">REF_TO_IMPL</a>(member)&#160;&#160;&#160;decltype(impl::member)&amp; member = static_cast&lt;impl*&gt;(this-&gt;pimpl.get())-&gt;member</td></tr>
 <tr class="separator:a5495dad2a5ff5be64fe99cc54073a479"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac389b0428f38a3a81c6d2980895d5835"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#ac389b0428f38a3a81c6d2980895d5835">DEFINE_ASSIGNMENT_OPERATOR</a>(cl)</td></tr>
-<tr class="separator:ac389b0428f38a3a81c6d2980895d5835"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ea152cdea84f54f2e9e7af023022bc0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#a2ea152cdea84f54f2e9e7af023022bc0">IMPL_CTOR</a>(cl,  base)</td></tr>
-<tr class="separator:a2ea152cdea84f54f2e9e7af023022bc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b0c410d403e87302d27872946a48db7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#a2b0c410d403e87302d27872946a48db7">CNF_CONSTRUCTOR</a>(cl,  cnf_type,  str)</td></tr>
-<tr class="separator:a2b0c410d403e87302d27872946a48db7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad28caed06926aec7fb8c8b9f26817b66"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#ad28caed06926aec7fb8c8b9f26817b66">DEFINE_IMPL_CONSTRUCTOR</a>(cl,  base)</td></tr>
+<tr class="separator:ad28caed06926aec7fb8c8b9f26817b66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ab18412b395577a2efe69f8c634b026"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#a6ab18412b395577a2efe69f8c634b026">DEFINE_CNF_CONSTRUCTOR</a>(cl,  cnf_type,  str)</td></tr>
+<tr class="separator:a6ab18412b395577a2efe69f8c634b026"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af22dc179672daead8e9da469e4a92fd0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#af22dc179672daead8e9da469e4a92fd0">DEFINE_COPY_MOVE_CONSTRUCTORS_AND_ASSIGNMENT</a>(cl)</td></tr>
+<tr class="separator:af22dc179672daead8e9da469e4a92fd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2624f04e284e808f4ba305f256dbe2a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8hpp.html#a2624f04e284e808f4ba305f256dbe2a1">CONSTRUCTORS_AND_ASSIGNMENT</a>(cl,  cnf_type,  str,  base)</td></tr>
 <tr class="separator:a2624f04e284e808f4ba305f256dbe2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -194,49 +194,6 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a2b0c410d403e87302d27872946a48db7" name="a2b0c410d403e87302d27872946a48db7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b0c410d403e87302d27872946a48db7">&#9670;&#160;</a></span>CNF_CONSTRUCTOR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CNF_CONSTRUCTOR</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">cl, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">cnf_type, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">str&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">using </span>constructor_cnf = cnf_type;   \</div>
-<div class="line">    cl() : cl(constructor_cnf{}) { }    \</div>
-<div class="line">    template&lt;cnfs::is_cnf CNF = constructor_cnf&gt; \</div>
-<div class="line">    cl(CNF&amp;&amp; cnf = {}) : cl(std::make_shared&lt;impl&gt;()) \</div>
-<div class="line">    {   \</div>
-<div class="line">        this-&gt;_init_(str, std::forward&lt;CNF&gt;(cnf));  \</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00267">267</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
-
-</div>
-</div>
 <a id="a2624f04e284e808f4ba305f256dbe2a1" name="a2624f04e284e808f4ba305f256dbe2a1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2624f04e284e808f4ba305f256dbe2a1">&#9670;&#160;</a></span>CONSTRUCTORS_AND_ASSIGNMENT</h2>
 
@@ -274,13 +231,12 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">protected</span>:  \</div>
-<div class="line">    IMPL_CTOR(cl, base) \</div>
-<div class="line">    <span class="keyword">public</span>: \</div>
-<div class="line">    CNF_CONSTRUCTOR(cl, cnf_type, str)   \</div>
-<div class="line">    DEFINE_ASSIGNMENT_OPERATOR(cl)</div>
+<b>Value:</b><div class="fragment"><div class="line">    <a class="code hl_define" href="global_8hpp.html#ad28caed06926aec7fb8c8b9f26817b66">DEFINE_IMPL_CONSTRUCTOR</a>(cl, base) \</div>
+<div class="line">    DEFINE_CNF_CONSTRUCTOR(cl, cnf_type, str)   \</div>
+<div class="line">    DEFINE_COPY_MOVE_CONSTRUCTORS_AND_ASSIGNMENT(cl)</div>
+<div class="ttc" id="aglobal_8hpp_html_ad28caed06926aec7fb8c8b9f26817b66"><div class="ttname"><a href="global_8hpp.html#ad28caed06926aec7fb8c8b9f26817b66">DEFINE_IMPL_CONSTRUCTOR</a></div><div class="ttdeci">#define DEFINE_IMPL_CONSTRUCTOR(cl, base)</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00259">global.hpp:259</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00276">276</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00275">275</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -304,14 +260,56 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ac389b0428f38a3a81c6d2980895d5835" name="ac389b0428f38a3a81c6d2980895d5835"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac389b0428f38a3a81c6d2980895d5835">&#9670;&#160;</a></span>DEFINE_ASSIGNMENT_OPERATOR</h2>
+<a id="a6ab18412b395577a2efe69f8c634b026" name="a6ab18412b395577a2efe69f8c634b026"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ab18412b395577a2efe69f8c634b026">&#9670;&#160;</a></span>DEFINE_CNF_CONSTRUCTOR</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DEFINE_ASSIGNMENT_OPERATOR</td>
+          <td class="memname">#define DEFINE_CNF_CONSTRUCTOR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cl, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cnf_type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">str&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">public</span>: \</div>
+<div class="line">    <span class="keyword">using </span>constructor_cnf = cnf_type;   \</div>
+<div class="line">    cl() : cl(constructor_cnf{}) { }    \</div>
+<div class="line">    template&lt;cnfs::is_cnf CNF = constructor_cnf&gt; \</div>
+<div class="line">    cl(CNF&amp;&amp; cnf = {}) : cl(std::make_shared&lt;impl&gt;()) \</div>
+<div class="line">    { this-&gt;_init_(str, std::forward&lt;CNF&gt;(cnf)); }</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00262">262</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+
+</div>
+</div>
+<a id="af22dc179672daead8e9da469e4a92fd0" name="af22dc179672daead8e9da469e4a92fd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af22dc179672daead8e9da469e4a92fd0">&#9670;&#160;</a></span>DEFINE_COPY_MOVE_CONSTRUCTORS_AND_ASSIGNMENT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEFINE_COPY_MOVE_CONSTRUCTORS_AND_ASSIGNMENT</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">cl</td><td>)</td>
@@ -319,13 +317,45 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    cl&amp; operator=(<span class="keyword">const</span> cl&amp; other) \</div>
-<div class="line">    { \</div>
-<div class="line">        std::destroy_at(<span class="keyword">this</span>); \</div>
-<div class="line">        <span class="keywordflow">return</span> *std::construct_at(<span class="keyword">this</span>, other); \</div>
-<div class="line">    }</div>
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">public</span>: \</div>
+<div class="line">    cl(<span class="keyword">const</span> cl&amp; other) noexcept : cl(std::static_pointer_cast&lt;impl&gt;(other.pimpl)) { } \</div>
+<div class="line">    cl(cl&amp;&amp; other)      noexcept : cl(std::static_pointer_cast&lt;impl&gt;(other.pimpl)) { } \</div>
+<div class="line">    cl&amp; operator=(<span class="keyword">const</span> cl&amp; other) { std::destroy_at(<span class="keyword">this</span>); <span class="keywordflow">return</span> *std::construct_at(<span class="keyword">this</span>, other); } \</div>
+<div class="line">    cl&amp; operator=(cl&amp;&amp; other) { std::destroy_at(<span class="keyword">this</span>); <span class="keywordflow">return</span> *std::construct_at(<span class="keyword">this</span>, std::move(other)); }</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00258">258</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00269">269</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ad28caed06926aec7fb8c8b9f26817b66" name="ad28caed06926aec7fb8c8b9f26817b66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad28caed06926aec7fb8c8b9f26817b66">&#9670;&#160;</a></span>DEFINE_IMPL_CONSTRUCTOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEFINE_IMPL_CONSTRUCTOR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cl, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">base&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">friend</span> detail::widget_friend; <span class="keyword">protected</span>:  \</div>
+<div class="line">    <span class="keyword">template</span>&lt;std::derived_from&lt;impl&gt; I&gt; cl(<span class="keyword">const</span> std::shared_ptr&lt;I&gt;&amp; pimpl) : base(pimpl) { }</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00259">259</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -394,38 +424,6 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00241">241</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a2ea152cdea84f54f2e9e7af023022bc0" name="a2ea152cdea84f54f2e9e7af023022bc0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ea152cdea84f54f2e9e7af023022bc0">&#9670;&#160;</a></span>IMPL_CTOR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IMPL_CTOR</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">cl, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">base&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">friend</span> detail::widget_friend; \</div>
-<div class="line">    <span class="keyword">template</span>&lt;std::derived_from&lt;impl&gt; I&gt; cl(<span class="keyword">const</span> std::shared_ptr&lt;I&gt;&amp; pimpl) : base(pimpl) { }</div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00265">265</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
