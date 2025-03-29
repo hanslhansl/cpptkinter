@@ -132,8 +132,7 @@ export namespace cpptkinter
         }
 
 	private:
-		template<typename Func>
-        std::string after_impl(const auto& ms, Func&& func) requires requires { std::function<void()>{ std::declval<Func>() }; }
+        std::string after_impl(const auto& ms, std::function<void()>&& func)
         {
             struct callit
             {
@@ -158,7 +157,7 @@ export namespace cpptkinter
                     }
                     catch (const TclError&) { }
 				}
-            } callit{ std::forward<Func>(func), std::make_shared<std::string>(), *this };
+            } callit{ std::move(func), std::make_shared<std::string>(), *this };
 
 			auto& name = *callit.name;
 			name = this->_register(std::move(callit));
@@ -166,14 +165,14 @@ export namespace cpptkinter
         }
     public:
         template<typename Func>
-        std::string after(long long ms, Func&& func) requires requires { std::function<void()>{ std::declval<Func>() }; }
+        std::string after(long long ms, std::function<void()> func)
         {
-			return this->after_impl(ms, std::forward<Func>(func));
+			return this->after_impl(ms, std::move(func));
         }
         template<typename Func>
-        std::string after(const std::string& ms, Func&& func) requires requires { std::function<void()>{ std::declval<Func>() }; }
+        std::string after(const std::string& ms, std::function<void()> func)
         {
-			return this->after_impl(ms, std::forward<Func>(func));
+			return this->after_impl(ms, std::move(func));
         }
 
     protected:
