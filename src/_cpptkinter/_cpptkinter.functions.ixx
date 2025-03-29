@@ -80,7 +80,7 @@ export namespace cpptkinter::detail
 	};
 
 	template<typename Func>
-		requires requires { typename std::packaged_task<Func>; }
+		requires requires { std::packaged_task<Func>{}; }
 	struct TclBaseEvent : Tcl_Event
 	{
 		std::packaged_task<Func> task;

@@ -132,16 +132,16 @@ export namespace cpptkinter
         }
 
 	private:
-		template<typename T, std::invocable Func>
-        std::string after_impl(const T& ms, Func&& func)
+		template<typename Func>
+        std::string after_impl(const auto& ms, Func&& func) requires requires { std::function<void()>{ std::declval<Func>() }; }
         {
             struct callit
             {
-                Func func;
+                std::function<void()> func;
                 std::shared_ptr<std::string> name;
                 Misc self_;
 
-				void operator()()
+				void operator()() const
 				{
                     // self.deletecommand() destructs this so therefor we need to prevent name and self from destruction
                     auto name = *this->name;
@@ -150,19 +150,13 @@ export namespace cpptkinter
                     {
                         this->func();
                     }
-					catch (...)
-					{
-
-					}
+					catch (...) { }
 
                     try
                     {
                         self.deletecommand(name);
                     }
-                    catch (const TclError&)
-                    {
-
-                    }
+                    catch (const TclError&) { }
 				}
             } callit{ std::forward<Func>(func), std::make_shared<std::string>(), *this };
 
@@ -171,13 +165,15 @@ export namespace cpptkinter
 			return this->tk->call<std::string>("after", ms, name);
         }
     public:
-        std::string after(long long ms, std::invocable auto&& func)
+        template<typename Func>
+        std::string after(long long ms, Func&& func) requires requires { std::function<void()>{ std::declval<Func>() }; }
         {
-			return this->after_impl(ms, std::forward<decltype(func)>(func));
+			return this->after_impl(ms, std::forward<Func>(func));
         }
-        std::string after(const std::string& ms, std::invocable auto&& func)
+        template<typename Func>
+        std::string after(const std::string& ms, Func&& func) requires requires { std::function<void()>{ std::declval<Func>() }; }
         {
-			return this->after_impl(ms, std::forward<decltype(func)>(func));
+			return this->after_impl(ms, std::forward<Func>(func));
         }
 
     protected:

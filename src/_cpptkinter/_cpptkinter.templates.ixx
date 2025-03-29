@@ -162,8 +162,7 @@ export namespace cpptkinter::_cpptkinter
 		LEAVE_OVERLAP_TCL;
 	}
 
-	template<typename Func>
-		requires requires { typename std::packaged_task<Func>; }
+	template<typename Func> requires requires { std::packaged_task<Func>{}; }
 	using Tkapp_CallEvent = detail::TclBaseEvent<Func>;
 
 	/// @brief Convert c++ values to a std::vector<Tcl_Obj>.
@@ -242,8 +241,7 @@ export namespace cpptkinter::_cpptkinter
 		return 1;
 	}
 
-	template<typename Func>
-		requires requires { typename std::packaged_task<Func>; }
+	template<typename Func> requires requires { std::packaged_task<Func>{}; }
 	using VarEvent = detail::TclBaseEvent<Func>;
 
 	template<typename T>
