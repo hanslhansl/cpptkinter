@@ -939,7 +939,7 @@ export namespace cpptkinter
 }
         
         /// @brief Generate an event SEQUENCE. Additional keyword arguments specify parameter of the event (e.g.x, y, rootx, rooty).
-        void event_generate(const std::string& sequence)
+        void event_generate(const std::string& sequence) const
         {
             ANNOTATION_WARNING("not fully implemented");
 			this->tk->call("event", "generate", this->_w, sequence);
