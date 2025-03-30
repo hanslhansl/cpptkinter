@@ -74,6 +74,7 @@ var classcpptkinter_1_1Misc =
     [ "propagate", "classcpptkinter_1_1Misc.html#af9ba08eab8066696074e5646d594d14a", null ],
     [ "propagate", "classcpptkinter_1_1Misc.html#a830decb8f2d116192e992a9065dfae59", null ],
     [ "quit", "classcpptkinter_1_1Misc.html#a06b5d9d4cfd174627b50cce85d024bfb", null ],
+    [ "register_", "classcpptkinter_1_1Misc.html#a1ddb3c0193fd9f2df6062b4756a82f37", null ],
     [ "rowconfigure", "classcpptkinter_1_1Misc.html#a0247192ab6f89e0693c89b8b42c7c503", null ],
     [ "rowconfigure", "classcpptkinter_1_1Misc.html#a0740c5742a1f5918c1615f27b6d70020", null ],
     [ "size", "classcpptkinter_1_1Misc.html#a29124a5cc9128356447f7cf8f9e2cc5e", null ],

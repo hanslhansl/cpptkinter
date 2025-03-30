@@ -529,20 +529,20 @@ template&lt;detail::FromObjConcept R&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A c++ value of type R. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="__cpptkinter_8tcl__obj_8ixx_source.html#l00455">455</a> of file <a class="el" href="__cpptkinter_8tcl__obj_8ixx_source.html">_cpptkinter.tcl_obj.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  456</span>    {</div>
-<div class="line"><span class="lineno">  457</span>        <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (std::same_as&lt;R, void&gt;)</div>
-<div class="line"><span class="lineno">  458</span>            <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  459</span>        <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  460</span>        {</div>
-<div class="line"><span class="lineno">  461</span>            <span class="keyword">auto</span> opt_result = detail::FromObjImpl(self, ptr, std::type_identity&lt;R&gt;{});</div>
-<div class="line"><span class="lineno">  462</span>            <span class="keywordflow">if</span> (opt_result.has_value())</div>
-<div class="line"><span class="lineno">  463</span>                <span class="keywordflow">return</span> std::move(*opt_result);</div>
-<div class="line"><span class="lineno">  464</span> </div>
-<div class="line"><span class="lineno">  465</span>            std::string error_string = std::format(<span class="stringliteral">&quot;Got tcl object {}.\nExpected c++ type {}.&quot;</span>, detail::Tcl_Obj_to_string(self, ptr), reflect::type_name&lt;R&gt;());</div>
-<div class="line"><span class="lineno">  466</span>            <span class="keywordflow">throw</span> utility::construct_exception&lt;TclError&gt;(error_string);</div>
-<div class="line"><span class="lineno">  467</span>        }</div>
-<div class="line"><span class="lineno">  468</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8tcl__obj_8ixx_source.html#l00456">456</a> of file <a class="el" href="__cpptkinter_8tcl__obj_8ixx_source.html">_cpptkinter.tcl_obj.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  457</span>    {</div>
+<div class="line"><span class="lineno">  458</span>        <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (std::same_as&lt;R, void&gt;)</div>
+<div class="line"><span class="lineno">  459</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  460</span>        <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  461</span>        {</div>
+<div class="line"><span class="lineno">  462</span>            <span class="keyword">auto</span> opt_result = detail::FromObjImpl(self, ptr, std::type_identity&lt;R&gt;{});</div>
+<div class="line"><span class="lineno">  463</span>            <span class="keywordflow">if</span> (opt_result.has_value())</div>
+<div class="line"><span class="lineno">  464</span>                <span class="keywordflow">return</span> std::move(*opt_result);</div>
+<div class="line"><span class="lineno">  465</span> </div>
+<div class="line"><span class="lineno">  466</span>            std::string error_string = std::format(<span class="stringliteral">&quot;Got tcl object {}.\nExpected c++ type {}.&quot;</span>, detail::Tcl_Obj_to_string(self, ptr), reflect::type_name&lt;R&gt;());</div>
+<div class="line"><span class="lineno">  467</span>            <span class="keywordflow">throw</span> utility::construct_exception&lt;TclError&gt;(error_string);</div>
+<div class="line"><span class="lineno">  468</span>        }</div>
+<div class="line"><span class="lineno">  469</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -837,7 +837,7 @@ template&lt;detail::FromObjConcept R&gt; </div>
 <div class="line"><span class="lineno">  106</span>        <a class="code hl_define" href="global_8hpp.html#a6aa17d5bb404eb5421f6582b8e026156">LEAVE_OVERLAP_TCL</a>;</div>
 <div class="line"><span class="lineno">  107</span>    }</div>
 <div class="ttc" id="aglobal_8hpp_html_a268a5497247469c43b9b16215342ffdf"><div class="ttname"><a href="global_8hpp.html#a268a5497247469c43b9b16215342ffdf">TRACE</a></div><div class="ttdeci">#define TRACE(_self, ARGS)</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00250">global.hpp:250</a></div></div>
-<div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_a67240db275ca02da5d34c882ee7c8957"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">cpptkinter::_cpptkinter::AsObj</a></div><div class="ttdeci">constexpr detail::AsObjFunctorType AsObj</div><div class="ttdoc">Convert a c++ value to a tcl object.</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter_8tcl__obj_8ixx_source.html#l00446">_cpptkinter.tcl_obj.ixx:446</a></div></div>
+<div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_a67240db275ca02da5d34c882ee7c8957"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">cpptkinter::_cpptkinter::AsObj</a></div><div class="ttdeci">constexpr detail::AsObjFunctorType AsObj</div><div class="ttdoc">Convert a c++ value to a tcl object.</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter_8tcl__obj_8ixx_source.html#l00447">_cpptkinter.tcl_obj.ixx:447</a></div></div>
 <div class="ttc" id="atk_8ixx_html_a82cfbec08a42f98782d44a45004a8f5c"><div class="ttname"><a href="tk_8ixx.html#a82cfbec08a42f98782d44a45004a8f5c">TCL_GLOBAL_ONLY</a></div><div class="ttdeci">constexpr auto TCL_GLOBAL_ONLY</div><div class="ttdef"><b>Definition:</b> <a href="tk_8ixx_source.html#l00108">tk.ixx:108</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -1681,7 +1681,7 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="classcpptkinter_1_1__cpptkinter_1_1Tcl__Obj.html" title="Represents a Tcl object.">Tcl_Obj</a> representing the value. </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacecpptkinter_1_1detail.html#a57268b53bf529a99d0a9d8f0e7030f18" title="Try to convert a Tcl_Obj to Tcl_Obj (i.e. copy it).">detail::AsObjImpl()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="__cpptkinter_8tcl__obj_8ixx_source.html#l00446">446</a> of file <a class="el" href="__cpptkinter_8tcl__obj_8ixx_source.html">_cpptkinter.tcl_obj.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="__cpptkinter_8tcl__obj_8ixx_source.html#l00447">447</a> of file <a class="el" href="__cpptkinter_8tcl__obj_8ixx_source.html">_cpptkinter.tcl_obj.ixx</a>.</p>
 
 </div>
 </div>

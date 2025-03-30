@@ -12,6 +12,7 @@ var namespacecpptkinter_1_1utility =
     [ "range_of_convertible_to", "conceptcpptkinter_1_1utility_1_1range__of__convertible__to.html", null ],
     [ "is_derived_shared_ptr", "conceptcpptkinter_1_1utility_1_1is__derived__shared__ptr.html", null ],
     [ "union_arg", "conceptcpptkinter_1_1utility_1_1union__arg.html", null ],
+    [ "range_of_union_arg", "conceptcpptkinter_1_1utility_1_1range__of__union__arg.html", null ],
     [ "callable_to_std_function", "namespacecpptkinter_1_1utility.html#a8a59ce8de106b1e460b5fe39fd4ad569", null ],
     [ "callable_to_std_function", "namespacecpptkinter_1_1utility.html#a7039417b48e30b3f7988a2194972203e", null ],
     [ "construct_exception", "namespacecpptkinter_1_1utility.html#abadfaac5f3307198b912be2069009b59", null ],

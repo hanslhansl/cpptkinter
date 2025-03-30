@@ -66,6 +66,10 @@ var annotated_dup =
         [ "Text_tag_configure", "structcpptkinter_1_1cnfs_1_1Text__tag__configure.html", "structcpptkinter_1_1cnfs_1_1Text__tag__configure" ],
         [ "Text_window_create", "structcpptkinter_1_1cnfs_1_1Text__window__create.html", "structcpptkinter_1_1cnfs_1_1Text__window__create" ],
         [ "Toplevel", "structcpptkinter_1_1cnfs_1_1Toplevel.html", "structcpptkinter_1_1cnfs_1_1Toplevel" ],
+        [ "Treeview", "structcpptkinter_1_1cnfs_1_1Treeview.html", "structcpptkinter_1_1cnfs_1_1Treeview" ],
+        [ "Treeview_column", "structcpptkinter_1_1cnfs_1_1Treeview__column.html", "structcpptkinter_1_1cnfs_1_1Treeview__column" ],
+        [ "Treeview_heading", "structcpptkinter_1_1cnfs_1_1Treeview__heading.html", "structcpptkinter_1_1cnfs_1_1Treeview__heading" ],
+        [ "Treeview_insert", "structcpptkinter_1_1cnfs_1_1Treeview__insert.html", "structcpptkinter_1_1cnfs_1_1Treeview__insert" ],
         [ "Variable", "structcpptkinter_1_1cnfs_1_1Variable.html", "structcpptkinter_1_1cnfs_1_1Variable" ]
       ] ],
       [ "detail", "namespacecpptkinter_1_1detail.html", [
@@ -88,12 +92,16 @@ var annotated_dup =
         [ "TclBaseEvent", "structcpptkinter_1_1detail_1_1TclBaseEvent.html", "structcpptkinter_1_1detail_1_1TclBaseEvent" ],
         [ "Tk_impl", "structcpptkinter_1_1detail_1_1Tk__impl.html", "structcpptkinter_1_1detail_1_1Tk__impl" ],
         [ "TkappObjectImpl", "structcpptkinter_1_1detail_1_1TkappObjectImpl.html", "structcpptkinter_1_1detail_1_1TkappObjectImpl" ],
+        [ "Treeview_column_return", "structcpptkinter_1_1detail_1_1Treeview__column__return.html", "structcpptkinter_1_1detail_1_1Treeview__column__return" ],
+        [ "Treeview_heading_return", "structcpptkinter_1_1detail_1_1Treeview__heading__return.html", "structcpptkinter_1_1detail_1_1Treeview__heading__return" ],
+        [ "Treeview_item_return", "structcpptkinter_1_1detail_1_1Treeview__item__return.html", "structcpptkinter_1_1detail_1_1Treeview__item__return" ],
         [ "union_arg_overload", "structcpptkinter_1_1detail_1_1union__arg__overload.html", null ],
         [ "union_arg_overload_base", "structcpptkinter_1_1detail_1_1union__arg__overload__base.html", null ],
         [ "widget_friend", "structcpptkinter_1_1detail_1_1widget__friend.html", "structcpptkinter_1_1detail_1_1widget__friend" ]
       ] ],
       [ "ttk", "namespacecpptkinter_1_1ttk.html", [
         [ "Notebook", "structcpptkinter_1_1ttk_1_1Notebook.html", "structcpptkinter_1_1ttk_1_1Notebook" ],
+        [ "Treeview", "structcpptkinter_1_1ttk_1_1Treeview.html", "structcpptkinter_1_1ttk_1_1Treeview" ],
         [ "Widget", "structcpptkinter_1_1ttk_1_1Widget.html", "structcpptkinter_1_1ttk_1_1Widget" ]
       ] ],
       [ "utility", "namespacecpptkinter_1_1utility.html", [

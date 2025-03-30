@@ -22,13 +22,17 @@ var concepts =
         [ "tag_or_id_arg", "conceptcpptkinter_1_1detail_1_1tag__or__id__arg.html", null ],
         [ "text_index", "conceptcpptkinter_1_1detail_1_1text__index.html", null ],
         [ "Variable_mode_concept", "conceptcpptkinter_1_1detail_1_1Variable__mode__concept.html", null ],
-        [ "tab_id_arg", "conceptcpptkinter_1_1detail_1_1tab__id__arg.html", null ]
+        [ "tab_id_arg", "conceptcpptkinter_1_1detail_1_1tab__id__arg.html", null ],
+        [ "item_arg", "conceptcpptkinter_1_1detail_1_1item__arg.html", null ],
+        [ "range_of_item_arg", "conceptcpptkinter_1_1detail_1_1range__of__item__arg.html", null ],
+        [ "column_arg", "conceptcpptkinter_1_1detail_1_1column__arg.html", null ]
       ] ],
       [ "utility", "namespacecpptkinter_1_1utility.html", [
         [ "is_vector", "conceptcpptkinter_1_1utility_1_1is__vector.html", null ],
         [ "range_of_convertible_to", "conceptcpptkinter_1_1utility_1_1range__of__convertible__to.html", null ],
         [ "is_derived_shared_ptr", "conceptcpptkinter_1_1utility_1_1is__derived__shared__ptr.html", null ],
-        [ "union_arg", "conceptcpptkinter_1_1utility_1_1union__arg.html", null ]
+        [ "union_arg", "conceptcpptkinter_1_1utility_1_1union__arg.html", null ],
+        [ "range_of_union_arg", "conceptcpptkinter_1_1utility_1_1range__of__union__arg.html", null ]
       ] ]
     ] ]
 ];

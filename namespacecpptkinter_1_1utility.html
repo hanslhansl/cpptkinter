@@ -135,6 +135,9 @@ Concepts</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptcpptkinter_1_1utility_1_1union__arg.html">union_arg</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptcpptkinter_1_1utility_1_1range__of__union__arg.html">range_of_union_arg</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept for ranges of types convertible to T. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -295,11 +298,11 @@ requires requires { <a class="el" href="structcpptkinter_1_1detail_1_1widget__fr
 
 <p>dynamic_cast a widget to a child (or base) class. </p>
 
-<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00240">240</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  240</span>                                                               { detail::widget_friend::dynamic_widget_cast_down&lt;To&gt;(from); }</div>
-<div class="line"><span class="lineno">  241</span>    {</div>
-<div class="line"><span class="lineno">  242</span>        <span class="keywordflow">return</span> detail::widget_friend::dynamic_widget_cast_down&lt;To&gt;(from);</div>
-<div class="line"><span class="lineno">  243</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00244">244</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  244</span>                                                               { detail::widget_friend::dynamic_widget_cast_down&lt;To&gt;(from); }</div>
+<div class="line"><span class="lineno">  245</span>    {</div>
+<div class="line"><span class="lineno">  246</span>        <span class="keywordflow">return</span> detail::widget_friend::dynamic_widget_cast_down&lt;To&gt;(from);</div>
+<div class="line"><span class="lineno">  247</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -429,11 +432,11 @@ requires requires { <a class="el" href="structcpptkinter_1_1detail_1_1widget__fr
 
 <p>static_cast a widget to a child (or base) class. </p>
 
-<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00233">233</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  233</span>                                                              { detail::widget_friend::static_widget_cast_down&lt;To&gt;(from); }</div>
-<div class="line"><span class="lineno">  234</span>    {</div>
-<div class="line"><span class="lineno">  235</span>        <span class="keywordflow">return</span> detail::widget_friend::static_widget_cast_down&lt;To&gt;(from);</div>
-<div class="line"><span class="lineno">  236</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00237">237</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  237</span>                                                              { detail::widget_friend::static_widget_cast_down&lt;To&gt;(from); }</div>
+<div class="line"><span class="lineno">  238</span>    {</div>
+<div class="line"><span class="lineno">  239</span>        <span class="keywordflow">return</span> detail::widget_friend::static_widget_cast_down&lt;To&gt;(from);</div>
+<div class="line"><span class="lineno">  240</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>

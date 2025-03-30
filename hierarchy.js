@@ -53,7 +53,8 @@ var hierarchy =
               [ "cpptkinter::Spinbox", "structcpptkinter_1_1Spinbox.html", null ],
               [ "cpptkinter::Text", "structcpptkinter_1_1Text.html", null ],
               [ "cpptkinter::ttk::Widget", "structcpptkinter_1_1ttk_1_1Widget.html", [
-                [ "cpptkinter::ttk::Notebook", "structcpptkinter_1_1ttk_1_1Notebook.html", null ]
+                [ "cpptkinter::ttk::Notebook", "structcpptkinter_1_1ttk_1_1Notebook.html", null ],
+                [ "cpptkinter::ttk::Treeview", "structcpptkinter_1_1ttk_1_1Treeview.html", null ]
               ] ]
             ] ]
           ] ],
@@ -154,6 +155,13 @@ var hierarchy =
       [ "cpptkinter::_cpptkinter::TkappObject", "structcpptkinter_1_1__cpptkinter_1_1TkappObject.html", null ]
     ] ],
     [ "cpptkinter::cnfs::Toplevel", "structcpptkinter_1_1cnfs_1_1Toplevel.html", null ],
+    [ "cpptkinter::cnfs::Treeview", "structcpptkinter_1_1cnfs_1_1Treeview.html", null ],
+    [ "cpptkinter::cnfs::Treeview_column", "structcpptkinter_1_1cnfs_1_1Treeview__column.html", null ],
+    [ "cpptkinter::detail::Treeview_column_return", "structcpptkinter_1_1detail_1_1Treeview__column__return.html", null ],
+    [ "cpptkinter::cnfs::Treeview_heading", "structcpptkinter_1_1cnfs_1_1Treeview__heading.html", null ],
+    [ "cpptkinter::detail::Treeview_heading_return", "structcpptkinter_1_1detail_1_1Treeview__heading__return.html", null ],
+    [ "cpptkinter::cnfs::Treeview_insert", "structcpptkinter_1_1cnfs_1_1Treeview__insert.html", null ],
+    [ "cpptkinter::detail::Treeview_item_return", "structcpptkinter_1_1detail_1_1Treeview__item__return.html", null ],
     [ "std::true_type", null, [
       [ "cpptkinter::cnfs::is_cnf_member_trait< std::optional< T > >", "structcpptkinter_1_1cnfs_1_1is__cnf__member__trait_3_01std_1_1optional_3_01T_01_4_01_4.html", null ],
       [ "cpptkinter::cnfs::is_cnf_member_trait< std::variant< Args... > >", "structcpptkinter_1_1cnfs_1_1is__cnf__member__trait_3_01std_1_1variant_3_01Args_8_8_8_01_4_01_4.html", null ],
@@ -185,11 +193,17 @@ var hierarchy =
     [ "cpptkinter::XView< Text >", "structcpptkinter_1_1XView.html", [
       [ "cpptkinter::Text", "structcpptkinter_1_1Text.html", null ]
     ] ],
+    [ "cpptkinter::XView< Treeview >", "structcpptkinter_1_1XView.html", [
+      [ "cpptkinter::ttk::Treeview", "structcpptkinter_1_1ttk_1_1Treeview.html", null ]
+    ] ],
     [ "cpptkinter::YView< Self >", "structcpptkinter_1_1YView.html", null ],
     [ "cpptkinter::YView< Canvas >", "structcpptkinter_1_1YView.html", [
       [ "cpptkinter::Canvas", "structcpptkinter_1_1Canvas.html", null ]
     ] ],
     [ "cpptkinter::YView< Text >", "structcpptkinter_1_1YView.html", [
       [ "cpptkinter::Text", "structcpptkinter_1_1Text.html", null ]
+    ] ],
+    [ "cpptkinter::YView< Treeview >", "structcpptkinter_1_1YView.html", [
+      [ "cpptkinter::ttk::Treeview", "structcpptkinter_1_1ttk_1_1Treeview.html", null ]
     ] ]
 ];
