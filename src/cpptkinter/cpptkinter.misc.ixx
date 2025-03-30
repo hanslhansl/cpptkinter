@@ -10,7 +10,7 @@ import std;
 using substitute_long_long = const std::variant<long long, std::string>&;
 #define MISC_SUBSTITUTE_PARAMETERS  const std::string& nsign, substitute_long_long b, substitute_long_long f, substitute_long_long h, substitute_long_long k, substitute_long_long s, \
                                     substitute_long_long t, substitute_long_long w, substitute_long_long x, substitute_long_long y, const std::string& A, substitute_long_long E, \
-                                    const std::string& K, substitute_long_long N, const std::string& W, substitute_long_long T, const std::string& X, const std::string& Y, \
+                                    const std::string& K, substitute_long_long N, const std::string& W, substitute_long_long T, substitute_long_long X, substitute_long_long Y, \
                                     substitute_long_long D
 #define MISC_SUBSTITUTE_ARGUMENTS nsign, b, f, h, k, s, t, w, x, y, A, E, K, N, W, T, X, Y, D
 
@@ -937,6 +937,13 @@ export namespace cpptkinter
         result.emplace_back(this->nametowidget(std::move(t)));
     return result;
 }
+        
+        /// @brief Generate an event SEQUENCE. Additional keyword arguments specify parameter of the event (e.g.x, y, rootx, rooty).
+        void event_generate(const std::string& sequence)
+        {
+            ANNOTATION_WARNING("not fully implemented");
+			this->tk->call("event", "generate", this->_w, sequence);
+        }
     };
 
     struct Misc::impl : hhh::misc::extended_enable_shared_from_this
