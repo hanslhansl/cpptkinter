@@ -76,6 +76,12 @@ namespace cpptkinter::detail
     struct union_arg_overload : union_arg_overload_base<Args>...
     {
         using union_arg_overload_base<Args>::operator()...;
+
+        template<typename T>
+        static constexpr auto operator()(T& t) -> std::remove_reference_t<decltype(operator()(t))>
+        {
+            return t;
+        }
     };
 
     /// @brief Befriended by all widget classes.

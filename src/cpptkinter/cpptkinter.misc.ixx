@@ -448,6 +448,14 @@ export namespace cpptkinter
             return name;
         }
 
+		/// @copydoc _register
+        template<detail::createcommand_concept Func>
+        std::string register_(Func&& func, bool needcleanup = true)
+        {
+			return this->_register(std::forward<Func>(func), needcleanup);
+        }
+
+    protected:
         static constexpr std::array _subst_format = { "%#"sv, "%b"sv, "%f"sv, "%h"sv, "%k"sv, "%s"sv, "%t"sv, "%w"sv, "%x"sv, "%y"sv, "%A"sv,
             "%E"sv, "%K"sv, "%N"sv, "%W"sv, "%T"sv, "%X"sv, "%Y"sv, "%D"sv };
         static const inline std::string _subst_format_str = hhh::misc::join_strings(_subst_format, " ");

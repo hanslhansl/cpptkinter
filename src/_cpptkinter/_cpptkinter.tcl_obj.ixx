@@ -233,6 +233,7 @@ export namespace cpptkinter::detail
 			|| (self->UTF32StringType && value->typePtr == self->UTF32StringType)
 			|| (value->typePtr && value->typePtr->name && value->typePtr->name == "parsedVarName"sv)
 			|| (value->typePtr && value->typePtr->name && value->typePtr->name == "option"sv)
+			|| (value->typePtr && value->typePtr->name && value->typePtr->name == "index"sv)
 			)
 			return unicodeFromTclObj(self, value);
 		return {};

@@ -5,6 +5,7 @@ import std;
 import hhh;
 import cpptkinter;
 import aggregate_formatter;
+import variant_formatter;
 
 using namespace hhh;
 namespace tk = cpptkinter;
@@ -151,10 +152,10 @@ int main(int argc, char* argv[])
         auto value_inside = tk::StringVar();
         value_inside.set("Select an Option");
         auto question_menu = tk::OptionMenu(root, value_inside, options_list);
-        question_menu.grid({ .column = 2, .row = 3 });
+        question_menu.grid({ .column = 2, .row = 1 });
         auto print_answers = [&]() { misc::printl("Selected Option: ", value_inside.get()); };
         auto submit_button = tk::Button({ .master = root, .command = print_answers, .text = "Submit" });
-        submit_button.grid({ .column = 2, .row = 4 });
+        submit_button.grid({ .column = 2, .row = 2 });
 
         auto check1 = tk::Checkbutton({ .master = root, .offvalue = 0, .onvalue = 1, .text = "Check 1", .tristatevalue = -1 });
         auto toggle_checkbutton = [](tk::Event event) {
@@ -208,6 +209,39 @@ int main(int argc, char* argv[])
         nb.add({ .child = tk::Button({ .text = "fxjcghcgkh" }), .text = "1" });
         nb.add({ .child = tk::Button({ .text = "cc bnkvhjl" }), .text = "2" });
         nb.grid({ .column = 0, .columnspan = 1, .row = 2, .sticky = "nswe" });
+
+        auto tree = ttk::Treeview({ .master = root, .columns = std::vector<std::string>{ "Name", "Age" }, .show = "headings", .selectmode = "none"});
+
+        tree.heading({ "Name", .text = "Name" });
+        tree.heading({ "Age", .text = "Age" });
+
+        std::println("{}", tree.heading(0));
+
+        tree.column({ "Name", .width = 100 });
+        tree.column({ "Age", .width = 50 });
+
+        std::vector<std::vector<std::string>> data = { { "Alice", "25" }, { "Bob", "30" }, { "Charlie", "22" }, { "David", "35" } };
+		for (auto& item : data)
+            tree.insert({ "", "end", .values = item });
+
+        auto toggle_selection = [&](tk::Event event) {
+            auto item = tree.identify_row(event.y);
+			if (std::ranges::contains(tree.selection(), item))
+				tree.selection_remove(item);
+			else
+				tree.selection_add(item);
+            };
+        tree.bind("<Button-1>", toggle_selection);
+
+        tree.grid({ .column = 1, .row = 2, .sticky = "nswe" });
+
+        auto get_selected_items = [&]() {
+            auto selected_items = tree.selection();
+			for (auto& item : selected_items)
+                //tree.item(item).values
+                std::println("{}", tree.item(item).values);
+            };
+        tk::Button({ root, .text = "Get Selected", .command = get_selected_items }).grid({ .column = 1, .row = 3, .sticky = "nswe" });
 
         root.after(3000, []() { misc::printl("after 3000ms"); });
 

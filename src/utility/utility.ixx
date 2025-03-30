@@ -228,6 +228,10 @@ export namespace cpptkinter::utility
 	template<typename T, typename...Args>
 	concept union_arg = requires(T&& t) { to_union_arg<Args...>(std::forward<T>(t)); };
 
+    /// @brief Concept for ranges of types convertible to T.
+    template<typename R, typename...Args>
+    concept range_of_union_arg = std::ranges::range<R> && union_arg<std::ranges::range_value_t<R>, Args...> && (!union_arg<R, Args...>);
+
     /// @brief static_cast a widget to a child (or base) class.
     template<std::derived_from<Misc> To, std::derived_from<Misc> From>
     To static_widget_cast(const From& from) requires requires { detail::widget_friend::static_widget_cast_down<To>(from); }

@@ -66,4 +66,60 @@ export namespace cpptkinter::cnfs
         opt_string compound;
         opt_string underline;
     };
+
+	/// @brief Argument for Treeview::Treeview().
+	struct Treeview
+	{
+		opt_master master;
+        opt_string class_;
+		opt<std::variant<long long, std::string, std::vector<std::string>, std::vector<long long>, std::vector<std::variant<long long, std::string>>>> columns;
+		opt_cursor cursor;
+        opt<std::variant<long long, std::string, std::vector<std::string>, std::vector<long long>>> displaycolumns;
+		opt<std::size_t> height;
+        opt_string name;
+        opt_padding padding;
+        opt_string selectmode;
+        opt<std::variant<std::string, std::vector<std::string>>> show;
+        opt_string style;
+        opt_take_focus_value takefocus;
+        opt_xy_scrollcommand xscrollcommand;
+        opt_xy_scrollcommand yscrollcommand;
+	};
+
+    /// @brief Argument for Treeview::column().
+    struct Treeview_column
+    {
+        std::variant<std::string, long long> column;
+        opt_anchor anchor;
+        opt<long long> minwidth;
+        opt_bool separator;
+        opt_bool stretch;
+        opt<long long> width;
+    };
+
+	/// @brief Argument for Treeview::heading().
+    struct Treeview_heading
+    {
+		std::variant<std::string, long long> column;
+		opt_anchor anchor;
+        opt<std::variant<std::string, std::function<void()>>> command;
+		opt_image_spec image;
+		opt_string text;
+    };
+
+	/// @brief Argument for Treeview::insert().
+    struct Treeview_insert
+    {
+         std::variant<std::string, long long> parent;
+         std::variant<std::string, long long> index;
+         opt<std::variant<std::string, long long>> id;
+         opt<std::size_t> height;
+         opt_bool hidden;
+         opt_image_spec image;
+         opt_anchor imageanchor;
+         opt_bool open;
+         opt<std::vector<std::string>> tags;
+         opt_string text;
+         opt<std::variant<long long, std::string, std::vector<std::string>, std::vector<long long>, std::vector<std::variant<long long, std::string>>>> values;
+    };
 }
