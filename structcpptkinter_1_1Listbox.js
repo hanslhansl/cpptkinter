@@ -1,9 +1,9 @@
 var structcpptkinter_1_1Listbox =
 [
     [ "activate", "structcpptkinter_1_1Listbox.html#a1bb2dddbbf58a353402c183ff5bb5d3c", null ],
-    [ "bbox", "structcpptkinter_1_1Listbox.html#a5d02e239e26ecab1ec827bf931bad42b", null ],
+    [ "bbox", "structcpptkinter_1_1Listbox.html#aa07728a89e47d26aa4468b0e5541c4a9", null ],
     [ "CONSTRUCTORS_AND_ASSIGNMENT", "structcpptkinter_1_1Listbox.html#ae467f1991382153f7d6ac9851e43451c", null ],
-    [ "curselection", "structcpptkinter_1_1Listbox.html#a4de9e779753dbc2d4ffe5c74e912fcc6", null ],
+    [ "curselection", "structcpptkinter_1_1Listbox.html#a48789461bd8d6cc6175388665552ab5b", null ],
     [ "delete_", "structcpptkinter_1_1Listbox.html#aa6184fd281b981d7208dd8d734d2e1a3", null ],
     [ "delete_", "structcpptkinter_1_1Listbox.html#a8d5f8d75a7118d61d294eba1f86624e0", null ],
     [ "get", "structcpptkinter_1_1Listbox.html#a4ef2e9939b0b3f674156f19c23c3a161", null ],

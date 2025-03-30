@@ -23,7 +23,7 @@ var classcpptkinter_1_1Misc =
     [ "_report_exception", "classcpptkinter_1_1Misc.html#aa220e4f12c488cd7e5769edf3d829e79", null ],
     [ "_root", "classcpptkinter_1_1Misc.html#abdb43b083d457c93f5690e23f862fd76", null ],
     [ "_setitem_", "classcpptkinter_1_1Misc.html#a55949ea923e567d42d4b5b971cb7e24a", null ],
-    [ "_substitute", "classcpptkinter_1_1Misc.html#a0c3e643be59c52f7098ae9a9758ccfbe", null ],
+    [ "_substitute", "classcpptkinter_1_1Misc.html#a57c1dd4c2625b6c7219919dcd87022ca", null ],
     [ "_unbind", "classcpptkinter_1_1Misc.html#a993e786ef22a4996c43a1daa2633e918", null ],
     [ "_unbind", "classcpptkinter_1_1Misc.html#a65e8f43e002be2c9107931c4ee6c2ea3", null ],
     [ "after", "classcpptkinter_1_1Misc.html#afbab0d5fa37364269710d7838ef21ecb", null ],
