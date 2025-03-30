@@ -27,7 +27,7 @@ var searchData=
   ['_5fsetitem_5f_24',['_setitem_',['../structcpptkinter_1_1Image.html#ab01af4c66d343ecc20072f73f0e1132a',1,'cpptkinter::Image::_setitem_()'],['../classcpptkinter_1_1Misc.html#a55949ea923e567d42d4b5b971cb7e24a',1,'cpptkinter::Misc::_setitem_()']]],
   ['_5fsetup_25',['_setup',['../structcpptkinter_1_1Checkbutton.html#a021a8f4deb8f3da6d592f10a423f6ba0',1,'cpptkinter::Checkbutton::_setup()'],['../classcpptkinter_1_1BaseWidget.html#a15d388b03eb18905d545f96d4eee860b',1,'cpptkinter::BaseWidget::_setup()']]],
   ['_5fsplitdict_5fto_5faggregate_26',['_splitdict_to_aggregate',['../namespacecpptkinter_1_1detail.html#a4025246af34d067adce0a714703f333f',1,'cpptkinter::detail']]],
-  ['_5fsubstitute_27',['_substitute',['../classcpptkinter_1_1Misc.html#a57c1dd4c2625b6c7219919dcd87022ca',1,'cpptkinter::Misc']]],
+  ['_5fsubstitute_27',['_substitute',['../classcpptkinter_1_1Misc.html#ae8f6c6a1db2f63e1d4fdce681583dfe7',1,'cpptkinter::Misc']]],
   ['_5ftag_5fbind_28',['_tag_bind',['../structcpptkinter_1_1Text.html#aedfb7c3fff125d0db83008eba8dc1ee1',1,'cpptkinter::Text']]],
   ['_5ftkerror_29',['_tkerror',['../namespacecpptkinter_1_1detail.html#ad58ef7017e478990f9e9f9a0bcd3ef9b',1,'cpptkinter::detail']]],
   ['_5funbind_30',['_unbind',['../classcpptkinter_1_1Misc.html#a65e8f43e002be2c9107931c4ee6c2ea3',1,'cpptkinter::Misc::_unbind(std::vector&lt; std::string &gt; &amp;&amp;what, const std::string &amp;funcid)'],['../classcpptkinter_1_1Misc.html#a993e786ef22a4996c43a1daa2633e918',1,'cpptkinter::Misc::_unbind(std::vector&lt; std::string &gt; &amp;&amp;what)']]]

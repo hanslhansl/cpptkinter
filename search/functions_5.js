@@ -13,10 +13,11 @@ var searchData=
   ['entryconfigure_10',['entryconfigure',['../structcpptkinter_1_1Menu.html#a14d86f1bbc551549ac27198805aa9d7c',1,'cpptkinter::Menu::entryconfigure(detail::index auto &amp;&amp;index_, CNF &amp;&amp;cnf)'],['../structcpptkinter_1_1Menu.html#a116db782e8d4b94f1bda4f79e41d632b',1,'cpptkinter::Menu::entryconfigure(detail::index auto &amp;&amp;index_) -&gt; decltype(this-&gt;_configure({}))']]],
   ['eval_11',['eval',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a91fe6d17a9c6b719e0fb2234e29fb295',1,'cpptkinter::_cpptkinter::TkappObject']]],
   ['evalfile_12',['evalfile',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a3f46d2fded45b6e02c319eaf7d572d45',1,'cpptkinter::_cpptkinter::TkappObject']]],
-  ['exists_13',['exists',['../structcpptkinter_1_1ttk_1_1Treeview.html#af87215ccce4f7aca00b731cba0a586b1',1,'cpptkinter::ttk::Treeview']]],
-  ['expired_14',['expired',['../classcpptkinter_1_1utility_1_1weak.html#aa9059c0ccf21227797d18d55e885dedf',1,'cpptkinter::utility::weak']]],
-  ['exprboolean_15',['exprboolean',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a490e6e2a171fc7c05f6ed89217c7a0f0',1,'cpptkinter::_cpptkinter::TkappObject']]],
-  ['exprdouble_16',['exprdouble',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a43da605b98ca679d45fdffa331589840',1,'cpptkinter::_cpptkinter::TkappObject']]],
-  ['exprlong_17',['exprlong',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a4e63d768b1ab3faf4406ca0e87bafe95',1,'cpptkinter::_cpptkinter::TkappObject']]],
-  ['exprstring_18',['exprstring',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a8ecdfe22f50b6484ace36d71aebfda78',1,'cpptkinter::_cpptkinter::TkappObject']]]
+  ['event_5fgenerate_13',['event_generate',['../classcpptkinter_1_1Misc.html#ad8347adc7248258e8bed2d185fa719d6',1,'cpptkinter::Misc']]],
+  ['exists_14',['exists',['../structcpptkinter_1_1ttk_1_1Treeview.html#af87215ccce4f7aca00b731cba0a586b1',1,'cpptkinter::ttk::Treeview']]],
+  ['expired_15',['expired',['../classcpptkinter_1_1utility_1_1weak.html#aa9059c0ccf21227797d18d55e885dedf',1,'cpptkinter::utility::weak']]],
+  ['exprboolean_16',['exprboolean',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a490e6e2a171fc7c05f6ed89217c7a0f0',1,'cpptkinter::_cpptkinter::TkappObject']]],
+  ['exprdouble_17',['exprdouble',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a43da605b98ca679d45fdffa331589840',1,'cpptkinter::_cpptkinter::TkappObject']]],
+  ['exprlong_18',['exprlong',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a4e63d768b1ab3faf4406ca0e87bafe95',1,'cpptkinter::_cpptkinter::TkappObject']]],
+  ['exprstring_19',['exprstring',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a8ecdfe22f50b6484ace36d71aebfda78',1,'cpptkinter::_cpptkinter::TkappObject']]]
 ];
