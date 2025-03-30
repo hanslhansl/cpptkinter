@@ -786,13 +786,13 @@ export namespace cpptkinter
         }
 
         /// @brief Return a tuple of X1,Y1,X2,Y2 coordinates for a rectangle which encloses the item identified by the given index.
-        std::array<long long, 4> bbox(detail::index auto&& index)
+        std::array<long long, 4> bbox(detail::index auto&& index) const
         {
             return this->tk->call<std::array<long long, 4>>(this->_w, "bbox", detail::to_index(index));
         }
 
         /// @brief Return the indices of currently selected item.
-        std::vector<long long> curselection()
+        std::vector<long long> curselection() const
         {
             return this->tk->call<std::vector<long long>>(this->_w, "curselection");
         }

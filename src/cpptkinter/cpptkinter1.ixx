@@ -273,7 +273,7 @@ export namespace cpptkinter
 
         /// @brief Return value of variable.
         template<detail::FromObjConcept R>
-        R get()
+        R get() const
         {
             return this->_tk->globalgetvar<R>(this->_name);
         }
@@ -361,7 +361,7 @@ export namespace cpptkinter
         }
 
         /// @copydoc Variable::get()
-        T get()
+        T get() const
         {
             return this->Variable::get<T>();
         }
