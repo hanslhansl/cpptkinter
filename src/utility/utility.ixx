@@ -2,6 +2,8 @@
 /// @brief Contains utility functions and classes which are not present in tkinter or _tkinter.
 module;
 #include "../global.hpp"
+//#include <vector>   // to get __cpp_lib_stacktrace to work on msvc
+#include <range/v3/all.hpp>
 export module cpptkinter:utility;
 import std;
 import hhh;
@@ -12,6 +14,26 @@ import variant_formatter;
 import optional_formatter;
 
 
+export {
+#if defined(__cpp_lib_ranges_stride) && defined(__cpp_lib_ranges_to_container) && defined(__cpp_lib_ranges) && defined(__cpp_lib_ranges_zip) && defined(__cpp_lib_ranges_join_with)
+    using std::views::stride;
+    using std::ranges::to;
+    using std::views::drop;
+    using std::views::zip;
+    using std::views::transform;
+    using std::ranges::join_with_view;
+#ifdef __clang__
+    static_assert(false, "this means that clang/libc++ finally supports all these and range v3 can be removed from the project");
+#endif
+#else
+    using ranges::views::stride;
+    using ranges::to;
+    using ranges::views::drop;
+    using ranges::views::zip;
+    using ranges::views::transform;
+    using ranges::join_with_view;
+#endif
+}
 
 /// @brief Utilities that aren't related to Python's tkinter or _tkinter.
 export namespace cpptkinter::utility

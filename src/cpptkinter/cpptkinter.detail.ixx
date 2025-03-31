@@ -1,32 +1,10 @@
 module;
 #include "../global.hpp"
-#include <range/v3/all.hpp>
 export module cpptkinter:cpptkinter.detail;
 import :utility;
 import :_cpptkinter;
 import std;
-import aggregate_formatter;
-import variant_formatter;
-import optional_formatter;
 
-export {
-#if defined(__cpp_lib_ranges_stride) && defined(__cpp_lib_ranges_to_container) && defined(__cpp_lib_ranges) && defined(__cpp_lib_ranges_zip) && defined(__cpp_lib_ranges_join_with)
-    using std::views::stride;
-    using std::ranges::to;
-    using std::views::drop;
-    using std::views::zip;
-    using std::ranges::join_with_view;
-#ifdef __clang__
-    static_assert(false, "this means that clang/libc++ finally supports all these and range v3 can be remoed from the project");
-#endif
-#else
-    using ranges::views::stride;
-    using ranges::to;
-    using ranges::views::drop;
-    using ranges::views::zip;
-    using ranges::join_with_view;
-#endif
-}
 
 export namespace cpptkinter
 {
@@ -252,22 +230,22 @@ export namespace cpptkinter::detail
 
     std::map<std::string, std::string> vector_to_map(std::vector<std::string>&& vec)
     {
-        return std::map<std::string, std::string>(std::from_range, std::views::zip(
+        return zip(
             vec | /*std::views::*/stride(2),
             vec | /*std::views::*/drop(1) | /*std::views::*/stride(2)
-        ));
+        ) | /*std::ranges::*/to<std::map/*<std::string, std::string>*/>();
     }
     template<typename MP, typename...Args>
     std::map<std::string, MP> vector_to_map(std::vector<std::variant<Args...>> && vec)
     {
-        return std::map<std::string, MP>(std::from_range, std::views::zip(
-            vec | /*std::views::*/stride(2) | std::views::transform([](auto& val) {
+        return /*std::views::*/zip(
+            vec | /*std::views::*/stride(2) | /*std::views::*/transform([](auto& val) {
                 if (std::holds_alternative<std::string>(val))
                     return std::get<std::string>(val);
 				throw utility::construct_exception<std::invalid_argument>("expected string");
                 }),
             vec | /*std::views::*/drop(1) | /*std::views::*/stride(2)
-        ));
+        ) | /*std::ranges::*/to<std::map/*<std::string, std::string>*/>();
     }
 
     template<typename T>

@@ -138,6 +138,8 @@ int main(int argc, char* argv[])
             .textvariable = var });
         b1.grid({ .column = 3, .row = 2 });
 
+        ((tk::Variable&)var).get<long long>();
+
         auto frame = tk::Frame({ .master = root, .bg = "red", .padx = 5, });
         frame.grid({ .column = 1, .row = 1 });
 
@@ -210,19 +212,19 @@ int main(int argc, char* argv[])
         nb.add({ .child = tk::Button({ .text = "cc bnkvhjl" }), .text = "2" });
         nb.grid({ .column = 0, .columnspan = 1, .row = 2, .sticky = "nswe" });
 
-        auto tree = ttk::Treeview({ .master = root, .columns = std::vector<std::string>{ "Name", "Age" }, .show = "headings", .selectmode = "none"});
+        auto tree = ttk::Treeview({ .master = root, .columns = std::vector<std::string>{ "Name", "Age" }, .selectmode = "none", .show = "headings" });
 
-        tree.heading({ "Name", .text = "Name" });
-        tree.heading({ "Age", .text = "Age" });
+        tree.heading({ .column = "Name", .text = "Name" });
+        tree.heading({ .column = "Age", .text = "Age" });
 
         std::println("{}", tree.heading(0));
 
-        tree.column({ "Name", .width = 100 });
-        tree.column({ "Age", .width = 50 });
+        tree.column({ .column = "Name", .width = 100 });
+        tree.column({ .column = "Age", .width = 50 });
 
         std::vector<std::vector<std::string>> data = { { "Alice", "25" }, { "Bob", "30" }, { "Charlie", "22" }, { "David", "35" } };
 		for (auto& item : data)
-            tree.insert({ "", "end", .values = item });
+            tree.insert({ .parent = "", .index = "end", .values = item });
 
         auto toggle_selection = [&](tk::Event event) {
             auto item = tree.identify_row(event.y);
@@ -241,7 +243,7 @@ int main(int argc, char* argv[])
                 //tree.item(item).values
                 std::println("{}", tree.item(item).values);
             };
-        tk::Button({ root, .text = "Get Selected", .command = get_selected_items }).grid({ .column = 1, .row = 3, .sticky = "nswe" });
+        tk::Button({ .master = root, .command = get_selected_items, .text = "Get Selected" }).grid({ .column = 1, .row = 3, .sticky = "nswe" });
 
         root.after(3000, []() { misc::printl("after 3000ms"); });
 
