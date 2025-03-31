@@ -118,7 +118,7 @@ Public Attributes</h2></td></tr>
 struct cpptkinter::detail::CallWrapper&lt; R, Args &gt;</div><p>Internal class. </p>
 <p>Stores function to call when some user defined Tcl function is called e.g. after an event occurred. </p>
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00972">972</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00968">968</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a13c7490df938b9ccebfc752226d6ab88" name="a13c7490df938b9ccebfc752226d6ab88"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a13c7490df938b9ccebfc752226d6ab88">&#9670;&#160;</a></span>operator()()</h2>
@@ -148,21 +148,21 @@ template&lt;typename R , typename... Args&gt; </div>
 
 <p>Apply FUNC to arguments. </p>
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00978">978</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  979</span>        {</div>
-<div class="line"><span class="lineno">  980</span>            <span class="keywordflow">try</span></div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00974">974</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  975</span>        {</div>
+<div class="line"><span class="lineno">  976</span>            <span class="keywordflow">try</span></div>
+<div class="line"><span class="lineno">  977</span>            {</div>
+<div class="line"><span class="lineno">  978</span>                <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1CallWrapper.html#aa0b9e288c774bb3491b7a60e171fa198">func</a>(std::forward&lt;Args&gt;(args)...);</div>
+<div class="line"><span class="lineno">  979</span>            }</div>
+<div class="line"><span class="lineno">  980</span>            <span class="keywordflow">catch</span> (...)</div>
 <div class="line"><span class="lineno">  981</span>            {</div>
-<div class="line"><span class="lineno">  982</span>                <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1CallWrapper.html#aa0b9e288c774bb3491b7a60e171fa198">func</a>(std::forward&lt;Args&gt;(args)...);</div>
-<div class="line"><span class="lineno">  983</span>            }</div>
-<div class="line"><span class="lineno">  984</span>            <span class="keywordflow">catch</span> (...)</div>
-<div class="line"><span class="lineno">  985</span>            {</div>
-<div class="line"><span class="lineno">  986</span>                this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1CallWrapper.html#a1f926278cb159104337576e8c1a08b1b">widget</a><span class="comment">/*.lock()*/</span>.<a class="code hl_function" href="classcpptkinter_1_1Misc.html#aa220e4f12c488cd7e5769edf3d829e79">_report_exception</a>();</div>
-<div class="line"><span class="lineno">  987</span>                <span class="keywordflow">throw</span>;</div>
-<div class="line"><span class="lineno">  988</span>            }</div>
-<div class="line"><span class="lineno">  989</span>        }</div>
+<div class="line"><span class="lineno">  982</span>                this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1detail_1_1CallWrapper.html#a1f926278cb159104337576e8c1a08b1b">widget</a><span class="comment">/*.lock()*/</span>.<a class="code hl_function" href="classcpptkinter_1_1Misc.html#aa220e4f12c488cd7e5769edf3d829e79">_report_exception</a>();</div>
+<div class="line"><span class="lineno">  983</span>                <span class="keywordflow">throw</span>;</div>
+<div class="line"><span class="lineno">  984</span>            }</div>
+<div class="line"><span class="lineno">  985</span>        }</div>
 <div class="ttc" id="aclasscpptkinter_1_1Misc_html_aa220e4f12c488cd7e5769edf3d829e79"><div class="ttname"><a href="classcpptkinter_1_1Misc.html#aa220e4f12c488cd7e5769edf3d829e79">cpptkinter::Misc::_report_exception</a></div><div class="ttdeci">void _report_exception()</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter1_8ixx_source.html#l00556">cpptkinter1.ixx:556</a></div></div>
-<div class="ttc" id="astructcpptkinter_1_1detail_1_1CallWrapper_html_a1f926278cb159104337576e8c1a08b1b"><div class="ttname"><a href="structcpptkinter_1_1detail_1_1CallWrapper.html#a1f926278cb159104337576e8c1a08b1b">cpptkinter::detail::CallWrapper::widget</a></div><div class="ttdeci">Misc widget</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8misc_8ixx_source.html#l00975">cpptkinter.misc.ixx:975</a></div></div>
-<div class="ttc" id="astructcpptkinter_1_1detail_1_1CallWrapper_html_aa0b9e288c774bb3491b7a60e171fa198"><div class="ttname"><a href="structcpptkinter_1_1detail_1_1CallWrapper.html#aa0b9e288c774bb3491b7a60e171fa198">cpptkinter::detail::CallWrapper::func</a></div><div class="ttdeci">std::function&lt; R(Args...)&gt; func</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8misc_8ixx_source.html#l00974">cpptkinter.misc.ixx:974</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1detail_1_1CallWrapper_html_a1f926278cb159104337576e8c1a08b1b"><div class="ttname"><a href="structcpptkinter_1_1detail_1_1CallWrapper.html#a1f926278cb159104337576e8c1a08b1b">cpptkinter::detail::CallWrapper::widget</a></div><div class="ttdeci">Misc widget</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8misc_8ixx_source.html#l00971">cpptkinter.misc.ixx:971</a></div></div>
+<div class="ttc" id="astructcpptkinter_1_1detail_1_1CallWrapper_html_aa0b9e288c774bb3491b7a60e171fa198"><div class="ttname"><a href="structcpptkinter_1_1detail_1_1CallWrapper.html#aa0b9e288c774bb3491b7a60e171fa198">cpptkinter::detail::CallWrapper::func</a></div><div class="ttdeci">std::function&lt; R(Args...)&gt; func</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter_8misc_8ixx_source.html#l00970">cpptkinter.misc.ixx:970</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -181,7 +181,7 @@ template&lt;typename R , typename... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00974">974</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00970">970</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
 
 </div>
 </div>
@@ -199,7 +199,7 @@ template&lt;typename R , typename... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00975">975</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00971">971</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
 
 </div>
 </div>
