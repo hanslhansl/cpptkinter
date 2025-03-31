@@ -121,7 +121,7 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename... Args&gt;<br />
 struct cpptkinter::utility::reference_variant&lt; Args &gt;</div>
-<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00118">118</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00140">140</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a6de556904dd820f253fabb2baa981864" name="a6de556904dd820f253fabb2baa981864"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6de556904dd820f253fabb2baa981864">&#9670;&#160;</a></span>variant_type</h2>
@@ -137,7 +137,7 @@ template&lt;typename... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00120">120</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00142">142</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
 
 </div>
 </div>
@@ -171,12 +171,12 @@ requires requires (T&amp; ref) { <a class="el" href="structcpptkinter_1_1utility
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00125">125</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  125</span>                                  : <a class="code hl_variable" href="structcpptkinter_1_1utility_1_1reference__variant.html#a5e415a7120282ebab566ebaeb8e7dbbf">v</a>(std::in_place_type_t&lt;std::reference_wrapper&lt;T&gt;&gt;(), std::reference_wrapper&lt;T&gt;(ref))</div>
-<div class="line"><span class="lineno">  126</span>        {</div>
-<div class="line"><span class="lineno">  127</span> </div>
-<div class="line"><span class="lineno">  128</span>        }</div>
-<div class="ttc" id="astructcpptkinter_1_1utility_1_1reference__variant_html_a5e415a7120282ebab566ebaeb8e7dbbf"><div class="ttname"><a href="structcpptkinter_1_1utility_1_1reference__variant.html#a5e415a7120282ebab566ebaeb8e7dbbf">cpptkinter::utility::reference_variant::v</a></div><div class="ttdeci">variant_type v</div><div class="ttdef"><b>Definition:</b> <a href="utility_8ixx_source.html#l00121">utility.ixx:121</a></div></div>
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00147">147</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  147</span>                                  : <a class="code hl_variable" href="structcpptkinter_1_1utility_1_1reference__variant.html#a5e415a7120282ebab566ebaeb8e7dbbf">v</a>(std::in_place_type_t&lt;std::reference_wrapper&lt;T&gt;&gt;(), std::reference_wrapper&lt;T&gt;(ref))</div>
+<div class="line"><span class="lineno">  148</span>        {</div>
+<div class="line"><span class="lineno">  149</span> </div>
+<div class="line"><span class="lineno">  150</span>        }</div>
+<div class="ttc" id="astructcpptkinter_1_1utility_1_1reference__variant_html_a5e415a7120282ebab566ebaeb8e7dbbf"><div class="ttname"><a href="structcpptkinter_1_1utility_1_1reference__variant.html#a5e415a7120282ebab566ebaeb8e7dbbf">cpptkinter::utility::reference_variant::v</a></div><div class="ttdeci">variant_type v</div><div class="ttdef"><b>Definition:</b> <a href="utility_8ixx_source.html#l00143">utility.ixx:143</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -209,19 +209,19 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00131">131</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  132</span>        {</div>
-<div class="line"><span class="lineno">  133</span>            <span class="keyword">auto</span> lambda = [&amp;t](<span class="keyword">auto</span>&amp; val) {</div>
-<div class="line"><span class="lineno">  134</span>                <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (<span class="keyword">requires</span> { val.get() = std::forward&lt;T&gt;(t); })</div>
-<div class="line"><span class="lineno">  135</span>                    val.get() = std::forward&lt;T&gt;(t);</div>
-<div class="line"><span class="lineno">  136</span>                <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  137</span>                    <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Invalid assignment&quot;</span>);</div>
-<div class="line"><span class="lineno">  138</span>                };</div>
-<div class="line"><span class="lineno">  139</span> </div>
-<div class="line"><span class="lineno">  140</span>            std::visit(lambda, this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1utility_1_1reference__variant.html#a5e415a7120282ebab566ebaeb8e7dbbf">v</a>);</div>
-<div class="line"><span class="lineno">  141</span> </div>
-<div class="line"><span class="lineno">  142</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><span class="lineno">  143</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00153">153</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  154</span>        {</div>
+<div class="line"><span class="lineno">  155</span>            <span class="keyword">auto</span> lambda = [&amp;t](<span class="keyword">auto</span>&amp; val) {</div>
+<div class="line"><span class="lineno">  156</span>                <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (<span class="keyword">requires</span> { val.get() = std::forward&lt;T&gt;(t); })</div>
+<div class="line"><span class="lineno">  157</span>                    val.get() = std::forward&lt;T&gt;(t);</div>
+<div class="line"><span class="lineno">  158</span>                <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  159</span>                    <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Invalid assignment&quot;</span>);</div>
+<div class="line"><span class="lineno">  160</span>                };</div>
+<div class="line"><span class="lineno">  161</span> </div>
+<div class="line"><span class="lineno">  162</span>            std::visit(lambda, this-&gt;<a class="code hl_variable" href="structcpptkinter_1_1utility_1_1reference__variant.html#a5e415a7120282ebab566ebaeb8e7dbbf">v</a>);</div>
+<div class="line"><span class="lineno">  163</span> </div>
+<div class="line"><span class="lineno">  164</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><span class="lineno">  165</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -240,7 +240,7 @@ template&lt;typename... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00121">121</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00143">143</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
 
 </div>
 </div>

@@ -81,17 +81,13 @@ var cpptkinter_8detail_8ixx =
     [ "_default_root", "cpptkinter_8detail_8ixx.html#a953eeb455fc57f0968d19433d0748fed", null ],
     [ "_support_default_root", "cpptkinter_8detail_8ixx.html#ad0e153509f7b29be7873602abac3ec15", null ],
     [ "_varnum", "cpptkinter_8detail_8ixx.html#a3be8e7ded72389f552f47c0e36cf4a77", null ],
-    [ "aggregate_formatter", "cpptkinter_8detail_8ixx.html#ab8060bf6bde559ecb3b0e025dce77f41", null ],
     [ "cpptkinter", "cpptkinter_8detail_8ixx.html#ac6a666df714a8ea283ff40996c1f4669", null ],
-    [ "export", "cpptkinter_8detail_8ixx.html#af44e2d3afd4e0e4d03f637dbb2bce3cd", null ],
     [ "module", "cpptkinter_8detail_8ixx.html#a96e5f0eca87c2426370e0897ac7b8ca6", null ],
-    [ "optional_formatter", "cpptkinter_8detail_8ixx.html#a0bc7b6a92112e48f8a5683946951880d", null ],
     [ "std", "cpptkinter_8detail_8ixx.html#a2f42581b64a695b89aba6966398fc784", null ],
     [ "tcl_command_name_counter", "cpptkinter_8detail_8ixx.html#a5bc524840e8f0087f13524dda0d261bb", null ],
     [ "tcl_forbidden_chars", "cpptkinter_8detail_8ixx.html#acf1508eec0d4fb028240fcc748db5ce7", null ],
     [ "to_index", "cpptkinter_8detail_8ixx.html#a49b5f9c1f4246c1f51f518b4aa3c1ee3", null ],
     [ "to_screenunits_arg", "cpptkinter_8detail_8ixx.html#a72698205db4c3e4cadaa35da35c86897", null ],
     [ "to_tag_or_id", "cpptkinter_8detail_8ixx.html#a133922abcab2e61d3e4c83dfddd38b76", null ],
-    [ "to_text_index", "cpptkinter_8detail_8ixx.html#a87f1228690e84889ec2512f9adbb7398", null ],
-    [ "variant_formatter", "cpptkinter_8detail_8ixx.html#a5e8e84e12c083b5b81339220ba7bf9be", null ]
+    [ "to_text_index", "cpptkinter_8detail_8ixx.html#a87f1228690e84889ec2512f9adbb7398", null ]
 ];

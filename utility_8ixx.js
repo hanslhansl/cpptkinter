@@ -24,6 +24,7 @@ var utility_8ixx =
     [ "__pad0__", "utility_8ixx.html#acadcd9c7c4790b089dcbbc02cfc69587", null ],
     [ "aggregate_formatter", "utility_8ixx.html#ab8060bf6bde559ecb3b0e025dce77f41", null ],
     [ "cpptkinter", "utility_8ixx.html#ac6a666df714a8ea283ff40996c1f4669", null ],
+    [ "export", "utility_8ixx.html#af44e2d3afd4e0e4d03f637dbb2bce3cd", null ],
     [ "hhh", "utility_8ixx.html#a00f312ffd4f12513c22c7e98aa3c94c0", null ],
     [ "module", "utility_8ixx.html#a96e5f0eca87c2426370e0897ac7b8ca6", null ],
     [ "optional_formatter", "utility_8ixx.html#a0bc7b6a92112e48f8a5683946951880d", null ],

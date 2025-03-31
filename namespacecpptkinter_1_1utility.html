@@ -209,10 +209,10 @@ template&lt;typename Func &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00211">211</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  212</span>    {</div>
-<div class="line"><span class="lineno">  213</span>        <span class="keywordflow">return</span> std::forward&lt;Func&gt;(func);</div>
-<div class="line"><span class="lineno">  214</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00233">233</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  234</span>    {</div>
+<div class="line"><span class="lineno">  235</span>        <span class="keywordflow">return</span> std::forward&lt;Func&gt;(func);</div>
+<div class="line"><span class="lineno">  236</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -235,10 +235,10 @@ requires requires { typename std::remove_cvref_t&lt;Func&gt;<a class="el" href="
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00220">220</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  221</span>    {</div>
-<div class="line"><span class="lineno">  222</span>        <span class="keywordflow">return</span> std::forward&lt;Func&gt;(func);</div>
-<div class="line"><span class="lineno">  223</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00242">242</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  243</span>    {</div>
+<div class="line"><span class="lineno">  244</span>        <span class="keywordflow">return</span> std::forward&lt;Func&gt;(func);</div>
+<div class="line"><span class="lineno">  245</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -270,10 +270,10 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00035">35</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   36</span>    {</div>
-<div class="line"><span class="lineno">   37</span>        <span class="keywordflow">return</span> T(std::format(<span class="stringliteral">&quot;{}\nin file {}, at line {} in function {}&quot;</span>, str, loc.file_name(), loc.line(), loc.function_name()));</div>
-<div class="line"><span class="lineno">   38</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00057">57</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   58</span>    {</div>
+<div class="line"><span class="lineno">   59</span>        <span class="keywordflow">return</span> T(std::format(<span class="stringliteral">&quot;{}\nin file {}, at line {} in function {}&quot;</span>, str, loc.file_name(), loc.line(), loc.function_name()));</div>
+<div class="line"><span class="lineno">   60</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -298,11 +298,11 @@ requires requires { <a class="el" href="structcpptkinter_1_1detail_1_1widget__fr
 
 <p>dynamic_cast a widget to a child (or base) class. </p>
 
-<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00244">244</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  244</span>                                                               { detail::widget_friend::dynamic_widget_cast_down&lt;To&gt;(from); }</div>
-<div class="line"><span class="lineno">  245</span>    {</div>
-<div class="line"><span class="lineno">  246</span>        <span class="keywordflow">return</span> detail::widget_friend::dynamic_widget_cast_down&lt;To&gt;(from);</div>
-<div class="line"><span class="lineno">  247</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00266">266</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  266</span>                                                               { detail::widget_friend::dynamic_widget_cast_down&lt;To&gt;(from); }</div>
+<div class="line"><span class="lineno">  267</span>    {</div>
+<div class="line"><span class="lineno">  268</span>        <span class="keywordflow">return</span> detail::widget_friend::dynamic_widget_cast_down&lt;To&gt;(from);</div>
+<div class="line"><span class="lineno">  269</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -351,11 +351,11 @@ requires (hhh::meta::is_template_instance&lt;std::remove_cvref_t&lt;Optional&gt;
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00068">68</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   69</span>    {</div>
-<div class="line"><span class="lineno">   70</span>        <span class="keywordflow">if</span> (optional)</div>
-<div class="line"><span class="lineno">   71</span>            std::invoke(std::forward&lt;Callable&gt;(callable), std::forward&lt;Optional&gt;(optional).value(), std::forward&lt;Args&gt;(args)...);</div>
-<div class="line"><span class="lineno">   72</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00090">90</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   91</span>    {</div>
+<div class="line"><span class="lineno">   92</span>        <span class="keywordflow">if</span> (optional)</div>
+<div class="line"><span class="lineno">   93</span>            std::invoke(std::forward&lt;Callable&gt;(callable), std::forward&lt;Optional&gt;(optional).value(), std::forward&lt;Args&gt;(args)...);</div>
+<div class="line"><span class="lineno">   94</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -404,10 +404,10 @@ requires (!hhh::meta::is_template_instance&lt;std::remove_cvref_t&lt;T&gt;, std:
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00080">80</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   81</span>    {</div>
-<div class="line"><span class="lineno">   82</span>        std::invoke(std::forward&lt;Callable&gt;(callable), std::forward&lt;T&gt;(value), std::forward&lt;Args&gt;(args)...);</div>
-<div class="line"><span class="lineno">   83</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00102">102</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  103</span>    {</div>
+<div class="line"><span class="lineno">  104</span>        std::invoke(std::forward&lt;Callable&gt;(callable), std::forward&lt;T&gt;(value), std::forward&lt;Args&gt;(args)...);</div>
+<div class="line"><span class="lineno">  105</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -432,11 +432,11 @@ requires requires { <a class="el" href="structcpptkinter_1_1detail_1_1widget__fr
 
 <p>static_cast a widget to a child (or base) class. </p>
 
-<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00237">237</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  237</span>                                                              { detail::widget_friend::static_widget_cast_down&lt;To&gt;(from); }</div>
-<div class="line"><span class="lineno">  238</span>    {</div>
-<div class="line"><span class="lineno">  239</span>        <span class="keywordflow">return</span> detail::widget_friend::static_widget_cast_down&lt;To&gt;(from);</div>
-<div class="line"><span class="lineno">  240</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00259">259</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  259</span>                                                              { detail::widget_friend::static_widget_cast_down&lt;To&gt;(from); }</div>
+<div class="line"><span class="lineno">  260</span>    {</div>
+<div class="line"><span class="lineno">  261</span>        <span class="keywordflow">return</span> detail::widget_friend::static_widget_cast_down&lt;To&gt;(from);</div>
+<div class="line"><span class="lineno">  262</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -478,10 +478,10 @@ requires requires { <a class="el" href="namespacecpptkinter_1_1detail.html#ace7a
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00047">47</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   48</span>    {</div>
-<div class="line"><span class="lineno">   49</span>        <span class="keywordflow">return</span> detail::visit_or_invoke_impl(std::forward&lt;Callable&gt;(callable), std::forward&lt;T&gt;(value));</div>
-<div class="line"><span class="lineno">   50</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00069">69</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   70</span>    {</div>
+<div class="line"><span class="lineno">   71</span>        <span class="keywordflow">return</span> detail::visit_or_invoke_impl(std::forward&lt;Callable&gt;(callable), std::forward&lt;T&gt;(value));</div>
+<div class="line"><span class="lineno">   72</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -522,10 +522,10 @@ requires std::ranges::range&lt;T&gt; || hhh::meta::tuple_like&lt;T&gt;</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00056">56</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   57</span>    {</div>
-<div class="line"><span class="lineno">   58</span>        <span class="keywordflow">return</span> detail::visit_range_or_tuple_impl(std::forward&lt;Visitor&gt;(vis), std::forward&lt;T&gt;(value));</div>
-<div class="line"><span class="lineno">   59</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00078">78</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   79</span>    {</div>
+<div class="line"><span class="lineno">   80</span>        <span class="keywordflow">return</span> detail::visit_range_or_tuple_impl(std::forward&lt;Visitor&gt;(vis), std::forward&lt;T&gt;(value));</div>
+<div class="line"><span class="lineno">   81</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -552,7 +552,7 @@ template&lt;typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00226">226</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
+<p class="definition">Definition at line <a class="el" href="utility_8ixx_source.html#l00248">248</a> of file <a class="el" href="utility_8ixx_source.html">utility.ixx</a>.</p>
 
 </div>
 </div>
