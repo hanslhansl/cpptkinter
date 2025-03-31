@@ -15,13 +15,14 @@ import optional_formatter;
 
 
 export {
-#if defined(__cpp_lib_ranges_stride) && defined(__cpp_lib_ranges_to_container) && defined(__cpp_lib_ranges) && defined(__cpp_lib_ranges_zip) && defined(__cpp_lib_ranges_join_with)
+#if defined(__cpp_lib_ranges_stride) && defined(__cpp_lib_ranges_to_container) && defined(__cpp_lib_ranges) && defined(__cpp_lib_ranges_zip) && defined(__cpp_lib_ranges_join_with) && defined(__cpp_lib_ranges_enumerate)
     using std::views::stride;
     using std::ranges::to;
     using std::views::drop;
     using std::views::zip;
     using std::views::transform;
     using std::ranges::join_with_view;
+    using std::views::enumerate;
 #ifdef __clang__
     static_assert(false, "this means that clang/libc++ finally supports all these and range v3 can be removed from the project");
 #endif
@@ -32,6 +33,7 @@ export {
     using ranges::views::zip;
     using ranges::views::transform;
     using ranges::join_with_view;
+	using ranges::views::enumerate;
 #endif
 }
 

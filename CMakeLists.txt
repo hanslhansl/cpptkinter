@@ -1,6 +1,6 @@
 # Adjust this!
 # libc++ Path
-set(LIBXX_DIR "${CMAKE_SOURCE_DIR}/../llvm-mingw-20250212-ucrt-x86_64/x86_64-w64-mingw32")
+set(LIBXX_DIR "${CMAKE_SOURCE_DIR}/../llvm-mingw-ucrt-x86_64/x86_64-w64-mingw32")
 # Tcl/Tk Path
 set(TCLTK_DIR "${CMAKE_SOURCE_DIR}/../tktcl")
 

@@ -36,12 +36,12 @@
       "variables": [
         {
           "name": "CMAKE_C_COMPILER",
-          "value": "F:/Paul/Computer/Programmieren/C++/llvm-mingw-20250212-ucrt-x86_64/bin/clang.exe",
+          "value": "F:/Paul/Computer/Programmieren/C++/llvm-mingw-ucrt-x86_64/bin/clang.exe",
           "type": "FILEPATH"
         },
         {
           "name": "CMAKE_CXX_COMPILER",
-          "value": "F:/Paul/Computer/Programmieren/C++/llvm-mingw-20250212-ucrt-x86_64/bin/clang++.exe",
+          "value": "F:/Paul/Computer/Programmieren/C++/llvm-mingw-ucrt-x86_64/bin/clang++.exe",
           "type": "FILEPATH"
         }
       ]
@@ -59,12 +59,12 @@
       "variables": [
         {
           "name": "CMAKE_C_COMPILER",
-          "value": "F:/Paul/Computer/Programmieren/C++/llvm-mingw-20250212-ucrt-x86_64/bin/clang.exe",
+          "value": "F:/Paul/Computer/Programmieren/C++/llvm-mingw-ucrt-x86_64/bin/clang.exe",
           "type": "FILEPATH"
         },
         {
           "name": "CMAKE_CXX_COMPILER",
-          "value": "F:/Paul/Computer/Programmieren/C++/llvm-mingw-20250212-ucrt-x86_64/bin/clang++.exe",
+          "value": "F:/Paul/Computer/Programmieren/C++/llvm-mingw-ucrt-x86_64/bin/clang++.exe",
           "type": "FILEPATH"
         }
       ],

@@ -138,8 +138,6 @@ int main(int argc, char* argv[])
             .textvariable = var });
         b1.grid({ .column = 3, .row = 2 });
 
-        ((tk::Variable&)var).get<long long>();
-
         auto frame = tk::Frame({ .master = root, .bg = "red", .padx = 5, });
         frame.grid({ .column = 1, .row = 1 });
 
