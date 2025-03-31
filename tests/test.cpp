@@ -243,7 +243,7 @@ int main(int argc, char* argv[])
             };
         tk::Button({ .master = root, .command = get_selected_items, .text = "Get Selected" }).grid({ .column = 1, .row = 3, .sticky = "nswe" });
 
-        root.after(3000, []() { misc::printl("after 3000ms"); });
+        root.after(3000, [&]() { misc::printl("after 3000ms"); });
 
         root.mainloop();
     }

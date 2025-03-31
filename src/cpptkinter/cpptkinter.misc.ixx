@@ -145,17 +145,13 @@ export namespace cpptkinter
                     // self.deletecommand() destructs this so therefor we need to prevent name and self from destruction
                     auto name = *this->name;
 					auto self = this->self_;
-                    try
-                    {
-                        this->func();
-                    }
-					catch (...) { }
 
-                    try
-                    {
+                    auto cleanup_lambda = [&](void*) {
                         self.deletecommand(name);
-                    }
-                    catch (const TclError&) { }
+                        };
+                    auto cleanup = std::unique_ptr<void, decltype(cleanup_lambda)> (nullptr, std::move(cleanup_lambda));
+
+                    this->func();
 				}
             } callit{ std::move(func), std::make_shared<std::string>(), *this };
 
