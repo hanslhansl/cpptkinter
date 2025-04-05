@@ -8,5 +8,5 @@ var searchData=
   ['remove_5',['remove',['../structcpptkinter_1_1PanedWindow.html#ac6cfa5ad4cda11e64d9ffcfbf9777889',1,'cpptkinter::PanedWindow']]],
   ['replace_6',['replace',['../structcpptkinter_1_1Text.html#a55e73b7c7c0515b309117f53fff09fe9',1,'cpptkinter::Text']]],
   ['resizable_7',['resizable',['../structcpptkinter_1_1Wm.html#a4236d8fcd475b783b57d7fadc5ba11cd',1,'cpptkinter::Wm::resizable(this auto &amp;&amp;self, bool width, bool height)'],['../structcpptkinter_1_1Wm.html#a59ee74c97da2f0bacede2e43bdf01c57',1,'cpptkinter::Wm::resizable(this auto &amp;&amp;self)']]],
-  ['rowconfigure_8',['rowconfigure',['../classcpptkinter_1_1Misc.html#a0740c5742a1f5918c1615f27b6d70020',1,'cpptkinter::Misc::rowconfigure(detail::index auto &amp;&amp;index)'],['../classcpptkinter_1_1Misc.html#a0247192ab6f89e0693c89b8b42c7c503',1,'cpptkinter::Misc::rowconfigure(const std::variant&lt; std::size_t, std::vector&lt; std::size_t &gt;, std::string &gt; &amp;index, CNF &amp;&amp;cnf)']]]
+  ['rowconfigure_8',['rowconfigure',['../classcpptkinter_1_1Misc.html#a0740c5742a1f5918c1615f27b6d70020',1,'cpptkinter::Misc::rowconfigure(detail::index auto &amp;&amp;index)'],['../classcpptkinter_1_1Misc.html#a07c073f5d391182569f71af6532b9874',1,'cpptkinter::Misc::rowconfigure(CNF &amp;&amp;cnf)']]]
 ];
