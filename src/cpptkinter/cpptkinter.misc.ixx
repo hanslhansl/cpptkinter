@@ -51,7 +51,7 @@ export namespace cpptkinter::cnfs
     /// @brief Argument for Misc::grid_columnconfigure() and Misc::grid_rowconfigure().
     struct grid_column_row_configure
     {
-		std::variant<std::size_t, std::vector<std::size_t>, std::string> index;
+		std::variant<long long, std::vector<std::size_t>, std::string> index;
         opt_screenunits minsize;
         opt_screenunits pad;
         opt_string uniform;
