@@ -77,7 +77,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "__cpptkinter_8functions_8ixx.html",
-"classcpptkinter_1_1Misc.html#a830decb8f2d116192e992a9065dfae59",
+"classcpptkinter_1_1Misc.html#a821b778ace151e96271b01fae99b4959",
 "classcpptkinter_1_1utility_1_1optional__mutex__adaptor.html#ac9e84f4b9d46c66efd1f2c60888a5ec7",
 "cpptkinter_8detail_8ixx.html#afa0f8d41b67b2ac0c012f2f4da88f73fa2241f0c0c7e396382705028677ac184e",
 "namespacecpptkinter.html#a8ad4de4135e1fc7cf592eda012b06e8c",
@@ -94,8 +94,8 @@ var NAVTREEINDEX =
 "structcpptkinter_1_1cnfs_1_1Spinbox.html#a9e144ec427854ff81640527a9074a715",
 "structcpptkinter_1_1cnfs_1_1Text__peer__create.html#ada25e36a85e517813f9d9efe555e1cc7",
 "structcpptkinter_1_1cnfs_1_1Variable.html#a635f10e434e07bbfa97422b750d0f93b",
-"structcpptkinter_1_1detail_1_1TclBaseEvent.html#a36ebdecee3b4a4f5df243827114a1e9d",
-"structcpptkinter_1_1ttk_1_1Treeview.html#aeb6212e53bc362cae9113250bbf9a555"
+"structcpptkinter_1_1detail_1_1TclBaseEvent.html#a2e9f42e27805a34559f83b071ef7c7db",
+"structcpptkinter_1_1ttk_1_1Treeview.html#ae6190e8468113b2c51d80809eed9e3ee"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
