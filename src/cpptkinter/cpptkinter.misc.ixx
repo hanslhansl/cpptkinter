@@ -834,7 +834,7 @@ export namespace cpptkinter
         template<cnfs::is_cnf CNF = cnfs::grid_column_row_configure>
         void grid_columnconfigure(CNF&& cnf)
         {
-            this->tk->call("grid", "columnconfigure", this->_w, index, this->_options(std::forward<CNF>(cnf)));
+            this->tk->call("grid", "columnconfigure", this->_w, cnf.index, this->_options(std::forward<CNF>(cnf), { "index" }));
         }
 
         /// @copydoc grid_columnconfigure(const std::variant<long long, std::string>&)
@@ -846,7 +846,7 @@ export namespace cpptkinter
         template<cnfs::is_cnf CNF = cnfs::grid_column_row_configure>
         void columnconfigure(CNF&& cnf)
         {
-            return this->grid_columnconfigure(index, std::forward<CNF>(cnf));
+            return this->grid_columnconfigure(std::forward<CNF>(cnf));
         }
 
         /// @brief Return a tuple of column and row which identify the cell at which the pixel at position X and Y inside the master widget is located.
@@ -885,9 +885,9 @@ export namespace cpptkinter
         /// Valid resources are minsize (minimum size of the row), weight (how much does additional space propagate to this row),
         /// pad (how much space to let additionally) and uniform.
         template<cnfs::is_cnf CNF = cnfs::grid_column_row_configure>
-        void grid_rowconfigure(const std::variant<std::size_t, std::vector<std::size_t>, std::string>& index, CNF&& cnf)
+        void grid_rowconfigure(CNF&& cnf)
         {
-            this->tk->call("grid", "rowconfigure", this->_w, index, this->_options(std::forward<CNF>(cnf)));
+            this->tk->call("grid", "rowconfigure", this->_w, cnf.index, this->_options(std::forward<CNF>(cnf), { "index" }));
         }
 
         /// @copydoc grid_rowconfigure(const std::variant<long long, std::string>&)
@@ -897,9 +897,9 @@ export namespace cpptkinter
         }
         /// @copydoc grid_rowconfigure()
         template<cnfs::is_cnf CNF = cnfs::grid_column_row_configure>
-        void rowconfigure(const std::variant<std::size_t, std::vector<std::size_t>, std::string>& index, CNF&& cnf)
+        void rowconfigure(CNF&& cnf)
         {
-            return this->grid_rowconfigure(index, std::forward<CNF>(cnf));
+            return this->grid_rowconfigure(std::forward<CNF>(cnf));
         }
 
         /// @brief Return a tuple of the number of column and rows in the grid.
