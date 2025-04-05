@@ -51,6 +51,7 @@ export namespace cpptkinter::cnfs
     /// @brief Argument for Misc::grid_columnconfigure() and Misc::grid_rowconfigure().
     struct grid_column_row_configure
     {
+		std::variant<std::size_t, std::vector<std::size_t>, std::string> index;
         opt_screenunits minsize;
         opt_screenunits pad;
         opt_string uniform;
@@ -831,7 +832,7 @@ export namespace cpptkinter
         /// Valid resources are minsize (minimum size of the column), weight (how much does additional space propagate to this column),
         /// pad (how much space to let additionally) and uniform.
         template<cnfs::is_cnf CNF = cnfs::grid_column_row_configure>
-        void grid_columnconfigure(std::variant<std::size_t, std::vector<std::size_t>, std::string> index, CNF&& cnf)
+        void grid_columnconfigure(CNF&& cnf)
         {
             this->tk->call("grid", "columnconfigure", this->_w, index, this->_options(std::forward<CNF>(cnf)));
         }
@@ -843,7 +844,7 @@ export namespace cpptkinter
         }
         /// @copydoc grid_columnconfigure()
         template<cnfs::is_cnf CNF = cnfs::grid_column_row_configure>
-        void columnconfigure(std::variant<std::size_t, std::vector<std::size_t>, std::string> index, CNF&& cnf)
+        void columnconfigure(CNF&& cnf)
         {
             return this->grid_columnconfigure(index, std::forward<CNF>(cnf));
         }
