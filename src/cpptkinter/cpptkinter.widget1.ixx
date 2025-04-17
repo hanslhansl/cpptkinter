@@ -298,8 +298,8 @@ export namespace cpptkinter
         {
             std::vector<_cpptkinter::Tcl_Obj> extra{};
             std::set<std::string> ignore_fields{};
-            reflect::for_each<CNF>([&extra, &ignore_fields, &cnf](auto I) {
-                constexpr std::string_view wmkey = reflect::member_name<I, CNF>();
+            reflect::enumerate<CNF>([&extra, &ignore_fields, &cnf](auto I) {
+                constexpr std::string_view wmkey = reflect::member_name<CNF, I>();
 
                 if constexpr (wmkey == "screen"
                     || wmkey == "class_"

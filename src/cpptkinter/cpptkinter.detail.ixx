@@ -192,9 +192,9 @@ export namespace cpptkinter::detail
             v = std::move(temp_v);
         }
 
-        auto inner_visitor = [&v, &conv]<std::size_t I>()->reflect::member_type<I, A> {
-			using member_type = reflect::member_type<I, A>;
-            static const auto key = /*rfl::fields<A>()[I].name()*/reflect::member_name<I, A>();
+        auto inner_visitor = [&v, &conv]<std::size_t I>()->reflect::member_type_t<A, I> {
+			using member_type = reflect::member_type_t<A, I>;
+            static const auto key = /*rfl::fields<A>()[I].name()*/reflect::member_name<A, I>();
 
             auto&& node = v.extract(std::string(key));
             if (node.empty())
@@ -217,7 +217,7 @@ export namespace cpptkinter::detail
             }
             else
             {
-                return conv.template operator() < reflect::member_type<I, A> > (std::move(mapped));
+                return conv.template operator() < reflect::member_type_t<A, I> > (std::move(mapped));
             }
         };
 
