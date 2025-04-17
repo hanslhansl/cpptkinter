@@ -358,8 +358,8 @@ $(document).ready(function(){initNavTree('cpptkinter_8widget1_8ixx_source.html',
 <div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>        {</div>
 <div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>            std::vector&lt;_cpptkinter::Tcl_Obj&gt; extra{};</div>
 <div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>            std::set&lt;std::string&gt; ignore_fields{};</div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>            reflect::for_each&lt;CNF&gt;([&amp;extra, &amp;ignore_fields, &amp;cnf](<span class="keyword">auto</span> I) {</div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>                <span class="keyword">constexpr</span> std::string_view wmkey = reflect::member_name&lt;I, CNF&gt;();</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>            reflect::enumerate&lt;CNF&gt;([&amp;extra, &amp;ignore_fields, &amp;cnf](<span class="keyword">auto</span> I) {</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>                <span class="keyword">constexpr</span> std::string_view wmkey = reflect::member_name&lt;CNF, I&gt;();</div>
 <div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span> </div>
 <div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>                <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (wmkey == <span class="stringliteral">&quot;screen&quot;</span></div>
 <div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>                    || wmkey == <span class="stringliteral">&quot;class_&quot;</span></div>
