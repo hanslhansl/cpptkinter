@@ -100,7 +100,7 @@ Inheritance diagram for cpptkinter::cnfs::is_cnf_trait&lt; T, std::integer_seque
  </div></div>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T, std::size_t... I&gt;<br />
-requires (!std::is_array_v&lt;std::remove_cvref_t&lt;T&gt;&gt;) &amp;&amp; (is_cnf_member&lt;std::remove_cvref_t&lt;reflect::member_type_t&lt;T, I&gt;&gt;&gt; &amp;&amp; ...)<br />
+requires (!std::is_array_v&lt;std::remove_cvref_t&lt;T&gt;&gt;) &amp;&amp; (is_cnf_member&lt;std::remove_cvref_t&lt;reflect::member_type&lt;I, T&gt;&gt;&gt; &amp;&amp; ...)<br />
 struct cpptkinter::cnfs::is_cnf_trait&lt; T, std::integer_sequence&lt; std::size_t, I... &gt; &gt;</div>
 <p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00036">36</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>

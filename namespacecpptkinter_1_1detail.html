@@ -867,9 +867,9 @@ template&lt;typename A , typename V , typename Conv  = const std::nullopt_t&amp;
 <div class="line"><span class="lineno">  192</span>            v = std::move(temp_v);</div>
 <div class="line"><span class="lineno">  193</span>        }</div>
 <div class="line"><span class="lineno">  194</span> </div>
-<div class="line"><span class="lineno">  195</span>        <span class="keyword">auto</span> inner_visitor = [&amp;v, &amp;conv]&lt;std::size_t I&gt;()-&gt;reflect::member_type_t&lt;A, I&gt; {</div>
-<div class="line"><span class="lineno">  196</span>            <span class="keyword">using </span>member_type = reflect::member_type_t&lt;A, I&gt;;</div>
-<div class="line"><span class="lineno">  197</span>            <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">auto</span> key = <span class="comment">/*rfl::fields&lt;A&gt;()[I].name()*/</span>reflect::member_name&lt;A, I&gt;();</div>
+<div class="line"><span class="lineno">  195</span>        <span class="keyword">auto</span> inner_visitor = [&amp;v, &amp;conv]&lt;std::size_t I&gt;()-&gt;reflect::member_type&lt;I, A&gt; {</div>
+<div class="line"><span class="lineno">  196</span>            <span class="keyword">using </span>member_type = reflect::member_type&lt;I, A&gt;;</div>
+<div class="line"><span class="lineno">  197</span>            <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">auto</span> key = <span class="comment">/*rfl::fields&lt;A&gt;()[I].name()*/</span>reflect::member_name&lt;I, A&gt;();</div>
 <div class="line"><span class="lineno">  198</span> </div>
 <div class="line"><span class="lineno">  199</span>            <span class="keyword">auto</span>&amp;&amp; node = v.extract(std::string(key));</div>
 <div class="line"><span class="lineno">  200</span>            <span class="keywordflow">if</span> (node.empty())</div>
@@ -892,7 +892,7 @@ template&lt;typename A , typename V , typename Conv  = const std::nullopt_t&amp;
 <div class="line"><span class="lineno">  217</span>            }</div>
 <div class="line"><span class="lineno">  218</span>            <span class="keywordflow">else</span></div>
 <div class="line"><span class="lineno">  219</span>            {</div>
-<div class="line"><span class="lineno">  220</span>                <span class="keywordflow">return</span> conv.template operator() &lt; reflect::member_type_t&lt;A, I&gt; &gt; (std::move(mapped));</div>
+<div class="line"><span class="lineno">  220</span>                <span class="keywordflow">return</span> conv.template operator() &lt; reflect::member_type&lt;I, A&gt; &gt; (std::move(mapped));</div>
 <div class="line"><span class="lineno">  221</span>            }</div>
 <div class="line"><span class="lineno">  222</span>        };</div>
 <div class="line"><span class="lineno">  223</span> </div>

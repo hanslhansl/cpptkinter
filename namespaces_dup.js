@@ -1,5 +1,4 @@
 var namespaces_dup =
 [
-    [ "cpptkinter", "namespacecpptkinter.html", "namespacecpptkinter" ],
-    [ "reflect", "namespacereflect.html", null ]
+    [ "cpptkinter", "namespacecpptkinter.html", "namespacecpptkinter" ]
 ];

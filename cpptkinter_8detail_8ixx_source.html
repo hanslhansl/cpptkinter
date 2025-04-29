@@ -272,9 +272,9 @@ $(document).ready(function(){initNavTree('cpptkinter_8detail_8ixx_source.html','
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>            v = std::move(temp_v);</div>
 <div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        }</div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        <span class="keyword">auto</span> inner_visitor = [&amp;v, &amp;conv]&lt;std::size_t I&gt;()-&gt;reflect::member_type_t&lt;A, I&gt; {</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>            <span class="keyword">using </span>member_type = reflect::member_type_t&lt;A, I&gt;;</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>            <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">auto</span> key = <span class="comment">/*rfl::fields&lt;A&gt;()[I].name()*/</span>reflect::member_name&lt;A, I&gt;();</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        <span class="keyword">auto</span> inner_visitor = [&amp;v, &amp;conv]&lt;std::size_t I&gt;()-&gt;reflect::member_type&lt;I, A&gt; {</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>            <span class="keyword">using </span>member_type = reflect::member_type&lt;I, A&gt;;</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>            <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">auto</span> key = <span class="comment">/*rfl::fields&lt;A&gt;()[I].name()*/</span>reflect::member_name&lt;I, A&gt;();</div>
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
 <div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>            <span class="keyword">auto</span>&amp;&amp; node = v.extract(std::string(key));</div>
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>            <span class="keywordflow">if</span> (node.empty())</div>
@@ -297,7 +297,7 @@ $(document).ready(function(){initNavTree('cpptkinter_8detail_8ixx_source.html','
 <div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>            }</div>
 <div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>            <span class="keywordflow">else</span></div>
 <div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>            {</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>                <span class="keywordflow">return</span> conv.template operator() &lt; reflect::member_type_t&lt;A, I&gt; &gt; (std::move(mapped));</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>                <span class="keywordflow">return</span> conv.template operator() &lt; reflect::member_type&lt;I, A&gt; &gt; (std::move(mapped));</div>
 <div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>            }</div>
 <div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        };</div>
 <div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>

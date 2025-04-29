@@ -801,8 +801,8 @@ template&lt;cnfs::is_cnf CNF&gt; </div>
 <div class="fragment"><div class="line"><span class="lineno">  298</span>        {</div>
 <div class="line"><span class="lineno">  299</span>            std::vector&lt;_cpptkinter::Tcl_Obj&gt; extra{};</div>
 <div class="line"><span class="lineno">  300</span>            std::set&lt;std::string&gt; ignore_fields{};</div>
-<div class="line"><span class="lineno">  301</span>            reflect::enumerate&lt;CNF&gt;([&amp;extra, &amp;ignore_fields, &amp;cnf](<span class="keyword">auto</span> I) {</div>
-<div class="line"><span class="lineno">  302</span>                <span class="keyword">constexpr</span> std::string_view wmkey = reflect::member_name&lt;CNF, I&gt;();</div>
+<div class="line"><span class="lineno">  301</span>            reflect::for_each&lt;CNF&gt;([&amp;extra, &amp;ignore_fields, &amp;cnf](<span class="keyword">auto</span> I) {</div>
+<div class="line"><span class="lineno">  302</span>                <span class="keyword">constexpr</span> std::string_view wmkey = reflect::member_name&lt;I, CNF&gt;();</div>
 <div class="line"><span class="lineno">  303</span> </div>
 <div class="line"><span class="lineno">  304</span>                <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (wmkey == <span class="stringliteral">&quot;screen&quot;</span></div>
 <div class="line"><span class="lineno">  305</span>                    || wmkey == <span class="stringliteral">&quot;class_&quot;</span></div>
