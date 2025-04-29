@@ -401,7 +401,7 @@ export namespace cpptkinter
 
             std::vector<_cpptkinter::Tcl_Obj> options{};
             auto visitor = [&]<typename T>(T && value, auto I) {
-                constexpr auto k = reflect::member_name<CNF, I>();
+                constexpr auto k = reflect::member_name<I, CNF>();
 
                 if constexpr (k != "name" && k != "master")
                 {
@@ -409,7 +409,7 @@ export namespace cpptkinter
                     options.emplace_back(_cpptkinter::AsObj(std::forward<T>(value)));
                 }
             };
-            reflect::enumerate<CNF>([&](auto I) { utility::invoke_or_and_then(visitor, reflect::get<I>(std::forward<CNF>(cnf)), I); });
+            reflect::for_each<CNF>([&](auto I) { utility::invoke_or_and_then(visitor, reflect::get<I>(std::forward<CNF>(cnf)), I); });
 
             this->tk->call("image", "create", imgtype, this->name, options);
         }

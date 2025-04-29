@@ -12,72 +12,6 @@ namespace tk = cpptkinter;
 namespace ttk = tk::ttk;
 
 
-class MainFrame : public tk::Frame
-{
-    static tk::Canvas create_canvas(const tk::Misc& master)
-    {
-        // Create outer frame to hold canvas + scrollbars
-        auto outer_frame = tk::Frame({ master });
-        outer_frame.pack({ .expand = true, .fill = "both" });
-
-        // Create a canvas
-        auto canvas = tk::Canvas({ outer_frame });
-
-        // Add a vertical scrollbar to the canvas
-        auto v_scrollbar = tk::Scrollbar({ .master = outer_frame, .command = canvas.yview, .orient = "vertical" });
-
-        // Add a horizontal scrollbar to the canvas
-        auto h_scrollbar = tk::Scrollbar({ .master = outer_frame, .command = canvas.xview, .orient = "horizontal" });
-
-        h_scrollbar.pack({ .fill = "x", .side = "bottom" });
-        canvas.pack({ .expand = true, .fill = "both", .side = "left" });
-        v_scrollbar.pack({ .fill = "y", .side = "right" });
-
-        // Configure the canvas to work with the scrollbars
-        canvas["yscrollcommand"] = v_scrollbar.set;
-        canvas["xscrollcommand"] = h_scrollbar.set;
-
-        return canvas;
-    }
-
-    MainFrame(tk::Canvas canvas, int) : tk::Frame({ canvas })
-    {
-        auto&& scrollable_frame = *this;
-
-        // Add the frame to the canvas's window
-        auto canvas_window = canvas.create_window(0, 0, { .anchor = "nw", .window = scrollable_frame });
-
-        // Configure scrolling
-        auto on_frame_configure = [=](tk::Event event) {
-            canvas["scrollregion"] = canvas.bbox("all");
-            //canvas.itemconfig(canvas_window, width=scrollable_frame.winfo_reqwidth())
-            };
-        scrollable_frame.bind("<Configure>", on_frame_configure);
-
-        auto on_canvas_resize = [](tk::Event event) {
-            //canvas.itemconfig(canvas_window, width = event.width);
-            };
-        canvas.bind("<Configure>", on_canvas_resize);
-
-        // Enable scrolling with the mouse wheel (Windows/Linux)
-        auto _on_mouse_wheel = [=](tk::Event event) {
-            canvas.yview_scroll(-1 * (event.delta / 120), "units");
-            };
-
-        auto _on_shift_mouse_wheel = [=](tk::Event event) {
-			canvas.xview_scroll(-1 * (event.delta / 120), "units");
-            };
-
-        canvas.bind_all("<MouseWheel>", _on_mouse_wheel);
-        canvas.bind_all("<Shift-MouseWheel>", _on_shift_mouse_wheel);
-    }
-
-public:
-    MainFrame(const tk::Misc& master) : MainFrame(create_canvas(master), 0)
-    {
-
-    }
-};
 
 int main(int argc, char* argv[])
 {
@@ -198,13 +132,6 @@ int main(int argc, char* argv[])
             text.insert("end", "\n");
         }
 
-        auto tempframe = tk::Frame({ root });
-        tempframe.grid({ .column = 0, .columnspan = 1, .row = 1, .sticky = "ns" });
-        auto scrollable_frame = MainFrame(tempframe);
-        for (auto i = 0; i < 50; i++)
-            tk::Label({ .master = scrollable_frame, .text = std::format("Label {}", i + 1) }).pack({ .anchor = "w" });
-        
-
         auto nb = ttk::Notebook({ .master = root });
         nb.add({ .child = tk::Button({ .text = "fxjcghcgkh" }), .text = "1" });
         nb.add({ .child = tk::Button({ .text = "cc bnkvhjl" }), .text = "2" });
@@ -238,7 +165,6 @@ int main(int argc, char* argv[])
         auto get_selected_items = [&]() {
             auto selected_items = tree.selection();
 			for (auto& item : selected_items)
-                //tree.item(item).values
                 std::println("{}", tree.item(item).values);
             };
         tk::Button({ .master = root, .command = get_selected_items, .text = "Get Selected" }).grid({ .column = 1, .row = 3, .sticky = "nswe" });

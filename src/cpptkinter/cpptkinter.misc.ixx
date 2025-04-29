@@ -32,7 +32,7 @@ export namespace cpptkinter::cnfs
     template<typename T, typename IS = std::make_index_sequence<reflect::size<T>()>>
     struct is_cnf_trait : std::false_type {};
     template<typename T, std::size_t...I>
-        requires (!std::is_array_v<std::remove_cvref_t<T>>) && (is_cnf_member<std::remove_cvref_t<reflect::member_type_t<T, I>>> && ...)
+        requires (!std::is_array_v<std::remove_cvref_t<T>>) && (is_cnf_member<std::remove_cvref_t<reflect::member_type<I, T>>> && ...)
     struct is_cnf_trait<T, std::integer_sequence<std::size_t, I...>> : std::true_type {};
     /// @brief Satsified if T is a cnf struct.
     /// 
@@ -396,7 +396,7 @@ export namespace cpptkinter
             std::vector<_cpptkinter::Tcl_Obj> raii{};
 
             auto visitor = [&]<typename T>(T && value, auto I) {
-                auto k = /*rfl::fields<CNF>()[I].name()*/reflect::member_name<I>(cnf);
+                auto k = /*rfl::fields<CNF>()[I].name()*/reflect::member_name<I, CNF>();
                 if (ignore_fields.contains(std::string(k)))
                     return;
 
@@ -407,7 +407,7 @@ export namespace cpptkinter
                 raii.emplace_back(this->_options_inner_visitor(std::forward<T>(value)));
             };
 
-            reflect::enumerate<CNF>([&](auto I) {
+            reflect::for_each<CNF>([&](auto I) {
                 utility::invoke_or_and_then(visitor, reflect::get<I>(std::forward<CNF>(cnf)), I);
                 });
 
