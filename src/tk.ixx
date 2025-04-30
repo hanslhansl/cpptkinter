@@ -5,6 +5,7 @@
 export module cpptkinter:tk;
 
 #include <tk.h>
+
 export
 {
 #ifdef Tcl_GetByteArrayFromObj

@@ -1,6 +1,4 @@
 # Adjust this!
-# libc++ Path
-set(LIBXX_DIR "${CMAKE_SOURCE_DIR}/../llvm-mingw-ucrt-x86_64/x86_64-w64-mingw32")
 # Tcl/Tk Path
 set(TCLTK_DIR "${CMAKE_SOURCE_DIR}/../tktcl")
 
@@ -66,13 +64,11 @@ target_sources(cpptkinter
 )
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-    target_compile_options(cpptkinter PUBLIC "/translateInclude")
+    #add_compile_options(/bigobj)
+    target_compile_options(cpptkinter PUBLIC "/translateInclude" "/bigobj")
 endif()
-target_link_libraries(cpptkinter PUBLIC hhh range-v3 ${IMPORTED_SHARED_LIBRARIES})
 
-if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-    add_compile_options(/bigobj)
-endif()
+target_link_libraries(cpptkinter PUBLIC hhh range-v3 ${IMPORTED_SHARED_LIBRARIES})
 
 # create test exe
 add_executable(test1 ${TEST_DIR}/test1.cpp)
@@ -84,16 +80,4 @@ if(CMAKE_IMPORT_LIBRARY_SUFFIX)
         COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_RUNTIME_DLLS:test1> $<TARGET_FILE_DIR:test1>
         COMMAND_EXPAND_LISTS
   )
-endif()
-
-# copy libc++
-if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-    add_custom_command(TARGET cpptkinter POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            "${LIBXX_DIR}/bin/libc++.dll"
-            $<TARGET_FILE_DIR:cpptkinter>
-        COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            "${LIBXX_DIR}/bin/libunwind.dll"
-            $<TARGET_FILE_DIR:cpptkinter>
-    )
 endif()
