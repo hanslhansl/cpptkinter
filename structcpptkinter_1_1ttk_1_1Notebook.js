@@ -5,6 +5,7 @@ var structcpptkinter_1_1ttk_1_1Notebook =
     [ "enable_traversal", "structcpptkinter_1_1ttk_1_1Notebook.html#a44aee239a7e5126676a1339b3ec93907", null ],
     [ "forget", "structcpptkinter_1_1ttk_1_1Notebook.html#ad63e6744d55e24cbd98da46568120286", null ],
     [ "hide", "structcpptkinter_1_1ttk_1_1Notebook.html#a56e6aa5d0f4c9ccb69e3fc05d4e772ca", null ],
+    [ "identify", "structcpptkinter_1_1ttk_1_1Notebook.html#a5790f7920b6caf12976346a2bad25c20", null ],
     [ "index", "structcpptkinter_1_1ttk_1_1Notebook.html#a1589b96fa2a94a5651fb78cbf1fa95d7", null ],
     [ "insert", "structcpptkinter_1_1ttk_1_1Notebook.html#a291fedd4ae3bb5f2560371e203d487a7", null ],
     [ "select", "structcpptkinter_1_1ttk_1_1Notebook.html#a71bc60c656ed12d220566bbc99cea215", null ],
