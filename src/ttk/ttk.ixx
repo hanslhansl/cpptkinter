@@ -244,7 +244,7 @@ export namespace cpptkinter::ttk
 			return this->tk->call<std::vector<std::string>>(this->_w, "children", detail::to_item_arg(item));
 		}
 		/// @copydoc get_children
-		std::vector<std::string> get_children(detail::item_arg auto&& item = "")
+		std::vector<std::string> get_children()
 		{
 			return this->get_children("");
 		}
