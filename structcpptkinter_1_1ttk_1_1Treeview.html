@@ -743,8 +743,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ttk_8ixx_source.html#l00449">449</a> of file <a class="el" href="ttk_8ixx_source.html">ttk.ixx</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  450</span>        {</div>
-<div class="line"><span class="lineno">  451</span>            this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a">tk</a>-&gt;call(this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a209dad39c06f5da9a5843111013fb69a">_w</a>, <span class="stringliteral">&quot;selection&quot;</span>, selop, items | std::views::transform(<a class="code hl_variable" href="namespacecpptkinter_1_1detail.html#a79f2f075823726a5f70dc754ccfa87ea">detail::to_item_arg</a>));</div>
+<div class="line"><span class="lineno">  451</span>            this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a">tk</a>-&gt;call(this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a209dad39c06f5da9a5843111013fb69a">_w</a>, <span class="stringliteral">&quot;selection&quot;</span>, selop, items | std::views::transform(<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>));</div>
 <div class="line"><span class="lineno">  452</span>        }</div>
+<div class="ttc" id="anamespacecpptkinter_1_1__cpptkinter_html_a67240db275ca02da5d34c882ee7c8957"><div class="ttname"><a href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">cpptkinter::_cpptkinter::AsObj</a></div><div class="ttdeci">constexpr detail::AsObjFunctorType AsObj</div><div class="ttdoc">Convert a c++ value to a tcl object.</div><div class="ttdef"><b>Definition:</b> <a href="__cpptkinter_8tcl__obj_8ixx_source.html#l00451">_cpptkinter.tcl_obj.ixx:451</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1004,7 +1005,7 @@ template&lt;cnfs::is_cnf CNF = cnfs::Treeview_column&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="ttk_8ixx_source.html#l00293">293</a> of file <a class="el" href="ttk_8ixx_source.html">ttk.ixx</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  294</span>        {</div>
-<div class="line"><span class="lineno">  295</span>            this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a">tk</a>-&gt;call(this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a209dad39c06f5da9a5843111013fb69a">_w</a>, <span class="stringliteral">&quot;delete&quot;</span>, items | std::views::transform(<a class="code hl_variable" href="namespacecpptkinter_1_1detail.html#a79f2f075823726a5f70dc754ccfa87ea">detail::to_item_arg</a>));</div>
+<div class="line"><span class="lineno">  295</span>            this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a">tk</a>-&gt;call(this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a209dad39c06f5da9a5843111013fb69a">_w</a>, <span class="stringliteral">&quot;delete&quot;</span>, items | std::views::transform(<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>));</div>
 <div class="line"><span class="lineno">  296</span>        }</div>
 </div><!-- fragment -->
 </div>
@@ -2033,7 +2034,7 @@ template&lt;cnfs::is_cnf CNF = cnfs::Treeview_insert&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="ttk_8ixx_source.html#l00264">264</a> of file <a class="el" href="ttk_8ixx_source.html">ttk.ixx</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  265</span>        {</div>
-<div class="line"><span class="lineno">  266</span>            this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a">tk</a>-&gt;call(this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a209dad39c06f5da9a5843111013fb69a">_w</a>, <span class="stringliteral">&quot;children&quot;</span>, <a class="code hl_variable" href="namespacecpptkinter_1_1detail.html#a79f2f075823726a5f70dc754ccfa87ea">detail::to_item_arg</a>(<a class="code hl_function" href="structcpptkinter_1_1ttk_1_1Treeview.html#ae6190e8468113b2c51d80809eed9e3ee">item</a>), newchildren | std::views::transform(<a class="code hl_variable" href="namespacecpptkinter_1_1detail.html#a79f2f075823726a5f70dc754ccfa87ea">detail::to_item_arg</a>));</div>
+<div class="line"><span class="lineno">  266</span>            this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a">tk</a>-&gt;call(this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a209dad39c06f5da9a5843111013fb69a">_w</a>, <span class="stringliteral">&quot;children&quot;</span>, <a class="code hl_variable" href="namespacecpptkinter_1_1detail.html#a79f2f075823726a5f70dc754ccfa87ea">detail::to_item_arg</a>(<a class="code hl_function" href="structcpptkinter_1_1ttk_1_1Treeview.html#ae6190e8468113b2c51d80809eed9e3ee">item</a>), newchildren | std::views::transform(<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>));</div>
 <div class="line"><span class="lineno">  267</span>        }</div>
 </div><!-- fragment -->
 </div>
