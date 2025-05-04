@@ -263,7 +263,7 @@ export namespace cpptkinter::ttk
 		/// No items in newchildren may be an ancestor of item.
 		void set_children(detail::item_arg auto&& item, detail::range_of_item_arg auto&& newchildren)
 		{
-			this->tk->call(this->_w, "children", detail::to_item_arg(item), newchildren | std::views::transform(_cpptkinter::AsObj));
+			this->tk->call(this->_w, "children", detail::to_item_arg(item), newchildren | std::views::transform(detail::to_item_arg));
 		}
 
 		/// @brief Query the options for the specified column.
@@ -287,12 +287,12 @@ export namespace cpptkinter::ttk
 		/// @brief Delete all specified items and all their descendants. The root item may not be deleted.
 		void delete_(detail::item_arg auto&&...items)
 		{
-			this->tk->call(this->_w, "delete", detail::to_item_arg(items)...);
+			this->tk->call(this->_w, "delete", std::vector{ detail::to_item_arg(items)... });
 		}
 		/// @copydoc delete_
 		void delete_(detail::range_of_item_arg auto&& items)
 		{
-			this->tk->call(this->_w, "delete", items | std::views::transform(_cpptkinter::AsObj));
+			this->tk->call(this->_w, "delete", items | std::views::transform(detail::to_item_arg));
 		}
 
 		/// @brief 
@@ -365,6 +365,12 @@ export namespace cpptkinter::ttk
 		std::string identify_element(long long x, long long y)
 		{
 			return this->identify("element", x, y);
+		}
+
+		/// @brief Returns the item at position x, y.
+		std::string identify_item(long long x, long long y)
+		{
+			return this->identify("item", x, y);
 		}
 
 		/// @brief 
@@ -448,7 +454,7 @@ export namespace cpptkinter::ttk
 		/// @copydoc _selection
 		void _selection(const std::string& selop, detail::range_of_item_arg auto&& items)
 		{
-			this->tk->call(this->_w, "selection", selop, items | std::views::transform(_cpptkinter::AsObj));
+			this->tk->call(this->_w, "selection", selop, items | std::views::transform(detail::to_item_arg));
 		}
 
 	public:

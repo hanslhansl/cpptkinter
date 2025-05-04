@@ -19,9 +19,11 @@ int main(int argc, char* argv[])
 	tk::utility::weak<tk::Tk> wroot;
 
 
+
     try
     {
         tk::init(argv[0]);
+
 
         auto root = tk::Tk();
         wroot = root;

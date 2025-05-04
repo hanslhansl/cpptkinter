@@ -1,6 +1,4 @@
-﻿
-
-/// @mainpage cpptkinter
+﻿/// @mainpage cpptkinter
 ///
 /// _Cpptkinter_ is a binding for _tk_ inspired by _python's_ _tkinter_.
 ///
@@ -208,7 +206,7 @@
 
 
 
-//#pragma warning(disable : 4996)
+#include <version>
 
 namespace cpptkinter
 {

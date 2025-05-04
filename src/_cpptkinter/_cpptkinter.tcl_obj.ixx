@@ -59,9 +59,7 @@ export namespace cpptkinter::_cpptkinter
 
 		std::string _repr_() const
 		{
-			if (!this->ptr->typePtr || !this->ptr->typePtr->name)
-				throw utility::construct_exception<TclError>(std::format("Tcl_Obj->typePtr->name is nullptr (Tcl_GetString: {})", Tcl_GetString(this->ptr)));
-			return std::format("<{} object: {}>", this->ptr->typePtr->name, Tcl_GetString(this->ptr));
+			return std::format("<{} object: {}>", (this->ptr->typePtr && this->ptr->typePtr->name) ? this->ptr->typePtr->name : "unknown type", Tcl_GetString(this->ptr));
 		}
 		operator std::string() const
 		{
@@ -176,12 +174,13 @@ export namespace cpptkinter::detail
 	template<typename...Args>
 		requires (AsObjImplTrait<Args>::value && ...)
 	Tcl_Obj AsObjImpl(const std::variant<Args...>& value);
-	/// @brief Try to convert a tuple-like or a container to Tcl_Obj.
+	/// @brief Try to convert a tuple-like or a range to Tcl_Obj.
 	///
+	/// Ignores 'string-like' ranges. Those are converted by the overload taking a std::string/std::string_view.
 	/// @see cpptkinter::_cpptkinter::AsObj()
 	template<typename T>
 		requires (hhh::meta::tuple_like<T>&& hhh::meta::tuple_elements_satisfy<T, AsObjImplTrait>::value)
-	|| (utility::is_vector<T> && AsObjImplTrait<typename T::value_type>::value)
+	|| (std::ranges::range<T> && AsObjImplTrait<std::ranges::range_value_t<T>>::value && !std::same_as<std::remove_const_t<std::ranges::range_value_t<T>>, char>)
 		Tcl_Obj AsObjImpl(const T & value);
 	/// @brief Try to convert a std::reference_wrapper to Tcl_Obj.
 	///
@@ -353,7 +352,7 @@ export namespace cpptkinter::detail
 	}
 	template<typename T>
 		requires (hhh::meta::tuple_like<T>&& hhh::meta::tuple_elements_satisfy<T, AsObjImplTrait>::value)
-	|| (utility::is_vector<T> && AsObjImplTrait<typename T::value_type>::value)
+		|| (std::ranges::range<T> && AsObjImplTrait<std::ranges::range_value_t<T>>::value && !std::same_as<std::remove_const_t<std::ranges::range_value_t<T>>, char>)
 	Tcl_Obj AsObjImpl(const T & value)
 	{
 		std::vector<Tcl_Obj> raii{};

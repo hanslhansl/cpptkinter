@@ -57,14 +57,12 @@ target_sources(cpptkinter
         ${SRC_DIR}/_cpptkinter/_cpptkinter.functions.ixx ${SRC_DIR}/_cpptkinter/_cpptkinter.tcl_obj.ixx ${SRC_DIR}/_cpptkinter/_cpptkinter.templates.ixx
         ${SRC_DIR}/_cpptkinter/_cpptkinter.tkappobj.ixx ${SRC_DIR}/_cpptkinter/_cpptkinter.ixx
         ${SRC_DIR}/cpptkinter/cpptkinter.detail.ixx ${SRC_DIR}/cpptkinter/cpptkinter.wm.ixx ${SRC_DIR}/cpptkinter/cpptkinter.misc.ixx ${SRC_DIR}/cpptkinter/cpptkinter1.ixx
-        ${SRC_DIR}/cpptkinter/cpptkinter.cnfs.ixx ${SRC_DIR}/cpptkinter/cpptkinter.widget.base.ixx ${SRC_DIR}/cpptkinter/cpptkinter.widget1.ixx
-        ${SRC_DIR}/cpptkinter/cpptkinter.widget2.ixx
+        ${SRC_DIR}/cpptkinter/cpptkinter.cnfs.ixx ${SRC_DIR}/cpptkinter/cpptkinter.widget.base.ixx ${SRC_DIR}/cpptkinter/cpptkinter.widget1.ixx ${SRC_DIR}/cpptkinter/cpptkinter.widget2.ixx
         ${SRC_DIR}/ttk/ttk.cnfs.ixx ${SRC_DIR}/ttk/ttk.ixx
         ${SRC_DIR}/cpptkinter/cpptkinter.ixx 
 )
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-    #add_compile_options(/bigobj)
     target_compile_options(cpptkinter PUBLIC "/translateInclude" "/bigobj")
 endif()
 
