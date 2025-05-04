@@ -9,6 +9,7 @@ var structcpptkinter_1_1cnfs_1_1Treeview =
     [ "name", "structcpptkinter_1_1cnfs_1_1Treeview.html#ad820c9197e3a27c33b67de6b9b50d8ae", null ],
     [ "padding", "structcpptkinter_1_1cnfs_1_1Treeview.html#a05bf7b5f445f07c5727758c06e36c898", null ],
     [ "selectmode", "structcpptkinter_1_1cnfs_1_1Treeview.html#a4c1756bbf155f8ed06a06f54ba084610", null ],
+    [ "selecttype", "structcpptkinter_1_1cnfs_1_1Treeview.html#a7c438c91854db107f771278362237e85", null ],
     [ "show", "structcpptkinter_1_1cnfs_1_1Treeview.html#afe92c1693f6464097bfa931866633be4", null ],
     [ "style", "structcpptkinter_1_1cnfs_1_1Treeview.html#a78bd675533e8d6e4f8da2d149b43a40c", null ],
     [ "takefocus", "structcpptkinter_1_1cnfs_1_1Treeview.html#a9bab6c8cbee72fab22b4ce6f4395133a", null ],

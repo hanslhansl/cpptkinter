@@ -93,9 +93,9 @@ var NAVTREEINDEX =
 "structcpptkinter_1_1cnfs_1_1Radiobutton.html#a3bbba7c2f1a4a094876ea278ea2de87a",
 "structcpptkinter_1_1cnfs_1_1Spinbox.html#aaa4bc74140e6a46b752d5ab384ec5d81",
 "structcpptkinter_1_1cnfs_1_1Text__peer__create.html#add887accf73b8ea8f9e0365f62905a04",
-"structcpptkinter_1_1cnfs_1_1Variable.html#ad95920ffcdf239727bce58626475ebd0",
-"structcpptkinter_1_1detail_1_1Tk__impl.html",
-"structcpptkinter_1_1ttk_1_1Treeview.html#aeb6212e53bc362cae9113250bbf9a555"
+"structcpptkinter_1_1cnfs_1_1Variable.html#a79418c769bb707c93e7648a9b6a6a6bd",
+"structcpptkinter_1_1detail_1_1TclBaseEvent.html#a36ebdecee3b4a4f5df243827114a1e9d",
+"structcpptkinter_1_1ttk_1_1Treeview.html#ae6190e8468113b2c51d80809eed9e3ee"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
