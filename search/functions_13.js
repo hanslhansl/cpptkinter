@@ -36,7 +36,7 @@ var searchData=
   ['tkapp_5ftrace_5fto_5fstring_33',['Tkapp_Trace_to_string',['../namespacecpptkinter_1_1detail.html#a05c05fb1aab3e3911fd7d1e54dbf98e6',1,'cpptkinter::detail']]],
   ['tkapp_5funicoderesult_34',['Tkapp_UnicodeResult',['../namespacecpptkinter_1_1__cpptkinter.html#a5ec643b74fbe7114c6482255b49eb610',1,'cpptkinter::_cpptkinter']]],
   ['tkappobject_35',['TkappObject',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#a5eb85c318d043ca005762a329627c5ba',1,'cpptkinter::_cpptkinter::TkappObject']]],
-  ['tkinter_5ferror_36',['Tkinter_Error',['../namespacecpptkinter_1_1__cpptkinter.html#a42e884096c8af22e90a5b6178df9b0c2',1,'cpptkinter::_cpptkinter']]],
+  ['tkinter_5ferror_36',['Tkinter_Error',['../namespacecpptkinter_1_1__cpptkinter.html#adcdae8e0105424153dd443f0214fb455',1,'cpptkinter::_cpptkinter']]],
   ['toggle_37',['toggle',['../structcpptkinter_1_1Checkbutton.html#a87759e3e2255ac4a19bae11dbe394427',1,'cpptkinter::Checkbutton']]],
   ['trace_5fadd_38',['trace_add',['../classcpptkinter_1_1Variable.html#aa8675c30fee9065b577d3c86654bebd8',1,'cpptkinter::Variable']]],
   ['trace_5finfo_39',['trace_info',['../classcpptkinter_1_1Variable.html#ad7f4151ba157fccd51afbae8af8db1a0',1,'cpptkinter::Variable']]],

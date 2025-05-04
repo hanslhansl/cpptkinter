@@ -30,7 +30,7 @@ var namespacecpptkinter_1_1__cpptkinter =
     [ "Tkapp_ThreadSend", "namespacecpptkinter_1_1__cpptkinter.html#ab9d70d1830337b1feca83dbe4a1265bd", null ],
     [ "Tkapp_Trace", "namespacecpptkinter_1_1__cpptkinter.html#ac7c434de1035462c19a011bd2f52023f", null ],
     [ "Tkapp_UnicodeResult", "namespacecpptkinter_1_1__cpptkinter.html#a5ec643b74fbe7114c6482255b49eb610", null ],
-    [ "Tkinter_Error", "namespacecpptkinter_1_1__cpptkinter.html#a42e884096c8af22e90a5b6178df9b0c2", null ],
+    [ "Tkinter_Error", "namespacecpptkinter_1_1__cpptkinter.html#adcdae8e0105424153dd443f0214fb455", null ],
     [ "unicodeFromTclObj", "namespacecpptkinter_1_1__cpptkinter.html#aec4d8ca39e5f100de2323f4a13e38bf5", null ],
     [ "UnsetVar", "namespacecpptkinter_1_1__cpptkinter.html#a4e3732865bf570c4692b39d46ac18176", null ],
     [ "var_invoke", "namespacecpptkinter_1_1__cpptkinter.html#acabe93f6ee85e6b54926888e2883dec3", null ],
