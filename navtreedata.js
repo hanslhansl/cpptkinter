@@ -81,7 +81,7 @@ var NAVTREEINDEX =
 "classcpptkinter_1_1utility_1_1optional__mutex__adaptor.html#ac9e84f4b9d46c66efd1f2c60888a5ec7",
 "cpptkinter_8detail_8ixx.html#afa0f8d41b67b2ac0c012f2f4da88f73fa2241f0c0c7e396382705028677ac184e",
 "namespacecpptkinter.html#a8ad4de4135e1fc7cf592eda012b06e8c",
-"namespacecpptkinter_1_1detail.html#ac31dbc066ecd7f2a39832e553a1382a1",
+"namespacecpptkinter_1_1detail.html#ac2c4db963dde9ddb5040b474c7a8c353",
 "structcpptkinter_1_1Image.html#af2b0b11f611a904bdb5d73730b8b81dc",
 "structcpptkinter_1_1PhotoImage.html#afcbdbdad1083c340a8be4099b50140af",
 "structcpptkinter_1_1TypedCheckbutton.html",
@@ -95,7 +95,7 @@ var NAVTREEINDEX =
 "structcpptkinter_1_1cnfs_1_1Text__peer__create.html#add887accf73b8ea8f9e0365f62905a04",
 "structcpptkinter_1_1cnfs_1_1Variable.html#a635f10e434e07bbfa97422b750d0f93b",
 "structcpptkinter_1_1detail_1_1TclBaseEvent.html#a2e9f42e27805a34559f83b071ef7c7db",
-"structcpptkinter_1_1ttk_1_1Treeview.html#addd5f3cf3340c0376e29fe085bc75c7f"
+"structcpptkinter_1_1ttk_1_1Treeview.html#ada3487009860a2cafa2438e879e275eb"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -96,7 +96,8 @@ $(document).ready(function(){initNavTree('global_8hpp.html',''); initResizable()
   <div class="headertitle"><div class="title">global.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &lt;version&gt;</code><br />
+</div>
 <p><a href="global_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -170,7 +171,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00235">235</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00233">233</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -190,7 +191,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00227">227</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00225">225</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -234,9 +235,9 @@ Variables</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">    <a class="code hl_define" href="global_8hpp.html#ad28caed06926aec7fb8c8b9f26817b66">DEFINE_IMPL_CONSTRUCTOR</a>(cl, base) \</div>
 <div class="line">    DEFINE_CNF_CONSTRUCTOR(cl, cnf_type, str)   \</div>
 <div class="line">    DEFINE_COPY_MOVE_CONSTRUCTORS_AND_ASSIGNMENT(cl)</div>
-<div class="ttc" id="aglobal_8hpp_html_ad28caed06926aec7fb8c8b9f26817b66"><div class="ttname"><a href="global_8hpp.html#ad28caed06926aec7fb8c8b9f26817b66">DEFINE_IMPL_CONSTRUCTOR</a></div><div class="ttdeci">#define DEFINE_IMPL_CONSTRUCTOR(cl, base)</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00259">global.hpp:259</a></div></div>
+<div class="ttc" id="aglobal_8hpp_html_ad28caed06926aec7fb8c8b9f26817b66"><div class="ttname"><a href="global_8hpp.html#ad28caed06926aec7fb8c8b9f26817b66">DEFINE_IMPL_CONSTRUCTOR</a></div><div class="ttdeci">#define DEFINE_IMPL_CONSTRUCTOR(cl, base)</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00257">global.hpp:257</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00275">275</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00273">273</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -256,7 +257,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00224">224</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00222">222</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -298,7 +299,7 @@ Variables</h2></td></tr>
 <div class="line">    cl(CNF&amp;&amp; cnf = {}) : cl(std::make_shared&lt;impl&gt;()) \</div>
 <div class="line">    { this-&gt;_init_(str, std::forward&lt;CNF&gt;(cnf)); }</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00262">262</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00260">260</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -323,7 +324,7 @@ Variables</h2></td></tr>
 <div class="line">    cl&amp; operator=(<span class="keyword">const</span> cl&amp; other) { std::destroy_at(<span class="keyword">this</span>); <span class="keywordflow">return</span> *std::construct_at(<span class="keyword">this</span>, other); } \</div>
 <div class="line">    cl&amp; operator=(cl&amp;&amp; other) { std::destroy_at(<span class="keyword">this</span>); <span class="keywordflow">return</span> *std::construct_at(<span class="keyword">this</span>, std::move(other)); }</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00269">269</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00267">267</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -355,7 +356,7 @@ Variables</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">friend</span> detail::widget_friend; <span class="keyword">protected</span>:  \</div>
 <div class="line">    <span class="keyword">template</span>&lt;std::derived_from&lt;impl&gt; I&gt; cl(<span class="keyword">const</span> std::shared_ptr&lt;I&gt;&amp; pimpl) : base(pimpl) { }</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00259">259</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00257">257</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -375,7 +376,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00228">228</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00226">226</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -391,7 +392,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00243">243</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00241">241</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -407,7 +408,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00246">246</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00244">244</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -423,7 +424,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00241">241</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00239">239</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -439,7 +440,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00244">244</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00242">242</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -455,7 +456,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00247">247</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00245">245</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -471,7 +472,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00242">242</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00240">240</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -487,7 +488,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00234">234</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00232">232</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -517,7 +518,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00249">249</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00247">247</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -537,7 +538,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00256">256</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00254">254</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -555,7 +556,7 @@ Variables</h2></td></tr>
 
 <p>If Tcl is compiled for threads, we must also define TCL_THREAD. We define it always; if Tcl is not threaded, the thread functions in Tcl are empty. </p>
 
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00239">239</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00237">237</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>
@@ -589,9 +590,9 @@ Variables</h2></td></tr>
 <div class="line">            Tkapp_Trace((_self), <a class="code hl_define" href="global_8hpp.html#ae260bdd94c8cc1657557300b973a10f5">Py_BuildValue</a> ARGS);   \</div>
 <div class="line">        }   \</div>
 <div class="line">    } <span class="keywordflow">while</span> (0)</div>
-<div class="ttc" id="aglobal_8hpp_html_ae260bdd94c8cc1657557300b973a10f5"><div class="ttname"><a href="global_8hpp.html#ae260bdd94c8cc1657557300b973a10f5">Py_BuildValue</a></div><div class="ttdeci">#define Py_BuildValue(fmt_str,...)</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00249">global.hpp:249</a></div></div>
+<div class="ttc" id="aglobal_8hpp_html_ae260bdd94c8cc1657557300b973a10f5"><div class="ttname"><a href="global_8hpp.html#ae260bdd94c8cc1657557300b973a10f5">Py_BuildValue</a></div><div class="ttdeci">#define Py_BuildValue(fmt_str,...)</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00247">global.hpp:247</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00250">250</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8hpp_source.html#l00248">248</a> of file <a class="el" href="global_8hpp_source.html">global.hpp</a>.</p>
 
 </div>
 </div>

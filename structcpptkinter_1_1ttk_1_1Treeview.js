@@ -19,6 +19,7 @@ var structcpptkinter_1_1ttk_1_1Treeview =
     [ "identify", "structcpptkinter_1_1ttk_1_1Treeview.html#af9181972d5cb4b9cd3f2987ab655540d", null ],
     [ "identify_column", "structcpptkinter_1_1ttk_1_1Treeview.html#a6c38682108d73d76b3ac1ff855c5b79b", null ],
     [ "identify_element", "structcpptkinter_1_1ttk_1_1Treeview.html#a6f77106ea8925a0014655ee1e93f9882", null ],
+    [ "identify_item", "structcpptkinter_1_1ttk_1_1Treeview.html#a3d61bad472979b411661c54a174f49eb", null ],
     [ "identify_region", "structcpptkinter_1_1ttk_1_1Treeview.html#a484049fbcf31df4116d369be50fa3cb3", null ],
     [ "identify_row", "structcpptkinter_1_1ttk_1_1Treeview.html#a21dd74022867e00b07f03a778c1f2e40", null ],
     [ "index", "structcpptkinter_1_1ttk_1_1Treeview.html#a28cff6be90fd8662b82faa9c72babb9c", null ],
