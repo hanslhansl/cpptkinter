@@ -133,9 +133,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2ea70688d01f4c946cedd84c36766e5e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1ttk_1_1Treeview.html#a2ea70688d01f4c946cedd84c36766e5e">get_children</a> (detail::item_arg auto &amp;&amp;<a class="el" href="structcpptkinter_1_1ttk_1_1Treeview.html#ad24efaa6c5edc5f182025cbc784113e8">item</a>)</td></tr>
 <tr class="memdesc:a2ea70688d01f4c946cedd84c36766e5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a tuple of children belonging to item.  <br /></td></tr>
 <tr class="separator:a2ea70688d01f4c946cedd84c36766e5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1fafb3faf9fa81915ebf172083d93ed"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1ttk_1_1Treeview.html#ad1fafb3faf9fa81915ebf172083d93ed">get_children</a> (detail::item_arg auto &amp;&amp;<a class="el" href="structcpptkinter_1_1ttk_1_1Treeview.html#ad24efaa6c5edc5f182025cbc784113e8">item</a>=&quot;&quot;)</td></tr>
-<tr class="memdesc:ad1fafb3faf9fa81915ebf172083d93ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a tuple of children belonging to item.    <br /></td></tr>
-<tr class="separator:ad1fafb3faf9fa81915ebf172083d93ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad481788d7b23161907e2a746055635c5"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1ttk_1_1Treeview.html#ad481788d7b23161907e2a746055635c5">get_children</a> ()</td></tr>
+<tr class="memdesc:ad481788d7b23161907e2a746055635c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a tuple of children belonging to item.    <br /></td></tr>
+<tr class="separator:ad481788d7b23161907e2a746055635c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a2a9085c1f967eee02cf072f7427a00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcpptkinter_1_1ttk_1_1Treeview.html#a3a2a9085c1f967eee02cf072f7427a00">set_children</a> (detail::item_arg auto &amp;&amp;<a class="el" href="structcpptkinter_1_1ttk_1_1Treeview.html#ad24efaa6c5edc5f182025cbc784113e8">item</a>, detail::item_arg auto &amp;&amp;...newchildren)</td></tr>
 <tr class="memdesc:a3a2a9085c1f967eee02cf072f7427a00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces item's child list with newchildren.  <br /></td></tr>
 <tr class="separator:a3a2a9085c1f967eee02cf072f7427a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1060,8 +1060,42 @@ template&lt;cnfs::is_cnf CNF = cnfs::Treeview_column&gt; </div>
 
 </div>
 </div>
+<a id="ad481788d7b23161907e2a746055635c5" name="ad481788d7b23161907e2a746055635c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad481788d7b23161907e2a746055635c5">&#9670;&#160;</a></span>get_children() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; cpptkinter::ttk::Treeview::get_children </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a tuple of children belonging to item.   </p>
+<p>If item is not specified, returns root children.   </p>
+
+<p class="definition">Definition at line <a class="el" href="ttk_8ixx_source.html#l00247">247</a> of file <a class="el" href="ttk_8ixx_source.html">ttk.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  248</span>        {</div>
+<div class="line"><span class="lineno">  249</span>            <span class="keywordflow">return</span> this-&gt;<a class="code hl_function" href="structcpptkinter_1_1ttk_1_1Treeview.html#ad481788d7b23161907e2a746055635c5">get_children</a>(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><span class="lineno">  250</span>        }</div>
+<div class="ttc" id="astructcpptkinter_1_1ttk_1_1Treeview_html_ad481788d7b23161907e2a746055635c5"><div class="ttname"><a href="structcpptkinter_1_1ttk_1_1Treeview.html#ad481788d7b23161907e2a746055635c5">cpptkinter::ttk::Treeview::get_children</a></div><div class="ttdeci">std::vector&lt; std::string &gt; get_children()</div><div class="ttdoc">Returns a tuple of children belonging to item.</div><div class="ttdef"><b>Definition:</b> <a href="ttk_8ixx_source.html#l00247">ttk.ixx:247</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a2ea70688d01f4c946cedd84c36766e5e" name="a2ea70688d01f4c946cedd84c36766e5e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ea70688d01f4c946cedd84c36766e5e">&#9670;&#160;</a></span>get_children() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ea70688d01f4c946cedd84c36766e5e">&#9670;&#160;</a></span>get_children() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1091,41 +1125,6 @@ template&lt;cnfs::is_cnf CNF = cnfs::Treeview_column&gt; </div>
 <div class="fragment"><div class="line"><span class="lineno">  243</span>        {</div>
 <div class="line"><span class="lineno">  244</span>            <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a">tk</a>-&gt;call&lt;std::vector&lt;std::string&gt;&gt;(this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a209dad39c06f5da9a5843111013fb69a">_w</a>, <span class="stringliteral">&quot;children&quot;</span>, <a class="code hl_variable" href="namespacecpptkinter_1_1detail.html#a79f2f075823726a5f70dc754ccfa87ea">detail::to_item_arg</a>(<a class="code hl_function" href="structcpptkinter_1_1ttk_1_1Treeview.html#ae6190e8468113b2c51d80809eed9e3ee">item</a>));</div>
 <div class="line"><span class="lineno">  245</span>        }</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="ad1fafb3faf9fa81915ebf172083d93ed" name="ad1fafb3faf9fa81915ebf172083d93ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1fafb3faf9fa81915ebf172083d93ed">&#9670;&#160;</a></span>get_children() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; std::string &gt; cpptkinter::ttk::Treeview::get_children </td>
-          <td>(</td>
-          <td class="paramtype">detail::item_arg auto &amp;&amp;&#160;</td>
-          <td class="paramname"><em>item</em> = <code>&quot;&quot;</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns a tuple of children belonging to item.   </p>
-<p>If item is not specified, returns root children.   </p>
-
-<p class="definition">Definition at line <a class="el" href="ttk_8ixx_source.html#l00247">247</a> of file <a class="el" href="ttk_8ixx_source.html">ttk.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  248</span>        {</div>
-<div class="line"><span class="lineno">  249</span>            <span class="keywordflow">return</span> this-&gt;<a class="code hl_function" href="structcpptkinter_1_1ttk_1_1Treeview.html#a2ea70688d01f4c946cedd84c36766e5e">get_children</a>(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><span class="lineno">  250</span>        }</div>
-<div class="ttc" id="astructcpptkinter_1_1ttk_1_1Treeview_html_a2ea70688d01f4c946cedd84c36766e5e"><div class="ttname"><a href="structcpptkinter_1_1ttk_1_1Treeview.html#a2ea70688d01f4c946cedd84c36766e5e">cpptkinter::ttk::Treeview::get_children</a></div><div class="ttdeci">std::vector&lt; std::string &gt; get_children(detail::item_arg auto &amp;&amp;item)</div><div class="ttdoc">Returns a tuple of children belonging to item.</div><div class="ttdef"><b>Definition:</b> <a href="ttk_8ixx_source.html#l00242">ttk.ixx:242</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
