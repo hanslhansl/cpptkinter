@@ -12,6 +12,7 @@ var structcpptkinter_1_1ttk_1_1Treeview =
     [ "detach", "structcpptkinter_1_1ttk_1_1Treeview.html#a85b5ba1febb2fc43d7abaa64d26dfce3", null ],
     [ "exists", "structcpptkinter_1_1ttk_1_1Treeview.html#af87215ccce4f7aca00b731cba0a586b1", null ],
     [ "focus", "structcpptkinter_1_1ttk_1_1Treeview.html#a5c2b9c5b2dde8927ad7b8843bee9dfc5", null ],
+    [ "get_children", "structcpptkinter_1_1ttk_1_1Treeview.html#a2ea70688d01f4c946cedd84c36766e5e", null ],
     [ "get_children", "structcpptkinter_1_1ttk_1_1Treeview.html#ad1fafb3faf9fa81915ebf172083d93ed", null ],
     [ "heading", "structcpptkinter_1_1ttk_1_1Treeview.html#a7410e32cdf088bf4d03151890c8def74", null ],
     [ "heading", "structcpptkinter_1_1ttk_1_1Treeview.html#a1de6282a4c9ae255f5e56a1c8e5dde93", null ],
