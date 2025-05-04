@@ -279,8 +279,16 @@ export namespace cpptkinter::ttk
 			this->tk->call(this->_w, "column", cnf.column, this->_options(std::forward<CNF>(cnf), { "column" }));
 		}
 
-		/// @brief 
-		void delete_();
+		/// @brief Delete all specified items and all their descendants. The root item may not be deleted.
+		void delete_(detail::item_arg auto&&...items)
+		{
+			this->tk->call(this->_w, "delete", detail::to_item_arg(items)...);
+		}
+		/// @copydoc delete_
+		void delete_(detail::range_of_item_arg auto&& items)
+		{
+			this->tk->call(this->_w, "delete", items | std::views::transform(detail::to_item_arg));
+		}
 
 		/// @brief 
 		void detach();

@@ -81,6 +81,7 @@ export namespace cpptkinter::cnfs
         opt_string selectmode;
         opt_string selecttype;
         opt<std::variant<std::string, std::vector<std::string>>> show;
+        opt_bool striped;
         opt_string style;
         opt_take_focus_value takefocus;
         opt_xy_scrollcommand xscrollcommand;
