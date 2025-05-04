@@ -79,6 +79,7 @@ export namespace cpptkinter::cnfs
         opt_string name;
         opt_padding padding;
         opt_string selectmode;
+        opt_string selecttype;
         opt<std::variant<std::string, std::vector<std::string>>> show;
         opt_string style;
         opt_take_focus_value takefocus;
