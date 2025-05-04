@@ -51,9 +51,13 @@ export namespace cpptkinter::detail
 
 	struct Treeview_heading_return
 	{
+		/// The text to display in the column heading
 		std::string text;
+		/// Specifies an image to display to the right of the column heading. 
 		std::string image;
+		/// Specifies how the heading text should be aligned. One of the standard Tk anchor values. 
 		std::string anchor;
+		/// A script to evaluate when the heading label is pressed. 
 		std::string command;
 		std::string state;
 	};
@@ -139,6 +143,12 @@ export namespace cpptkinter::ttk
 			this->tk->call(this->_w, "hide", detail::to_tab_id_arg(tab_id));
 		}
 
+		/// @brief Returns the name of the tab element at position x, y, or the empty string if none.
+		std::string identify(long long x, long long y)
+		{
+			return this->tk->call<std::string>(this->_w, "identify", x, y);
+		}
+
 		/// @brief Returns the numeric index of the tab specified by tab_id, or the total number of tabs if tab_id is the string "end".
 		std::size_t index(detail::tab_id_arg auto&& tab_id)
 		{
@@ -178,7 +188,6 @@ export namespace cpptkinter::ttk
 
 			return detail::_splitdict_to_aggregate<detail::Notebook_tab_return>(std::move(map));
 		}
-
 		/// @brief Modify the options of the specific tab_id.
 		void tab(const cnfs::Notebook_tab& cnf)
 		{
@@ -283,6 +292,8 @@ export namespace cpptkinter::ttk
 		void focus();
 
 		/// @brief Query the heading options for the specified column.
+		/// 
+		/// To query the tree column heading, call this with column = "#0"
 		detail::Treeview_heading_return heading(detail::column_arg auto&& column)
 		{
 			using V = std::variant<std::string, std::vector<long long>>; // image can be an empty tcl list for some reason, therefor we need vector
@@ -298,6 +309,8 @@ export namespace cpptkinter::ttk
 			return detail::_splitdict_to_aggregate<detail::Treeview_heading_return>(std::move(map));
 		}
 		/// @brief Modify the heading options for the specified column.
+		/// 
+		/// To query the tree column heading, call this with column = "#0"
 		template<cnfs::is_cnf CNF = cnfs::Treeview_heading>
 		void heading(CNF&& cnf)
 		{
