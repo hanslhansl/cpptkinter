@@ -101,9 +101,13 @@ export namespace cpptkinter::cnfs
     struct Treeview_heading
     {
 		std::variant<std::string, long long> column;
+        /// Specifies how the heading text should be aligned. One of the standard Tk anchor values. 
 		opt_anchor anchor;
+        /// A script to evaluate when the heading label is pressed. 
         opt<std::variant<std::string, std::function<void()>>> command;
+        /// Specifies an image to display to the right of the column heading.
 		opt_image_spec image;
+        /// The text to display in the column heading
 		opt_string text;
     };
 

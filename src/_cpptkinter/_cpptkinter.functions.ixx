@@ -198,17 +198,18 @@ export namespace cpptkinter::_cpptkinter
 		return str;
 	}
 
+	TclError Tkinter_Error(TkappObjectImpl* self, 
 #if !defined(NDEBUG) && defined(__cpp_lib_stacktrace)
-	TclError Tkinter_Error(TkappObjectImpl* self, const std::stacktrace& tr = std::stacktrace::current())
-	{
-		return utility::construct_exception<TclError>(Tkapp_UnicodeResult(self), tr);
-	}
+		const std::stacktrace& loc = std::stacktrace::current()
 #else
-	TclError Tkinter_Error(TkappObjectImpl* self)
-	{
-		return utility::construct_exception<TclError>(Tkapp_UnicodeResult(self));
-	}
+		const std::source_location& loc = std::source_location::current()
 #endif
+	)
+	{
+		return utility::construct_exception<TclError>(Tkapp_UnicodeResult(self), loc);
+	}
+
+	//std::source_location::current()
 
 	int WaitForMainloop(TkappObjectImpl* self)
 	{
