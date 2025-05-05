@@ -237,13 +237,11 @@ export namespace cpptkinter::ttk
 		}
 
 		/// @brief Returns a tuple of children belonging to item.
-		/// 
-		/// If item is not specified, returns root children.
 		std::vector<std::string> get_children(detail::item_arg auto&& item)
 		{
 			return this->tk->call<std::vector<std::string>>(this->_w, "children", detail::to_item_arg(item));
 		}
-		/// @copydoc get_children
+		/// @brief Returns a tuple of root children.
 		std::vector<std::string> get_children()
 		{
 			return this->get_children("");
