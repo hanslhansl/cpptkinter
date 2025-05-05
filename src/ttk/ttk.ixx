@@ -223,6 +223,8 @@ export namespace cpptkinter::ttk
 	struct Treeview : Widget, XView<Treeview>, YView<Treeview>
 	{
 		/// @brief Construct a menubutton widget.
+		///
+		/// See cnfs::Treeview for options.
 		CONSTRUCTORS_AND_ASSIGNMENT(Treeview, cnfs::Treeview, "ttk::treeview", Widget);
 
 		/// @brief Returns the bounding box (relative to the treeview widget's window) of the specified item in the form x y width height.
@@ -276,6 +278,8 @@ export namespace cpptkinter::ttk
 			return detail::_splitdict_to_aggregate<detail::Treeview_column_return>(std::move(map));
 		}
 		/// @brief Modify the options for the specified column.
+		///
+		/// See cnfs::Treeview_column for options.
 		template<cnfs::is_cnf CNF = cnfs::Treeview_column>
 		void column(CNF&& cnf)
 		{
@@ -322,6 +326,7 @@ export namespace cpptkinter::ttk
 		/// @brief Modify the heading options for the specified column.
 		/// 
 		/// To query the tree column heading, call this with column = "#0"
+		/// See cnfs::Treeview_heading for options.
 		template<cnfs::is_cnf CNF = cnfs::Treeview_heading>
 		void heading(CNF&& cnf)
 		{
@@ -382,6 +387,7 @@ export namespace cpptkinter::ttk
 		/// If index is greater than or equal to the current number of children, it is inserted at the end.
 		/// If iid is specified, it is used as the item identifier, iid must not already exist in the tree.
 		/// Otherwise, a new unique identifier is generated.
+		/// See cnfs::Treeview_insert for options.
 		template<cnfs::is_cnf CNF = cnfs::Treeview_insert>
 		std::string insert(CNF&& cnf)
 		{
