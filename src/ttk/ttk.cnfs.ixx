@@ -13,7 +13,7 @@ export namespace cpptkinter::cnfs
 {
     using opt_padding = opt<detail::Padding>;
 
-	/// @brief Argument for Notebook::Notebook().
+	/// @brief Argument for ttk::Notebook::Notebook().
     struct Notebook
     {
         opt_master master;
@@ -27,7 +27,7 @@ export namespace cpptkinter::cnfs
 		opt<std::size_t> width;
     };
 
-	/// @brief Argument for Notebook::add().
+	/// @brief Argument for ttk::Notebook::add().
     struct Notebook_add
     {
         cpptkinter::Widget child;
@@ -40,7 +40,7 @@ export namespace cpptkinter::cnfs
         opt<long long> underline;
     };
 
-	/// @brief Argument for Notebook::insert().
+	/// @brief Argument for ttk::Notebook::insert().
     struct Notebook_insert
     {
         std::variant<std::size_t, std::string> pos;
@@ -54,7 +54,7 @@ export namespace cpptkinter::cnfs
         opt<long long> underline;
     };
 
-	/// @brief Argument for Notebook::tab().
+	/// @brief Argument for ttk::Notebook::tab().
     struct Notebook_tab
     {
         std::variant<std::size_t, std::string> tab_id;
@@ -67,7 +67,7 @@ export namespace cpptkinter::cnfs
         opt_string underline;
     };
 
-	/// @brief Argument for Treeview::Treeview().
+	/// @brief Argument for ttk::Treeview::Treeview().
 	struct Treeview
 	{
 		opt_master master;
@@ -88,18 +88,27 @@ export namespace cpptkinter::cnfs
         opt_xy_scrollcommand yscrollcommand;
 	};
 
-    /// @brief Argument for Treeview::column().
+    /// @brief Argument for ttk::Treeview::column().
     struct Treeview_column
     {
         std::variant<std::string, long long> column;
+		/// Specifies how the text in this column should be aligned with respect to the cell. One of the standard Tk anchor values.
         opt_anchor anchor;
+        /// The minimum width of the column in pixels.
+        /// The treeview widget will not make the column any smaller than -minwidth when the widget is resized or the user drags a heading column separator.
+        /// Default is 20 pixels. 
         opt<long long> minwidth;
+        /// Specifies whether or not a column separator should be drawn to the right of the column. Default is false. 
         opt_bool separator;
+        /// Specifies whether or not the column width should be adjusted when the widget is resized or the user drags a heading column separator.
+        /// By default columns are stretchable.
         opt_bool stretch;
+        /// The width of the column in pixels. Default is 200 pixels.
+        /// The specified column width may be changed by Tk in order to honor -stretch and/or -minwidth, or when the widget is resized or the user drags a heading column separator. 
         opt<long long> width;
     };
 
-	/// @brief Argument for Treeview::heading().
+	/// @brief Argument for ttk::Treeview::heading().
     struct Treeview_heading
     {
 		std::variant<std::string, long long> column;
@@ -113,7 +122,7 @@ export namespace cpptkinter::cnfs
 		opt_string text;
     };
 
-	/// @brief Argument for Treeview::insert().
+	/// @brief Argument for ttk::Treeview::insert().
     struct Treeview_insert
     {
          std::variant<std::string, long long> parent;
