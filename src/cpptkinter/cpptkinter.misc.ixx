@@ -415,9 +415,9 @@ export namespace cpptkinter
         }
     public:
         /// @brief Return the Tkinter instance of a widget identified by its Tcl name NAME.
-        Misc nametowidget(std::string_view name);
+        Misc nametowidget(std::string_view name) const;
         /// @brief Return the Tkinter instance of a widget.
-        Misc nametowidget(const _cpptkinter::tk_window_type& window)
+        Misc nametowidget(const _cpptkinter::tk_window_type& window) const
         {
             return this->nametowidget((std::string)window);
         }

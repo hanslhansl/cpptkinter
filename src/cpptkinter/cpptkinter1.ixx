@@ -499,7 +499,7 @@ void cpptkinter::Misc::unbind_class(const std::string& className, const std::str
     this->_root()._unbind({ "bind", className, sequence });
 }
 
-cpptkinter::Misc cpptkinter::Misc::nametowidget(std::string_view name_)
+cpptkinter::Misc cpptkinter::Misc::nametowidget(std::string_view name_) const
 {
     auto name = name_
         | std::views::split('.')
