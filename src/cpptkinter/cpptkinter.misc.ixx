@@ -903,18 +903,18 @@ export namespace cpptkinter
         }
 
         /// @brief Return a tuple of the number of column and rows in the grid.
-        std::array<long long, 2> grid_size()
+        std::array<long long, 2> grid_size() const
         {
             return this->tk->call<std::array<long long, 2>>("grid", "size", this->_w);
         }
         /// @copydoc grid_size
-        std::array<long long, 2> size()
+        std::array<long long, 2> size() const
         {
             return this->grid_size();
         }
 
         /// @brief Return a list of all slaves of this widget in its packing order.
-        std::vector<Misc> grid_slaves(std::optional<long long> row = {}, std::optional<long long> column = {})
+        std::vector<Misc> grid_slaves(std::optional<long long> row = {}, std::optional<long long> column = {}) const
         {
             std::vector<_cpptkinter::Tcl_Obj> args{ };
             if (row.has_value())
