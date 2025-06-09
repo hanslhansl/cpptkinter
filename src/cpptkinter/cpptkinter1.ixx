@@ -499,28 +499,29 @@ void cpptkinter::Misc::unbind_class(const std::string& className, const std::str
     this->_root()._unbind({ "bind", className, sequence });
 }
 
-cpptkinter::Misc cpptkinter::Misc::nametowidget(std::string_view name)
+cpptkinter::Misc cpptkinter::Misc::nametowidget(std::string_view name_)
 {
-    auto index = name.find('.');
-    std::shared_ptr<impl> w;
+    auto name = name_
+        | std::views::split('.')
+        | std::views::transform([](auto&& str) { return std::string(std::from_range, str); })
+        | std::ranges::to<std::list>();
+	if (name.empty())
+		name.push_back({});
 
-    if (index == 0)
+    std::shared_ptr<impl> w = this->pimpl;
+
+    if (name.front().empty())
     {
         w = this->_root().pimpl;
-        name.remove_prefix(1);
-        index = name.find('.');
+        name.pop_front();
     }
-    else
-        w = this->pimpl;
 
-    do {
-        auto current_name = name.substr(0, index);
-        if (current_name.empty())
-            break;
-
-        w = w->children.at(std::string(current_name)).pimpl;
-        name.remove_prefix(index + 1);
-    } while ((index = name.find('.')) != std::string_view::npos);
+    for (auto&& n : name)
+    {
+        if (n.empty())
+			break;
+        w = w->children.at(n).pimpl;
+    }
 
     return w;
 }

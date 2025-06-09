@@ -915,25 +915,28 @@ export namespace cpptkinter
 
         /// @brief Return a list of all slaves of this widget in its packing order.
         std::vector<Misc> grid_slaves(std::optional<long long> row = {}, std::optional<long long> column = {})
-{
-    std::vector<_cpptkinter::Tcl_Obj> args{ };
-    if (row.has_value())
-    {
-        args.emplace_back(_cpptkinter::AsObj("-row"));
-        args.emplace_back(_cpptkinter::AsObj(row.value()));
-    }
-    if (column.has_value())
-    {
-        args.emplace_back(_cpptkinter::AsObj("-column"));
-        args.emplace_back(_cpptkinter::AsObj(column.value()));
-    }
+        {
+            std::vector<_cpptkinter::Tcl_Obj> args{ };
+            if (row.has_value())
+            {
+                args.emplace_back(_cpptkinter::AsObj("-row"));
+                args.emplace_back(_cpptkinter::AsObj(row.value()));
+            }
+            if (column.has_value())
+            {
+                args.emplace_back(_cpptkinter::AsObj("-column"));
+                args.emplace_back(_cpptkinter::AsObj(column.value()));
+            }
 
-    auto temp = this->tk->call<std::vector<_cpptkinter::tk_window_type>>("grid", "slaves", this->_w, std::move(args));
-    std::vector<Misc> result{};
-    for (auto& t : temp)
-        result.emplace_back(this->nametowidget(std::move(t)));
-    return result;
-}
+            auto temp = this->tk->call<std::vector<_cpptkinter::tk_window_type>>("grid", "slaves", this->_w, std::move(args));
+            std::vector<Misc> result{};
+            for (auto& t : temp)
+            {
+                auto&& wgt = this->nametowidget(t);
+                result.emplace_back(wgt);
+            }
+            return result;
+        }
         
         /// @brief Generate an event SEQUENCE. Additional keyword arguments specify parameter of the event (e.g.x, y, rootx, rooty).
         void event_generate(const std::string& sequence) const
