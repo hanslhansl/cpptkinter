@@ -77,7 +77,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "__cpptkinter_8functions_8ixx.html",
-"classcpptkinter_1_1Misc.html#a82eaa6a70694c943f622602df28bf232",
+"classcpptkinter_1_1Misc.html#a85cdec4cbaf4fbb99d8cd91e8ce9eddb",
 "classcpptkinter_1_1utility_1_1optional__mutex__adaptor.html#ac9e84f4b9d46c66efd1f2c60888a5ec7",
 "cpptkinter_8detail_8ixx.html#afa0f8d41b67b2ac0c012f2f4da88f73fa2241f0c0c7e396382705028677ac184e",
 "namespacecpptkinter.html#a8ad4de4135e1fc7cf592eda012b06e8c",

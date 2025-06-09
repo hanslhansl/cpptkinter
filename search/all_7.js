@@ -34,8 +34,8 @@ var searchData=
   ['grid_5fpropagate_31',['grid_propagate',['../classcpptkinter_1_1Misc.html#add6e4888b6b565b86466ab2f6f724c9d',1,'cpptkinter::Misc::grid_propagate()'],['../classcpptkinter_1_1Misc.html#a7c3fc362ca6b23957a3f2393e99d7c89',1,'cpptkinter::Misc::grid_propagate(bool flag)']]],
   ['grid_5fremove_32',['grid_remove',['../structcpptkinter_1_1Grid.html#acb7532e5dad2dcf943a022a98c7a7460',1,'cpptkinter::Grid']]],
   ['grid_5frowconfigure_33',['grid_rowconfigure',['../classcpptkinter_1_1Misc.html#ad1afcb771761d715477b2b2bfbfb6a90',1,'cpptkinter::Misc::grid_rowconfigure(CNF &amp;&amp;cnf)'],['../classcpptkinter_1_1Misc.html#af17a830e35c225ae85fce47af54b2409',1,'cpptkinter::Misc::grid_rowconfigure(detail::index auto &amp;&amp;index)']]],
-  ['grid_5fsize_34',['grid_size',['../classcpptkinter_1_1Misc.html#a45bd24f7fa48dc8f6aad308954f8ff49',1,'cpptkinter::Misc']]],
-  ['grid_5fslaves_35',['grid_slaves',['../classcpptkinter_1_1Misc.html#a6b6245fa2dc8731d1db7e1116a5e80e1',1,'cpptkinter::Misc']]],
+  ['grid_5fsize_34',['grid_size',['../classcpptkinter_1_1Misc.html#af57660c6028f2b0a1e353a34077f25b3',1,'cpptkinter::Misc']]],
+  ['grid_5fslaves_35',['grid_slaves',['../classcpptkinter_1_1Misc.html#ae60cf3e690943929a7992dd9dea77851',1,'cpptkinter::Misc']]],
   ['gridinfo_36',['GridInfo',['../structcpptkinter_1_1detail_1_1GridInfo.html',1,'cpptkinter::detail']]],
   ['groove_37',['GROOVE',['../namespacecpptkinter_1_1constants.html#ac9f9410beace29a1c2d3284f9870e1fd',1,'cpptkinter::constants']]],
   ['group_38',['group',['../structcpptkinter_1_1Wm.html#a52fa4f139adc846413fbbb3dfcf71465',1,'cpptkinter::Wm::group(this auto &amp;&amp;self)'],['../structcpptkinter_1_1Wm.html#a3421e0135e90fa409e0a3b3425020762',1,'cpptkinter::Wm::group(this auto &amp;&amp;self, const std::string &amp;pathName)']]]

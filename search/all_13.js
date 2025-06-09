@@ -74,7 +74,7 @@ var searchData=
   ['showvalue_71',['showvalue',['../structcpptkinter_1_1cnfs_1_1Scale.html#a4ea617e5021a10b098f2232d8c23a38c',1,'cpptkinter::cnfs::Scale']]],
   ['side_72',['side',['../structcpptkinter_1_1cnfs_1_1pack__configure.html#a15f27b3d7dcb70cbbd4dcaacf660bd92',1,'cpptkinter::cnfs::pack_configure::side()'],['../structcpptkinter_1_1detail_1_1PackInfo.html#a5bcef5adf3959919e2db44bc1d2d3bd5',1,'cpptkinter::detail::PackInfo::side()']]],
   ['single_73',['SINGLE',['../namespacecpptkinter_1_1constants.html#a90f9461d191ba4e12cdfde3ec48b7a1a',1,'cpptkinter::constants']]],
-  ['size_74',['size',['../classcpptkinter_1_1Misc.html#a29124a5cc9128356447f7cf8f9e2cc5e',1,'cpptkinter::Misc::size()'],['../structcpptkinter_1_1Listbox.html#abf2d7d6dc0627004d750173d1b395fea',1,'cpptkinter::Listbox::size()']]],
+  ['size_74',['size',['../classcpptkinter_1_1Misc.html#aa905a73ac4ec011e23db94f45df0db65',1,'cpptkinter::Misc::size()'],['../structcpptkinter_1_1Listbox.html#abf2d7d6dc0627004d750173d1b395fea',1,'cpptkinter::Listbox::size()']]],
   ['sizefrom_75',['sizefrom',['../structcpptkinter_1_1Wm.html#a7e751200d5c37ae2fb8e1bf31d5af211',1,'cpptkinter::Wm::sizefrom(this auto &amp;&amp;self, const std::string &amp;who)'],['../structcpptkinter_1_1Wm.html#a932acc32ab220813a93c19a06046d423',1,'cpptkinter::Wm::sizefrom(this auto &amp;&amp;self)']]],
   ['slaves_76',['slaves',['../classcpptkinter_1_1Misc.html#ade889891f0acae8dbb2f1eb1648e18e2',1,'cpptkinter::Misc']]],
   ['sliderlength_77',['sliderlength',['../structcpptkinter_1_1cnfs_1_1Scale.html#a5457c5fd924d9ec0ea10f6acd21df48e',1,'cpptkinter::cnfs::Scale']]],
