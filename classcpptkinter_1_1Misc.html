@@ -231,12 +231,12 @@ requires requires { this-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#a8
 <tr class="memitem:a06b5d9d4cfd174627b50cce85d024bfb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a06b5d9d4cfd174627b50cce85d024bfb">quit</a> ()</td></tr>
 <tr class="memdesc:a06b5d9d4cfd174627b50cce85d024bfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quit the Tcl interpreter. All widgets will be destroyed.  <br /></td></tr>
 <tr class="separator:a06b5d9d4cfd174627b50cce85d024bfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fb0c53d8ae5fafb298d3193487bd11f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcpptkinter_1_1Misc.html">Misc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a4fb0c53d8ae5fafb298d3193487bd11f">nametowidget</a> (std::string_view name)</td></tr>
-<tr class="memdesc:a4fb0c53d8ae5fafb298d3193487bd11f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the Tkinter instance of a widget identified by its Tcl name NAME.  <br /></td></tr>
-<tr class="separator:a4fb0c53d8ae5fafb298d3193487bd11f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8d9aa02745a9b075f6c6b97f029fd6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcpptkinter_1_1Misc.html">Misc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#aa8d9aa02745a9b075f6c6b97f029fd6f">nametowidget</a> (const <a class="el" href="structcpptkinter_1_1__cpptkinter_1_1tk__window__type.html">_cpptkinter::tk_window_type</a> &amp;window)</td></tr>
-<tr class="memdesc:aa8d9aa02745a9b075f6c6b97f029fd6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the Tkinter instance of a widget.  <br /></td></tr>
-<tr class="separator:aa8d9aa02745a9b075f6c6b97f029fd6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53c82395921f25990cac6ca00616ef82"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcpptkinter_1_1Misc.html">Misc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a53c82395921f25990cac6ca00616ef82">nametowidget</a> (std::string_view name) const</td></tr>
+<tr class="memdesc:a53c82395921f25990cac6ca00616ef82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the Tkinter instance of a widget identified by its Tcl name NAME.  <br /></td></tr>
+<tr class="separator:a53c82395921f25990cac6ca00616ef82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42dec24e3fe8faa828da9ab2aedb7823"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcpptkinter_1_1Misc.html">Misc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#a42dec24e3fe8faa828da9ab2aedb7823">nametowidget</a> (const <a class="el" href="structcpptkinter_1_1__cpptkinter_1_1tk__window__type.html">_cpptkinter::tk_window_type</a> &amp;window) const</td></tr>
+<tr class="memdesc:a42dec24e3fe8faa828da9ab2aedb7823"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the Tkinter instance of a widget.  <br /></td></tr>
+<tr class="separator:a42dec24e3fe8faa828da9ab2aedb7823"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8d79991e0d67a4c05c60eeadc65ed71"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpptkinter_1_1Misc.html#ab8d79991e0d67a4c05c60eeadc65ed71">configure</a> (const std::string &amp;cnf)</td></tr>
 <tr class="memdesc:ab8d79991e0d67a4c05c60eeadc65ed71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure resources of a widget.  <br /></td></tr>
 <tr class="separator:ab8d79991e0d67a4c05c60eeadc65ed71"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1724,7 +1724,7 @@ requires requires { this-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#ab
 <div class="line"><span class="lineno">  516</span>            <span class="keyword">auto</span> keysym = K;</div>
 <div class="line"><span class="lineno">  517</span>            <span class="keyword">auto</span> keysym_num = get_long_long(<a class="code hl_variable" href="namespacecpptkinter_1_1constants.html#a057403caa6b0dfa7abc9631f8ebf74d8">N</a>);</div>
 <div class="line"><span class="lineno">  518</span>            <span class="keyword">auto</span> type = <a class="code hl_enumeration" href="namespacecpptkinter.html#afa0f8d41b67b2ac0c012f2f4da88f73f">EventType</a>(get_long_long(T));</div>
-<div class="line"><span class="lineno">  519</span>            <span class="keyword">auto</span> widget = this-&gt;<a class="code hl_function" href="classcpptkinter_1_1Misc.html#a4fb0c53d8ae5fafb298d3193487bd11f">nametowidget</a>(<a class="code hl_variable" href="namespacecpptkinter_1_1constants.html#a80afa61b7670fff64f620e06c6d590d2">W</a>);</div>
+<div class="line"><span class="lineno">  519</span>            <span class="keyword">auto</span> widget = this-&gt;<a class="code hl_function" href="classcpptkinter_1_1Misc.html#a53c82395921f25990cac6ca00616ef82">nametowidget</a>(<a class="code hl_variable" href="namespacecpptkinter_1_1constants.html#a80afa61b7670fff64f620e06c6d590d2">W</a>);</div>
 <div class="line"><span class="lineno">  520</span>            <span class="keyword">auto</span> delta = get_long_long(D, 0);</div>
 <div class="line"><span class="lineno">  521</span> </div>
 <div class="line"><span class="lineno">  522</span>            <span class="keywordflow">return</span> {</div>
@@ -1749,7 +1749,7 @@ requires requires { this-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#ab
 <div class="line"><span class="lineno">  541</span>                    delta</div>
 <div class="line"><span class="lineno">  542</span>            };</div>
 <div class="line"><span class="lineno">  543</span>        }</div>
-<div class="ttc" id="aclasscpptkinter_1_1Misc_html_a4fb0c53d8ae5fafb298d3193487bd11f"><div class="ttname"><a href="classcpptkinter_1_1Misc.html#a4fb0c53d8ae5fafb298d3193487bd11f">cpptkinter::Misc::nametowidget</a></div><div class="ttdeci">Misc nametowidget(std::string_view name)</div><div class="ttdoc">Return the Tkinter instance of a widget identified by its Tcl name NAME.</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter1_8ixx_source.html#l00502">cpptkinter1.ixx:502</a></div></div>
+<div class="ttc" id="aclasscpptkinter_1_1Misc_html_a53c82395921f25990cac6ca00616ef82"><div class="ttname"><a href="classcpptkinter_1_1Misc.html#a53c82395921f25990cac6ca00616ef82">cpptkinter::Misc::nametowidget</a></div><div class="ttdeci">Misc nametowidget(std::string_view name) const</div><div class="ttdoc">Return the Tkinter instance of a widget identified by its Tcl name NAME.</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter1_8ixx_source.html#l00502">cpptkinter1.ixx:502</a></div></div>
 <div class="ttc" id="anamespacecpptkinter_1_1constants_html_a057403caa6b0dfa7abc9631f8ebf74d8"><div class="ttname"><a href="namespacecpptkinter_1_1constants.html#a057403caa6b0dfa7abc9631f8ebf74d8">cpptkinter::constants::N</a></div><div class="ttdeci">const std::string N</div><div class="ttdef"><b>Definition:</b> <a href="constants_8ixx_source.html#l00020">constants.ixx:20</a></div></div>
 <div class="ttc" id="anamespacecpptkinter_1_1constants_html_a80afa61b7670fff64f620e06c6d590d2"><div class="ttname"><a href="namespacecpptkinter_1_1constants.html#a80afa61b7670fff64f620e06c6d590d2">cpptkinter::constants::W</a></div><div class="ttdeci">const std::string W</div><div class="ttdef"><b>Definition:</b> <a href="constants_8ixx_source.html#l00023">constants.ixx:23</a></div></div>
 <div class="ttc" id="anamespacecpptkinter_1_1constants_html_a8af11ba1eab74f266535b9e198a5abd1"><div class="ttname"><a href="namespacecpptkinter_1_1constants.html#a8af11ba1eab74f266535b9e198a5abd1">cpptkinter::constants::Y</a></div><div class="ttdeci">const std::string Y</div><div class="ttdef"><b>Definition:</b> <a href="constants_8ixx_source.html#l00034">constants.ixx:34</a></div></div>
@@ -3194,7 +3194,7 @@ template&lt;cnfs::is_cnf CNF = cnfs::grid_column_row_configure&gt; </div>
 <div class="line"><span class="lineno">  932</span>            std::vector&lt;Misc&gt; result{};</div>
 <div class="line"><span class="lineno">  933</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; t : temp)</div>
 <div class="line"><span class="lineno">  934</span>            {</div>
-<div class="line"><span class="lineno">  935</span>                <span class="keyword">auto</span>&amp;&amp; wgt = this-&gt;<a class="code hl_function" href="classcpptkinter_1_1Misc.html#a4fb0c53d8ae5fafb298d3193487bd11f">nametowidget</a>(t);</div>
+<div class="line"><span class="lineno">  935</span>                <span class="keyword">auto</span>&amp;&amp; wgt = this-&gt;<a class="code hl_function" href="classcpptkinter_1_1Misc.html#a53c82395921f25990cac6ca00616ef82">nametowidget</a>(t);</div>
 <div class="line"><span class="lineno">  936</span>                result.emplace_back(wgt);</div>
 <div class="line"><span class="lineno">  937</span>            }</div>
 <div class="line"><span class="lineno">  938</span>            <span class="keywordflow">return</span> result;</div>
@@ -3315,8 +3315,8 @@ template&lt;cnfs::is_cnf CNF = cnfs::grid_column_row_configure&gt; </div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="aa8d9aa02745a9b075f6c6b97f029fd6f" name="aa8d9aa02745a9b075f6c6b97f029fd6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8d9aa02745a9b075f6c6b97f029fd6f">&#9670;&#160;</a></span>nametowidget() <span class="overload">[1/2]</span></h2>
+<a id="a42dec24e3fe8faa828da9ab2aedb7823" name="a42dec24e3fe8faa828da9ab2aedb7823"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42dec24e3fe8faa828da9ab2aedb7823">&#9670;&#160;</a></span>nametowidget() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3326,7 +3326,7 @@ template&lt;cnfs::is_cnf CNF = cnfs::grid_column_row_configure&gt; </div>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structcpptkinter_1_1__cpptkinter_1_1tk__window__type.html">_cpptkinter::tk_window_type</a> &amp;&#160;</td>
           <td class="paramname"><em>window</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -3335,13 +3335,13 @@ template&lt;cnfs::is_cnf CNF = cnfs::grid_column_row_configure&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00420">420</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  421</span>        {</div>
-<div class="line"><span class="lineno">  422</span>            <span class="keywordflow">return</span> this-&gt;<a class="code hl_function" href="classcpptkinter_1_1Misc.html#a4fb0c53d8ae5fafb298d3193487bd11f">nametowidget</a>((std::string)window);</div>
+<div class="line"><span class="lineno">  422</span>            <span class="keywordflow">return</span> this-&gt;<a class="code hl_function" href="classcpptkinter_1_1Misc.html#a53c82395921f25990cac6ca00616ef82">nametowidget</a>((std::string)window);</div>
 <div class="line"><span class="lineno">  423</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a4fb0c53d8ae5fafb298d3193487bd11f" name="a4fb0c53d8ae5fafb298d3193487bd11f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4fb0c53d8ae5fafb298d3193487bd11f">&#9670;&#160;</a></span>nametowidget() <span class="overload">[2/2]</span></h2>
+<a id="a53c82395921f25990cac6ca00616ef82" name="a53c82395921f25990cac6ca00616ef82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53c82395921f25990cac6ca00616ef82">&#9670;&#160;</a></span>nametowidget() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3351,7 +3351,7 @@ template&lt;cnfs::is_cnf CNF = cnfs::grid_column_row_configure&gt; </div>
           <td>(</td>
           <td class="paramtype">std::string_view&#160;</td>
           <td class="paramname"><em>name</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -3622,7 +3622,7 @@ template&lt;typename Self &gt; </div>
 <div class="line"><span class="lineno">  740</span>            <span class="keyword">auto</span> temp = this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a">tk</a>-&gt;call&lt;std::vector&lt;_cpptkinter::tk_window_type&gt;&gt;(<span class="stringliteral">&quot;pack&quot;</span>, <span class="stringliteral">&quot;slaves&quot;</span>, this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a209dad39c06f5da9a5843111013fb69a">_w</a>);</div>
 <div class="line"><span class="lineno">  741</span>            std::vector&lt;cpptkinter::Misc&gt; result{};</div>
 <div class="line"><span class="lineno">  742</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; t : temp)</div>
-<div class="line"><span class="lineno">  743</span>                result.emplace_back(this-&gt;<a class="code hl_function" href="classcpptkinter_1_1Misc.html#a4fb0c53d8ae5fafb298d3193487bd11f">nametowidget</a>(std::move(t)));</div>
+<div class="line"><span class="lineno">  743</span>                result.emplace_back(this-&gt;<a class="code hl_function" href="classcpptkinter_1_1Misc.html#a53c82395921f25990cac6ca00616ef82">nametowidget</a>(std::move(t)));</div>
 <div class="line"><span class="lineno">  744</span>            <span class="keywordflow">return</span> result;</div>
 <div class="line"><span class="lineno">  745</span>        }</div>
 </div><!-- fragment -->
@@ -3658,7 +3658,7 @@ template&lt;typename Self &gt; </div>
 <div class="line"><span class="lineno">  755</span>            <span class="keyword">auto</span> temp = this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a">tk</a>-&gt;call&lt;std::vector&lt;_cpptkinter::tk_window_type&gt;&gt;(<span class="stringliteral">&quot;place&quot;</span>, <span class="stringliteral">&quot;slaves&quot;</span>, this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a209dad39c06f5da9a5843111013fb69a">_w</a>);</div>
 <div class="line"><span class="lineno">  756</span>            std::vector&lt;Misc&gt; result{};</div>
 <div class="line"><span class="lineno">  757</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; t : temp)</div>
-<div class="line"><span class="lineno">  758</span>                result.emplace_back(this-&gt;<a class="code hl_function" href="classcpptkinter_1_1Misc.html#a4fb0c53d8ae5fafb298d3193487bd11f">nametowidget</a>(std::move(t)));</div>
+<div class="line"><span class="lineno">  758</span>                result.emplace_back(this-&gt;<a class="code hl_function" href="classcpptkinter_1_1Misc.html#a53c82395921f25990cac6ca00616ef82">nametowidget</a>(std::move(t)));</div>
 <div class="line"><span class="lineno">  759</span>            <span class="keywordflow">return</span> result;</div>
 <div class="line"><span class="lineno">  760</span>        }</div>
 </div><!-- fragment -->
