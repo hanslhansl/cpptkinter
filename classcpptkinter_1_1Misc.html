@@ -1433,13 +1433,13 @@ template&lt;detail::createcommand_concept Func&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00556">556</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  557</span>{</div>
-<div class="line"><span class="lineno">  558</span>    <span class="keyword">auto</span> exc_ptr = std::current_exception();</div>
-<div class="line"><span class="lineno">  559</span>    <span class="keyword">auto</span> root = this-&gt;<a class="code hl_function" href="classcpptkinter_1_1Misc.html#abdb43b083d457c93f5690e23f862fd76">_root</a>();</div>
-<div class="line"><span class="lineno">  560</span>    root.report_callback_exception(root, exc_ptr);</div>
-<div class="line"><span class="lineno">  561</span>}</div>
-<div class="ttc" id="aclasscpptkinter_1_1Misc_html_abdb43b083d457c93f5690e23f862fd76"><div class="ttname"><a href="classcpptkinter_1_1Misc.html#abdb43b083d457c93f5690e23f862fd76">cpptkinter::Misc::_root</a></div><div class="ttdeci">Tk _root() const</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter1_8ixx_source.html#l00546">cpptkinter1.ixx:546</a></div></div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00557">557</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  558</span>{</div>
+<div class="line"><span class="lineno">  559</span>    <span class="keyword">auto</span> exc_ptr = std::current_exception();</div>
+<div class="line"><span class="lineno">  560</span>    <span class="keyword">auto</span> root = this-&gt;<a class="code hl_function" href="classcpptkinter_1_1Misc.html#abdb43b083d457c93f5690e23f862fd76">_root</a>();</div>
+<div class="line"><span class="lineno">  561</span>    root.report_callback_exception(root, exc_ptr);</div>
+<div class="line"><span class="lineno">  562</span>}</div>
+<div class="ttc" id="aclasscpptkinter_1_1Misc_html_abdb43b083d457c93f5690e23f862fd76"><div class="ttname"><a href="classcpptkinter_1_1Misc.html#abdb43b083d457c93f5690e23f862fd76">cpptkinter::Misc::_root</a></div><div class="ttdeci">Tk _root() const</div><div class="ttdef"><b>Definition:</b> <a href="cpptkinter1_8ixx_source.html#l00547">cpptkinter1.ixx:547</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1466,15 +1466,15 @@ template&lt;detail::createcommand_concept Func&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00546">546</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  547</span>{</div>
-<div class="line"><span class="lineno">  548</span>    std::shared_ptr&lt;impl&gt; w = this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#afe1bb4e9789aefd1fd0fd48b557b1de9">pimpl</a>;</div>
-<div class="line"><span class="lineno">  549</span> </div>
-<div class="line"><span class="lineno">  550</span>    <span class="keywordflow">while</span> (w-&gt;master.has_value())</div>
-<div class="line"><span class="lineno">  551</span>        w = w-&gt;master.value().pimpl;</div>
-<div class="line"><span class="lineno">  552</span> </div>
-<div class="line"><span class="lineno">  553</span>    <span class="keywordflow">return</span> std::static_pointer_cast&lt;Tk::impl&gt;(w);</div>
-<div class="line"><span class="lineno">  554</span>}</div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00547">547</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  548</span>{</div>
+<div class="line"><span class="lineno">  549</span>    std::shared_ptr&lt;impl&gt; w = this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#afe1bb4e9789aefd1fd0fd48b557b1de9">pimpl</a>;</div>
+<div class="line"><span class="lineno">  550</span> </div>
+<div class="line"><span class="lineno">  551</span>    <span class="keywordflow">while</span> (w-&gt;master.has_value())</div>
+<div class="line"><span class="lineno">  552</span>        w = w-&gt;master.value().pimpl;</div>
+<div class="line"><span class="lineno">  553</span> </div>
+<div class="line"><span class="lineno">  554</span>    <span class="keywordflow">return</span> std::static_pointer_cast&lt;Tk::impl&gt;(w);</div>
+<div class="line"><span class="lineno">  555</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2728,10 +2728,10 @@ template&lt;typename Self , cnfs::is_cnf CNF = cnfs::get_constructor_cnf&lt;Self
 
 <p>Calls this-&gt;pimpl-&gt;<a class="el" href="classcpptkinter_1_1Misc.html#a34a33b51a95322f8700f9eccd6068a77" title="Calls this-&gt;pimpl-&gt;destroy().">destroy()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00990">990</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  991</span>{</div>
-<div class="line"><span class="lineno">  992</span>    this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#afe1bb4e9789aefd1fd0fd48b557b1de9">pimpl</a>-&gt;destroy();</div>
-<div class="line"><span class="lineno">  993</span>}</div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00993">993</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  994</span>{</div>
+<div class="line"><span class="lineno">  995</span>    this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#afe1bb4e9789aefd1fd0fd48b557b1de9">pimpl</a>-&gt;destroy();</div>
+<div class="line"><span class="lineno">  996</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2761,11 +2761,11 @@ template&lt;typename Self , cnfs::is_cnf CNF = cnfs::get_constructor_cnf&lt;Self
 
 <p>Generate an event SEQUENCE. Additional keyword arguments specify parameter of the event (e.g.x, y, rootx, rooty). </p>
 
-<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00939">939</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  940</span>        {</div>
-<div class="line"><span class="lineno">  941</span>            <a class="code hl_define" href="global_8hpp.html#ad092689f9ce64d6dbacd6e78e77f983c">ANNOTATION_WARNING</a>(<span class="stringliteral">&quot;not fully implemented&quot;</span>);</div>
-<div class="line"><span class="lineno">  942</span>            this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a">tk</a>-&gt;call(<span class="stringliteral">&quot;event&quot;</span>, <span class="stringliteral">&quot;generate&quot;</span>, this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a209dad39c06f5da9a5843111013fb69a">_w</a>, sequence);</div>
-<div class="line"><span class="lineno">  943</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00942">942</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  943</span>        {</div>
+<div class="line"><span class="lineno">  944</span>            <a class="code hl_define" href="global_8hpp.html#ad092689f9ce64d6dbacd6e78e77f983c">ANNOTATION_WARNING</a>(<span class="stringliteral">&quot;not fully implemented&quot;</span>);</div>
+<div class="line"><span class="lineno">  945</span>            this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a">tk</a>-&gt;call(<span class="stringliteral">&quot;event&quot;</span>, <span class="stringliteral">&quot;generate&quot;</span>, this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a209dad39c06f5da9a5843111013fb69a">_w</a>, sequence);</div>
+<div class="line"><span class="lineno">  946</span>        }</div>
 <div class="ttc" id="aglobal_8hpp_html_ad092689f9ce64d6dbacd6e78e77f983c"><div class="ttname"><a href="global_8hpp.html#ad092689f9ce64d6dbacd6e78e77f983c">ANNOTATION_WARNING</a></div><div class="ttdeci">#define ANNOTATION_WARNING(msg)</div><div class="ttdef"><b>Definition:</b> <a href="global_8hpp_source.html#l00225">global.hpp:225</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -3177,25 +3177,28 @@ template&lt;cnfs::is_cnf CNF = cnfs::grid_column_row_configure&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="cpptkinter_8misc_8ixx_source.html#l00917">917</a> of file <a class="el" href="cpptkinter_8misc_8ixx_source.html">cpptkinter.misc.ixx</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  917</span>                                                                 {}, std::optional&lt;long long&gt; column = {})</div>
-<div class="line"><span class="lineno">  918</span>{</div>
-<div class="line"><span class="lineno">  919</span>    std::vector&lt;_cpptkinter::Tcl_Obj&gt; args{ };</div>
-<div class="line"><span class="lineno">  920</span>    <span class="keywordflow">if</span> (row.has_value())</div>
-<div class="line"><span class="lineno">  921</span>    {</div>
-<div class="line"><span class="lineno">  922</span>        args.emplace_back(<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>(<span class="stringliteral">&quot;-row&quot;</span>));</div>
-<div class="line"><span class="lineno">  923</span>        args.emplace_back(<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>(row.value()));</div>
-<div class="line"><span class="lineno">  924</span>    }</div>
-<div class="line"><span class="lineno">  925</span>    <span class="keywordflow">if</span> (column.has_value())</div>
-<div class="line"><span class="lineno">  926</span>    {</div>
-<div class="line"><span class="lineno">  927</span>        args.emplace_back(<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>(<span class="stringliteral">&quot;-column&quot;</span>));</div>
-<div class="line"><span class="lineno">  928</span>        args.emplace_back(<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>(column.value()));</div>
-<div class="line"><span class="lineno">  929</span>    }</div>
+<div class="line"><span class="lineno">  918</span>        {</div>
+<div class="line"><span class="lineno">  919</span>            std::vector&lt;_cpptkinter::Tcl_Obj&gt; args{ };</div>
+<div class="line"><span class="lineno">  920</span>            <span class="keywordflow">if</span> (row.has_value())</div>
+<div class="line"><span class="lineno">  921</span>            {</div>
+<div class="line"><span class="lineno">  922</span>                args.emplace_back(<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>(<span class="stringliteral">&quot;-row&quot;</span>));</div>
+<div class="line"><span class="lineno">  923</span>                args.emplace_back(<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>(row.value()));</div>
+<div class="line"><span class="lineno">  924</span>            }</div>
+<div class="line"><span class="lineno">  925</span>            <span class="keywordflow">if</span> (column.has_value())</div>
+<div class="line"><span class="lineno">  926</span>            {</div>
+<div class="line"><span class="lineno">  927</span>                args.emplace_back(<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>(<span class="stringliteral">&quot;-column&quot;</span>));</div>
+<div class="line"><span class="lineno">  928</span>                args.emplace_back(<a class="code hl_variable" href="namespacecpptkinter_1_1__cpptkinter.html#a67240db275ca02da5d34c882ee7c8957">_cpptkinter::AsObj</a>(column.value()));</div>
+<div class="line"><span class="lineno">  929</span>            }</div>
 <div class="line"><span class="lineno">  930</span> </div>
-<div class="line"><span class="lineno">  931</span>    <span class="keyword">auto</span> temp = this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a">tk</a>-&gt;call&lt;std::vector&lt;_cpptkinter::tk_window_type&gt;&gt;(<span class="stringliteral">&quot;grid&quot;</span>, <span class="stringliteral">&quot;slaves&quot;</span>, this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a209dad39c06f5da9a5843111013fb69a">_w</a>, std::move(args));</div>
-<div class="line"><span class="lineno">  932</span>    std::vector&lt;Misc&gt; result{};</div>
-<div class="line"><span class="lineno">  933</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; t : temp)</div>
-<div class="line"><span class="lineno">  934</span>        result.emplace_back(this-&gt;<a class="code hl_function" href="classcpptkinter_1_1Misc.html#a4fb0c53d8ae5fafb298d3193487bd11f">nametowidget</a>(std::move(t)));</div>
-<div class="line"><span class="lineno">  935</span>    <span class="keywordflow">return</span> result;</div>
-<div class="line"><span class="lineno">  936</span>}</div>
+<div class="line"><span class="lineno">  931</span>            <span class="keyword">auto</span> temp = this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a689ee457ea75000ba41e15a0041b335a">tk</a>-&gt;call&lt;std::vector&lt;_cpptkinter::tk_window_type&gt;&gt;(<span class="stringliteral">&quot;grid&quot;</span>, <span class="stringliteral">&quot;slaves&quot;</span>, this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#a209dad39c06f5da9a5843111013fb69a">_w</a>, std::move(args));</div>
+<div class="line"><span class="lineno">  932</span>            std::vector&lt;Misc&gt; result{};</div>
+<div class="line"><span class="lineno">  933</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; t : temp)</div>
+<div class="line"><span class="lineno">  934</span>            {</div>
+<div class="line"><span class="lineno">  935</span>                <span class="keyword">auto</span>&amp;&amp; wgt = this-&gt;<a class="code hl_function" href="classcpptkinter_1_1Misc.html#a4fb0c53d8ae5fafb298d3193487bd11f">nametowidget</a>(t);</div>
+<div class="line"><span class="lineno">  936</span>                result.emplace_back(wgt);</div>
+<div class="line"><span class="lineno">  937</span>            }</div>
+<div class="line"><span class="lineno">  938</span>            <span class="keywordflow">return</span> result;</div>
+<div class="line"><span class="lineno">  939</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3357,29 +3360,30 @@ template&lt;cnfs::is_cnf CNF = cnfs::grid_column_row_configure&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="cpptkinter1_8ixx_source.html#l00502">502</a> of file <a class="el" href="cpptkinter1_8ixx_source.html">cpptkinter1.ixx</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  503</span>{</div>
-<div class="line"><span class="lineno">  504</span>    <span class="keyword">auto</span> index = name.find(<span class="charliteral">&#39;.&#39;</span>);</div>
-<div class="line"><span class="lineno">  505</span>    std::shared_ptr&lt;impl&gt; w;</div>
-<div class="line"><span class="lineno">  506</span> </div>
-<div class="line"><span class="lineno">  507</span>    <span class="keywordflow">if</span> (index == 0)</div>
-<div class="line"><span class="lineno">  508</span>    {</div>
-<div class="line"><span class="lineno">  509</span>        w = this-&gt;<a class="code hl_function" href="classcpptkinter_1_1Misc.html#abdb43b083d457c93f5690e23f862fd76">_root</a>().<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#afe1bb4e9789aefd1fd0fd48b557b1de9">pimpl</a>;</div>
-<div class="line"><span class="lineno">  510</span>        name.remove_prefix(1);</div>
-<div class="line"><span class="lineno">  511</span>        index = name.find(<span class="charliteral">&#39;.&#39;</span>);</div>
-<div class="line"><span class="lineno">  512</span>    }</div>
-<div class="line"><span class="lineno">  513</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  514</span>        w = this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#afe1bb4e9789aefd1fd0fd48b557b1de9">pimpl</a>;</div>
-<div class="line"><span class="lineno">  515</span> </div>
-<div class="line"><span class="lineno">  516</span>    <span class="keywordflow">do</span> {</div>
-<div class="line"><span class="lineno">  517</span>        <span class="keyword">auto</span> current_name = name.substr(0, index);</div>
-<div class="line"><span class="lineno">  518</span>        <span class="keywordflow">if</span> (current_name.empty())</div>
-<div class="line"><span class="lineno">  519</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  520</span> </div>
-<div class="line"><span class="lineno">  521</span>        w = w-&gt;children.at(std::string(current_name)).pimpl;</div>
-<div class="line"><span class="lineno">  522</span>        name.remove_prefix(index + 1);</div>
-<div class="line"><span class="lineno">  523</span>    } <span class="keywordflow">while</span> ((index = name.find(<span class="charliteral">&#39;.&#39;</span>)) != std::string_view::npos);</div>
-<div class="line"><span class="lineno">  524</span> </div>
-<div class="line"><span class="lineno">  525</span>    <span class="keywordflow">return</span> w;</div>
-<div class="line"><span class="lineno">  526</span>}</div>
+<div class="line"><span class="lineno">  504</span>    <span class="keyword">auto</span> name = name_</div>
+<div class="line"><span class="lineno">  505</span>        | std::views::split(<span class="charliteral">&#39;.&#39;</span>)</div>
+<div class="line"><span class="lineno">  506</span>        | std::views::transform([](<span class="keyword">auto</span>&amp;&amp; str) { <span class="keywordflow">return</span> std::string(std::from_range, str); })</div>
+<div class="line"><span class="lineno">  507</span>        | std::ranges::to&lt;std::list&gt;();</div>
+<div class="line"><span class="lineno">  508</span>    <span class="keywordflow">if</span> (name.empty())</div>
+<div class="line"><span class="lineno">  509</span>        name.push_back({});</div>
+<div class="line"><span class="lineno">  510</span> </div>
+<div class="line"><span class="lineno">  511</span>    std::shared_ptr&lt;impl&gt; w = this-&gt;<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#afe1bb4e9789aefd1fd0fd48b557b1de9">pimpl</a>;</div>
+<div class="line"><span class="lineno">  512</span> </div>
+<div class="line"><span class="lineno">  513</span>    <span class="keywordflow">if</span> (name.front().empty())</div>
+<div class="line"><span class="lineno">  514</span>    {</div>
+<div class="line"><span class="lineno">  515</span>        w = this-&gt;<a class="code hl_function" href="classcpptkinter_1_1Misc.html#abdb43b083d457c93f5690e23f862fd76">_root</a>().<a class="code hl_variable" href="classcpptkinter_1_1Misc.html#afe1bb4e9789aefd1fd0fd48b557b1de9">pimpl</a>;</div>
+<div class="line"><span class="lineno">  516</span>        name.pop_front();</div>
+<div class="line"><span class="lineno">  517</span>    }</div>
+<div class="line"><span class="lineno">  518</span> </div>
+<div class="line"><span class="lineno">  519</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp;&amp; n : name)</div>
+<div class="line"><span class="lineno">  520</span>    {</div>
+<div class="line"><span class="lineno">  521</span>        <span class="keywordflow">if</span> (n.empty())</div>
+<div class="line"><span class="lineno">  522</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  523</span>        w = w-&gt;children.at(n).pimpl;</div>
+<div class="line"><span class="lineno">  524</span>    }</div>
+<div class="line"><span class="lineno">  525</span> </div>
+<div class="line"><span class="lineno">  526</span>    <span class="keywordflow">return</span> w;</div>
+<div class="line"><span class="lineno">  527</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
