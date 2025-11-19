@@ -38,22 +38,13 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(hhh)
 
-
 # add tcl/tk
-file(GLOB ALL_FILES "${TCLTK_FULL_DIR}/lib/*${CMAKE_STATIC_LIBRARY_SUFFIX}")
-set(FILTERED_FILES "")
-foreach(FILE ${ALL_FILES})
-    if(NOT FILE MATCHES "stub")
-        list(APPEND FILTERED_FILES ${FILE})
-    endif()
-endforeach()
-
 set(IMPORTED_SHARED_LIBRARY_NAMES "tcl90" "tcl9tk90" "libtommath" "zlib1")
 set(IMPORTED_SHARED_LIBRARIES "")
 foreach(lib IN LISTS IMPORTED_SHARED_LIBRARY_NAMES)
     add_library(${lib} SHARED IMPORTED)
     set_target_properties(${lib} PROPERTIES
-        IMPORTED_LOCATION "${TCLTK_FULL_DIR}/bin/${lib}.dll"
+        IMPORTED_LOCATION "${TCLTK_FULL_DIR}/bin/${lib}${CMAKE_SHARED_LIBRARY_SUFFIX}"
         IMPORTED_IMPLIB "${TCLTK_FULL_DIR}/lib/${CMAKE_STATIC_LIBRARY_PREFIX}${lib}${CMAKE_STATIC_LIBRARY_SUFFIX}"
     )
 
