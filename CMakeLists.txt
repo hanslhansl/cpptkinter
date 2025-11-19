@@ -2,39 +2,52 @@
 # Tcl/Tk Path
 set(TCLTK_DIR "${CMAKE_SOURCE_DIR}/../tktcl")
 
-cmake_minimum_required(VERSION 4.0.0 FATAL_ERROR)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/..")
 include(my_cmake_commands)
 ENABLE_IMPORT_STD_MACRO()
 
+cmake_minimum_required(VERSION 4.1.0 FATAL_ERROR)
 project(cpptkinter LANGUAGES CXX)
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(FETCHCONTENT_QUIET FALSE)
 set(SRC_DIR "src")
 set(TEST_DIR "tests")
 set(TCLTK_FULL_DIR "${TCLTK_DIR}/${CMAKE_CXX_COMPILER_ID}")
 
-# Include and link
+# Include
 include_directories(${TCLTK_FULL_DIR}/include)
 
-#[[ Fetch range-v3
+# fetch range-v3
 include(FetchContent)
 FetchContent_Declare(
     range-v3
     GIT_REPOSITORY https://github.com/ericniebler/range-v3.git
-    GIT_TAG master  # Use the latest stable release or specify a commit hash
+    GIT_TAG master
+    GIT_PROGRESS ON
+    GIT_SHALLOW ON
 )
-FetchContent_MakeAvailable(range-v3)]]
+FetchContent_MakeAvailable(range-v3)
 
-# add range-v3
-add_subdirectory("${CMAKE_SOURCE_DIR}/../range-v3" range-v3)
+# fetch hhh
+FetchContent_Declare(
+    hhh
+    GIT_REPOSITORY https://github.com/hanslhansl/hhh.git
+    GIT_TAG main
+    GIT_PROGRESS ON
+    GIT_SHALLOW ON
+)
+FetchContent_MakeAvailable(hhh)
 
-# add hhh
-add_subdirectory("${CMAKE_SOURCE_DIR}/../hhh" hhh)
 
 # add tcl/tk
+file(GLOB ALL_FILES "${TCLTK_FULL_DIR}/lib/*${CMAKE_STATIC_LIBRARY_SUFFIX}")
+set(FILTERED_FILES "")
+foreach(FILE ${ALL_FILES})
+    if(NOT FILE MATCHES "stub")
+        list(APPEND FILTERED_FILES ${FILE})
+    endif()
+endforeach()
+
 set(IMPORTED_SHARED_LIBRARY_NAMES "tcl90" "tcl9tk90" "libtommath" "zlib1")
 set(IMPORTED_SHARED_LIBRARIES "")
 foreach(lib IN LISTS IMPORTED_SHARED_LIBRARY_NAMES)
