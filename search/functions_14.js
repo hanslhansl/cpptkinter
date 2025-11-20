@@ -6,7 +6,6 @@ var searchData=
   ['unicodefromtclobj_3',['unicodeFromTclObj',['../namespacecpptkinter_1_1__cpptkinter.html#aec4d8ca39e5f100de2323f4a13e38bf5',1,'cpptkinter::_cpptkinter']]],
   ['unlock_4',['unlock',['../classcpptkinter_1_1utility_1_1optional__mutex__adaptor.html#a2f54d056821ea1b2599fc36defd2a369',1,'cpptkinter::utility::optional_mutex_adaptor::unlock()'],['../classcpptkinter_1_1utility_1_1optional__inverse__mutex__adaptor.html#a1ec5020047bd71f8944bd01616f507d0',1,'cpptkinter::utility::optional_inverse_mutex_adaptor::unlock()']]],
   ['unpost_5',['unpost',['../structcpptkinter_1_1Menu.html#a5722114e13b59aad642beb3b116724ce',1,'cpptkinter::Menu']]],
-  ['unsetvar_6',['unsetvar',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#ab2da6b411ebb66583e8fad71c8c58aba',1,'cpptkinter::_cpptkinter::TkappObject']]],
-  ['unsetvar_7',['UnsetVar',['../namespacecpptkinter_1_1__cpptkinter.html#a4e3732865bf570c4692b39d46ac18176',1,'cpptkinter::_cpptkinter']]],
-  ['use_5fcount_8',['use_count',['../classcpptkinter_1_1utility_1_1weak.html#a3c42a56fc08bcb859c8ba8d7d678a2e9',1,'cpptkinter::utility::weak']]]
+  ['unsetvar_6',['unsetvar',['../structcpptkinter_1_1__cpptkinter_1_1TkappObject.html#ab2da6b411ebb66583e8fad71c8c58aba',1,'cpptkinter::_cpptkinter::TkappObject::unsetvar()'],['../namespacecpptkinter_1_1__cpptkinter.html#a4e3732865bf570c4692b39d46ac18176',1,'cpptkinter::_cpptkinter::UnsetVar()']]],
+  ['use_5fcount_7',['use_count',['../classcpptkinter_1_1utility_1_1weak.html#a3c42a56fc08bcb859c8ba8d7d678a2e9',1,'cpptkinter::utility::weak']]]
 ];

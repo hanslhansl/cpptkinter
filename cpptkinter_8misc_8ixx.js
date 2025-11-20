@@ -18,11 +18,5 @@ var cpptkinter_8misc_8ixx =
     [ "opt", "cpptkinter_8misc_8ixx.html#a141eec9ec3612e6f92bb05baf82bac9f", null ],
     [ "opt_screenunits", "cpptkinter_8misc_8ixx.html#ae81251b9e0646a6281d6773202d8a3d8", null ],
     [ "opt_string", "cpptkinter_8misc_8ixx.html#ad23b73168129703032ea3b4c8e4d18d4", null ],
-    [ "substitute_long_long", "cpptkinter_8misc_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb", null ],
-    [ "__pad0__", "cpptkinter_8misc_8ixx.html#acadcd9c7c4790b089dcbbc02cfc69587", null ],
-    [ "__pad1__", "cpptkinter_8misc_8ixx.html#a29bf73bedf4e20dbd09ab99bd6ed6d8f", null ],
-    [ "__pad2__", "cpptkinter_8misc_8ixx.html#a3c7dfce03df91a4b7f4cee9c3c59ca36", null ],
-    [ "cpptkinter", "cpptkinter_8misc_8ixx.html#ac6a666df714a8ea283ff40996c1f4669", null ],
-    [ "module", "cpptkinter_8misc_8ixx.html#a96e5f0eca87c2426370e0897ac7b8ca6", null ],
-    [ "std", "cpptkinter_8misc_8ixx.html#a2f42581b64a695b89aba6966398fc784", null ]
+    [ "substitute_long_long", "cpptkinter_8misc_8ixx.html#a48a77af540ef5a4f9da8e0ec72acabdb", null ]
 ];

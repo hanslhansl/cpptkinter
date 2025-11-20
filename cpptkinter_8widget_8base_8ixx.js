@@ -13,13 +13,5 @@ var cpptkinter_8widget_8base_8ixx =
     [ "cpptkinter::Widget", "structcpptkinter_1_1Widget.html", "structcpptkinter_1_1Widget" ],
     [ "decays_to", "cpptkinter_8widget_8base_8ixx.html#a39345d6795348f650c2b0527ae236d68", null ],
     [ "operator()", "cpptkinter_8widget_8base_8ixx.html#a705a120ec341a1b5510f552176f6d2ae", null ],
-    [ "operator()", "cpptkinter_8widget_8base_8ixx.html#aaf41d9eee734339f74804cbee81378fa", null ],
-    [ "__pad0__", "cpptkinter_8widget_8base_8ixx.html#acadcd9c7c4790b089dcbbc02cfc69587", null ],
-    [ "__pad1__", "cpptkinter_8widget_8base_8ixx.html#a29bf73bedf4e20dbd09ab99bd6ed6d8f", null ],
-    [ "__pad2__", "cpptkinter_8widget_8base_8ixx.html#a3c7dfce03df91a4b7f4cee9c3c59ca36", null ],
-    [ "__pad3__", "cpptkinter_8widget_8base_8ixx.html#ae9dab34042e5423dcd1ecd3e1d656646", null ],
-    [ "__pad4__", "cpptkinter_8widget_8base_8ixx.html#aef0dd28677a31b5b3fd6482535835025", null ],
-    [ "cpptkinter", "cpptkinter_8widget_8base_8ixx.html#ac6a666df714a8ea283ff40996c1f4669", null ],
-    [ "module", "cpptkinter_8widget_8base_8ixx.html#a96e5f0eca87c2426370e0897ac7b8ca6", null ],
-    [ "std", "cpptkinter_8widget_8base_8ixx.html#a2f42581b64a695b89aba6966398fc784", null ]
+    [ "operator()", "cpptkinter_8widget_8base_8ixx.html#aaf41d9eee734339f74804cbee81378fa", null ]
 ];

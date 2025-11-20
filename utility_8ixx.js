@@ -21,15 +21,5 @@ var utility_8ixx =
     [ "static_widget_cast", "utility_8ixx.html#ab3620d5f03af39a066f7eba0c8fc0e59", null ],
     [ "visit_or_invoke", "utility_8ixx.html#a8deeaa3078fbbee2b0619e14ff2252cb", null ],
     [ "visit_range_or_tuple", "utility_8ixx.html#ab3701131f80986950f6ac570f92c1867", null ],
-    [ "__pad0__", "utility_8ixx.html#acadcd9c7c4790b089dcbbc02cfc69587", null ],
-    [ "aggregate_formatter", "utility_8ixx.html#ab8060bf6bde559ecb3b0e025dce77f41", null ],
-    [ "cpptkinter", "utility_8ixx.html#ac6a666df714a8ea283ff40996c1f4669", null ],
-    [ "export", "utility_8ixx.html#af44e2d3afd4e0e4d03f637dbb2bce3cd", null ],
-    [ "hhh", "utility_8ixx.html#a00f312ffd4f12513c22c7e98aa3c94c0", null ],
-    [ "module", "utility_8ixx.html#a96e5f0eca87c2426370e0897ac7b8ca6", null ],
-    [ "optional_formatter", "utility_8ixx.html#a0bc7b6a92112e48f8a5683946951880d", null ],
-    [ "reflect", "utility_8ixx.html#aa0f7a881968044576b7f5620d2f5a1ab", null ],
-    [ "std", "utility_8ixx.html#a2f42581b64a695b89aba6966398fc784", null ],
-    [ "to_union_arg", "utility_8ixx.html#a68b858cfbe58d72ca9b6636dd4bc6833", null ],
-    [ "variant_formatter", "utility_8ixx.html#a5e8e84e12c083b5b81339220ba7bf9be", null ]
+    [ "to_union_arg", "utility_8ixx.html#a68b858cfbe58d72ca9b6636dd4bc6833", null ]
 ];

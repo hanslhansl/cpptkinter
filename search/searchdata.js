@@ -11,8 +11,9 @@ var indexSectionsWithContent =
   8: "abcdefgklmnprsuv",
   9: "bdgopxy",
   10: "abcdelmnprst",
-  11: "abcdpt",
-  12: "c"
+  11: "abcdeopst",
+  12: "c",
+  13: "c"
 };
 
 var indexSectionNames =
@@ -29,7 +30,8 @@ var indexSectionNames =
   9: "related",
   10: "defines",
   11: "pages",
-  12: "concepts"
+  12: "concepts",
+  13: "modules"
 };
 
 var indexSectionLabels =
@@ -46,6 +48,7 @@ var indexSectionLabels =
   9: "Friends",
   10: "Macros",
   11: "Pages",
-  12: "Concepts"
+  12: "Concepts",
+  13: "Modules"
 };
 

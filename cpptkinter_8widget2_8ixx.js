@@ -20,16 +20,5 @@ var cpptkinter_8widget2_8ixx =
     [ "decays_to", "cpptkinter_8widget2_8ixx.html#a008f29843e0395730df3e8a39e80e809", null ],
     [ "operator()", "cpptkinter_8widget2_8ixx.html#a64833cd9df7bf8d470dbce83fb793bf6", null ],
     [ "operator()", "cpptkinter_8widget2_8ixx.html#af2382e7a36093b5bd2423a04f974cbd1", null ],
-    [ "__pad0__", "cpptkinter_8widget2_8ixx.html#acadcd9c7c4790b089dcbbc02cfc69587", null ],
-    [ "__pad1__", "cpptkinter_8widget2_8ixx.html#a29bf73bedf4e20dbd09ab99bd6ed6d8f", null ],
-    [ "__pad2__", "cpptkinter_8widget2_8ixx.html#a3c7dfce03df91a4b7f4cee9c3c59ca36", null ],
-    [ "__pad3__", "cpptkinter_8widget2_8ixx.html#ae9dab34042e5423dcd1ecd3e1d656646", null ],
-    [ "__pad4__", "cpptkinter_8widget2_8ixx.html#aef0dd28677a31b5b3fd6482535835025", null ],
-    [ "__pad5__", "cpptkinter_8widget2_8ixx.html#a5cfbf822888f09d8ff9767c525420408", null ],
-    [ "__pad6__", "cpptkinter_8widget2_8ixx.html#ac109393bf02ba74a00f7e593c5eedbef", null ],
-    [ "__pad7__", "cpptkinter_8widget2_8ixx.html#a1f00f49e35af682c4ca623355395717b", null ],
-    [ "cpptkinter", "cpptkinter_8widget2_8ixx.html#ac6a666df714a8ea283ff40996c1f4669", null ],
-    [ "impl", "cpptkinter_8widget2_8ixx.html#aa4276c4063aa34ccea6ef84219be5b2b", null ],
-    [ "module", "cpptkinter_8widget2_8ixx.html#a96e5f0eca87c2426370e0897ac7b8ca6", null ],
-    [ "std", "cpptkinter_8widget2_8ixx.html#a2f42581b64a695b89aba6966398fc784", null ]
+    [ "impl", "cpptkinter_8widget2_8ixx.html#aa4276c4063aa34ccea6ef84219be5b2b", null ]
 ];
