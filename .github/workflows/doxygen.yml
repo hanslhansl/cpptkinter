@@ -1,4 +1,4 @@
-name: Doxygen Docs
+name: build and deploy Doxygen docs
 
 on:
   push:
@@ -9,11 +9,22 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: write
-
     steps:
-      - uses: DenverCoder1/doxygen-github-pages-action@v2.0.0
+      # Checkout your repository
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Install Doxygen
+      - name: Install Doxygen
+        run: sudo apt-get update && sudo apt-get install -y doxygen graphviz
+
+      # Build documentation
+      - name: Build Doxygen documentation
+        run: doxygen Doxyfile
+
+      # Upload website to GitHub Pages branch
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          config_file: Doxyfile
+          publish_dir: ./docs/html
