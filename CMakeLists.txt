@@ -2,7 +2,6 @@
 # Tcl/Tk Path
 set(TCLTK_DIR "${CMAKE_SOURCE_DIR}/../tktcl")
 
-
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/..")
 include(my_cmake_commands)
 ENABLE_IMPORT_STD_MACRO()
@@ -10,15 +9,22 @@ ENABLE_IMPORT_STD_MACRO()
 cmake_minimum_required(VERSION 4.1.0 FATAL_ERROR)
 project(cpptkinter LANGUAGES CXX)
 
+include(cmake/FetchTclTk.cmake)
+FetchTclTk()
+message(FATAL_ERROR "==============================")
+
+
 set(SRC_DIR "src")
 set(TEST_DIR "tests")
 set(TCLTK_FULL_DIR "${TCLTK_DIR}/${CMAKE_CXX_COMPILER_ID}")
+set(FETCHCONTENT_QUIET FALSE)
+include(FetchContent)
+
 
 # Include
 include_directories(${TCLTK_FULL_DIR}/include)
 
 # fetch range-v3
-include(FetchContent)
 FetchContent_Declare(
     range-v3
     GIT_REPOSITORY https://github.com/ericniebler/range-v3.git
